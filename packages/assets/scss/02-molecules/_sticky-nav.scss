@@ -1,0 +1,298 @@
+// from index.scss
+// $column: 85px;
+// $gutter: 20px;
+
+@use "00-base/configure" as *;
+
+.ma__sticky-nav { 
+
+  @include clearfix;
+
+  transition: top .3s;
+  width: 100%;
+  z-index: $z-sticky-content;
+
+  font-size: $fonts-large;
+
+  @media ($bp-small-min) {
+    font-size: $fonts-medium;
+  }
+
+  &:before {
+    content: "true"; // hook for JS to do the mobile sticky
+    display: none;
+
+    @media ($bp-medium-min) {
+      content: "false"; // hook for JS to do the mobile sticky
+    }
+  }
+
+  @media ($bp-medium-max) {
+    background-color: var(--mf-c-gray-lightest);
+    border: 1px solid var(--mf-c-gray-light);
+    left: 0;
+    // when the nav is sticky, add a box shadow
+
+    &[data-sticky="middle"],&[data-sticky="bottom"] {
+      box-shadow: $box-shadow;
+    }
+  }
+
+  @media ($bp-medium-min) {
+    position: absolute;
+  }
+
+  .page-content & {
+
+    @include ma-layout-left-col;
+  }
+
+  @media print {
+    display: none;
+  }
+
+  &[data-sticky='middle'] {
+    position: fixed;
+    top: 0;
+    z-index: $z-overlay;
+
+    .translated-rtl &,
+    .translated-ltr & {
+      top: 80px;
+    }
+
+    @media ($bp-medium-min) {
+      top: 15px;
+
+      .translated-rtl &,
+      .translated-ltr & {
+        top: 55px;
+      }
+    }
+  }
+
+  &[data-sticky='bottom'] {
+    position: absolute;
+      top: auto; // height of one line of text
+      bottom: -30px; // compensate for bottom margin
+
+    @media ($bp-medium-min) {
+      top: auto;
+      bottom: -15px;
+    }
+  }
+
+  &__link {
+    cursor: pointer;
+    display: none;
+    line-height: 1.2;
+    border-top-color: var(--mf-c-gray-light);
+    padding: 12px;
+
+    @media ($bp-medium-min) {
+      display: block;
+      padding: 12px 0;
+      border-top-width: 1px;
+      border-top-style: solid;
+
+      &.is-top {
+        border-top: none;
+      }
+    }
+
+    &.is-title {
+
+      span {
+        color: var(--mf-c-gray-dark);
+        border-bottom: 3px solid transparent;
+        padding-top: 3px;
+        padding-bottom: 1px;
+        -webkit-transition: border 0.4s ease;
+        -o-transition: border 0.4s ease;
+        transition: border 0.4s ease;
+        font-weight: $fonts-semibold;
+        line-height: 1.2;
+      }
+
+      a {
+        color: var(--mf-c-gray-dark) !important;
+
+        &:focus {
+          border-bottom-width: 0;
+        }
+      }
+
+      &:hover a {
+        border-bottom-color: transparent;
+      }
+
+      &.is-active {
+
+        div {
+          font-weight: $fonts-bold;
+        }
+      }
+
+      @media ($bp-medium-min) {
+        display: none;
+
+        &.is-active {
+          display: none;
+        }
+      }
+    }
+
+    &.is-active {
+      display: block;
+
+      a {
+        color: var(--mf-c-font-base);
+        font-weight: $fonts-bold;
+      }
+
+      &:hover a {
+        color: var(--mf-c-font-base);
+        border-bottom-color: transparent;
+      }
+
+      @media ($bp-medium-min) {
+        cursor: default;
+      }
+    }
+
+
+
+    &:hover a {
+      border-bottom-color: var(--mf-c-link);
+    }
+
+    a {
+
+      @include ma-link-underline;
+      font-weight: $fonts-normal;
+    }
+
+  }
+
+
+
+  &.is-open &__link {
+    display: block;
+    border-top-width: 1px;
+    border-top-style: solid;
+  }
+
+  &__toggle-link {
+
+    @include ma-button-reset;
+    color: var(--mf-c-primary-alt);
+    font-size: $fonts-7xlarge;
+    line-height: .65em;
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transition: all .2s ease;
+    transform-origin: center center;
+
+    .is-open & {
+      transform: rotate(135deg);
+    }
+
+    @media ($bp-medium-min) {
+      display: none;
+    }
+  }
+
+  &__container {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  // horizontal layout
+
+  &--horizontal.ma__sticky-nav {
+    width: 100%;
+    position: relative;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    padding-bottom: 3px;
+  
+    @media ($bp-medium-min) {
+      background-color: var(--mf-c-gray-lightest);
+      box-shadow: $box-shadow;
+    }
+
+    &[data-sticky="middle"],&[data-sticky="bottom"] {
+      position: fixed;
+      top: 0;
+      bottom: auto;
+      margin: 0;
+    }
+
+    .ma__sticky-nav__container {
+
+      @media ($bp-medium-min) {
+
+        @include ma-container;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    .ma__sticky-nav__link {
+      list-style: none;
+      padding: 12px 20px;
+
+      a {
+        width: 100%;
+        display: block;
+        text-align: left;
+        background-color: transparent;
+        font-weight: $fonts-bold;
+        color: var(--mf-c-font-link);
+      }
+
+      &.is-active {
+
+        a {
+          color: var(--mf-c-font-base);
+        }
+      }
+
+      // horizontal sticky nav links on desktop
+
+      @media ($bp-medium-min) {
+        padding: 15px 15px 10px;
+        height: 100%;
+        border-bottom: 4px solid transparent;
+        border-top: none;
+
+        a {
+          color: var(--mf-c-font-base);
+          border-bottom: none;
+        }
+
+        &:hover {
+          border-bottom-color: var(--mf-c-primary-alt-lighter);
+
+          a {
+            color: var(--mf-c-font-base);
+          }
+        }
+
+        &.is-active {
+          border-bottom-color: var(--mf-c-primary-alt);
+          
+          &:hover {
+            border-bottom-color: var(--mf-c-primary-alt-lighter);
+
+            a {
+              color: var(--mf-c-font-base);
+            }
+          }
+        }
+      }
+    }
+  }   
+}

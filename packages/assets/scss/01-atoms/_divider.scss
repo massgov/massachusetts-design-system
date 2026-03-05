@@ -1,0 +1,53 @@
+@use "00-base/configure" as *;
+
+.ma__divider {
+  display: flex;
+  border: 0;
+  box-sizing: inherit;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    height: 10px;
+    margin: auto;
+    transform: skew(-30deg);
+    width: 100%;
+  }
+
+  &--thin {
+    width: 100%;
+
+    &:after {
+      height: 1px;
+      transform: none;
+      width: 100%;
+    }
+
+  }
+}
+
+//theme
+
+.ma__divider {
+
+  &:after {
+    background-color: var(--mf-c-primary-alt);
+  }
+
+  &--thin {
+
+    &:after {
+      background-color: var(--mf-c-overcast-gray);
+    }
+  }
+}
+
+.ma__org-page .ma__divider,
+.ma__organization-detail .ma__divider {
+
+  @include ma-container;
+}

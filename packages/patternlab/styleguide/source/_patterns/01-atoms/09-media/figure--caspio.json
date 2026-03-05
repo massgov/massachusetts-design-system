@@ -1,0 +1,19 @@
+{
+  "figure": {
+    "align": "",
+    "size": "",
+    "caspio": {
+      "dataId": "https://c0hbc136.caspio.com/dp/ad9b80008b0af121c1994daf9fbb/emb"
+    },
+    "title": {
+      "text": "Sample Data Page",
+      "visible": false
+    },
+    "caption": "",
+    "ariaLive": "polite",
+    "skiplink": {
+      "add": true,
+      "text": ""
+    }
+  }
+}

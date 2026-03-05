@@ -1,0 +1,49 @@
+{
+  "actionCard": {
+    "title": "Common Actions",
+    "description": "Get a feel for where we're headed",
+    "actions":[
+    {
+      "icon":"picnic-table",
+      "category":"State Parks & Recreation",
+      "linkText":"Get a DCR ParksPass",
+      "linkHref":"#",
+      "theme":"green"
+    },
+    {
+      "icon":"fish",
+      "category":"Recreational Licenses & Permits",
+      "linkText":"Buy a freshwater fishing license",
+      "linkHref":"#",
+      "theme":"blue"
+    },
+    {
+      "icon":"certificate",
+      "category":"Professional Licensing & Certification",
+      "linkText":"Apply for a nursing license (new graduates)",
+      "linkHref":"#",
+      "theme":""
+    },
+    {
+      "icon":"certificate",
+      "category":"Professional Licensing & Certification",
+      "linkText":"Convert an out-of-state nursing license (reciprocity)",
+      "linkHref":"#",
+      "theme":"dark-gray"
+    },
+    {
+      "icon":"clipboard-text",
+      "category":"Unemployment",
+      "linkText":"File for unemployment",
+      "linkHref":"#",
+      "theme":"dark-gray"
+    },
+    {
+      "icon":"scales",
+      "category":"Legal & Justice",
+      "linkText":"Respond to a jury duty summons",
+      "linkHref":"#",
+      "theme":"blue"
+    }]
+  }
+}

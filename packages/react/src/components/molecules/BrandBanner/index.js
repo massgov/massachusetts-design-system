@@ -1,0 +1,134 @@
+/**
+ * BrandBanner module.
+ * @module @massds/mayflower-react/BrandBanner
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/brand-banner
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ */
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
+import Image from 'MayflowerReactMedia/Image';
+import IconCaretDown from 'MayflowerReactBase/Icon/IconCaretDown';
+import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
+import IconLock from 'MayflowerReactBase/Icon/IconLock';
+
+const BrandBanner = ({
+  hasSeal = true,
+  bgTheme = 'light',
+  bgColor = 'c-primary',
+  seal = null,
+  text = 'An official website of the Commonwealth of Massachusetts'
+}) => {
+  const lightTheme = bgTheme === 'light';
+  const brandBannerClasses = classNames('ma__brand-banner', {
+    [`ma__brand-banner--${bgColor}-bg-${bgTheme}`]: bgColor && bgTheme
+  });
+
+  const brandBannerToggleColor = bgTheme === 'light' ? bgColor : 'c-white';
+
+  const [hovered, setHovered] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(false);
+
+  const brandBannerExpansionClasses = classNames('ma__brand-banner-expansion', {
+    'ma__brand-banner-expansion--expanded': expanded
+  });
+
+  const handleOnToggle = () => {
+    setExpanded((prevExpanded) => !prevExpanded);
+  };
+
+  const brandBannerToggleClasses = classNames(
+    'ma__brand-banner-button ma__button-icon ma__button-icon--quaternary',
+    {
+      [`ma__button-icon--${brandBannerToggleColor}`]: bgColor && bgTheme,
+      active: hovered
+    }
+  );
+
+  const contentId = 'ma__brand-banner-content';
+
+  return(
+    <div className={brandBannerClasses}>
+      <button
+        type="button"
+        className="ma__brand-banner-container"
+        id="ma__brand-banner-button"
+        onClick={handleOnToggle}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        aria-controls={contentId}
+        aria-expanded={expanded}
+      >
+        {hasSeal && (
+          <Image
+            className="ma__brand-banner-logo"
+            src={seal}
+            alt="Massachusetts State Seal"
+          />
+        )}
+        <span className="ma__brand-banner-text">
+          <span>{text}</span>
+          <span>&nbsp;&nbsp;&nbsp;</span>
+          <span className={brandBannerToggleClasses}>
+            <span>Here&apos;s how you know</span>
+            <IconCaretDown height={16} width={16} />
+          </span>
+        </span>
+      </button>
+
+      <ul
+        className={brandBannerExpansionClasses}
+        id={contentId}
+        role="region"
+        aria-labelledby="ma__brand-banner-button"
+      >
+        <li className="ma__brand-banner-expansion-item">
+          <IconBuilding
+            fill={lightTheme ? '#14558F' : '#fff'}
+            bold={false}
+          />
+          <div className="ma__brand-banner-expansion-item-content">
+            <p>Official websites use .mass.gov</p>
+            <p>
+              A .mass.gov website belongs to an official government organization
+              in Massachusetts.
+            </p>
+          </div>
+        </li>
+        <li className="ma__brand-banner-expansion-item">
+          <IconLock
+            fill={lightTheme ? '#388557' : '#fff'}
+            bold={false}
+          />
+          <div className="ma__brand-banner-expansion-item-content">
+            <p>Secure websites use HTTPS certificate</p>
+            <p>
+              A lock icon (
+              <IconLock width={12} height={12} />
+              ) or https:// means you&apos;ve
+              safely connected to the official website. Share sensitive
+              information only on official, secure websites.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+BrandBanner.propTypes = {
+  /** Banner state seal src.
+   * To ensure sufficient color contrast, pass in the gray seal for light bgTheme and the white seal for dark bgTheme. */
+  seal: PropTypes.string,
+  /** Banner text */
+  text: PropTypes.string,
+  /** Whether to include seal */
+  hasSeal: PropTypes.bool,
+  /** Background color option */
+  bgColor: PropTypes.oneOf(['', 'c-primary', 'c-primary-alt', 'c-gray']),
+  /** Background color theme */
+  bgTheme: PropTypes.oneOf(['', 'light', 'dark'])
+};
+
+export default BrandBanner;

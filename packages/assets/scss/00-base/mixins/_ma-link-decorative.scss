@@ -1,0 +1,24 @@
+// applied to the container holding the a tag
+// adds a underline on hover
+// prevents the external or arrow icon from becoming an orphan
+// basic structure expected => <div><a>text&nbsp;<svg></svg></a></div> 
+
+@use "00-base/variables" as *;
+
+@use "00-base/colors" as *;
+
+@use "ma-link-underline" as *;
+
+@use "ma-link-transition" as *;
+
+@mixin ma-link-decorative {
+  padding-right: .8em;
+
+  a {
+    text-decoration: none;
+
+    @include ma-link-transition;
+
+    @include ma-link-underline;
+  }
+}

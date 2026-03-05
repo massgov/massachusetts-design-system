@@ -1,0 +1,69 @@
+{
+  "locationBanner": {
+    "bgTitle": "Mt Greylock State Park",
+    "bgNarrow": {
+      "path": "@atoms/09-media/picture-element.twig",
+      "data": {
+        "picture": {
+          "defaultImage": "../../assets/images/placeholder/460x220.png",
+          "srcSets": [
+            {
+              "url": "../../assets/images/placeholder/800x400.png",
+              "width": "911"
+            },
+            {
+              "url": "../../assets/images/placeholder/500x300.png",
+              "width": "481"
+            }
+          ]
+        }
+      }
+    },
+    "id": "GUID24872901570",
+    "leafletMap": {
+      "isStatic": true,
+      "hideAttribution": true,
+      "map": {
+        "center": {
+          "lat": 42.594129,
+          "lng": -73.183715
+        }
+      },
+      "link": {
+        "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
+        "text": "Get Directions",
+        "info": "Department of Conservation & Recreation"
+      },
+      "markers": [
+        {
+          "position": {
+            "lat": 42.554129,
+            "lng": -73.213715
+          },
+          "label": "",
+          "infoWindow": {
+            "name": "Visitor's Center",
+            "phone": "14134994262",
+            "fax": "",
+            "email": "mass.parks@state.ma.us",
+            "address": "30 Rockwell Road\nLanesborough, MA 01237"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.636875,
+            "lng": -73.166921
+          },
+          "label": "",
+          "infoWindow": {
+            "name": "Bascom Lodge",
+            "phone": "14137431591",
+            "fax": "",
+            "email": "mail@bascomlodge.net",
+            "address": "30 Rockwell Road\nLanesborough, MA 01237"
+          }
+        }
+      ]
+    }
+  }
+}

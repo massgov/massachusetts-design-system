@@ -1,0 +1,115 @@
+$bp-section-3up-large-min: "min-width:951px";
+$bp-section-3up-large-max: "max-width:950px";
+
+@use "00-base/configure" as *;
+
+.ma__sections-3up {
+
+  &__title {
+
+    @include ma-container;
+  }
+
+  &__container {
+
+    @include ma-container;
+
+    @include clearfix;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @media ($bp-small-min) {
+      flex-flow: row wrap;
+    }
+
+    & > * {
+
+      @media ($bp-x-small-min) {
+        margin-bottom: 20px;
+      }
+
+      @media ($bp-small-min) {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+        padding-bottom: 20px;
+      }
+
+
+      @media ($bp-small-min) and ($bp-section-3up-large-max) {
+
+        @include span-columns(4 of 8);
+
+        @include omega(2n);
+      }
+
+      @media ($bp-section-3up-large-min) {
+
+          @include span-columns(4 of 12);
+
+          @include omega(3n);
+      }
+    }
+
+    & > .ma__card__wrapper {
+      padding-bottom: 0;
+    }
+  }
+
+  &--compact {
+
+    .ma__sections-3up__container {
+
+      @include ma-container;
+
+      @include clearfix;
+      display: flex;
+      align-items: stretch;
+      flex-wrap: wrap;
+      flex-direction: column;
+
+      @media ($bp-small-min) {
+        flex-flow: row wrap;
+      }
+
+      & > * {
+
+        @media ($bp-x-small-min) {
+          margin-bottom: $gutter;
+        }
+
+        @media ($bp-large-min) {
+          margin-bottom: 0;
+          margin-top: $gutter;
+        }
+      }
+    }
+  }
+}
+
+// Single CTA cards
+  
+.ma__sections-3up__container:has(.ma__card__wrapper) {
+    
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+
+  @media ($bp-medium-min) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media ($bp-large-min) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  a.ma__card__wrapper {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    margin-inline-end: 0;
+    float: none;
+    margin-block-end: 0;
+  }
+}

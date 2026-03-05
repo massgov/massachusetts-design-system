@@ -1,0 +1,27 @@
+@use "00-base/configure" as *;
+
+.ma__icon-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__icon {
+    font-size: 0;
+
+    & > svg {
+      color: var(--mf-c-primary-alt);
+    }
+  }
+
+  &__link {
+    font-size: $fonts-medium;
+    display: block;
+    padding-left: 11px;
+  }
+
+  .ma__decorative-link {
+    display: inline;
+    vertical-align: middle;
+  }
+}

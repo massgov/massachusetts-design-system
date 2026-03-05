@@ -1,0 +1,7 @@
+/dist/
+/tests/fixtures/
+
+# composer related
+/composer.lock
+/composer.phar
+/vendor/

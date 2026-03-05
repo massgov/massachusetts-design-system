@@ -1,0 +1,73 @@
+@use "00-base/configure" as *;
+
+.ma__callout {
+  border-left: 2px solid;
+  padding-left:20px;
+  margin-bottom: 45px;
+
+  @media ($bp-x-small-min) {
+    padding-left:38px;
+  }
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component  > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container();
+  }
+
+  &__header {
+
+    svg {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &__text {
+    font-size: rem(25);
+    line-height: 1.46;
+    padding-top:28px;
+    padding-bottom: 10px;
+
+    @media ($bp-x-small-min) {
+      font-size: $fonts-xlarge;
+      line-height: em(40,28);
+      padding-top:38px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__author,
+  &__auth-title {
+    display: block;
+    text-align: right;
+  }
+
+  &__author {
+    font-size: $fonts-small;
+    line-height: 1.79;
+  }
+
+  &__auth-title {
+    font-size: $fonts-small;
+    line-height: 1.37;
+  }
+}
+
+//theme
+
+.ma__callout {
+  border-left-color: var(--mf-c-highlight);
+  color: var(--mf-c-font-heading);
+  font-weight: $fonts-bolder;
+
+  &__header {
+
+    svg {
+      color: var(--mf-c-highlight);
+    }
+  }
+}

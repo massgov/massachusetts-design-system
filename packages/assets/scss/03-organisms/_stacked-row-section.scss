@@ -1,0 +1,107 @@
+@use "00-base/configure" as *;
+
+.ma__stacked-row {
+  position: relative;
+
+
+  &__section {
+
+    & ~ & {
+
+      @media ($bp-large-max) {
+        border-top-width: 1px;
+        border-top-style: solid;
+      }
+    }
+
+     &:not(:first-child) .ma__stacked-row__title .ma__comp-heading {
+        margin-top: 15px;
+      }
+
+    & ~ &--borderless {
+
+      @media ($bp-large-max) {
+        border-top-width: 0;
+      }
+    }
+
+    & .main-content .page-content > *, 
+    & .main-content .page-content .layout--onecol-mass-service-section .layout__region--content> *,
+    & .main-content--full .page-content > * {
+
+      @include ma-component-spacing;
+    }
+
+  }
+
+  &__container {
+
+    @include ma-container;
+  }
+
+  // reduce the width of the title and border
+
+  &__section--restricted + &__section--restricted &__container {
+
+    @include ma-container('restricted');
+  }
+
+  &__section ~ &__section &__container:before {
+    content: "";
+    display: block;
+
+    @media ($bp-large-min) {
+      border-top-width: 1px;
+      border-top-style: solid;
+    }
+  }
+
+  &__section ~ &__section--borderless &__container:before {
+
+    @media ($bp-large-min) {
+      border-top-width: 0;
+    }
+  }
+
+  &__section--restricted &__title {
+    max-width: $l-max-content-width;
+  }
+
+  // margin adjustment for callout-message (feature message)
+
+  & &__section:first-child .main-content .page-content > .ma__featured-item-mosaic,
+  & &__section:first-child .main-content .page-content > .ma__contact-list {
+    margin-top: calc(0.45em + 22px);
+
+    @media ($bp-x-small-min) {
+      margin-bottom: calc(0.45em + 18px);
+    }
+  }
+}
+
+.ma_stacked-row-external-sidebar .ma__stacked-row__section:not(:first-child) {
+
+  .ma__stacked-row__container .ma__comp-heading::before {
+    margin-top: -105px;
+
+    @media ($bp-header-toggle-min) {
+      margin-top: -55px;
+    }
+  }
+}
+
+//theme
+
+.ma__stacked-row {
+
+  &__section {
+
+    & ~ & {
+      border-color: var(--mf-c-bd-divider);
+
+      .ma__stacked-row__container:before {
+        border-color: var(--mf-c-bd-divider);
+      }
+    }
+  }
+}

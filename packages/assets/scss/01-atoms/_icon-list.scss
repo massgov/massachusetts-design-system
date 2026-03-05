@@ -1,0 +1,30 @@
+@use "00-base/configure" as *;
+
+.ma__icon-list {
+  padding-left: 0;
+
+  & > li {
+    list-style: none;
+    padding: 4px 0 4px 8px;
+  }
+
+  & > ul {
+    padding-left: 40px;
+
+    @media ($bp-small-min) {
+      padding-left: 48px;
+    }
+
+    li {
+      list-style: disc;
+    }
+  }
+
+  &__icon {
+    color: var(--mf-c-primary-alt);
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: middle; // Align the icon container with text middle
+    line-height: 1; // Remove extra line height
+  }
+}

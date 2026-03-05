@@ -1,0 +1,117 @@
+@use "00-base/configure" as *;
+
+.ma__contact-group {
+
+  padding-bottom: 20px;
+
+  &__item {
+    margin-bottom: .2em;
+  }
+
+  &__name {
+
+    @include ma-h6;
+
+    & > svg {
+      display: inline-block;
+      margin-right: .25em;
+      vertical-align: middle;
+      color: var(--mf-c-primary-alt);
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+
+    @media ($bp-small-min) {
+      font-size: $fonts-medium;
+    }
+
+  }
+
+  &__value {
+    display: inline-block;
+    line-height: 1.75;
+
+    @media ($bp-small-min) {
+      font-size: $fonts-medium;
+    }
+  }
+
+  &__details {
+    font-size: $fonts-smaller;
+    line-height: 1.5;
+    margin-bottom: .35em;
+    margin-top: -.25em;
+  }
+
+  &__address {
+    line-height: 1.5;
+
+    @media ($bp-small-min) {
+      font-size: $fonts-medium;
+    }
+  }
+
+  .ma__content-link__container,
+  .ma__decorative-link {
+    display: inline-block;
+
+    .ma__content-link,
+    a {
+      overflow-wrap: break-word;
+      -ms-word-break: break-all;
+      word-break: break-all;
+      word-break: break-word;
+      word-wrap: break-word;
+    }
+
+    @media ($bp-small-min) {
+      font-size: $fonts-medium;
+    }
+  }
+
+  .ma__content-link__container {
+    margin-top: 3px;
+    margin-bottom: 4px;
+
+    .ma__content-link {
+
+      @include ma-link-underline;
+
+      display: inline;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      border-bottom-color: var(--mf-c-bay-blue-50-tint);// Update with the value of DP-32007.
+      border-bottom-width: 1px;
+    }
+  }
+
+  &__directions {
+
+    .ma__content-link {
+      line-height: inherit;
+    }
+  }
+}
+
+//theme
+
+.ma__contact-group {
+
+  &__name {
+
+    span {
+      font-weight: $fonts-bold;
+    }
+  }
+
+  &__label {
+    font-weight: $fonts-normal;
+  }
+}

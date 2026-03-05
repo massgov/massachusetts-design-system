@@ -1,0 +1,104 @@
+@use "00-base/configure" as *;
+//include form styles here to export input styling
+//$assets-path: '../../../assets';
+
+@use "01-atoms/forms" as *;
+
+.ma__filter-box {
+		z-index: 10;
+
+	  &__form {
+	     box-sizing: border-box;
+	     border: 1px solid var(--mf-c-bay-blue-50-tint);
+	     background-color: var(--mf-c-bay-blue-90-tint);
+
+			@media ($bp-large-max) {
+				border-width: 1px 0;
+			}
+
+			 &--active {
+				 box-shadow: 0 0 1.25rem var(--mf-c-box-shadow-black);
+			 }
+
+			 .main-content--two {
+				 display: flex;
+				 flex-direction: column;
+				 justify-content: flex-start;
+
+				 @media ($bp-x-large-min) {
+						flex-flow: row wrap;
+						justify-content: space-between;
+						align-items: flex-end;
+				 }
+			 }
+	  }
+
+    &__filters, &__controls {
+			display: flex;
+
+			@media ($bp-medium-min) {
+				 flex-flow: row wrap;
+			}
+			 flex-direction: column;
+			 justify-content: flex-start;
+			 margin: 1rem 0;
+
+			 > div {
+
+				 @media ($bp-medium-max) {
+					 width: 100%;
+				 }
+					 margin: 0.5rem 1rem 0.5rem 0;
+			 }
+	}
+
+	&__controls {
+		align-items: baseline;
+	}
+
+		&--desktop-hidden {
+
+			@media ($bp-medium-min) {
+				display: none;
+			}
+		}
+
+	  &__button {
+	  	 margin: 0;
+	  }
+
+	  &__clear {
+			margin-top: 10px;
+
+			@media ($bp-medium-min) {
+	  		margin-left: 20px;
+			}
+    	font-size: $fonts-small;
+    	display: inline-block;
+    	background-color: transparent;
+    	border: none;
+    	line-height: 1em;
+    	border-bottom: 3px solid transparent;
+    	border-bottom-width: 1px;
+    	transition: border 0.2s;
+    	font-weight: 700;
+    	color: var(--mf-c-font-base);
+    	padding: 0px;
+    	border-bottom-color: var(--mf-c-font-base);
+
+		&:hover {
+      		border-bottom-width: 3px;
+    	}
+	  }
+
+  .ma__date-range {
+
+		&__label {
+  		margin-bottom: 0.25em;
+		}
+	}
+
+  .ma__select-box {
+    display: block;
+  }
+}

@@ -1,0 +1,12 @@
+{% if sidebarContact.items|length %}
+  {% if sidebarContact.coloredHeading %}
+    {% set coloredHeading = sidebarContact.coloredHeading %}
+    {% include "@atoms/04-headings/colored-heading.twig" %}
+  {% endif %}
+  {% for item in sidebarContact.items %}
+    {% set contactUs = item.contactUs %}
+    {% set contactHeadingLevel = contactUs.level + 1 %}
+    {% set contactUs = contactUs|merge({"level": contactHeadingLevel}) %}
+    {% include "@organisms/contact/contact-us.twig" %}
+  {% endfor %}
+{% endif %}

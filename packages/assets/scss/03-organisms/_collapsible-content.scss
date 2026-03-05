@@ -1,0 +1,133 @@
+@use "00-base/configure" as *;
+
+.ma__collapsible-content {
+
+  @include clearfix;
+
+  position: relative;
+  width: 100%;
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container;
+  }
+
+  &--extended {
+
+    .ma__collapsible-content {
+
+      &__toggle-all {
+        background: none;
+        border: 0;
+        color: var(--mf-c-font-detail);
+        display: block;
+        margin-left: auto;
+        margin-right: 0;
+        right: 0;
+
+        span {
+          text-decoration: underline;
+          font-weight: $fonts-bold;
+        }
+
+        &__collapse {
+          display: inline;
+        }
+
+        &__expand {
+          display: none;
+        }
+
+        &--collapsed {
+
+          .ma__collapsible-content__toggle-all__collapse {
+            display: none;
+          }
+
+          .ma__collapsible-content__toggle-all__expand {
+            display: inline;
+          }
+        }
+      }
+
+      &__item {
+        background: var(--mf-c-bg);
+      }
+    }
+
+    .ma__collapsible-header {
+
+      &__title {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &__button {
+        background: var(--mf-c-bg);
+        padding-right: 66px;
+
+        @media ($bp-small-max) {
+          padding-left: 20px;
+        }
+      }
+    }
+
+    .header__title__counter {
+      position: absolute;
+      top: 24px;
+      right: 40px;
+      color: var(--mf-c-primary-alt);
+      font-weight: $fonts-bolder;
+      font-style: italic;
+      font-size: $fonts-medium;
+    }
+  }
+
+  &__item {
+    border-style: solid;
+    border-width: 2px;
+    margin-top: 20px;
+
+    &:first-of-type {
+      margin-top: 10px;
+    }
+  }
+
+  &__body {
+    padding-bottom: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    @media ($bp-small-max) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    & > * {
+      margin-top: 1em;
+    }
+
+    & > :first-child {
+      margin-top: 0;
+    }
+
+    .js & {
+      display: none;
+    }
+  }
+}
+
+//theme
+
+.ma__collapsible-content {
+
+  &__item {
+    border-color: var(--mf-c-bd-divider);
+  }
+}

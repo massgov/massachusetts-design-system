@@ -1,0 +1,17 @@
+@use "00-base/configure" as *;
+
+.ma__email {
+
+  &__email {
+    font-weight: $fonts-bold;
+    color: var(--mf-c-font-link);
+    text-decoration: none;
+  }
+
+  .ma__contact__details {
+    font-style: italic;
+    font-size: small;
+    margin: .2rem 0 0 0;
+  }
+  
+}

@@ -1,0 +1,15 @@
+{% extends '@templates/stacked-rows-with-external-sidebar-template.twig' %}
+
+{% block preContent %}
+    {% if breadcrumbs %}
+    {% include "@organisms/by-template/breadcrumbs.twig" %}
+  {% endif %}
+  {% include "@molecules/relationship-indicators.twig" %}
+  {% include "@organisms/page-header/page-header.twig" %}
+  {% include "@organisms/page-header/page-header-addons.twig" %}
+  {% if stickyTOC %}
+    {% include "@organisms/by-template/sticky-toc.twig" %}
+  {% endif %}
+{% endblock %}
+
+{% block postContent %}{% endblock %}

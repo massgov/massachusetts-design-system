@@ -1,0 +1,24 @@
+{% extends '@templates/stacked-row-template.twig' %}
+
+{% block header %}
+	{% include "@molecules/brand-banner.twig" with {
+      "brandBanner": {
+        "bgTheme": "dark",
+        "bgColor": "c-primary-alt",
+        "hasSeal": true
+      }
+    }
+  %}
+	{% include "@organisms/by-template/emergency-alerts.twig" %}
+	{% include "@organisms/by-template/header-mixed.twig" %}
+{% endblock %}
+
+{% block preContent %}
+	{% include "@organisms/by-author/search-banner.twig" %}
+{% endblock %}
+
+{% block postContent %}{% endblock %}
+
+{% block footer %}
+	{% include "@organisms/by-template/footer.twig" %}
+{% endblock %}

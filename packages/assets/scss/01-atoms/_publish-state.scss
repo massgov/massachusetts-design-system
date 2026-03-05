@@ -1,0 +1,37 @@
+@use "00-base/configure" as *;
+
+.ma__publish-state {
+  font-size: $fonts-3xlarge;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-large;
+
+  @media ($bp-small-min) {
+    font-size: $fonts-7xlarge;
+  }
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component  > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container;
+  }
+
+  &:before {
+    content: "\2013";
+    margin-right: .25em;
+  }
+
+  &:after {
+    content: "\2013";
+    margin-left: .25em;
+  }
+}
+
+//theme
+
+.ma__publish-state {
+  color: var(--mf-c-font-medium);
+  font-weight: $fonts-bold;
+}

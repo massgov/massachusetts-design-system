@@ -1,0 +1,48 @@
+@use "00-base/configure" as *;
+
+.collection-header {
+  padding-top: $standard-spacing--xsmall;
+  padding-bottom: $standard-spacing--xsmall;
+
+  &__inner {
+    color: var(--mf-c-font-inverse);
+  
+    @include ma-container;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: $fonts-7xlarge;
+    font-weight: $fonts-normal;
+    margin-bottom: 1rem;
+    color: var(--mf-c-font-inverse);
+  }
+
+  &--dark-font &__inner {
+    color: var(--mf-c-font-dark);
+  }
+
+  &--dark-font &__inner &__title {
+    color: var(--mf-c-font-dark);
+  }
+
+  &__description {
+    font-size: $fonts-large;
+    font-weight: $fonts-normal;
+  }
+  
+  &__image {
+    display: none;
+    max-width: 175px;
+    min-width: 100px;
+    max-height: 100px;
+    margin-left: 1rem;
+  
+    @media ($bp-small-min) {
+      display: block;
+    }
+  }
+
+  
+}

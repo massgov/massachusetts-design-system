@@ -1,0 +1,49 @@
+{% set pageType = '' %}
+{% if suggestedPages.view == 'guide' %}
+  {% set pageType = 'guide' %}
+{% endif %}
+
+<section class="ma__suggested-pages {{ pageType }}">
+  <div class="ma__suggested-pages__container">
+    <div class="ma__suggested-pages__inner-container">
+      <h2 class="ma__suggested-pages__title">{{ suggestedPages.title }}</h2>
+      {% if suggestedPages.pages|length > 0 %}
+      <ul class="ma__suggested-pages__items">
+        {% if suggestedPages.view == "guide" %}
+          {% for page in suggestedPages.pages %}
+            {% set illustratedLink = {
+              "href": page.link.href,
+              "text": page.link.text,
+              "info": page.link.info,
+              "image": page.image.src ? : page.image } %}
+            <li class="ma__suggested-pages__item ma__suggested-pages__item--guide">
+              {% include "@molecules/illustrated-link.twig" %}
+            </li>
+          {% endfor %}
+        {% else %}
+          {% for page in suggestedPages.pages|slice(0,3) %}
+            <li class="ma__suggested-pages__item ma__suggested-pages__item--suggested">
+              <figure class="ma__suggested-pages__item--suggested-figure">
+                {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
+                {% include "@atoms/09-media/image.twig" %}
+                {% set decorativeLink = page.link %}
+                {% include "@atoms/decorative-link.twig" %}
+              </figure>
+            </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+      {% endif %}
+      {% if suggestedPages.moreLinks %}
+        {% set linkList = suggestedPages.moreLinks %}
+        {% include "@organisms/by-author/link-list.twig" %}
+      {% endif %}
+      {% if suggestedPages.more[0] %}
+        <div class="ma__suggested-pages__more">
+          {% set link = suggestedPages.more %}
+          {% include "@atoms/11-text/link.twig" %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

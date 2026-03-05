@@ -1,0 +1,265 @@
+$action-finder-bp: 900px;
+
+@use "00-base/configure" as *;
+
+@use "sass:color" as *;
+
+.ma__action-finder {
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+
+  &:after {
+    content: "";
+    height: 100%;
+    position: absolute;
+      top: 0;
+      left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &--no-background {
+    overflow: hidden;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  &__container {
+
+    @include ma-container;
+    padding-top: 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &--no-background &__container {
+    padding-top: 0;
+  }
+
+  &__category {
+
+    @include ma-h5;
+  }
+
+  h3.ma__action-finder__category {
+
+    @include ma-h3;
+  }
+
+  &__search {
+
+    @media ($bp-large-min) {
+      display: inline-block;
+      vertical-align: middle;
+      width: 32.25806%; // @include span-columns(4 of 12);
+    }
+  }
+
+  &--no-background &__search {
+    margin-top: 25px;
+    padding-right: 20px;
+    position: absolute;
+      top: 100%;
+      left: 30px;
+    transform: skew(30deg);
+
+    @media ($bp-large-min) {
+      top: 0;
+      right: 0;
+      left: inherit;
+    }
+  }
+
+  &__items {
+
+    @include ma-reset-list;
+    display: flex;
+      flex-wrap: wrap;
+      justify-content: stretch;
+  }
+
+  &__items {
+    padding-bottom: 25px;
+
+    @media ($bp-medium-min) {
+      padding-bottom: 45px;
+    }
+  }
+
+  .ma__illustrated-link,
+  .ma__callout-link {
+    display: flex;
+    margin-bottom: 20px;
+    height: auto;
+    width: 100%;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+
+    @media screen and ($bp-small-min) and ($bp-large-max) {
+
+      @include span-columns(4 of 8);
+
+      @include omega(2n);
+      display: flex;
+    }
+
+    @media ($bp-large-min) {
+
+      @include span-columns(4 of 12);
+
+      @include omega(3n);
+      display: flex;
+    }
+  }
+
+  &__items--all {
+
+    .ma__callout-link {
+      border-width: 0;
+    }
+
+    .ma__illustrated-link {
+      border-width: 0;
+    }
+  }
+
+  &--no-background &__items--all {
+
+    .ma__callout-link {
+      border-width: 3px;
+    }
+
+    .ma__illustrated-link {
+      border-width: 3px;
+    }
+  }
+
+  &__see-all {
+    margin-top: -10px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &--no-background &__see-all {
+    margin-top: -40px;
+  }
+
+  &__see-all-container {
+
+    @include ma-container;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    text-align: right;
+  }
+
+  &--no-background &__see-all-container {
+    padding-top: 0;
+    padding-bottom: 48px;
+    text-align: left;
+  }
+
+  &--clear-background {
+    background: none;
+
+    &:after {
+      content: none;
+    }
+  }
+}
+
+//theme
+$action-finder-bg-color: mix($c-bg, $c-primary,89%);
+$action-finder-border-color: mix($c-white, $c-primary,50%);
+
+.ma__action-finder {
+
+  &:after {
+    background-image: linear-gradient(180deg, rgba($c-black,.6), transparent 90%, transparent);
+  }
+
+  &--no-background {
+    background-image: linear-gradient(180deg, $c-bg 50px, $c-bg-section 51px);
+  }
+
+  &__category {
+    color: var(--mf-c-font-inverse);
+    font-weight: $fonts-normal;
+  }
+
+  &--no-background &__category {
+    color: var(--mf-c-font-base);
+  }
+
+  &__search {
+
+    button {
+      color: var(--mf-c-font-inverse);
+
+      svg {
+        fill: var(--mf-c-font-inverse);
+      }
+    }
+  }
+
+  &__items--all {
+
+    .ma__callout-link {
+      background-color: var(--mf-c-bg);
+      box-shadow: none;
+    }
+
+    .ma__illustrated-link {
+      box-shadow: none;
+
+      &__content {
+        background-color: var(--mf-c-bg);
+
+        &:after {
+          background-color: var(--mf-c-bg);
+        }
+      }
+    }
+  }
+
+  &__see-all {
+    background-color: var(--mf-c-primary);
+
+    .ma__decorative-link {
+
+      a {
+        color: var(--mf-c-font-inverse);
+
+        &:hover {
+          border-color: rgba($c-font-inverse, .5);
+        }
+      }
+
+      svg {
+        fill: rgba($c-font-inverse, .5);
+      }
+    }
+  }
+
+  &--no-background &__see-all {
+    background-color: var(--mf-c-bg-section);
+
+    .ma__decorative-link {
+
+      a {
+        color: var(--mf-c-font-link);
+
+        &:hover {
+          border-color: var(--mf-c-link);
+        }
+      }
+
+      svg {
+        fill: var(--mf-c-font-link);
+      }
+    }
+  }
+}

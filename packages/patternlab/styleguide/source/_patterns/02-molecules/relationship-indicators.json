@@ -1,0 +1,47 @@
+{
+  "relationshipIndicators": {
+    "pageTitle": "Unemployment Benefits",
+    "primary": {
+      "position": "primary",
+      "label": "part of",
+      "tags": [{
+        "class": "",
+        "href": "#",
+        "title": "Snowmobile in the Parks"
+      },{
+        "class": "",
+        "href": "#",
+        "title": "Cross-Country Skiing"
+      },{
+        "class": "",
+        "href": "#",
+        "title": "Accessible Hiking"
+      },{
+        "class": "",
+        "href": "#",
+        "title": "Scenic Viewing Areas"
+      },{
+        "class": "",
+        "href": "#",
+        "title": "Hunting"
+      },{
+        "class": "",
+        "href": "#",
+        "title": "Biking"
+      }]
+    },
+    "secondary": {
+      "label": "offered by",
+      "tags": [{
+        "class": "",
+        "href": "#",
+        "title": "Department of Conservation & Recreation"
+      },{
+        "class": "",
+        "href": "#",
+        "title": "Executive Office of Energy and Environmental Affairs"
+      }]
+    },
+    "borderless": false
+  }
+}

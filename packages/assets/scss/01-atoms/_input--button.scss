@@ -1,0 +1,88 @@
+@use "00-base/configure" as *;
+
+@mixin ma__input--button($type) {
+  .ma__input-#{$type} {
+    display: inline-flex;
+      flex-direction: row;
+    position: relative;
+
+	input {
+
+		@include input-base;
+		border-right: none;
+	}
+
+
+    &-unit {
+      border: 2px solid var(--mf-c-bd-input);
+      padding-right: 5px;
+      padding-top: 4px;
+      border-left: none;
+      color: var(--mf-c-gray-dark);
+
+      &--showButtons {
+        border-right: none;
+      }
+    }
+
+    &__control {
+    	text-align: right;
+      padding-right: 5px;
+
+      @media ($bp-small-max) {
+        width: 100%;
+      }
+
+      &--showButtons {
+        border-right: none;
+      }
+
+      &-buttons {
+        display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        position: relative;
+      }
+
+  	  &-plus,
+  	  &-minus {
+
+  	    @include ma-button-reset;
+  	    border: 2px solid var(--mf-c-bd-input);
+  	    border-bottom: none;
+  	    height: 50%;
+  	    width: 40px;
+
+  	    &:after {
+  	      border: 5px solid var(--mf-c-gray-darkest);
+  	      border-top: none;
+  	      border-bottom-width: 6px;
+  	      content: "";
+          padding: 2px 0;
+  	      display: block;
+  	      height: 0;
+  	      margin: 0 auto;
+  	      vertical-align: bottom;
+  	      width: 0;
+  	      border-left-color: transparent;
+  	      border-right-color: transparent;
+  	    }
+
+  	    &:focus:after {
+  	      bottom: 1px;
+  	    }
+  	  }
+
+  	  &-plus {
+  	    bottom: 50%;
+  	  }
+
+  	  &-minus {
+  	    top: 50%;
+  	    transform: rotate(180deg);
+  	  }
+    }
+
+  }
+}

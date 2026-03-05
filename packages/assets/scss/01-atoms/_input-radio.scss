@@ -1,0 +1,279 @@
+// Custom Radio Buttons
+
+@use "00-base/configure" as *;
+
+.ma__input-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    width: $fonts-2xlarge;
+    height: $fonts-2xlarge;
+    margin: 0;
+    flex-shrink: 0;
+
+    @media (forced-colors: active) { // Show native input in high contrast mode
+      position: static;
+      opacity: 1;
+      appearance: auto;
+      margin-right: 0.5em;
+    }
+  }
+
+  &__label {
+    font-size: $fonts-large;
+    font-weight: $fonts-light;
+    line-height: 1.33;  // ratio of $fonts-2xlarge/$fonts-large
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    padding-left: calc(#{$fonts-2xlarge} + 0.5rem);
+    position: relative;
+    min-width: 0;      // Allow text to wrap
+    word-wrap: break-word;
+
+    &:before {
+      content: '';
+      border-radius: 100%;
+      border: 2px solid var(--mf-c-bd-input);
+      display: inline-block;
+      width: $fonts-2xlarge;
+      height: $fonts-2xlarge;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translateY(-0.1em); // Align with text baseline
+      cursor: pointer;
+      text-align: center;
+      transition: all 250ms ease;
+      background-color: var(--mf-c-bg);
+      flex-shrink: 0;
+
+      @media (forced-colors: active) { // Hide custom radio in high contrast mode
+        display: none;
+      }
+    }
+
+    span {
+      font-size: $fonts-large;
+      flex: 1;
+      min-width: 0; // Allow text to wrap
+    }
+
+    @media (forced-colors: active) { // Adjust label spacing in high contrast mode
+      padding-left: 0;
+    }
+  }
+
+  input:checked ~ &__label {
+    
+    &:before {
+      background-color: var(--mf-c-primary);
+      box-shadow: inset 0 0 0 4px var(--mf-c-white);
+    }
+  }
+
+  input:focus ~ &__label {
+
+    &:before {
+      outline: 2px solid var(--mf-c-focus);
+      outline-offset: 2px;
+    }
+  }
+
+  input:focus { // Focus on native input in high contrast mode
+
+    @media (forced-colors: active) {
+      outline: 2px solid Highlight;
+      outline-offset: 2px;
+    }
+  }
+
+  input.has-error ~ &__label:before { // patternlab
+    border-color: var(--mf-c-bd-error);
+  }
+
+  input ~ &__label--error, input:checked ~ &__label--error { // react
+    color: var(--mf-c-error);
+
+    &::before {
+      border-color: var(--mf-c-error);
+    }
+  }
+
+  input:checked ~ &__label--error {
+
+    &::before {
+      color: var(--mf-c-error);
+    }
+  }
+
+  input:checked ~ &__label--error:before {
+    color: var(--mf-c-error);
+  }
+
+  input:focus ~ &__label:after {
+    box-shadow: 0 0 2px 2px var(--mf-c-focus);
+  }
+
+  input:focus ~ &__label--error:before {
+    border-color: var(--mf-c-error);
+    box-shadow: 0 0 2px 2px var(--mf-c-error);
+  }
+
+  &__control:disabled + &__label {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+// Custom styling for button like radio inputs
+$spacing: 1rem;
+$border-radius: 4px;
+$control-height: 1.2rem;
+
+.ma__input-radio--outline {
+
+  &__control {
+
+    @include ma-visually-hidden;
+
+    @media (forced-colors: active) { // Show native input in high contrast mode
+      position: static;
+      opacity: 1;
+      appearance: auto;
+      margin-right: 0.5em;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &__label {
+    display: block;
+    position: relative;
+    min-height: $control-height;
+    line-height: $control-height;
+    padding: 0.5rem $spacing 0.5rem ($spacing * 2.75);
+    cursor: pointer;
+    user-select: none;
+    z-index: 0;
+
+    &::before {
+      left: $spacing;
+      height: $spacing * 3 / 4;
+      width: $spacing * 3 / 4;
+      border-radius: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 1px solid;
+
+      @media (forced-colors: active) { // Hide custom styling in high contrast mode
+        display: none;
+      }
+    }
+
+    &::after {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: $border-radius * 8;
+      z-index: -1;
+      font-weight: $fonts-bold;
+      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      border: 1px solid;
+
+      @media (forced-colors: active) { // Hide custom styling in high contrast mode
+        display: none;
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+    }
+
+    @media (forced-colors: active) { // Adjust spacing in high contrast mode
+      padding-left: 0;
+    }
+  }
+
+  &__control:focus { // Focus on native input in high contrast mode for outline variant
+
+    @media (forced-colors: active) {
+      outline: 2px solid Highlight;
+      outline-offset: 2px;
+    }
+  }
+
+  @mixin label-appearance($text-color, $background-color, $border-color, $box-shadow:'transparent', $state:'', $modifier:'') {
+    $this-prefix: '&__control'+ $modifier;
+    $this-suffix: ' + &__label' + $modifier;
+    #{$this-prefix}#{$state}#{$this-suffix} {
+      color: $text-color;
+
+      &::before {
+        background-color: $background-color;
+        border-color: $border-color;
+        box-shadow: 0 0 0 4px var(--mf-c-white);
+      }
+
+      &::after {
+        background-color: $background-color;
+        border-color: $border-color;
+        box-shadow: 0 0 2px 2px $box-shadow;
+      }
+    }
+  }
+
+  //label-appearance(text-color, background-color, border-color, box-shadow, control-state, class-modifier)
+
+  @include label-appearance($c-primary, $c-white, $c-primary, '','', '');
+
+  @include label-appearance($c-primary, $c-primary-lightest, $c-primary, '', ':hover', '');
+
+  @include label-appearance($c-white, $c-primary, $c-primary, '',':checked', '');
+
+  @include label-appearance($c-white, $c-primary-light, $c-primary, '', ':checked:hover', '');
+
+  @include label-appearance($c-white, $c-primary, $c-primary, $c-focus, ':focus', '');
+
+  //:disabled
+
+  @include label-appearance($c-white, $c-gray-light, $c-gray-dark, '', ':disabled', '');
+
+  @include label-appearance($c-gray-dark, $c-gray-light, $c-gray-dark, '', ':checked:disabled', '');
+
+  //--error
+
+  @include label-appearance($c-error, $c-white, $c-error, '', '', '--error');
+
+  @include label-appearance($c-error, $c-error-lightest, $c-error, '', ':hover', '--error');
+
+  @include label-appearance($c-error, $c-error-lighter, $c-error, '', ':checked', '--error');
+
+  @include label-appearance($c-error, $c-error-lighter, $c-error, '', ':checked:hover', '--error');
+
+  @include label-appearance($c-error, $c-error-lighter, $c-error, $c-error-lighter, ':focus', '--error');
+
+  &__control:disabled + &__label {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: var(--mf-c-gray-dark);
+    opacity: 0.5;
+  }
+
+  &__control--error:disabled + &__label--error {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: var(--mf-c-gray-dark);
+    opacity: 0.5;
+  }
+
+}

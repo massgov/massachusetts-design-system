@@ -1,0 +1,240 @@
+@use "00-base/configure" as *;
+
+$colors: (
+  "c-highlight": $c-highlight,
+  "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
+  "c-black": $c-gray-darkest,
+  "c-gray-dark": $c-gray-dark,
+  "c-white": $c-white,
+);
+
+$quaternary-colors: (
+  "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
+  "c-black": $c-gray-darkest,
+  "c-gray-dark": $c-gray-dark,
+  "c-white": $c-white,
+);
+
+.ma__button-icon {
+  background-color: var(--mf-c-bg);
+  border: 2px solid var(--mf-c-gray-light);
+  display: inline-flex;
+  align-items: center;
+  font-weight: $fonts-bold;
+  letter-spacing: $letter-spacing-large;
+  padding: 10px 14px;
+  text-transform: uppercase;
+  transition: background-color 0.4s, color 0.4s, border 0.4s, fill 0.4s;
+  white-space: nowrap;
+  color: var(--mf-c-primary-alt);
+  min-height: 46px;
+  font-size: $fonts-xsmall;
+
+  @each $class, $c in $colors {
+    &--#{$class} {
+
+      @if $c == $c-highlight {
+        border-color: $c;
+        color: var(--mf-c-font-base);
+      } @else {
+        color: $c;
+      }
+    }
+  }
+
+  &--small {
+    font-size: $fonts-smaller;
+    line-height: 1.2;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    min-height: 0px;
+  }
+
+  &--large {
+    font-size: $fonts-large;
+    line-height: 1.61;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &--capitalized {
+    text-transform: capitalize;
+    letter-spacing: $letter-spacing-small;
+    font-size: $fonts-smaller;
+  }
+
+  &--expanded {
+
+    & > svg {
+      transform: rotate(-180deg);
+    }
+  }
+
+  span {
+    display: inline-block;
+    padding-right: 5px;
+  }
+
+  & > svg {
+    transition: transform 0.5s, fill 0.4s;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &--expanded,
+  &:hover {
+
+    @include ma-button("solid", $c-primary-alt);
+    color: var(--mf-c-font-inverse);
+
+    svg {
+      fill: var(--mf-c-white);
+    }
+
+    @each $class, $c in $colors {
+      &.ma__button-icon--#{$class} {
+
+        @include ma-button("solid", $c);
+      }
+    }
+  }
+
+  &--secondary,
+  &--expanded.ma__button-icon--secondary,
+  &:hover.ma__button-icon--secondary {
+
+    @include ma-button("outline", $c-primary-alt);
+
+    @each $class, $c in $colors {
+      &.ma__button-icon--#{$class} {
+
+        @include ma-button("outline", $c);
+      }
+    }
+  }
+
+  &--tertiary,
+  &--expanded.ma__button-icon--tertiary,
+  &:hover.ma__button-icon--tertiary {
+
+    @include ma-button("solid", $c-gray-light);
+    color: var(--mf-c-font-base);
+
+    svg {
+      fill: var(--mf-c-gray-darkest);
+    }
+  }
+
+  &--quaternary,
+  &--expanded.ma__button-icon--quaternary,
+  &:hover.ma__button-icon--quaternary {
+    min-height: 0px;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    text-transform: none;
+    border-bottom: 2px solid var(--mf-c-link);
+    color: var(--mf-c-primary);
+    letter-spacing: $letter-spacing-default;
+
+    svg {
+      fill: var(--mf-c-link);
+    }
+
+    &:hover,
+    &.active {
+      border-color: var(--mf-c-primary);
+      background-color: transparent !important;
+    }
+
+    @each $class, $c in $quaternary-colors {
+      &.ma__button-icon--#{$class} {
+        border-bottom-color: rgba($c, 0.5);
+        color: $c;
+
+        svg {
+          fill: $c;
+        }
+
+        &:hover,
+        &.active {
+          border-bottom-color: $c;
+        }
+      }
+    }
+  }
+
+  &--expanded.ma__button-icon--quaternary-simple,
+  &:hover.ma__button-icon--quaternary-simple:hover {
+    background-color: var(--mf-c-gray-light);
+  }
+
+  &--quaternary-simple {
+    background-color: transparent;
+  }
+
+  &--quaternary-simple,
+  &--expanded.ma__button-icon--quaternary-simple,
+  &:hover.ma__button-icon--quaternary-simple:hover {
+    min-height: unset;
+    box-shadow: none;
+    border: none;
+    padding: 5px 5px;
+    text-transform: none;
+    cursor: pointer;
+    color: var(--mf-c-primary-alt);
+
+    @each $class, $c in $quaternary-colors {
+      &.ma__button-icon--#{$class} {
+        color: $c;
+
+        svg {
+          fill: rgba($c, 0.5);
+        }
+      }
+    }
+  }
+
+  &--alert {
+    font-size: $fonts-smaller;
+    font-weight: $fonts-bold;
+    letter-spacing: $letter-spacing-large;
+    line-height: 1;
+    padding: 0.4em;
+    padding-left: 0.7em;
+    padding-right: 0.8em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: $box-shadow;
+    min-height: unset;
+    border: none;
+    display: inline-block;
+    color: var(--mf-c-font-inverse);
+    background-color: var(--mf-c-primary-alt);
+
+    &.ma__button-icon > svg {
+      fill: rgba($c-white, 0.5);
+      width: 10px;
+    }
+
+    @each $class, $c in $colors {
+      &.ma__button-icon--#{$class} {
+        background-color: $c;
+
+        @if $c == $c-highlight {
+          color: var(--mf-c-font-base);
+
+          &.ma__button-icon > svg {
+            fill: rgba($c-gray-darkest, 0.5);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{% if figure.align == "" %}
+  {% set wrap = false %}
+{% elseif figure.wrap == "" %}
+  {% set wrap = false %}
+{% else %}
+  {% set wrap = true %}
+{% endif %}
+
+{% if figure.image %}
+  {# Render figure.content, which will be the main content of the figure #}
+  {# Important: we wrap this in an `if` statement to allow consuming systems
+     to either use figure.image or figure.content (if they prefer to externally
+     render figure.content
+  #}
+  {% set content %}
+    {% include "@atoms/09-media/image.twig" with {
+      'image': figure.image
+    } %}
+  {% endset %}
+  {% set figure = figure|merge({
+    'content': content
+  }) %}
+{% endif %}
+
+{% include "@atoms/09-media/figure.twig" with {
+  figure: figure|merge({
+    'title.text': figure.title.text,
+    'title.visible': figure.title.visible|default(false),
+    'wrap': wrap,
+    'class': 'ma__figure-image',
+    'skiplink': {
+      'add': figure.skiplink.add|default(false),
+      'text': figure.skiplink.text|default("image content")
+    }
+  })
+} %}

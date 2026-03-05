@@ -1,0 +1,48 @@
+@use "00-base/configure" as *;
+
+.ma__multiselect-dropdown {
+
+  display: block;
+  width: 100%;
+
+  .ma__multiselect-dropdown-menu {
+    position: relative;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    list-style: none;
+    background-color: var(--mf-c-bg);
+    max-height: 15.6em;
+    overflow-y: auto;
+
+    &--expanded {
+      box-shadow: $box-shadow;
+    }
+
+    .ma__multiselect-dropdown-item {
+      display: block;
+      width: 100%;
+      padding: 0.5em 18px 0;
+      font-size: $fonts-smaller;
+      text-align: inherit;
+      white-space: nowrap;
+      background-color: transparent;
+      border: 0;
+      border: 1px solid var(--mf-c-gray-light);
+
+      a, a:hover, a:hover {
+        border-bottom: none;
+        width: 100%;
+      }
+
+      &:hover, &:focus {
+        background-color: var(--mf-c-gray-lightest);
+      }
+
+      .ma__input-checkbox {
+        width: 100%;
+      }
+    }
+  }
+}

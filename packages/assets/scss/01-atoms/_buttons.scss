@@ -1,0 +1,111 @@
+@use "00-base/configure" as *;
+
+$primarycolors: (
+  "c-primary-alt": $c-primary-alt,
+  "c-highlight": $c-highlight,
+  "c-black": $c-gray-darkest,
+  "c-gray-dark": $c-gray-dark,
+  "c-white": $c-white
+);
+
+
+button {
+  cursor: pointer;
+  font-family: $fonts;
+  font-weight: $fonts-light;
+}
+
+.ma__button {
+
+  @include ma-button-base;
+  text-transform: none;
+  letter-spacing: $letter-spacing-small;
+
+  &--uppercase {
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-large;
+  }
+
+  svg {
+    margin-left: .5rem;
+    flex-shrink: 0;
+  }
+
+  @include ma-button-size;
+
+  &--small {
+
+    @include ma-button-size("small");
+    padding: 0.2em 0.6em;
+  }
+
+  &--large {
+
+    @include ma-button-size("large");
+  }
+
+  @include ma-button("solid",$c-primary);
+
+  @each $class, $c in $primarycolors {
+    &--#{$class} {
+
+      @include ma-button("solid",$c);
+    }
+  }
+
+}
+
+.ma__button--secondary {
+
+  @include ma-button("outline",$c-primary);
+
+  &.ma__button--c-primary-alt {
+
+    @include ma-button("outline",$c-primary-alt);
+  }
+
+  &.ma__button--c-highlight {
+
+    @include ma-button("outline",$c-highlight);
+  }
+
+  &.ma__button--c-gray-dark {
+
+    @include ma-button("outline",$c-gray-dark);
+  }
+}
+
+.ma__button--tertiary {
+
+  @include ma-button("solid",$c-gray-light);
+  color: var(--mf-c-font-base);
+
+  svg {
+    color: var(--mf-c-gray-darkest);
+  }
+}
+
+.ma__button--quaternary {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  border-bottom: 2px solid var(--mf-c-link);
+  color: var(--mf-c-primary);
+  padding: 0;
+  text-transform: none;
+  letter-spacing: $letter-spacing-default;
+
+  svg {
+    color: var(--mf-c-primary);
+  }
+
+  &:hover:not(:disabled) {
+   border-bottom: 3px solid var(--mf-c-primary);
+   background-color: transparent;
+  }
+}
+
+.ma__button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,113 @@
+@use "00-base/configure" as *;
+
+$bgcolors: (
+  "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
+  "c-white": $c-white
+);
+
+$textcolors: (
+  "c-primary": $c-font-inverse,
+  "c-primary-alt": $c-font-inverse,
+  "c-white": $c-font-base,
+);
+
+/* Apply basic styling to the banner container */
+
+.ma__page-banner {
+  background-color: var(--mf-c-primary);
+  color: var(--mf-c-font-inverse);
+  margin-bottom: 20px;
+
+  @each $class, $c in $bgcolors {
+    &--#{$class} {
+      background-color: $c;
+    }
+  }
+
+  @each $class, $c in $textcolors {
+    &--#{$class} {
+      color: $c;
+
+      .ma__page-header {
+
+        &__title, &__sub-title, &__description, &__category, &__subCategory {
+          color: $c;
+        }
+      }
+    }
+  }
+
+
+  .ma__page-header {
+    margin-left: 0;
+    margin-right: 0;
+
+    &__sub-title {
+      width: 100%;
+    }
+  }
+
+  &__container {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Style for the text content on the left side */
+
+  &__content {
+    display: flex;
+    align-items: center;
+    flex: 1.5; // width ratio to image 3:2
+  }
+
+  /* Style for the image on the right side */
+
+  &__image {
+    display: none;
+    flex: 240px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  @media ($bp-large-extended-min) {
+
+    &__container {
+      flex-direction: row;
+      align-items: stretch;
+      max-width: 1320px;
+    }
+
+    &__image {
+      flex: 1;
+      display: block;
+      background-size: cover;
+      width: 100%;
+      min-height: 200px;
+    }
+  }
+
+  @media ($bp-x-large-min) {
+
+    &__image {
+      flex: 1;
+      display: block;
+      background-size: cover;
+      width: 100%;
+      min-height: 200px;
+    }
+  }
+
+
+  @media ($bp-x-small-max) {
+
+    &__image {
+      flex: 50vw;
+      background-size: cover;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+// toggle JS to adjust for mobile elements, like the header, sticky-nav, jump-links.
+
+@use "00-base/configure" as *;
+
+.js-footnote {
+
+  &:before {
+    content: "true";
+    display: none;
+
+    @media ($bp-large-min) {
+      content: "false";
+    }
+  }
+}
+
+.ma__footnote {
+  position: relative;
+
+  & + & {
+    margin-top: 30px;
+  }
+
+  & > &__link {
+    border-width: 2px;
+    border-style: solid;
+    font-size: $fonts-smaller;
+    line-height: 1;
+    padding: 3px 6px;
+    position: absolute;
+      top: 3px;
+      left: 0;
+  }
+
+  &__rich-text {
+    font-size: $fonts-medium;
+    padding-left: 30px;
+  }
+
+  &__rich-text &__link {
+    border: none;
+    margin-left: .25em;
+    transition: all 0.4s ease;
+
+    &:hover {
+      border: none;
+      margin-left: 0;
+      opacity: .7;
+    }
+
+    &:after {
+      content: "\0021A9";
+      cursor: pointer;
+      line-height: 1;
+      padding: .25em;
+    }
+  }
+}
+
+//theme
+
+.ma__footnote {
+
+  & > &__link {
+    border-color: var(--mf-c-link);
+
+    &:hover {
+      background-color: var(--mf-c-font-link);
+      color: var(--mf-c-font-inverse);
+    }
+  }
+}

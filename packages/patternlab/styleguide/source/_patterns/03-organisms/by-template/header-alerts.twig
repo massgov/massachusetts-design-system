@@ -1,0 +1,35 @@
+{% if headerAlerts %}
+
+<section data-nosnippet="true" class="ma__header-alerts js-accordion js-header-alerts is-open">
+  <h2 class="ma__header-alerts__header">
+    <button class="ma__header-alerts__header__button js-accordion-link">
+
+      {% if headerTitle.icon %}
+        <div>
+          <span class="ma__header-alerts__header___icon">
+            {{ icon(headerTitle.icon) }}
+          </span>
+      {% endif %}
+        <span>{{ headerTitle.text }}</span>
+      {% if headerTitle.icon %}
+        </div>
+      {% endif %}
+
+      <div class="ma__header-alerts__header__toggle" aria-hidden="true">
+        <span class="ma__header-alerts__header__hide">{{headerTitle.hideText}}</span>
+        <span class="ma__header-alerts__header__show">{{headerTitle.showText}}</span>
+      </div>
+    </button>
+  </h2>
+  <div class="ma__header-alerts__content js-accordion-content">
+    <ul class="ma__header-alerts__container">
+      {% for headerAlert in headerAlerts %}
+        <li>
+          {% set actionStep = headerAlert %}
+          {% include "@molecules/action-step.twig" %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}

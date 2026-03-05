@@ -1,0 +1,42 @@
+{
+  "headerTitle": {
+    "icon": "warning",
+    "text": "Notice & Alerts",
+    "hideText": "Hide",
+    "showText": "Expand"
+  },
+  "headerAlerts": [
+    {
+      "accordion": true,
+      "isExpanded": false,
+      "accordionLabel": "Expand Actualizaciones sobre el desempleo",
+      "icon": "alert",
+      "title": "Actualizaciones sobre el desempleo",
+      "suffix": "Updated: Mar. 17th, 2021, 11:10 am",
+      "richText": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus deleniti nisi at adipisci sequi consequuntur qui, corporis pariatur eos laborum nostrum itaque, facere. Doloremque qui temporibus repellendus incidunt in nam provident, aliquam."
+            }
+          }
+        }]
+      }
+    },
+    {
+      "accordion": true,
+      "isExpanded": false,
+      "accordionLabel": "Expand DUA warns about phising scam",
+      "icon": "input-error",
+      "title": "DUA warns about phising scam",
+      "suffix": "Updated: Mar. 23rd, 2021, 9:50 am",
+      "decorativeLink": {
+        "href": "#",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus deleniti nisi at adipisci sequi consequuntur qui, corporis pariatur eos laborum nostrum itaque, facere. Doloremque qui temporibus repellendus incidunt in nam provident, aliquam.",
+        "info": "Learn more about DUA warns about phising scam",
+        "property": ""
+      }
+    }
+  ]
+}

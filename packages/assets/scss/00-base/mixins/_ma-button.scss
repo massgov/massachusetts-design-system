@@ -1,0 +1,120 @@
+// Parameters
+// $size => "normal", "small"
+// $type => "solid", "outline"
+// $color => rgba() or hex value
+//
+// passing a color value will return the code for the theme instead of the code for layout
+
+@use "00-base/variables" as *;
+
+@use "00-base/colors" as *;
+
+@use "00-base/color-tokens" as *;
+
+@use "ma-button-base" as *;
+
+@mixin ma-button ($type:"solid", $color:"transparent") {
+
+  @if ($color != "transparent") {
+    font-weight: $fonts-bold;
+    // solid - primary usage (default)
+
+    @if ($type == "solid") {
+      background-color: $color;
+      border-color: transparent;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color,.75);
+      }
+
+      @if $color == $c-white {
+        color: var(--mf-c-primary);
+
+        svg {
+          color: var(--mf-c-primary);
+        }
+
+        &:hover:not(:disabled) {
+          background-color: var(--mf-c-gray-light);
+        }
+
+      } @else if $color == $c-highlight {
+        color: var(--mf-c-gray-darkest);
+
+        svg {
+          color: var(--mf-c-gray-darkest);
+        }
+      } @else {
+        color: var(--mf-c-font-inverse);
+
+        svg {
+          color: var(--mf-c-font-inverse);
+        }
+      }
+
+    }
+    // outline - secondary usage
+    @else {
+      background-color: var(--mf-c-font-inverse);
+      border-color: rgba($color,.5);
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color,1);
+      }
+
+      @if $color == $c-highlight {
+        color: var(--mf-c-gray-darkest);
+        border-color: rgba($c-highlight,.5);
+
+        svg {
+          color: var(--mf-c-gray-darkest);
+        }
+
+        &:hover:not(:disabled) {
+          color: var(--mf-c-gray-darkest);
+
+          svg {
+            color: var(--mf-c-gray-darkest);
+          }
+        }
+
+      } @else {
+        color: $color;
+
+        svg {
+          color: $color;
+        }
+
+        &:hover:not(:disabled) {
+          color: var(--mf-c-font-inverse);
+
+          svg {
+            color: var(--mf-c-font-inverse);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin ma-button-size ($size:"normal") {
+
+  @if ($size == "normal") {
+    font-size: $fonts-medium;
+    line-height: 1.4;
+  }
+
+  // small
+
+  @if ($size == "small") {
+    font-size: $fonts-small;
+    line-height: 1.2;
+  }
+
+  // large
+
+  @if ($size == "large") {
+    font-size: $fonts-large;
+    line-height: 1.61;
+  }
+}

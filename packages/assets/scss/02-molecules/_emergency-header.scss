@@ -1,0 +1,170 @@
+@use "00-base/configure" as *;
+
+.ma__emergency-header {
+  display: flex;
+    align-items: center;
+
+    // for longer alerts header, see examples in mayflower react
+
+    &--mobile-wrap {
+
+      @media ($bp-small-max) {
+        flex-direction: column;
+
+        .ma__emergency-header__label {
+          border-right: none;
+        }
+      }
+    }
+
+  @include ma-container;
+  margin: 0;
+  padding: 8px;
+  font-size: inherit;
+  line-height: inherit;
+  background-color: var(--mf-c-warning);
+
+  &__label {
+    flex-shrink: 0;
+    flex-basis: auto;
+    letter-spacing: $letter-spacing-large;
+    white-space: nowrap;
+    color: rgba($c-font-base,.8);
+    font-weight: $fonts-bold;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgba($c-font-base,.3);
+    margin-right: .5rem;
+
+    @media ($bp-small-min) {
+      padding-right: 1rem;
+      margin-right: 18px;
+    }
+
+    // icon
+
+    & > svg {
+      width: 24px;
+      vertical-align: middle;
+      display: none;
+
+
+      @media ($bp-small-min) {
+        display: inline-block;
+      }
+
+    }
+
+    // text
+
+    & > span {
+      font-size: $fonts-smaller;
+      line-height: 1.13;
+      text-transform: uppercase;
+      vertical-align: middle;
+      display: inline-flex;
+    }
+  }
+
+  &__toggle {
+    cursor: pointer;
+    color: var(--mf-c-font-base);
+    font-weight: $fonts-light;
+    text-align: left   ;
+
+    @media ($bp-small-max) {
+      font-size: $fonts-medium;
+    }
+
+    @include ma-button-reset;
+
+    @include ma-chevron;
+
+    &:after {
+      border-width: 3px;
+      height: 8px;
+      margin-top: 3px;
+      margin-left: 3px;
+      transform: translateY(-50%) rotate(45deg);
+      transform-origin: 65% 65%;
+      transition: transform .5s;
+      width: 8px;
+    }
+
+    // If the parent of the button-alert is an open accordion, then flip the arrow up
+
+    .js-accordion.is-open & {
+
+      &:after {
+        transform: translateY(-50%) rotate(-135deg);
+      }
+    }
+
+    // This is used in mayflower-react specifically, `is-open` class is moved down a level from patternlab
+
+    &.is-open {
+
+      &:after {
+        transform: translateY(-50%) rotate(-135deg);
+      }
+    }
+
+
+    &__hide {
+      display: none;
+
+      .is-open & {
+        display: inline;
+      }
+    }
+
+    &__show {
+      display: inline;
+
+      .is-open & {
+        display: none;
+      }
+    }
+
+  }
+
+  &:not(&--pt) {
+
+    .ma__emergency-header__title {
+      display: block;
+      font-size: $fonts-larger;
+      line-height: 1.4;
+      margin-bottom: 0;
+      font-weight: $fonts-bold;
+    }
+  }
+
+  &__title {
+
+    .ma__content-link {
+      text-decoration: none;
+    }
+
+
+    .ma__decorative-link {
+      display: inline;
+      vertical-align: baseline;
+    }
+
+  }
+}
+
+$colors: (
+  "c-warning": $c-warning,
+  "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
+  "c-error": $c-error,
+  "c-gray": $c-gray
+);
+
+@each $class, $c in $colors {
+  .ma__emergency-header--#{$class} {
+
+    @include ma-emergency-header($c);
+  }
+}

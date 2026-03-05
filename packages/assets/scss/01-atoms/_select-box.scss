@@ -1,0 +1,152 @@
+@use "00-base/configure" as *;
+
+.ma__select-box {
+  display: inline-block;
+  position: relative;
+
+  &__label {
+    display: block;
+    font-size: $fonts-large;
+    font-weight: $fonts-normal;
+  }
+
+  &--optional &__label {
+
+    &:after {
+      content: "(optional)";
+      font-size: .8em;
+      margin-left: .25em;
+    }
+  }
+
+  &__field {
+    display: block;
+    font-size: 0;
+    position: relative;
+  }
+
+  &__select {
+    appearance: auto; // Use native select styling
+    font-size: $fonts-medium;
+    height: 100%;
+    opacity: 0;  // Hidden in normal mode
+    position: absolute;
+      top: 0;
+      left: 0;
+    width: 100%;
+    z-index: 2;
+    color: var(--mf-c-font-base);
+    font-weight: $fonts-light;
+    border-width: 2px;
+    
+    // Show native select in high contrast mode
+
+    @media (forced-colors: active) {
+      opacity: 1;
+      position: static;
+      height: auto;
+      min-height: 40px;
+      padding-left: 0.25rem;
+    }
+
+    &:focus {
+      outline: 2px solid var(--mf-c-focus);
+      outline-offset: 2px;
+
+      /* WebKit gets its native focus styles. */
+
+      @media (-webkit-min-device-pixel-ratio:0) {
+        outline-style: auto;
+      }
+    
+      // Focus on native select in high contrast mode
+
+      @media (forced-colors: active) {
+        outline: 2px solid Highlight;
+      }
+
+      + .ma__select-box__link {
+        outline: 2px solid var(--mf-c-focus);
+        outline-offset: 2px;
+      }
+    }
+
+    &.has-error {
+      border-color: var(--mf-c-bd-error);
+      
+      // Fix error visibility in high contrast mode
+
+      @media (forced-colors: active) {
+        border-color: Mark;
+      }
+
+      .ma__select-box__icon {
+        border-color: var(--mf-c-bd-error);
+        
+        @media (forced-colors: active) {
+          border-color: Mark;
+          border-width: 3px;
+        }
+      }
+    }
+  }
+
+  &__link {
+    border: 2px solid;
+    font-size: $fonts-medium;
+    line-height: 36px;
+    min-height: 40px;
+    overflow: hidden;
+    padding-left: 18px;
+    padding-right: 58px;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: var(--mf-c-bg);
+    border-color: var(--mf-c-bd-input);
+    
+    // Hide custom link in high contrast mode
+
+    @media (forced-colors: active) {
+      display: none;
+    }
+
+    .ma__form--light & {
+      background-color: rgba($c-bg,.1);
+      border-color: rgba($c-bd-input,.5);
+    }
+  }
+
+  &__icon {
+
+    @include ma-chevron;
+    border-left: 2px solid;
+    height: 100%;
+    padding-right: 3px;
+    position: absolute;
+      top: 0;
+      right: 0;
+    text-align: center;
+    width: 40px;
+    border-color: var(--mf-c-bd-input);
+
+    &:after {
+      margin: 0;
+      transform: translateY(-2px) rotate(45deg);
+    }
+    
+    // Hide custom icon in high contrast mode
+
+    @media (forced-colors: active) {
+      display: none;
+    }
+
+    .ma__form--light & {
+      border-color: rgba($c-bd-input,.5);
+    }
+  }
+
+  &__disabled {
+    background-color: var(--mf-c-overcast-gray);
+  }
+}

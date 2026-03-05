@@ -1,0 +1,46 @@
+@use "00-base/configure" as *;
+
+.ma__banner-credit {
+  position: relative;
+
+  &__container {
+    padding: 8px 30px;
+    position: relative;
+  }
+
+  &__icon {
+    color: var(--mf-c-white); 
+    position: absolute;
+      top: 3px;
+      left: 0;
+  }
+
+  &__image-name {
+    font-size: $fonts-smaller;
+    line-height: 1.125rem;
+  }
+
+  &__image-author {
+    font-size: $fonts-xsmall;
+    line-height: 1.125rem;
+  }
+
+}
+//theme
+
+.ma__banner-credit {
+
+  .ma__banner-credit__container {
+
+    dt, dd { // reset default styles for dl
+      margin: 0;
+    }
+  }
+
+  &__icon {
+
+    & > svg {
+      fill: var(--mf-c-primary-alt);
+    }
+  }
+}

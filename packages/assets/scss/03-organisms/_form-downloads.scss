@@ -1,0 +1,16 @@
+@use "00-base/configure" as *;
+
+.ma__form-downloads {
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container('restricted');
+  }
+
+  &__see-all {
+    margin-top: 1rem;
+  }
+}

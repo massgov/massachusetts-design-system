@@ -1,0 +1,78 @@
+@use "00-base/configure" as *;
+
+
+.ma__footer-links {
+
+  @include clearfix;
+
+  &__items {
+
+    @include ma-reset-list;
+  }
+
+  &__item {
+    margin-bottom: 1.125em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {// react version
+
+    &--heading {
+      border-bottom: none;
+
+      .ma__sidebar-heading {
+        color: var(--mf-c-gray);
+        font-size: $fonts-smaller;
+      }
+    }
+  }
+
+  &__link {
+
+    @include ma-link-underline;
+    padding-bottom: 3px;
+
+    color: var(--mf-c-font-base);
+    font-weight: $fonts-normal;
+
+    &:hover {
+      border-bottom-color: rgba($c-font-dark,.5);
+    }
+  }
+}
+
+.ma__footer-links > .ma__footer-links__items,
+.ma__footer-links__nav {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 480px;
+
+  @media ($bp-small-max) {
+    border-bottom: 1px solid var(--mf-c-bd-divider);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  &--heading {
+
+    @media ($bp-small-max) {
+      border-bottom: 0;
+    }
+  }
+
+  @media ($bp-small-min) {
+
+    @include span-columns(3 of 9);
+  }
+
+  @media ($bp-x-large-min) {
+
+    @include span-columns(2 of 9);
+
+    @include shift(1 of 9);
+  }
+}
