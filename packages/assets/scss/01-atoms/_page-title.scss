@@ -1,9 +1,0 @@
-@use "00-base/configure" as *;
-
-.ma__page-title {
-  margin-bottom: .4em;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
