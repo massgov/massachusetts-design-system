@@ -86,7 +86,8 @@ function prepIcons(iconsDir) {
 
 // CLI usage
 if (require.main === module) {
-  const iconsDir = process.argv[2] || './static/images/icons';
+  const defaultIconsDir = path.join(__dirname, '../static');
+  const iconsDir = process.argv[2] || defaultIconsDir;
   
   console.log('🔧 Processing SVG files with SVGO...\n');
   
