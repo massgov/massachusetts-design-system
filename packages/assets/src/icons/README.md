@@ -60,7 +60,7 @@ npm icons
 
 ### Adding New Icons
 
-1. Place the SVGs into static/icons (make sure that the bold version is added to static/icons/bold simutanously)
+1. Place the SVGs into `src/icons/static` (make sure that the bold version is added to `src/icons/static/bold` simultaneously)
 2. Run `rushx build`, to optimize and prep svgs in place
 
 ## Contributing
