@@ -21,10 +21,13 @@ async function copyDir(from, to) {
 async function build() {
   await cleanDist();
 
-  prepIcons(path.join(packageRoot, 'src/icons/static'));
+  const srcIconsDir = path.join(packageRoot, 'src/icons/static');
+  const distIconsDir = path.join(distDir, 'icons');
+
+  await copyDir(srcIconsDir, distIconsDir);
+  await prepIcons(distIconsDir);
 
   await Promise.all([
-    copyDir(path.join(packageRoot, 'src/icons/static'), path.join(distDir, 'icons')),
     copyDir(path.join(packageRoot, 'src/animation'), path.join(distDir, 'animation')),
     copyDir(path.join(packageRoot, 'src/state-seal'), path.join(distDir, 'state-seal'))
   ]);
