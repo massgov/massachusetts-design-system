@@ -11,9 +11,10 @@ function prepIcons(iconsDir) {
 
   // Function to process a single SVG file
   function processSvgFile(filePath) {
-    let svgContent = fs.readFileSync(filePath, 'utf8');
+    let svgContent;
     
     try {
+      svgContent = fs.readFileSync(filePath, 'utf8');
       // Use SVGO to optimize
       const result = optimize(svgContent, {
         path: filePath,
