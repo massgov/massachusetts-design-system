@@ -1,0 +1,266 @@
+/**
+  Focused test styles for the Figma state banner implementation.
+**/
+
+@import url("../../tokens/css/index.css");
+
+:root {
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body,
+button {
+  font-family: "Noto Sans", "Helvetica", "Arial", sans-serif;
+}
+
+:focus-visible {
+  border-radius: var(--mds-radius-sm);
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(20, 85, 143, 0.12), transparent 30rem),
+    linear-gradient(180deg, #ffffff 0%, var(--mds-background-adaptive-brand-primary-lowest) 100%);
+  color: var(--mds-text-and-icons-brand-neutral-default);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--mds-border-focus-on-light);
+  outline-offset: 2px;
+}
+
+code {
+  font-family: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+  font-size: 0.9375rem;
+}
+
+.banner-page {
+  width: min(100%, 88rem);
+  margin: 0 auto;
+  padding: var(--mds-space-lg);
+}
+
+.banner-card {
+  display: grid;
+  gap: var(--mds-space-lg);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--mds-text-and-icons-brand-primary-mid);
+  font: var(--mds-text-eyebrow);
+  letter-spacing: var(--mds-text-letter-spacing-eyebrow);
+  text-transform: var(--mds-text-transform-eyebrow);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.ma-state-banner h1 {
+  font: var(--mds-text-heading-xl);
+}
+
+.ma-state-banner h2 {
+  font: var(--mds-text-label);
+}
+
+.banner-copy {
+  max-width: 42rem;
+  color: var(--mds-text-and-icons-brand-neutral-muted);
+  font: var(--mds-text-body);
+}
+
+.banner-frame {
+  overflow: hidden;
+  border: 1px solid rgba(16, 37, 63, 0.08);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--mds-shadow-container);
+}
+
+.ma-state-banner {
+  width: 100%;
+}
+
+.ma-state-banner--light {
+  background: var(--mds-background-section-brand-neutral-lowest);
+  color: var(--mds-static-black);
+  stroke: var(--mds-static-black);
+}
+
+.ma-state-banner--dark {
+  background: var(--mds-static-black);
+  color: var(--mds-static-white);
+  stroke: var(--mds-static-white);
+}
+
+.ma-state-banner__container {
+  min-height: 3rem;
+}
+
+.ma-state-banner__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--mds-space-sm);
+  min-height: 3rem;
+  width: 100%;
+  /**padding: 0.5rem 3rem;**/
+  padding: 0 var(--mds-space-lg);
+}
+
+.ma-state-banner__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--mds-space-2xs);
+  min-width: 0;
+}
+
+.ma-state-banner__seal {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+  filter: grayscale(1);
+  align-self: center;
+}
+
+.ma-state-banner--dark .ma-state-banner__seal {
+  filter: brightness(10); /* Makes logo white on dark background */
+}
+
+.ma-state-banner__title {
+  font: var(--mds-text-body);
+}
+
+.ma-state-banner--dark .ma-state-banner__title {
+  font: var(--mds-text-body);
+}
+
+.ma-state-banner__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mds-space-2xs);
+  padding: 0;
+  border: 0;
+  border-bottom: 1.5px solid var(--mds-background-adaptive-brand-primary-mid);
+  background: transparent;
+  color: var(--mds-background-adaptive-brand-primary-mid);
+  font: var(--mds-text-body);
+  line-height: 1.8;
+  cursor: pointer;
+}
+
+.ma-state-banner--dark .ma-state-banner__toggle {
+  color: var(--mds-static-white);
+  border-color: var(--mds-static-white);
+}
+
+.ma-state-banner__caret {
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+  transition: transform 160ms ease;
+}
+
+.ma-state-banner__toggle[aria-expanded="true"] .ma-state-banner__caret {
+  transform: rotate(180deg);
+}
+
+.ma-state-banner__caret path{
+  stroke: currentColor;
+  fill: none;
+}
+
+.ma-state-banner__caret {
+    width: 30px;
+    height: 30px;
+    min-width: 20px;
+}
+		
+.ma-state-banner__caret--expanded {
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+.ma-state-banner__item-icon path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.ma-state-banner__panel-inner {
+  align-items: stretch;
+  gap: 1.5rem;
+  padding-top: 0;
+}
+
+.ma-state-banner__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--mds-space-sm);
+  flex: 1 1 20rem;
+  min-width: 14.6875rem;
+  padding: 0.5rem 0 1rem;
+}
+
+.ma-state-banner__item-icon {
+  width: 1.875rem;
+  height: 1.875rem;
+  flex: none;
+  margin-top: 0.125rem;
+  color: var(--mds-static-black);
+}
+
+.ma-state-banner__item-copy {
+  display: grid;
+  gap: var(--mds-space-2xs);
+  padding-top: var(--mds-space-3xs);
+}
+
+.ma-state-banner__item-copy p {
+  font: var(--mds-text-body);
+}
+
+@media (max-width: 768px) {
+  .banner-page {
+    padding: var(--mds-space-sm);
+  }
+
+  .ma-state-banner__container {
+    padding-top: var(--mds-space-sm);
+    padding-bottom: var(--mds-space-sm);
+  }
+
+  .ma-state-banner__seal {
+    align-self: self-start;
+  }
+
+  .ma-state-banner__inner {
+    padding-right: var(--mds-space-md);
+    padding-left: var(--mds-space-md);
+  }
+
+  .ma-state-banner__title {
+    white-space: normal;
+  }
+
+  .ma-state-banner__toggle {
+    margin-left: 0;
+  }
+}
