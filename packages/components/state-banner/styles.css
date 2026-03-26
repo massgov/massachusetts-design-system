@@ -138,7 +138,7 @@ p {
   align-self: center;
 }
 
-.ma-state-banner--dark .ma-state-banner__seal {
+.ma-state-banner--dark .ma-state-banner__seal, .ma-state-banner__item-icon img{
   filter: brightness(10); /* Makes logo white on dark background */
 }
 
