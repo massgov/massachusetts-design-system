@@ -208,7 +208,6 @@
   :root {
     --mds-breakpoint-horizontal-space-columns: 12;
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
-    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
   };
 };
 
@@ -217,7 +216,6 @@
   :root {
     --mds-breakpoint-horizontal-space-columns: 12;
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
-    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
   };
 };
 
@@ -226,7 +224,6 @@
   :root {
     --mds-breakpoint-horizontal-space-columns: 6;
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-400);
-    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
   };
 };
   /** 480px, SM breakpoint **/
@@ -234,7 +231,6 @@
   :root {
     --mds-breakpoint-horizontal-space-columns: 6;
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-300);
-    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-200);
     --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.1 var(--mds-font-family);
     --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family);
     --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family);
@@ -246,7 +242,6 @@
     --mds-breakpoint-horizontal-space-viewport-min-width: 288px;
     --mds-breakpoint-horizontal-space-columns: 6;
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-200);
-    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-100);
   };
 };
 
