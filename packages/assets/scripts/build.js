@@ -24,8 +24,11 @@ async function build() {
   const srcIconsDir = path.join(packageRoot, 'src/icons/static');
   const distIconsDir = path.join(distDir, 'icons');
 
-  await copyDir(srcIconsDir, distIconsDir);
-  await prepIcons(distIconsDir);
+  await prepIcons({
+    sourceDir: srcIconsDir,
+    outputDir: distIconsDir,
+    inPlace: true,
+  });
 
   await Promise.all([
     copyDir(path.join(packageRoot, 'src/animation'), path.join(distDir, 'animation')),
