@@ -1,0 +1,3611 @@
+{
+  "generated_at": "2026-03-27T22:31:17.941Z",
+  "figma_names_source": "packages/assets/src/icons/scripts/figma-component-set-names.json",
+  "summary": {
+    "repo_regular_count": 256,
+    "repo_bold_count": 256,
+    "figma_component_set_count": 256,
+    "exact_name_match_count": 255,
+    "renamed_high_confidence_count": 0,
+    "renamed_needs_review_count": 0,
+    "repo_only_unmapped_count": 1,
+    "figma_only_new_or_unmapped_count": 0
+  },
+  "notes": [
+    "This inventory compares current repo filenames to Figma component set names from the Functional icons page.",
+    "Figma names were normalized to kebab-case for comparison, and -mds suffixes were stripped before matching.",
+    "A few names in Figma collide after normalization, for example Check and Check-mds both normalize to check.",
+    "High-confidence renames are intended to be safe for bulk rename planning. Needs-review entries should be spot-checked in Figma before applying."
+  ],
+  "exact_matches": [
+    {
+      "repo_name": "accessible-trails",
+      "proposed_figma_name": "accessible-trails",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "airplane-tilt",
+      "proposed_figma_name": "airplane-tilt",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "ambulance",
+      "proposed_figma_name": "ambulance",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-counter-clockwise",
+      "proposed_figma_name": "arrow-counter-clockwise",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-down",
+      "proposed_figma_name": "arrow-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-elbow-down-right",
+      "proposed_figma_name": "arrow-elbow-down-right",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-elbow-right-down",
+      "proposed_figma_name": "arrow-elbow-right-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-left",
+      "proposed_figma_name": "arrow-left",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-right",
+      "proposed_figma_name": "arrow-right",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-square-out",
+      "proposed_figma_name": "arrow-square-out",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-up",
+      "proposed_figma_name": "arrow-up",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrows-counter-clockwise",
+      "proposed_figma_name": "arrows-counter-clockwise",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrows-in-simple",
+      "proposed_figma_name": "arrows-in-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrows-out",
+      "proposed_figma_name": "arrows-out",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "audio-description",
+      "proposed_figma_name": "audio-description",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "baby",
+      "proposed_figma_name": "baby",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "baby-carriage",
+      "proposed_figma_name": "baby-carriage",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "backpack",
+      "proposed_figma_name": "backpack",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "barn",
+      "proposed_figma_name": "barn",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "barricade",
+      "proposed_figma_name": "barricade",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "baseball",
+      "proposed_figma_name": "baseball",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "basket",
+      "proposed_figma_name": "basket",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "basketball",
+      "proposed_figma_name": "basketball",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bell-ringing",
+      "proposed_figma_name": "bell-ringing",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "binoculars",
+      "proposed_figma_name": "binoculars",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bird",
+      "proposed_figma_name": "bird",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bluesky-logo",
+      "proposed_figma_name": "bluesky-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "boat",
+      "proposed_figma_name": "boat",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "book-open-text",
+      "proposed_figma_name": "book-open-text",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bookmark-simple",
+      "proposed_figma_name": "bookmark-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "books",
+      "proposed_figma_name": "books",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "boot",
+      "proposed_figma_name": "boot",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "braille",
+      "proposed_figma_name": "braille",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bridge",
+      "proposed_figma_name": "bridge",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bug",
+      "proposed_figma_name": "bug",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "building",
+      "proposed_figma_name": "building",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "building-apartment",
+      "proposed_figma_name": "building-apartment",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bulldozer",
+      "proposed_figma_name": "bulldozer",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bus",
+      "proposed_figma_name": "bus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "calendar",
+      "proposed_figma_name": "calendar",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "calendar-blank",
+      "proposed_figma_name": "calendar-blank",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "camera",
+      "proposed_figma_name": "camera",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "camera-plus",
+      "proposed_figma_name": "camera-plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "campfire",
+      "proposed_figma_name": "campfire",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "car",
+      "proposed_figma_name": "car",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-circle-right",
+      "proposed_figma_name": "caret-circle-right",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-double-right",
+      "proposed_figma_name": "caret-double-right",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-down",
+      "proposed_figma_name": "caret-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-left",
+      "proposed_figma_name": "caret-left",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-right",
+      "proposed_figma_name": "caret-right",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-up",
+      "proposed_figma_name": "caret-up",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-up-down",
+      "proposed_figma_name": "caret-up-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "carrot",
+      "proposed_figma_name": "carrot",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "castle-turret",
+      "proposed_figma_name": "castle-turret",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "catalog",
+      "proposed_figma_name": "catalog",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "certificate",
+      "proposed_figma_name": "certificate",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "chart-line-up",
+      "proposed_figma_name": "chart-line-up",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "chat-circle",
+      "proposed_figma_name": "chat-circle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "chat-circle-dots",
+      "proposed_figma_name": "chat-circle-dots",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "check",
+      "proposed_figma_name": "check",
+      "status": "exact_name_match",
+      "confidence": "high_with_collision",
+      "notes": "Multiple Figma components normalize to this name: Check, Check"
+    },
+    {
+      "repo_name": "check-circle",
+      "proposed_figma_name": "check-circle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "clipboard-text",
+      "proposed_figma_name": "clipboard-text",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "clock-counter-clockwise",
+      "proposed_figma_name": "clock-counter-clockwise",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "closed-captioning",
+      "proposed_figma_name": "closed-captioning",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "contrast-eye",
+      "proposed_figma_name": "contrast-eye",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "copy",
+      "proposed_figma_name": "copy",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "cow",
+      "proposed_figma_name": "cow",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "credit-card",
+      "proposed_figma_name": "credit-card",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "database",
+      "proposed_figma_name": "database",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "detective",
+      "proposed_figma_name": "detective",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "dna",
+      "proposed_figma_name": "dna",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "dog",
+      "proposed_figma_name": "dog",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "dots-three",
+      "proposed_figma_name": "dots-three",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "dots-three-vertical",
+      "proposed_figma_name": "dots-three-vertical",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "download-simple",
+      "proposed_figma_name": "download-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "ear",
+      "proposed_figma_name": "ear",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "ear-slash",
+      "proposed_figma_name": "ear-slash",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "elevator",
+      "proposed_figma_name": "elevator",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "envelope",
+      "proposed_figma_name": "envelope",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "escalator-down",
+      "proposed_figma_name": "escalator-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "escalator-up",
+      "proposed_figma_name": "escalator-up",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "export",
+      "proposed_figma_name": "export",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "eye",
+      "proposed_figma_name": "eye",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "eye-slash",
+      "proposed_figma_name": "eye-slash",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "facebook-logo",
+      "proposed_figma_name": "facebook-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "farm",
+      "proposed_figma_name": "farm",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "fax-icon",
+      "proposed_figma_name": "fax-icon",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file",
+      "proposed_figma_name": "file",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-arrow-down",
+      "proposed_figma_name": "file-arrow-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-doc",
+      "proposed_figma_name": "file-doc",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-image",
+      "proposed_figma_name": "file-image",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-jpg",
+      "proposed_figma_name": "file-jpg",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-pdf",
+      "proposed_figma_name": "file-pdf",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-png",
+      "proposed_figma_name": "file-png",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-svg",
+      "proposed_figma_name": "file-svg",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-video",
+      "proposed_figma_name": "file-video",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-xls",
+      "proposed_figma_name": "file-xls",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-zip",
+      "proposed_figma_name": "file-zip",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "fingerprint",
+      "proposed_figma_name": "fingerprint",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "fire-truck",
+      "proposed_figma_name": "fire-truck",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "first-aid",
+      "proposed_figma_name": "first-aid",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "first-aid-kit",
+      "proposed_figma_name": "first-aid-kit",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "fish",
+      "proposed_figma_name": "fish",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "flickr-logo",
+      "proposed_figma_name": "flickr-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "folder-minus",
+      "proposed_figma_name": "folder-minus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "folder-simple-plus",
+      "proposed_figma_name": "folder-simple-plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "funnel",
+      "proposed_figma_name": "funnel",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "gas-pump",
+      "proposed_figma_name": "gas-pump",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "gauge",
+      "proposed_figma_name": "gauge",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "gavel",
+      "proposed_figma_name": "gavel",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "gear",
+      "proposed_figma_name": "gear",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "github-logo",
+      "proposed_figma_name": "github-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "globe",
+      "proposed_figma_name": "globe",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "globe-simple-x",
+      "proposed_figma_name": "globe-simple-x",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "golf",
+      "proposed_figma_name": "golf",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "gps",
+      "proposed_figma_name": "gps",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "gps-slash",
+      "proposed_figma_name": "gps-slash",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "graduation-cap",
+      "proposed_figma_name": "graduation-cap",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "hand-tap",
+      "proposed_figma_name": "hand-tap",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "hard-hat",
+      "proposed_figma_name": "hard-hat",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "horse",
+      "proposed_figma_name": "horse",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "hospital",
+      "proposed_figma_name": "hospital",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "house",
+      "proposed_figma_name": "house",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "house-line",
+      "proposed_figma_name": "house-line",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "identification-card",
+      "proposed_figma_name": "identification-card",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "image-broken",
+      "proposed_figma_name": "image-broken",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "images",
+      "proposed_figma_name": "images",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "info",
+      "proposed_figma_name": "info",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "instagram-logo",
+      "proposed_figma_name": "instagram-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "key",
+      "proposed_figma_name": "key",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "laptop",
+      "proposed_figma_name": "laptop",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "letter-circle-p",
+      "proposed_figma_name": "letter-circle-p",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "lighthouse",
+      "proposed_figma_name": "lighthouse",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "line-vertical",
+      "proposed_figma_name": "line-vertical",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "link",
+      "proposed_figma_name": "link",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "link-break",
+      "proposed_figma_name": "link-break",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "linked-in-logo",
+      "proposed_figma_name": "linked-in-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "list",
+      "proposed_figma_name": "list",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "list-bullets",
+      "proposed_figma_name": "list-bullets",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "list-checks",
+      "proposed_figma_name": "list-checks",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "list-plus",
+      "proposed_figma_name": "list-plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "lock-simple",
+      "proposed_figma_name": "lock-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "lock-simple-open",
+      "proposed_figma_name": "lock-simple-open",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "log",
+      "proposed_figma_name": "log",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "magnifying-glass",
+      "proposed_figma_name": "magnifying-glass",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "magnifying-glass-minus",
+      "proposed_figma_name": "magnifying-glass-minus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "magnifying-glass-plus",
+      "proposed_figma_name": "magnifying-glass-plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "map-pin",
+      "proposed_figma_name": "map-pin",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "map-pin-area",
+      "proposed_figma_name": "map-pin-area",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "map-trifold",
+      "proposed_figma_name": "map-trifold",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "medal",
+      "proposed_figma_name": "medal",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "medium-logo",
+      "proposed_figma_name": "medium-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "microphone",
+      "proposed_figma_name": "microphone",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "microscope",
+      "proposed_figma_name": "microscope",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "minus",
+      "proposed_figma_name": "minus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "money",
+      "proposed_figma_name": "money",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "moon",
+      "proposed_figma_name": "moon",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "moped",
+      "proposed_figma_name": "moped",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "mosquito",
+      "proposed_figma_name": "mosquito",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "motorcycle",
+      "proposed_figma_name": "motorcycle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "mountains",
+      "proposed_figma_name": "mountains",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "neurodivergence",
+      "proposed_figma_name": "neurodivergence",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "note-pencil",
+      "proposed_figma_name": "note-pencil",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "open-now",
+      "proposed_figma_name": "open-now",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "paperclip",
+      "proposed_figma_name": "paperclip",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "park",
+      "proposed_figma_name": "park",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "paw-print",
+      "proposed_figma_name": "paw-print",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "pencil-ruler",
+      "proposed_figma_name": "pencil-ruler",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "pencil-simple",
+      "proposed_figma_name": "pencil-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "person-simple-bike",
+      "proposed_figma_name": "person-simple-bike",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "person-simple-circle",
+      "proposed_figma_name": "person-simple-circle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "person-simple-hike",
+      "proposed_figma_name": "person-simple-hike",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "person-simple-ski",
+      "proposed_figma_name": "person-simple-ski",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "person-simple-swim",
+      "proposed_figma_name": "person-simple-swim",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "phone-call",
+      "proposed_figma_name": "phone-call",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "picnic-table",
+      "proposed_figma_name": "picnic-table",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "play",
+      "proposed_figma_name": "play",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "plus",
+      "proposed_figma_name": "plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "plus-circle",
+      "proposed_figma_name": "plus-circle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "police-car",
+      "proposed_figma_name": "police-car",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "prescription",
+      "proposed_figma_name": "prescription",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "presentation-chart",
+      "proposed_figma_name": "presentation-chart",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "prohibit",
+      "proposed_figma_name": "prohibit",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "public-transportation",
+      "proposed_figma_name": "public-transportation",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "push-pin",
+      "proposed_figma_name": "push-pin",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "question",
+      "proposed_figma_name": "question",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "quotes",
+      "proposed_figma_name": "quotes",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "receipt",
+      "proposed_figma_name": "receipt",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "report",
+      "proposed_figma_name": "report",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "rss-simple",
+      "proposed_figma_name": "rss-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "sailboat",
+      "proposed_figma_name": "sailboat",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "scales",
+      "proposed_figma_name": "scales",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "school-bus",
+      "proposed_figma_name": "school-bus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "scooter",
+      "proposed_figma_name": "scooter",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "screencast",
+      "proposed_figma_name": "screencast",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "scroll",
+      "proposed_figma_name": "scroll",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "share",
+      "proposed_figma_name": "share",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "share-fat",
+      "proposed_figma_name": "share-fat",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "shield-check",
+      "proposed_figma_name": "shield-check",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "shield-star",
+      "proposed_figma_name": "shield-star",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "shopping-cart",
+      "proposed_figma_name": "shopping-cart",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "sign-language",
+      "proposed_figma_name": "sign-language",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "signature",
+      "proposed_figma_name": "signature",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "signin",
+      "proposed_figma_name": "signin",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "signout",
+      "proposed_figma_name": "signout",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "slack-logo",
+      "proposed_figma_name": "slack-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "sliders",
+      "proposed_figma_name": "sliders",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "sliders-horizontal",
+      "proposed_figma_name": "sliders-horizontal",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "smiley",
+      "proposed_figma_name": "smiley",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "snow-plow",
+      "proposed_figma_name": "snow-plow",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "stack",
+      "proposed_figma_name": "stack",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "stack-minus",
+      "proposed_figma_name": "stack-minus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "stack-plus",
+      "proposed_figma_name": "stack-plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "stairs",
+      "proposed_figma_name": "stairs",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "star",
+      "proposed_figma_name": "star",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "student",
+      "proposed_figma_name": "student",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "subway",
+      "proposed_figma_name": "subway",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "sun",
+      "proposed_figma_name": "sun",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "swimming-pool",
+      "proposed_figma_name": "swimming-pool",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "syringe",
+      "proposed_figma_name": "syringe",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "taxi",
+      "proposed_figma_name": "taxi",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "tent",
+      "proposed_figma_name": "tent",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "test-tube",
+      "proposed_figma_name": "test-tube",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "threads-logo",
+      "proposed_figma_name": "threads-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "thumbs-down",
+      "proposed_figma_name": "thumbs-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "thumbs-up",
+      "proposed_figma_name": "thumbs-up",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "traffic-cone",
+      "proposed_figma_name": "traffic-cone",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "traffic-signal",
+      "proposed_figma_name": "traffic-signal",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "train",
+      "proposed_figma_name": "train",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "train-regional",
+      "proposed_figma_name": "train-regional",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "transit",
+      "proposed_figma_name": "transit",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "translate",
+      "proposed_figma_name": "translate",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "trash",
+      "proposed_figma_name": "trash",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "tree",
+      "proposed_figma_name": "tree",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "tree-evergreen",
+      "proposed_figma_name": "tree-evergreen",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "truck",
+      "proposed_figma_name": "truck",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "truck-trailer",
+      "proposed_figma_name": "truck-trailer",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "upload-simple",
+      "proposed_figma_name": "upload-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "user",
+      "proposed_figma_name": "user",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "user-gear",
+      "proposed_figma_name": "user-gear",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "user-plus",
+      "proposed_figma_name": "user-plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "users-three",
+      "proposed_figma_name": "users-three",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "van",
+      "proposed_figma_name": "van",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "video",
+      "proposed_figma_name": "video",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "vimeo-logo",
+      "proposed_figma_name": "vimeo-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "virus",
+      "proposed_figma_name": "virus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "warning",
+      "proposed_figma_name": "warning",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "warning-circle",
+      "proposed_figma_name": "warning-circle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "waves",
+      "proposed_figma_name": "waves",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "wheelchair-motion",
+      "proposed_figma_name": "wheelchair-motion",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "wifi-medium",
+      "proposed_figma_name": "wifi-medium",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "wrench",
+      "proposed_figma_name": "wrench",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "x",
+      "proposed_figma_name": "x",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "x-logo",
+      "proposed_figma_name": "x-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "youtube-logo",
+      "proposed_figma_name": "youtube-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    }
+  ],
+  "renamed_high_confidence": [],
+  "renamed_needs_review": [],
+  "repo_only_stale": [
+    {
+      "repo_name": "check-payment",
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
+    }
+  ],
+  "repo_inventory": [
+    {
+      "repo_name": "accessible-trails",
+      "proposed_figma_name": "accessible-trails",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "airplane-tilt",
+      "proposed_figma_name": "airplane-tilt",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "ambulance",
+      "proposed_figma_name": "ambulance",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-counter-clockwise",
+      "proposed_figma_name": "arrow-counter-clockwise",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-down",
+      "proposed_figma_name": "arrow-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-elbow-down-right",
+      "proposed_figma_name": "arrow-elbow-down-right",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-elbow-right-down",
+      "proposed_figma_name": "arrow-elbow-right-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-left",
+      "proposed_figma_name": "arrow-left",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-right",
+      "proposed_figma_name": "arrow-right",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-square-out",
+      "proposed_figma_name": "arrow-square-out",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-up",
+      "proposed_figma_name": "arrow-up",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrows-counter-clockwise",
+      "proposed_figma_name": "arrows-counter-clockwise",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrows-in-simple",
+      "proposed_figma_name": "arrows-in-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrows-out",
+      "proposed_figma_name": "arrows-out",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "audio-description",
+      "proposed_figma_name": "audio-description",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "baby",
+      "proposed_figma_name": "baby",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "baby-carriage",
+      "proposed_figma_name": "baby-carriage",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "backpack",
+      "proposed_figma_name": "backpack",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "barn",
+      "proposed_figma_name": "barn",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "barricade",
+      "proposed_figma_name": "barricade",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "baseball",
+      "proposed_figma_name": "baseball",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "basket",
+      "proposed_figma_name": "basket",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "basketball",
+      "proposed_figma_name": "basketball",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bell-ringing",
+      "proposed_figma_name": "bell-ringing",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "binoculars",
+      "proposed_figma_name": "binoculars",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bird",
+      "proposed_figma_name": "bird",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bluesky-logo",
+      "proposed_figma_name": "bluesky-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "boat",
+      "proposed_figma_name": "boat",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "book-open-text",
+      "proposed_figma_name": "book-open-text",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bookmark-simple",
+      "proposed_figma_name": "bookmark-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "books",
+      "proposed_figma_name": "books",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "boot",
+      "proposed_figma_name": "boot",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "braille",
+      "proposed_figma_name": "braille",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bridge",
+      "proposed_figma_name": "bridge",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bug",
+      "proposed_figma_name": "bug",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "building",
+      "proposed_figma_name": "building",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "building-apartment",
+      "proposed_figma_name": "building-apartment",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bulldozer",
+      "proposed_figma_name": "bulldozer",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "bus",
+      "proposed_figma_name": "bus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "calendar",
+      "proposed_figma_name": "calendar",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "calendar-blank",
+      "proposed_figma_name": "calendar-blank",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "camera",
+      "proposed_figma_name": "camera",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "camera-plus",
+      "proposed_figma_name": "camera-plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "campfire",
+      "proposed_figma_name": "campfire",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "car",
+      "proposed_figma_name": "car",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-circle-right",
+      "proposed_figma_name": "caret-circle-right",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-double-right",
+      "proposed_figma_name": "caret-double-right",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-down",
+      "proposed_figma_name": "caret-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-left",
+      "proposed_figma_name": "caret-left",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-right",
+      "proposed_figma_name": "caret-right",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-up",
+      "proposed_figma_name": "caret-up",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "caret-up-down",
+      "proposed_figma_name": "caret-up-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "carrot",
+      "proposed_figma_name": "carrot",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "castle-turret",
+      "proposed_figma_name": "castle-turret",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "catalog",
+      "proposed_figma_name": "catalog",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "certificate",
+      "proposed_figma_name": "certificate",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "chart-line-up",
+      "proposed_figma_name": "chart-line-up",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "chat-circle",
+      "proposed_figma_name": "chat-circle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "chat-circle-dots",
+      "proposed_figma_name": "chat-circle-dots",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "check",
+      "proposed_figma_name": "check",
+      "status": "exact_name_match",
+      "confidence": "high_with_collision",
+      "notes": "Multiple Figma components normalize to this name: Check, Check"
+    },
+    {
+      "repo_name": "check-circle",
+      "proposed_figma_name": "check-circle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "check-payment",
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
+    },
+    {
+      "repo_name": "clipboard-text",
+      "proposed_figma_name": "clipboard-text",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "clock-counter-clockwise",
+      "proposed_figma_name": "clock-counter-clockwise",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "closed-captioning",
+      "proposed_figma_name": "closed-captioning",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "contrast-eye",
+      "proposed_figma_name": "contrast-eye",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "copy",
+      "proposed_figma_name": "copy",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "cow",
+      "proposed_figma_name": "cow",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "credit-card",
+      "proposed_figma_name": "credit-card",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "database",
+      "proposed_figma_name": "database",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "detective",
+      "proposed_figma_name": "detective",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "dna",
+      "proposed_figma_name": "dna",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "dog",
+      "proposed_figma_name": "dog",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "dots-three",
+      "proposed_figma_name": "dots-three",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "dots-three-vertical",
+      "proposed_figma_name": "dots-three-vertical",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "download-simple",
+      "proposed_figma_name": "download-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "ear",
+      "proposed_figma_name": "ear",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "ear-slash",
+      "proposed_figma_name": "ear-slash",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "elevator",
+      "proposed_figma_name": "elevator",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "envelope",
+      "proposed_figma_name": "envelope",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "escalator-down",
+      "proposed_figma_name": "escalator-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "escalator-up",
+      "proposed_figma_name": "escalator-up",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "export",
+      "proposed_figma_name": "export",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "eye",
+      "proposed_figma_name": "eye",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "eye-slash",
+      "proposed_figma_name": "eye-slash",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "facebook-logo",
+      "proposed_figma_name": "facebook-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "farm",
+      "proposed_figma_name": "farm",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "fax-icon",
+      "proposed_figma_name": "fax-icon",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file",
+      "proposed_figma_name": "file",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-arrow-down",
+      "proposed_figma_name": "file-arrow-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-doc",
+      "proposed_figma_name": "file-doc",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-image",
+      "proposed_figma_name": "file-image",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-jpg",
+      "proposed_figma_name": "file-jpg",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-pdf",
+      "proposed_figma_name": "file-pdf",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-png",
+      "proposed_figma_name": "file-png",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-svg",
+      "proposed_figma_name": "file-svg",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-video",
+      "proposed_figma_name": "file-video",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-xls",
+      "proposed_figma_name": "file-xls",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "file-zip",
+      "proposed_figma_name": "file-zip",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "fingerprint",
+      "proposed_figma_name": "fingerprint",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "fire-truck",
+      "proposed_figma_name": "fire-truck",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "first-aid",
+      "proposed_figma_name": "first-aid",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "first-aid-kit",
+      "proposed_figma_name": "first-aid-kit",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "fish",
+      "proposed_figma_name": "fish",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "flickr-logo",
+      "proposed_figma_name": "flickr-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "folder-minus",
+      "proposed_figma_name": "folder-minus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "folder-simple-plus",
+      "proposed_figma_name": "folder-simple-plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "funnel",
+      "proposed_figma_name": "funnel",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "gas-pump",
+      "proposed_figma_name": "gas-pump",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "gauge",
+      "proposed_figma_name": "gauge",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "gavel",
+      "proposed_figma_name": "gavel",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "gear",
+      "proposed_figma_name": "gear",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "github-logo",
+      "proposed_figma_name": "github-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "globe",
+      "proposed_figma_name": "globe",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "globe-simple-x",
+      "proposed_figma_name": "globe-simple-x",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "golf",
+      "proposed_figma_name": "golf",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "gps",
+      "proposed_figma_name": "gps",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "gps-slash",
+      "proposed_figma_name": "gps-slash",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "graduation-cap",
+      "proposed_figma_name": "graduation-cap",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "hand-tap",
+      "proposed_figma_name": "hand-tap",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "hard-hat",
+      "proposed_figma_name": "hard-hat",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "horse",
+      "proposed_figma_name": "horse",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "hospital",
+      "proposed_figma_name": "hospital",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "house",
+      "proposed_figma_name": "house",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "house-line",
+      "proposed_figma_name": "house-line",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "identification-card",
+      "proposed_figma_name": "identification-card",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "image-broken",
+      "proposed_figma_name": "image-broken",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "images",
+      "proposed_figma_name": "images",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "info",
+      "proposed_figma_name": "info",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "instagram-logo",
+      "proposed_figma_name": "instagram-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "key",
+      "proposed_figma_name": "key",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "laptop",
+      "proposed_figma_name": "laptop",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "letter-circle-p",
+      "proposed_figma_name": "letter-circle-p",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "lighthouse",
+      "proposed_figma_name": "lighthouse",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "line-vertical",
+      "proposed_figma_name": "line-vertical",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "link",
+      "proposed_figma_name": "link",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "link-break",
+      "proposed_figma_name": "link-break",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "linked-in-logo",
+      "proposed_figma_name": "linked-in-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "list",
+      "proposed_figma_name": "list",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "list-bullets",
+      "proposed_figma_name": "list-bullets",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "list-checks",
+      "proposed_figma_name": "list-checks",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "list-plus",
+      "proposed_figma_name": "list-plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "lock-simple",
+      "proposed_figma_name": "lock-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "lock-simple-open",
+      "proposed_figma_name": "lock-simple-open",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "log",
+      "proposed_figma_name": "log",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "magnifying-glass",
+      "proposed_figma_name": "magnifying-glass",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "magnifying-glass-minus",
+      "proposed_figma_name": "magnifying-glass-minus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "magnifying-glass-plus",
+      "proposed_figma_name": "magnifying-glass-plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "map-pin",
+      "proposed_figma_name": "map-pin",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "map-pin-area",
+      "proposed_figma_name": "map-pin-area",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "map-trifold",
+      "proposed_figma_name": "map-trifold",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "medal",
+      "proposed_figma_name": "medal",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "medium-logo",
+      "proposed_figma_name": "medium-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "microphone",
+      "proposed_figma_name": "microphone",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "microscope",
+      "proposed_figma_name": "microscope",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "minus",
+      "proposed_figma_name": "minus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "money",
+      "proposed_figma_name": "money",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "moon",
+      "proposed_figma_name": "moon",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "moped",
+      "proposed_figma_name": "moped",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "mosquito",
+      "proposed_figma_name": "mosquito",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "motorcycle",
+      "proposed_figma_name": "motorcycle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "mountains",
+      "proposed_figma_name": "mountains",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "neurodivergence",
+      "proposed_figma_name": "neurodivergence",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "note-pencil",
+      "proposed_figma_name": "note-pencil",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "open-now",
+      "proposed_figma_name": "open-now",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "paperclip",
+      "proposed_figma_name": "paperclip",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "park",
+      "proposed_figma_name": "park",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "paw-print",
+      "proposed_figma_name": "paw-print",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "pencil-ruler",
+      "proposed_figma_name": "pencil-ruler",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "pencil-simple",
+      "proposed_figma_name": "pencil-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "person-simple-bike",
+      "proposed_figma_name": "person-simple-bike",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "person-simple-circle",
+      "proposed_figma_name": "person-simple-circle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "person-simple-hike",
+      "proposed_figma_name": "person-simple-hike",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "person-simple-ski",
+      "proposed_figma_name": "person-simple-ski",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "person-simple-swim",
+      "proposed_figma_name": "person-simple-swim",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "phone-call",
+      "proposed_figma_name": "phone-call",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "picnic-table",
+      "proposed_figma_name": "picnic-table",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "play",
+      "proposed_figma_name": "play",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "plus",
+      "proposed_figma_name": "plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "plus-circle",
+      "proposed_figma_name": "plus-circle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "police-car",
+      "proposed_figma_name": "police-car",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "prescription",
+      "proposed_figma_name": "prescription",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "presentation-chart",
+      "proposed_figma_name": "presentation-chart",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "prohibit",
+      "proposed_figma_name": "prohibit",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "public-transportation",
+      "proposed_figma_name": "public-transportation",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "push-pin",
+      "proposed_figma_name": "push-pin",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "question",
+      "proposed_figma_name": "question",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "quotes",
+      "proposed_figma_name": "quotes",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "receipt",
+      "proposed_figma_name": "receipt",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "report",
+      "proposed_figma_name": "report",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "rss-simple",
+      "proposed_figma_name": "rss-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "sailboat",
+      "proposed_figma_name": "sailboat",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "scales",
+      "proposed_figma_name": "scales",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "school-bus",
+      "proposed_figma_name": "school-bus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "scooter",
+      "proposed_figma_name": "scooter",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "screencast",
+      "proposed_figma_name": "screencast",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "scroll",
+      "proposed_figma_name": "scroll",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "share",
+      "proposed_figma_name": "share",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "share-fat",
+      "proposed_figma_name": "share-fat",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "shield-check",
+      "proposed_figma_name": "shield-check",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "shield-star",
+      "proposed_figma_name": "shield-star",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "shopping-cart",
+      "proposed_figma_name": "shopping-cart",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "sign-language",
+      "proposed_figma_name": "sign-language",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "signature",
+      "proposed_figma_name": "signature",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "signin",
+      "proposed_figma_name": "signin",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "signout",
+      "proposed_figma_name": "signout",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "slack-logo",
+      "proposed_figma_name": "slack-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "sliders",
+      "proposed_figma_name": "sliders",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "sliders-horizontal",
+      "proposed_figma_name": "sliders-horizontal",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "smiley",
+      "proposed_figma_name": "smiley",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "snow-plow",
+      "proposed_figma_name": "snow-plow",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "stack",
+      "proposed_figma_name": "stack",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "stack-minus",
+      "proposed_figma_name": "stack-minus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "stack-plus",
+      "proposed_figma_name": "stack-plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "stairs",
+      "proposed_figma_name": "stairs",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "star",
+      "proposed_figma_name": "star",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "student",
+      "proposed_figma_name": "student",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "subway",
+      "proposed_figma_name": "subway",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "sun",
+      "proposed_figma_name": "sun",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "swimming-pool",
+      "proposed_figma_name": "swimming-pool",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "syringe",
+      "proposed_figma_name": "syringe",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "taxi",
+      "proposed_figma_name": "taxi",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "tent",
+      "proposed_figma_name": "tent",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "test-tube",
+      "proposed_figma_name": "test-tube",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "threads-logo",
+      "proposed_figma_name": "threads-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "thumbs-down",
+      "proposed_figma_name": "thumbs-down",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "thumbs-up",
+      "proposed_figma_name": "thumbs-up",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "traffic-cone",
+      "proposed_figma_name": "traffic-cone",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "traffic-signal",
+      "proposed_figma_name": "traffic-signal",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "train",
+      "proposed_figma_name": "train",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "train-regional",
+      "proposed_figma_name": "train-regional",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "transit",
+      "proposed_figma_name": "transit",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "translate",
+      "proposed_figma_name": "translate",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "trash",
+      "proposed_figma_name": "trash",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "tree",
+      "proposed_figma_name": "tree",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "tree-evergreen",
+      "proposed_figma_name": "tree-evergreen",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "truck",
+      "proposed_figma_name": "truck",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "truck-trailer",
+      "proposed_figma_name": "truck-trailer",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "upload-simple",
+      "proposed_figma_name": "upload-simple",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "user",
+      "proposed_figma_name": "user",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "user-gear",
+      "proposed_figma_name": "user-gear",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "user-plus",
+      "proposed_figma_name": "user-plus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "users-three",
+      "proposed_figma_name": "users-three",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "van",
+      "proposed_figma_name": "van",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "video",
+      "proposed_figma_name": "video",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "vimeo-logo",
+      "proposed_figma_name": "vimeo-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "virus",
+      "proposed_figma_name": "virus",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "warning",
+      "proposed_figma_name": "warning",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "warning-circle",
+      "proposed_figma_name": "warning-circle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "waves",
+      "proposed_figma_name": "waves",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "wheelchair-motion",
+      "proposed_figma_name": "wheelchair-motion",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "wifi-medium",
+      "proposed_figma_name": "wifi-medium",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "wrench",
+      "proposed_figma_name": "wrench",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "x",
+      "proposed_figma_name": "x",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "x-logo",
+      "proposed_figma_name": "x-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "youtube-logo",
+      "proposed_figma_name": "youtube-logo",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    }
+  ],
+  "figma_only": []
+}

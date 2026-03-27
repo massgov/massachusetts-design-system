@@ -7,6 +7,8 @@
   ],
   "scripts": {
     "build": "node ./scripts/build.js",
+    "inventory:figma-icons": "node ./src/icons/scripts/icon-name-inventory.js",
+    "sync:figma-icons": "node ./src/icons/scripts/applyFigmaIconManifest.js",
     "prepublishOnly": "node ./scripts/build.js",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "version:patch": "npm version patch",
