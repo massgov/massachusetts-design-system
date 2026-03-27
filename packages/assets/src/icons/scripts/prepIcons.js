@@ -3,49 +3,63 @@ const path = require('path');
 const { optimize } = require('svgo');
 const svgoConfig = require('./svgo.config.js');
 
-function prepIcons(iconsDir) {
-  if (!fs.existsSync(iconsDir)) {
-    console.error(`Directory not found: ${iconsDir}`);
+function resolveOptions(input, maybeOptions = {}) {
+  if (typeof input === 'string') {
+    return {
+      sourceDir: input,
+      inPlace: true,
+      ...maybeOptions,
+    };
+  }
+
+  return {
+    inPlace: true,
+    ...input,
+  };
+}
+
+function prepIcons(input, maybeOptions = {}) {
+  const { sourceDir, outputDir, inPlace } = resolveOptions(input, maybeOptions);
+
+  if (!sourceDir) {
+    throw new Error('prepIcons requires a sourceDir');
+  }
+
+  if (!fs.existsSync(sourceDir)) {
+    console.error(`Directory not found: ${sourceDir}`);
     return;
   }
 
-  // Function to process a single SVG file
   function processSvgFile(filePath) {
     let svgContent;
-    
+
     try {
       svgContent = fs.readFileSync(filePath, 'utf8');
-      // Use SVGO to optimize
       const result = optimize(svgContent, {
         path: filePath,
         ...svgoConfig
       });
-      
+
       svgContent = result.data;
-      
-      // Write back to the same file
       fs.writeFileSync(filePath, svgContent);
-      
+
       return { success: true };
-      
     } catch (error) {
       console.error(`❌ Error processing ${path.basename(filePath)}:`, error.message);
       return { success: false, error: error.message };
     }
   }
 
-  // Function to recursively find all SVG files
   function findSvgFiles(dir, basePath = '') {
     const files = [];
     const items = fs.readdirSync(dir);
-    
+
     items.forEach(item => {
       const fullPath = path.join(dir, item);
       const relativePath = path.join(basePath, item);
       const stat = fs.statSync(fullPath);
-      
+
       if (stat.isDirectory()) {
-        // Recursively process subdirectories
         files.push(...findSvgFiles(fullPath, relativePath));
       } else if (item.endsWith('.svg')) {
         files.push({
@@ -54,44 +68,75 @@ function prepIcons(iconsDir) {
         });
       }
     });
-    
+
     return files;
   }
 
-  // Find all SVG files recursively
-  const svgFiles = findSvgFiles(iconsDir);
-  let processedCount = 0;
+  function processDirectory(targetDir, label) {
+    const svgFiles = findSvgFiles(targetDir);
+    let processedCount = 0;
 
-  console.log(`Found ${svgFiles.length} SVG files to process...`);
+    console.log(`Found ${svgFiles.length} SVG files to process in ${label}...`);
 
-  svgFiles.forEach(fileInfo => {
-    const { fullPath, relativePath } = fileInfo;
-    
-    // Process the file in place
-    const result = processSvgFile(fullPath);
-    
-    if (result.success) {
-      console.log(`✅ Processed: ${relativePath}`);
-      processedCount++;
-    }
-  });
+    svgFiles.forEach(fileInfo => {
+      const { fullPath, relativePath } = fileInfo;
+      const result = processSvgFile(fullPath);
 
-  console.log(`\n🎉 Successfully processed ${processedCount} SVG files`);
+      if (result.success) {
+        console.log(`✅ Processed (${label}): ${relativePath}`);
+        processedCount++;
+      }
+    });
 
-  return {
-    processedCount,
-    totalFiles: svgFiles.length
-  };
+    return {
+      processedCount,
+      totalFiles: svgFiles.length
+    };
+  }
+
+  const summary = {};
+
+  if (outputDir) {
+    fs.mkdirSync(path.dirname(outputDir), { recursive: true });
+    fs.cpSync(sourceDir, outputDir, { recursive: true });
+    summary.output = processDirectory(outputDir, 'output');
+  }
+
+  if (inPlace) {
+    summary.inPlace = processDirectory(sourceDir, 'source');
+  }
+
+  if (!outputDir && !inPlace) {
+    throw new Error('prepIcons requires at least one target: inPlace or outputDir');
+  }
+
+  if (summary.output && summary.inPlace) {
+    console.log(
+      `\n🎉 Processed ${summary.inPlace.processedCount} source SVGs and ${summary.output.processedCount} output SVGs`
+    );
+  } else {
+    const result = summary.output || summary.inPlace;
+    console.log(`\n🎉 Successfully processed ${result.processedCount} SVG files`);
+  }
+
+  return summary;
 }
 
-// CLI usage
 if (require.main === module) {
   const defaultIconsDir = path.join(__dirname, '../static');
-  const iconsDir = process.argv[2] || defaultIconsDir;
-  
+  const args = process.argv.slice(2);
+  const sourceDir = args[0] || defaultIconsDir;
+  const outputFlagIndex = args.indexOf('--output');
+  const outputDir = outputFlagIndex >= 0 ? args[outputFlagIndex + 1] : '';
+  const noInPlace = args.includes('--no-in-place');
+
   console.log('🔧 Processing SVG files with SVGO...\n');
-  
-  prepIcons(iconsDir);
+
+  prepIcons({
+    sourceDir,
+    outputDir: outputDir || undefined,
+    inPlace: !noInPlace,
+  });
 }
 
 module.exports = prepIcons;

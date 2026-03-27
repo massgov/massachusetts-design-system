@@ -4,6 +4,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..', 'static');
 const OUT_JSON = path.join(__dirname, 'icon-name-inventory.json');
 const OUT_CSV = path.join(__dirname, 'icon-name-inventory.csv');
+const DEFAULT_FIGMA_NAMES_PATH = path.join(__dirname, 'figma-component-set-names.json');
 
 const FIGMA_NAMES = [
   'AccessibleTrails',
@@ -317,6 +318,30 @@ const RENAMED_REVIEW = {
   'wait-time': 'clock-counter-clockwise',
 };
 
+function parseArgs(argv) {
+  const args = {
+    figmaNamesPath: fs.existsSync(DEFAULT_FIGMA_NAMES_PATH) ? DEFAULT_FIGMA_NAMES_PATH : '',
+    outJson: OUT_JSON,
+    outCsv: OUT_CSV,
+  };
+
+  for (let i = 2; i < argv.length; i += 1) {
+    const arg = argv[i];
+    if (arg === '--figma-names') {
+      args.figmaNamesPath = argv[i + 1] || '';
+      i += 1;
+    } else if (arg === '--out-json') {
+      args.outJson = argv[i + 1] || OUT_JSON;
+      i += 1;
+    } else if (arg === '--out-csv') {
+      args.outCsv = argv[i + 1] || OUT_CSV;
+      i += 1;
+    }
+  }
+
+  return args;
+}
+
 function normalizeName(name) {
   return name
     .replace(/-mds$/i, '')
@@ -340,12 +365,34 @@ function escapeCsv(value) {
   return `"${stringValue.replace(/"/g, '""')}"`;
 }
 
+function loadFigmaNames(figmaNamesPath) {
+  if (!figmaNamesPath) {
+    return FIGMA_NAMES;
+  }
+
+  const raw = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), figmaNamesPath), 'utf8'));
+
+  if (!Array.isArray(raw)) {
+    throw new Error('Figma names input must be a JSON array');
+  }
+
+  return raw
+    .map((item) => {
+      if (typeof item === 'string') return item;
+      if (item && typeof item === 'object' && typeof item.name === 'string') return item.name;
+      throw new Error(`Unsupported Figma names entry: ${JSON.stringify(item)}`);
+    })
+    .filter(Boolean);
+}
+
+const { figmaNamesPath, outJson, outCsv } = parseArgs(process.argv);
 const regularRepoNames = listSvgBaseNames(ROOT);
 const boldRepoNames = listSvgBaseNames(path.join(ROOT, 'bold')).map((name) =>
   name.replace(/--bold$/, '')
 );
+const figmaNames = loadFigmaNames(figmaNamesPath);
 
-const figmaNormalized = FIGMA_NAMES.map((name) => ({
+const figmaNormalized = figmaNames.map((name) => ({
   figma_name: name,
   normalized_name: normalizeName(name),
 }));
@@ -413,20 +460,22 @@ const figmaOnly = figmaNormalized
     status: 'figma_only_new_or_unmapped',
   }));
 
+const exactMatches = inventory.filter((item) => item.status === 'exact_name_match');
+const renamedHighConfidence = inventory.filter((item) => item.status === 'renamed_high_confidence');
+const renamedNeedsReview = inventory.filter((item) => item.status === 'renamed_needs_review');
+const repoOnlyStale = inventory.filter((item) => item.status === 'repo_only_unmapped');
+
 const output = {
   generated_at: new Date().toISOString(),
+  figma_names_source: figmaNamesPath || 'built-in-defaults',
   summary: {
     repo_regular_count: regularRepoNames.length,
     repo_bold_count: boldRepoNames.length,
-    figma_component_set_count: FIGMA_NAMES.length,
-    exact_name_match_count: inventory.filter((item) => item.status === 'exact_name_match').length,
-    renamed_high_confidence_count: inventory.filter(
-      (item) => item.status === 'renamed_high_confidence'
-    ).length,
-    renamed_needs_review_count: inventory.filter(
-      (item) => item.status === 'renamed_needs_review'
-    ).length,
-    repo_only_unmapped_count: inventory.filter((item) => item.status === 'repo_only_unmapped').length,
+    figma_component_set_count: figmaNames.length,
+    exact_name_match_count: exactMatches.length,
+    renamed_high_confidence_count: renamedHighConfidence.length,
+    renamed_needs_review_count: renamedNeedsReview.length,
+    repo_only_unmapped_count: repoOnlyStale.length,
     figma_only_new_or_unmapped_count: figmaOnly.length,
   },
   notes: [
@@ -435,6 +484,10 @@ const output = {
     'A few names in Figma collide after normalization, for example Check and Check-mds both normalize to check.',
     'High-confidence renames are intended to be safe for bulk rename planning. Needs-review entries should be spot-checked in Figma before applying.',
   ],
+  exact_matches: exactMatches,
+  renamed_high_confidence: renamedHighConfidence,
+  renamed_needs_review: renamedNeedsReview,
+  repo_only_stale: repoOnlyStale,
   repo_inventory: inventory,
   figma_only: figmaOnly,
 };
@@ -457,11 +510,11 @@ const csvRows = [
   ]),
 ];
 
-fs.writeFileSync(OUT_JSON, `${JSON.stringify(output, null, 2)}\n`);
+fs.writeFileSync(outJson, `${JSON.stringify(output, null, 2)}\n`);
 fs.writeFileSync(
-  OUT_CSV,
+  outCsv,
   `${csvRows.map((row) => row.map(escapeCsv).join(',')).join('\n')}\n`
 );
 
-console.log(`Wrote ${OUT_JSON}`);
-console.log(`Wrote ${OUT_CSV}`);
+console.log(`Wrote ${outJson}`);
+console.log(`Wrote ${outCsv}`);
