@@ -36,12 +36,14 @@ dist/
 
 ### Icons
 
-Most icons come from the open source [Phosphor icon library](https://phosphoricons.com/), with additional Massachusetts-specific icons designed in a compatible style.
+All icons are exported from the [Massachusetts Design System Figma Icon Library](https://www.figma.com/design/ZpxjY5M188i4ItGIvW9Y0s/Icons?t=9d9doUJlYvsBBWr2-0) and optimized for web use in this package. Many icons originate from the open source [Phosphor icon library](https://phosphoricons.com/), with additional Massachusetts-specific icons designed in a compatible style.
 
 - Regular icons live in `dist/icons`
 - Bold icons live in `dist/icons/bold`
 - Filenames use kebab-case
 - Bold variants use the `--bold` suffix
+
+Figma component names use PascalCase, while exported asset filenames use kebab-case. For example, `ArrowUp` in Figma is published as `dist/icons/arrow-up.svg`.
 
 Examples:
 
@@ -49,6 +51,8 @@ Examples:
 dist/icons/alert.svg
 dist/icons/bold/alert--bold.svg
 ```
+
+To browse or search the full icon library, use the [MDS Figma Icon Library](https://www.figma.com/design/ZpxjY5M188i4ItGIvW9Y0s/Icons?node-id=1-40&p=f&t=lYV37uQJ95Vn46ZJ-0).
 
 Style guidance:
 
