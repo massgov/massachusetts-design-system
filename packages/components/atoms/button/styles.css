@@ -1,0 +1,78 @@
+/** 
+    Button styles
+**/
+
+
+.mds-button {
+    padding: var(--mds-space-sm);
+    font-size: var(--mds-text-body-lg, 18px);
+    border-radius: var(--mds-radius-md);
+    box-sizing: border-box;
+    border: 0;
+    height: 3.5rem;
+    vertical-align: bottom;
+}
+
+.mds-button--icon {
+    padding: 0;
+}
+
+.mds-button--fill {
+    background-color: var(--mds-background-adaptive-brand-primary-mid);
+    color: var(--mds-inverse);
+    fill: var(--mds-inverse);
+    border-color: var(--mds-background-section-brand-primary-mid);
+}
+
+.mds-button--fill svg {
+    fill: var(--mds-inverse);
+}
+
+.mds-button--fill.mds-button-- {
+    background-color: var(--mds-background-section-brand-secondary-mid);
+    border-color: var(--mds-background-section-brand-secondary-mid);
+}
+
+.mds-button--fill.mds-button--accent:hover, .mds-button--accent.mds-button--outline:hover {
+    background-color: var(--mds-background-section-brand-secondary-highest);
+    color: var(--mds-inverse); /** Use adaptive for interactive*/
+}
+
+.mds-button--outline {
+    background-color: var(--mds-inverse);
+    border: 2px solid var(--mds-background-section-brand-primary-mid);
+    color: var(--mds-background-section-brand-primary-mid);
+}
+
+.mds-button--accent.mds-button--outline {
+    color: var(--mds-background-section-brand-secondary-mid);
+    border: 2px solid var(--mds-background-section-brand-secondary-mid);
+}
+
+.mds-button--ghost.accent {
+    color: var(--mds-background-section-brand-secondary-mid);
+}
+
+.mds-button--ghost {
+    border: none;
+    background-color: var(--mds-inverse);
+    color: var(--mds-background-section-brand-primary-mid);
+}
+
+.mds-button--ghost:hover {
+    border: none;
+    background-color: var(--mds-inverse);
+    color: var(--mds-background-section-brand-primary-mid);
+    text-decoration: underline;
+}
+
+.mds-button--small {
+    padding: var(--mds-space-2xs, 8px) var(--mds-space-sm, 16px);
+    font-size: var(--mds-text-body-sm, 14px)
+}
+
+.mds-button:hover, .mds-button--outline:hover {
+    background-color: var(--mds-background-section-brand-primary-highest);
+    color: var(--mds-inverse);
+    box-shadow: var(--mds-shadow-hover-sm);
+}
