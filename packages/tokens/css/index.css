@@ -129,20 +129,12 @@
   --mds-static-white: var(--mds-color-utility-base-white);
   --mds-static-black: var(--mds-color-utility-base-black);
   --mds-static-light-gray: var(--mds-color-brand-gray-100);
-  --mds-static-blue-mid: var(--mds-color-brand-bay-blue-1000); /** is this data viz or in general?**/
-
-  /** Do we need these anymore? **/
-  --mds-static-inverse: var(--mds-color-utility-base-white);
-  --mds-white: var(--mds-color-utility-base-white);
-  --mds-black: var(--mds-color-utility-base-black);
-  --mds-inverse: var(--mds-color-utility-base-white);
-  /**?**/
+  --mds-static-blue-mid: var(--mds-color-brand-bay-blue-1000); 
   
-  /** Data Viz Colors **/
-  --mds-static-green-mid: var(--mds-color-brand-berkshires-green-1000);
-  --mds-static-green-mid: var(--mds-color-brand-berkshires-green-1000);
-  --mds-static-yellow-mid: var(--mds-color-brand-duckling-yellow-1000);
+  /** Misc **/
+  --mds-inverse: var(--mds-color-utility-base-white); /** Switched based on light/dark mode **/
 
+/** End color variables **/
 
 /**
  * Corner (border radius) tokens used in the theme.
