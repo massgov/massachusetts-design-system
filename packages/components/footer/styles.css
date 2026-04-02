@@ -1,6 +1,7 @@
 @import url("../../tokens/css/index.css");
 @import url("../atoms/button/styles.css");
 
+/** Do we need any of this ? */
 :root {
   color-scheme: light;
 }
@@ -15,22 +16,6 @@ html,
 body {
   margin: 0;
   min-height: 100%;
-}
-
-body,
-button,
-a {
-  font-family: "Noto Sans", "Helvetica", "Arial", sans-serif;
-}
-
-body {
-  color: var(--mds-text-and-icons-brand-neutral-default);
-}
-
-body.demo-page {
-  background:
-    radial-gradient(circle at top left, rgba(20, 85, 143, 0.12), transparent 28rem),
-    linear-gradient(180deg, #ffffff 0%, var(--mds-background-adaptive-brand-primary-lowest) 100%);
 }
 
 h1,
@@ -49,9 +34,32 @@ a:hover {
   text-decoration: underline;
 }
 
+/** ? **/
+
+body,
+button,
+a {
+  font-family: "Noto Sans", "Helvetica", "Arial", sans-serif;
+}
+
+body {
+  color: var(--mds-text-and-icons-brand-neutral-default);
+}
+
+body.demo-page {
+  background:
+    radial-gradient(circle at top left, rgba(20, 85, 143, 0.12), transparent 28rem),
+    linear-gradient(180deg, #ffffff 0%, var(--mds-background-adaptive-brand-primary-lowest) 100%);
+}
+
+
+
 :focus-visible {
+  border-radius: var(--mds-radius-sm);
+  /** do we need the explicitly set outline? **/
   outline: 3px solid var(--mds-border-focus-on-light);
   outline-offset: 3px;
+  
 }
 
 .footer-page {
@@ -116,7 +124,6 @@ a:hover {
 .mds-footer__brand {
   display: grid;
   gap: var(--mds-space-md);
-  min-width: 0;
 }
 
 .mds-footer__masthead {
@@ -161,7 +168,7 @@ a:hover {
 .mds-footer__social-link svg {
   width: 1.5rem;
   height: 1.5rem;
-  fill: currentColor;
+  fill: var(--mds-inverse);
 }
 
 .mds-footer__description,
@@ -175,7 +182,6 @@ a:hover {
   display: grid;
   gap: var(--mds-space-xs);
   padding-top: var(--mds-space-2xs);
-  min-width: 0;
 }
 
 .mds-footer__column-title {
@@ -203,6 +209,7 @@ a:hover {
   font: var(--mds-text-label);
 }
 
+/** do we need this class? It should just be controled by links **/
 .mds-footer__list-item--interactive {
   color: var(--mds-text-and-icons-brand-primary-mid);
 }
@@ -211,12 +218,8 @@ a:hover {
   width: 1.125rem;
   height: 1.125rem;
   flex: none;
-  color: currentColor;
-}
-
-.mds-footer__link-icon--arrow {
-  width: 1rem;
-  height: 1rem;
+  fill: var(--mds-background-adaptive-brand-primary-mid);
+  align-self: flex-start;
 }
 
 .mds-footer__utility {
@@ -244,6 +247,8 @@ a:hover {
 .mds-footer__copyright strong {
   font-weight: 600;
 }
+
+/** check these breakpoints **/
 
 @media (max-width: 1100px) {
   .mds-footer__columns {
