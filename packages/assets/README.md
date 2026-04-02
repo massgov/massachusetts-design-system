@@ -2,6 +2,13 @@
 
 Shared static assets for the Massachusetts Design System. This package publishes optimized icons, state seal files, and animation assets as plain files that can be consumed by applications, design system packages, or build pipelines.
 
+
+## Installation
+
+```bash
+npm install @massds/mds-assets
+```
+
 ## Package Contents
 
 The published package includes three asset groups under `dist/`:
@@ -25,22 +32,18 @@ dist/
     └── state-seal-white.svg
 ```
 
-## Installation
-
-```bash
-npm install @massds/assets
-```
-
 ## Asset Types
 
 ### Icons
 
-Most icons come from the open source [Phosphor icon library](https://phosphoricons.com/), with additional Massachusetts-specific icons designed in a compatible style.
+All icons are exported from the [Massachusetts Design System Figma Icon Library](https://www.figma.com/design/ZpxjY5M188i4ItGIvW9Y0s/Icons?t=9d9doUJlYvsBBWr2-0) and optimized for web use in this package. Many icons originate from the open source [Phosphor icon library](https://phosphoricons.com/), with additional Massachusetts-specific icons designed in a compatible style.
 
 - Regular icons live in `dist/icons`
 - Bold icons live in `dist/icons/bold`
 - Filenames use kebab-case
 - Bold variants use the `--bold` suffix
+
+Figma component names use PascalCase, while exported asset filenames use kebab-case. For example, `ArrowUp` in Figma is published as `dist/icons/arrow-up.svg`.
 
 Examples:
 
@@ -48,6 +51,8 @@ Examples:
 dist/icons/alert.svg
 dist/icons/bold/alert--bold.svg
 ```
+
+To browse or search the full icon library, use the [MDS Figma Icon Library](https://www.figma.com/design/ZpxjY5M188i4ItGIvW9Y0s/Icons?node-id=1-40&p=f&t=lYV37uQJ95Vn46ZJ-0).
 
 Style guidance:
 
@@ -88,13 +93,13 @@ src/
 
 ## Development
 
-Install dependencies:
+### Install dependencies:
 
 ```bash
 npm install
 ```
 
-Build the package:
+### Build the package:
 
 ```bash
 npm run build
@@ -102,12 +107,11 @@ npm run build
 
 The build script:
 
-- optimizes SVG files in `src/icons/static` in place using `svgo`
-- copies icons to `dist/icons`
+- optimizes SVG files from `src/icons/static` using `svgo` and outputs them to `dist/icons`
 - copies animation assets to `dist/animation`
 - copies state seal assets to `dist/state-seal`
 
-Clean the output directory:
+### Clean the output directory:
 
 ```bash
 npm run clean
@@ -162,6 +166,15 @@ For a full cleanup sync, use a full-library manifest and `--prune`. Only use sta
 
 1. Replace or add files in `src/animation`
 2. Run `npm run build`
+
+## Publishing
+
+The package is published to npm as `@massds/mds-assets` with the GitHub Actions workflow at `.github/workflows/publish-assets.yml`.
+
+The publish workflow:
+1. Update the version in `package.json` based on [semantic versioning](https://semver.org/)
+2. Create a release tag in the format `assets-v*`, e.g. `assets-v1.0.1`
+
 
 ## Sources
 

@@ -1,5 +1,5 @@
 {
-  "name": "@massds/assets",
+  "name": "@massds/mds-assets",
   "version": "1.0.0",
   "description": "Asset library for the Massachusetts Design System",
   "files": [
@@ -34,9 +34,10 @@
     "svgo": "^4.0.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
-    "engines": {
+  "engines": {
     "node": "24.14.0"
   },
   "volta": {
