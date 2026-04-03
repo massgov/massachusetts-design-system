@@ -9,3 +9,13 @@ When using these tokens for your project, use only the index.css file (Semantic 
 There are also files for testing these tokens that will not be included in the official release. These are index.html and styles.css. These files are to show how to connect the css to your html and can be used as a place to test components if needed. Do not include these files in your project as they are for testing only.
 
 Questions? Email the Massachusetts Design System Team at <designsystem@mass.gov>
+
+
+## Development
+
+Install dependencies and run the CSS linter from this package directory:
+
+```bash
+npm install
+npm run lint
+```

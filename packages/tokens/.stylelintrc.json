@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "rules": {
+    "alpha-value-notation": null,
+    "color-hex-length": "long",
+    "color-function-notation": null,
+    "custom-property-empty-line-before": null,
+    "import-notation": null,
+    "selector-class-pattern": null,
+    "value-keyword-case": [
+      "lower",
+      {
+        "ignoreKeywords": [
+          "Noto Sans"
+        ]
+      }
+    ]
+  }
+}
