@@ -8,14 +8,9 @@
     "color-function-notation": null,
     "custom-property-empty-line-before": null,
     "import-notation": null,
+    "font-family-name-quotes": "always-where-required",
+    "media-feature-range-notation": "prefix",
     "selector-class-pattern": null,
-    "value-keyword-case": [
-      "lower",
-      {
-        "ignoreKeywords": [
-          "Noto Sans"
-        ]
-      }
-    ]
+    "value-keyword-case": null
   }
 }

@@ -2,7 +2,8 @@
   "name": "@massds/mds-tokens",
   "private": true,
   "scripts": {
-    "lint": "stylelint \"css/**/*.css\" \"test-page/**/*.css\""
+    "lint": "stylelint \"css/**/*.css\" \"test-page/**/*.css\"",
+    "lint-fix": "stylelint --fix \"css/**/*.css\" \"test-page/**/*.css\""
   },
   "devDependencies": {
     "stylelint": "^16.24.0",

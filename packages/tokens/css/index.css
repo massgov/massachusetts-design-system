@@ -173,7 +173,7 @@
  *
  */
 
-  /** Body text**/
+  /** Body text **/
   --mds-text-body: var(--mds-font-size-200)/1.8 var(--mds-font-family);
   --mds-text-body-bold: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
   --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
@@ -187,6 +187,7 @@
   --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family-headings);
   --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.2 var(--mds-font-family-headings);
   --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-550)/1.1 var(--mds-font-family-headings);
+
   /** Labels **/
   --mds-text-label-sm: var(--mds-font-weight-medium) var(--mds-font-size-175)/1.2 var(--mds-font-family);
   --mds-text-label: var(--mds-font-weight-medium) var(--mds-font-size-200)/1.2 var(--mds-font-family);
@@ -197,6 +198,7 @@
   /** Eyebrow text (uppercase text labels). Needs 1px Letter spacing **/
   --mds-text-eyebrow: var(--mds-font-weight-semibold) var(--mds-font-size-175)/1 var(--mds-font-family);
   --mds-text-eyebrow-md: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1 var(--mds-font-family);
+
   /* uppercase must be set separately as a text-transform in addition to using these variables */
   --mds-text-transform-eyebrow: uppercase;
   --mds-text-letter-spacing-eyebrow: 1px;
@@ -239,6 +241,7 @@
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-400);
   };
 };
+
   /** 480px, SM breakpoint **/
 @media (min-width: 480px) {
   :root {
@@ -249,7 +252,8 @@
     --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family);
   };
 };
-/** 320px, XS breakpoint**/
+
+/** 320px, XS breakpoint **/
 @media (min-width: 320px) {
   :root {
     --mds-breakpoint-horizontal-space-viewport-min-width: 288px;

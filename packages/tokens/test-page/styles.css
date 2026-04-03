@@ -6,10 +6,12 @@
 
 
 body, button, html {
-    font-family: "Noto Sans", "Helvetica", "Arial", sans-serif;
+    font-family: Noto Sans, Helvetica, Arial, sans-serif;
     box-sizing: border-box;
+
     /** font imported in primitives stylesheet **/
 }
+
 p, li {
     color: var(--mds-background-adaptive-brand-neutral-high);
     font: var(--mds-text-body);
@@ -61,6 +63,7 @@ div {
 .container {
     margin: var(--mds-space-lg)0 ;
 }
+
 /** Specific component css **/
 
 .mds-badge {
@@ -117,7 +120,7 @@ div {
 
 .mds-button.accent.fill:hover, .mds-button.accent.outline:hover {
     background-color: var(--mds-background-section-brand-secondary-highest);
-    color: var(--mds-inverse); /** Use adaptive for interactive*/
+    color: var(--mds-inverse); /** Use adaptive for interactive */
 }
 
 .mds-button.outline {
