@@ -29,12 +29,6 @@
   --mds-border-radius-500: 2.5rem;
   --mds-border-radius-600: 3rem;
   --mds-border-radius-round: 1000px;
-  --mds-color-utility-base-gray: #fdfdfd;
-  --mds-color-utility-danger-red-100: #fef1f1;
-  --mds-color-utility-danger-red-300: #f99f9f;
-  --mds-color-utility-danger-red-600: #cd0d0d;
-  --mds-color-utility-danger-red-900: #900909;
-  --mds-color-utility-danger-red-1300: #480505;
   --mds-color-brand-gray-100: #f7f7f7;
   --mds-color-brand-gray-200: #f0f0f0;
   --mds-color-brand-gray-300: #e6e6e6;
@@ -104,8 +98,14 @@
   --mds-color-independence-cranberry-1300: #34050f;
   --mds-color-utility-base-white : #ffffff;
   --mds-color-utility-base-black : #000000;
+  --mds-color-utility-base-gray: #fdfdfd;
   --mds-color-utility-base-white-transparent : #ffffff00;
   --mds-color-utility-base-black-transparent : #00000000;
+  --mds-color-utility-danger-red-100: #fef1f1;
+  --mds-color-utility-danger-red-300: #f99f9f;
+  --mds-color-utility-danger-red-600: #cd0d0d;
+  --mds-color-utility-danger-red-900: #900909;
+  --mds-color-utility-danger-red-1300: #480505;
   --mds-color-utility-focus-blue-300 : #b2dbff;
   --mds-color-utility-focus-blue-600 : #0088ff;
   --mds-color-utility-informative-blue-100 : #e8eef4;
