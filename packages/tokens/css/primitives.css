@@ -9,12 +9,12 @@
 
 :root {
     /** We can remove this general one eventually and use body **/
-  --mds-font-family: "Noto Sans", helvetica, arial, sans-serif;
+  --mds-font-family: "Noto Sans", Helvetica, Arial, sans-serif;
 
-  --mds-font-family-headings: "Noto Sans", helvetica, arial, sans-serif;
-  --mds-font-family-body: "Noto Sans", helvetica, arial, sans-serif;
-  --mds-font-family-utility: "Noto Sans", helvetica, arial, sans-serif;
-  --mds-font-family-label: "Noto Sans", helvetica, arial, sans-serif;
+  --mds-font-family-headings: "Noto Sans", Helvetica, Arial, sans-serif;
+  --mds-font-family-body: "Noto Sans", Helvetica, Arial, sans-serif;
+  --mds-font-family-utility: "Noto Sans", Helvetica, Arial, sans-serif;
+  --mds-font-family-label: "Noto Sans", Helvetica, Arial, sans-serif;
   
   --mds-border-radius-25: 0.125rem;
   --mds-border-radius-50: 0.25rem;
