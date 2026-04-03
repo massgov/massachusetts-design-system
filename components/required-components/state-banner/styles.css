@@ -1,12 +1,8 @@
 /**
-  Focused test styles for the Figma state banner implementation.
+  State Banner Required Component Styles
+  This file contains the styles for the State Banner component, which is a required component in the Massachusetts design system. 
 **/
-
-@import url("../../tokens/css/index.css");
-
-:root {
-  color-scheme: light;
-}
+@import url("../../../packages/tokens/css/index.css");
 
 *,
 *::before,
@@ -25,6 +21,7 @@ button {
   font-family: "Noto Sans", "Helvetica", "Arial", sans-serif;
 }
 
+/** Generated page styles for example page, do not use **/
 :focus-visible {
   border-radius: var(--mds-radius-sm);
 }
@@ -71,13 +68,6 @@ p {
   margin: 0;
 }
 
-.mds-state-banner h1 {
-  font: var(--mds-text-heading-xl);
-}
-
-.mds-state-banner h2 {
-  font: var(--mds-text-label);
-}
 
 .banner-copy {
   max-width: 42rem;
@@ -90,6 +80,18 @@ p {
   border: 1px solid rgba(16, 37, 63, 0.08);
   background: rgba(255, 255, 255, 0.94);
   box-shadow: var(--mds-shadow-container);
+}
+
+/** End of generated page styles, start of component styles **/
+
+/** Actual MDS component styles **/
+
+.mds-state-banner h1 {
+  font: var(--mds-text-heading-xl);
+}
+
+.mds-state-banner h2 {
+  font: var(--mds-text-label);
 }
 
 .mds-state-banner {
@@ -112,12 +114,6 @@ p {
 
 .mds-state-banner--dark .mds-state-banner__item-icon {
   fill: var(--mds-static-white);
-  stroke-width: 1;
-  color: pink;
-}
-
-.mds-state-banner__container {
-  min-height: 3rem;
 }
 
 .mds-state-banner__inner {
@@ -125,9 +121,8 @@ p {
   flex-wrap: wrap;
   align-items: center;
   gap: var(--mds-space-sm);
-  min-height: 3rem;
   width: 100%;
-  padding: 0 var(--mds-space-2xl);
+  padding: var(--mds-space-2xs) var(--mds-space-2xl);
 }
 
 .mds-state-banner__brand {
@@ -140,9 +135,7 @@ p {
 .mds-state-banner__seal {
   width: 1.5rem;
   height: 1.5rem;
-  flex: none;
   filter: grayscale(1);
-  align-self: center;
 }
 
 .mds-state-banner--dark .mds-state-banner__seal, .mds-state-banner__item-icon img{
@@ -163,9 +156,9 @@ p {
   gap: var(--mds-space-2xs);
   padding: 0;
   border: 0;
-  border-bottom: 1.5px solid var(--mds-background-adaptive-brand-primary-mid);
+  border-bottom: 1.5px solid var(--mds-border-brand-neutral-mid);
   background: transparent;
-  color: var(--mds-background-adaptive-brand-primary-mid);
+  color: var(--mds-text-and-icons-brand-primary-mid);
   font: var(--mds-text-body);
   line-height: 1.8;
   cursor: pointer;
@@ -179,7 +172,6 @@ p {
 .mds-state-banner__caret {
   width: 1rem;
   height: 1rem;
-  flex: none;
   transition: transform 160ms ease;
 }
 
@@ -193,15 +185,14 @@ p {
 }
 
 .mds-state-banner__caret {
-    width: 30px;
-    height: 30px;
-    min-width: 20px;
+  width: 30px;
+  height: 30px;
 }
 		
 .mds-state-banner__caret--expanded {
-    -webkit-transform: rotate(-180deg);
-    -ms-transform: rotate(-180deg);
-    transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
 }
 
 .mds-state-banner__panel-inner {
@@ -215,15 +206,14 @@ p {
   align-items: flex-start;
   gap: var(--mds-space-sm);
   flex: 1 1 20rem;
-  min-width: 14.6875rem;
-  padding: 0.5rem 0 1rem;
+  padding: var(--mds-space-2xs) 0 var(--mds-space-sm);
 }
 
 .mds-state-banner__item-icon {
   width: 1.875rem;
   height: 1.875rem;
   flex: none;
-  margin-top: 0.125rem;
+  margin-top: 0.125rem; /* This spacing value is smaller than 3xs */
   color: var(--mds-static-black);
 }
 
@@ -254,10 +244,6 @@ p {
   .mds-state-banner__inner {
     padding-right: var(--mds-space-md);
     padding-left: var(--mds-space-md);
-  }
-
-  .mds-state-banner__title {
-    white-space: normal;
   }
 
   .mds-state-banner__toggle {
