@@ -175,6 +175,16 @@ The publish workflow:
 1. Update the version in `package.json` based on [semantic versioning](https://semver.org/)
 2. Create a release tag in the format `assets-v*`, e.g. `assets-v1.0.1`
 
+Release channels:
+- Stable releases use normal semver versions such as `1.0.1` and tags such as `assets-v1.0.1`. These publish to npm on the default `latest` dist-tag.
+- Prereleases use semver prerelease versions such as `1.1.0-beta.1` and tags such as `assets-v1.1.0-beta.1`. These publish to npm on the `beta` dist-tag.
+
+Recommended branch and tag strategy:
+- Use `main` as the only long-lived release branch.
+- Merge feature work into `main` through pull requests with required checks.
+- Create release tags only from commits already merged to `main`.
+- Keep package-specific tag prefixes if more packages are added later, for example `assets-v*`, `tokens-v*`, and `components-v*`.
+
 
 ## Sources
 
