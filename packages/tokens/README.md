@@ -19,3 +19,10 @@ Install dependencies and run the CSS linter from this package directory:
 npm install
 npm run lint
 ```
+
+Individual lint commands:
+
+```bash
+npm run lint:css
+npm run lint:html
+```

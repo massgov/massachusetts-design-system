@@ -118,11 +118,6 @@ div {
     border-color: var(--mds-background-section-brand-secondary-mid);
 }
 
-.mds-button.accent.fill:hover, .mds-button.accent.outline:hover {
-    background-color: var(--mds-background-section-brand-secondary-highest);
-    color: var(--mds-inverse); /** Use adaptive for interactive */
-}
-
 .mds-button.outline {
     background-color: var(--mds-inverse);
     border: 2px solid var(--mds-background-section-brand-primary-mid);
@@ -132,6 +127,11 @@ div {
 .mds-button.accent.outline {
     color: var(--mds-background-section-brand-secondary-mid);
     border: 2px solid var(--mds-background-section-brand-secondary-mid);
+}
+
+.mds-button.accent.fill:hover, .mds-button.accent.outline:hover {
+    background-color: var(--mds-background-section-brand-secondary-highest);
+    color: var(--mds-inverse); /** Use adaptive for interactive */
 }
 
 .mds-button.accent.ghost {

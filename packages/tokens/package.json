@@ -2,10 +2,13 @@
   "name": "@massds/mds-tokens",
   "private": true,
   "scripts": {
-    "lint": "stylelint \"css/**/*.css\" \"test-page/**/*.css\"",
-    "lint-fix": "stylelint --fix \"css/**/*.css\" \"test-page/**/*.css\""
+    "lint": "npm run lint:css && npm run lint:html",
+    "lint:css": "stylelint \"css/**/*.css\" \"test-page/**/*.css\"",
+    "lint:css:fix": "stylelint --fix \"css/**/*.css\" \"test-page/**/*.css\"",
+    "lint:html": "htmlhint \"test-page/**/*.html\""
   },
   "devDependencies": {
+    "htmlhint": "^1.7.1",
     "stylelint": "^16.24.0",
     "stylelint-config-standard": "^39.0.1"
   },
