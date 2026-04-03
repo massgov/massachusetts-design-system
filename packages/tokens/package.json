@@ -2,6 +2,7 @@
   "name": "@massds/mds-tokens",
   "private": true,
   "scripts": {
+    "changelog:release": "bash ../../scripts/compile-package-changelog.sh .",
     "lint": "npm run lint:css && npm run lint:html",
     "lint:css": "stylelint \"css/**/*.css\" \"test-page/**/*.css\"",
     "lint:css:fix": "stylelint --fix \"css/**/*.css\" \"test-page/**/*.css\"",
