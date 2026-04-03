@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const trigger = document.querySelector('.mds-state-banner__container');
     const triggerChevron = document.querySelector('.mds-state-banner__caret');
 
+    if (!trigger || !triggerChevron) {
+        return;
+    }
     trigger.addEventListener('click', function() {
         const content = this.nextElementSibling; // Get the next sibling (the content div)
         
