@@ -138,8 +138,8 @@ p {
   filter: grayscale(1);
 }
 
-.mds-state-banner--dark .mds-state-banner__seal, .mds-state-banner__item-icon img{
-  filter: brightness(10); /* Makes logo white on dark background */
+.mds-state-banner--dark .mds-state-banner__seal {
+  filter: brightness(10); /* Makes state seal white on dark background */
 }
 
 .mds-state-banner__title {
