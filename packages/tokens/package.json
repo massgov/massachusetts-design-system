@@ -1,0 +1,23 @@
+{
+  "name": "@massds/mds-tokens",
+  "private": true,
+  "scripts": {
+    "changelog:release": "bash ../../scripts/compile-package-changelog.sh .",
+    "lint": "npm run lint:css && npm run lint:html",
+    "lint:css": "stylelint \"css/**/*.css\" \"test-page/**/*.css\"",
+    "lint:css:fix": "stylelint --fix \"css/**/*.css\" \"test-page/**/*.css\"",
+    "lint:html": "htmlhint \"test-page/**/*.html\""
+  },
+  "devDependencies": {
+    "htmlhint": "^1.7.1",
+    "stylelint": "^16.24.0",
+    "stylelint-config-standard": "^39.0.1"
+  },
+  "engines": {
+    "node": "24.14.0"
+  },
+  "volta": {
+    "node": "24.14.0",
+    "npm": "10.9.2"
+  }
+}

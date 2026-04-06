@@ -6,10 +6,12 @@
 
 
 body, button, html {
-    font-family: "Noto Sans", "Helvetica", "Arial", sans-serif;
+    font-family: Noto Sans, Helvetica, Arial, sans-serif;
     box-sizing: border-box;
+
     /** font imported in primitives stylesheet **/
 }
+
 p, li {
     color: var(--mds-background-adaptive-brand-neutral-high);
     font: var(--mds-text-body);
@@ -61,6 +63,7 @@ div {
 .container {
     margin: var(--mds-space-lg)0 ;
 }
+
 /** Specific component css **/
 
 .mds-badge {
@@ -115,11 +118,6 @@ div {
     border-color: var(--mds-background-section-brand-secondary-mid);
 }
 
-.mds-button.accent.fill:hover, .mds-button.accent.outline:hover {
-    background-color: var(--mds-background-section-brand-secondary-highest);
-    color: var(--mds-inverse); /** Use adaptive for interactive*/
-}
-
 .mds-button.outline {
     background-color: var(--mds-inverse);
     border: 2px solid var(--mds-background-section-brand-primary-mid);
@@ -129,6 +127,11 @@ div {
 .mds-button.accent.outline {
     color: var(--mds-background-section-brand-secondary-mid);
     border: 2px solid var(--mds-background-section-brand-secondary-mid);
+}
+
+.mds-button.accent.fill:hover, .mds-button.accent.outline:hover {
+    background-color: var(--mds-background-section-brand-secondary-highest);
+    color: var(--mds-inverse); /** Use adaptive for interactive */
 }
 
 .mds-button.accent.ghost {

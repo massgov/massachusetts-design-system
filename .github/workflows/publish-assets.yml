@@ -51,4 +51,14 @@ jobs:
       - name: Publish to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --provenance --access public
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+
+          case "$PACKAGE_VERSION" in
+            *-*)
+              npm publish --provenance --access public --tag beta
+              ;;
+            *)
+              npm publish --provenance --access public
+              ;;
+          esac

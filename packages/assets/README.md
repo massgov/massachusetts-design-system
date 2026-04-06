@@ -167,13 +167,38 @@ For a full cleanup sync, use a full-library manifest and `--prune`. Only use sta
 1. Replace or add files in `src/animation`
 2. Run `npm run build`
 
+
+## Changelogs
+
+For each PR, it's required to add a changelog under `packages/assets/changelog.d/` following the example in `changelog.template.md`.
+
+2. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date
+
+
 ## Publishing
 
 The package is published to npm as `@massds/mds-assets` with the GitHub Actions workflow at `.github/workflows/publish-assets.yml`.
 
 The publish workflow:
-1. Update the version in `package.json` based on [semantic versioning](https://semver.org/)
+1. Create a release branch from `main`, based on [semantic versioning](https://semver.org/), e.g. release/assets-1.0.1 
+2. On that branch:
+    - compile changelog fragments
+    - remove released fragments
+    - bump the package version
+Update the version in `package.json` 
+2. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date. 
 2. Create a release tag in the format `assets-v*`, e.g. `assets-v1.0.1`
+3. Copy the latest compiled changelogs from `CHANGELOG.md` into the release notes.
+
+Release channels:
+- Stable releases use normal semver versions such as `1.0.1` and tags such as `assets-v1.0.1`. These publish to npm on the default `latest` dist-tag.
+- Prereleases use semver prerelease versions such as `1.1.0-beta.1` and tags such as `assets-v1.1.0-beta.1`. These publish to npm on the `beta` dist-tag.
+
+Recommended branch and tag strategy:
+- Use `main` as the only long-lived release branch.
+- Merge feature work into `main` through pull requests with required checks.
+- Create release tags only from commits already merged to `main`.
+- Keep package-specific tag prefixes if more packages are added later, for example `assets-v*`, `tokens-v*`, and `components-v*`.
 
 
 ## Sources

@@ -1,0 +1,25 @@
+name: Check Package Changelogs
+
+on:
+  pull_request:
+    paths:
+      - ".github/PULL_REQUEST_TEMPLATE.md"
+      - ".github/workflows/check-package-changelogs.yml"
+      - "packages/assets/**"
+      - "packages/tokens/src/**"
+      - "scripts/check-package-changelog.sh"
+
+permissions:
+  contents: read
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate package changelog fragments
+        run: bash scripts/check-package-changelog.sh "origin/${{ github.base_ref }}"
