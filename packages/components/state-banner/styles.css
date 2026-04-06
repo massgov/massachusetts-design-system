@@ -71,11 +71,11 @@ p {
   margin: 0;
 }
 
-.ma-state-banner h1 {
+.mds-state-banner h1 {
   font: var(--mds-text-heading-xl);
 }
 
-.ma-state-banner h2 {
+.mds-state-banner h2 {
   font: var(--mds-text-label);
 }
 
@@ -92,45 +92,52 @@ p {
   box-shadow: var(--mds-shadow-container);
 }
 
-.ma-state-banner {
+.mds-state-banner {
   width: 100%;
 }
 
-.ma-state-banner--light {
-  background: var(--mds-background-section-brand-neutral-lowest);
+.mds-state-banner--light {
+  background: var(--mds-static-light-gray);
   color: var(--mds-static-black);
-  stroke: var(--mds-static-black);
 }
 
-.ma-state-banner--dark {
+.mds-state-banner--dark {
   background: var(--mds-static-black);
   color: var(--mds-static-white);
-  stroke: var(--mds-static-white);
 }
 
-.ma-state-banner__container {
+.mds-state-banner--light .mds-state-banner__item-icon{
+  fill: var(--mds-static-black);
+}
+
+.mds-state-banner--dark .mds-state-banner__item-icon {
+  fill: var(--mds-static-white);
+  stroke-width: 1;
+  color: pink;
+}
+
+.mds-state-banner__container {
   min-height: 3rem;
 }
 
-.ma-state-banner__inner {
+.mds-state-banner__inner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--mds-space-sm);
   min-height: 3rem;
   width: 100%;
-  /**padding: 0.5rem 3rem;**/
-  padding: 0 var(--mds-space-lg);
+  padding: 0 var(--mds-space-2xl);
 }
 
-.ma-state-banner__brand {
+.mds-state-banner__brand {
   display: flex;
   align-items: center;
   gap: var(--mds-space-2xs);
   min-width: 0;
 }
 
-.ma-state-banner__seal {
+.mds-state-banner__seal {
   width: 1.5rem;
   height: 1.5rem;
   flex: none;
@@ -138,19 +145,19 @@ p {
   align-self: center;
 }
 
-.ma-state-banner--dark .ma-state-banner__seal, .ma-state-banner__item-icon img{
+.mds-state-banner--dark .mds-state-banner__seal, .mds-state-banner__item-icon img{
   filter: brightness(10); /* Makes logo white on dark background */
 }
 
-.ma-state-banner__title {
+.mds-state-banner__title {
   font: var(--mds-text-body);
 }
 
-.ma-state-banner--dark .ma-state-banner__title {
+.mds-state-banner--dark .mds-state-banner__title {
   font: var(--mds-text-body);
 }
 
-.ma-state-banner__toggle {
+.mds-state-banner__toggle {
   display: inline-flex;
   align-items: center;
   gap: var(--mds-space-2xs);
@@ -164,53 +171,46 @@ p {
   cursor: pointer;
 }
 
-.ma-state-banner--dark .ma-state-banner__toggle {
+.mds-state-banner--dark .mds-state-banner__toggle {
   color: var(--mds-static-white);
   border-color: var(--mds-static-white);
 }
 
-.ma-state-banner__caret {
+.mds-state-banner__caret {
   width: 1rem;
   height: 1rem;
   flex: none;
   transition: transform 160ms ease;
 }
 
-.ma-state-banner__toggle[aria-expanded="true"] .ma-state-banner__caret {
+.mds-state-banner__toggle[aria-expanded="true"] .mds-state-banner__caret {
   transform: rotate(180deg);
 }
 
-.ma-state-banner__caret path{
+.mds-state-banner__caret path{
   stroke: currentColor;
   fill: none;
 }
 
-.ma-state-banner__caret {
+.mds-state-banner__caret {
     width: 30px;
     height: 30px;
     min-width: 20px;
 }
 		
-.ma-state-banner__caret--expanded {
+.mds-state-banner__caret--expanded {
     -webkit-transform: rotate(-180deg);
     -ms-transform: rotate(-180deg);
     transform: rotate(-180deg);
 }
 
-.ma-state-banner__item-icon path {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.5;
-}
-
-.ma-state-banner__panel-inner {
+.mds-state-banner__panel-inner {
   align-items: stretch;
   gap: 1.5rem;
   padding-top: 0;
 }
 
-.ma-state-banner__item {
+.mds-state-banner__item {
   display: flex;
   align-items: flex-start;
   gap: var(--mds-space-sm);
@@ -219,7 +219,7 @@ p {
   padding: 0.5rem 0 1rem;
 }
 
-.ma-state-banner__item-icon {
+.mds-state-banner__item-icon {
   width: 1.875rem;
   height: 1.875rem;
   flex: none;
@@ -227,13 +227,13 @@ p {
   color: var(--mds-static-black);
 }
 
-.ma-state-banner__item-copy {
+.mds-state-banner__item-copy {
   display: grid;
   gap: var(--mds-space-2xs);
   padding-top: var(--mds-space-3xs);
 }
 
-.ma-state-banner__item-copy p {
+.mds-state-banner__item-copy p {
   font: var(--mds-text-body);
 }
 
@@ -242,25 +242,25 @@ p {
     padding: var(--mds-space-sm);
   }
 
-  .ma-state-banner__container {
+  .mds-state-banner__container {
     padding-top: var(--mds-space-sm);
     padding-bottom: var(--mds-space-sm);
   }
 
-  .ma-state-banner__seal {
+  .mds-state-banner__seal {
     align-self: self-start;
   }
 
-  .ma-state-banner__inner {
+  .mds-state-banner__inner {
     padding-right: var(--mds-space-md);
     padding-left: var(--mds-space-md);
   }
 
-  .ma-state-banner__title {
+  .mds-state-banner__title {
     white-space: normal;
   }
 
-  .ma-state-banner__toggle {
+  .mds-state-banner__toggle {
     margin-left: 0;
   }
 }
