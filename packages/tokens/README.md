@@ -42,21 +42,22 @@ npm run lint:html
 
 The package is published to npm as `@massds/mds-tokens` with the GitHub Actions workflow at `.github/workflows/publish-tokens.yml`.
 
-Recommended branch and tag strategy:
+Recommended branch and tag strategy for tokens:
 
-- Use `main` as the only long-lived release branch.
-- Squash&merge feature work into `main` through pull requests with required checks.
-- Create release tags only from `main`.
-- Keep package-specific tag prefixes if more packages are added later, for example `assets-v*`, `tokens-v*`, and `components-v*`.
+- Use `main` as the long-lived release branch for `@massds/mds-tokens`.
+- Merge tokens release work into `main` through a pull request with required checks.
+- Create tokens release tags only from commits already on `main`.
+- Use the `tokens-v*` tag prefix for every tokens release.
 
-Release flow:
+Tokens release flow:
 
 1. Create a release branch from `main`, based on [semantic versioning](https://semver.org/), for example `release/tokens-1.0.0`
-2. Update the package version in `package.json`
+2. Update `packages/tokens/package.json` to the release version
 3. Run `npm run changelog:release -- <version> <date>` from `packages/tokens`, or omit arguments to use the version from `package.json` and today’s date
-4. Create a PR and merge into `main` without squashing
-5. In the GitHub UI, create a release tag in the format `tokens-v*`, for example `tokens-v1.0.0`, on the release commit and copy the relevant notes from `CHANGELOG.md`
-6. Creating the tag in GitHub triggers the npm publish workflow
+4. Merge the release branch into `main` through a pull request
+5. In the GitHub UI, create the release tag for the merged release commit using the format `tokens-v*`, for example `tokens-v1.0.0`
+6. In the GitHub Release for that tag, copy the relevant release notes from `packages/tokens/CHANGELOG.md`
+7. Creating the tag in GitHub triggers `.github/workflows/publish-tokens.yml` to publish the package
 
 - Stable releases use tags such as `tokens-v1.0.0` and publish to the npm `latest` dist-tag.
 - Prereleases use tags such as `tokens-v1.1.0-beta.1` and publish to the npm `beta` dist-tag.

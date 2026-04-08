@@ -179,20 +179,21 @@ When preparing a release, run `npm run changelog:release -- <version> <date>` fr
 
 The package is published to npm as `@massds/mds-assets` with the GitHub Actions workflow at `.github/workflows/publish-assets.yml`.
 
-Recommended branch and tag strategy:
-- Use `main` as the only long-lived release branch.
-- Squash&merge feature work into `main` through pull requests with required checks.
-- Create release tags only from `main`.
-- Keep package-specific tag prefixes if more packages are added later, for example `assets-v*`, `tokens-v*`, and `components-v*`.
+Recommended branch and tag strategy for assets:
+- Use `main` as the long-lived release branch for `@massds/mds-assets`.
+- Merge assets release work into `main` through a pull request with required checks.
+- Create assets release tags only from commits already on `main`.
+- Use the `assets-v*` tag prefix for every assets release.
 
-Release flow:
+Assets release flow:
 
 1. Create a release branch from `main`, based on [semantic versioning](https://semver.org/), for example `release/assets-1.0.1`
-2. Make sure the package version in `package.json` is updated
+2. Update `packages/assets/package.json` to the release version
 3. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date
-4. Create a PR and merge into `main` without squashing
-5. In the GitHub UI, create a release tag in the format `assets-v*`, for example `assets-v1.0.1`, on the release commit and copy the relevant notes from `CHANGELOG.md`
-6. Creating the tag in GitHub triggers the npm publish workflow
+4. Merge the release branch into `main` through a pull request
+5. In the GitHub UI, create the release tag for the merged release commit using the format `assets-v*`, for example `assets-v1.0.1`
+6. In the GitHub Release for that tag, copy the relevant release notes from `packages/assets/CHANGELOG.md`
+7. Creating the tag in GitHub triggers `.github/workflows/publish-assets.yml` to publish the package
 
 Release channels:
 - Stable releases use normal semver versions such as `1.0.1` and tags such as `assets-v1.0.1`. These publish to npm on the default `latest` dist-tag.
