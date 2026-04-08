@@ -170,36 +170,33 @@ For a full cleanup sync, use a full-library manifest and `--prune`. Only use sta
 
 ## Changelogs
 
-For each PR, it's required to add a changelog under `packages/assets/changelog.d/` following the example in `changelog.template.md`.
+For each PR, add a changelog fragment under `packages/assets/changelog.d/` using the example in `changelog.template.md`.
 
-2. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date
+When preparing a release, run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date.
 
 
 ## Publishing
 
 The package is published to npm as `@massds/mds-assets` with the GitHub Actions workflow at `.github/workflows/publish-assets.yml`.
 
-The publish workflow:
-1. Create a release branch from `main`, based on [semantic versioning](https://semver.org/), e.g. release/assets-1.0.1 
-2. On that branch:
-    - compile changelog fragments
-    - remove released fragments
-    - bump the package version
-Update the version in `package.json` 
-3. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date.
-4. In the GitHub UI, create a release tag in the format `assets-v*`, e.g. `assets-v1.0.1`, on the release commit.
-5. Create the GitHub Release for that tag and copy the latest compiled changelog notes from `CHANGELOG.md` into the release notes.
-6. Creating the tag in GitHub triggers the npm publish workflow.
+Recommended branch and tag strategy:
+- Use `main` as the only long-lived release branch.
+- Squash&merge feature work into `main` through pull requests with required checks.
+- Create release tags only from `main`.
+- Keep package-specific tag prefixes if more packages are added later, for example `assets-v*`, `tokens-v*`, and `components-v*`.
+
+Release flow:
+
+1. Create a release branch from `main`, based on [semantic versioning](https://semver.org/), for example `release/assets-1.0.1`
+2. Make sure the package version in `package.json` is updated
+3. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date
+4. Create a PR and merge into `main` without squashing
+5. In the GitHub UI, create a release tag in the format `assets-v*`, for example `assets-v1.0.1`, on the release commit and copy the relevant notes from `CHANGELOG.md`
+6. Creating the tag in GitHub triggers the npm publish workflow
 
 Release channels:
 - Stable releases use normal semver versions such as `1.0.1` and tags such as `assets-v1.0.1`. These publish to npm on the default `latest` dist-tag.
 - Prereleases use semver prerelease versions such as `1.1.0-beta.1` and tags such as `assets-v1.1.0-beta.1`. These publish to npm on the `beta` dist-tag.
-
-Recommended branch and tag strategy:
-- Use `main` as the only long-lived release branch.
-- Merge feature work into `main` through pull requests with required checks.
-- Create release tags in the GitHub UI only from commits already merged to `main`.
-- Keep package-specific tag prefixes if more packages are added later, for example `assets-v*`, `tokens-v*`, and `components-v*`.
 
 
 ## Sources
