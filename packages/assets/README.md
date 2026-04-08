@@ -186,9 +186,10 @@ The publish workflow:
     - remove released fragments
     - bump the package version
 Update the version in `package.json` 
-2. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date. 
-2. Create a release tag in the format `assets-v*`, e.g. `assets-v1.0.1`
-3. Copy the latest compiled changelogs from `CHANGELOG.md` into the release notes.
+3. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date.
+4. In the GitHub UI, create a release tag in the format `assets-v*`, e.g. `assets-v1.0.1`, on the release commit.
+5. Create the GitHub Release for that tag and copy the latest compiled changelog notes from `CHANGELOG.md` into the release notes.
+6. Creating the tag in GitHub triggers the npm publish workflow.
 
 Release channels:
 - Stable releases use normal semver versions such as `1.0.1` and tags such as `assets-v1.0.1`. These publish to npm on the default `latest` dist-tag.
@@ -197,7 +198,7 @@ Release channels:
 Recommended branch and tag strategy:
 - Use `main` as the only long-lived release branch.
 - Merge feature work into `main` through pull requests with required checks.
-- Create release tags only from commits already merged to `main`.
+- Create release tags in the GitHub UI only from commits already merged to `main`.
 - Keep package-specific tag prefixes if more packages are added later, for example `assets-v*`, `tokens-v*`, and `components-v*`.
 
 

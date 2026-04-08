@@ -17,15 +17,17 @@ We are a small but mighty crew enthusiastic to partner with teams hoping to leve
 
 ## Development
 
-### Changelogs
+### Quick Start
 
-Package changes should include a changelog fragment for each affected package.
+1. Choose the package you want to work in: `packages/assets` or `packages/tokens`
+2. Install dependencies from that package directory with `npm install`
+3. Run the package checks you need, such as `npm run lint` or `npm run build`
+4. Add a changelog fragment under `packages/<package>/changelog.d/` if your change affects a published package
 
-1. Add a markdown file under `packages/<package>/changelog.d/`
-2. Start from the package template at `packages/<package>/changelog.d/changelog.template.md`
-3. Keep the entry focused on the user-facing change
+> This expectation is also called out in the pull request template and validated in CI by `.github/workflows/check-package-changelogs.yml`.
 
-This expectation is also called out in the pull request template and validated in CI by `.github/workflows/check-package-changelogs.yml`.
+For package-specific setup and commands, see the README inside each package directory.
+
 
 ### Releases
 
@@ -34,13 +36,20 @@ Packages are released independently and published to npm through GitHub Actions.
 - `packages/assets` publishes through `.github/workflows/publish-assets.yml`
 - `packages/tokens` publishes through `.github/workflows/publish-tokens.yml`
 
-High-level release flow:
+Recommended branch and tag strategy:
+- Use `main` as the only long-lived release branch.
+- Squash&merge feature work into `main` through pull requests with required checks.
+- Create release tags only from `main`.
+- Keep package-specific tag prefixes if more packages are added later, for example `assets-v*`, `tokens-v*`, and `components-v*`.
+
+Release flow:
 
 1. Create a release branch `release/<package>-<version>` from `main`
 2. Make sure the package version in `package.json` is updated following [semantic versioning](https://semver.org/)
-3. Compile changelog fragments into `CHANGELOG.md` by running `npm run changelog:release`
-4. Create a package-specific git tag that matches the package version
-5. Push the tag to trigger the publish workflow
+3. Compile changelog fragments into `CHANGELOG.md` by running `npm run changelog:release` inside the package directory
+4. Create a PR and merge into `main` (without squashing)
+5. In the GitHub UI, create a package-specific release tag on the release commit that matches the package version and copy in the relevant release notes from `CHANGELOG.md`
+6. Creating the tag in GitHub triggers the publish workflow
 
 Tag format:
 
@@ -54,5 +63,5 @@ Release channels:
 
 For package-specific release details, see:
 
-- `packages/assets/README.md`
-- `packages/tokens/README.md`
+- [packages/assets/README.md](packages/assets/README.md)
+- [packages/tokens/README.md](packages/tokens/README.md)
