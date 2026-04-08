@@ -204,3 +204,6 @@ Release channels:
 
 - Icon source library: [Phosphor Icons](https://phosphoricons.com/)
 - Icon design library: [Massachusetts Design System Figma Icon Library](https://www.figma.com/design/ZpxjY5M188i4ItGIvW9Y0s/Icons?t=9d9doUJlYvsBBWr2-0)
+
+
+Questions? Email the Massachusetts Design System Team at <designsystem@mass.gov>
