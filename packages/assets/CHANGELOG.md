@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `@massds/mds-assets` are auto-compiled in this file.
+All notable changes to `@massds/mds-assets` are auto-compiled in this file. See [how to add a changelog](packages/assets/README.md#changelogs)
 
 ## 1.0.0 (4/2/2026)
 
