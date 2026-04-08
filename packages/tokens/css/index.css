@@ -29,9 +29,9 @@
   --mds-background-section-brand-tertiary-lowest: var(--mds-color-brand-independence-cranberry-100);
   --mds-background-section-brand-tertiary-mid: var(--mds-color-brand-independence-cranberry-800);
   --mds-background-section-brand-tertiary-highest: var(--mds-color-brand-independence-cranberry-1300);
-  --mds-background-section-utility-informative-lowest: var(--mds-utility-informative-blue-100);
-  --mds-background-section-utility-informative-mid: var(--mds-utility-informative-blue-900);
-  --mds-background-section-utility-informative-highest: var(--mds-utility-informative-blue-1300);
+  --mds-background-section-utility-informative-lowest: var(--mds-color-utility-informative-blue-100);
+  --mds-background-section-utility-informative-mid: var(--mds-color-utility-informative-blue-900);
+  --mds-background-section-utility-informative-highest: var(--mds-color-utility-informative-blue-1300);
   --mds-background-section-utility-danger-lowest: var(--mds-color-utility-danger-red-100);
   --mds-background-section-utility-danger-mid: var(--mds-color-utility-danger-red-600);
   --mds-background-section-utility-danger-highest: var(--mds-color-utility-danger-red-1300);
@@ -66,11 +66,11 @@
   --mds-background-adaptive-brand-tertiary-high: var(--mds-color-brand-independence-cranberry-1100);
   --mds-background-adaptive-brand-tertiary-highest: var(--mds-color-brand-independence-cranberry-1300);
   --mds-background-adaptive-brand-highlight-mid: var(--mds-color-brand-duckling-yellow-800);
-  --mds-background-adaptive-utility-informative-lowest: var(--mds-utility-informative-blue-100);
-  --mds-background-adaptive-utility-informative-low: var(--mds-utility-informative-blue-300);
-  --mds-background-adaptive-utility-informative-mid: var(--mds-utility-informative-blue-600);
-  --mds-background-adaptive-utility-informative-high: var(--mds-utility-informative-blue-900);
-  --mds-background-adaptive-utility-informative-highest: var(--mds-utility-informative-blue-1300);
+  --mds-background-adaptive-utility-informative-lowest: var(--mds-color-utility-informative-blue-100);
+  --mds-background-adaptive-utility-informative-low: var(--mds-color-utility-informative-blue-300);
+  --mds-background-adaptive-utility-informative-mid: var(--mds-color-utility-informative-blue-600);
+  --mds-background-adaptive-utility-informative-high: var(--mds-color-utility-informative-blue-900);
+  --mds-background-adaptive-utility-informative-highest: var(--mds-color-utility-informative-blue-1300);
   --mds-background-adaptive-utility-danger-lowest: var(--mds-color-utility-danger-red-100);
   --mds-background-adaptive-utility-danger-low: var(--mds-color-utility-danger-red-300);
   --mds-background-adaptive-utility-danger-mid: var(--mds-color-utility-danger-red-600);
@@ -94,8 +94,8 @@
   --mds-text-and-icons-brand-neutral-disabled: var(--mds-color-brand-gray-700);
   --mds-text-and-icons-brand-primary-mid: var(--mds-color-brand-bay-blue-1000);
   --mds-text-and-icons-brand-secondary-mid: var(--mds-color-brand-berkshires-green-1000);
-  --mds-text-and-icons-utility-danger-mid: var(--mds-color-utility-danger-red-600);
   --mds-text-and-icons-utility-informative-mid: var(--mds-color-utility-informative-blue-900);
+  --mds-text-and-icons-utility-danger-mid: var(--mds-color-utility-danger-red-600);
   --mds-text-and-icons-utility-warning-mid: var(--mds-color-utility-warning-yellow-600);
   --mds-text-and-icons-utility-success-mid: var(--mds-color-utility-success-green-900);
 
@@ -116,8 +116,8 @@
   --mds-border-brand-secondary-highest: var(--mds-color-brand-berkshires-green-1300);
   --mds-border-focus-on-light: var(--mds-color-utility-focus-blue-600);
   --mds-border-focus-on-dark: var(--mds-color-utility-focus-blue-300);
-  --mds-border-utility-informative-low: var(--mds-utility-informative-blue-300);
-  --mds-border-utility-informative-mid: var(--mds-utility-informative-blue-900);
+  --mds-border-utility-informative-low: var(--mds-color-utility-informative-blue-300);
+  --mds-border-utility-informative-mid: var(--mds-color-utility-informative-blue-900);
   --mds-border-utility-danger-low: var(--mds-color-utility-danger-red-300);
   --mds-border-utility-danger-mid: var(--mds-color-utility-danger-red-600);
   --mds-border-utility-warning-low: var(--mds-color-utility-warning-yellow-300);
