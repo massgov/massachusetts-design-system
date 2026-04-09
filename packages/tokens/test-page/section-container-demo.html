@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MDS Section Template</title>
+    <link rel="stylesheet" href="../src/index.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--mds-background-surface-default);
+        color: var(--mds-text-and-icons-brand-neutral-default);
+        font: var(--mds-text-body);
+      }
+
+      .mds-section {
+        width: 100%;
+      }
+
+      /* This is the helper class to apply the horizontal page margins defined by the token. It can be used on any block-level element to create consistent page margins across different content structures. */
+      .mds-section__container {
+        padding-inline: var(--mds-breakpoint-horizontal-space-margin);
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .mds-space-3xl {
+        padding-block: var(--mds-space-3xl);
+      }
+
+      .mds-color-block {
+        width: 100%;
+        border-radius: var(--mds-radius-md);
+      }
+
+      .mds-color-block--xs {
+        height: 28px;
+      }
+
+      .mds-color-block--lg {
+        height: 200px;
+      }
+
+      .mds-color-block--neutral {
+        background: var(--mds-background-adaptive-brand-neutral-low);
+      }
+
+      .mds-color-block--primary {
+        background: var(--mds-background-adaptive-brand-primary-low);
+      }
+
+      .mds-color-block--secondary {
+        background: var(--mds-background-adaptive-brand-secondary-low);
+      }
+
+      .mds-color-block--tertiary {
+        background: var(--mds-background-adaptive-brand-tertiary-low);
+      }
+
+      .mds-color-block--light {
+        background: var(--mds-static-white);
+      }
+
+      .mds-section--neutral {
+        background: var(--mds-background-section-brand-neutral-lowest);
+      }
+
+      .mds-section--primary {
+        background: var(--mds-background-section-brand-primary-lowest);
+      }
+
+      .mds-section--secondary {
+        background: var(--mds-background-section-brand-secondary-lowest);
+      }
+
+      .mds-section--header {
+        background: var(--mds-background-section-brand-tertiary-lowest);
+      }
+
+      .mds-section--state-banner {
+        background: var(--mds-static-black);
+        padding-block: var(--mds-space-2xs);
+      }
+
+      .mds-footer {
+        background: var(--mds-background-section-brand-neutral-highest);
+      }
+
+      .mds-footer__bottom {
+        margin-top: var(--mds-space-xl);
+        padding-top: var(--mds-space-lg);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="mds-section mds-section--state-banner">
+      <div class="mds-section__container">
+        <div class="mds-color-block mds-color-block--xs mds-color-block--light">.mds-section__container</div>
+      </div>
+    </header>
+    <section class="mds-section mds-section--neutral">
+      <div class="mds-section__container mds-space-3xl">
+        <div class="mds-color-block mds-color-block--lg mds-color-block--light">.mds-section__container</div>
+      </div>
+    </section>
+
+    <section class="mds-section mds-section--primary">
+      <div class="mds-section__container mds-space-3xl">
+        <div class="mds-color-block mds-color-block--lg mds-color-block--light">.mds-section__container</div>
+      </div>
+    </section>
+
+    <section class="mds-section mds-section--secondary">
+      <div class="mds-section__container mds-space-3xl">
+        <div class="mds-color-block mds-color-block--lg mds-color-block--light">.mds-section__container</div>
+      </div>
+    </section>
+    <footer class="mds-footer">
+      <div class="mds-section__container mds-space-3xl">
+        <div class="mds-color-block mds-color-block--lg mds-color-block--neutral">.mds-section__container</div>
+      </div>
+    </footer>
+  </body>
+</html>
