@@ -221,7 +221,6 @@
 /** 320px, XS breakpoint **/
 @media (min-width: 320px) {
   :root {
-    --mds-breakpoint-horizontal-space-viewport-min-width: 288px;
     --mds-breakpoint-horizontal-space-columns: 6;
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-200);
   }
