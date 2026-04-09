@@ -218,31 +218,16 @@
  * Use these for containers/sections
  */
 
-/** 1280px, XL breakpoint **/
-@media (min-width: 1280px) {
+/** 320px, XS breakpoint **/
+@media (min-width: 320px) {
   :root {
-    --mds-breakpoint-horizontal-space-columns: 12;
-    --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
-  };
-};
-
-/** 1024px, LG breakpoint **/
-@media (min-width: 1024px) {
-  :root {
-    --mds-breakpoint-horizontal-space-columns: 12;
-    --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
-  };
-};
-
-/** 768px, MD breakpoint **/
-@media (min-width: 768px) {
-  :root {
+    --mds-breakpoint-horizontal-space-viewport-min-width: 288px;
     --mds-breakpoint-horizontal-space-columns: 6;
-    --mds-breakpoint-horizontal-space-margin: var(--mds-space-400);
-  };
-};
+    --mds-breakpoint-horizontal-space-margin: var(--mds-space-200);
+  }
+}
 
-  /** 480px, SM breakpoint **/
+/** 480px, SM breakpoint **/
 @media (min-width: 480px) {
   :root {
     --mds-breakpoint-horizontal-space-columns: 6;
@@ -250,15 +235,30 @@
     --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.1 var(--mds-font-family);
     --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family);
     --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family);
-  };
-};
+  }
+}
 
-/** 320px, XS breakpoint **/
-@media (min-width: 320px) {
+/** 768px, MD breakpoint **/
+@media (min-width: 768px) {
   :root {
-    --mds-breakpoint-horizontal-space-viewport-min-width: 288px;
     --mds-breakpoint-horizontal-space-columns: 6;
-    --mds-breakpoint-horizontal-space-margin: var(--mds-space-200);
-  };
-};
+    --mds-breakpoint-horizontal-space-margin: var(--mds-space-400);
+  }
+}
+
+/** 1024px, LG breakpoint **/
+@media (min-width: 1024px) {
+  :root {
+    --mds-breakpoint-horizontal-space-columns: 12;
+    --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
+  }
+}
+
+/** 1280px, XL breakpoint **/
+@media (min-width: 1280px) {
+  :root {
+    --mds-breakpoint-horizontal-space-columns: 12;
+    --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
+  }
+}
 
