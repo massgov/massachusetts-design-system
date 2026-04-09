@@ -1,10 +1,9 @@
 # Changelog
 
-All notable changes to `@massds/mds-assets` should be documented in this file.
+All notable changes to `@massds/mds-assets` are auto-compiled in this file. See [how to add a changelog](packages/assets/README.md#changelogs)
 
-This package uses changelog fragments in `changelog.d/`. Before a release:
-1. Add fragment files under `packages/assets/changelog.d/`
-2. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date
-3. Remove released fragment files after the release is cut
+## 1.0.0 (4/2/2026)
 
-## Unreleased
+### Added
+* [DP-44528] Added assets package #9
+* [DP-44528] publish assets package v1.0.0 #12
