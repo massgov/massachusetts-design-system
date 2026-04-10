@@ -214,40 +214,43 @@
 }
 
 /**
- * Spacing tokens by Breakpoint.
- * Use these for containers/sections
- */
+ * Spacing, typography, and grid tokens that change based on breakpoints.
+ * Breakpoints (Use these as max-width in media queries): 
+  * 320  - XS breakpoint
+  * 480  - SM breakpoint
+  * 768  - MD breakpoint
+  * 1024 - LG breakpoint
+  * 1280 - XL breakpoint
+*/
 
-/** 320px, XS breakpoint **/
-@media (min-width: 320px) {
+/** 1024px and above **/
+:root {
+  --mds-breakpoint-horizontal-space-columns: 12;
+  --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
+  --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
+  --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
+  --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
+  --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-550)/1.1 var(--mds-font-family-headings);
+  --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.2 var(--mds-font-family-headings);
+  --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family-headings);
+}
+
+/** 769px-1024px **/
+@media (max-width: 1024px) {
   :root {
-    --mds-breakpoint-horizontal-space-columns: 6;
-    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-200);
-    --mds-breakpoint-horizontal-space-margin: var(--mds-space-200);
-    --mds-text-body-lg: var(--mds-font-size-200)/1.8 var(--mds-font-family);
-    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
-    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.1 var(--mds-font-family-headings);
-    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family-headings);
+    --mds-breakpoint-horizontal-space-columns: 12;
+    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
+    --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
+    --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
+    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
+    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-550)/1.1 var(--mds-font-family-headings);
+    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.2 var(--mds-font-family-headings);
     --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-350)/1.2 var(--mds-font-family-headings);
   }
 }
 
-/** 480px, SM breakpoint **/
-@media (min-width: 480px) {
-  :root {
-    --mds-breakpoint-horizontal-space-columns: 6;
-    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-200);
-    --mds-breakpoint-horizontal-space-margin: var(--mds-space-300);
-    --mds-text-body-lg: var(--mds-font-size-200)/1.8 var(--mds-font-family);
-    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
-    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.1 var(--mds-font-family-headings);
-    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family-headings);
-    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-350)/1.2 var(--mds-font-family-headings);
-  }
-}
-
-/** 768px, MD breakpoint **/
-@media (min-width: 768px) {
+/** 481px-768px **/
+@media (max-width: 768px) {
   :root {
     --mds-breakpoint-horizontal-space-columns: 6;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
@@ -260,30 +263,37 @@
   }
 }
 
-/** 1024px, LG breakpoint **/
-@media (min-width: 1024px) {
+/** 321px-480px **/
+@media (max-width: 480px) {
   :root {
-    --mds-breakpoint-horizontal-space-columns: 12;
-    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
-    --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
-    --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
-    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
-    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-550)/1.1 var(--mds-font-family-headings);
-    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.2 var(--mds-font-family-headings);
+    --mds-breakpoint-horizontal-space-columns: 6;
+    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-200);
+    --mds-breakpoint-horizontal-space-margin: var(--mds-space-300);
+    --mds-text-body-lg: var(--mds-font-size-200)/1.8 var(--mds-font-family);
+    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
+    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.1 var(--mds-font-family-headings);
+    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family-headings);
     --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-350)/1.2 var(--mds-font-family-headings);
   }
 }
 
-/** 1280px, XL breakpoint **/
-@media (min-width: 1280px) {
+
+/** 0-320px **/
+@media (max-width: 320px) {
   :root {
-    --mds-breakpoint-horizontal-space-columns: 12;
-    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
-    --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
-    --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
-    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
-    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-550)/1.1 var(--mds-font-family-headings);
-    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.2 var(--mds-font-family-headings);
-    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family-headings);
+    --mds-breakpoint-horizontal-space-columns: 6;
+    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-200);
+    --mds-breakpoint-horizontal-space-margin: var(--mds-space-200);
+    --mds-text-body-lg: var(--mds-font-size-200)/1.8 var(--mds-font-family);
+    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
+    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.1 var(--mds-font-family-headings);
+    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family-headings);
+    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-350)/1.2 var(--mds-font-family-headings);
   }
 }
+
+
+
+
+
+
