@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MDS Grid Demo</title>
+    <link rel="stylesheet" href="../src/index.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--mds-background-surface-default);
+      }
+
+      .mds-grid-demo {
+        min-height: 100vh;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding-inline: var(--mds-breakpoint-horizontal-space-margin);
+      }
+
+      .mds-grid {
+        display: grid;
+        grid-template-columns: repeat(var(--mds-breakpoint-horizontal-space-columns), minmax(0, 1fr));
+        gap: var(--mds-breakpoint-horizontal-space-gutter);
+        min-height: 100vh;
+      }
+
+      .mds-grid__item {
+        min-height: 100%;
+        background: pink;
+      }
+
+      .mds-grid__item:nth-child(n + 7) {
+        display: none;
+      }
+
+      @media (min-width: 1024px) {
+        .mds-grid__item:nth-child(n + 7) {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="mds-grid-demo">
+      <div class="mds-grid">
+        <div class="mds-grid__item"></div>
+        <div class="mds-grid__item"></div>
+        <div class="mds-grid__item"></div>
+        <div class="mds-grid__item"></div>
+        <div class="mds-grid__item"></div>
+        <div class="mds-grid__item"></div>
+        <div class="mds-grid__item"></div>
+        <div class="mds-grid__item"></div>
+        <div class="mds-grid__item"></div>
+        <div class="mds-grid__item"></div>
+        <div class="mds-grid__item"></div>
+        <div class="mds-grid__item"></div>
+      </div>
+    </main>
+  </body>
+</html>
