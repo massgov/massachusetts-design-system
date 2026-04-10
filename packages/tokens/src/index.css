@@ -178,6 +178,7 @@
   --mds-text-heading-xs: var(--mds-font-weight-semibold) var(--mds-font-size-275)/1.3 var(--mds-font-family-headings);
   --mds-text-heading-sm: var(--mds-font-weight-semibold) var(--mds-font-size-300)/1.3 var(--mds-font-family-headings);
   --mds-text-heading-md: var(--mds-font-weight-semibold) var(--mds-font-size-325)/1.2 var(--mds-font-family-headings);
+
   /** The 3 values below change based on screen sizes **/
   --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family-headings);
   --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.2 var(--mds-font-family-headings);
@@ -186,6 +187,7 @@
   /** Body text **/
   --mds-text-body: var(--mds-font-size-200)/1.8 var(--mds-font-family);
   --mds-text-body-bold: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
+
   /**** The 2 values below change based on screen sizes ****/
   --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
   --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
@@ -194,6 +196,7 @@
   --mds-text-label-sm: var(--mds-font-weight-medium) var(--mds-font-size-175)/1.2 var(--mds-font-family);
   --mds-text-label: var(--mds-font-weight-medium) var(--mds-font-size-200)/1.2 var(--mds-font-family);
   --mds-text-label-md: var(--mds-font-weight-medium) var(--mds-font-size-225)/1.2 var(--mds-font-family);
+
   /**** The values below change based on screen sizes ****/
   --mds-text-label-lg: var(--mds-font-weight-medium) var(--mds-font-size-250)/1.2 var(--mds-font-family);
   --mds-text-label-xl: var(--mds-font-weight-medium) var(--mds-font-size-275)/1.2 var(--mds-font-family);
@@ -215,6 +218,7 @@
 
 
 /** These values change based on screen sizes **/
+
 /** Default values are set for 1024px and above **/
   --mds-breakpoint-horizontal-space-columns: 12;
   --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
