@@ -224,6 +224,11 @@
     --mds-breakpoint-horizontal-space-columns: 6;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-200);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-200);
+    --mds-text-body-lg: var(--mds-font-size-200)/1.8 var(--mds-font-family);
+    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
+    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.1 var(--mds-font-family-headings);
+    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family-headings);
+    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-350)/1.2 var(--mds-font-family-headings);
   }
 }
 
@@ -233,9 +238,11 @@
     --mds-breakpoint-horizontal-space-columns: 6;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-200);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-300);
-    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.1 var(--mds-font-family);
-    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family);
-    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family);
+    --mds-text-body-lg: var(--mds-font-size-200)/1.8 var(--mds-font-family);
+    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
+    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.1 var(--mds-font-family-headings);
+    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family-headings);
+    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-350)/1.2 var(--mds-font-family-headings);
   }
 }
 
@@ -245,6 +252,11 @@
     --mds-breakpoint-horizontal-space-columns: 6;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-400);
+    --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
+    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
+    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-550)/1.1 var(--mds-font-family-headings);
+    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family-headings);
+    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family-headings);
   }
 }
 
@@ -254,6 +266,11 @@
     --mds-breakpoint-horizontal-space-columns: 12;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
+    --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
+    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
+    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-550)/1.1 var(--mds-font-family-headings);
+    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.2 var(--mds-font-family-headings);
+    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-350)/1.2 var(--mds-font-family-headings);
   }
 }
 
@@ -263,6 +280,10 @@
     --mds-breakpoint-horizontal-space-columns: 12;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
+    --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
+    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
+    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-550)/1.1 var(--mds-font-family-headings);
+    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.2 var(--mds-font-family-headings);
+    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family-headings);
   }
 }
-
