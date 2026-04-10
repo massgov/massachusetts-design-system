@@ -173,25 +173,31 @@
  *
  */
 
-  /** Body text **/
-  --mds-text-body: var(--mds-font-size-200)/1.8 var(--mds-font-family);
-  --mds-text-body-bold: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
-  --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
-  --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
-
   /** Headings **/
   --mds-text-heading-2xs: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.4 var(--mds-font-family-headings);
   --mds-text-heading-xs: var(--mds-font-weight-semibold) var(--mds-font-size-275)/1.3 var(--mds-font-family-headings);
   --mds-text-heading-sm: var(--mds-font-weight-semibold) var(--mds-font-size-300)/1.3 var(--mds-font-family-headings);
   --mds-text-heading-md: var(--mds-font-weight-semibold) var(--mds-font-size-325)/1.2 var(--mds-font-family-headings);
+
+  /** The 3 values below change based on screen sizes **/
   --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family-headings);
   --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.2 var(--mds-font-family-headings);
   --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-550)/1.1 var(--mds-font-family-headings);
+
+  /** Body text **/
+  --mds-text-body: var(--mds-font-size-200)/1.8 var(--mds-font-family);
+  --mds-text-body-bold: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
+
+  /**** The 2 values below change based on screen sizes ****/
+  --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
+  --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
 
   /** Labels **/
   --mds-text-label-sm: var(--mds-font-weight-medium) var(--mds-font-size-175)/1.2 var(--mds-font-family);
   --mds-text-label: var(--mds-font-weight-medium) var(--mds-font-size-200)/1.2 var(--mds-font-family);
   --mds-text-label-md: var(--mds-font-weight-medium) var(--mds-font-size-225)/1.2 var(--mds-font-family);
+
+  /**** The values below change based on screen sizes ****/
   --mds-text-label-lg: var(--mds-font-weight-medium) var(--mds-font-size-250)/1.2 var(--mds-font-family);
   --mds-text-label-xl: var(--mds-font-weight-medium) var(--mds-font-size-275)/1.2 var(--mds-font-family);
 
@@ -210,54 +216,84 @@
   --mds-text-caption-md: var(--mds-font-weight-regular) var(--mds-font-size-200)/1.3 var(--mds-font-family);
 
 
-/**  Media queries for headings lg-2xl to fit smaller screens are in with breakpoint tokens below **/
+
+/** These values change based on screen sizes **/
+
+/** Default values are set for 1024px and above **/
+  --mds-breakpoint-horizontal-space-columns: 12;
+  --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
+  --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
 }
 
 /**
- * Spacing tokens by Breakpoint.
- * Use these for containers/sections
- */
+ * Spacing, typography, and grid tokens that change based on breakpoints.
+ * Breakpoints (Use these as max-width in media queries): 
+  * 320  - XS breakpoint
+  * 480  - SM breakpoint
+  * 768  - MD breakpoint
+  * 1024 - LG breakpoint
+  * 1280 - XL breakpoint
+*/
 
-/** 320px, XS breakpoint **/
-@media (min-width: 320px) {
+/** 769px-1024px **/
+@media (max-width: 1024px) {
   :root {
-    --mds-breakpoint-horizontal-space-columns: 6;
-    --mds-breakpoint-horizontal-space-margin: var(--mds-space-200);
+    --mds-breakpoint-horizontal-space-columns: 12;
+    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
+    --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
+    --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
+    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
+    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-550)/1.1 var(--mds-font-family-headings);
+    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.2 var(--mds-font-family-headings);
+    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-350)/1.2 var(--mds-font-family-headings);
   }
 }
 
-/** 480px, SM breakpoint **/
-@media (min-width: 480px) {
+/** 481px-768px **/
+@media (max-width: 768px) {
   :root {
     --mds-breakpoint-horizontal-space-columns: 6;
-    --mds-breakpoint-horizontal-space-margin: var(--mds-space-300);
-    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.1 var(--mds-font-family);
-    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family);
-    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family);
-  }
-}
-
-/** 768px, MD breakpoint **/
-@media (min-width: 768px) {
-  :root {
-    --mds-breakpoint-horizontal-space-columns: 6;
+    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-400);
+    --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
+    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
+    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-550)/1.1 var(--mds-font-family-headings);
+    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family-headings);
+    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family-headings);
   }
 }
 
-/** 1024px, LG breakpoint **/
-@media (min-width: 1024px) {
+/** 321px-480px **/
+@media (max-width: 480px) {
   :root {
-    --mds-breakpoint-horizontal-space-columns: 12;
-    --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
+    --mds-breakpoint-horizontal-space-columns: 6;
+    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-200);
+    --mds-breakpoint-horizontal-space-margin: var(--mds-space-300);
+    --mds-text-body-lg: var(--mds-font-size-200)/1.8 var(--mds-font-family);
+    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
+    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.1 var(--mds-font-family-headings);
+    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family-headings);
+    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-350)/1.2 var(--mds-font-family-headings);
   }
 }
 
-/** 1280px, XL breakpoint **/
-@media (min-width: 1280px) {
+
+/** 0-320px **/
+@media (max-width: 320px) {
   :root {
-    --mds-breakpoint-horizontal-space-columns: 12;
-    --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
+    --mds-breakpoint-horizontal-space-columns: 6;
+    --mds-breakpoint-horizontal-space-gutter: var(--mds-space-200);
+    --mds-breakpoint-horizontal-space-margin: var(--mds-space-200);
+    --mds-text-body-lg: var(--mds-font-size-200)/1.8 var(--mds-font-family);
+    --mds-text-body-lg-bold: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
+    --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.1 var(--mds-font-family-headings);
+    --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-400)/1.2 var(--mds-font-family-headings);
+    --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-350)/1.2 var(--mds-font-family-headings);
   }
 }
+
+
+
+
+
 
