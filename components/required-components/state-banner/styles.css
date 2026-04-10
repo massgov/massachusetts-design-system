@@ -2,7 +2,7 @@
   State Banner Required Component Styles
   This file contains the styles for the State Banner component, which is a required component in the Massachusetts design system. 
 **/
-@import url("../../../packages/tokens/css/index.css");
+@import url("../../../packages/tokens/src/index.css");
 
 *,
 *::before,
@@ -120,10 +120,9 @@ p {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--mds-space-sm);
+  gap: 0 var(--mds-space-sm);
   width: 100%;
-  padding: var(--mds-space-2xs) var(--mds-space-2xl);
-}
+  padding: var(--mds-space-3xs) var(--mds-space-2xl); /** will likely switch the horizontal padding to utility **/
 
 .mds-state-banner__brand {
   display: flex;
