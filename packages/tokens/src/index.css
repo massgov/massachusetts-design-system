@@ -89,11 +89,6 @@
   --mds-background-overlay: #00000099;
   --mds-white: var(--mds-color-utility-base-white);
   --mds-black: var(--mds-color-utility-base-black);
-  --mds-inverse: var(--mds-color-utility-base-white);
-  --mds-static-white: var(--mds-color-utility-base-white);
-  --mds-static-black: var(--mds-color-utility-base-black);
-  --mds-static-light-gray: var(--mds-color-brand-gray-100);
-  --mds-static-inverse: var(--mds-color-utility-base-white);
 
   /** Text and Icon Colors **/
   --mds-text-and-icons-brand-neutral-default: var(--mds-color-brand-gray-1300);
