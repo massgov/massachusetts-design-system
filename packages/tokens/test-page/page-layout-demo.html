@@ -301,26 +301,17 @@
       const gridDemo = document.querySelector("[data-demo-grid]");
       const toggleButton = document.querySelector("[data-grid-toggle]");
       const status = document.querySelector("[data-grid-status]");
-      const XSQuery = window.matchMedia("(max-width: 320px)");
-      const SMQuery = window.matchMedia("(max-width: 480px)");
-      const MDQuery = window.matchMedia("(max-width: 768px)");
-      const LGQuery = window.matchMedia("(max-width: 1024px)");
-      const XLQuery = window.matchMedia("(max-width: 1280px)");
+      const breakpointQueries = [
+        { label: "XS", query: window.matchMedia("(max-width: 320px)") },
+        { label: "SM", query: window.matchMedia("(min-width: 321px) and (max-width: 480px)") },
+        { label: "MD", query: window.matchMedia("(min-width: 481px) and (max-width: 768px)") },
+        { label: "LG", query: window.matchMedia("(min-width: 769px) and (max-width: 1024px)") },
+        { label: "XL", query: window.matchMedia("(min-width: 1025px) and (max-width: 1280px)") },
+      ];
 
       function updateBreakpointStatus() {
-        let label = "mobile";
-
-        if (XLQuery.matches) {
-          label = "XL";
-        } else if (LGQuery.matches) {
-          label = "LG";
-        } else if (MDQuery.matches) {
-          label = "MD";
-        } else if (SMQuery.matches) {
-          label = "SM";
-        } else if (XSQuery.matches) {
-          label = "XS";
-        }
+        const activeBreakpoint = breakpointQueries.find(({ query }) => query.matches);
+        const label = activeBreakpoint ? activeBreakpoint.label : "XL+";
 
         status.textContent = `Breakpoint: ${label} (${window.innerWidth}px)`;
       }
@@ -331,8 +322,9 @@
         toggleButton.setAttribute("aria-pressed", String(!isHidden));
       });
 
-      tabletQuery.addEventListener("change", updateBreakpointStatus);
-      desktopQuery.addEventListener("change", updateBreakpointStatus);
+      breakpointQueries.forEach(({ query }) => {
+        query.addEventListener("change", updateBreakpointStatus);
+      });
       window.addEventListener("resize", updateBreakpointStatus);
       updateBreakpointStatus();
     </script>
