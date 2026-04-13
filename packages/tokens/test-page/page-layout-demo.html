@@ -84,6 +84,18 @@
         box-shadow: var(--mds-shadow-container);
       }
 
+      .demo-grid-status {
+        position: fixed;
+        top: 0;
+        right: var(--mds-breakpoint-horizontal-space-margin);
+        z-index: 3;
+        padding: var(--mds-space-4xs);
+        background: color-mix(in srgb, var(--mds-static-black) 50%, transparent);
+        color: var(--mds-static-white);
+        font: var(--mds-text-body-sm);
+        box-shadow: var(--mds-shadow-container);
+      }
+
       .mds-section {
         width: 100%;
       }
@@ -207,6 +219,7 @@
   </head>
   <body>
     <div class="demo-grid" data-demo-grid>
+      <div class="demo-grid-status" data-grid-status>Breakpoint: loading</div>
       <button type="button" class="demo-grid-toggle" data-grid-toggle aria-pressed="true">Hide grid</button>
       <div class="demo-grid__overlay" aria-hidden="true">
         <div class="mds-grid mds-section__container">
@@ -287,12 +300,41 @@
     <script>
       const gridDemo = document.querySelector("[data-demo-grid]");
       const toggleButton = document.querySelector("[data-grid-toggle]");
+      const status = document.querySelector("[data-grid-status]");
+      const XSQuery = window.matchMedia("(max-width: 320px)");
+      const SMQuery = window.matchMedia("(max-width: 480px)");
+      const MDQuery = window.matchMedia("(max-width: 768px)");
+      const LGQuery = window.matchMedia("(max-width: 1024px)");
+      const XLQuery = window.matchMedia("(max-width: 1280px)");
+
+      function updateBreakpointStatus() {
+        let label = "mobile";
+
+        if (XLQuery.matches) {
+          label = "XL";
+        } else if (LGQuery.matches) {
+          label = "LG";
+        } else if (MDQuery.matches) {
+          label = "MD";
+        } else if (SMQuery.matches) {
+          label = "SM";
+        } else if (XSQuery.matches) {
+          label = "XS";
+        }
+
+        status.textContent = `Breakpoint: ${label} (${window.innerWidth}px)`;
+      }
 
       toggleButton.addEventListener("click", () => {
         const isHidden = gridDemo.classList.toggle("demo-grid--overlay-hidden");
         toggleButton.textContent = isHidden ? "Show grid" : "Hide grid";
         toggleButton.setAttribute("aria-pressed", String(!isHidden));
       });
+
+      tabletQuery.addEventListener("change", updateBreakpointStatus);
+      desktopQuery.addEventListener("change", updateBreakpointStatus);
+      window.addEventListener("resize", updateBreakpointStatus);
+      updateBreakpointStatus();
     </script>
   </body>
 </html>
