@@ -54,6 +54,10 @@
         z-index: 2;
       }
 
+      .demo-grid--overlay-hidden .demo-grid__overlay {
+        display: none;
+      }
+
       .demo-grid-column {
         min-height: 100%;
         background: pink;
@@ -63,6 +67,21 @@
       .demo-page__content {
         position: relative;
         z-index: 1;
+      }
+
+      .demo-grid-toggle {
+        position: fixed;
+        top: var(--mds-space-md);
+        right: var(--mds-space-md);
+        z-index: 3;
+        border: 2px solid var(--mds-static-white);
+        border-radius: var(--mds-radius-md);
+        padding: var(--mds-space-sm) var(--mds-space-md);
+        background: var(--mds-static-black);
+        color: var(--mds-static-white);
+        font: var(--mds-text-body);
+        cursor: pointer;
+        box-shadow: var(--mds-shadow-container);
       }
 
       .mds-section {
@@ -180,7 +199,8 @@
     </style>
   </head>
   <body>
-    <div class="demo-grid">
+    <div class="demo-grid" data-demo-grid>
+      <button type="button" class="demo-grid-toggle" data-grid-toggle aria-pressed="true">Hide grid</button>
       <div class="demo-grid__overlay" aria-hidden="true">
         <div class="mds-grid mds-section__container">
           <div class="demo-grid-column"></div>
@@ -233,5 +253,15 @@
         </footer>
       </div>
     </div>
+    <script>
+      const gridDemo = document.querySelector("[data-demo-grid]");
+      const toggleButton = document.querySelector("[data-grid-toggle]");
+
+      toggleButton.addEventListener("click", () => {
+        const isHidden = gridDemo.classList.toggle("demo-grid--overlay-hidden");
+        toggleButton.textContent = isHidden ? "Show grid" : "Hide grid";
+        toggleButton.setAttribute("aria-pressed", String(!isHidden));
+      });
+    </script>
   </body>
 </html>
