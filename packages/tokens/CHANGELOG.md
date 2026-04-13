@@ -5,6 +5,7 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 ## 1.0.0 (4/13/2026)
 
 ### Added
+* Initial creation of the tokens.
 * [DP-45882] Added linting to the CSS and HTML files. #16
 * [DP-45888] Added npm packaging, dist generation, and a GitHub Actions publish workflow for the tokens package. #18
 
