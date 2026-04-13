@@ -87,11 +87,11 @@
       .demo-grid-status {
         position: fixed;
         top: 0;
-        right: var(--mds-breakpoint-horizontal-space-margin);
+        right: 0;
         z-index: 3;
-        padding: var(--mds-space-4xs);
-        background: color-mix(in srgb, var(--mds-static-black) 50%, transparent);
-        color: var(--mds-static-white);
+        padding: var(--mds-space-3xs);
+        background: color-mix(in srgb, var(--mds-static-white) 80%, transparent);
+        color: var(--mds-static-black);
         font: var(--mds-text-body-sm);
         box-shadow: var(--mds-shadow-container);
       }
@@ -313,7 +313,7 @@
         const activeBreakpoint = breakpointQueries.find(({ query }) => query.matches);
         const label = activeBreakpoint ? activeBreakpoint.label : "XL+";
 
-        status.textContent = `Breakpoint: ${label} (${window.innerWidth}px)`;
+        status.textContent = `Viewport: ${label} (${window.innerWidth}px)`;
       }
 
       toggleButton.addEventListener("click", () => {
