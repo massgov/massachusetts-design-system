@@ -45,21 +45,6 @@
         position: relative;
       }
 
-      .mds-section__container::before {
-        content: "";
-        position: absolute;
-        inset: 0 var(--mds-breakpoint-horizontal-space-margin);
-        background:
-          repeating-linear-gradient(
-            to right,
-            color-mix(in srgb, var(--mds-text-and-icons-brand-neutral-default) 10%, transparent) 0,
-            color-mix(in srgb, var(--mds-text-and-icons-brand-neutral-default) 10%, transparent) calc((100% - (var(--mds-breakpoint-horizontal-space-gutter) * (var(--mds-breakpoint-horizontal-space-columns) - 1))) / var(--mds-breakpoint-horizontal-space-columns)),
-            transparent calc((100% - (var(--mds-breakpoint-horizontal-space-gutter) * (var(--mds-breakpoint-horizontal-space-columns) - 1))) / var(--mds-breakpoint-horizontal-space-columns)),
-            transparent calc(((100% - (var(--mds-breakpoint-horizontal-space-gutter) * (var(--mds-breakpoint-horizontal-space-columns) - 1))) / var(--mds-breakpoint-horizontal-space-columns)) + var(--mds-breakpoint-horizontal-space-gutter))
-          );
-        pointer-events: none;
-      }
-
       .mds-section__container > * {
         position: relative;
         z-index: 1;
@@ -131,9 +116,46 @@
         margin-top: var(--mds-space-xl);
         padding-top: var(--mds-space-lg);
       }
+
+      .grid-demo {
+        min-height: 100vh;
+        position: absolute;
+      }
+
+      .mds-grid {
+        display: grid;
+        grid-template-columns: repeat(var(--mds-breakpoint-horizontal-space-columns), 1fr);
+        gap: var(--mds-breakpoint-horizontal-space-gutter);
+        min-height: 100vh;
+      }
+
+      .mds-grid__item {
+        min-height: 100%;
+        background: pink;
+        opacity: 0.3;
+        z-index: 10;
+      }
     </style>
   </head>
   <body>
+    <div class="grid-demo mds-section">
+      <div class="mds-section__container">
+        <div class="mds-grid">
+          <div class="mds-grid__item"></div>
+          <div class="mds-grid__item"></div>
+          <div class="mds-grid__item"></div>
+          <div class="mds-grid__item"></div>
+          <div class="mds-grid__item"></div>
+          <div class="mds-grid__item"></div>
+          <div class="mds-grid__item"></div>
+          <div class="mds-grid__item"></div>
+          <div class="mds-grid__item"></div>
+          <div class="mds-grid__item"></div>
+          <div class="mds-grid__item"></div>
+          <div class="mds-grid__item"></div>
+        </div>
+      </div>
+    </div>
     <header class="mds-section mds-section--state-banner">
       <div class="mds-section__container">
         <div class="mds-color-block mds-color-block--xs mds-color-block--light">.mds-section__container</div>
