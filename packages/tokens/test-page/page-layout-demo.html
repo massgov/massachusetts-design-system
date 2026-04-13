@@ -38,12 +38,12 @@
         font: var(--mds-text-body);
       }
 
-      .mds-page-demo {
+      .demo-grid {
         position: relative;
         min-height: 100vh;
       }
 
-      .mds-page-demo__overlay {
+      .demo-grid__overlay {
         position: absolute;
         inset: 0;
         pointer-events: none;
@@ -57,13 +57,13 @@
         min-height: 100%;
       }
 
-      .mds-page-demo__overlay-column {
+      .mds-grid-column {
         min-height: 100%;
         background: pink;
         opacity: 0.3;
       }
 
-      .mds-page-demo__content {
+      .demo-page__content {
         position: relative;
         z-index: 1;
       }
@@ -82,56 +82,56 @@
         padding-block: var(--mds-space-3xl);
       }
 
-      .mds-color-block {
+      .demo-color-block {
         width: 100%;
         border-radius: var(--mds-radius-md);
       }
 
-      .mds-color-block--xs {
+      .demo-color-block--xs {
         height: 28px;
       }
 
-      .mds-color-block--lg {
+      .demo-color-block--lg {
         height: 200px;
       }
 
-      .mds-color-block--neutral {
+      .demo-color-block--neutral {
         background: var(--mds-background-adaptive-brand-neutral-low);
       }
 
-      .mds-color-block--primary {
+      .demo-color-block--primary {
         background: var(--mds-background-adaptive-brand-primary-low);
       }
 
-      .mds-color-block--secondary {
+      .demo-color-block--secondary {
         background: var(--mds-background-adaptive-brand-secondary-low);
       }
 
-      .mds-color-block--tertiary {
+      .demo-color-block--tertiary {
         background: var(--mds-background-adaptive-brand-tertiary-low);
       }
 
-      .mds-color-block--light {
+      .demo-color-block--light {
         background: var(--mds-static-white);
       }
 
-      .mds-section--neutral {
+      .demo-section--neutral {
         background: var(--mds-background-section-brand-neutral-lowest);
       }
 
-      .mds-section--primary {
+      .demo-section--primary {
         background: var(--mds-background-section-brand-primary-lowest);
       }
 
-      .mds-section--secondary {
+      .demo-section--secondary {
         background: var(--mds-background-section-brand-secondary-lowest);
       }
 
-      .mds-section--header {
+      .demo-section--header {
         background: var(--mds-background-section-brand-tertiary-lowest);
       }
 
-      .mds-section--state-banner {
+      .demo-section--state-banner {
         background: var(--mds-static-black);
         padding-block: var(--mds-space-2xs);
       }
@@ -147,53 +147,53 @@
     </style>
   </head>
   <body>
-    <div class="mds-page-demo">
-      <div class="mds-page-demo__overlay" aria-hidden="true">
+    <div class="demo-grid">
+      <div class="demo-grid__overlay" aria-hidden="true">
         <div class="mds-grid mds-section__container">
-          <div class="mds-page-demo__overlay-column"></div>
-          <div class="mds-page-demo__overlay-column"></div>
-          <div class="mds-page-demo__overlay-column"></div>
-          <div class="mds-page-demo__overlay-column"></div>
-          <div class="mds-page-demo__overlay-column"></div>
-          <div class="mds-page-demo__overlay-column"></div>
-          <div class="mds-page-demo__overlay-column"></div>
-          <div class="mds-page-demo__overlay-column"></div>
-          <div class="mds-page-demo__overlay-column"></div>
-          <div class="mds-page-demo__overlay-column"></div>
-          <div class="mds-page-demo__overlay-column"></div>
-          <div class="mds-page-demo__overlay-column"></div>
+          <div class="mds-grid-column"></div>
+          <div class="mds-grid-column"></div>
+          <div class="mds-grid-column"></div>
+          <div class="mds-grid-column"></div>
+          <div class="mds-grid-column"></div>
+          <div class="mds-grid-column"></div>
+          <div class="mds-grid-column"></div>
+          <div class="mds-grid-column"></div>
+          <div class="mds-grid-column"></div>
+          <div class="mds-grid-column"></div>
+          <div class="mds-grid-column"></div>
+          <div class="mds-grid-column"></div>
         </div>
       </div>
 
-      <div class="mds-page-demo__content">
-        <header class="mds-section mds-section--state-banner">
+      <div class="demo-page__content">
+        <header class="mds-section demo-section--state-banner">
           <div class="mds-section__container">
-            <div class="mds-color-block mds-color-block--xs mds-color-block--light">.mds-section__container</div>
+            <div class="demo-color-block demo-color-block--xs demo-color-block--light">.mds-section__container</div>
           </div>
         </header>
-        <section class="mds-section mds-section--neutral">
+        <section class="mds-section demo-section--neutral">
           <div class="mds-section__container mds-space-3xl">
             <h1>Heading Level 1</h1>
-            <div class="mds-color-block mds-color-block--lg mds-color-block--light">.mds-section__container</div>
+            <div class="demo-color-block demo-color-block--lg demo-color-block--light">.mds-section__container</div>
           </div>
         </section>
 
-        <section class="mds-section mds-section--primary">
+        <section class="mds-section demo-section--primary">
           <div class="mds-section__container mds-space-3xl">
             <h2>Heading Level 2</h2>
             <h3>Heading Level 3</h3>
-            <div class="mds-color-block mds-color-block--lg mds-color-block--light">.mds-section__container</div>
+            <div class="demo-color-block demo-color-block--lg demo-color-block--light">.mds-section__container</div>
           </div>
         </section>
 
-        <section class="mds-section mds-section--secondary">
+        <section class="mds-section demo-section--secondary">
           <div class="mds-section__container mds-space-3xl">
-            <div class="mds-color-block mds-color-block--lg mds-color-block--light">.mds-section__container</div>
+            <div class="demo-color-block demo-color-block--lg demo-color-block--light">.mds-section__container</div>
           </div>
         </section>
         <footer class="mds-footer">
           <div class="mds-section__container mds-space-3xl">
-            <div class="mds-color-block mds-color-block--lg mds-color-block--neutral">.mds-section__container</div>
+            <div class="demo-color-block demo-color-block--lg demo-color-block--neutral">.mds-section__container</div>
           </div>
         </footer>
       </div>
