@@ -27,6 +27,14 @@
         font: var(--mds-text-heading-lg);
       }
 
+      p {
+        font: var(--mds-text-body-lg);
+      }
+
+      b {
+        font: var(--mds-text-body-lg-bold);
+      }
+
       body {
         margin: 0;
         background: var(--mds-background-surface-default);
@@ -46,14 +54,7 @@
         z-index: 2;
       }
 
-      .mds-grid {
-        display: grid;
-        grid-template-columns: repeat(var(--mds-breakpoint-horizontal-space-columns), minmax(0, 1fr));
-        gap: var(--mds-breakpoint-horizontal-space-gutter);
-        min-height: 100%;
-      }
-
-      .mds-grid-column {
+      .demo-grid-column {
         min-height: 100%;
         background: pink;
         opacity: 0.3;
@@ -150,31 +151,57 @@
         margin-top: var(--mds-space-xl);
         padding-top: var(--mds-space-lg);
       }
+
+      /* grid exploration */
+      .mds-grid {
+        display: grid;
+        grid-template-columns: repeat(var(--mds-breakpoint-horizontal-space-columns), minmax(0, 1fr));
+        gap: var(--mds-breakpoint-horizontal-space-gutter);
+        min-height: 100%;
+      }
+
+      .mds-grid-full {
+        grid-column: 1 / -1;
+      }
+
+      .mds-grid-2-column {
+        grid-column: span 2;
+      }
+
+      .mds-grid-3-column {
+        grid-column: span 3;
+      }
+
+      .mds-grid-4-column {
+        grid-column: span 4;
+      }
+
+
     </style>
   </head>
   <body>
     <div class="demo-grid">
       <div class="demo-grid__overlay" aria-hidden="true">
         <div class="mds-grid mds-section__container">
-          <div class="mds-grid-column"></div>
-          <div class="mds-grid-column"></div>
-          <div class="mds-grid-column"></div>
-          <div class="mds-grid-column"></div>
-          <div class="mds-grid-column"></div>
-          <div class="mds-grid-column"></div>
-          <div class="mds-grid-column"></div>
-          <div class="mds-grid-column"></div>
-          <div class="mds-grid-column"></div>
-          <div class="mds-grid-column"></div>
-          <div class="mds-grid-column"></div>
-          <div class="mds-grid-column"></div>
+          <div class="demo-grid-column"></div>
+          <div class="demo-grid-column"></div>
+          <div class="demo-grid-column"></div>
+          <div class="demo-grid-column"></div>
+          <div class="demo-grid-column"></div>
+          <div class="demo-grid-column"></div>
+          <div class="demo-grid-column"></div>
+          <div class="demo-grid-column"></div>
+          <div class="demo-grid-column"></div>
+          <div class="demo-grid-column"></div>
+          <div class="demo-grid-column"></div>
+          <div class="demo-grid-column"></div>
         </div>
       </div>
 
       <div class="demo-page__content">
         <header class="mds-section demo-section--state-banner">
           <div class="mds-section__container">
-            <div class="demo-color-block demo-color-block--xs demo-color-block--light">.mds-section__container</div>
+            <div class="demo-color-block demo-color-block--xs demo-color-block--light"></div>
           </div>
         </header>
 
@@ -186,20 +213,22 @@
 
         <section class="mds-section demo-section--primary">
           <div class="mds-section__container mds-space-3xl">
-            <h2>Heading Level 2</h2>
-            <h3>Heading Level 3</h3>
-            <div class="demo-color-block demo-color-block--lg demo-color-block--light">.mds-section__container</div>
+            <h2>Heading level 2</h2>
+            <h3>Heading level 3</h3>
+            <b>Body text lg bold</b>
+            <p>Body text lg</p>
+            <div class="demo-color-block demo-color-block--lg demo-color-block--light"></div>
           </div>
         </section>
 
         <section class="mds-section demo-section--secondary">
           <div class="mds-section__container mds-space-3xl">
-            <div class="demo-color-block demo-color-block--lg demo-color-block--light">.mds-section__container</div>
+            <div class="demo-color-block demo-color-block--lg demo-color-block--light"></div>
           </div>
         </section>
         <footer class="mds-footer">
           <div class="mds-section__container mds-space-3xl">
-            <div class="demo-color-block demo-color-block--lg demo-color-block--neutral">.mds-section__container</div>
+            <div class="demo-color-block demo-color-block--lg demo-color-block--neutral"></div>
           </div>
         </footer>
       </div>
