@@ -191,15 +191,15 @@
       }
 
       .mds-grid-2-column {
-        grid-column: span 6;
+        grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / 2);
       }
 
       .mds-grid-3-column {
-        grid-column: span 4;
+        grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / 3);
       }
 
       .mds-grid-4-column {
-        grid-column: span 3;
+        grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / 4);
       }
 
 
@@ -250,24 +250,31 @@
         </section>
 
         <section class="mds-section demo-section--secondary mds-space-3xl">
-          <div class="mds-section__container mds-grid mds-space-sm">
+          <div class="mds-section__container">
+          <h2>Grid examples</h2>
+          <b>Full width</b>
+          <div class="mds-grid mds-space-sm">
             <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-full"></div>
           </div>
-          <div class="mds-section__container mds-grid mds-space-sm">
+          <b>2 columns</b>
+          <div class="mds-grid mds-space-sm">
             <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-2-column"></div>
             <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-2-column"></div>
           </div>
-          <div class="mds-section__container mds-grid mds-space-sm">
+          <b>3 columns</b>
+          <div class="mds-grid mds-space-sm">
             <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-3-column"></div>
             <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-3-column"></div>
             <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-3-column"></div>
           </div>
-          <div class="mds-section__container mds-grid mds-space-sm">
+          <b>4 columns</b>
+          <div class="mds-grid mds-space-sm">
             <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-4-column"></div>
             <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-4-column"></div>
             <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-4-column"></div>
             <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-4-column"></div>
           </div>
+        </div>
         </section>
 
         <footer class="mds-footer">
