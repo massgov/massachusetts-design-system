@@ -1,8 +1,4 @@
-.mds-section__container {
-  padding-inline: var(--mds-breakpoint-horizontal-space-margin);
-  max-width: 1280px;
-  margin: 0 auto;
-}
+/* Utility classes: single purpose composable styles */
 
 .mds-space-3xl {
   padding-block: var(--mds-space-3xl);
@@ -14,13 +10,6 @@
 
 .mds-space-sm {
   padding-block: var(--mds-space-sm);
-}
-
-.mds-grid {
-  display: grid;
-  grid-template-columns: repeat(var(--mds-breakpoint-horizontal-space-columns), minmax(0, 1fr));
-  gap: var(--mds-breakpoint-horizontal-space-gutter);
-  min-height: 100%;
 }
 
 .mds-grid-full {
