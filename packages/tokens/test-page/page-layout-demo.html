@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MDS Section Template</title>
+    <title>MDS Page Layout Demo</title>
     <link rel="stylesheet" href="../src/index.css" />
     <style>
       * {
         box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
       }
 
       h1, h2, h3, h4, h5, h6 {
@@ -15,15 +20,15 @@
       }
 
       h1 {
-          font: var(--mds-text-heading-2xl);
+        font: var(--mds-text-heading-2xl);
       }
 
       h2 {
-          font: var(--mds-text-heading-xl);
+        font: var(--mds-text-heading-xl);
       }
 
       h3 {
-          font: var(--mds-text-heading-lg);
+        font: var(--mds-text-heading-lg);
       }
 
       body {
@@ -33,21 +38,44 @@
         font: var(--mds-text-body);
       }
 
+      .mds-page-demo {
+        position: relative;
+        min-height: 100vh;
+      }
+
+      .mds-page-demo__overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .mds-grid {
+        display: grid;
+        grid-template-columns: repeat(var(--mds-breakpoint-horizontal-space-columns), minmax(0, 1fr));
+        gap: var(--mds-breakpoint-horizontal-space-gutter);
+        min-height: 100%;
+      }
+
+      .mds-page-demo__overlay-column {
+        min-height: 100%;
+        background: pink;
+        opacity: 0.3;
+      }
+
+      .mds-page-demo__content {
+        position: relative;
+        z-index: 1;
+      }
+
       .mds-section {
         width: 100%;
       }
 
-      /* This is the helper class to apply the horizontal page margins defined by the token. It can be used on any block-level element to create consistent page margins across different content structures. */
       .mds-section__container {
         padding-inline: var(--mds-breakpoint-horizontal-space-margin);
         max-width: 1280px;
         margin: 0 auto;
-        position: relative;
-      }
-
-      .mds-section__container > * {
-        position: relative;
-        z-index: 1;
       }
 
       .mds-space-3xl {
@@ -116,75 +144,59 @@
         margin-top: var(--mds-space-xl);
         padding-top: var(--mds-space-lg);
       }
-
-      .grid-demo {
-        min-height: 100vh;
-        position: absolute;
-      }
-
-      .mds-grid {
-        display: grid;
-        grid-template-columns: repeat(var(--mds-breakpoint-horizontal-space-columns), 1fr);
-        gap: var(--mds-breakpoint-horizontal-space-gutter);
-        min-height: 100vh;
-      }
-
-      .mds-grid__item {
-        min-height: 100%;
-        background: pink;
-        opacity: 0.3;
-        z-index: 10;
-      }
     </style>
   </head>
   <body>
-    <div class="grid-demo mds-section">
-      <div class="mds-section__container">
-        <div class="mds-grid">
-          <div class="mds-grid__item"></div>
-          <div class="mds-grid__item"></div>
-          <div class="mds-grid__item"></div>
-          <div class="mds-grid__item"></div>
-          <div class="mds-grid__item"></div>
-          <div class="mds-grid__item"></div>
-          <div class="mds-grid__item"></div>
-          <div class="mds-grid__item"></div>
-          <div class="mds-grid__item"></div>
-          <div class="mds-grid__item"></div>
-          <div class="mds-grid__item"></div>
-          <div class="mds-grid__item"></div>
+    <div class="mds-page-demo">
+      <div class="mds-page-demo__overlay" aria-hidden="true">
+        <div class="mds-grid mds-section__container">
+          <div class="mds-page-demo__overlay-column"></div>
+          <div class="mds-page-demo__overlay-column"></div>
+          <div class="mds-page-demo__overlay-column"></div>
+          <div class="mds-page-demo__overlay-column"></div>
+          <div class="mds-page-demo__overlay-column"></div>
+          <div class="mds-page-demo__overlay-column"></div>
+          <div class="mds-page-demo__overlay-column"></div>
+          <div class="mds-page-demo__overlay-column"></div>
+          <div class="mds-page-demo__overlay-column"></div>
+          <div class="mds-page-demo__overlay-column"></div>
+          <div class="mds-page-demo__overlay-column"></div>
+          <div class="mds-page-demo__overlay-column"></div>
         </div>
       </div>
+
+      <div class="mds-page-demo__content">
+        <header class="mds-section mds-section--state-banner">
+          <div class="mds-section__container">
+            <div class="mds-color-block mds-color-block--xs mds-color-block--light">.mds-section__container</div>
+          </div>
+        </header>
+        <section class="mds-section mds-section--neutral">
+          <div class="mds-section__container mds-space-3xl">
+            <h1>Heading Level 1</h1>
+            <div class="mds-color-block mds-color-block--lg mds-color-block--light">.mds-section__container</div>
+          </div>
+        </section>
+
+        <section class="mds-section mds-section--primary">
+          <div class="mds-section__container mds-space-3xl">
+            <h2>Heading Level 2</h2>
+            <h3>Heading Level 3</h3>
+            <div class="mds-color-block mds-color-block--lg mds-color-block--light">.mds-section__container</div>
+          </div>
+        </section>
+
+        <section class="mds-section mds-section--secondary">
+          <div class="mds-section__container mds-space-3xl">
+            <div class="mds-color-block mds-color-block--lg mds-color-block--light">.mds-section__container</div>
+          </div>
+        </section>
+        <footer class="mds-footer">
+          <div class="mds-section__container mds-space-3xl">
+            <div class="mds-color-block mds-color-block--lg mds-color-block--neutral">.mds-section__container</div>
+          </div>
+        </footer>
+      </div>
     </div>
-    <header class="mds-section mds-section--state-banner">
-      <div class="mds-section__container">
-        <div class="mds-color-block mds-color-block--xs mds-color-block--light">.mds-section__container</div>
-      </div>
-    </header>
-    <section class="mds-section mds-section--neutral">
-      <div class="mds-section__container mds-space-3xl">
-        <h1>Heading Level 1</h1>
-        <div class="mds-color-block mds-color-block--lg mds-color-block--light">.mds-section__container</div>
-      </div>
-    </section>
-
-    <section class="mds-section mds-section--primary">
-      <div class="mds-section__container mds-space-3xl">
-        <h2>Heading Level 2</h2>
-        <h3>Heading Level 3</h3>
-        <div class="mds-color-block mds-color-block--lg mds-color-block--light">.mds-section__container</div>
-      </div>
-    </section>
-
-    <section class="mds-section mds-section--secondary">
-      <div class="mds-section__container mds-space-3xl">
-        <div class="mds-color-block mds-color-block--lg mds-color-block--light">.mds-section__container</div>
-      </div>
-    </section>
-    <footer class="mds-footer">
-      <div class="mds-section__container mds-space-3xl">
-        <div class="mds-color-block mds-color-block--lg mds-color-block--neutral">.mds-section__container</div>
-      </div>
-    </footer>
   </body>
 </html>
