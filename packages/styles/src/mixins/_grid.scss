@@ -1,0 +1,11 @@
+@mixin emit-grid-span-utilities($class-prefix, $denominators) {
+  .mds-#{$class-prefix}-full {
+    grid-column: 1 / -1;
+  }
+
+  @each $name, $value in $denominators {
+    .mds-#{$class-prefix}-#{$name} {
+      grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / #{$value});
+    }
+  }
+}

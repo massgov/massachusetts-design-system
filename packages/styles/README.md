@@ -38,15 +38,21 @@ This package does not rebundle tokens. Keeping tokens and styles separate makes 
 
 ```text
 src/
-├── _config.scss
+├── mixins/
+│   ├── _grid.scss
+│   ├── _space.scss
+│   ├── _scales.scss
+│   └── index.scss
 ├── helpers.scss
 ├── index.scss
 └── utilities.scss
 ```
 
-- `_config.scss` stores the Sass maps and mixins that generate utilities
+- `mixins/_scales.scss` stores the token-backed scales shared by utility generation
+- `mixins/_space.scss` and `mixins/_grid.scss` contain the utility mixins
+- `mixins/_index.scss` forwards the mixin API so files can `@use "./mixins"`
 - `helpers.scss` contains authored structural classes
-- `utilities.scss` emits utility classes from the config maps
+- `utilities.scss` emits utility classes from the shared mixins module
 - `index.scss` is the package entrypoint that imports both layers
 
 ## Development
@@ -64,8 +70,8 @@ The build compiles the Sass entrypoints into `dist/`.
 
 To add a new utility family:
 
-1. Add the token-backed scale to `src/_config.scss`
-2. Add or reuse a mixin that emits the classes you want
+1. Add the token-backed scale to `src/mixins/_scales.scss`
+2. Add or reuse a mixin under `src/mixins/`
 3. Call that mixin from `src/utilities.scss`
 4. Rebuild with `npm run build`
 
