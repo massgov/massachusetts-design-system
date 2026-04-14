@@ -85,6 +85,19 @@ $background-scale: (
   "overlay": var(--mds-background-overlay)
 );
 
+$text-and-icons-scale: (
+  "inverse": var(--mds-inverse),
+  "brand-neutral-default": var(--mds-text-and-icons-brand-neutral-default),
+  "brand-neutral-muted": var(--mds-text-and-icons-brand-neutral-muted),
+  "brand-neutral-disabled": var(--mds-text-and-icons-brand-neutral-disabled),
+  "brand-primary-mid": var(--mds-text-and-icons-brand-primary-mid),
+  "brand-secondary-mid": var(--mds-text-and-icons-brand-secondary-mid),
+  "utility-informative-mid": var(--mds-text-and-icons-utility-informative-mid),
+  "utility-danger-mid": var(--mds-text-and-icons-utility-danger-mid),
+  "utility-warning-mid": var(--mds-text-and-icons-utility-warning-mid),
+  "utility-success-mid": var(--mds-text-and-icons-utility-success-mid)
+);
+
 $radius-scale: (
   "xs": var(--mds-radius-xs),
   "sm": var(--mds-radius-sm),

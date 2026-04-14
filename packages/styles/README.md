@@ -12,7 +12,7 @@ Import tokens first, then styles:
 @import "@massds/mds-styles/dist/colors.css";
 ```
 
-This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages. Background color utilities are published separately in `colors.css` so teams can opt into them explicitly.
+This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages. Color utilities are published separately in `colors.css` so teams can opt into them explicitly.
 
 ## Package Contents
 
@@ -26,7 +26,7 @@ dist/
 └── utilities.css
 ```
 
-- `dist/colors.css` contains background color utility classes generated from semantic background tokens
+- `dist/colors.css` contains color utility classes generated from semantic background and text/icon tokens
 - `dist/helpers.css` contains reusable structural classes such as the grid container and section container
 - `dist/utilities.css` contains generated utility classes such as spacing, radius, shadow, gap, and grid span utilities
 - `dist/index.css` imports the helper and utility layers together
@@ -42,10 +42,10 @@ As a rule of thumb, helpers describe reusable layout patterns or structural role
 
 ## Color Utilities
 
-Background color utilities are generated from the semantic `--mds-background-*` token set in `@massds/mds-tokens` and live in a dedicated `colors.css` layer.
+Color utilities are generated from the semantic background and text/icon token sets in `@massds/mds-tokens` and live in a dedicated `colors.css` layer.
 
 ```html
-<div class="mds-background-section-brand-primary-lowest"></div>
+<div class="mds-background-section-brand-primary-lowest mds-text-inverse"></div>
 ```
 
 Examples:
@@ -55,6 +55,11 @@ Examples:
 - `.mds-background-adaptive-brand-secondary-mid`
 - `.mds-background-adaptive-utility-success-high`
 - `.mds-background-overlay`
+- `.mds-text-brand-neutral-default`
+- `.mds-text-brand-primary-mid`
+- `.mds-text-inverse`
+- `.mds-icons-brand-secondary-mid`
+- `.mds-icons-utility-danger-mid`
 
 ## Spacing Utilities
 
@@ -153,7 +158,7 @@ src/
 - `mixins/_base.scss` contains the shared utility generator mixins
 - `mixins/_space.scss` and `mixins/_grid.scss` contain specialized utility mixins
 - `mixins/index.scss` forwards the mixin API so files can `@use "./mixins"`
-- `colors.scss` emits the background color utility layer
+- `colors.scss` emits the color utility layer for background and text/icon tokens
 - `helpers.scss` contains authored structural classes
 - `utilities.scss` emits utility classes from the shared mixins module, including numeric grid spans such as `.mds-grid-span-6`
 - `index.scss` is the package entrypoint that imports both layers
