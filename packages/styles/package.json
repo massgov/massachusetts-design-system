@@ -1,0 +1,41 @@
+{
+  "name": "@massds/mds-styles",
+  "version": "0.1.0",
+  "description": "Generated helper and utility CSS for the Massachusetts Design System",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "node ./scripts/build.js",
+    "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/massgov/massachusetts-design-system.git",
+    "directory": "packages/styles"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "utilities",
+    "helpers",
+    "design-system",
+    "massachusetts"
+  ],
+  "author": "Massachusetts Digital Services",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.93.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": "24.14.0"
+  },
+  "volta": {
+    "node": "24.14.0",
+    "npm": "10.9.2"
+  }
+}

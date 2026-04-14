@@ -1,0 +1,7 @@
+@use "./config" as config;
+
+/* Utility classes: single-purpose composable styles */
+
+@include config.emit-space-utilities("space", padding-block, config.$space-scale);
+@include config.emit-space-utilities("gap", gap, config.$space-scale);
+@include config.emit-grid-span-utilities("grid", config.$grid-span-denominators);

@@ -1,0 +1,37 @@
+$space-scale: (
+  "3xs": var(--mds-space-3xs),
+  "2xs": var(--mds-space-2xs),
+  "xs": var(--mds-space-xs),
+  "sm": var(--mds-space-sm),
+  "md": var(--mds-space-md),
+  "lg": var(--mds-space-lg),
+  "xl": var(--mds-space-xl),
+  "2xl": var(--mds-space-2xl),
+  "3xl": var(--mds-space-3xl)
+);
+
+$grid-span-denominators: (
+  "2-column": 2,
+  "3-column": 3,
+  "4-column": 4
+);
+
+@mixin emit-space-utilities($class-prefix, $property, $scale) {
+  @each $name, $value in $scale {
+    .mds-#{$class-prefix}-#{$name} {
+      #{$property}: $value;
+    }
+  }
+}
+
+@mixin emit-grid-span-utilities($class-prefix, $denominators) {
+  .mds-#{$class-prefix}-full {
+    grid-column: 1 / -1;
+  }
+
+  @each $name, $value in $denominators {
+    .mds-#{$class-prefix}-#{$name} {
+      grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / #{$value});
+    }
+  }
+}
