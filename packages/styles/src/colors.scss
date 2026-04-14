@@ -1,0 +1,5 @@
+@use "./mixins" as mixins;
+
+/* Background color utilities generated from semantic background tokens */
+
+@include mixins.emit-base-utilities("background", background-color, mixins.$background-scale);

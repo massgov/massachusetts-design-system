@@ -9,9 +9,10 @@ Import tokens first, then styles:
 ```css
 @import "@massds/mds-tokens/dist/index.css";
 @import "@massds/mds-styles/dist/index.css";
+@import "@massds/mds-styles/dist/colors.css";
 ```
 
-This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages.
+This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages. Background color utilities are published separately in `colors.css` so teams can opt into them explicitly.
 
 ## Package Contents
 
@@ -19,11 +20,13 @@ The published package includes generated CSS files under `dist/`:
 
 ```text
 dist/
+├── colors.css
 ├── helpers.css
 ├── index.css
 └── utilities.css
 ```
 
+- `dist/colors.css` contains background color utility classes generated from semantic background tokens
 - `dist/helpers.css` contains reusable structural classes such as the grid container and section container
 - `dist/utilities.css` contains generated utility classes such as spacing, radius, shadow, gap, and grid span utilities
 - `dist/index.css` imports the helper and utility layers together
@@ -36,6 +39,22 @@ This package uses two naming styles on purpose:
 - Use flat, token-driven naming for utilities, for example `.mds-padding-inline-md`, `.mds-gap-sm`, and `.mds-shadow-container`
 
 As a rule of thumb, helpers describe reusable layout patterns or structural roles, while utilities describe one specific CSS property driven by a token scale.
+
+## Color Utilities
+
+Background color utilities are generated from the semantic `--mds-background-*` token set in `@massds/mds-tokens` and live in a dedicated `colors.css` layer.
+
+```html
+<div class="mds-background-section-brand-primary-lowest"></div>
+```
+
+Examples:
+
+- `.mds-background-surface-default`
+- `.mds-background-section-brand-primary-lowest`
+- `.mds-background-adaptive-brand-secondary-mid`
+- `.mds-background-adaptive-utility-success-high`
+- `.mds-background-overlay`
 
 ## Spacing Utilities
 
@@ -118,6 +137,7 @@ These aliases should be treated as deprecated for new work. Prefer `.mds-grid-sp
 
 ```text
 src/
+├── colors.scss
 ├── mixins/
 │   ├── _base.scss
 │   ├── _grid.scss
@@ -133,6 +153,7 @@ src/
 - `mixins/_base.scss` contains the shared utility generator mixins
 - `mixins/_space.scss` and `mixins/_grid.scss` contain specialized utility mixins
 - `mixins/index.scss` forwards the mixin API so files can `@use "./mixins"`
+- `colors.scss` emits the background color utility layer
 - `helpers.scss` contains authored structural classes
 - `utilities.scss` emits utility classes from the shared mixins module, including numeric grid spans such as `.mds-grid-span-6`
 - `index.scss` is the package entrypoint that imports both layers

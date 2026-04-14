@@ -45,6 +45,7 @@ async function build() {
   await cleanDist();
 
   await Promise.all([
+    compileSass(path.join(srcDir, 'colors.scss'), path.join(distDir, 'colors.css')),
     compileSass(path.join(srcDir, 'index.scss'), path.join(distDir, 'index.css')),
     compileSass(path.join(srcDir, 'helpers.scss'), path.join(distDir, 'helpers.css')),
     compileSass(path.join(srcDir, 'utilities.scss'), path.join(distDir, 'utilities.css'))
