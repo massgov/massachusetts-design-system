@@ -3,11 +3,11 @@
 /* Utility classes: single-purpose composable styles */
 
 // space
-@include mixins.emit-space-utilities("space", padding-block, mixins.$space-scale);
+@include mixins.emit-base-utilities("space", padding-block, mixins.$space-scale);
 
 // border radius
-@include mixins.emit-space-utilities("radius", border-radius, mixins.$radius-scale);
+@include mixins.emit-base-utilities("radius", border-radius, mixins.$radius-scale);
 
 // grid
-@include mixins.emit-space-utilities("gap", gap, mixins.$space-scale);
+@include mixins.emit-base-utilities("gap", gap, mixins.$space-scale);
 @include mixins.emit-grid-span-utilities(mixins.$grid-span-scale, mixins.$grid-span-aliases);
