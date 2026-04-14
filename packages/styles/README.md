@@ -2,11 +2,16 @@
 
 Helper and utility CSS for the Massachusetts Design System. This package is intended to sit on top of `@massds/mds-tokens` and provide composable layout and spacing classes generated from a small Sass source layer.
 
-## Installation
+## Usage
 
-```bash
-npm install @massds/mds-tokens @massds/mds-styles
+Import tokens first, then styles:
+
+```css
+@import "@massds/mds-tokens/dist/index.css";
+@import "@massds/mds-styles/dist/index.css";
 ```
+
+This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages.
 
 ## Package Contents
 
@@ -23,16 +28,14 @@ dist/
 - `dist/utilities.css` contains generated utility classes such as spacing, radius, shadow, gap, and grid span utilities
 - `dist/index.css` imports the helper and utility layers together
 
-## Usage
+## Naming Conventions
 
-Import tokens first, then styles:
+This package uses two naming styles on purpose:
 
-```css
-@import "@massds/mds-tokens/dist/index.css";
-@import "@massds/mds-styles/dist/index.css";
-```
+- Use BEM for helpers and component-like classes with semantic structure, for example `.mds-section__container`
+- Use flat, token-driven naming for utilities, for example `.mds-padding-inline-md`, `.mds-gap-sm`, and `.mds-shadow-container`
 
-This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages.
+As a rule of thumb, helpers describe reusable layout patterns or structural roles, while utilities describe one specific CSS property driven by a token scale.
 
 ## Spacing Utilities
 
