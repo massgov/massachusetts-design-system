@@ -1,7 +1,10 @@
-@use "./config" as config;
+@use "./mixins" as mixins;
 
 /* Utility classes: single-purpose composable styles */
 
-@include config.emit-space-utilities("space", padding-block, config.$space-scale);
-@include config.emit-space-utilities("gap", gap, config.$space-scale);
-@include config.emit-grid-span-utilities("grid", config.$grid-span-denominators);
+// space
+@include mixins.emit-space-utilities("space", padding-block, mixins.$space-scale);
+
+// grid
+@include mixins.emit-space-utilities("gap", gap, mixins.$space-scale);
+@include mixins.emit-grid-span-utilities("grid", mixins.$grid-span-denominators);
