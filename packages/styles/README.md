@@ -20,7 +20,7 @@ dist/
 ```
 
 - `dist/helpers.css` contains reusable structural classes such as the grid container and section container
-- `dist/utilities.css` contains generated utility classes such as spacing, radius, gap, and grid span utilities
+- `dist/utilities.css` contains generated utility classes such as spacing, radius, shadow, gap, and grid span utilities
 - `dist/index.css` imports the helper and utility layers together
 
 ## Usage
@@ -48,6 +48,21 @@ Available classes:
 - `.mds-radius-sm`
 - `.mds-radius-md`
 - `.mds-radius-max`
+
+## Shadow Utilities
+
+Shadow utilities are generated from the semantic elevation tokens:
+
+```html
+<div class="mds-shadow-container"></div>
+```
+
+Available classes:
+
+- `.mds-shadow-container`
+- `.mds-shadow-modal`
+- `.mds-shadow-hover-sm`
+- `.mds-shadow-hover-md`
 
 ## Grid Utilities
 
