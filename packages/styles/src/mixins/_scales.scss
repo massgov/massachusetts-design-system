@@ -10,6 +10,13 @@ $space-scale: (
   "3xl": var(--mds-space-3xl)
 );
 
+$radius-scale: (
+  "xs": var(--mds-radius-xs),
+  "sm": var(--mds-radius-sm),
+  "md": var(--mds-radius-md),
+  "max": var(--mds-radius-max)
+);
+
 $grid-span-scale: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
 
 $grid-span-aliases: (

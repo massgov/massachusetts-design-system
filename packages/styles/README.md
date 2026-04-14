@@ -20,7 +20,7 @@ dist/
 ```
 
 - `dist/helpers.css` contains reusable structural classes such as the grid container and section container
-- `dist/utilities.css` contains generated utility classes
+- `dist/utilities.css` contains generated utility classes such as spacing, radius, gap, and grid span utilities
 - `dist/index.css` imports the helper and utility layers together
 
 ## Usage
@@ -33,6 +33,21 @@ Import tokens first, then styles:
 ```
 
 This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages.
+
+## Radius Utilities
+
+Border radius utilities are generated from the semantic radius tokens:
+
+```html
+<div class="mds-radius-md"></div>
+```
+
+Available classes:
+
+- `.mds-radius-xs`
+- `.mds-radius-sm`
+- `.mds-radius-md`
+- `.mds-radius-max`
 
 ## Grid Utilities
 
