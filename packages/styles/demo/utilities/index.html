@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MDS Utility Classes Demo</title>
+    <link rel="stylesheet" href="../../../tokens/src/index.css" />
+    <link rel="stylesheet" href="../../dist/index.css" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <main class="utility-demo">
+      <section class="utility-demo__hero mds-shadow--container">
+        <div class="mds-section__container mds-space--2xl">
+          <p class="utility-demo__eyebrow">Massachusetts Design System</p>
+          <h1>Utility Classes Demo</h1>
+          <p class="utility-demo__lede">
+            A visual reference for the generated utility classes in <code>@massds/mds-styles</code>.
+          </p>
+        </div>
+      </section>
+
+      <section class="utility-demo__section">
+        <div class="mds-section__container mds-space--2xl">
+          <div class="utility-demo__section-header">
+            <h2>Spacing Utilities</h2>
+            <p>Padding-block classes generated from the semantic spacing scale.</p>
+          </div>
+          <div class="utility-demo__stack">
+            <div class="utility-demo__swatch mds-space--3xs">
+              <span><code>.mds-space--3xs</code></span>
+            </div>
+            <div class="utility-demo__swatch mds-space--xs">
+              <span><code>.mds-space--xs</code></span>
+            </div>
+            <div class="utility-demo__swatch mds-space--md">
+              <span><code>.mds-space--md</code></span>
+            </div>
+            <div class="utility-demo__swatch mds-space--2xl">
+              <span><code>.mds-space--2xl</code></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="utility-demo__section utility-demo__section--alt">
+        <div class="mds-section__container mds-space--2xl">
+          <div class="utility-demo__section-header">
+            <h2>Radius Utilities</h2>
+            <p>Border radius classes generated from semantic radius tokens.</p>
+          </div>
+          <div class="utility-demo__grid utility-demo__grid--cards">
+            <article class="utility-demo__card mds-radius--xs">
+              <strong><code>.mds-radius--xs</code></strong>
+            </article>
+            <article class="utility-demo__card mds-radius--sm">
+              <strong><code>.mds-radius--sm</code></strong>
+            </article>
+            <article class="utility-demo__card mds-radius--md">
+              <strong><code>.mds-radius--md</code></strong>
+            </article>
+            <article class="utility-demo__card mds-radius--max">
+              <strong><code>.mds-radius--max</code></strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="utility-demo__section">
+        <div class="mds-section__container mds-space--2xl">
+          <div class="utility-demo__section-header">
+            <h2>Shadow Utilities</h2>
+            <p>Elevation classes generated from semantic shadow tokens.</p>
+          </div>
+          <div class="utility-demo__grid utility-demo__grid--cards">
+            <article class="utility-demo__card utility-demo__card--surface mds-shadow--container">
+              <strong><code>.mds-shadow--container</code></strong>
+            </article>
+            <article class="utility-demo__card utility-demo__card--surface mds-shadow--modal">
+              <strong><code>.mds-shadow--modal</code></strong>
+            </article>
+            <article class="utility-demo__card utility-demo__card--surface mds-shadow--hover-sm">
+              <strong><code>.mds-shadow--hover-sm</code></strong>
+            </article>
+            <article class="utility-demo__card utility-demo__card--surface mds-shadow--hover-md">
+              <strong><code>.mds-shadow--hover-md</code></strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="utility-demo__section utility-demo__section--alt">
+        <div class="mds-section__container mds-space--2xl">
+          <div class="utility-demo__section-header">
+            <h2>Gap Utilities</h2>
+            <p>Gap utilities applied to a helper grid container.</p>
+          </div>
+          <div class="utility-demo__examples">
+            <div>
+              <p class="utility-demo__label"><code>.mds-gap--xs</code></p>
+              <div class="mds-grid mds-gap--xs">
+                <div class="utility-demo__tile mds-grid-span-3"></div>
+                <div class="utility-demo__tile mds-grid-span-3"></div>
+                <div class="utility-demo__tile mds-grid-span-3"></div>
+                <div class="utility-demo__tile mds-grid-span-3"></div>
+              </div>
+            </div>
+            <div>
+              <p class="utility-demo__label"><code>.mds-gap--xl</code></p>
+              <div class="mds-grid mds-gap--xl">
+                <div class="utility-demo__tile mds-grid-span-3"></div>
+                <div class="utility-demo__tile mds-grid-span-3"></div>
+                <div class="utility-demo__tile mds-grid-span-3"></div>
+                <div class="utility-demo__tile mds-grid-span-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="utility-demo__section">
+        <div class="mds-section__container mds-space--2xl">
+          <div class="utility-demo__section-header">
+            <h2>Grid Span Utilities</h2>
+            <p>The preferred API is numeric, with legacy aliases still available for compatibility.</p>
+          </div>
+          <div class="utility-demo__examples">
+            <div>
+              <p class="utility-demo__label">Numeric spans</p>
+              <div class="mds-grid mds-gap--sm">
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-12"><code>12</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-6"><code>6</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-6"><code>6</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4"><code>4</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4"><code>4</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4"><code>4</code></div>
+              </div>
+            </div>
+            <div>
+              <p class="utility-demo__label">Legacy helper aliases</p>
+              <div class="mds-grid mds-gap--sm">
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-full"><code>.mds-grid-full</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-2-column"><code>.mds-grid-2-column</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-2-column"><code>.mds-grid-2-column</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-3-column"><code>.mds-grid-3-column</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-3-column"><code>.mds-grid-3-column</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-3-column"><code>.mds-grid-3-column</code></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
