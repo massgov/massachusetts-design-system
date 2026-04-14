@@ -11,7 +11,7 @@
   <body>
     <main class="utility-demo">
       <section class="utility-demo__hero">
-        <div class="mds-section__container mds-space--2xl">
+        <div class="mds-section__container mds-padding-block--xl">
           <p class="utility-demo__eyebrow">Massachusetts Design System</p>
           <h1>Utility Classes Demo</h1>
           <p class="utility-demo__lede">
@@ -21,30 +21,69 @@
       </section>
 
       <section class="utility-demo__section">
-        <div class="mds-section__container mds-space--2xl">
+        <div class="mds-section__container mds-padding-block--xl">
           <div class="utility-demo__section-header">
             <h2>Spacing Utilities</h2>
-            <p>Padding-block classes generated from the semantic spacing scale.</p>
+            <p>Horizontal and vertical padding and margin classes shown with nested color blocks so the spacing difference is visible at a glance.</p>
           </div>
-          <div class="utility-demo__stack">
-            <div class="utility-demo__swatch mds-space--3xs">
-              <span><code>.mds-space--3xs</code></span>
-            </div>
-            <div class="utility-demo__swatch mds-space--xs">
-              <span><code>.mds-space--xs</code></span>
-            </div>
-            <div class="utility-demo__swatch mds-space--md">
-              <span><code>.mds-space--md</code></span>
-            </div>
-            <div class="utility-demo__swatch mds-space--2xl">
-              <span><code>.mds-space--2xl</code></span>
-            </div>
+          <div class="utility-demo__spacing-grid">
+            <article class="utility-demo__spacing-card">
+              <div class="utility-demo__spacing-header">
+                <h3>Padding Inline</h3>
+                <p><code>.mds-padding-inline--*</code></p>
+              </div>
+              <div class="utility-demo__spacing-showcase utility-demo__spacing-showcase--padding-inline mds-padding-inline--2xl">
+                <div class="utility-demo__spacing-inner">
+                  <code>.mds-padding-inline--2xl</code>
+                </div>
+              </div>
+            </article>
+
+            <article class="utility-demo__spacing-card">
+              <div class="utility-demo__spacing-header">
+                <h3>Padding Block</h3>
+                <p><code>.mds-padding-block--*</code></p>
+              </div>
+              <div class="utility-demo__spacing-showcase utility-demo__spacing-showcase--padding-block mds-padding-block--xl">
+                <div class="utility-demo__spacing-inner">
+                  <code>.mds-padding-block--xl</code>
+                </div>
+              </div>
+            </article>
+
+            <article class="utility-demo__spacing-card">
+              <div class="utility-demo__spacing-header">
+                <h3>Margin Inline</h3>
+                <p><code>.mds-margin-inline--*</code></p>
+              </div>
+              <div class="utility-demo__spacing-frame">
+                <div class="utility-demo__spacing-showcase utility-demo__spacing-showcase--margin-inline mds-margin-inline--2xl">
+                  <div class="utility-demo__spacing-inner">
+                    <code>.mds-margin-inline--2xl</code>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="utility-demo__spacing-card">
+              <div class="utility-demo__spacing-header">
+                <h3>Margin Block</h3>
+                <p><code>.mds-margin-block--*</code></p>
+              </div>
+              <div class="utility-demo__spacing-frame utility-demo__spacing-frame--stacked">
+                <div class="utility-demo__spacing-showcase utility-demo__spacing-showcase--margin-block mds-margin-block--xl">
+                  <div class="utility-demo__spacing-inner">
+                    <code>.mds-margin-block--xl</code>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="utility-demo__section utility-demo__section--alt">
-        <div class="mds-section__container mds-space--2xl">
+        <div class="mds-section__container mds-padding-block--xl">
           <div class="utility-demo__section-header">
             <h2>Radius Utilities</h2>
             <p>Border radius classes generated from semantic radius tokens.</p>
@@ -67,7 +106,7 @@
       </section>
 
       <section class="utility-demo__section">
-        <div class="mds-section__container mds-space--2xl">
+        <div class="mds-section__container mds-padding-block--xl">
           <div class="utility-demo__section-header">
             <h2>Shadow Utilities</h2>
             <p>Elevation classes generated from semantic shadow tokens.</p>
@@ -90,7 +129,7 @@
       </section>
 
       <section class="utility-demo__section utility-demo__section--alt">
-        <div class="mds-section__container mds-space--2xl">
+        <div class="mds-section__container mds-padding-block--xl">
           <div class="utility-demo__section-header">
             <h2>Gap Utilities</h2>
             <p>Gap utilities applied to a helper grid container.</p>
@@ -119,7 +158,7 @@
       </section>
 
       <section class="utility-demo__section">
-        <div class="mds-section__container mds-space--2xl">
+        <div class="mds-section__container mds-padding-block--xl">
           <div class="utility-demo__section-header">
             <h2>Grid Span Utilities</h2>
             <p>The preferred API is numeric, with legacy aliases still available for compatibility.</p>
@@ -128,12 +167,12 @@
             <div>
               <p class="utility-demo__label">Numeric spans</p>
               <div class="mds-grid mds-gap--sm">
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-12"><code>12</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-6"><code>6</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-6"><code>6</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4"><code>4</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4"><code>4</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4"><code>4</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-12"><code>.mds-grid-span-12</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-6"><code>.mds-grid-span-6</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-6"><code>.mds-grid-span-6</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4"><code>.mds-grid-span-4</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4"><code>.mds-grid-span-4</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4"><code>.mds-grid-span-4</code></div>
               </div>
             </div>
             <div>
