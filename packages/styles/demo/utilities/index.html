@@ -25,59 +25,45 @@
           <div class="utility-demo__section-header">
             <h2>Spacing Utilities</h2>
             <p>Horizontal and vertical padding and margin classes shown with nested color blocks so the spacing difference is visible at a glance.</p>
+            <code>.mds-padding-inline-* .mds-padding-block-* .mds-margin-block-* .mds-margin-inline-*</code>
+            <p>Scale options: <code>3xs, 2xs, xs, sm, md, lg, xl, 2xl, 3xl</code></p>
           </div>
-          <div class="utility-demo__spacing-grid">
-            <article class="utility-demo__spacing-card">
-              <div class="utility-demo__spacing-header">
-                <h3>Padding Inline</h3>
-                <p><code>.mds-padding-inline-*</code></p>
-              </div>
-              <div class="utility-demo__spacing-showcase utility-demo__spacing-showcase--padding-inline mds-padding-inline-2xl">
-                <div class="utility-demo__spacing-inner">
-                  <code>.mds-padding-inline-2xl</code>
+          <div class="utility-demo__box-model-examples">
+            <div class="utility-demo__box-model mds-margin-block-sm">
+              <p>sm</p>
+              <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
+                <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-padding-inline-sm mds-padding-block-sm mds-margin-block-sm mds-margin-inline-sm">
+                  <div class="utility-demo__box-model-content"></div>
                 </div>
               </div>
-            </article>
+            </div>
 
-            <article class="utility-demo__spacing-card">
-              <div class="utility-demo__spacing-header">
-                <h3>Padding Block</h3>
-                <p><code>.mds-padding-block-*</code></p>
-              </div>
-              <div class="utility-demo__spacing-showcase utility-demo__spacing-showcase--padding-block mds-padding-block-xl">
-                <div class="utility-demo__spacing-inner">
-                  <code>.mds-padding-block-xl</code>
+            <div class="utility-demo__box-model mds-margin-block-sm">
+              <p>md</p>
+              <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
+                <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-padding-inline-md mds-padding-block-md mds-margin-block-md mds-margin-inline-md">
+                  <div class="utility-demo__box-model-content"></div>
                 </div>
               </div>
-            </article>
+            </div>
 
-            <article class="utility-demo__spacing-card">
-              <div class="utility-demo__spacing-header">
-                <h3>Margin Inline</h3>
-                <p><code>.mds-margin-inline-*</code></p>
-              </div>
-              <div class="utility-demo__spacing-frame">
-                <div class="utility-demo__spacing-showcase utility-demo__spacing-showcase--margin-inline mds-margin-inline-2xl">
-                  <div class="utility-demo__spacing-inner">
-                    <code>.mds-margin-inline-2xl</code>
-                  </div>
+            <div class="utility-demo__box-model mds-margin-block-sm">
+              <p>lg</p>
+              <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
+                <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-padding-inline-lg mds-padding-block-lg mds-margin-block-lg mds-margin-inline-lg">
+                  <div class="utility-demo__box-model-content"></div>
                 </div>
               </div>
-            </article>
+            </div>
 
-            <article class="utility-demo__spacing-card">
-              <div class="utility-demo__spacing-header">
-                <h3>Margin Block</h3>
-                <p><code>.mds-margin-block-*</code></p>
-              </div>
-              <div class="utility-demo__spacing-frame utility-demo__spacing-frame--stacked">
-                <div class="utility-demo__spacing-showcase utility-demo__spacing-showcase--margin-block mds-margin-block-xl">
-                  <div class="utility-demo__spacing-inner">
-                    <code>.mds-margin-block-xl</code>
-                  </div>
+            <div class="utility-demo__box-model mds-margin-block-sm">
+              <p>xl</p>
+              <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
+                <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-padding-inline-xl mds-padding-block-xl mds-margin-block-xl mds-margin-inline-xl">
+                  <div class="utility-demo__box-model-content"></div>
                 </div>
               </div>
-            </article>
+            </div>
           </div>
         </div>
       </section>
@@ -128,35 +114,6 @@
         </div>
       </section>
 
-      <section class="utility-demo__section utility-demo__section--alt">
-        <div class="mds-section__container mds-padding-block-xl">
-          <div class="utility-demo__section-header">
-            <h2>Gap Utilities</h2>
-            <p>Gap utilities applied to a helper grid container.</p>
-          </div>
-          <div class="utility-demo__examples">
-            <div>
-              <p class="utility-demo__label"><code>.mds-gap-xs</code></p>
-              <div class="mds-grid mds-gap-xs">
-                <div class="utility-demo__tile mds-grid-span-3"></div>
-                <div class="utility-demo__tile mds-grid-span-3"></div>
-                <div class="utility-demo__tile mds-grid-span-3"></div>
-                <div class="utility-demo__tile mds-grid-span-3"></div>
-              </div>
-            </div>
-            <div>
-              <p class="utility-demo__label"><code>.mds-gap-xl</code></p>
-              <div class="mds-grid mds-gap-xl">
-                <div class="utility-demo__tile mds-grid-span-3"></div>
-                <div class="utility-demo__tile mds-grid-span-3"></div>
-                <div class="utility-demo__tile mds-grid-span-3"></div>
-                <div class="utility-demo__tile mds-grid-span-3"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="utility-demo__section">
         <div class="mds-section__container mds-padding-block-xl">
           <div class="utility-demo__section-header">
@@ -165,25 +122,49 @@
           </div>
           <div class="utility-demo__examples">
             <div>
-              <p class="utility-demo__label">Numeric spans</p>
+              <p class="utility-demo__label mds-margin-block-sm">Numeric spans</p>
               <div class="mds-grid mds-gap-sm">
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-12"><code>.mds-grid-span-12</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-6"><code>.mds-grid-span-6</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-6"><code>.mds-grid-span-6</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4"><code>.mds-grid-span-4</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4"><code>.mds-grid-span-4</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4"><code>.mds-grid-span-4</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-12">
+                  <code>.mds-grid-span-12</code>
+                </div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-6">
+                  <code>.mds-grid-span-6</code>
+                </div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-6">
+                  <code>.mds-grid-span-6</code>
+                </div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4">
+                  <code>.mds-grid-span-4</code>
+                </div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4">
+                  <code>.mds-grid-span-4</code>
+                </div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-span-4">
+                  <code>.mds-grid-span-4</code>
+                </div>
               </div>
             </div>
             <div>
-              <p class="utility-demo__label">Legacy helper aliases</p>
+              <p class="utility-demo__label mds-margin-block-sm">Column layout (Will be restructured as helper classes)</p>
               <div class="mds-grid mds-gap-sm">
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-full"><code>.mds-grid-full</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-2-column"><code>.mds-grid-2-column</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-2-column"><code>.mds-grid-2-column</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-3-column"><code>.mds-grid-3-column</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-3-column"><code>.mds-grid-3-column</code></div>
-                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-3-column"><code>.mds-grid-3-column</code></div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-full">
+                  <code>.mds-grid-full</code>
+                </div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-2-column">
+                  <code>.mds-grid-2-column</code>
+                </div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-2-column">
+                  <code>.mds-grid-2-column</code>
+                </div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-3-column">
+                  <code>.mds-grid-3-column</code>
+                </div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-3-column">
+                  <code>.mds-grid-3-column</code>
+                </div>
+                <div class="utility-demo__tile utility-demo__tile--dark mds-grid-3-column">
+                  <code>.mds-grid-3-column</code>
+                </div>
               </div>
             </div>
           </div>
