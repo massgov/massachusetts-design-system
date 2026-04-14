@@ -1,0 +1,14 @@
+@mixin emit-axis-space-utilities($class, $property, $scale) {
+  @each $name, $value in $scale {
+    .mds-#{$class}--#{$name} {
+      #{$property}: $value;
+    }
+  }
+}
+
+@mixin emit-space-utilities($scale) {
+  @include emit-axis-space-utilities("padding-inline", padding-inline, $scale);
+  @include emit-axis-space-utilities("padding-block", padding-block, $scale);
+  @include emit-axis-space-utilities("margin-inline", margin-inline, $scale);
+  @include emit-axis-space-utilities("margin-block", margin-block, $scale);
+}

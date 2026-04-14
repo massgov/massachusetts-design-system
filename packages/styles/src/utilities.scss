@@ -3,7 +3,7 @@
 /* Utility classes: single-purpose composable styles */
 
 // space
-@include mixins.emit-base-utilities("space", padding-block, mixins.$space-scale);
+@include mixins.emit-space-utilities(mixins.$space-scale);
 
 // border radius
 @include mixins.emit-base-utilities("radius", border-radius, mixins.$radius-scale);

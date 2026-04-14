@@ -34,6 +34,22 @@ Import tokens first, then styles:
 
 This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages.
 
+## Spacing Utilities
+
+Spacing utilities are generated from the semantic spacing tokens and support horizontal and vertical padding and margin.
+
+```html
+<div class="mds-padding-inline--md mds-padding-block--sm"></div>
+```
+
+Available class families:
+
+- `.mds-space--*` for the existing padding-block alias
+- `.mds-padding-inline--*`
+- `.mds-padding-block--*`
+- `.mds-margin-inline--*`
+- `.mds-margin-block--*`
+
 ## Radius Utilities
 
 Border radius utilities are generated from the semantic radius tokens:
