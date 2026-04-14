@@ -9,7 +9,7 @@
 @include mixins.emit-base-utilities("radius", border-radius, mixins.$radius-scale);
 
 // shadow
-@include mixins.emit-base-utilities("shadow", box-shadow, mixins.$shadow-scale);
+@include mixins.emit-literal-utilities("shadow", box-shadow, mixins.$shadow-scale);
 
 // grid
 @include mixins.emit-base-utilities("gap", gap, mixins.$space-scale);

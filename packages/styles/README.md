@@ -54,15 +54,15 @@ Available classes:
 Shadow utilities are generated from the semantic elevation tokens:
 
 ```html
-<div class="mds-shadow-container"></div>
+<div class="mds-shadow__container"></div>
 ```
 
 Available classes:
 
-- `.mds-shadow-container`
-- `.mds-shadow-modal`
-- `.mds-shadow-hover-sm`
-- `.mds-shadow-hover-md`
+- `.mds-shadow__container`
+- `.mds-shadow__modal`
+- `.mds-shadow__hover--sm`
+- `.mds-shadow__hover--md`
 
 ## Grid Utilities
 
@@ -91,7 +91,7 @@ src/
 ```
 
 - `mixins/_scales.scss` stores the token-backed scales shared by utility generation
-- `mixins/_space.scss` and `mixins/_grid.scss` contain the utility mixins
+- `mixins/_space.scss` and `mixins/_grid.scss` contain specialized utility mixins
 - `mixins/index.scss` forwards the mixin API so files can `@use "./mixins"`
 - `helpers.scss` contains authored structural classes
 - `utilities.scss` emits utility classes from the shared mixins module, including numeric grid spans such as `.mds-grid-span-6`
@@ -113,7 +113,7 @@ The build compiles the Sass entrypoints into `dist/`.
 To add a new utility family:
 
 1. Add the token-backed scale to `src/mixins/_scales.scss`
-2. Add or reuse a mixin under `src/mixins/`
+2. Add or reuse a mixin under `src/mixins/`, or use `emit-literal-utilities()` when the scale keys should map directly into the class suffix
 3. Call that mixin from `src/utilities.scss`
 4. Rebuild with `npm run build`
 
