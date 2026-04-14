@@ -1,15 +1,6 @@
 @mixin emit-base-utilities($class, $property, $scale) {
   @each $name, $value in $scale {
-    .mds-#{$class}--#{$name} {
-      #{$property}: $value;
-    }
-  }
-}
-
-// Use this classname generator when the utility class name needs customization to match the BEM pattern. e.g. .mds-shadow__modal
-@mixin emit-literal-utilities($class, $property, $scale) {
-  @each $name, $value in $scale {
-    .mds-#{$class}#{$name} {
+    .mds-#{$class}-#{$name} {
       #{$property}: $value;
     }
   }

@@ -39,16 +39,35 @@ This package does not rebundle tokens. Keeping tokens and styles separate makes 
 Spacing utilities are generated from the semantic spacing tokens and support horizontal and vertical padding and margin.
 
 ```html
-<div class="mds-padding-inline--md mds-padding-block--sm"></div>
+<div class="mds-padding-inline-md mds-padding-block-sm"></div>
 ```
 
 Available class families:
 
-- `.mds-space--*` for the existing padding-block alias
-- `.mds-padding-inline--*`
-- `.mds-padding-block--*`
-- `.mds-margin-inline--*`
-- `.mds-margin-block--*`
+- `.mds-padding-inline-*`
+- `.mds-padding-block-*`
+- `.mds-margin-inline-*`
+- `.mds-margin-block-*`
+
+## Gap Utilities
+
+Gap utilities reuse the spacing scale for grid and flex layouts.
+
+```html
+<div class="mds-grid mds-gap-md"></div>
+```
+
+Available classes:
+
+- `.mds-gap-3xs`
+- `.mds-gap-2xs`
+- `.mds-gap-xs`
+- `.mds-gap-sm`
+- `.mds-gap-md`
+- `.mds-gap-lg`
+- `.mds-gap-xl`
+- `.mds-gap-2xl`
+- `.mds-gap-3xl`
 
 ## Radius Utilities
 
@@ -70,15 +89,15 @@ Available classes:
 Shadow utilities are generated from the semantic elevation tokens:
 
 ```html
-<div class="mds-shadow__container"></div>
+<div class="mds-shadow-container"></div>
 ```
 
 Available classes:
 
-- `.mds-shadow__container`
-- `.mds-shadow__modal`
-- `.mds-shadow__hover--sm`
-- `.mds-shadow__hover--md`
+- `.mds-shadow-container`
+- `.mds-shadow-modal`
+- `.mds-shadow-hover-sm`
+- `.mds-shadow-hover-md`
 
 ## Grid Utilities
 
@@ -97,6 +116,7 @@ These aliases should be treated as deprecated for new work. Prefer `.mds-grid-sp
 ```text
 src/
 ├── mixins/
+│   ├── _base.scss
 │   ├── _grid.scss
 │   ├── _space.scss
 │   ├── _scales.scss
@@ -107,11 +127,16 @@ src/
 ```
 
 - `mixins/_scales.scss` stores the token-backed scales shared by utility generation
+- `mixins/_base.scss` contains the shared utility generator mixins
 - `mixins/_space.scss` and `mixins/_grid.scss` contain specialized utility mixins
 - `mixins/index.scss` forwards the mixin API so files can `@use "./mixins"`
 - `helpers.scss` contains authored structural classes
 - `utilities.scss` emits utility classes from the shared mixins module, including numeric grid spans such as `.mds-grid-span-6`
 - `index.scss` is the package entrypoint that imports both layers
+
+## Notes
+
+If you update the Sass source or utility naming, run `npm run build` in `packages/styles` before checking the demo pages so `dist/` matches the latest source.
 
 ## Development
 
@@ -129,7 +154,7 @@ The build compiles the Sass entrypoints into `dist/`.
 To add a new utility family:
 
 1. Add the token-backed scale to `src/mixins/_scales.scss`
-2. Add or reuse a mixin under `src/mixins/`, or use `emit-literal-utilities()` when the scale keys should map directly into the class suffix
+2. Add or reuse a mixin under `src/mixins/`
 3. Call that mixin from `src/utilities.scss`
 4. Rebuild with `npm run build`
 
