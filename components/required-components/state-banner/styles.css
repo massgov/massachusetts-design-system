@@ -123,6 +123,7 @@ p {
   gap: 0 var(--mds-space-sm);
   width: 100%;
   padding: var(--mds-space-3xs) var(--mds-space-2xl); /** will likely switch the horizontal padding to utility **/
+}
 
 .mds-state-banner__brand {
   display: flex;
