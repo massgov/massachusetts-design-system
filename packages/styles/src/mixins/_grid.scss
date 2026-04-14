@@ -1,11 +1,19 @@
-@mixin emit-grid-span-utilities($class-prefix, $denominators) {
-  .mds-#{$class-prefix}-full {
-    grid-column: 1 / -1;
+@mixin emit-grid-span-utilities($scale, $aliases: ()) {
+  @each $value in $scale {
+    .mds-grid-span-#{$value} {
+      grid-column: span #{$value};
+    }
   }
 
-  @each $name, $value in $denominators {
-    .mds-#{$class-prefix}-#{$name} {
-      grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / #{$value});
+  @each $name, $value in $aliases {
+    @if $name == "full" {
+      .mds-grid-#{$name} {
+        grid-column: 1 / -1;
+      }
+    } @else {
+      .mds-grid-#{$name} {
+        grid-column: span #{$value};
+      }
     }
   }
 }

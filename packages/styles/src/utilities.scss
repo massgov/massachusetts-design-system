@@ -7,4 +7,4 @@
 
 // grid
 @include mixins.emit-space-utilities("gap", gap, mixins.$space-scale);
-@include mixins.emit-grid-span-utilities("grid", mixins.$grid-span-denominators);
+@include mixins.emit-grid-span-utilities(mixins.$grid-span-scale, mixins.$grid-span-aliases);

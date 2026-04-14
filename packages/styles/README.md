@@ -34,6 +34,18 @@ Import tokens first, then styles:
 
 This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages.
 
+## Grid Utilities
+
+The preferred grid span API is numeric:
+
+```html
+<div class="mds-grid-span-6"></div>
+```
+
+Legacy alias classes such as `.mds-grid-full`, `.mds-grid-2-column`, `.mds-grid-3-column`, and `.mds-grid-4-column` are still generated for backward compatibility.
+
+These aliases should be treated as deprecated for new work. Prefer `.mds-grid-span-n` for new utilities and component examples.
+
 ## Source Layout
 
 ```text
@@ -50,9 +62,9 @@ src/
 
 - `mixins/_scales.scss` stores the token-backed scales shared by utility generation
 - `mixins/_space.scss` and `mixins/_grid.scss` contain the utility mixins
-- `mixins/_index.scss` forwards the mixin API so files can `@use "./mixins"`
+- `mixins/index.scss` forwards the mixin API so files can `@use "./mixins"`
 - `helpers.scss` contains authored structural classes
-- `utilities.scss` emits utility classes from the shared mixins module
+- `utilities.scss` emits utility classes from the shared mixins module, including numeric grid spans such as `.mds-grid-span-6`
 - `index.scss` is the package entrypoint that imports both layers
 
 ## Development
