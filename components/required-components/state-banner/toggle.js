@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     trigger.addEventListener('click', function() {
-        const content = this.nextElementSibling; // Get the next sibling (the content div)
+        const content = document.querySelector('#mds-state-banner-panel');
 
         const isExpanded = !content.hidden;
         if (isExpanded) {

@@ -68,7 +68,6 @@ p {
   margin: 0;
 }
 
-
 .banner-copy {
   max-width: 42rem;
   color: var(--mds-text-and-icons-brand-neutral-muted);
@@ -79,12 +78,22 @@ p {
   overflow: hidden;
   border: 1px solid rgba(16, 37, 63, 0.08);
   background: rgba(255, 255, 255, 0.94);
-  box-shadow: var(--mds-shadow-container);
+  box-shadow: var(--mds-shadow-container); 
+  /** ^ this makes it distinct on the page but hard to see the background color of the light component **/
 }
 
 /** End of generated page styles, start of component styles **/
 
 /** Actual MDS component styles **/
+
+.mds-state-banner__container {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: inherit;
+  padding: 0px; /** overide button default padding **/
+  text-align: left; /** override button default**/
+}
 
 .mds-state-banner h1 {
   font: var(--mds-text-heading-xl);
@@ -122,7 +131,8 @@ p {
   align-items: center;
   gap: 0 var(--mds-space-sm);
   width: 100%;
-  padding: var(--mds-space-3xs) var(--mds-space-2xl); /** will likely switch the horizontal padding to utility **/
+  margin-top: 0; /** override UL default **/
+  padding: var(--mds-space-3xs) var(--mds-breakpoint-horizontal-space-margin); /** will likely switch the horizontal padding to utility **/
 }
 
 .mds-state-banner__brand {
@@ -150,7 +160,7 @@ p {
   font: var(--mds-text-body);
 }
 
-.mds-state-banner__toggle {
+.mds-state-banner__toggle-text {
   display: inline-flex;
   align-items: center;
   gap: var(--mds-space-2xs);
@@ -164,7 +174,7 @@ p {
   cursor: pointer;
 }
 
-.mds-state-banner--dark .mds-state-banner__toggle {
+.mds-state-banner--dark .mds-state-banner__toggle-text {
   color: var(--mds-static-white);
   border-color: var(--mds-static-white);
 }
@@ -175,7 +185,7 @@ p {
   transition: transform 160ms ease;
 }
 
-.mds-state-banner__toggle[aria-expanded="true"] .mds-state-banner__caret {
+.mds-state-banner__container[aria-expanded="true"] .mds-state-banner__caret {
   transform: rotate(180deg);
 }
 
@@ -249,4 +259,13 @@ p {
   .mds-state-banner__toggle {
     margin-left: 0;
   }
+  .mds-state-banner__toggle-text { /** I don't love this solution **/
+    margin-left: 30px;
+  }
+
+  .mds-state-banner__column {
+  display: flex;
+  flex-direction: column;
+}
+
 }
