@@ -24,45 +24,108 @@
         <div class="mds-section__container mds-padding-block-xl">
           <div class="utility-demo__section-header">
             <h2>Spacing Utilities</h2>
+            <h3>Spacing scale</h3>
+            <div class="utility-demo__scale-row">
+              <div class="utility-demo__scale-item">
+                <div class="utility-demo__scale-fill utility-demo__scale-fill--3xs"></div>
+                <code>3xs</code>
+              </div>
+              <div class="utility-demo__scale-item">
+                <div class="utility-demo__scale-fill utility-demo__scale-fill--2xs"></div>
+                <code>2xs</code>
+              </div>
+              <div class="utility-demo__scale-item">
+                <div class="utility-demo__scale-fill utility-demo__scale-fill--xs"></div>
+                <code>xs</code>
+              </div>
+              <div class="utility-demo__scale-item">
+                <div class="utility-demo__scale-fill utility-demo__scale-fill--sm"></div>
+                <code>sm</code>
+              </div>
+              <div class="utility-demo__scale-item">
+                <div class="utility-demo__scale-fill utility-demo__scale-fill--md"></div>
+                <code>md</code>
+              </div>
+              <div class="utility-demo__scale-item">
+                <div class="utility-demo__scale-fill utility-demo__scale-fill--lg"></div>
+                <code>lg</code>
+              </div>
+              <div class="utility-demo__scale-item">
+                <div class="utility-demo__scale-fill utility-demo__scale-fill--xl"></div>
+                <code>xl</code>
+              </div>
+              <div class="utility-demo__scale-item">
+                <div class="utility-demo__scale-fill utility-demo__scale-fill--2xl"></div>
+                <code>2xl</code>
+              </div>
+              <div class="utility-demo__scale-item">
+                <div class="utility-demo__scale-fill utility-demo__scale-fill--3xl"></div>
+                <code>3xl</code>
+              </div>
+            </div>
+            <h3>Spacing classes</h3>
             <p>Horizontal and vertical padding and margin classes shown with nested color blocks so the spacing difference is visible at a glance.</p>
-            <p>Horizontal padding space classes:</p><code>.mds-padding-inline-*</code>
-            <p>Vertical padding space classes:</p><code>.mds-padding-block-*</code>
-            <p>Horizontal margin space classes:</p><code>.mds-margin-inline-*</code>
-            <p>Vertical margin space classes:</p><code>.mds-margin-block-*</code>
-            <p>Scale options: <code>3xs</code>, <code>2xs</code>, <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>, <code>2xl</code>, <code>3xl</code></p>
+            <table class="utility-demo__class-table">
+              <thead>
+                <tr>
+                  <th scope="col">Spacing type</th>
+                  <th scope="col">Utility class</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Horizontal padding spacing</td>
+                  <td><code>.mds-padding-inline-*</code></td>
+                </tr>
+                <tr>
+                  <td>Vertical padding spacing</td>
+                  <td><code>.mds-padding-block-*</code></td>
+                </tr>
+                <tr>
+                  <td>Horizontal margin spacing</td>
+                  <td><code>.mds-margin-inline-*</code></td>
+                </tr>
+                <tr>
+                  <td>Vertical margin spacing</td>
+                  <td><code>.mds-margin-block-*</code></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+
+          <h3>Spacing examples</h3>
           <div class="utility-demo__box-model-examples">
             <div class="mds-grid">
               <div class="utility-demo__box-model mds-margin-block-sm mds-grid-3-column">
                 <div>
-                  <code>.mds-padding-inline-sm</code>
                   <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
                     <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-padding-inline-sm">
                       <div class="utility-demo__box-model-content"></div>
                     </div>
                   </div>
+                  <code>.mds-padding-inline-sm</code>
                 </div>
               </div>
 
               <div class="utility-demo__box-model mds-margin-block-sm mds-grid-3-column">
                 <div>
-                  <code>.mds-padding-block-sm</code>
                   <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
                     <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-margin-block-sm  mds-padding-inline-lg">
                       <div class="utility-demo__box-model-content"></div>
                     </div>
                   </div>
+                  <code>.mds-margin-block-sm</code>,<code>.mds-padding-inline-lg</code>
                 </div>
               </div>
 
               <div class="utility-demo__box-model mds-margin-block-sm mds-grid-3-column">
                 <div>
-                  <code>.mds-padding-inline-sm .mds-padding-block-sm</code>
                   <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
                     <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-padding-block-lg mds-padding-inline-lg mds-margin-block-lg mds-margin-inline-lg">
                       <div class="utility-demo__box-model-content"></div>
                     </div>
                   </div>
+                  <code>.mds-padding-block-lg</code>,<code>.mds-padding-inline-lg</code>,<code>.mds-margin-block-lg</code>,<code>.mds-margin-inline-lg</code>
                 </div>
               </div>
             </div>
