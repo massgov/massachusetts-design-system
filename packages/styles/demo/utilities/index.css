@@ -96,7 +96,7 @@ p {
 }
 
 .utility-demo__box-model-layer--margin {
-  vertical-align: center;
+  display: grid;
   background: #bd8d5b;
 }
 
@@ -151,13 +151,17 @@ p {
   color: var(--mds-static-white);
 }
 
-
-.utility-demo__box-model-examples {
-  max-width: 400px;
-}
-
 @media (min-width: 769px) {
   .utility-demo__examples {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+code {
+  display: inline;
+  background-color: var(--mds-background-section-brand-neutral-low);
+  padding: var(--mds-space-3xs) var(--mds-space-2xs);
+  border-radius: var(--mds-radius-sm);
+  font: var(--mds-text-body-sm);
+  width: fit-content;
 }

@@ -25,42 +25,44 @@
           <div class="utility-demo__section-header">
             <h2>Spacing Utilities</h2>
             <p>Horizontal and vertical padding and margin classes shown with nested color blocks so the spacing difference is visible at a glance.</p>
-            <code>.mds-padding-inline-* .mds-padding-block-* .mds-margin-block-* .mds-margin-inline-*</code>
-            <p>Scale options: <code>3xs, 2xs, xs, sm, md, lg, xl, 2xl, 3xl</code></p>
+            <p>Horizontal padding space classes:</p><code>.mds-padding-inline-*</code>
+            <p>Vertical padding space classes:</p><code>.mds-padding-block-*</code>
+            <p>Horizontal margin space classes:</p><code>.mds-margin-inline-*</code>
+            <p>Vertical margin space classes:</p><code>.mds-margin-block-*</code>
+            <p>Scale options: <code>3xs</code>, <code>2xs</code>, <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>, <code>2xl</code>, <code>3xl</code></p>
           </div>
           <div class="utility-demo__box-model-examples">
-            <div class="utility-demo__box-model mds-margin-block-sm">
-              <p>sm</p>
-              <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
-                <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-padding-inline-sm mds-padding-block-sm mds-margin-block-sm mds-margin-inline-sm">
-                  <div class="utility-demo__box-model-content"></div>
+            <div class="mds-grid">
+              <div class="utility-demo__box-model mds-margin-block-sm mds-grid-3-column">
+                <div>
+                  <code>.mds-padding-inline-sm</code>
+                  <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
+                    <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-padding-inline-sm">
+                      <div class="utility-demo__box-model-content"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="utility-demo__box-model mds-margin-block-sm">
-              <p>md</p>
-              <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
-                <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-padding-inline-md mds-padding-block-md mds-margin-block-md mds-margin-inline-md">
-                  <div class="utility-demo__box-model-content"></div>
+              <div class="utility-demo__box-model mds-margin-block-sm mds-grid-3-column">
+                <div>
+                  <code>.mds-padding-block-sm</code>
+                  <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
+                    <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-margin-block-sm  mds-padding-inline-lg">
+                      <div class="utility-demo__box-model-content"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="utility-demo__box-model mds-margin-block-sm">
-              <p>lg</p>
-              <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
-                <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-padding-inline-lg mds-padding-block-lg mds-margin-block-lg mds-margin-inline-lg">
-                  <div class="utility-demo__box-model-content"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="utility-demo__box-model mds-margin-block-sm">
-              <p>xl</p>
-              <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
-                <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-padding-inline-xl mds-padding-block-xl mds-margin-block-xl mds-margin-inline-xl">
-                  <div class="utility-demo__box-model-content"></div>
+              <div class="utility-demo__box-model mds-margin-block-sm mds-grid-3-column">
+                <div>
+                  <code>.mds-padding-inline-sm .mds-padding-block-sm</code>
+                  <div class="utility-demo__box-model-layer utility-demo__box-model-layer--margin">
+                    <div class="utility-demo__box-model-layer utility-demo__box-model-layer--padding mds-padding-block-lg mds-padding-inline-lg mds-margin-block-lg mds-margin-inline-lg">
+                      <div class="utility-demo__box-model-content"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
