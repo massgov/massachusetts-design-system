@@ -9,9 +9,7 @@ body {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top left, color-mix(in srgb, var(--mds-background-section-brand-tertiary-lowest) 75%, white) 0%, transparent 35%),
-    linear-gradient(180deg, var(--mds-background-surface-default) 0%, var(--mds-background-section-brand-neutral-lowest) 100%);
+  background: var(--mds-background-surface-default);
   color: var(--mds-text-and-icons-brand-neutral-default);
   font: var(--mds-text-body);
 }
@@ -49,7 +47,7 @@ p {
 }
 
 .color-demo__hero {
-  border-bottom: 1px solid color-mix(in srgb, var(--mds-text-and-icons-brand-neutral-default) 10%, transparent);
+  border-bottom: 1px solid var(--mds-border-brand-neutral-low);
 }
 
 .color-demo__eyebrow {
@@ -67,7 +65,7 @@ p {
 }
 
 .color-demo__section {
-  border-top: 1px solid color-mix(in srgb, var(--mds-text-and-icons-brand-neutral-default) 10%, transparent);
+  border-top: 1px solid var(--mds-border-brand-neutral-low);
 }
 
 .color-demo__section--alt {
@@ -97,7 +95,7 @@ p {
 
 .color-demo__swatch-chip {
   min-height: 5rem;
-  border: 1px solid color-mix(in srgb, var(--mds-text-and-icons-brand-neutral-default) 12%, transparent);
+  border: 1px solid var(--mds-border-brand-neutral-low);
   border-radius: var(--mds-radius-md);
   box-shadow: var(--mds-shadow-container);
 }
@@ -116,7 +114,7 @@ p {
   display: grid;
   gap: var(--mds-space-xs);
   padding: var(--mds-space-lg);
-  border: 1px solid color-mix(in srgb, var(--mds-text-and-icons-brand-neutral-default) 12%, transparent);
+  border: 1px solid var(--mds-border-brand-neutral-low);
   border-radius: var(--mds-radius-md);
   box-shadow: var(--mds-shadow-container);
 }
