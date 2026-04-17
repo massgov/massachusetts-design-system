@@ -80,11 +80,12 @@ Tokens release flow:
 
 1. Create a release branch from `main`, based on [semantic versioning](https://semver.org/), for example `release/tokens-1.0.0`
 2. Update `packages/tokens/package.json` to the release version
-3. Run `npm run changelog:release -- <version> <date>` from `packages/tokens`, or omit arguments to use the version from `package.json` and today’s date
-4. Merge the release branch into `main` through a pull request
-5. In the GitHub UI, create the release tag for the merged release commit using the format `tokens-v*`, for example `tokens-v1.0.0`
-6. In the GitHub Release for that tag, copy the relevant release notes from `packages/tokens/CHANGELOG.md`
-7. Creating the tag in GitHub triggers `.github/workflows/publish-tokens.yml` to publish the package
+3. Run `npm i & npm run build` and commit changes
+4. Run `npm run changelog:release -- <version> <date>` from `packages/tokens`, or omit arguments to use the version from `package.json` and today’s date
+5. Merge the release branch into `main` through a pull request
+6. In the GitHub UI, create the release tag for the merged release commit using the format `tokens-v*`, for example `tokens-v1.0.0`
+7. In the GitHub Release for that tag, copy the relevant release notes from `packages/tokens/CHANGELOG.md`
+8. Creating the tag in GitHub triggers `.github/workflows/publish-tokens.yml` to publish the package
 
 - Stable releases use tags such as `tokens-v1.0.0` and publish to the npm `latest` dist-tag.
 - Prereleases use tags such as `tokens-v1.1.0-beta.1` and publish to the npm `beta` dist-tag.
