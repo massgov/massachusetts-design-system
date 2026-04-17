@@ -7,34 +7,6 @@ body {
   min-height: 100%;
 }
 
-h1 {
-  font: var(--mds-text-heading-2xl);
-}
-
-h2 {
-  font: var(--mds-text-heading-xl);
-}
-
-h3 {
-  font: var(--mds-text-heading-lg);
-}
-
-p {
-  font: var(--mds-text-body-lg);
-}
-
-b {
-  font: var(--mds-text-body-lg-bold);
-}
-
-body {
-  margin: 0;
-  background: var(--mds-background-surface-default);
-  color: var(--mds-text-and-icons-brand-neutral-default);
-  font: var(--mds-text-body);
-}
-
-
 .demo-page__content {
   position: relative;
   z-index: 1;
@@ -126,7 +98,6 @@ body {
 
 .demo-section--state-banner {
   background: var(--mds-static-black);
-  padding-block: var(--mds-space-2xs);
 }
 
 .demo-footer {

@@ -1,5 +1,12 @@
 /* Helper classes: reusable structural patterns */
 
+.mds-body {
+  margin: 0;
+  background: var(--mds-background-surface-default);
+  color: var(--mds-text-and-icons-brand-neutral-default);
+  font: var(--mds-text-body);
+}
+
 .mds-section__container {
   width: min(100%, 1280px);
   margin-inline: auto;
