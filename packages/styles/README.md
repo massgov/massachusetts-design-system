@@ -29,6 +29,7 @@ dist/
 - `dist/colors.css` contains color utility classes generated from semantic background and text/icon tokens
 - `dist/helpers.css` contains reusable structural classes such as the grid container and section container
 - `dist/utilities.css` contains generated utility classes such as spacing, radius, shadow, gap, and grid span utilities
+- `dist/utilities.css` also includes typography utilities generated from the semantic font tokens
 - `dist/index.css` imports the helper and utility layers together
 
 ## Naming Conventions
@@ -133,6 +134,46 @@ Available classes:
 - `.mds-shadow-modal`
 - `.mds-shadow-hover-sm`
 - `.mds-shadow-hover-md`
+
+## Typography Utilities
+
+Typography utilities are generated from the semantic text tokens and set the full `font` shorthand:
+
+```html
+<h2 class="mds-text-heading-lg">Section heading</h2>
+<p class="mds-text-body-lg">Introductory body copy</p>
+<span class="mds-text-label">Field label</span>
+```
+
+Available class families include:
+
+- `.mds-text-heading-2xs`
+- `.mds-text-heading-xs`
+- `.mds-text-heading-sm`
+- `.mds-text-heading-md`
+- `.mds-text-heading-lg`
+- `.mds-text-heading-xl`
+- `.mds-text-heading-2xl`
+- `.mds-text-body`
+- `.mds-text-body-bold`
+- `.mds-text-body-lg`
+- `.mds-text-body-lg-bold`
+- `.mds-text-label-sm`
+- `.mds-text-label`
+- `.mds-text-label-md`
+- `.mds-text-label-lg`
+- `.mds-text-label-xl`
+- `.mds-text-eyebrow`
+- `.mds-text-eyebrow-md`
+- `.mds-text-caption-sm`
+- `.mds-text-caption`
+- `.mds-text-caption-bold`
+- `.mds-text-caption-md`
+
+Eyebrow tokens intentionally keep casing and tracking separate. Pair the font utility with:
+
+- `.mds-text-transform-eyebrow`
+- `.mds-letter-spacing-eyebrow`
 
 ## Grid Utilities
 

@@ -11,6 +11,11 @@
 // shadow
 @include mixins.emit-base-utilities("shadow", box-shadow, mixins.$shadow-scale);
 
+// typography
+@include mixins.emit-base-utilities("text", font, mixins.$font-scale);
+@include mixins.emit-base-utilities("text-transform", text-transform, mixins.$text-transform-scale);
+@include mixins.emit-base-utilities("letter-spacing", letter-spacing, mixins.$letter-spacing-scale);
+
 // grid
 @include mixins.emit-base-utilities("gap", gap, mixins.$space-scale);
 @include mixins.emit-grid-span-utilities(mixins.$grid-span-scale, mixins.$grid-span-aliases);
