@@ -75,6 +75,14 @@ Available class families:
 - `.mds-padding-block-*`
 - `.mds-margin-inline-*`
 - `.mds-margin-block-*`
+- `.mds-padding-inline-start-*`
+- `.mds-padding-inline-end-*`
+- `.mds-padding-block-start-*`
+- `.mds-padding-block-end-*`
+- `.mds-margin-inline-start-*`
+- `.mds-margin-inline-end-*`
+- `.mds-margin-block-start-*`
+- `.mds-margin-block-end-*`
 
 ## Gap Utilities
 
