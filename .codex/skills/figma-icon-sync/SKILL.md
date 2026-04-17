@@ -38,6 +38,9 @@ node packages/assets/src/icons/scripts/icon-name-inventory.js --figma-names pack
      - `repo_only_stale`
 5. Export SVGs from Figma in batches.
    - Keep batches small enough for tool output limits.
+   - Before saving any exported SVG into a manifest, remove redundant full-viewBox clipping wrappers when present.
+   - Rewrite SVGs shaped like `<svg ...><g clip-path="url(#a)">...</g><defs><clipPath id="a"><path d="M0 0h24v24H0z"/></clipPath></defs></svg>` to `<svg ...>...</svg>`.
+   - Strip the matching `clip-path="url(#a)"`, `<defs>`, and `<clipPath>` markup only for this full-canvas clip case. Preserve any other clipping paths that are not the trivial `M0 0h24v24H0z` wrapper.
    - Build a manifest JSON array with entries shaped like:
 
 ```json
@@ -77,7 +80,7 @@ npm --prefix packages/assets run sync:figma-icons -- --manifest packages/assets/
 7. Validate the sync:
    - check file counts in both directories
    - inspect `git status`
-   - spot-check a few exported SVGs
+   - spot-check a few exported SVGs, including confirming redundant full-viewBox clip wrappers were removed
 
 ## Scripts
 
