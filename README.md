@@ -46,7 +46,7 @@ Recommended branch and tag strategy:
 Release flow:
 
 1. Create a release branch `release/<package>-<version>` from `main`
-2. Make sure the package version in `package.json` is updated following [semantic versioning](https://semver.org/)
+2. Make sure the package version in `package.json` is updated following [semantic versioning](https://semver.org/) and run `npm i & npm run build`
 3. Compile changelog fragments into `CHANGELOG.md` by running `npm run changelog:release` inside the package directory
 4. Create a PR and merge into `main` (without squashing)
 5. In the GitHub UI, create a package-specific release tag on the release commit that matches the package version and copy in the relevant release notes from `CHANGELOG.md`
