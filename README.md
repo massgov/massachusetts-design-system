@@ -4,6 +4,7 @@ This repository contains the source code for Massachusetts Design System package
 
 - `packages/assets` for icons, animation files, and state seal assets published as `@massds/mds-assets`
 - `packages/tokens` for CSS design tokens published as `@massds/mds-tokens`
+- `packages/styles` for generated helper and utility CSS (not a published package)
 
 Each package has its own README with package-specific development and publishing details.
 
@@ -19,7 +20,7 @@ We are a small but mighty crew enthusiastic to partner with teams hoping to leve
 
 ### Quick Start
 
-1. Choose the package you want to work in: `packages/assets` or `packages/tokens`
+1. Choose the package you want to work in: `packages/assets`, `packages/tokens`, or `packages/styles`
 2. Install dependencies from that package directory with `npm install`
 3. Run the package checks you need, such as `npm run lint` or `npm run build`
 4. Add a changelog fragment under `packages/<package>/changelog.d/` if your change affects a published package

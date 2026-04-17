@@ -1,0 +1,16 @@
+@use "./mixins" as mixins;
+
+/* Utility classes: single-purpose composable styles */
+
+// space
+@include mixins.emit-space-utilities(mixins.$space-scale);
+
+// border radius
+@include mixins.emit-base-utilities("radius", border-radius, mixins.$radius-scale);
+
+// shadow
+@include mixins.emit-base-utilities("shadow", box-shadow, mixins.$shadow-scale);
+
+// grid
+@include mixins.emit-base-utilities("gap", gap, mixins.$space-scale);
+@include mixins.emit-grid-span-utilities(mixins.$grid-span-scale, mixins.$grid-span-aliases);

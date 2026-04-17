@@ -1,0 +1,7 @@
+@mixin emit-base-utilities($class, $property, $scale) {
+  @each $name, $value in $scale {
+    .mds-#{$class}-#{$name} {
+      #{$property}: $value;
+    }
+  }
+}
