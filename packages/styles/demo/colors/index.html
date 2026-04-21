@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MDS Color Utility Classes Demo</title>
     <link rel="stylesheet" href="../../../tokens/src/index.css" />
-    <link rel="stylesheet" href="../../dist/colors.css" />
+    <link rel="stylesheet" href="../../dist/index.css" />
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body class="mds-body">
@@ -13,8 +13,8 @@
       <section class="color-demo__hero mds-background-surface-default">
         <div class="color-demo__container">
           <p class="color-demo__eyebrow">Massachusetts Design System</p>
-          <h1>Color Utility Classes Demo</h1>
-          <p class="color-demo__lede">
+          <h1 class="mds-text-heading-xl">Color Utility Classes</h1>
+          <p  class="mds-text-body-lg">
             A visual reference for the generated background and text/icon color utilities in
             <code>@massds/mds-styles/dist/colors.css</code>.
           </p>
@@ -24,450 +24,336 @@
       <section class="color-demo__section">
         <div class="color-demo__container">
           <div class="color-demo__section-header">
-            <h2>Background Utilities</h2>
-            <p>Semantic background tokens mapped directly to smaller swatches for quick visual comparison, including full low-to-high scales where available.</p>
+            <h2 class="mds-text-heading-lg">Background Utilities</h2>
+            <p class="mds-text-body-lg">
+              Semantic background tokens mapped directly to table rows for quick scanning. Each
+              class is shown alongside a compact swatch of the resulting color.
+            </p>
           </div>
-          <div class="color-demo__swatch-grid">
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-surface-default"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Surface</strong>
-                <code>.mds-background-surface-default</code>
-              </div>
-            </article>
 
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-neutral-lowest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Section Neutral Lowest</strong>
-                <code>.mds-background-section-brand-neutral-lowest</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-neutral-low"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Section Neutral Low</strong>
-                <code>.mds-background-section-brand-neutral-low</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-neutral-mid"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Section Neutral Mid</strong>
-                <code>.mds-background-section-brand-neutral-mid</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-neutral-high"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Section Neutral High</strong>
-                <code>.mds-background-section-brand-neutral-high</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-neutral-highest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Section Neutral Highest</strong>
-                <code>.mds-background-section-brand-neutral-highest</code>
-              </div>
-            </article>
-
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-primary-lowest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Brand Primary Lowest</strong>
-                <code>.mds-background-section-brand-primary-lowest</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-primary-mid"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Brand Primary Mid</strong>
-                <code>.mds-background-section-brand-primary-mid</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-primary-highest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Brand Primary Highest</strong>
-                <code>.mds-background-section-brand-primary-highest</code>
-              </div>
-            </article>
-
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-secondary-lowest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Brand Secondary Lowest</strong>
-                <code>.mds-background-section-brand-secondary-lowest</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-secondary-mid"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Brand Secondary Mid</strong>
-                <code>.mds-background-section-brand-secondary-mid</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-secondary-highest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Brand Secondary Highest</strong>
-                <code>.mds-background-section-brand-secondary-highest</code>
-              </div>
-            </article>
-
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-tertiary-lowest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Brand Tertiary Lowest</strong>
-                <code>.mds-background-section-brand-tertiary-lowest</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-tertiary-mid"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Brand Tertiary Mid</strong>
-                <code>.mds-background-section-brand-tertiary-mid</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-section-brand-tertiary-highest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Brand Tertiary Highest</strong>
-                <code>.mds-background-section-brand-tertiary-highest</code>
-              </div>
-            </article>
-
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-neutral-lowest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Neutral Lowest</strong>
-                <code>.mds-background-adaptive-brand-neutral-lowest</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-neutral-low"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Neutral Low</strong>
-                <code>.mds-background-adaptive-brand-neutral-low</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-neutral-mid"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Neutral Mid</strong>
-                <code>.mds-background-adaptive-brand-neutral-mid</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-neutral-high"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Neutral High</strong>
-                <code>.mds-background-adaptive-brand-neutral-high</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-neutral-highest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Neutral Highest</strong>
-                <code>.mds-background-adaptive-brand-neutral-highest</code>
-              </div>
-            </article>
-
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-primary-lowest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Primary Lowest</strong>
-                <code>.mds-background-adaptive-brand-primary-lowest</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-primary-low"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Primary Low</strong>
-                <code>.mds-background-adaptive-brand-primary-low</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-primary-mid"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Primary Mid</strong>
-                <code>.mds-background-adaptive-brand-primary-mid</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-primary-high"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Primary High</strong>
-                <code>.mds-background-adaptive-brand-primary-high</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-primary-highest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Primary Highest</strong>
-                <code>.mds-background-adaptive-brand-primary-highest</code>
-              </div>
-            </article>
-
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-secondary-lowest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Secondary Lowest</strong>
-                <code>.mds-background-adaptive-brand-secondary-lowest</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-secondary-low"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Secondary Low</strong>
-                <code>.mds-background-adaptive-brand-secondary-low</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-secondary-mid"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Secondary Mid</strong>
-                <code>.mds-background-adaptive-brand-secondary-mid</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-secondary-high"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Secondary High</strong>
-                <code>.mds-background-adaptive-brand-secondary-high</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-secondary-highest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Secondary Highest</strong>
-                <code>.mds-background-adaptive-brand-secondary-highest</code>
-              </div>
-            </article>
-
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-tertiary-lowest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Tertiary Lowest</strong>
-                <code>.mds-background-adaptive-brand-tertiary-lowest</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-tertiary-low"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Tertiary Low</strong>
-                <code>.mds-background-adaptive-brand-tertiary-low</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-tertiary-mid"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Tertiary Mid</strong>
-                <code>.mds-background-adaptive-brand-tertiary-mid</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-tertiary-high"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Tertiary High</strong>
-                <code>.mds-background-adaptive-brand-tertiary-high</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-brand-tertiary-highest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Adaptive Tertiary Highest</strong>
-                <code>.mds-background-adaptive-brand-tertiary-highest</code>
-              </div>
-            </article>
-
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-informative-lowest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Informative Lowest</strong>
-                <code>.mds-background-adaptive-utility-informative-lowest</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-informative-low"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Informative Low</strong>
-                <code>.mds-background-adaptive-utility-informative-low</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-informative-mid"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Informative Mid</strong>
-                <code>.mds-background-adaptive-utility-informative-mid</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-informative-high"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Informative High</strong>
-                <code>.mds-background-adaptive-utility-informative-high</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-informative-highest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Informative Highest</strong>
-                <code>.mds-background-adaptive-utility-informative-highest</code>
-              </div>
-            </article>
-
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-success-lowest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Success Lowest</strong>
-                <code>.mds-background-adaptive-utility-success-lowest</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-success-low"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Success Low</strong>
-                <code>.mds-background-adaptive-utility-success-low</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-success-mid"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Success Mid</strong>
-                <code>.mds-background-adaptive-utility-success-mid</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-success-high"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Success High</strong>
-                <code>.mds-background-adaptive-utility-success-high</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-success-highest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Success Highest</strong>
-                <code>.mds-background-adaptive-utility-success-highest</code>
-              </div>
-            </article>
-
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-warning-lowest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Warning Lowest</strong>
-                <code>.mds-background-adaptive-utility-warning-lowest</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-warning-low"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Warning Low</strong>
-                <code>.mds-background-adaptive-utility-warning-low</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-warning-mid"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Warning Mid</strong>
-                <code>.mds-background-adaptive-utility-warning-mid</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-warning-high"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Warning High</strong>
-                <code>.mds-background-adaptive-utility-warning-high</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-warning-highest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Warning Highest</strong>
-                <code>.mds-background-adaptive-utility-warning-highest</code>
-              </div>
-            </article>
-
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-danger-lowest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Danger Lowest</strong>
-                <code>.mds-background-adaptive-utility-danger-lowest</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-danger-low"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Danger Low</strong>
-                <code>.mds-background-adaptive-utility-danger-low</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-danger-mid"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Danger Mid</strong>
-                <code>.mds-background-adaptive-utility-danger-mid</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-danger-high"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Danger High</strong>
-                <code>.mds-background-adaptive-utility-danger-high</code>
-              </div>
-            </article>
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-adaptive-utility-danger-highest"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Danger Highest</strong>
-                <code>.mds-background-adaptive-utility-danger-highest</code>
-              </div>
-            </article>
-
-            <article class="color-demo__swatch">
-              <div class="color-demo__swatch-chip mds-background-overlay"></div>
-              <div class="color-demo__swatch-meta">
-                <strong>Overlay</strong>
-                <code>.mds-background-overlay</code>
-              </div>
-            </article>
-          </div>
+          <table class="color-demo__swatch-table">
+            <thead>
+              <tr>
+                <th scope="col">Class</th>
+                <th scope="col">Swatch</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>.mds-background-surface-default</code></td>
+                <td><span class="color-demo__swatch-square mds-background-surface-default"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-neutral-lowest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-neutral-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-neutral-low</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-neutral-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-neutral-mid</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-neutral-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-neutral-high</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-neutral-high"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-neutral-highest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-neutral-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-primary-lowest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-primary-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-primary-mid</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-primary-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-primary-highest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-primary-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-secondary-lowest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-secondary-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-secondary-mid</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-secondary-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-secondary-highest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-secondary-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-tertiary-lowest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-tertiary-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-tertiary-mid</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-tertiary-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-brand-tertiary-highest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-section-brand-tertiary-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-neutral-lowest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-neutral-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-neutral-low</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-neutral-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-neutral-mid</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-neutral-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-neutral-high</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-neutral-high"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-neutral-highest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-neutral-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-primary-lowest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-primary-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-primary-low</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-primary-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-primary-mid</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-primary-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-primary-high</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-primary-high"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-primary-highest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-primary-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-secondary-lowest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-secondary-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-secondary-low</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-secondary-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-secondary-mid</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-secondary-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-secondary-high</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-secondary-high"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-secondary-highest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-secondary-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-tertiary-lowest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-tertiary-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-tertiary-low</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-tertiary-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-tertiary-mid</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-tertiary-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-tertiary-high</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-tertiary-high"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-brand-tertiary-highest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-brand-tertiary-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-informative-lowest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-informative-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-informative-low</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-informative-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-informative-mid</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-informative-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-informative-high</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-informative-high"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-informative-highest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-informative-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-success-lowest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-success-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-success-low</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-success-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-success-mid</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-success-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-success-high</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-success-high"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-success-highest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-success-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-warning-lowest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-warning-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-warning-low</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-warning-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-warning-mid</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-warning-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-warning-high</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-warning-high"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-warning-highest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-warning-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-danger-lowest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-danger-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-danger-low</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-danger-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-danger-mid</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-danger-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-danger-high</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-danger-high"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-danger-highest</code></td>
+                <td><span class="color-demo__swatch-square mds-background-adaptive-utility-danger-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-overlay</code></td>
+                <td><span class="color-demo__swatch-square mds-background-overlay"></span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
       <section class="color-demo__section color-demo__section--alt">
         <div class="color-demo__container">
           <div class="color-demo__section-header">
-            <h2>Text And Icon Utilities</h2>
-            <p>Foreground color classes applied on light and dark surfaces for quick contrast checks.</p>
+            <h2 class="mds-text-heading-lg">Text And Icon Utilities</h2>
+            <p>
+              Foreground utilities shown as reference rows. Each swatch uses the utility as its
+              foreground color, then fills the square with <code>currentColor</code>.
+            </p>
           </div>
-          <div class="color-demo__foreground-grid">
-            <article class="color-demo__foreground-card mds-background-surface-default">
-              <p class="mds-text-and-icons-brand-neutral-default">Brand neutral default</p>
-              <p class="mds-text-and-icons-brand-neutral-muted">Brand neutral muted</p>
-              <p class="mds-text-and-icons-brand-neutral-disabled">Brand neutral disabled</p>
-              <p class="mds-text-and-icons-brand-primary-mid">Brand primary mid</p>
-              <p class="mds-text-and-icons-brand-secondary-mid">Brand secondary mid</p>
-              <p class="mds-text-and-icons-utility-informative-mid">Utility informative mid</p>
-              <p class="mds-text-and-icons-utility-danger-mid">Utility danger mid</p>
-              <p class="mds-text-and-icons-utility-warning-mid">Utility warning mid</p>
-              <p class="mds-text-and-icons-utility-success-mid">Utility success mid</p>
-            </article>
-          </div>
+
+          <table class="color-demo__swatch-table">
+            <thead>
+              <tr>
+                <th scope="col">Class</th>
+                <th scope="col">Swatch</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>.mds-text-and-icons-brand-neutral-default</code></td>
+                <td>
+                  <span class="color-demo__swatch-square color-demo__swatch-square--foreground mds-text-and-icons-brand-neutral-default"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.mds-text-and-icons-brand-neutral-muted</code></td>
+                <td>
+                  <span class="color-demo__swatch-square color-demo__swatch-square--foreground mds-text-and-icons-brand-neutral-muted"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.mds-text-and-icons-brand-neutral-disabled</code></td>
+                <td>
+                  <span class="color-demo__swatch-square color-demo__swatch-square--foreground mds-text-and-icons-brand-neutral-disabled"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.mds-text-and-icons-brand-primary-mid</code></td>
+                <td>
+                  <span class="color-demo__swatch-square color-demo__swatch-square--foreground mds-text-and-icons-brand-primary-mid"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.mds-text-and-icons-brand-secondary-mid</code></td>
+                <td>
+                  <span class="color-demo__swatch-square color-demo__swatch-square--foreground mds-text-and-icons-brand-secondary-mid"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.mds-text-and-icons-utility-informative-mid</code></td>
+                <td>
+                  <span class="color-demo__swatch-square color-demo__swatch-square--foreground mds-text-and-icons-utility-informative-mid"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.mds-text-and-icons-utility-danger-mid</code></td>
+                <td>
+                  <span class="color-demo__swatch-square color-demo__swatch-square--foreground mds-text-and-icons-utility-danger-mid"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.mds-text-and-icons-utility-warning-mid</code></td>
+                <td>
+                  <span class="color-demo__swatch-square color-demo__swatch-square--foreground mds-text-and-icons-utility-warning-mid"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.mds-text-and-icons-utility-success-mid</code></td>
+                <td>
+                  <span class="color-demo__swatch-square color-demo__swatch-square--foreground mds-text-and-icons-utility-success-mid"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
       <section class="color-demo__section">
         <div class="color-demo__container">
           <div class="color-demo__section-header">
-            <h2>Overlay Utility</h2>
-            <p>The overlay utility is easiest to understand as a layer on top of content.</p>
+            <h2 class="mds-text-heading-lg">Overlay Utility</h2>
+            <p class="mds-text-body-lg">The overlay is a transparent layer on top of content, used to indicate that the content below the active layer.</p>
           </div>
           <div class="color-demo__overlay-demo">
             <div class="color-demo__overlay-base mds-background-section-brand-primary-highest">
-              <span>Base surface</span>
+              <span>Background</span>
             </div>
             <div class="color-demo__overlay-layer mds-background-overlay"></div>
             <div class="color-demo__overlay-content">
