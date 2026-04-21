@@ -227,6 +227,14 @@ npm run build
 
 The build compiles the Sass entrypoints into `dist/`.
 
+For local Sass development, use the watcher:
+
+```bash
+npm run watch
+```
+
+This keeps all four Sass entrypoints in `src/` synced to `dist/` as files change.
+
 ## Extending Utilities
 
 To add a new utility family:
