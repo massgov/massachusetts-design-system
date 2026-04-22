@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MDS Page Layout Demo</title>
     <link rel="stylesheet" href="../../../tokens/src/index.css" />
-    <link rel="stylesheet" href="../../dist/helpers.css" />
-    <link rel="stylesheet" href="../../dist/utilities.css" />
+    <link rel="stylesheet" href="../../dist/index.css" />
+    <link rel="stylesheet" href="../template/index.css" />
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body class="mds-body">
@@ -30,63 +30,74 @@
         </div>
       </div>
 
-      <div class="demo-page__content">
-        <header class="demo-section demo-section--state-banner">
+      <main class="page-demo demo-page__content">
+        <header class="demo-section demo-section--state-banner mds-background-section-brand-neutral-highest">
           <div class="mds-section__container">
-            <div class="demo-color-block demo-color-block--xs demo-color-block--light">
+            <div class="demo-color-block demo-color-block--xs mds-background-surface-default mds-margin-block-2xs">
             </div>
           </div>
         </header>
 
-        <section class="demo-section demo-section--primary-inverse">
+        <section class="page-demo__hero">
           <div class="mds-section__container mds-padding-block-2xl">
-            <h1>Responsive page layout demo</h1>
+            <a class="page-demo__back-link" href="../index.html">← All reusable CSS</a>
+            <p class="page-demo__eyebrow">Massachusetts Design System</p>
+            <h1 class="mds-text-heading-2xl">Responsive page layout demo</h1>
+            <p class="page-demo__lede">
+              A layout reference page showing how the grid, sections, and spacing adapt across breakpoints.
+            </p>
           </div>
         </section>
 
-        <section class="demo-section demo-section--primary">
+        <section class="page-demo__section">
           <div class="mds-section__container mds-padding-block-sm">
-            <h2>Heading level 2</h2>
-            <h3>Heading level 3</h3>
-            <b>Body text lg bold</b>
-            <p>Body text lg</p>
+            <div class="page-demo__section-header">
+              <h2 class="mds-text-heading-lg">Typography scale</h2>
+              <p>Basic heading and body examples in a responsive section shell.</p>
+            </div>
+            <h3 class="mds-text-heading-md">Heading level 3</h3>
+            <p class="mds-text-body-lg-bold">Body text lg bold</p>
+            <p class="mds-text-body-lg">Body text lg</p>
           </div>
         </section>
 
-        <section class="demo-section demo-section--secondary mds-padding-block-2xl">
+        <section class="page-demo__section page-demo__section--alt mds-padding-block-2xl">
           <div class="mds-section__container">
-          <h2>Grid examples</h2>
-          <b>Full width</b>
-          <div class="mds-grid mds-margin-block-sm">
-            <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-12"></div>
+            <div class="page-demo__section-header">
+              <h2 class="mds-text-heading-lg">Grid examples</h2>
+              <p>These examples use the same layout shell classes as the shared demo template, with responsive grid spans shown below.</p>
+            </div>
+            <p class="mds-text-label">Full width</p>
+            <div class="mds-grid mds-margin-block-sm">
+              <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-12"></div>
+            </div>
+            <p class="mds-text-label">2 columns</p>
+            <div class="mds-grid mds-margin-block-sm">
+              <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-6"></div>
+              <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-6"></div>
+            </div>
+            <p class="mds-text-label">3 columns</p>
+            <div class="mds-grid mds-margin-block-sm">
+              <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-4"></div>
+              <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-4"></div>
+              <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-4"></div>
+            </div>
+            <p class="mds-text-label">4 columns</p>
+            <div class="mds-grid mds-margin-block-sm">
+              <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-3"></div>
+              <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-3"></div>
+              <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-3"></div>
+              <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-3"></div>
+            </div>
           </div>
-          <b>2 columns</b>
-          <div class="mds-grid mds-margin-block-sm">
-            <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-6"></div>
-            <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-6"></div>
-          </div>
-          <b>3 columns</b>
-          <div class="mds-grid mds-margin-block-sm">
-            <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-4"></div>
-            <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-4"></div>
-            <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-4"></div>
-          </div>
-          <b>4 columns</b>
-          <div class="mds-grid mds-margin-block-sm">
-            <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-3"></div>
-            <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-3"></div>
-            <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-3"></div>
-            <div class="demo-color-block demo-color-block--xs demo-color-block--dark mds-grid-span-3"></div>
-          </div>
-        </div>
         </section>
 
-        <footer class="demo-footer">
+        <footer class="demo-footer mds-background-section-brand-neutral-highest">
           <div class="mds-section__container mds-padding-block-2xl">
-            <div class="demo-color-block demo-color-block--lg demo-color-block--neutral"></div>
+            <div class="demo-color-block demo-color-block--lg mds-background-surface-default"></div>
           </div>
         </footer>
-      </div>
+      </main>
     </div>
     <script src="./index.js"></script>
   </body>
