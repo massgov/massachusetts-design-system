@@ -15,19 +15,6 @@ code {
   font-family: ui-monospace, SFMono-Regular, SF Mono, Monaco, Consolas, Liberation Mono, monospace;
 }
 
-.page-demo__back-link,
-.page-demo__nav-card {
-  color: inherit;
-  text-decoration: none;
-}
-
-.page-demo__back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--mds-space-3xs);
-  margin-bottom: var(--mds-space-sm);
-  font: var(--mds-text-label);
-}
 
 .page-demo {
   --page-demo-eyebrow-color: var(--mds-text-and-icons-brand-primary-mid);
