@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MDS Utility Classes Demo</title>
+    <title>MDS Utility Classes Demos</title>
     <link rel="stylesheet" href="../../../tokens/src/index.css" />
     <link rel="stylesheet" href="../../dist/index.css" />
     <link rel="stylesheet" href="../template/index.css" />
@@ -16,7 +16,7 @@
           <p class="page-demo__eyebrow">Massachusetts Design System</p>
           <h1 class="mds-text-heading-2xl">Utility Classes</h1>
           <p class="page-demo__lede">
-            A visual reference for the generated utility classes — built on top of our design tokens.
+            Each utility family now has its own focused demo page so the examples are easier to browse and maintain.
           </p>
         </div>
       </section>
@@ -24,395 +24,31 @@
       <section class="page-demo__section">
         <div class="mds-section__container mds-padding-block-2xl">
           <div class="page-demo__section-header">
-            <h2 class="mds-text-heading-lg">Typography Utilities</h2>
-            <p>Font shorthand utilities generated directly from the semantic text tokens, including breakpoint-responsive heading and body sizes.</p>
+            <h2 class="mds-text-heading-lg">Browse Utility Demos</h2>
+            <p>Open a single utility family to see its examples, edge cases, and reference classes on a dedicated page.</p>
           </div>
 
-          <div class="page-demo__type-grid">
-            <article class="page-demo__type-card">
-              <code>.mds-text-heading-2xl</code> (scales with breakpoints)
-              <p class="mds-text-heading-2xl">Recommended font style to use with H1 headings</p>
-            </article>
-            <article class="page-demo__type-card">
-              <code>.mds-text-heading-xl</code> (scales with breakpoints)
-              <p class="mds-text-heading-xl">Recommended font style to use with H2 headings</p>
-            </article>
-            <article class="page-demo__type-card">
-              <code>.mds-text-heading-lg</code> (scales with breakpoints)
-              <p class="mds-text-heading-lg">Recommended font style to use with H3 headings</p>
-            </article>
-            <article class="page-demo__type-card">
-              <code>.mds-text-body-lg-bold</code>  (scales with breakpoints)
-              <p class="mds-text-body-lg-bold">Emphasized large body copy is useful for page intros, summaries, and prominent supporting text.</p>
-            </article>
-            <article class="page-demo__type-card">
-              <code>.mds-text-body-lg</code>  (scales with breakpoints)
-              <p class="mds-text-body-lg">Large body copy is useful for page intros, summaries, and prominent supporting text.</p>
-            </article>
-            <article class="page-demo__type-card">
-              <code>.mds-text-body-bold</code>
-              <p class="mds-text-body-bold">Body text that are emphasized for primary content.</p>
-            </article>
-            <article class="page-demo__type-card">
-              <code>.mds-text-body</code>
-              <p class="mds-text-body">Body text that are used for primary content.</p>
-            </article>
-            <article class="page-demo__type-card">
-              <code>.mds-text-label-md</code>
-              <p class="mds-text-label-md">Form label or UI label token</p>
-            </article>
-            <article class="page-demo__type-card">
-              <code>.mds-text-caption</code>
-              <p class="mds-text-caption">Caption text works well for secondary metadata and support notes for images, charts, videos, and other visual elements.</p>
-            </article>
-            <article class="page-demo__type-card page-demo__type-card--eyebrow">
-              <code>.mds-text-eyebrow + .mds-text-transform-eyebrow + .mds-letter-spacing-eyebrow</code>
-              <p class="mds-text-eyebrow mds-text-transform-eyebrow mds-letter-spacing-eyebrow">Short labels above headings</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="page-demo__section">
-        <div class="mds-section__container mds-padding-block-2xl">
-          <div class="page-demo__section-header">
-            <h2 class="mds-text-heading-lg">Spacing Utilities</h2>
-            <h3 class="mds-text-heading-md">Spacing scale</h3>
-            <div class="page-demo__scale-row">
-              <div class="page-demo__scale-item">
-                <div class="page-demo__scale-fill page-demo__scale-fill--3xs"></div>
-                <code>3xs</code>
-              </div>
-              <div class="page-demo__scale-item">
-                <div class="page-demo__scale-fill page-demo__scale-fill--2xs"></div>
-                <code>2xs</code>
-              </div>
-              <div class="page-demo__scale-item">
-                <div class="page-demo__scale-fill page-demo__scale-fill--xs"></div>
-                <code>xs</code>
-              </div>
-              <div class="page-demo__scale-item">
-                <div class="page-demo__scale-fill page-demo__scale-fill--sm"></div>
-                <code>sm</code>
-              </div>
-              <div class="page-demo__scale-item">
-                <div class="page-demo__scale-fill page-demo__scale-fill--md"></div>
-                <code>md</code>
-              </div>
-              <div class="page-demo__scale-item">
-                <div class="page-demo__scale-fill page-demo__scale-fill--lg"></div>
-                <code>lg</code>
-              </div>
-              <div class="page-demo__scale-item">
-                <div class="page-demo__scale-fill page-demo__scale-fill--xl"></div>
-                <code>xl</code>
-              </div>
-              <div class="page-demo__scale-item">
-                <div class="page-demo__scale-fill page-demo__scale-fill--2xl"></div>
-                <code>2xl</code>
-              </div>
-              <div class="page-demo__scale-item">
-                <div class="page-demo__scale-fill page-demo__scale-fill--3xl"></div>
-                <code>3xl</code>
-              </div>
-            </div>
-            <h3 class="mds-text-heading-md">Spacing classes</h3>
-            <p>Horizontal and vertical padding and margin classes shown with nested color blocks so the spacing difference is visible at a glance.</p>
-            <table class="page-demo__class-table">
-              <thead>
-                <tr>
-                  <th scope="col">Spacing type</th>
-                  <th scope="col">Utility class</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Horizontal padding spacing</td>
-                  <td><code>.mds-padding-inline-&lt;scale&gt;</code></td>
-                </tr>
-                <tr>
-                  <td>Horizontal padding start spacing</td>
-                  <td><code>.mds-padding-inline-start-&lt;scale&gt;</code></td>
-                </tr>
-                <tr>
-                  <td>Horizontal padding end spacing</td>
-                  <td><code>.mds-padding-inline-end-&lt;scale&gt;</code></td>
-                </tr>
-                <tr>
-                  <td>Vertical padding spacing</td>
-                  <td><code>.mds-padding-block-&lt;scale&gt;</code></td>
-                </tr>
-                <tr>
-                  <td>Vertical padding start spacing</td>
-                  <td><code>.mds-padding-block-start-&lt;scale&gt;</code></td>
-                </tr>
-                <tr>
-                  <td>Vertical padding end spacing</td>
-                  <td><code>.mds-padding-block-end-&lt;scale&gt;</code></td>
-                </tr>
-                <tr>
-                  <td>Horizontal margin spacing</td>
-                  <td><code>.mds-margin-inline-&lt;scale&gt;</code></td>
-                </tr>
-                <tr>
-                  <td>Horizontal margin start spacing</td>
-                  <td><code>.mds-margin-inline-start-&lt;scale&gt;</code></td>
-                </tr>
-                <tr>
-                  <td>Horizontal margin end spacing</td>
-                  <td><code>.mds-margin-inline-end-&lt;scale&gt;</code></td>
-                </tr>
-                <tr>
-                  <td>Vertical margin spacing</td>
-                  <td><code>.mds-margin-block-&lt;scale&gt;</code></td>
-                </tr>
-                <tr>
-                  <td>Vertical margin start spacing</td>
-                  <td><code>.mds-margin-block-start-&lt;scale&gt;</code></td>
-                </tr>
-                <tr>
-                  <td>Vertical margin end spacing</td>
-                  <td><code>.mds-margin-block-end-&lt;scale&gt;</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h3 class="mds-text-heading-md">Spacing examples</h3>
-          <div class="page-demo__box-model-examples">
-            <div class="mds-grid">
-              <div class="page-demo__box-model mds-margin-block-sm mds-grid-4-column">
-                <div>
-                  <div class="page-demo__box-model-layer page-demo__box-model-layer--margin">
-                    <div class="page-demo__box-model-layer page-demo__box-model-layer--padding mds-padding-inline-start-xs">
-                      <div class="page-demo__box-model-content"></div>
-                    </div>
-                  </div>
-                  <code>.mds-padding-inline-start-xs</code>
-                </div>
-              </div>
-              <div class="page-demo__box-model mds-margin-block-sm mds-grid-4-column">
-                <div>
-                  <div class="page-demo__box-model-layer page-demo__box-model-layer--margin">
-                    <div class="page-demo__box-model-layer page-demo__box-model-layer--padding mds-padding-block-start-xs">
-                      <div class="page-demo__box-model-content"></div>
-                    </div>
-                  </div>
-                  <code>.mds-padding-block-start-xs</code>
-                </div>
-              </div>
-              <div class="page-demo__box-model mds-margin-block-sm mds-grid-4-column">
-                <div>
-                  <div class="page-demo__box-model-layer page-demo__box-model-layer--margin">
-                    <div class="page-demo__box-model-layer page-demo__box-model-layer--padding mds-padding-inline-end-xs">
-                      <div class="page-demo__box-model-content"></div>
-                    </div>
-                  </div>
-                  <code>.mds-padding-inline-end-xs</code>
-                </div>
-              </div>
-              <div class="page-demo__box-model mds-margin-block-sm mds-grid-4-column">
-                <div>
-                  <div class="page-demo__box-model-layer page-demo__box-model-layer--margin">
-                    <div class="page-demo__box-model-layer page-demo__box-model-layer--padding mds-padding-block-end-xs">
-                      <div class="page-demo__box-model-content"></div>
-                    </div>
-                  </div>
-                  <code>.mds-padding-block-end-xs</code>
-                </div>
-              </div>
-              <div class="page-demo__box-model mds-margin-block-sm mds-grid-4-column">
-                <div>
-                  <div class="page-demo__box-model-layer page-demo__box-model-layer--margin">
-                    <div class="page-demo__box-model-layer page-demo__box-model-layer--padding mds-margin-inline-start-xs">
-                      <div class="page-demo__box-model-content"></div>
-                    </div>
-                  </div>
-                  <code>.mds-margin-inline-start-xs</code>
-                </div>
-              </div>
-              <div class="page-demo__box-model mds-margin-block-sm mds-grid-4-column">
-                <div>
-                  <div class="page-demo__box-model-layer page-demo__box-model-layer--margin">
-                    <div class="page-demo__box-model-layer page-demo__box-model-layer--padding mds-margin-block-start-xs">
-                      <div class="page-demo__box-model-content"></div>
-                    </div>
-                  </div>
-                  <code>.mds-margin-block-start-xs</code>
-                </div>
-              </div>
-              <div class="page-demo__box-model mds-margin-block-sm mds-grid-4-column">
-                <div>
-                  <div class="page-demo__box-model-layer page-demo__box-model-layer--margin">
-                    <div class="page-demo__box-model-layer page-demo__box-model-layer--padding mds-margin-inline-end-xs">
-                      <div class="page-demo__box-model-content"></div>
-                    </div>
-                  </div>
-                  <code>.mds-margin-inline-end-xs</code>
-                </div>
-              </div>
-              <div class="page-demo__box-model mds-margin-block-sm mds-grid-4-column">
-                <div>
-                  <div class="page-demo__box-model-layer page-demo__box-model-layer--margin">
-                    <div class="page-demo__box-model-layer page-demo__box-model-layer--padding mds-margin-block-end-xs">
-                      <div class="page-demo__box-model-content"></div>
-                    </div>
-                  </div>
-                  <code>.mds-margin-block-end-xs</code>
-                </div>
-              </div>
-              <div class="page-demo__box-model mds-margin-block-sm mds-grid-4-column">
-                <div>
-                  <div class="page-demo__box-model-layer page-demo__box-model-layer--margin">
-                    <div class="page-demo__box-model-layer page-demo__box-model-layer--padding mds-margin-block-sm  mds-padding-inline-lg">
-                      <div class="page-demo__box-model-content"></div>
-                    </div>
-                  </div>
-                  <code>.mds-margin-block-sm</code><br/>
-                  <code>.mds-padding-inline-lg</code>
-                </div>
-              </div>              
-              <div class="page-demo__box-model mds-margin-block-sm mds-grid-4-column">
-                <div>
-                  <div class="page-demo__box-model-layer page-demo__box-model-layer--margin">
-                    <div class="page-demo__box-model-layer page-demo__box-model-layer--padding mds-margin-block-sm  mds-padding-inline-lg">
-                      <div class="page-demo__box-model-content"></div>
-                    </div>
-                  </div>
-                  <code>.mds-margin-block-sm</code><br/>
-                  <code>.mds-padding-inline-lg</code>
-                </div>
-              </div>
-
-              <div class="page-demo__box-model mds-margin-block-sm mds-grid-4-column">
-                <div>
-                  <div class="page-demo__box-model-layer page-demo__box-model-layer--margin">
-                    <div class="page-demo__box-model-layer page-demo__box-model-layer--padding mds-margin-block-sm  mds-padding-inline-lg">
-                      <div class="page-demo__box-model-content"></div>
-                    </div>
-                  </div>
-                  <code>.mds-margin-block-sm</code><br/>
-                  <code>.mds-padding-inline-lg</code>
-                </div>
-              </div>
-
-              <div class="page-demo__box-model mds-margin-block-sm mds-grid-4-column">
-                <div>
-                  <div class="page-demo__box-model-layer page-demo__box-model-layer--margin">
-                    <div class="page-demo__box-model-layer page-demo__box-model-layer--padding mds-padding-block-md mds-padding-inline-md mds-margin-block-md mds-margin-inline-md">
-                      <div class="page-demo__box-model-content"></div>
-                    </div>
-                  </div>
-                  <code>.mds-padding-block-md</code><br/>
-                  <code>.mds-padding-inline-md</code><br/>
-                  <code>.mds-margin-block-md</code><br/>
-                  <code>.mds-margin-inline-md</code>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="page-demo__section page-demo__section--alt">
-        <div class="mds-section__container mds-padding-block-2xl">
-          <div class="page-demo__section-header">
-            <h2 class="mds-text-heading-lg">Radius Utilities</h2>
-            <p>Border radius classes generated from semantic radius tokens.</p>
-          </div>
-          <div class="page-demo__grid page-demo__grid--cards">
-            <article class="page-demo__card mds-radius-xs">
-              <code>.mds-radius-xs</code>
-            </article>
-            <article class="page-demo__card mds-radius-sm">
-              <code>.mds-radius-sm</code>
-            </article>
-            <article class="page-demo__card mds-radius-md">
-              <code>.mds-radius-md</code>
-            </article>
-            <article class="page-demo__card mds-radius-max">
-              <code>.mds-radius-max</code>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="page-demo__section">
-        <div class="mds-section__container mds-padding-block-2xl">
-          <div class="page-demo__section-header">
-            <h2 class="mds-text-heading-lg">Shadow Utilities</h2>
-            <p>Elevation classes generated from semantic shadow tokens.</p>
-          </div>
-          <div class="page-demo__grid page-demo__grid--cards">
-            <article class="page-demo__card page-demo__card--surface mds-shadow-container">
-              <code>.mds-shadow-container</code>
-            </article>
-            <article class="page-demo__card page-demo__card--surface mds-shadow-modal">
-              <code>.mds-shadow-modal</code>
-            </article>
-            <article class="page-demo__card page-demo__card--surface mds-shadow-hover-sm">
-              <code>.mds-shadow-hover-sm</code>
-            </article>
-            <article class="page-demo__card page-demo__card--surface mds-shadow-hover-md">
-              <code>.mds-shadow-hover-md</code>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="page-demo__section">
-        <div class="mds-section__container mds-padding-block-2xl">
-          <div class="page-demo__section-header">
-            <h2 class="mds-text-heading-lg">Grid Span Utilities</h2>
-            <p>The preferred API is numeric, with legacy aliases still available for compatibility.</p>
-          </div>
-          <div class="page-demo__examples">
-            <div>
-              <p class="page-demo__label mds-margin-block-sm">Numeric spans</p>
-              <div class="mds-grid mds-gap-sm">
-                <div class="page-demo__tile page-demo__tile--dark mds-grid-span-12">
-                  <code>.mds-grid-span-12</code>
-                </div>
-                <div class="page-demo__tile page-demo__tile--dark mds-grid-span-6">
-                  <code>.mds-grid-span-6</code>
-                </div>
-                <div class="page-demo__tile page-demo__tile--dark mds-grid-span-6">
-                  <code>.mds-grid-span-6</code>
-                </div>
-                <div class="page-demo__tile page-demo__tile--dark mds-grid-span-4">
-                  <code>.mds-grid-span-4</code>
-                </div>
-                <div class="page-demo__tile page-demo__tile--dark mds-grid-span-4">
-                  <code>.mds-grid-span-4</code>
-                </div>
-                <div class="page-demo__tile page-demo__tile--dark mds-grid-span-4">
-                  <code>.mds-grid-span-4</code>
-                </div>
-              </div>
-            </div>
-            <div>
-              <p class="page-demo__label mds-margin-block-sm">Column layout (Will be restructured as helper classes)</p>
-              <div class="mds-grid mds-gap-sm">
-                <div class="page-demo__tile page-demo__tile--dark mds-grid-full">
-                  <code>.mds-grid-full</code>
-                </div>
-                <div class="page-demo__tile page-demo__tile--dark mds-grid-2-column">
-                  <code>.mds-grid-2-column</code>
-                </div>
-                <div class="page-demo__tile page-demo__tile--dark mds-grid-2-column">
-                  <code>.mds-grid-2-column</code>
-                </div>
-                <div class="page-demo__tile page-demo__tile--dark mds-grid-3-column">
-                  <code>.mds-grid-3-column</code>
-                </div>
-                <div class="page-demo__tile page-demo__tile--dark mds-grid-3-column">
-                  <code>.mds-grid-3-column</code>
-                </div>
-                <div class="page-demo__tile page-demo__tile--dark mds-grid-3-column">
-                  <code>.mds-grid-3-column</code>
-                </div>
-              </div>
-            </div>
+          <div class="page-demo__nav-grid">
+            <a class="page-demo__nav-card" href="./typography.html">
+              <h3 class="mds-text-heading-md">Typography</h3>
+              <p>Heading, body, label, caption, and eyebrow utilities with responsive examples.</p>
+            </a>
+            <a class="page-demo__nav-card" href="./spacing.html">
+              <h3 class="mds-text-heading-md">Spacing</h3>
+              <p>Spacing scale, directional margin and padding utilities, plus box-model examples.</p>
+            </a>
+            <a class="page-demo__nav-card" href="./radius.html">
+              <h3 class="mds-text-heading-md">Radius</h3>
+              <p>Semantic border-radius utilities shown on simple component cards.</p>
+            </a>
+            <a class="page-demo__nav-card" href="./shadow.html">
+              <h3 class="mds-text-heading-md">Shadow</h3>
+              <p>Container, modal, and hover shadow utilities using semantic elevation tokens.</p>
+            </a>
+            <a class="page-demo__nav-card" href="./grid.html">
+              <h3 class="mds-text-heading-md">Grid Span</h3>
+              <p>Numeric span utilities and the current legacy column alias examples.</p>
+            </a>
           </div>
         </div>
       </section>
