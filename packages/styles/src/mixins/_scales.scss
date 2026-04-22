@@ -107,7 +107,10 @@ $radius-scale: (
 
 $shadow-scale: (
   "container": var(--mds-shadow-container),
-  "modal": var(--mds-shadow-modal),
+  "modal": var(--mds-shadow-modal)
+);
+
+$shadow-hover-scale: (
   "hover-sm": var(--mds-shadow-hover-sm),
   "hover-md": var(--mds-shadow-hover-md)
 );

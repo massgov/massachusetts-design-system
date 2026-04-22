@@ -132,8 +132,11 @@ Available classes:
 
 - `.mds-shadow-container`
 - `.mds-shadow-modal`
-- `.mds-shadow-hover-sm`
-- `.mds-shadow-hover-md`
+
+Hover-only elevation utilities are stateful and apply their shadow on `:hover`:
+
+- `.mds-shadow-hover-sm:hover`
+- `.mds-shadow-hover-md:hover`
 
 ## Typography Utilities
 

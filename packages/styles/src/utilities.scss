@@ -10,6 +10,7 @@
 
 // shadow
 @include mixins.emit-base-utilities("shadow", box-shadow, mixins.$shadow-scale);
+@include mixins.emit-stateful-utilities("shadow", box-shadow, mixins.$shadow-hover-scale, "hover");
 
 // typography
 @include mixins.emit-base-utilities("text", font, mixins.$font-scale);

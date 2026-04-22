@@ -1,0 +1,7 @@
+@mixin emit-stateful-utilities($class, $property, $scale, $state) {
+  @each $name, $value in $scale {
+    .mds-#{$class}-#{$name}:#{$state} {
+      #{$property}: $value;
+    }
+  }
+}
