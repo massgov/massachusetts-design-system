@@ -1,0 +1,19 @@
+@mixin emit-grid-span-utilities($scale, $aliases: ()) {
+  @each $value in $scale {
+    .mds-grid-span-#{$value} {
+      grid-column: span #{$value};
+    }
+  }
+
+  @each $name, $value in $aliases {
+    @if $name == "full" {
+      .mds-grid-#{$name} {
+        grid-column: 1 / -1;
+      }
+    } @else {
+      .mds-grid-#{$name} {
+        grid-column: span #{$value};
+      }
+    }
+  }
+}

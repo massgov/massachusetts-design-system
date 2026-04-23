@@ -170,38 +170,40 @@ For a full cleanup sync, use a full-library manifest and `--prune`. Only use sta
 
 ## Changelogs
 
-For each PR, it's required to add a changelog under `packages/assets/changelog.d/` following the example in `changelog.template.md`.
+For each PR, add a changelog fragment under `packages/assets/changelog.d/` using the example in `changelog.template.md`.
 
-2. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date
+When preparing a release, run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date.
 
 
 ## Publishing
 
 The package is published to npm as `@massds/mds-assets` with the GitHub Actions workflow at `.github/workflows/publish-assets.yml`.
 
-The publish workflow:
-1. Create a release branch from `main`, based on [semantic versioning](https://semver.org/), e.g. release/assets-1.0.1 
-2. On that branch:
-    - compile changelog fragments
-    - remove released fragments
-    - bump the package version
-Update the version in `package.json` 
-2. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date. 
-2. Create a release tag in the format `assets-v*`, e.g. `assets-v1.0.1`
-3. Copy the latest compiled changelogs from `CHANGELOG.md` into the release notes.
+Recommended branch and tag strategy for assets:
+- Use `main` as the long-lived release branch for `@massds/mds-assets`.
+- Merge assets release work into `main` through a pull request with required checks.
+- Create assets release tags only from commits already on `main`.
+- Use the `assets-v*` tag prefix for every assets release.
+
+Assets release flow:
+
+1. Create a release branch from `main`, based on [semantic versioning](https://semver.org/), for example `release/assets-1.0.1`
+2. Update `packages/assets/package.json` to the release version
+4. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date
+5. Merge the release branch into `main` through a pull request
+6. In the GitHub UI, create the release tag for the merged release commit using the format `assets-v*`, for example `assets-v1.0.1`
+7. In the GitHub Release for that tag, copy the relevant release notes from `packages/assets/CHANGELOG.md`
+8. Creating the tag in GitHub triggers `.github/workflows/publish-assets.yml` to publish the package
 
 Release channels:
 - Stable releases use normal semver versions such as `1.0.1` and tags such as `assets-v1.0.1`. These publish to npm on the default `latest` dist-tag.
 - Prereleases use semver prerelease versions such as `1.1.0-beta.1` and tags such as `assets-v1.1.0-beta.1`. These publish to npm on the `beta` dist-tag.
-
-Recommended branch and tag strategy:
-- Use `main` as the only long-lived release branch.
-- Merge feature work into `main` through pull requests with required checks.
-- Create release tags only from commits already merged to `main`.
-- Keep package-specific tag prefixes if more packages are added later, for example `assets-v*`, `tokens-v*`, and `components-v*`.
 
 
 ## Sources
 
 - Icon source library: [Phosphor Icons](https://phosphoricons.com/)
 - Icon design library: [Massachusetts Design System Figma Icon Library](https://www.figma.com/design/ZpxjY5M188i4ItGIvW9Y0s/Icons?t=9d9doUJlYvsBBWr2-0)
+
+
+Questions? Email the Massachusetts Design System Team at <designsystem@mass.gov>
