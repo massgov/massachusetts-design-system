@@ -1,3 +1,3 @@
-@import "./colors.css";
-@import "./helpers.css";
-@import "./utilities.css";
+@forward "./colors.scss";
+@forward "./helpers.scss";
+@forward "./utilities.scss";

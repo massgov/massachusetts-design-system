@@ -8,11 +8,10 @@ Import tokens first, then styles:
 
 ```css
 @import "@massds/mds-tokens/dist/index.css";
-@import "@massds/mds-styles/dist/index.css";
-@import "@massds/mds-styles/dist/colors.css";
+@import "@massds/mds-styles/dist/index.min.css";
 ```
 
-This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages. Color utilities are published separately in `colors.css` so teams can opt into them explicitly.
+This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages. The build publishes a bundled `dist/index.css` for readable distribution and a bundled, minified `dist/index.min.css` for production use. The individual layer files are also published when you want to import them separately.
 
 ## Package Contents
 
@@ -23,14 +22,15 @@ dist/
 ├── colors.css
 ├── helpers.css
 ├── index.css
+├── index.min.css
 └── utilities.css
 ```
 
 - `dist/colors.css` contains color utility classes generated from semantic background and text/icon tokens
 - `dist/helpers.css` contains reusable structural classes such as the grid container and section container
-- `dist/utilities.css` contains generated utility classes such as spacing, radius, shadow, gap, and grid span utilities
-- `dist/utilities.css` also includes typography utilities generated from the semantic font tokens
-- `dist/index.css` imports the helper and utility layers together
+- `dist/utilities.css` contains generated utility classes such as typography, spacing, radius, shadow, gap, and grid span utilities
+- `dist/index.css` is the bundled unminified package entry stylesheet
+- `dist/index.min.css` is the bundled, minified production stylesheet for the package
 
 ## Naming Conventions
 

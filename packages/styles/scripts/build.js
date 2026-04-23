@@ -8,12 +8,12 @@ async function cleanDist() {
   await fs.mkdir(distDir, { recursive: true });
 }
 
-function compileSass(inputFile, outputFile) {
+function compileSass(inputFile, outputFile, style = 'expanded') {
   return new Promise((resolve, reject) => {
     const sassBin = getSassBin();
     const child = spawn(
       process.execPath,
-      [sassBin, '--no-source-map', '--style=expanded', inputFile, outputFile],
+      [sassBin, '--no-source-map', `--style=${style}`, inputFile, outputFile],
       {
         cwd: packageRoot,
         stdio: 'inherit'
@@ -33,14 +33,34 @@ function compileSass(inputFile, outputFile) {
   });
 }
 
+async function bundleIndex(outputName, style) {
+  const bundleInputFile = path.join(distDir, '__bundle.scss');
+  const bundleInput = [
+    '@use "../src/colors";',
+    '@use "../src/helpers";',
+    '@use "../src/utilities";'
+  ].join('\n');
+
+  await fs.writeFile(bundleInputFile, bundleInput, 'utf8');
+
+  try {
+    await compileSass(bundleInputFile, path.join(distDir, outputName), style);
+  } finally {
+    await fs.rm(bundleInputFile, { force: true });
+  }
+}
+
 async function build() {
   await cleanDist();
 
   await Promise.all(
     sassEntries.map(([inputName, outputName]) =>
-      compileSass(path.join(srcDir, inputName), path.join(distDir, outputName))
+      compileSass(path.join(srcDir, inputName), path.join(distDir, outputName), 'expanded')
     )
   );
+
+  await bundleIndex('index.css', 'expanded');
+  await bundleIndex('index.min.css', 'compressed');
 }
 
 build().catch((error) => {
