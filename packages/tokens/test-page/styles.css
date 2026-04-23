@@ -3,6 +3,7 @@
 **/
     
 @import url('../src/index.css');
+@import url("../src/index-dark.css") (prefers-color-scheme: dark);
 
 
 body, button, html {
@@ -10,6 +11,10 @@ body, button, html {
     box-sizing: border-box;
 
     /** font imported in primitives stylesheet **/
+}
+
+body {
+    background-color: var(--mds-background-surface-default);
 }
 
 p, li {
