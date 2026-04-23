@@ -186,6 +186,17 @@ The preferred grid span API is numeric:
 <div class="mds-grid-span-6"></div>
 ```
 
+Responsive prefixed variants are also generated for grid span utilities using the design system's max-width breakpoints:
+
+```html
+<div class="mds-grid-span-12 md:mds-grid-span-6 lg:mds-grid-span-4"></div>
+```
+
+This means:
+
+- `md:` applies at `768px` and below
+- `lg:` applies at `1024px` and below
+
 Legacy alias classes such as `.mds-grid-full`, `.mds-grid-2-column`, `.mds-grid-3-column`, and `.mds-grid-4-column` are still generated for backward compatibility.
 
 These aliases should be treated as deprecated for new work. Prefer `.mds-grid-span-n` for new utilities and component examples.

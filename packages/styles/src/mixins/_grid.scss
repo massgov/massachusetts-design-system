@@ -1,3 +1,13 @@
+@use "./breakpoints" as breakpoints;
+
+@function responsive-grid-selector($prefix, $class-name) {
+  @if $prefix == null {
+    @return ".#{$class-name}";
+  }
+
+  @return ".#{$prefix}\\:#{$class-name}";
+}
+
 @mixin emit-grid-span-utilities($scale, $aliases: ()) {
   @each $value in $scale {
     .mds-grid-span-#{$value} {
@@ -13,6 +23,18 @@
     } @else {
       .mds-grid-#{$name} {
         grid-column: span #{$value};
+      }
+    }
+  }
+}
+
+@mixin emit-responsive-grid-span-utilities($scale, $aliases: (), $breakpoint-scale: breakpoints.$breakpoints) {
+  @each $prefix, $size in $breakpoint-scale {
+    @media (max-width: $size) {
+      @each $value in $scale {
+        #{responsive-grid-selector($prefix, "mds-grid-span-#{$value}")} {
+          grid-column: span #{$value};
+        }
       }
     }
   }
