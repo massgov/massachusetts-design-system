@@ -117,3 +117,93 @@ code {
 .page-demo__section-header p {
   max-width: 66ch;
 }
+
+.page-demo__body-sample {
+  display: grid;
+  gap: var(--mds-space-xs);
+  max-width: 44rem;
+  padding: var(--mds-space-lg);
+  border: 1px solid var(--mds-border-brand-neutral-low);
+  border-radius: var(--mds-radius-md);
+  box-shadow: var(--mds-shadow-container);
+}
+
+.page-demo__body-sample-label {
+  color: var(--mds-text-and-icons-brand-primary-mid);
+}
+
+.page-demo__container-demo {
+  padding-block: var(--mds-space-xl);
+  border-block: 1px solid var(--mds-border-brand-neutral-low);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--mds-background-adaptive-brand-primary-low) 50%, transparent) 0,
+      color-mix(in srgb, var(--mds-background-adaptive-brand-primary-low) 50%, transparent) 1px,
+      transparent 1px,
+      transparent 24px
+    ),
+    var(--mds-background-surface-default);
+}
+
+.page-demo__container-guide {
+  position: relative;
+  min-height: 8rem;
+}
+
+.page-demo__container-edge {
+  position: absolute;
+  inset-block: 0;
+  width: 2px;
+  background: var(--mds-border-focus-on-light);
+}
+
+.page-demo__container-edge--start {
+  inset-inline-start: var(--mds-breakpoint-horizontal-space-margin);
+}
+
+.page-demo__container-edge--end {
+  inset-inline-end: var(--mds-breakpoint-horizontal-space-margin);
+}
+
+.page-demo__container-content {
+  display: grid;
+  place-items: center;
+  min-height: 8rem;
+  border: 1px dashed var(--mds-border-brand-primary-mid);
+  background: color-mix(in srgb, var(--mds-background-adaptive-brand-primary-low) 45%, transparent);
+}
+
+.page-demo__grid-demo {
+  margin-block: var(--mds-space-md);
+}
+
+.page-demo__grid-cell {
+  display: grid;
+  min-height: 5rem;
+  place-items: center;
+  border: 1px solid var(--mds-border-brand-primary-low);
+  background: var(--mds-background-adaptive-brand-primary-lowest);
+}
+
+.page-demo__grid-cell span {
+  font: var(--mds-text-label);
+}
+
+.page-demo__layout-demo {
+  margin-top: var(--mds-space-lg);
+}
+
+.page-demo__layout-block {
+  display: grid;
+  min-height: 6rem;
+  place-items: center;
+  padding: var(--mds-space-sm);
+  border: 1px solid var(--mds-border-brand-secondary-mid);
+  background: var(--mds-background-adaptive-brand-secondary-lowest);
+}
+
+.page-demo__layout-block--full {
+  border-color: var(--mds-border-brand-primary-mid);
+  background: var(--mds-background-adaptive-brand-primary-lowest);
+}

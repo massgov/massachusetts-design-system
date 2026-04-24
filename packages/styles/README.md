@@ -34,10 +34,7 @@ dist/
 
 ## Naming Conventions
 
-This package uses two naming styles on purpose:
-
-- Use BEM for helpers and component-like classes with semantic structure, for example `.mds-section__container`
-- Use flat, token-driven naming for utilities, for example `.mds-padding-inline-md`, `.mds-gap-sm`, and `.mds-shadow-container`
+Utilities and helpers uses flat, token-driven classnames, for example `.mds-padding-inline-md`, `.mds-gap-sm`, `.mds-shadow-container` and `mds-section-container`.
 
 As a rule of thumb, helpers describe reusable layout patterns or structural roles, while utilities describe one specific CSS property driven by a token scale.
 
