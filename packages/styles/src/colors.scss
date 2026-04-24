@@ -4,3 +4,4 @@
 
 @include mixins.emit-base-utilities("background", background-color, mixins.$background-scale);
 @include mixins.emit-base-utilities("text-and-icons", color, mixins.$text-and-icons-scale);
+@include mixins.emit-base-utilities("border", border-color, mixins.$border-scale);

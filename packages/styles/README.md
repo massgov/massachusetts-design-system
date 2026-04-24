@@ -43,7 +43,7 @@ As a rule of thumb, helpers describe reusable layout patterns or structural role
 
 ## Color Utilities
 
-Color utilities are generated from the semantic background and text/icon token sets in `@massds/mds-tokens` and live in a dedicated `colors.css` layer.
+Color utilities are generated from the semantic background, text/icon, and border token sets in `@massds/mds-tokens` and live in a dedicated `colors.css` layer.
 
 ```html
 <div class="mds-background-section-brand-primary-lowest mds-text-inverse"></div>
@@ -52,15 +52,17 @@ Color utilities are generated from the semantic background and text/icon token s
 Examples:
 
 - `.mds-background-surface-default`
+- `.mds-background-static-white`
 - `.mds-background-section-brand-primary-lowest`
 - `.mds-background-adaptive-brand-secondary-mid`
 - `.mds-background-adaptive-utility-success-high`
 - `.mds-background-overlay`
 - `.mds-text-brand-neutral-default`
+- `.mds-text-and-icons-static-blue-mid`
 - `.mds-text-brand-primary-mid`
 - `.mds-text-inverse`
-- `.mds-icons-brand-secondary-mid`
-- `.mds-icons-utility-danger-mid`
+- `.mds-border-brand-primary-mid`
+- `.mds-border-focus-on-light`
 
 ## Spacing Utilities
 

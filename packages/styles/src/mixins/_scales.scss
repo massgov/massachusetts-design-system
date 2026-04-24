@@ -12,6 +12,10 @@ $space-scale: (
 
 $background-scale: (
   "transparent": var(--mds-background-transparent),
+  "static-white": var(--mds-static-white),
+  "static-black": var(--mds-static-black),
+  "static-light-gray": var(--mds-static-light-gray),
+  "static-blue-mid": var(--mds-static-blue-mid),
   "surface-default": var(--mds-background-surface-default),
   "section-brand-neutral-lowest": var(--mds-background-section-brand-neutral-lowest),
   "section-brand-neutral-low": var(--mds-background-section-brand-neutral-low),
@@ -87,6 +91,10 @@ $background-scale: (
 
 $text-and-icons-scale: (
   "inverse": var(--mds-inverse),
+  "static-white": var(--mds-static-white),
+  "static-black": var(--mds-static-black),
+  "static-light-gray": var(--mds-static-light-gray),
+  "static-blue-mid": var(--mds-static-blue-mid),
   "brand-neutral-default": var(--mds-text-and-icons-brand-neutral-default),
   "brand-neutral-muted": var(--mds-text-and-icons-brand-neutral-muted),
   "brand-neutral-disabled": var(--mds-text-and-icons-brand-neutral-disabled),
@@ -96,6 +104,33 @@ $text-and-icons-scale: (
   "utility-danger-mid": var(--mds-text-and-icons-utility-danger-mid),
   "utility-warning-mid": var(--mds-text-and-icons-utility-warning-mid),
   "utility-success-mid": var(--mds-text-and-icons-utility-success-mid)
+);
+
+$border-scale: (
+  "brand-neutral-lowest": var(--mds-border-brand-neutral-lowest),
+  "brand-neutral-low": var(--mds-border-brand-neutral-low),
+  "brand-neutral-mid": var(--mds-border-brand-neutral-mid),
+  "brand-neutral-high": var(--mds-border-brand-neutral-high),
+  "brand-primary-lowest": var(--mds-border-brand-primary-lowest),
+  "brand-primary-low": var(--mds-border-brand-primary-low),
+  "brand-primary-mid": var(--mds-border-brand-primary-mid),
+  "brand-primary-high": var(--mds-border-brand-primary-high),
+  "brand-primary-highest": var(--mds-border-brand-primary-highest),
+  "brand-secondary-lowest": var(--mds-border-brand-secondary-lowest),
+  "brand-secondary-low": var(--mds-border-brand-secondary-low),
+  "brand-secondary-mid": var(--mds-border-brand-secondary-mid),
+  "brand-secondary-high": var(--mds-border-brand-secondary-high),
+  "brand-secondary-highest": var(--mds-border-brand-secondary-highest),
+  "focus-on-light": var(--mds-border-focus-on-light),
+  "focus-on-dark": var(--mds-border-focus-on-dark),
+  "utility-informative-low": var(--mds-border-utility-informative-low),
+  "utility-informative-mid": var(--mds-border-utility-informative-mid),
+  "utility-danger-low": var(--mds-border-utility-danger-low),
+  "utility-danger-mid": var(--mds-border-utility-danger-mid),
+  "utility-warning-low": var(--mds-border-utility-warning-low),
+  "utility-warning-mid": var(--mds-border-utility-warning-mid),
+  "utility-success-low": var(--mds-border-utility-success-low),
+  "utility-success-mid": var(--mds-border-utility-success-mid)
 );
 
 $radius-scale: (
