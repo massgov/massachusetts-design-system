@@ -90,11 +90,6 @@ $background-scale: (
 );
 
 $text-and-icons-scale: (
-  "inverse": var(--mds-inverse),
-  "static-white": var(--mds-static-white),
-  "static-black": var(--mds-static-black),
-  "static-light-gray": var(--mds-static-light-gray),
-  "static-blue-mid": var(--mds-static-blue-mid),
   "brand-neutral-default": var(--mds-text-and-icons-brand-neutral-default),
   "brand-neutral-muted": var(--mds-text-and-icons-brand-neutral-muted),
   "brand-neutral-disabled": var(--mds-text-and-icons-brand-neutral-disabled),
@@ -104,6 +99,14 @@ $text-and-icons-scale: (
   "utility-danger-mid": var(--mds-text-and-icons-utility-danger-mid),
   "utility-warning-mid": var(--mds-text-and-icons-utility-warning-mid),
   "utility-success-mid": var(--mds-text-and-icons-utility-success-mid)
+);
+
+$colors-misc-scale: (
+  "inverse": var(--mds-inverse),
+  "static-white": var(--mds-static-white),
+  "static-black": var(--mds-static-black),
+  "static-light-gray": var(--mds-static-light-gray),
+  "static-blue-mid": var(--mds-static-blue-mid)
 );
 
 $border-scale: (

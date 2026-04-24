@@ -1,6 +1,14 @@
+@function utility-class-name($class, $name) {
+  @if $class == "" {
+    @return "mds-#{$name}";
+  }
+
+  @return "mds-#{$class}-#{$name}";
+}
+
 @mixin emit-base-utilities($class, $property, $scale) {
   @each $name, $value in $scale {
-    .mds-#{$class}-#{$name} {
+    .#{utility-class-name($class, $name)} {
       #{$property}: $value;
     }
   }
