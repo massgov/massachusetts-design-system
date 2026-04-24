@@ -61,10 +61,6 @@ code {
 
 .page-demo__section--alt {
   background: var(--page-demo-section-alt-background);
-
-  code {
-    background: var(--mds-static-white);
-  }
 }
 
 .page-demo__section-header {
