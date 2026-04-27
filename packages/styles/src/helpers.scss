@@ -28,7 +28,7 @@
 }
 
 .mds-grid-2-column {
-  grid-column: span 6;
+  grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / 2);
 
   @include mixins.max-width(sm) {
     grid-column: 1/-1;
@@ -36,7 +36,7 @@
 }
 
 .mds-grid-3-column {
-  grid-column: span 4;
+  grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / 3);
 
   @include mixins.max-width(sm) {
     grid-column: 1/-1;
@@ -44,10 +44,10 @@
 }
 
 .mds-grid-4-column {
-  grid-column: span 3;
+  grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / 4);
 
   @include mixins.max-width(lg) {
-    grid-column: span 6;
+    grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / 2);
   }
 
   @include mixins.max-width(sm) {

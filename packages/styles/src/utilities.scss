@@ -19,5 +19,5 @@
 
 /* grid */
 @include mixins.emit-base-utilities("gap", gap, mixins.$space-scale);
-@include mixins.emit-grid-span-utilities(mixins.$grid-span-scale, mixins.$grid-span-aliases);
-@include mixins.emit-responsive-grid-span-utilities(mixins.$grid-span-scale, mixins.$grid-span-aliases);
+@include mixins.emit-grid-span-utilities(mixins.$grid-span-scale);
+@include mixins.emit-responsive-grid-span-utilities(mixins.$grid-span-scale);
