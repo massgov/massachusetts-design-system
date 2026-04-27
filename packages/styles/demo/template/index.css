@@ -61,6 +61,10 @@ code {
 
 .page-demo__section--alt {
   background: var(--page-demo-section-alt-background);
+
+  code {
+    background: var(--mds-background-surface-default);
+  }
 }
 
 .page-demo__section-header {
@@ -84,7 +88,14 @@ body {
 }
 
 code {
-  font-family: ui-monospace, "SFMono-Regular", "SF Mono", Monaco, Consolas, "Liberation Mono", monospace;
+  display: inline-block;
+  background-color: var(--mds-background-section-brand-neutral-low);
+  color: var(--mds-text-and-icons-brand-neutral-default);
+  padding: var(--mds-space-3xs);
+  margin: var(--mds-space-3xs) 0;
+  border-radius: var(--mds-radius-sm);
+  font: var(--mds-text-body-sm);
+  width: fit-content;
 }
 
 .page-demo {

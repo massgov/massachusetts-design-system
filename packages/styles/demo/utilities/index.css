@@ -161,17 +161,6 @@
   }
 }
 
-code {
-  display: inline-block;
-  background-color: var(--mds-background-section-brand-neutral-low);
-  color: var(--mds-text-and-icons-brand-neutral-default);
-  padding: var(--mds-space-3xs);
-  margin: var(--mds-space-3xs) 0;
-  border-radius: var(--mds-radius-sm);
-  font: var(--mds-text-body-sm);
-  width: fit-content;
-}
-
 /* colors */
 .page-demo__swatch-table {
   width: 100%;
