@@ -4,7 +4,7 @@ This repository contains the source code for Massachusetts Design System package
 
 - `packages/assets` for icons, animation files, and state seal assets published as `@massds/mds-assets`
 - `packages/tokens` for CSS design tokens published as `@massds/mds-tokens`
-- `packages/styles` for generated helper and utility CSS (not a published package)
+- `packages/styles` for generated helper and utility CSS published as `@massds/mds-styles`
 
 Each package has its own README with package-specific development and publishing details.
 
@@ -36,6 +36,7 @@ Packages are released independently and published to npm through GitHub Actions.
 
 - `packages/assets` publishes through `.github/workflows/publish-assets.yml`
 - `packages/tokens` publishes through `.github/workflows/publish-tokens.yml`
+- `packages/styles` will need its own publish workflow before the first npm release
 
 Recommended branch and tag strategy:
 - Use `main` as the only long-lived release branch.
@@ -56,6 +57,7 @@ Tag format:
 
 - Assets: `assets-v<version>`
 - Tokens: `tokens-v<version>`
+- Styles: `styles-v<version>`
 
 Release channels:
 
@@ -66,3 +68,4 @@ For package-specific release details, see:
 
 - [packages/assets/README.md](packages/assets/README.md)
 - [packages/tokens/README.md](packages/tokens/README.md)
+- [packages/styles/README.md](packages/styles/README.md)

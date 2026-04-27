@@ -1,6 +1,15 @@
+@use "./mixins" as mixins;
+
 /* Helper classes: reusable structural patterns */
 
-.mds-section__container {
+.mds-body {
+  margin: 0;
+  background: var(--mds-background-surface-default);
+  color: var(--mds-text-and-icons-brand-neutral-default);
+  font: var(--mds-text-body);
+}
+
+.mds-section-container {
   width: min(100%, 1280px);
   margin-inline: auto;
   padding-inline: var(--mds-breakpoint-horizontal-space-margin);
@@ -11,4 +20,37 @@
   grid-template-columns: repeat(var(--mds-breakpoint-horizontal-space-columns), minmax(0, 1fr));
   gap: var(--mds-breakpoint-horizontal-space-gutter);
   min-height: 100%;
+}
+
+
+.mds-grid-full {
+  grid-column: 1/-1;
+}
+
+.mds-grid-2-column {
+  grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / 2);
+
+  @include mixins.max-width(sm) {
+    grid-column: 1/-1;
+  }
+}
+
+.mds-grid-3-column {
+  grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / 3);
+
+  @include mixins.max-width(sm) {
+    grid-column: 1/-1;
+  }
+}
+
+.mds-grid-4-column {
+  grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / 4);
+
+  @include mixins.max-width(lg) {
+    grid-column: span calc(var(--mds-breakpoint-horizontal-space-columns) / 2);
+  }
+
+  @include mixins.max-width(sm) {
+    grid-column: 1/-1;
+  }
 }

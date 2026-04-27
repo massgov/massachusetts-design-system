@@ -9,7 +9,8 @@
     "build": "node ./scripts/build.js",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "lint": "stylelint \"src/**/*.scss\" \"demo/**/*.css\"",
-    "lint:fix": "stylelint --fix \"src/**/*.scss\" \"demo/**/*.css\""
+    "lint:fix": "stylelint --fix \"src/**/*.scss\" \"demo/**/*.css\"",
+    "watch": "node ./scripts/watch.js"
   },
   "repository": {
     "type": "git",

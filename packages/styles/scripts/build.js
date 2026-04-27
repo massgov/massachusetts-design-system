@@ -1,27 +1,19 @@
 const fs = require('fs/promises');
 const path = require('path');
 const { spawn } = require('child_process');
-
-const packageRoot = path.resolve(__dirname, '..');
-const distDir = path.join(packageRoot, 'dist');
-const srcDir = path.join(packageRoot, 'src');
-
-function getSassBin() {
-  const sassEntry = require.resolve('sass');
-  return path.join(path.dirname(sassEntry), 'sass.js');
-}
+const { distDir, getSassBin, packageRoot, sassEntries, srcDir } = require('./shared');
 
 async function cleanDist() {
   await fs.rm(distDir, { recursive: true, force: true });
   await fs.mkdir(distDir, { recursive: true });
 }
 
-function compileSass(inputFile, outputFile) {
+function compileSass(inputFile, outputFile, style = 'expanded') {
   return new Promise((resolve, reject) => {
     const sassBin = getSassBin();
     const child = spawn(
       process.execPath,
-      [sassBin, '--no-source-map', '--style=expanded', inputFile, outputFile],
+      [sassBin, '--no-source-map', `--style=${style}`, inputFile, outputFile],
       {
         cwd: packageRoot,
         stdio: 'inherit'
@@ -41,14 +33,34 @@ function compileSass(inputFile, outputFile) {
   });
 }
 
+async function bundleIndex(outputName, style) {
+  const bundleInputFile = path.join(distDir, '__bundle.scss');
+  const bundleInput = [
+    '@use "../src/colors";',
+    '@use "../src/helpers";',
+    '@use "../src/utilities";'
+  ].join('\n');
+
+  await fs.writeFile(bundleInputFile, bundleInput, 'utf8');
+
+  try {
+    await compileSass(bundleInputFile, path.join(distDir, outputName), style);
+  } finally {
+    await fs.rm(bundleInputFile, { force: true });
+  }
+}
+
 async function build() {
   await cleanDist();
 
-  await Promise.all([
-    compileSass(path.join(srcDir, 'index.scss'), path.join(distDir, 'index.css')),
-    compileSass(path.join(srcDir, 'helpers.scss'), path.join(distDir, 'helpers.css')),
-    compileSass(path.join(srcDir, 'utilities.scss'), path.join(distDir, 'utilities.css'))
-  ]);
+  await Promise.all(
+    sassEntries.map(([inputName, outputName]) =>
+      compileSass(path.join(srcDir, inputName), path.join(distDir, outputName), 'expanded')
+    )
+  );
+
+  await bundleIndex('index.css', 'expanded');
+  await bundleIndex('index.min.css', 'compressed');
 }
 
 build().catch((error) => {

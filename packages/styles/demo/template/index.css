@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+h2, h3, p {
+  margin: var(--mds-space-2xs) 0;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Monaco, Consolas, Liberation Mono, monospace;
+}
+
+.page-demo__back-link,
+.page-demo__nav-card {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-demo__back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mds-space-3xs);
+  margin-bottom: var(--mds-space-sm);
+  font: var(--mds-text-label);
+}
+
+.page-demo {
+  --page-demo-eyebrow-color: var(--mds-text-and-icons-brand-primary-mid);
+  --page-demo-hero-background: transparent;
+  --page-demo-section-border-color: var(--mds-border-brand-neutral-low);
+  --page-demo-section-alt-background: transparent;
+  --page-demo-section-copy-max-width: 68ch;
+
+  display: grid;
+}
+
+.page-demo__hero {
+  background: var(--page-demo-hero-background);
+}
+
+.page-demo__eyebrow {
+  margin-bottom: var(--mds-space-xs);
+  color: var(--page-demo-eyebrow-color);
+  font: var(--mds-text-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-demo__lede {
+  margin-top: var(--mds-space-sm);
+}
+
+.page-demo__section {
+  border-top: 1px solid var(--page-demo-section-border-color);
+}
+
+.page-demo__section--alt {
+  background: var(--page-demo-section-alt-background);
+}
+
+.page-demo__section-header {
+  display: grid;
+  gap: var(--mds-space-2xs);
+  margin-bottom: var(--mds-space-lg);
+}
+
+.page-demo__section-header p {
+  max-width: var(--page-demo-section-copy-max-width);
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+code {
+  font-family: ui-monospace, "SFMono-Regular", "SF Mono", Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+.page-demo {
+  display: grid;
+}
+
+.page-demo__hero {
+  background: var(--mds-background-section-brand-primary-lowest);
+}
+
+.page-demo__eyebrow {
+  margin-bottom: var(--mds-space-xs);
+  color: var(--mds-text-and-icons-brand-primary-default);
+  font: var(--mds-text-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-demo__lede {
+  max-width: 58ch;
+  margin-top: var(--mds-space-sm);
+  font: var(--mds-text-body-lg);
+}
+
+.page-demo__section {
+  border-top: 1px solid var(--mds-background-section-brand-neutral-low);
+}
+
+.page-demo__section--alt {
+  background: var(--mds-background-section-brand-neutral-low);
+}
+
+.page-demo__section-header {
+  display: grid;
+  gap: var(--mds-space-2xs);
+  margin-bottom: var(--mds-space-lg);
+}
+
+.page-demo__section-header p {
+  max-width: 66ch;
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MDS Layout Helpers Demo</title>
+    <link rel="stylesheet" href="../../../tokens/src/index.css" />
+    <link rel="stylesheet" href="../../dist/index.css" />
+    <link rel="stylesheet" href="../template/index.css" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body class="mds-body">
+    <main class="page-demo">
+      <section class="page-demo__hero">
+        <div class="mds-section-container mds-padding-block-2xl">
+          <a class="page-demo__back-link" href="../index.html">← All reusable CSS</a>
+          <p class="page-demo__eyebrow">Massachusetts Design System</p>
+          <h1 class="mds-text-heading-2xl">Layout Helpers</h1>
+          <p class="page-demo__lede">
+            Structural classes for page-level defaults and centered content.
+          </p>
+        </div>
+      </section>
+
+      <section class="page-demo__section">
+        <div class="mds-section-container mds-padding-block-2xl">
+          <div class="page-demo__section-header">
+            <h2 class="mds-text-heading-lg"><code>.mds-body</code></h2>
+            <p>
+              The page body uses the helper class for the baseline surface, text color, type style,
+              and zero browser margin.
+            </p>
+          </div>
+
+          <div class="page-demo__body-sample mds-body">
+            <p class="page-demo__body-sample-label mds-text-label">Body helper preview</p>
+            <h3 class="mds-text-heading-md">Default page text</h3>
+            <p>
+              This sample inherits the same background, foreground color, and body font as the page.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-demo__section page-demo__section--alt mds-padding-block-2xl">
+        <div class="mds-section-container">
+          <div class="page-demo__section-header">
+            <h2 class="mds-text-heading-lg"><code>.mds-section-container</code></h2>
+            <p>
+              The container keeps content centered, caps the page max width, and applies responsive
+              inline padding from breakpoint tokens.
+            </p>
+          </div>
+        </div>
+
+        <div class="mds-section-container page-demo__container-guide">
+          <span class="page-demo__container-edge page-demo__container-edge--start"></span>
+          <span class="page-demo__container-edge page-demo__container-edge--end"></span>
+          <div class="page-demo__container-content">
+            <code>.mds-section-container</code>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

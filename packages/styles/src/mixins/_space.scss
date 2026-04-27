@@ -11,4 +11,12 @@
   @include emit-axis-space-utilities("padding-block", padding-block, $scale);
   @include emit-axis-space-utilities("margin-inline", margin-inline, $scale);
   @include emit-axis-space-utilities("margin-block", margin-block, $scale);
+  @include emit-axis-space-utilities("padding-inline-start", padding-inline-start, $scale);
+  @include emit-axis-space-utilities("padding-block-start", padding-block-start, $scale);
+  @include emit-axis-space-utilities("margin-inline-start", margin-inline-start, $scale);
+  @include emit-axis-space-utilities("margin-block-start", margin-block-start, $scale);
+  @include emit-axis-space-utilities("padding-inline-end", padding-inline-end, $scale);
+  @include emit-axis-space-utilities("padding-block-end", padding-block-end, $scale);
+  @include emit-axis-space-utilities("margin-inline-end", margin-inline-end, $scale);
+  @include emit-axis-space-utilities("margin-block-end", margin-block-end, $scale);
 }
