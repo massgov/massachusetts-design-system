@@ -1,3 +1,5 @@
+@use "./mixins" as mixins;
+
 /* Helper classes: reusable structural patterns */
 
 .mds-body {
@@ -18,4 +20,37 @@
   grid-template-columns: repeat(var(--mds-breakpoint-horizontal-space-columns), minmax(0, 1fr));
   gap: var(--mds-breakpoint-horizontal-space-gutter);
   min-height: 100%;
+}
+
+
+.mds-grid-full {
+  grid-column: 1/-1;
+}
+
+.mds-grid-2-column {
+  grid-column: span 6;
+
+  @include mixins.max-width(sm) {
+    grid-column: 1/-1;
+  }
+}
+
+.mds-grid-3-column {
+  grid-column: span 4;
+
+  @include mixins.max-width(sm) {
+    grid-column: 1/-1;
+  }
+}
+
+.mds-grid-4-column {
+  grid-column: span 3;
+
+  @include mixins.max-width(lg) {
+    grid-column: span 6;
+  }
+
+  @include mixins.max-width(sm) {
+    grid-column: 1/-1;
+  }
 }
