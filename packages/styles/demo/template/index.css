@@ -96,6 +96,7 @@ code {
   border-radius: var(--mds-radius-sm);
   font: var(--mds-text-body-sm);
   width: fit-content;
+  line-height: 1.2;
 }
 
 .page-demo {

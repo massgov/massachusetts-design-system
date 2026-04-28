@@ -252,7 +252,7 @@
 /** 481px-768px **/
 @media (max-width: 768px) {
   :root {
-    --mds-breakpoint-horizontal-space-columns: 6;
+    --mds-breakpoint-horizontal-space-columns: 12;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-400);
     --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
@@ -266,7 +266,7 @@
 /** 321px-480px **/
 @media (max-width: 480px) {
   :root {
-    --mds-breakpoint-horizontal-space-columns: 6;
+    --mds-breakpoint-horizontal-space-columns: 12;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-200);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-300);
     --mds-text-body-lg: var(--mds-font-size-200)/1.8 var(--mds-font-family);
@@ -281,7 +281,7 @@
 /** 0-320px **/
 @media (max-width: 320px) {
   :root {
-    --mds-breakpoint-horizontal-space-columns: 6;
+    --mds-breakpoint-horizontal-space-columns: 12;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-200);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-200);
     --mds-text-body-lg: var(--mds-font-size-200)/1.8 var(--mds-font-family);
@@ -291,7 +291,6 @@
     --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-350)/1.2 var(--mds-font-family-headings);
   }
 }
-
 
 
 

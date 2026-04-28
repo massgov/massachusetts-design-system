@@ -1,16 +1,17 @@
 @use "sass:map";
 
-$xs: 320px;
-$sm: 480px;
-$md: 768px;
-$lg: 1024px;
 $xl: 1280px;
+$lg: 1024px;
+$md: 768px;
+$sm: 480px;
+$xs: 320px;
+// Keep max-width responsive utilities ordered broad-to-narrow so narrower classes win.
 $breakpoints: (
-  xs: $xs,
-  sm: $sm,
-  md: $md,
+  xl: $xl,
   lg: $lg,
-  xl: $xl
+  md: $md,
+  sm: $sm,
+  xs: $xs
 );
 
 @function breakpoint($name) {
