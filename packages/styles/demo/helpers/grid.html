@@ -92,7 +92,7 @@
           <div class="page-demo__section-header">
             <h2 class="mds-text-heading-lg">Grid Utilities</h2>
             <p>
-              Use these grid utility classes within the <code>.mds-grid</code>. The grid utility classes define a specific column spans using the responsive column and gutter tokens, to give more granular controls over the grid.
+              Use these grid utility classes within the <code>.mds-grid</code>. The grid utility classes define a specific column spans using the responsive column and gutter tokens, use with the <a class="mds-text-and-icons-brand-primary-mid" href="#breakpoint-syntax">breakpoint syntax</a> to access more granular controls over the grid.
             </p>
           </div>
 
@@ -100,20 +100,94 @@
             <div class="page-demo__grid-cell mds-grid-span-12 sm:mds-grid-span-6">
               <code>.mds-grid-span-12</code>
             </div>
-            <div class="page-demo__grid-cell mds-grid-span-11 md:mds-grid-span-3 sm:mds-grid-span-6"><span><code>.mds-grid-span-11</code></span></div>
-            <div class="page-demo__grid-cell mds-grid-span-1 md:mds-grid-span-3 sm:mds-grid-span-6"><span><code>.mds-grid-span-1</code></span></div>
-            <div class="page-demo__grid-cell mds-grid-span-10 md:mds-grid-span-3 sm:mds-grid-span-6"><span><code>.mds-grid-span-10</code></span></div>
-            <div class="page-demo__grid-cell mds-grid-span-2 md:mds-grid-span-3 sm:mds-grid-span-6"><span><code>.mds-grid-span-2</code></span></div>
-            <div class="page-demo__grid-cell mds-grid-span-9 md:mds-grid-span-3 sm:mds-grid-span-6"><span><code>.mds-grid-span-9</code></span></div>
-            <div class="page-demo__grid-cell mds-grid-span-3 md:mds-grid-span-3 sm:mds-grid-span-6"><span><code>.mds-grid-span-3</code></span></div>
-            <div class="page-demo__grid-cell mds-grid-span-8 md:mds-grid-span-3 sm:mds-grid-span-6"><span><code>.mds-grid-span-8</code></span></div>
-            <div class="page-demo__grid-cell mds-grid-span-4 md:mds-grid-span-3 sm:mds-grid-span-6"><span><code>.mds-grid-span-4</code></span></div>
-            <div class="page-demo__grid-cell mds-grid-span-7 md:mds-grid-span-3 sm:mds-grid-span-6"><span><code>.mds-grid-span-7</code></span></div>
-            <div class="page-demo__grid-cell mds-grid-span-5 md:mds-grid-span-3 sm:mds-grid-span-6"><span><code>.mds-grid-span-5</code></span></div>
-            <div class="page-demo__grid-cell mds-grid-span-6 md:mds-grid-span-3 sm:mds-grid-span-6"><span><code>.mds-grid-span-6</code></span></div>
-            <div class="page-demo__grid-cell mds-grid-span-6 md:mds-grid-span-3 sm:mds-grid-span-6"><span><code>.mds-grid-span-6</code></span></div>
+            <div class="page-demo__grid-cell mds-grid-span-11 md:mds-grid-span-4 sm:mds-grid-span-6"><span><code>.mds-grid-span-11</code></span></div>
+            <div class="page-demo__grid-cell mds-grid-span-1 md:mds-grid-span-4 sm:mds-grid-span-6"><span><code>.mds-grid-span-1</code></span></div>
+            <div class="page-demo__grid-cell mds-grid-span-10 md:mds-grid-span-4 sm:mds-grid-span-6"><span><code>.mds-grid-span-10</code></span></div>
+            <div class="page-demo__grid-cell mds-grid-span-2 md:mds-grid-span-4 sm:mds-grid-span-6"><span><code>.mds-grid-span-2</code></span></div>
+            <div class="page-demo__grid-cell mds-grid-span-9 md:mds-grid-span-4 sm:mds-grid-span-6"><span><code>.mds-grid-span-9</code></span></div>
+            <div class="page-demo__grid-cell mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6"><span><code>.mds-grid-span-3</code></span></div>
+            <div class="page-demo__grid-cell mds-grid-span-8 md:mds-grid-span-4 sm:mds-grid-span-6"><span><code>.mds-grid-span-8</code></span></div>
+            <div class="page-demo__grid-cell mds-grid-span-4 md:mds-grid-span-4 sm:mds-grid-span-6"><span><code>.mds-grid-span-4</code></span></div>
+            <div class="page-demo__grid-cell mds-grid-span-7 md:mds-grid-span-4 sm:mds-grid-span-6"><span><code>.mds-grid-span-7</code></span></div>
+            <div class="page-demo__grid-cell mds-grid-span-5 md:mds-grid-span-4 sm:mds-grid-span-6"><span><code>.mds-grid-span-5</code></span></div>
+            <div class="page-demo__grid-cell mds-grid-span-6 md:mds-grid-span-4 sm:mds-grid-span-6"><span><code>.mds-grid-span-6</code></span></div>
+            <div class="page-demo__grid-cell mds-grid-span-6 md:mds-grid-span-4 sm:mds-grid-span-6"><span><code>.mds-grid-span-6</code></span></div>
           </div>
 
+        </div>
+      </section>
+
+      <section class="page-demo__section page-demo__section--alt">
+        <div class="mds-section-container mds-padding-block-2xl">
+          <div class="page-demo__section-header">
+            <h2 class="mds-text-heading-lg" id="breakpoint-syntax">Breakpoint Syntax</h2>
+            <p>
+              Add a breakpoint prefix before a grid span utility to change the span at that
+              breakpoint and below. 
+              e.g. <code>md:mds-grid-span-4</code> will apply a 3 column span at the medium breakpoint (768px) and below, while keeping the default span at larger breakpoints.
+            </p>
+          </div>
+
+          <div class="page-demo__breakpoint-list">
+            <div class="page-demo__breakpoint-row">
+              <code>xl:</code>
+              <span>@media (max-width: 1280px)</span>
+            </div>
+            <div class="page-demo__breakpoint-row">
+              <code>lg:</code>
+              <span>@media (max-width: 1024px)</span>
+            </div>
+            <div class="page-demo__breakpoint-row">
+              <code>md:</code>
+              <span>@media (max-width: 768px)</span>
+            </div>
+            <div class="page-demo__breakpoint-row">
+              <code>sm:</code>
+              <span>@media (max-width: 480px)</span>
+            </div>
+            <div class="page-demo__breakpoint-row">
+              <code>xs:</code>
+              <span>@media (max-width: 320px)</span>
+            </div>
+          </div>
+
+          <div class="mds-grid page-demo__breakpoint-demo">
+            <div class="page-demo__breakpoint-card mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6">
+              <span class="page-demo__breakpoint-label">A</span>
+              <code>.mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6</code>
+            </div>
+            <div class="page-demo__breakpoint-card mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6">
+              <span class="page-demo__breakpoint-label">B</span>
+              <code>.mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6</code>
+            </div>
+            <div class="page-demo__breakpoint-card mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6">
+              <span class="page-demo__breakpoint-label">C</span>
+              <code>.mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6</code>
+            </div>
+            <div class="page-demo__breakpoint-card mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6">
+              <span class="page-demo__breakpoint-label">D</span>
+              <code>.mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6</code>
+            </div>
+            <div class="page-demo__breakpoint-card mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6">
+              <span class="page-demo__breakpoint-label">E</span>
+              <code>.mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6</code>
+            </div>
+            <div class="page-demo__breakpoint-card mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6">
+              <span class="page-demo__breakpoint-label">F</span>
+              <code>.mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-4 sm:mds-grid-span-6</code>
+            </div>
+          </div>
+
+          <div class="page-demo__breakpoint-note">
+            <code>.mds-grid-span-2</code>
+            <span>6 columns by default</span>
+            <code>lg:mds-grid-span-3</code>
+            <span>4 columns at lg</span>
+            <code>md:mds-grid-span-4</code>
+            <span>3 columns at md</span>
+            <code>sm:mds-grid-span-6</code>
+            <span>1 columns at sm</span>
+          </div>
         </div>
       </section>
     </main>
