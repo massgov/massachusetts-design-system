@@ -38,11 +38,6 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-code {
-  font-family: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
-  font-size: 0.9375rem;
-}
-
 .banner-page {
   width: min(100%, 88rem);
   margin: 0 auto;
@@ -53,15 +48,14 @@ code {
   display: grid;
   gap: var(--mds-space-lg);
 }
-
+/**
 .eyebrow {
   margin: 0;
   color: var(--mds-text-and-icons-brand-primary-mid);
   font: var(--mds-text-eyebrow);
   letter-spacing: var(--mds-text-letter-spacing-eyebrow);
   text-transform: var(--mds-text-transform-eyebrow);
-}
-
+}**/
 h1,
 h2,
 p {
@@ -70,16 +64,10 @@ p {
 
 .banner-copy {
   max-width: 42rem;
-  color: var(--mds-text-and-icons-brand-neutral-muted);
-  font: var(--mds-text-body);
 }
 
 .banner-frame {
   overflow: hidden;
-  border: 1px solid rgba(16, 37, 63, 0.08);
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: var(--mds-shadow-container); 
-  /** ^ this makes it distinct on the page but hard to see the background color of the light component **/
 }
 
 /** End of generated page styles, start of component styles **/
@@ -95,30 +83,13 @@ p {
   text-align: left; /** override button default**/
 }
 
-.mds-state-banner h1 {
-  font: var(--mds-text-heading-xl);
-}
-
-.mds-state-banner h2 {
-  font: var(--mds-text-label);
-}
-
 .mds-state-banner {
   width: 100%;
-}
-
-.mds-state-banner--light {
-  background: var(--mds-static-light-gray);
-  color: var(--mds-static-black);
 }
 
 .mds-state-banner--dark {
   background: var(--mds-static-black);
   color: var(--mds-static-white);
-}
-
-.mds-state-banner--light .mds-state-banner__item-icon{
-  fill: var(--mds-static-black);
 }
 
 .mds-state-banner--dark .mds-state-banner__item-icon {
@@ -130,16 +101,13 @@ p {
   flex-wrap: wrap;
   align-items: center;
   gap: 0 var(--mds-space-sm);
-  width: 100%;
-  margin-top: 0; /** override UL default **/
-  padding: var(--mds-space-3xs) var(--mds-breakpoint-horizontal-space-margin); /** will likely switch the horizontal padding to utility **/
+  width: 100%; /** Make clickable area of the banner full widt**/
 }
 
 .mds-state-banner__brand {
   display: flex;
   align-items: center;
   gap: var(--mds-space-2xs);
-  min-width: 0;
 }
 
 .mds-state-banner__seal {
@@ -152,24 +120,12 @@ p {
   filter: brightness(10); /* Makes state seal white on dark background */
 }
 
-.mds-state-banner__title {
-  font: var(--mds-text-body);
-}
-
-.mds-state-banner--dark .mds-state-banner__title {
-  font: var(--mds-text-body);
-}
-
 .mds-state-banner__toggle-text {
   display: inline-flex;
   align-items: center;
   gap: var(--mds-space-2xs);
-  padding: 0;
-  border: 0;
-  border-bottom: 1.5px solid var(--mds-border-brand-neutral-mid);
+  border-bottom: 1.5px solid;
   background: transparent;
-  color: var(--mds-text-and-icons-brand-primary-mid);
-  font: var(--mds-text-body);
   line-height: 1.8;
   cursor: pointer;
 }
@@ -177,12 +133,6 @@ p {
 .mds-state-banner--dark .mds-state-banner__toggle-text {
   color: var(--mds-static-white);
   border-color: var(--mds-static-white);
-}
-
-.mds-state-banner__caret {
-  width: 1rem;
-  height: 1rem;
-  transition: transform 160ms ease;
 }
 
 .mds-state-banner__container[aria-expanded="true"] .mds-state-banner__caret {
@@ -195,8 +145,9 @@ p {
 }
 
 .mds-state-banner__caret {
-  width: 30px;
-  height: 30px;
+  width: 1.875rem;
+  height: 1.875rem;
+  transition: transform 160ms ease;
 }
 		
 .mds-state-banner__caret--expanded {
@@ -211,12 +162,21 @@ p {
   padding-top: 0;
 }
 
+.mds-state-banner__items{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--mds-space-sm);
+  /** override UL defaults **/
+  list-style: none;
+  margin-top: 0; 
+  padding: 0; 
+}
+
 .mds-state-banner__item {
   display: flex;
   align-items: flex-start;
   gap: var(--mds-space-sm);
   flex: 1 1 20rem;
-  padding: var(--mds-space-2xs) 0 var(--mds-space-sm);
 }
 
 .mds-state-banner__item-icon {
@@ -224,17 +184,11 @@ p {
   height: 1.875rem;
   flex: none;
   margin-top: 0.125rem; /* This spacing value is smaller than 3xs */
-  color: var(--mds-static-black);
 }
 
 .mds-state-banner__item-copy {
   display: grid;
   gap: var(--mds-space-2xs);
-  padding-top: var(--mds-space-3xs);
-}
-
-.mds-state-banner__item-copy p {
-  font: var(--mds-text-body);
 }
 
 @media (max-width: 768px) {
@@ -242,18 +196,8 @@ p {
     padding: var(--mds-space-sm);
   }
 
-  .mds-state-banner__container {
-    padding-top: var(--mds-space-sm);
-    padding-bottom: var(--mds-space-sm);
-  }
-
   .mds-state-banner__seal {
     align-self: self-start;
-  }
-
-  .mds-state-banner__inner {
-    padding-right: var(--mds-space-md);
-    padding-left: var(--mds-space-md);
   }
 
   .mds-state-banner__toggle {
@@ -264,8 +208,7 @@ p {
   }
 
   .mds-state-banner__column {
-  display: flex;
-  flex-direction: column;
-}
-
+    display: flex;
+    flex-direction: column;
+  }
 }
