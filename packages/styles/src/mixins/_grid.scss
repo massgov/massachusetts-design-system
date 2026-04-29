@@ -1,5 +1,9 @@
 @use "./breakpoints" as breakpoints;
 
+@function grid-column-span($columns) {
+  @return span calc(var(--mds-breakpoint-horizontal-space-columns) / #{$columns});
+}
+
 @function responsive-grid-selector($prefix, $class-name) {
   @if $prefix == null {
     @return ".#{$class-name}";
