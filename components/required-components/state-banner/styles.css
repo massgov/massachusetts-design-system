@@ -48,14 +48,7 @@ button:focus-visible {
   display: grid;
   gap: var(--mds-space-lg);
 }
-/**
-.eyebrow {
-  margin: 0;
-  color: var(--mds-text-and-icons-brand-primary-mid);
-  font: var(--mds-text-eyebrow);
-  letter-spacing: var(--mds-text-letter-spacing-eyebrow);
-  text-transform: var(--mds-text-transform-eyebrow);
-}**/
+ 
 h1,
 h2,
 p {
@@ -113,11 +106,6 @@ p {
 .mds-state-banner__seal {
   width: 1.5rem;
   height: 1.5rem;
-  filter: grayscale(1);
-}
-
-.mds-state-banner--dark .mds-state-banner__seal {
-  filter: brightness(10); /* Makes state seal white on dark background */
 }
 
 .mds-state-banner__toggle-text {
@@ -203,7 +191,7 @@ p {
     margin-left: 0;
   }
 
-  .mds-state-banner__toggle-text { /** I don't love this solution **/
+  .mds-state-banner__toggle-text {
     margin-left: 30px;
   }
 
