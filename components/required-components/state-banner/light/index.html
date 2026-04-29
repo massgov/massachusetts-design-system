@@ -1,78 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Core Components - State Banner</title>
-  <link rel="stylesheet" href="../styles.css" media="all">
-  <link rel="stylesheet" href="../../../../packages/tokens/src/index.css" />
-  <link rel="stylesheet" href="../../../../packages/styles/dist/index.css" />
-  <script src="../toggle.js"></script>
-</head>
-<body>
-  <main class="banner-page">
-    <section class="banner-card">
-      <p class="eyebrow mds-text-eyebrow mds-letter-spacing-eyebrow mds-text-transform-eyebrow mds-text-and-icons-brand-primary-mid">Required Components</p>
-      <h1 class="mds-text-heading-xl">State banner</h1>
-      <p class="banner-copy mds-text-body mds-text-and-icons-brand-neutral-muted">
-        <a href="https://www.figma.com/design/D5Ju48AoqIXmdCopPwBr6N/Core-Components?node-id=162-12&p=f&m=dev" target="_blank" rel="noopener noreferrer">State Banner figma documentation</a>
-      </p>
-      <div class="banner-frame">
-        <section class="mds-state-banner mds-state-banner--light mds-background-static-light-gray mds-static-black mds-section-container" aria-label="Official website banner" data-node-id="1:929">
-          <button class="mds-state-banner__container mds-padding-block-3xs"
-          id="mds-state-banner-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="mds-state-banner-panel"
-          >
-            <div class="mds-state-banner__inner">
-              <div class="mds-state-banner__brand">
-                <img
-                  class="mds-state-banner__seal"
-                  src="https://www.mass.gov/libraries/mayflower-artifacts/assets/images/logo/stateseal.png"
-                  alt="Massachusetts State Seal"
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Core Components - State Banner</title>
+    <link rel="stylesheet" href="../styles.css" media="all">
+    <link rel="stylesheet" href="../../../../packages/tokens/src/index.css" />
+    <link rel="stylesheet" href="../../../../packages/styles/dist/index.css" />
+    <script src="../toggle.js"></script>
+  </head>
+  <body>
+    <main class="banner-page">
+      <section class="banner-card">
+        <p class="eyebrow mds-text-eyebrow mds-letter-spacing-eyebrow mds-text-transform-eyebrow mds-text-and-icons-brand-primary-mid">Required Components</p>
+        <h1 class="mds-text-heading-xl">State banner</h1>
+        <p class="banner-copy mds-text-body mds-text-and-icons-brand-neutral-muted">
+          <a href="https://www.figma.com/design/D5Ju48AoqIXmdCopPwBr6N/Core-Components?node-id=162-12&p=f&m=dev" target="_blank" rel="noopener noreferrer">State Banner figma documentation</a>
+        </p>
+        <div class="banner-frame">
+          <section class="mds-state-banner mds-state-banner--light mds-padding-block-3xs mds-background-static-light-gray mds-static-black mds-section-container" aria-label="Official website banner" data-node-id="1:929">
+            <button class="mds-state-banner__container"
+            id="mds-state-banner-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mds-state-banner-panel"
+            >
+              <div class="mds-state-banner__inner">
+                <div class="mds-state-banner__brand">
+                  <img
+                    class="mds-state-banner__seal"
+                    src="https://www.mass.gov/libraries/mayflower-artifacts/assets/images/logo/stateseal.png"
+                    alt="Massachusetts State Seal"
+                  >
+                  <p class="mds-state-banner__title mds-text-body">An official website of the Commonwealth of Massachusetts</p>
+                </div>
+                <span
+                  class="mds-state-banner__toggle-text mds-text-and-icons-brand-primary-mid mds-text-body mds-border-brand-neutral-mid"
                 >
-                <p class="mds-state-banner__title mds-text-body">An official website of the Commonwealth of Massachusetts</p>
-              </div>
+                  <span>Here's how you know</span>
+                  <svg class="mds-state-banner__caret" aria-hidden="true" viewBox="0 0 20 20" focusable="false">
+                    <path d="M6 8L10 12L14 8"></path>
+                  </svg>
+                </button>
+                <div class="mds-state-banner__panel" id="mds-state-banner-panel" hidden>
+                  <ul class="mds-state-banner__items" role="region">
+                    <li class="mds-state-banner__item mds-padding-block-start-2xs">
+                      <svg class="mds-state-banner__item-icon mds-static-black" aria-hidden="true" viewBox="0 0 30 30" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.561 10.804a.645.645 0 0 1-.644-.645 4.804 4.804 0 0 0-4.799-4.798 4.804 4.804 0 0 0-4.798 4.798.645.645 0 1 1-1.29 0 6.094 6.094 0 0 1 6.088-6.088 6.094 6.094 0 0 1 6.088 6.088.645.645 0 0 1-.645.644m4.018 2.343H2.395a.645.645 0 1 1 0-1.29h19.184a.645.645 0 0 1 0 1.29m.027 8.93h-19.2a.645.645 0 0 1-.644-.644V17.73c0-.356.289-.645.645-.645h19.195c.356 0 .645.29.645.645l.003 3.702a.645.645 0 0 1-.644.646M3.052 20.789H20.96l-.002-2.413H3.052z"/><path d="M12.119 5.36a.645.645 0 0 1-.645-.644v-2.15a.645.645 0 1 1 1.29 0v2.15a.645.645 0 0 1-.646.645m6.699 7.043a.645.645 0 0 1-.645-.645v-.936H6.023v.936a.645.645 0 1 1-1.29 0v-1.58c0-.357.29-.646.646-.646h13.439c.356 0 .645.289.645.645v1.58a.645.645 0 0 1-.645.646m-15.715 5.76a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645m17.864 0a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645"/><path d="M7.57 18.164a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.646.645m4.466 0a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645m4.466 0a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645"/>
+                      </svg>
+                      <div class="mds-state-banner__item-copy ">
+                        <h2 class="mds-text-label">Official websites use .mass.gov</h2>
+                        <p class="mds-text-body">A .mass.gov website belongs to an official government organization in Massachusetts.</p>
+                      </div>
+                    </li>
 
-              <span
-                class="mds-state-banner__toggle-text mds-text-and-icons-brand-primary-mid mds-text-body mds-border-brand-neutral-mid"
-              >
-                <span>Here's how you know</span>
-                <svg class="mds-state-banner__caret" aria-hidden="true" viewBox="0 0 20 20" focusable="false">
-                  <path d="M6 8L10 12L14 8"></path>
-                </svg>
-              </button>
-
-
-              <div class="mds-state-banner__panel" id="mds-state-banner-panel" hidden>
-                <ul class="mds-state-banner__items" role="region">
-                  <li class="mds-state-banner__item mds-padding-block-start-2xs">
-                    <svg class="mds-state-banner__item-icon mds-padding-block-start-3xs mds-static-black" aria-hidden="true" viewBox="0 0 30 30" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M17.561 10.804a.645.645 0 0 1-.644-.645 4.804 4.804 0 0 0-4.799-4.798 4.804 4.804 0 0 0-4.798 4.798.645.645 0 1 1-1.29 0 6.094 6.094 0 0 1 6.088-6.088 6.094 6.094 0 0 1 6.088 6.088.645.645 0 0 1-.645.644m4.018 2.343H2.395a.645.645 0 1 1 0-1.29h19.184a.645.645 0 0 1 0 1.29m.027 8.93h-19.2a.645.645 0 0 1-.644-.644V17.73c0-.356.289-.645.645-.645h19.195c.356 0 .645.29.645.645l.003 3.702a.645.645 0 0 1-.644.646M3.052 20.789H20.96l-.002-2.413H3.052z"/><path d="M12.119 5.36a.645.645 0 0 1-.645-.644v-2.15a.645.645 0 1 1 1.29 0v2.15a.645.645 0 0 1-.646.645m6.699 7.043a.645.645 0 0 1-.645-.645v-.936H6.023v.936a.645.645 0 1 1-1.29 0v-1.58c0-.357.29-.646.646-.646h13.439c.356 0 .645.289.645.645v1.58a.645.645 0 0 1-.645.646m-15.715 5.76a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645m17.864 0a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645"/><path d="M7.57 18.164a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.646.645m4.466 0a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645m4.466 0a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645"/>
-                    </svg>
-                    <div class="mds-state-banner__item-copy mds-padding-block-start-3xs">
-                      <h2 class="mds-text-label">Official websites use .mass.gov</h2>
-                      <p class="mds-text-body">A .mass.gov website belongs to an official government organization in Massachusetts.</p>
-                    </div>
-                  </li>
-
-                  <li class="mds-state-banner__item mds-padding-block-start-2xs">
-                    <svg class="mds-state-banner__item-icon" aria-hidden="true" viewBox="0 0 30 30" focusable="false">
-                      <path d="M19.5 7.5h-3V5.25a4.5 4.5 0 1 0-9 0V7.5h-3A1.5 1.5 0 0 0 3 9v10.5A1.5 1.5 0 0 0 4.5 21h15a1.5 1.5 0 0 0 1.5-1.5V9a1.5 1.5 0 0 0-1.5-1.5M9 5.25a3 3 0 1 1 6 0V7.5H9zM19.5 19.5h-15V9h15z"/>
-                    </svg>
-                    <div class="mds-state-banner__item-copy">
-                      <h2 class="mds-text-label">Secure websites use HTTPS certificate</h2>
-                      <p class="mds-text-body">A lock icon or https:// means you've safely connected to the official website. Share sensitive information only on official, secure websites.</p>
-                    </div>
-                  </li>
-                </ul>
+                    <li class="mds-state-banner__item mds-padding-block-start-2xs">
+                      <svg class="mds-state-banner__item-icon" aria-hidden="true" viewBox="0 0 30 30" focusable="false">
+                        <path d="M19.5 7.5h-3V5.25a4.5 4.5 0 1 0-9 0V7.5h-3A1.5 1.5 0 0 0 3 9v10.5A1.5 1.5 0 0 0 4.5 21h15a1.5 1.5 0 0 0 1.5-1.5V9a1.5 1.5 0 0 0-1.5-1.5M9 5.25a3 3 0 1 1 6 0V7.5H9zM19.5 19.5h-15V9h15z"/>
+                      </svg>
+                      <div class="mds-state-banner__item-copy">
+                        <h2 class="mds-text-label">Secure websites use HTTPS certificate</h2>
+                        <p class="mds-text-body">A lock icon or https:// means you've safely connected to the official website. Share sensitive information only on official, secure websites.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
-    </section>
-  </main>
-</body>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

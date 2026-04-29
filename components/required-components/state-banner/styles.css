@@ -187,7 +187,6 @@ p {
 }
 
 .mds-state-banner__item-copy {
-  display: grid;
   gap: var(--mds-space-2xs);
 }
 
