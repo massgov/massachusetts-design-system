@@ -101,3 +101,28 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+.demo-grid__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.demo-grid--overlay-hidden .demo-grid__overlay {
+  display: none;
+}
+
+.demo-grid-column {
+  min-height: 100%;
+  background: pink;
+  opacity: 0.3;
+}
+
+
+@media (max-width: 768px) {
+  .demo-grid-column:nth-child(n+7) {
+    display: none;
+  }
+}

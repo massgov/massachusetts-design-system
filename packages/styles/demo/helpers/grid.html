@@ -26,7 +26,7 @@
           <div class="page-demo__section-header">
             <h2 class="mds-text-heading-lg">Grid Wrapper</h2>
             <p>
-              Usually used within <code>.mds-section-container</code>, to create a responsive grid layout in CSS for grid based patterns.
+              Use the <code>.mds-grid</code>, usually within <code>.mds-section-container</code>, to create a responsive grid layout in CSS for grid based patterns.
             </p>
           </div>
         </div>
@@ -34,8 +34,24 @@
         <div class="mds-section-container page-demo__container-guide">
           <span class="page-demo__container-edge page-demo__container-edge--start"></span>
           <span class="page-demo__container-edge page-demo__container-edge--end"></span>
+          <div class="demo-grid__overlay mds-section-container" aria-hidden="true">
+            <div class="mds-grid">
+              <div class="demo-grid-column"></div>
+              <div class="demo-grid-column"></div>
+              <div class="demo-grid-column"></div>
+              <div class="demo-grid-column"></div>
+              <div class="demo-grid-column"></div>
+              <div class="demo-grid-column"></div>
+              <div class="demo-grid-column"></div>
+              <div class="demo-grid-column"></div>
+              <div class="demo-grid-column"></div>
+              <div class="demo-grid-column"></div>
+              <div class="demo-grid-column"></div>
+              <div class="demo-grid-column"></div>
+            </div>
+          </div>
           <div class="page-demo__container-content">
-            <code>.mds-grid</code>
+            <code style="z-index: 2">.mds-grid</code>
           </div>
         </div>
       </section>
@@ -97,7 +113,7 @@
           </div>
 
           <div class="mds-grid">
-            <div class="page-demo__grid-cell mds-grid-span-12 sm:mds-grid-span-6">
+            <div class="page-demo__grid-cell mds-grid-span-12 md:mds-grid-span-6">
               <code>.mds-grid-span-12</code>
             </div>
             <div class="page-demo__grid-cell mds-grid-span-11 md:mds-grid-span-2 sm:mds-grid-span-6"><span><code>.mds-grid-span-11</code></span></div>
@@ -113,7 +129,6 @@
             <div class="page-demo__grid-cell mds-grid-span-6 md:mds-grid-span-2 sm:mds-grid-span-6"><span><code>.mds-grid-span-6</code></span></div>
             <div class="page-demo__grid-cell mds-grid-span-6 md:mds-grid-span-2 sm:mds-grid-span-6"><span><code>.mds-grid-span-6</code></span></div>
           </div>
-
         </div>
       </section>
 
@@ -163,9 +178,27 @@
               </tr>
             </tbody>
           </table>
-          <p><strong>Note: At <code>md</code> breakpoint, the total columns of the <code>.mds-grid</code> changes from 12 to 6. <code>mds-grid-span-6</code> is the max column span, and will be displayed at full width. Column spans should not exceed total columns spans at all breakpoints.</strong></p>
-
-          <h3 class="mds-text-heading-md mds-margin-block-start-lg">Responsive Grid Utility Example</h3>
+          <p class="mds-margin-block-start-lg"><strong>Note: At <code>md</code> breakpoint, the total columns of the <code>.mds-grid</code> changes from 12 to 6. <code>mds-grid-span-6</code> is the max column span, and will be displayed at full width. Column spans should not exceed total columns spans at all breakpoints.</strong></p>
+        </div>
+      </section>
+      <section class="page-demo__section">
+        <div class="mds-section-container mds-padding-block-2xl">
+          <div class="page-demo__section-header">
+            <h2 class="mds-text-heading-lg" id="breakpoint-syntax">Responsive Grid Utilities</h2>
+            <p>
+              Combine multiple breakpoint prefixes with <code>mds-grid-span-*</code> to create a responsive grid layout that changes across breakpoints. In this example, the grid items will be 6 columns wide by default, 4 columns wide at the lg breakpoint and below, 3 columns wide at the md breakpoint and below, and full width at the sm breakpoint and below.
+            </p>
+          </div>
+          <div class="page-demo__breakpoint-note">
+            <code>.mds-grid-span-2</code>
+            <span>12 / 2 = 6 columns by default</span>
+            <code>lg:mds-grid-span-3</code>
+            <span>12 / 3 = 4 columns at lg</span>
+            <code>md:mds-grid-span-2</code>
+            <span>6 / 2 = 3 columns at md</span>
+            <code>sm:mds-grid-span-6</code>
+            <span>6 / 6 = 1 column at sm</span>
+          </div>
           <div class="mds-grid page-demo__breakpoint-demo">
             <div class="page-demo__breakpoint-card mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-2 sm:mds-grid-span-6">
               <span class="page-demo__breakpoint-label">A</span>
@@ -191,17 +224,6 @@
               <span class="page-demo__breakpoint-label">F</span>
               <code>.mds-grid-span-2 lg:mds-grid-span-3 md:mds-grid-span-2 sm:mds-grid-span-6</code>
             </div>
-          </div>
-
-          <div class="page-demo__breakpoint-note">
-            <code>.mds-grid-span-2</code>
-            <span>12 / 2 = 6 columns by default</span>
-            <code>lg:mds-grid-span-3</code>
-            <span>12 / 3 = 4 columns at lg</span>
-            <code>md:mds-grid-span-2</code>
-            <span>6 / 2 = 3 columns at md</span>
-            <code>sm:mds-grid-span-6</code>
-            <span>6 / 6 = 1 column at sm</span>
           </div>
         </div>
       </section>
