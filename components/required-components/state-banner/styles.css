@@ -165,7 +165,7 @@ p {
 .mds-state-banner__items{
   display: flex;
   flex-wrap: wrap;
-  gap: 0 var(--mds-space-sm);
+  gap: var(--mds-breakpoint-horizontal-space-gutter);
   /** override UL defaults **/
   list-style: none;
   margin-top: 0; 
@@ -202,6 +202,7 @@ p {
   .mds-state-banner__toggle {
     margin-left: 0;
   }
+
   .mds-state-banner__toggle-text { /** I don't love this solution **/
     margin-left: 30px;
   }
