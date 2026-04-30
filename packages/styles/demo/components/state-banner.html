@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MDS State Banner Demo</title>
+    <link rel="stylesheet" href="../../../tokens/src/index.css" />
+    <link rel="stylesheet" href="../../dist/index.css" />
+    <link rel="stylesheet" href="../template/index.css" />
+  </head>
+  <body class="mds-body">
+    <main class="page-demo">
+      <section class="page-demo__hero">
+        <div class="mds-section-container mds-padding-block-2xl">
+          <a class="page-demo__back-link" href="../index.html">&larr; All reusable CSS</a>
+          <p class="page-demo__eyebrow">Massachusetts Design System</p>
+          <h1 class="mds-text-heading-2xl">State Banner</h1>
+          <p class="page-demo__lede">
+            Official Commonwealth of Massachusetts website disclosure banner.
+          </p>
+        </div>
+      </section>
+
+      <section class="page-demo__section">
+        <div class="mds-section-container mds-padding-block-2xl">
+          <div class="page-demo__section-header">
+            <h2 class="mds-text-heading-lg">Expanded</h2>
+            <p>
+              The component uses native disclosure markup and design tokens for the 1280px canvas, 48px desktop margin,
+              24px gutter, light gray surface, and Mass blue disclosure text from the Figma design.
+            </p>
+          </div>
+        </div>
+
+        <section class="mds-state-banner" aria-label="Official Commonwealth of Massachusetts website">
+          <div class="mds-state-banner__container">
+            <details class="mds-state-banner__details" open>
+              <summary class="mds-state-banner__summary">
+                <span class="mds-state-banner__summary-content">
+                  <img
+                    class="mds-state-banner__seal"
+                    src="../../../assets/src/state-seal/state-seal-black.svg"
+                    alt=""
+                  />
+                  <span>An official website of the Commonwealth of Massachusetts</span>
+                  <span class="mds-state-banner__toggle">
+                    <span>Here's how you know</span>
+                    <svg class="mds-state-banner__toggle-icon" aria-hidden="true" viewBox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="m19.53 9.53-7.5 7.5a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06l6.97 6.97 6.97-6.97a.75.75 0 1 1 1.06 1.06"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </summary>
+              <div class="mds-state-banner__panel">
+                <div class="mds-state-banner__item">
+                  <img
+                    class="mds-state-banner__icon"
+                    src="../../../assets/src/icons/static/building.svg"
+                    alt=""
+                  />
+                  <div>
+                    <p class="mds-state-banner__title">Official websites use .mass.gov</p>
+                    <p class="mds-state-banner__text">
+                      A .mass.gov website belongs to an official government organization in Massachusetts.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mds-state-banner__item">
+                  <img
+                    class="mds-state-banner__icon"
+                    src="../../../assets/src/icons/static/lock-simple.svg"
+                    alt=""
+                  />
+                  <div>
+                    <p class="mds-state-banner__title">Secure websites use HTTPS certificate</p>
+                    <p class="mds-state-banner__text">
+                      A lock icon or https:// means you've safely connected to the official website. Share sensitive
+                      information only on official, secure websites.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
