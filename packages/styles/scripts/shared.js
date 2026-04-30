@@ -6,6 +6,7 @@ const srcDir = path.join(packageRoot, 'src');
 
 const sassEntries = [
   ['colors.scss', 'colors.css'],
+  ['components.scss', 'components.css'],
   ['index.scss', 'index.css'],
   ['helpers.scss', 'helpers.css'],
   ['utilities.scss', 'utilities.css']

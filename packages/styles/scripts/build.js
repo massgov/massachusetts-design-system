@@ -37,6 +37,7 @@ async function bundleIndex(outputName, style) {
   const bundleInputFile = path.join(distDir, '__bundle.scss');
   const bundleInput = [
     '@use "../src/colors";',
+    '@use "../src/components";',
     '@use "../src/helpers";',
     '@use "../src/utilities";'
   ].join('\n');
