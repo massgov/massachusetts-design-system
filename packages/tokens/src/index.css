@@ -87,8 +87,6 @@
   --mds-background-adaptive-utility-success-high: var(--mds-color-utility-success-green-900);
   --mds-background-adaptive-utility-success-highest: var(--mds-color-utility-success-green-1300);
   --mds-background-overlay: #00000099;
-  --mds-white: var(--mds-color-utility-base-white);
-  --mds-black: var(--mds-color-utility-base-black);
 
   /** Text and Icon Colors **/
   --mds-text-and-icons-brand-neutral-default: var(--mds-color-brand-gray-1300);

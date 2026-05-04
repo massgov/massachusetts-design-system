@@ -1,6 +1,6 @@
 /**
   State Banner Required Component Styles
-  This file contains the styles for the State Banner component, which is a required component in the Massachusetts design system. 
+  This file contains the styles for the State Banner component, which is a required component in the Massachusetts design system.
 **/
 @import url("../../../packages/tokens/src/index.css");
 
@@ -28,8 +28,16 @@ button {
 
 body {
   background:
-    radial-gradient(circle at top left, rgba(20, 85, 143, 0.12), transparent 30rem),
-    linear-gradient(180deg, #ffffff 0%, var(--mds-background-adaptive-brand-primary-lowest) 100%);
+    radial-gradient(
+      circle at top left,
+      rgba(20, 85, 143, 0.12),
+      transparent 30rem
+    ),
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      var(--mds-background-adaptive-brand-primary-lowest) 100%
+    );
   color: var(--mds-text-and-icons-brand-neutral-default);
 }
 
@@ -48,7 +56,7 @@ button:focus-visible {
   display: grid;
   gap: var(--mds-space-lg);
 }
- 
+
 h1,
 h2,
 p {
@@ -78,7 +86,9 @@ p {
 
 .mds-state-banner {
   width: 100%;
-  font: var(--mds-text-body); /** need to use var instead of utility class to best support font size change for smaller screens **/
+  font: var(
+    --mds-text-body
+  ); /** need to use var instead of utility class to best support font size change for smaller screens **/
 }
 
 .mds-state-banner__inner {
@@ -132,7 +142,7 @@ p {
   transform: rotate(180deg);
 }
 
-.mds-state-banner__caret path{
+.mds-state-banner__caret path {
   stroke: currentColor;
   fill: none;
 }
@@ -142,7 +152,7 @@ p {
   height: 1.875rem;
   transition: transform 160ms ease;
 }
-		
+
 .mds-state-banner__caret--expanded {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
@@ -155,14 +165,14 @@ p {
   padding-top: 0;
 }
 
-.mds-state-banner__items{
+.mds-state-banner__items {
   display: flex;
   flex-wrap: wrap;
   gap: var(--mds-breakpoint-horizontal-space-gutter);
   /** override UL defaults - TODO; Update when we have reset in styles package**/
   list-style: none;
-  margin-top: 0; 
-  padding: 0; 
+  margin-top: 0;
+  padding: 0;
 }
 
 .mds-state-banner__item {
@@ -204,7 +214,13 @@ p {
     display: flex;
     flex-direction: column;
   }
-  .mds-state-banner__inner, .mds-state-banner__item-copy p, .mds-state-banner__item-copy h2 {
+  .mds-state-banner__inner,
+  .mds-state-banner__item-copy p,
+  .mds-state-banner__item-copy h2 {
     font: var(--mds-text-caption);
+  }
+  .mds-state-banner__item-icon {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
