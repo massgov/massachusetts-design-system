@@ -78,15 +78,7 @@ p {
 
 .mds-state-banner {
   width: 100%;
-}
-
-.mds-state-banner--dark {
-  background: var(--mds-static-black);
-  color: var(--mds-static-white);
-}
-
-.mds-state-banner--dark .mds-state-banner__item-icon {
-  fill: var(--mds-static-white);
+  font: var(--mds-text-body); /** need to use var instead of utility class to best support font size change for smaller screens **/
 }
 
 .mds-state-banner__inner {
@@ -112,10 +104,23 @@ p {
   display: inline-flex;
   align-items: center;
   gap: var(--mds-space-2xs);
-  border-bottom: 1.5px solid;
+  border-bottom: 2px solid;
   background: transparent;
   line-height: 1.8;
   cursor: pointer;
+}
+
+.mds-state-banner__summary {
+  display: block;
+  list-style: none;
+}
+
+.mds-state-banner__summary::marker {
+  content: "";
+}
+
+.mds-state-banner__summary::-webkit-details-marker {
+  display: none;
 }
 
 .mds-state-banner--dark .mds-state-banner__toggle-text {
@@ -123,7 +128,7 @@ p {
   border-color: var(--mds-static-white);
 }
 
-.mds-state-banner__container[aria-expanded="true"] .mds-state-banner__caret {
+.mds-state-banner__details[open] .mds-state-banner__caret {
   transform: rotate(180deg);
 }
 
@@ -154,7 +159,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: var(--mds-breakpoint-horizontal-space-gutter);
-  /** override UL defaults **/
+  /** override UL defaults - TODO; Update when we have reset in styles package**/
   list-style: none;
   margin-top: 0; 
   padding: 0; 
@@ -170,8 +175,8 @@ p {
 .mds-state-banner__item-icon {
   width: 1.875rem;
   height: 1.875rem;
+  fill: currentColor;
   flex: none;
-  margin-top: 0.125rem; /* This spacing value is smaller than 3xs */
 }
 
 .mds-state-banner__item-copy {
@@ -198,5 +203,8 @@ p {
   .mds-state-banner__column {
     display: flex;
     flex-direction: column;
+  }
+  .mds-state-banner__inner, .mds-state-banner__item-copy p, .mds-state-banner__item-copy h2 {
+    font: var(--mds-text-caption);
   }
 }
