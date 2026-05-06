@@ -16,3 +16,9 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 ### Fixed
 * [DP-46385] Cleanup icon clip-path. #27
 
+
+## 1.1.1 (5/6/2026)
+
+### Added
+* [DP-46778] Added state seal pngs. #35
+
