@@ -1,0 +1,26 @@
+/** Generated page styles for example page, do not use **/
+
+.banner-page {
+  width: min(100%, 88rem);
+  margin: 0 auto;
+  padding: var(--mds-space-lg);
+}
+
+.banner-card {
+  display: grid;
+  gap: var(--mds-space-lg);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.banner-copy {
+  max-width: 42rem;
+}
+
+.banner-frame {
+  overflow: hidden;
+}
