@@ -74,7 +74,6 @@ button {
 .mds-state-banner__toggle-text {
   display: inline-flex;
   align-items: center;
-  gap: var(--mds-space-2xs);
   border-bottom: 2px solid;
   border-color: currentColor;
   background: transparent;
@@ -177,9 +176,7 @@ button {
   .mds-state-banner.mds-section-container {
     padding-inline: var(--mds-space-sm);
   }
-}
 
-@container mds-state-banner (max-width: 480px) {
   .mds-state-banner__summary {
     display: flex;
     align-items: center;
