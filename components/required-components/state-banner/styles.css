@@ -45,7 +45,6 @@ button {
   font: var(
     --mds-text-body
   ); /** need to use var instead of utility class to best support font size change for smaller screens **/
-  container: mds-state-banner / inline-size;
 }
 
 .mds-state-banner__inner {
@@ -53,7 +52,6 @@ button {
   flex-wrap: wrap;
   align-items: center;
   gap: 0 var(--mds-space-sm);
-  min-width: 0;
   width: 100%; /** Make clickable area of the banner full widt**/
 }
 
@@ -61,14 +59,13 @@ button {
   display: flex;
   align-items: center;
   gap: var(--mds-space-2xs);
-  min-width: 0;
-  max-width: 100%;
 }
 
 .mds-state-banner__seal {
   width: 1.5rem;
   height: 1.5rem;
   align-self: self-start;
+  margin-top: 1px; /** needs more spacing above, but needs to align to top for wrapping to work **/
 }
 
 .mds-state-banner__toggle-text {
@@ -76,15 +73,9 @@ button {
   align-items: center;
   border-bottom: 2px solid;
   border-color: currentColor;
-  background: transparent;
-  line-height: 1.8;
-  cursor: pointer;
 }
 
-.mds-state-banner__summary {
-  display: block;
-}
-
+/** Hide the default "disclosure triangle" on the summary element **/
 .mds-state-banner__summary::marker {
   content: "";
 }
@@ -92,11 +83,7 @@ button {
 .mds-state-banner__summary::-webkit-details-marker {
   display: none;
 }
-
-.mds-state-banner--dark .mds-state-banner__toggle-text {
-  color: var(--mds-static-white);
-  border-color: var(--mds-static-white);
-}
+/**/
 
 .mds-state-banner__details[open] .mds-state-banner__caret {
   transform: rotate(180deg);
@@ -109,22 +96,10 @@ button {
   font-weight: bold;
 }
 
-.mds-state-banner__caret--expanded {
-  -webkit-transform: rotate(-180deg);
-  -ms-transform: rotate(-180deg);
-  transform: rotate(-180deg);
-}
-
-.mds-state-banner__panel-inner {
-  align-items: stretch;
-  gap: 1.5rem;
-  padding-top: 0;
-}
-
 .mds-state-banner__items {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--mds-breakpoint-horizontal-space-gutter);
+  column-gap: var(--mds-breakpoint-horizontal-space-gutter);
 }
 
 .mds-state-banner__item {
@@ -147,21 +122,9 @@ button {
 
 .mds-state-banner__text {
   display: block;
-  min-width: 0;
-  max-width: 100%;
-  line-height: 1.8;
-  white-space: normal;
-}
-
-.mds-state-banner__message {
-  display: inline;
 }
 
 @media (max-width: 768px) {
-  .banner-page {
-    padding: var(--mds-space-sm);
-  }
-
   .mds-state-banner__seal {
     align-self: self-start;
   }
@@ -180,32 +143,20 @@ button {
   .mds-state-banner__summary {
     display: flex;
     align-items: center;
-    min-height: 42px;
-  }
-
-  .mds-state-banner__inner,
-  .mds-state-banner__brand {
-    display: block;
-    width: 100%;
   }
 
   .mds-state-banner__seal {
     display: none;
   }
 
-  .mds-state-banner__text {
+  .mds-state-banner__text,
+  .mds-state-banner__toggle-text {
     font: var(--mds-text-caption);
-    line-height: 1.3;
   }
 
   .mds-state-banner__toggle-text {
     display: inline-flex;
-    gap: var(--mds-space-2xs);
-    line-height: 1.3;
-    margin-inline-start: var(--mds-space-2xs);
     padding-block-end: 2px;
-    vertical-align: baseline;
-    white-space: nowrap;
   }
 
   .mds-state-banner__caret {
