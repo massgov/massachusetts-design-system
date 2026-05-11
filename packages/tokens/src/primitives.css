@@ -4,18 +4,18 @@
  * That will make theming/changes a lot easier in the long run!
  */
 
- /* The required font for mass.gov websites is Noto Sans, which is included here in a link from Google fonts */
- @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/* The required font for mass.gov websites is Noto Sans, which is included here in a link from Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-    /** We can remove this general one eventually and use body **/
+  /** We can remove this general one eventually and use body **/
   --mds-font-family: "Noto Sans", Helvetica, Arial, sans-serif;
 
   --mds-font-family-headings: "Noto Sans", Helvetica, Arial, sans-serif;
   --mds-font-family-body: "Noto Sans", Helvetica, Arial, sans-serif;
   --mds-font-family-utility: "Noto Sans", Helvetica, Arial, sans-serif;
   --mds-font-family-label: "Noto Sans", Helvetica, Arial, sans-serif;
-  
+
   --mds-border-radius-25: 0.125rem;
   --mds-border-radius-50: 0.25rem;
   --mds-border-radius-100: 0.5rem;
@@ -96,23 +96,23 @@
   --mds-color-brand-independence-cranberry-1100: #530817;
   --mds-color-brand-independence-cranberry-1200: #490714;
   --mds-color-brand-independence-cranberry-1300: #34050f;
-  --mds-color-utility-base-white : #ffffff;
-  --mds-color-utility-base-black : #000000;
+  --mds-color-utility-base-white: #ffffff;
+  --mds-color-utility-base-black: #000000;
   --mds-color-utility-base-gray: #fdfdfd;
-  --mds-color-utility-base-white-transparent : #ffffff00;
-  --mds-color-utility-base-black-transparent : #00000000;
+  --mds-color-utility-base-white-transparent: #ffffff00;
+  --mds-color-utility-base-black-transparent: #00000000;
   --mds-color-utility-danger-red-100: #fef1f1;
   --mds-color-utility-danger-red-300: #f99f9f;
   --mds-color-utility-danger-red-600: #cd0d0d;
   --mds-color-utility-danger-red-900: #900909;
   --mds-color-utility-danger-red-1300: #480505;
-  --mds-color-utility-focus-blue-300 : #b2dbff;
-  --mds-color-utility-focus-blue-600 : #0088ff;
-  --mds-color-utility-informative-blue-100 : #e8eef4;
-  --mds-color-utility-informative-blue-300 : #b9ccdd;
-  --mds-color-utility-informative-blue-600 : #7299bc;
-  --mds-color-utility-informative-blue-900 : #14558f;
-  --mds-color-utility-informative-blue-1300 : #0a2b48;
+  --mds-color-utility-focus-blue-300: #b2dbff;
+  --mds-color-utility-focus-blue-600: #0088ff;
+  --mds-color-utility-informative-blue-100: #e8eef4;
+  --mds-color-utility-informative-blue-300: #b9ccdd;
+  --mds-color-utility-informative-blue-600: #7299bc;
+  --mds-color-utility-informative-blue-900: #14558f;
+  --mds-color-utility-informative-blue-1300: #0a2b48;
   --mds-color-utility-success-green-100: #eafbef;
   --mds-color-utility-success-green-300: #81e4a2;
   --mds-color-utility-success-green-600: #24a850;
@@ -149,6 +149,13 @@
   --mds-font-weight-semibold: 600;
   --mds-font-weight-bold: 700;
   --mds-font-weight-extrabold: 800;
+  --mds-line-height-100: 100%;
+  --mds-line-height-110: 110%;
+  --mds-line-height-120: 120%;
+  --mds-line-height-130: 130%;
+  --mds-line-height-140: 140%;
+  --mds-line-height-150: 150%;
+  --mds-line-height-180: 180%;
   --mds-space-0: 0;
   --mds-space-25: 0.125rem;
   --mds-space-50: 0.25rem;
