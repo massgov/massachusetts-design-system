@@ -65,7 +65,7 @@ button {
   width: 1.5rem;
   height: 1.5rem;
   align-self: self-start;
-  margin-top: 1px; /** needs more spacing above, but needs to align to top for wrapping to work **/
+  margin-top: 2px; /** needs more spacing above, but needs to align to top for wrapping to work **/
 }
 
 .mds-state-banner__toggle-text {
