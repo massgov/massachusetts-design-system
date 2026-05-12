@@ -171,19 +171,13 @@
 /**
  * Line Height tokens
  */
-  --mds-line-height-body: var(--mds-line-height-180);
-  --mds-line-height-label: var(--mds-line-height-120);
-  --mds-line-height-eyebrow: var(--mds-line-height-100);
-  --mds-line-height-caption: var(--mds-line-height-130);
-
-  --mds-line-height-heading-2xs: var(--mds-line-height-140);
-  --mds-line-height-heading-xs: var(--mds-line-height-130);
-  --mds-line-height-heading-sm: var(--mds-line-height-130);
-  --mds-line-height-heading-md: var(--mds-line-height-120);
-  --mds-line-height-heading-lg: var(--mds-line-height-120);
-  --mds-line-height-heading-xl: var(--mds-line-height-120);
-  --mds-line-height-heading-2xl: var(--mds-line-height-110);
-
+  --mds-line-height-100: 1;
+  --mds-line-height-110: 1.1;
+  --mds-line-height-120: 1.2;
+  --mds-line-height-130: 1.3;
+  --mds-line-height-140: 1.4;
+  --mds-line-height-150: 1.5;
+  --mds-line-height-180: 1.8;
 
 /**
  * Typography size tokens
