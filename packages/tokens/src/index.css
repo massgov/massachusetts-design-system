@@ -169,6 +169,23 @@
   --mds-space-3xl: var(--mds-space-800);
 
 /**
+ * Line Height tokens
+ */
+  --mds-line-height-body: var(--mds-line-height-180);
+  --mds-line-height-label: var(--mds-line-height-120);
+  --mds-line-height-eyebrow: var(--mds-line-height-100);
+  --mds-line-height-caption: var(--mds-line-height-130);
+
+  --mds-line-height-heading-2xs: var(--mds-line-height-140);
+  --mds-line-height-heading-xs: var(--mds-line-height-130);
+  --mds-line-height-heading-sm: var(--mds-line-height-130);
+  --mds-line-height-heading-md: var(--mds-line-height-120);
+  --mds-line-height-heading-lg: var(--mds-line-height-120);
+  --mds-line-height-heading-xl: var(--mds-line-height-120);
+  --mds-line-height-heading-2xl: var(--mds-line-height-110);
+
+
+/**
  * Typography size tokens
  *
  */
