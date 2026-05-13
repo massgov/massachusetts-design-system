@@ -3,17 +3,17 @@
   --mds-footer-link-color: var(--mds-text-and-icons-brand-neutral-default);
   --mds-footer-link-accent-color: var(--mds-text-and-icons-brand-primary-mid);
   --mds-footer-icon-size: 1.25rem;
-}
+} /** do we need to set it like this? **/
 
 .mds-footer *,
 .mds-footer *::before,
 .mds-footer *::after {
   box-sizing: border-box;
 }
-
+/** overrides section container
 .mds-footer__container {
   width: 100%;
-}
+} **/
 
 .mds-footer__primary {
   display: grid;
@@ -21,16 +21,14 @@
   gap: var(--mds-space-lg);
 }
 
-.mds-footer__brand,
-.mds-footer__column,
-.mds-footer__contact,
+/** List resets, TODO: move to global reset **/
 .mds-footer__link-list,
 .mds-footer__social-list,
-.mds-footer__legal-nav ul,
-.mds-footer__fine-print {
+.mds-footer__legal-nav ul {
   margin: 0;
   padding: 0;
-} /** What is this overriding??**/
+  list-style: none;
+}
 
 .mds-footer__brand {
   display: flex;
@@ -58,12 +56,6 @@
 .mds-footer__description,
 .mds-footer__fine-print p {
   margin: 0;
-}
-
-.mds-footer__social-list,
-.mds-footer__link-list,
-.mds-footer__legal-nav ul {
-  list-style: none;
 }
 
 .mds-footer__social-list {
@@ -126,6 +118,7 @@
 .mds-footer__contact-link--accent,
 .mds-footer__contact-icon {
   color: var(--mds-footer-link-accent-color);
+    fill: white;
 }
 
 .mds-footer__contact-link:hover,
@@ -137,7 +130,7 @@
 .mds-footer a:focus-visible {
   outline: 0.1875rem solid var(--mds-border-focus-on-light);
   outline-offset: 0.1875rem;
-}
+} /** da fuq? **/
 
 .mds-footer__link-list {
   display: flex;
@@ -168,6 +161,7 @@
   margin-block-end: var(--mds-space-sm);
 }
 
+/** These will be atomic components **/
 .mds-footer__icon {
   display: inline-block;
   flex: 0 0 auto;
@@ -175,7 +169,7 @@
   height: var(--mds-footer-icon-size);
   background-color: currentcolor;
   mask: var(--mds-footer-icon-path) center / contain no-repeat;
-}
+} /** why don't these icons show up? **/
 
 .mds-footer__icon--facebook {
   --mds-footer-icon-path: url("../../../packages/assets/src/icons/static/facebook-logo.svg");
