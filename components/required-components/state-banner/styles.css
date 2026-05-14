@@ -4,6 +4,7 @@
 **/
 @import url("../../../packages/tokens/src/index.css");
 
+/** Reset styles TODO: move to css reset **/
 *,
 *::before,
 *::after {
@@ -16,13 +17,17 @@ body {
   min-height: 100%;
 }
 
-body,
-button {
-  font-family: "Noto Sans", "Helvetica", "Arial", sans-serif;
+h1,
+h2,
+p {
+  margin: 0;
 }
+
+/** end reset styles **/
 
 /** Actual MDS component styles **/
 
+/** TODO: put this in general styling rather than in the specific component styles **/
 :focus-visible, :focus {
   border-radius: var(--mds-radius-sm);
   outline: 2px solid var(--mds-border-focus-on-light);
@@ -68,6 +73,7 @@ button {
   align-items: center;
   border-bottom: 2px solid;
   border-color: currentColor;
+  line-height: 1.75; /** to match how it renders in figma, even though this is the same value of 1.8 in both **/
 }
 
 /** Hide the default "disclosure triangle" on the summary element **/
@@ -123,11 +129,6 @@ button {
   .mds-state-banner__seal {
     align-self: self-start;
   }
-
-  .mds-state-banner__item-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -157,6 +158,11 @@ button {
   .mds-state-banner__caret {
     width: 1rem;
     height: 1rem;
+  }
+
+  .mds-state-banner__item-icon {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
   .mds-state-banner__item-copy p,

@@ -220,10 +220,17 @@
   --mds-text-letter-spacing-eyebrow: 1px;
 
   /** Caption text **/
+<<<<<<< HEAD
   --mds-text-caption-sm: var(--mds-font-weight-regular) var(--mds-font-size-125)/var(--mds-line-height-130) var(--mds-font-family);
   --mds-text-caption: var(--mds-font-weight-regular) var(--mds-font-size-175)/var(--mds-line-height-130) var(--mds-font-family);
   --mds-text-caption-bold: var(--mds-font-weight-medium) var(--mds-font-size-175)/var(--mds-line-height-130) var(--mds-font-family);
   --mds-text-caption-md: var(--mds-font-weight-regular) var(--mds-font-size-200)/var(--mds-line-height-130) var(--mds-font-family);
+=======
+  --mds-text-caption-sm: var(--mds-font-weight-regular) var(--mds-font-size-125)/1.3 var(--mds-font-family);
+  --mds-text-caption: var(--mds-font-weight-regular) var(--mds-font-size-175)/1.3 var(--mds-font-family);
+  --mds-text-caption-bold: var(--mds-font-weight-medium) var(--mds-font-size-175)/1.3 var(--mds-font-family);
+  --mds-text-caption-md: var(--mds-font-weight-regular) var(--mds-font-size-200)/1.3 var(--mds-font-family);
+>>>>>>> a8e363e (updated based on feedback)
 
 
 
