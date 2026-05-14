@@ -43,7 +43,6 @@
 }
 
 .mds-footer__seal {
-  flex: 0 0 auto;
   width: 3.5rem;
   height: 3.5rem;
 }
@@ -94,7 +93,6 @@
   flex-direction: column;
   gap: var(--mds-space-md);
   padding-block-start: var(--mds-space-xs);
-  font-style: normal;
 }
 
 .mds-footer__contact-item {
@@ -112,13 +110,13 @@
 .mds-footer__legal-nav a {
   color: var(--mds-footer-link-color);
   text-decoration: none;
-  text-underline-offset: 0.1875rem;
+  text-underline-offset: 0.1875rem; /** Is this a figma artifact or do we want a little more breathing room here? **/
 }
 
 .mds-footer__contact-link--accent,
 .mds-footer__contact-icon {
   color: var(--mds-footer-link-accent-color);
-    fill: white;
+  fill: white;
 }
 
 .mds-footer__contact-link:hover,
@@ -126,11 +124,6 @@
 .mds-footer__legal-nav a:hover {
   text-decoration: underline;
 }
-
-.mds-footer a:focus-visible {
-  outline: 0.1875rem solid var(--mds-border-focus-on-light);
-  outline-offset: 0.1875rem;
-} /** da fuq? **/
 
 .mds-footer__link-list {
   display: flex;
