@@ -76,6 +76,28 @@ p {
   line-height: 1.75; /** to match how it renders in figma, even though this is the same value of 1.8 in both **/
 }
 
+.mds-state-banner__details {
+  interpolate-size: allow-keywords; /** need this to allow for the "auto" value in block-size to transition properly **/
+}
+
+.mds-state-banner__details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    block-size 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    content-visibility 300ms cubic-bezier(0.16, 1, 0.3, 1) allow-discrete;
+}
+
+.mds-state-banner__details[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /** Hide the default "disclosure triangle" on the summary element **/
 .mds-state-banner__summary::marker {
   content: "";
