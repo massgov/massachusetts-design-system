@@ -96,6 +96,11 @@ p {
   block-size: auto;
   opacity: 1;
   transform: translateY(0);
+  transition:
+    block-size 300ms ease-in,
+    opacity 300ms ease-in,
+    transform 300ms ease-in,
+    content-visibility 300ms ease-in allow-discrete;
 }
 
 /** Hide the default "disclosure triangle" on the summary element **/
