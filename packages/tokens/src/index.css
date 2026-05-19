@@ -13,7 +13,7 @@
 
 :root {
   --mds-background-base-transparent: var(--mds-color-utility-base-white-transparent);
-  --mds-background-base-overlay: #00000099;
+  --mds-background-base-overlay: var(--mds-color-utility-base-black-transparent);
   --mds-background-surface-default: var(--mds-color-brand-surface-1000);
   --mds-background-section-brand-neutral-lowest: var(--mds-color-brand-gray-100);
   --mds-background-section-brand-neutral-low: var(--mds-color-brand-gray-300);
