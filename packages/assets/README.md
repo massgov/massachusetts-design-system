@@ -95,8 +95,6 @@ src/
 
 ### Install dependencies:
 
-From the repository root:
-
 ```bash
 npm install
 ```
@@ -104,7 +102,7 @@ npm install
 ### Build the package:
 
 ```bash
-npm run build --workspace @massds/mds-assets
+npm run build
 ```
 
 The build script:
@@ -191,7 +189,7 @@ Assets release flow:
 
 1. Create a release branch from `main`, based on [semantic versioning](https://semver.org/), for example `release/assets-1.0.1`
 2. Update `packages/assets/package.json` to the release version
-3. Run `npm install && npm run build` and commit changes
+3. Run `npm i & npm run build` and commit changes
 4. Run `npm run changelog:release -- <version> <date>` from `packages/assets`, or omit arguments to use the version from `package.json` and today’s date
 5. Merge the release branch into `main` through a pull request
 6. In the GitHub UI, create the release tag for the merged release commit using the format `assets-v*`, for example `assets-v1.0.1`
