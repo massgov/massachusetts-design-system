@@ -231,7 +231,7 @@ If you update the Sass source or utility naming, run `npm run build` in `package
 
 ## Development
 
-Install dependencies and build from the package directory:
+Install dependencies from the repository root, then run style package commands from this package directory or with npm workspaces:
 
 ```bash
 npm install
@@ -246,7 +246,15 @@ For local Sass development, use the watcher:
 npm run watch
 ```
 
-This keeps all four Sass entrypoints in `src/` synced to `dist/` as files change.
+This opens the styles demo through a local server with hot reload. It keeps all four Sass entrypoints in `packages/styles/src/` synced to `packages/styles/dist/`, mirrors `packages/tokens/src/` into `packages/tokens/dist/`, and reloads the browser when compiled styles, token CSS, or demo files change. The demo server exposes npm workspace packages at URLs such as `/@massds/mds-tokens/dist/index.css`, so demo pages do not need fragile `../` paths back through the repository.
+
+You can also run the demo without Sass watchers:
+
+```bash
+npm run demo
+```
+
+From the workspace root, use `npm run demo:styles` or `npm run watch:styles`.
 
 ## Extending Utilities
 

@@ -4,7 +4,7 @@ This repository contains the source code for Massachusetts Design System package
 
 - `packages/assets` for icons, animation files, and state seal assets published as `@massds/mds-assets`
 - `packages/tokens` for CSS design tokens published as `@massds/mds-tokens`
-- `packages/styles` for generated helper and utility CSS published as `@massds/mds-styles`
+- `packages/styles` for generated helper and utility CSS `@massds/mds-styles` (currently not published)
 
 Each package has its own README with package-specific development and publishing details.
 
@@ -20,14 +20,25 @@ We are a small but mighty crew enthusiastic to partner with teams hoping to leve
 
 ### Quick Start
 
-1. Choose the package you want to work in: `packages/assets`, `packages/tokens`, or `packages/styles`
-2. Install dependencies from that package directory with `npm install`
-3. Run the package checks you need, such as `npm run lint` or `npm run build`
+1. Install dependencies from the repository root with `npm install`
+2. You can also run all available package builds or lints with `npm run build` and `npm run lint`
+3. Or run a specific package from the root with npm workspaces, such as:
+  - `npm run build:assets`
+  - `npm run lint:tokens`
+  - `npm run watch:styles` - this will track changes in tokens and styles and spins up the styles demo site in the browser with hot reload
 4. Add a changelog fragment under `packages/<package>/changelog.d/` if your change affects a published package
 
 > This expectation is also called out in the pull request template and validated in CI by `.github/workflows/check-package-changelogs.yml`.
 
 For package-specific setup and commands, see the README inside each package directory.
+
+### Workspace Dependencies
+
+The root `package.json` uses npm workspaces for local development across the packages in `packages/`. Use normal semver ranges for internal package relationships so each published package manifest stays valid outside the monorepo.
+
+Use `peerDependencies` when a package expects the consuming app to install another Design System package. For example, `@massds/mds-styles` declares `@massds/mds-tokens` as a peer dependency because consumers need tokens available when they use the styles package.
+
+If a package's own build or tests directly import a peer package, add the same range to that package's `devDependencies` as well. npm will link the local workspace package during root installs when the local version satisfies the range.
 
 
 ### Releases
@@ -47,7 +58,7 @@ Recommended branch and tag strategy:
 Release flow:
 
 1. Create a release branch `release/<package>-<version>` from `main`
-2. Make sure the package version in `package.json` is updated following [semantic versioning](https://semver.org/) and run `npm i & npm run build`
+2. Make sure the package version in `package.json` is updated following [semantic versioning](https://semver.org/) and run `npm install && npm run build`
 3. Compile changelog fragments into `CHANGELOG.md` by running `npm run changelog:release` inside the package directory
 4. Create a PR and merge into `main` (without squashing)
 5. In the GitHub UI, create a package-specific release tag on the release commit that matches the package version and copy in the relevant release notes from `CHANGELOG.md`

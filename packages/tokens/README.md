@@ -48,7 +48,7 @@ The `test-page/` directory is only for local validation and is not published to 
 
 ## Development
 
-Install dependencies, lint the source files, and then build the distributable files from this package directory:
+Install dependencies from the repository root, then run style package commands from this package directory or with npm workspaces:
 
 ```bash
 npm install

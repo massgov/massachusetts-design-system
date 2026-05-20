@@ -8,6 +8,7 @@
   "scripts": {
     "build": "node ./scripts/build.js",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "demo": "node ./scripts/open-styles-demo.js",
     "lint": "stylelint \"src/**/*.scss\" \"demo/**/*.css\"",
     "lint:fix": "stylelint --fix \"src/**/*.scss\" \"demo/**/*.css\"",
     "watch": "node ./scripts/watch.js"
@@ -27,6 +28,9 @@
   ],
   "author": "Massachusetts Digital Services",
   "license": "MIT",
+  "peerDependencies": {
+    "@massds/mds-tokens": "^1.0.0"
+  },
   "devDependencies": {
     "sass": "^1.93.2",
     "stylelint": "^16.24.0",
