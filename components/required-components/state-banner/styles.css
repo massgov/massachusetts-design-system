@@ -52,7 +52,7 @@ p {
   flex-wrap: wrap;
   align-items: center;
   gap: 0 var(--mds-space-sm);
-  width: 100%; /** Make clickable area of the banner full widt**/
+  width: 100%; /** Make clickable area of the banner full width**/
 }
 
 .mds-state-banner__brand {
