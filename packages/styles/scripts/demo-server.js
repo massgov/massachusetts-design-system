@@ -112,6 +112,23 @@ function sendReload(reloadClients) {
   }
 }
 
+function closeReloadClients(reloadClients) {
+  for (const response of reloadClients) {
+    response.end();
+  }
+
+  reloadClients.clear();
+}
+
+function closeDemoServer(server, reloadClients) {
+  closeReloadClients(reloadClients);
+  server.close();
+
+  if (typeof server.closeIdleConnections === 'function') {
+    server.closeIdleConnections();
+  }
+}
+
 async function sendFile(response, filePath, { liveReload = false } = {}) {
   if (!filePath) {
     response.writeHead(403);
@@ -227,14 +244,6 @@ async function startDemoServer({ liveReload = false, open = false } = {}) {
     });
   });
 
-  server.on('close', () => {
-    for (const response of reloadClients) {
-      response.end();
-    }
-
-    reloadClients.clear();
-  });
-
   const initialPort = getPort();
   let port = initialPort;
 
@@ -263,6 +272,7 @@ async function startDemoServer({ liveReload = false, open = false } = {}) {
   }
 
   return {
+    close: () => closeDemoServer(server, reloadClients),
     reload: () => sendReload(reloadClients),
     server,
     url

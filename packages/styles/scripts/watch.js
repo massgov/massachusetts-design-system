@@ -94,7 +94,7 @@ function stopWatchers(exitCode = 0) {
   }
 
   if (demoServer) {
-    demoServer.server.close();
+    demoServer.close();
   }
 
   process.exitCode = exitCode;
