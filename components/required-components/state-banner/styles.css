@@ -35,11 +35,8 @@ p {
 }
 
 .mds-state-banner__container {
-  cursor: pointer;
   background: transparent;
   color: inherit;
-  padding: 0px; /** override button default padding **/
-  text-align: left; /** override button default**/
 }
 
 .mds-state-banner {
@@ -85,7 +82,7 @@ p {
   overflow: hidden;
   opacity: 0;
   transform: translateY(-8px);
-  transition:
+  transition: /** TODO update with animation tokens once we have them defined **/
     block-size 300ms cubic-bezier(0.16, 1, 0.3, 1),
     opacity 300ms cubic-bezier(0.16, 1, 0.3, 1),
     transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -96,7 +93,7 @@ p {
   block-size: auto;
   opacity: 1;
   transform: translateY(0);
-  transition:
+  transition: /** TODO update with animation duration token once we have them **/
     block-size 300ms ease-in,
     opacity 300ms ease-in,
     transform 300ms ease-in,
@@ -144,10 +141,6 @@ p {
   flex: none;
 }
 
-.mds-state-banner__item-copy {
-  gap: var(--mds-space-2xs);
-}
-
 .mds-state-banner__text {
   display: block;
 }
@@ -159,7 +152,7 @@ p {
 }
 
 @media (max-width: 480px) {
-  .mds-state-banner.mds-section-container {
+  .mds-state-banner .mds-section-container {
     padding-inline: var(--mds-space-sm);
   }
 
