@@ -246,7 +246,7 @@ For local Sass development, use the watcher:
 npm run watch
 ```
 
-This opens the styles demo through a local server and keeps all four Sass entrypoints in `src/` synced to `dist/` as files change. The demo server exposes npm workspace packages at URLs such as `/@massds/mds-tokens/dist/index.css`, so demo pages do not need fragile `../` paths back through the repository.
+This opens the styles demo through a local server with hot reload. It keeps all four Sass entrypoints in `packages/styles/src/` synced to `packages/styles/dist/`, mirrors `packages/tokens/src/` into `packages/tokens/dist/`, and reloads the browser when compiled styles, token CSS, or demo files change. The demo server exposes npm workspace packages at URLs such as `/@massds/mds-tokens/dist/index.css`, so demo pages do not need fragile `../` paths back through the repository.
 
 You can also run the demo without Sass watchers:
 

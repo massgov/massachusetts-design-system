@@ -2,10 +2,11 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const { packageRoot } = require('./shared');
+const { getWorkspacePackageRoot, packageRoot } = require('./shared');
 
 const DEFAULT_PORT = 4321;
 const HOST = '127.0.0.1';
+const RELOAD_PATH = '/__mds_styles_reload';
 
 const demoRoot = path.join(packageRoot, 'demo');
 
@@ -17,18 +18,10 @@ const mimeTypes = new Map([
   ['.svg', 'image/svg+xml']
 ]);
 
-function getPackageRoot(packageName) {
-  const packageJsonPath = require.resolve(`${packageName}/package.json`, {
-    paths: [packageRoot]
-  });
-
-  return path.dirname(packageJsonPath);
-}
-
 function getWorkspaceRoutes() {
   return new Map([
-    ['/@massds/mds-styles/', getPackageRoot('@massds/mds-styles')],
-    ['/@massds/mds-tokens/', getPackageRoot('@massds/mds-tokens')]
+    ['/@massds/mds-styles/', getWorkspacePackageRoot('@massds/mds-styles')],
+    ['/@massds/mds-tokens/', getWorkspacePackageRoot('@massds/mds-tokens')]
   ]);
 }
 
@@ -41,6 +34,32 @@ function getPort() {
 
 function getContentType(filePath) {
   return mimeTypes.get(path.extname(filePath).toLowerCase()) || 'application/octet-stream';
+}
+
+function getReloadScript() {
+  return [
+    '<script>',
+    '(function () {',
+    '  if (!window.EventSource) {',
+    '    return;',
+    '  }',
+    `  var source = new EventSource('${RELOAD_PATH}');`,
+    "  source.addEventListener('reload', function () {",
+    '    window.location.reload();',
+    '  });',
+    '}());',
+    '</script>'
+  ].join('\n');
+}
+
+function injectReloadScript(html) {
+  const script = getReloadScript();
+
+  if (html.includes('</body>')) {
+    return html.replace('</body>', `${script}\n  </body>`);
+  }
+
+  return `${html}\n${script}`;
 }
 
 function resolveFromRoot(root, requestPath) {
@@ -71,7 +90,29 @@ function resolveRequestPath(requestUrl, workspaceRoutes) {
   return resolveFromRoot(demoRoot, decodedPath === '/' ? 'index.html' : decodedPath);
 }
 
-async function sendFile(response, filePath) {
+function handleReloadStream(request, response, reloadClients) {
+  response.writeHead(200, {
+    'Cache-Control': 'no-cache, no-transform',
+    Connection: 'keep-alive',
+    'Content-Type': 'text/event-stream'
+  });
+  response.write(': connected\n\n');
+
+  reloadClients.add(response);
+
+  request.on('close', () => {
+    reloadClients.delete(response);
+  });
+}
+
+function sendReload(reloadClients) {
+  for (const response of reloadClients) {
+    response.write('event: reload\n');
+    response.write(`data: ${Date.now()}\n\n`);
+  }
+}
+
+async function sendFile(response, filePath, { liveReload = false } = {}) {
   if (!filePath) {
     response.writeHead(403);
     response.end('Forbidden');
@@ -93,9 +134,23 @@ async function sendFile(response, filePath) {
       return;
     }
 
+    const contentType = getContentType(resolvedFilePath);
+
+    if (liveReload && contentType.startsWith('text/html')) {
+      const html = await fs.promises.readFile(resolvedFilePath, 'utf8');
+      const body = Buffer.from(injectReloadScript(html));
+
+      response.writeHead(200, {
+        'Content-Length': body.byteLength,
+        'Content-Type': contentType
+      });
+      response.end(body);
+      return;
+    }
+
     response.writeHead(200, {
       'Content-Length': stat.size,
-      'Content-Type': getContentType(resolvedFilePath)
+      'Content-Type': contentType
     });
 
     fs.createReadStream(resolvedFilePath).pipe(response);
@@ -156,10 +211,28 @@ function listen(server, port) {
   });
 }
 
-async function startDemoServer({ open = false } = {}) {
+async function startDemoServer({ liveReload = false, open = false } = {}) {
   const workspaceRoutes = getWorkspaceRoutes();
+  const reloadClients = new Set();
   const server = http.createServer((request, response) => {
-    sendFile(response, resolveRequestPath(request.url, workspaceRoutes));
+    const { pathname } = new URL(request.url, `http://${HOST}`);
+
+    if (liveReload && pathname === RELOAD_PATH) {
+      handleReloadStream(request, response, reloadClients);
+      return;
+    }
+
+    sendFile(response, resolveRequestPath(request.url, workspaceRoutes), {
+      liveReload
+    });
+  });
+
+  server.on('close', () => {
+    for (const response of reloadClients) {
+      response.end();
+    }
+
+    reloadClients.clear();
   });
 
   const initialPort = getPort();
@@ -190,13 +263,17 @@ async function startDemoServer({ open = false } = {}) {
   }
 
   return {
+    reload: () => sendReload(reloadClients),
     server,
     url
   };
 }
 
 if (require.main === module) {
-  startDemoServer({ open: process.argv.includes('--open') }).catch((error) => {
+  startDemoServer({
+    liveReload: process.argv.includes('--live-reload'),
+    open: process.argv.includes('--open')
+  }).catch((error) => {
     console.error(error);
     process.exitCode = 1;
   });
