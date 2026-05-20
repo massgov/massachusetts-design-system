@@ -19,4 +19,4 @@ Describe the change in a few sentences.
 
 - [ ] Relevant package linting or build checks were run locally
 
-List other testing steps if any
+List addtional testing steps if any.
