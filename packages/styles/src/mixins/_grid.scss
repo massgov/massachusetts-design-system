@@ -5,7 +5,7 @@
 }
 
 @function responsive-grid-selector($prefix, $class-name) {
-  @if $prefix == null {
+  @if not $prefix {
     @return ".#{$class-name}";
   }
 

@@ -1,0 +1,37 @@
+name: Build Packages
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/build-packages.yml"
+      - "packages/**"
+      - "scripts/**"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.14.0
+          cache: npm
+          cache-dependency-path: packages/*/package-lock.json
+
+      - name: Install dependencies and build packages
+        run: |
+          for package_json in packages/*/package.json; do
+            package_dir="$(dirname "$package_json")"
+            echo "::group::Build $package_dir"
+            npm ci --prefix "$package_dir"
+            npm run build --prefix "$package_dir"
+            echo "::endgroup::"
+          done

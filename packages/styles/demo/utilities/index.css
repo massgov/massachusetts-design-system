@@ -168,13 +168,13 @@
   background: var(--mds-background-section-brand-neutral-lowest);
 }
 
-.page-demo__swatch-table tbody tr:last-child td {
-  border-bottom: 0;
-}
-
 .page-demo__swatch-table td:last-child,
 .page-demo__swatch-table th:last-child {
   width: 7rem;
+}
+
+.page-demo__swatch-table tbody tr:last-child td {
+  border-bottom: 0;
 }
 
 .page-demo__swatch-square {
@@ -218,7 +218,7 @@
 .page-demo__overlay-base {
   display: grid;
   place-items: center;
-  color: var(--mds-inverse);
+  color: var(--mds-text-and-icons-utility-inverse);
   font: var(--mds-text-heading-lg);
 }
 
@@ -226,7 +226,7 @@
   display: grid;
   place-items: center;
   z-index: 1;
-  color: var(--mds-inverse);
+  color: var(--mds-text-and-icons-utility-inverse);
 }
 
 @media (max-width: 640px) {
