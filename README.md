@@ -38,18 +38,6 @@ The root `package.json` uses npm workspaces for local development across the pac
 
 Use `peerDependencies` when a package expects the consuming app to install another Design System package. For example, `@massds/mds-styles` declares `@massds/mds-tokens` as a peer dependency because consumers need tokens available when they use the styles package.
 
-When the components package is added, place it under `packages/components`, add it to the root `workspaces` list after the packages it depends on, and declare the existing packages it expects consumers to install:
-
-```json
-{
-  "peerDependencies": {
-    "@massds/mds-assets": "^1.1.1",
-    "@massds/mds-styles": "^0.1.0",
-    "@massds/mds-tokens": "^1.0.0"
-  }
-}
-```
-
 If a package's own build or tests directly import a peer package, add the same range to that package's `devDependencies` as well. npm will link the local workspace package during root installs when the local version satisfies the range.
 
 
