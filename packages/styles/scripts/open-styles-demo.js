@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
-const demoPath = path.resolve(__dirname, '..', 'packages', 'styles', 'demo', 'index.html');
+const demoPath = path.resolve(__dirname, '..', 'demo', 'index.html');
 
 if (!fs.existsSync(demoPath)) {
   console.error(`Styles demo file not found: ${demoPath}`);

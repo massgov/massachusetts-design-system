@@ -17,7 +17,7 @@
     "build:tokens": "npm run build --workspace @massds/mds-tokens",
     "lint:styles": "npm run lint --workspace @massds/mds-styles",
     "lint:tokens": "npm run lint --workspace @massds/mds-tokens",
-    "watch:styles": "node ./scripts/open-styles-demo.js && npm run watch --workspace @massds/mds-styles"
+    "watch:styles": "npm run watch --workspace @massds/mds-styles"
   },
   "engines": {
     "node": "24.14.0"
