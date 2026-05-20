@@ -18,4 +18,5 @@ Describe the change in a few sentences.
 ## Testing
 
 - [ ] Relevant package linting or build checks were run locally
-- [ ] Other testing steps
+
+List other testing steps if any
