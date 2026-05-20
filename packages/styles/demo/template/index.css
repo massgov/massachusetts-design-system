@@ -12,7 +12,16 @@ h2, h3, p {
 }
 
 code {
+  display: inline-block;
+  width: fit-content;
+  margin: var(--mds-space-3xs) 0;
+  padding: var(--mds-space-3xs);
+  border-radius: var(--mds-radius-sm);
+  background-color: var(--mds-background-section-brand-neutral-low);
+  color: var(--mds-text-and-icons-brand-neutral-default);
+  font: var(--mds-text-body-sm);
   font-family: ui-monospace, SFMono-Regular, SF Mono, Monaco, Consolas, Liberation Mono, monospace;
+  line-height: 1.2;
 }
 
 .page-demo__back-link,
@@ -55,19 +64,6 @@ code {
   border-top: 1px solid var(--page-demo-section-border-color);
 }
 
-.page-demo__section--alt {
-  background: var(--page-demo-section-alt-background);
-
-  code {
-    background: var(--mds-background-surface-default);
-  }
-
-  .page-demo__class-table th,
-  .page-demo__class-table td {
-    border-bottom: 1px solid var(--mds-background-section-brand-neutral-lowest);
-  }
-}
-
 .page-demo__section-header {
   display: grid;
   gap: var(--mds-space-2xs);
@@ -78,50 +74,11 @@ code {
   max-width: var(--page-demo-section-copy-max-width);
 }
 
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  min-height: 100%;
-}
-
-code {
-  display: inline-block;
-  background-color: var(--mds-background-section-brand-neutral-low);
-  color: var(--mds-text-and-icons-brand-neutral-default);
-  padding: var(--mds-space-3xs);
-  margin: var(--mds-space-3xs) 0;
-  border-radius: var(--mds-radius-sm);
-  font: var(--mds-text-body-sm);
-  width: fit-content;
-  line-height: 1.2;
-}
-
-.page-demo {
-  display: grid;
-}
-
-.page-demo__hero {
-  background: var(--mds-background-section-brand-primary-lowest);
-}
-
-.page-demo__eyebrow {
-  margin-bottom: var(--mds-space-xs);
-  color: var(--mds-text-and-icons-brand-primary-default);
-  font: var(--mds-text-label);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .page-demo__lede {
   max-width: 58ch;
   margin-top: var(--mds-space-sm);
   font: var(--mds-text-body-lg);
 }
-
 
 .page-demo__class-table {
   width: 100%;
@@ -138,4 +95,17 @@ code {
 
 .page-demo__class-table th {
   font: var(--mds-text-label);
+}
+
+.page-demo__section--alt {
+  background: var(--page-demo-section-alt-background);
+
+  code {
+    background: var(--mds-background-surface-default);
+  }
+
+  .page-demo__class-table th,
+  .page-demo__class-table td {
+    border-bottom: 1px solid var(--mds-background-section-brand-neutral-lowest);
+  }
 }

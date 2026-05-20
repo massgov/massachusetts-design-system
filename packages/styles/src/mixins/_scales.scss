@@ -9,7 +9,6 @@ $space-scale: (
   "2xl": var(--mds-space-2xl),
   "3xl": var(--mds-space-3xl)
 );
-
 $background-scale: (
   "base-transparent": var(--mds-background-base-transparent),
   "base-overlay": var(--mds-background-base-overlay),
@@ -90,7 +89,6 @@ $background-scale: (
   "adaptive-utility-static-black": var(--mds-background-adaptive-utility-static-black),
   "adaptive-utility-inverse": var(--mds-background-adaptive-utility-inverse)
 );
-
 $text-and-icons-scale: (
   "brand-neutral-default": var(--mds-text-and-icons-brand-neutral-default),
   "brand-neutral-muted": var(--mds-text-and-icons-brand-neutral-muted),
@@ -105,7 +103,6 @@ $text-and-icons-scale: (
   "utility-static-black": var(--mds-text-and-icons-utility-static-black),
   "utility-inverse": var(--mds-text-and-icons-utility-inverse)
 );
-
 $border-scale: (
   "brand-neutral-lowest": var(--mds-border-brand-neutral-lowest),
   "brand-neutral-low": var(--mds-border-brand-neutral-low),
@@ -135,24 +132,20 @@ $border-scale: (
   "utility-static-black": var(--mds-border-utility-static-black),
   "utility-inverse": var(--mds-border-utility-inverse)
 );
-
 $radius-scale: (
   "xs": var(--mds-radius-xs),
   "sm": var(--mds-radius-sm),
   "md": var(--mds-radius-md),
   "max": var(--mds-radius-max)
 );
-
 $shadow-scale: (
   "container": var(--mds-shadow-container),
   "modal": var(--mds-shadow-modal)
 );
-
 $shadow-hover-scale: (
   "hover-sm": var(--mds-shadow-hover-sm),
   "hover-md": var(--mds-shadow-hover-md)
 );
-
 $font-scale: (
   "heading-2xs": var(--mds-text-heading-2xs),
   "heading-xs": var(--mds-text-heading-xs),
@@ -177,13 +170,10 @@ $font-scale: (
   "caption-bold": var(--mds-text-caption-bold),
   "caption-md": var(--mds-text-caption-md)
 );
-
 $text-transform-scale: (
   "eyebrow": var(--mds-text-transform-eyebrow)
 );
-
 $letter-spacing-scale: (
   "eyebrow": var(--mds-text-letter-spacing-eyebrow)
 );
-
 $grid-span-scale: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;

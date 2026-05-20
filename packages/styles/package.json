@@ -27,6 +27,9 @@
   ],
   "author": "Massachusetts Digital Services",
   "license": "MIT",
+  "peerDependencies": {
+    "@massds/mds-tokens": "^1.0.0"
+  },
   "devDependencies": {
     "sass": "^1.93.2",
     "stylelint": "^16.24.0",

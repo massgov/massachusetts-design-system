@@ -231,11 +231,11 @@ If you update the Sass source or utility naming, run `npm run build` in `package
 
 ## Development
 
-Install dependencies and build from the package directory:
+Install dependencies from the repository root, then run style package commands with npm workspaces:
 
 ```bash
 npm install
-npm run build
+npm run build --workspace @massds/mds-styles
 ```
 
 The build compiles the Sass entrypoints into `dist/`.
@@ -243,7 +243,7 @@ The build compiles the Sass entrypoints into `dist/`.
 For local Sass development, use the watcher:
 
 ```bash
-npm run watch
+npm run watch --workspace @massds/mds-styles
 ```
 
 This keeps all four Sass entrypoints in `src/` synced to `dist/` as files change.

@@ -48,19 +48,19 @@ The `test-page/` directory is only for local validation and is not published to 
 
 ## Development
 
-Install dependencies, lint the source files, and then build the distributable files from this package directory:
+Install dependencies from the repository root, then run token package commands with npm workspaces:
 
 ```bash
 npm install
-npm run lint
-npm run build
+npm run lint --workspace @massds/mds-tokens
+npm run build --workspace @massds/mds-tokens
 ```
 
 Individual lint commands:
 
 ```bash
-npm run lint:css
-npm run lint:html
+npm run lint:css --workspace @massds/mds-tokens
+npm run lint:html --workspace @massds/mds-tokens
 ```
 
 The build copies the CSS token source files from `src/` into `dist/`.
@@ -80,7 +80,7 @@ Tokens release flow:
 
 1. Create a release branch from `main`, based on [semantic versioning](https://semver.org/), for example `release/tokens-1.0.0`
 2. Update `packages/tokens/package.json` to the release version
-3. Run `npm i & npm run build` and commit changes
+3. Run `npm install && npm run build` and commit changes
 4. Run `npm run changelog:release -- <version> <date>` from `packages/tokens`, or omit arguments to use the version from `package.json` and today’s date
 5. Merge the release branch into `main` through a pull request
 6. In the GitHub UI, create the release tag for the merged release commit using the format `tokens-v*`, for example `tokens-v1.0.0`
