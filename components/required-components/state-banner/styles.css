@@ -38,7 +38,7 @@ p {
   cursor: pointer;
   background: transparent;
   color: inherit;
-  padding: 0px; /** overide button default padding **/
+  padding: 0px; /** override button default padding **/
   text-align: left; /** override button default**/
 }
 
