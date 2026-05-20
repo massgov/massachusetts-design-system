@@ -21,8 +21,11 @@ We are a small but mighty crew enthusiastic to partner with teams hoping to leve
 ### Quick Start
 
 1. Install dependencies from the repository root with `npm install`
-2. Run the package checks you need from the root with npm workspaces, such as `npm run lint --workspace @massds/mds-tokens` or `npm run build --workspace @massds/mds-styles`
-3. You can also run all available package builds or lints with `npm run build` and `npm run lint`
+2. You can also run all available package builds or lints with `npm run build` and `npm run lint`
+3. Or run a specific package from the root with npm workspaces, such as:
+  - `npm run build:assets`
+  - `npm run lint:tokens`
+  - `npm run watch:styles` - this will track changes in tokens and styles and spins up the styles demo site in the browser
 4. Add a changelog fragment under `packages/<package>/changelog.d/` if your change affects a published package
 
 > This expectation is also called out in the pull request template and validated in CI by `.github/workflows/check-package-changelogs.yml`.
