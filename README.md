@@ -25,7 +25,7 @@ We are a small but mighty crew enthusiastic to partner with teams hoping to leve
 3. Or run a specific package from the root with npm workspaces, such as:
   - `npm run build:assets`
   - `npm run lint:tokens`
-  - `npm run watch:styles` - this will track changes in tokens and styles and spins up the styles demo site in the browser
+  - `npm run watch:styles` - this will track changes in tokens and styles and spins up the styles demo site in the browser with hot reload
 4. Add a changelog fragment under `packages/<package>/changelog.d/` if your change affects a published package
 
 > This expectation is also called out in the pull request template and validated in CI by `.github/workflows/check-package-changelogs.yml`.
