@@ -109,7 +109,7 @@ div {
 
 .mds-button.fill {
     background-color: var(--mds-background-adaptive-brand-primary-mid);
-    color: var(--mds-inverse);
+    color: var(--mds-text-and-icons-utility-inverse);
     border-color: var(--mds-background-section-brand-primary-mid);
 }
 
@@ -119,7 +119,7 @@ div {
 }
 
 .mds-button.outline {
-    background-color: var(--mds-inverse);
+    background-color: var(--mds-text-and-icons-utility-inverse);
     border: 2px solid var(--mds-background-section-brand-primary-mid);
     color: var(--mds-background-section-brand-primary-mid);
 }
@@ -131,7 +131,7 @@ div {
 
 .mds-button.accent.fill:hover, .mds-button.accent.outline:hover {
     background-color: var(--mds-background-section-brand-secondary-highest);
-    color: var(--mds-inverse); /** Use adaptive for interactive */
+    color: var(--mds-text-and-icons-utility-inverse); /** Use adaptive for interactive */
 }
 
 .mds-button.accent.ghost {
@@ -140,13 +140,13 @@ div {
 
 .mds-button.ghost {
     border: none;
-    background-color: var(--mds-inverse);
+    background-color: var(--mds-text-and-icons-utility-inverse);
     color: var(--mds-background-section-brand-primary-mid);
 }
 
 .mds-button.ghost:hover {
     border: none;
-    background-color: var(--mds-inverse);
+    background-color: var(--mds-text-and-icons-utility-inverse);
     color: var(--mds-background-section-brand-primary-mid);
     text-decoration: underline;
 }
@@ -162,7 +162,7 @@ div {
 
 .mds-button:hover, .mds-button.outline:hover {
     background-color: var(--mds-background-section-brand-primary-highest);
-    color: var(--mds-inverse);
+    color: var(--mds-text-and-icons-utility-inverse);
     box-shadow: var(--mds-shadow-hover-sm);
 }
 

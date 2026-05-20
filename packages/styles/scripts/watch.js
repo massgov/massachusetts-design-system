@@ -1,6 +1,7 @@
 const fs = require('fs/promises');
 const path = require('path');
 const { spawn } = require('child_process');
+const { startDemoServer } = require('./demo-server');
 const { distDir, getSassBin, packageRoot, sassEntries, srcDir } = require('./shared');
 
 let shuttingDown = false;
@@ -75,6 +76,8 @@ async function watch() {
   for (const [inputName, outputName] of sassEntries) {
     watchSass(path.join(srcDir, inputName), path.join(distDir, outputName));
   }
+
+  await startDemoServer({ open: true });
 }
 
 process.on('SIGINT', () => stopWatchers(0));
