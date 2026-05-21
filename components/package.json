@@ -13,8 +13,7 @@
     "lint": "npm run lint:html && npm run lint:scss",
     "lint:html": "htmlhint \"required-components/**/*.html\"",
     "lint:scss": "stylelint \"required-components/**/*.scss\"",
-    "lint:scss:fix": "stylelint --fix \"required-components/**/*.scss\"",
-    "serve": "npm run build && node ./scripts/demo-server.js"
+    "lint:scss:fix": "stylelint --fix \"required-components/**/*.scss\""
   },
   "peerDependencies": {
     "@massds/mds-assets": "^1.1.1",
