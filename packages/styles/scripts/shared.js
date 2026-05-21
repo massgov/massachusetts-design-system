@@ -16,9 +16,18 @@ function getSassBin() {
   return path.join(path.dirname(sassEntry), 'sass.js');
 }
 
+function getWorkspacePackageRoot(packageName) {
+  const packageJsonPath = require.resolve(`${packageName}/package.json`, {
+    paths: [packageRoot]
+  });
+
+  return path.dirname(packageJsonPath);
+}
+
 module.exports = {
   distDir,
   getSassBin,
+  getWorkspacePackageRoot,
   packageRoot,
   sassEntries,
   srcDir

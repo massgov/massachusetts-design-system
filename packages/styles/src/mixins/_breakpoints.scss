@@ -5,6 +5,7 @@ $lg: 1024px;
 $md: 768px;
 $sm: 480px;
 $xs: 320px;
+
 // Keep max-width responsive utilities ordered broad-to-narrow so narrower classes win.
 $breakpoints: (
   xl: $xl,

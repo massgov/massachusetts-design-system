@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MDS Color Utility Classes Demo</title>
-    <link rel="stylesheet" href="../../../tokens/src/index.css" />
-    <link rel="stylesheet" href="../../dist/index.css" />
-    <link rel="stylesheet" href="../template/index.css" />
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="/@massds/mds-tokens/dist/index.css" />
+    <link rel="stylesheet" href="/@massds/mds-styles/dist/index.css" />
+    <link rel="stylesheet" href="/template/index.css" />
+    <link rel="stylesheet" href="/utilities/index.css" />
   </head>
   <body class="mds-body">
     <main class="page-demo">
@@ -17,7 +17,7 @@
           <p class="page-demo__eyebrow">Massachusetts Design System</p>
           <h1 class="mds-text-heading-2xl">Color Utility Classes</h1>
           <p class="page-demo__lede mds-text-body-lg">
-            A visual reference for the generated background and text/icon color utilities.
+            A visual reference for the generated background, text/icon, and border color utilities.
           </p>
         </div>
       </section>
@@ -40,24 +40,12 @@
             </thead>
             <tbody>
               <tr>
-                <td><code>.mds-background-transparent</code></td>
-                <td><span class="page-demo__swatch-square mds-background-transparent"></span></td>
+                <td><code>.mds-background-base-transparent</code></td>
+                <td><span class="page-demo__swatch-square mds-background-base-transparent"></span></td>
               </tr>
               <tr>
-                <td><code>.mds-background-static-white</code></td>
-                <td><span class="page-demo__swatch-square mds-background-static-white"></span></td>
-              </tr>
-              <tr>
-                <td><code>.mds-background-static-black</code></td>
-                <td><span class="page-demo__swatch-square mds-background-static-black"></span></td>
-              </tr>
-              <tr>
-                <td><code>.mds-background-static-light-gray</code></td>
-                <td><span class="page-demo__swatch-square mds-background-static-light-gray"></span></td>
-              </tr>
-              <tr>
-                <td><code>.mds-background-static-blue-mid</code></td>
-                <td><span class="page-demo__swatch-square mds-background-static-blue-mid"></span></td>
+                <td><code>.mds-background-base-overlay</code></td>
+                <td><span class="page-demo__swatch-square mds-background-base-overlay"></span></td>
               </tr>
               <tr>
                 <td><code>.mds-background-surface-default</code></td>
@@ -172,6 +160,18 @@
                 <td><span class="page-demo__swatch-square mds-background-section-utility-success-highest"></span></td>
               </tr>
               <tr>
+                <td><code>.mds-background-section-utility-static-white</code></td>
+                <td><span class="page-demo__swatch-square mds-background-section-utility-static-white"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-utility-static-black</code></td>
+                <td><span class="page-demo__swatch-square mds-background-section-utility-static-black"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-section-utility-inverse</code></td>
+                <td><span class="page-demo__swatch-square mds-background-section-utility-inverse"></span></td>
+              </tr>
+              <tr>
                 <td><code>.mds-background-adaptive-brand-neutral-lowest</code></td>
                 <td><span class="page-demo__swatch-square mds-background-adaptive-brand-neutral-lowest"></span></td>
               </tr>
@@ -280,24 +280,24 @@
                 <td><span class="page-demo__swatch-square mds-background-adaptive-utility-informative-highest"></span></td>
               </tr>
               <tr>
-                <td><code>.mds-background-adaptive-utility-success-lowest</code></td>
-                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-success-lowest"></span></td>
+                <td><code>.mds-background-adaptive-utility-danger-lowest</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-danger-lowest"></span></td>
               </tr>
               <tr>
-                <td><code>.mds-background-adaptive-utility-success-low</code></td>
-                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-success-low"></span></td>
+                <td><code>.mds-background-adaptive-utility-danger-low</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-danger-low"></span></td>
               </tr>
               <tr>
-                <td><code>.mds-background-adaptive-utility-success-mid</code></td>
-                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-success-mid"></span></td>
+                <td><code>.mds-background-adaptive-utility-danger-mid</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-danger-mid"></span></td>
               </tr>
               <tr>
-                <td><code>.mds-background-adaptive-utility-success-high</code></td>
-                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-success-high"></span></td>
+                <td><code>.mds-background-adaptive-utility-danger-high</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-danger-high"></span></td>
               </tr>
               <tr>
-                <td><code>.mds-background-adaptive-utility-success-highest</code></td>
-                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-success-highest"></span></td>
+                <td><code>.mds-background-adaptive-utility-danger-highest</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-danger-highest"></span></td>
               </tr>
               <tr>
                 <td><code>.mds-background-adaptive-utility-warning-lowest</code></td>
@@ -320,28 +320,36 @@
                 <td><span class="page-demo__swatch-square mds-background-adaptive-utility-warning-highest"></span></td>
               </tr>
               <tr>
-                <td><code>.mds-background-adaptive-utility-danger-lowest</code></td>
-                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-danger-lowest"></span></td>
+                <td><code>.mds-background-adaptive-utility-success-lowest</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-success-lowest"></span></td>
               </tr>
               <tr>
-                <td><code>.mds-background-adaptive-utility-danger-low</code></td>
-                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-danger-low"></span></td>
+                <td><code>.mds-background-adaptive-utility-success-low</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-success-low"></span></td>
               </tr>
               <tr>
-                <td><code>.mds-background-adaptive-utility-danger-mid</code></td>
-                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-danger-mid"></span></td>
+                <td><code>.mds-background-adaptive-utility-success-mid</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-success-mid"></span></td>
               </tr>
               <tr>
-                <td><code>.mds-background-adaptive-utility-danger-high</code></td>
-                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-danger-high"></span></td>
+                <td><code>.mds-background-adaptive-utility-success-high</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-success-high"></span></td>
               </tr>
               <tr>
-                <td><code>.mds-background-adaptive-utility-danger-highest</code></td>
-                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-danger-highest"></span></td>
+                <td><code>.mds-background-adaptive-utility-success-highest</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-success-highest"></span></td>
               </tr>
               <tr>
-                <td><code>.mds-background-overlay</code></td>
-                <td><span class="page-demo__swatch-square mds-background-overlay"></span></td>
+                <td><code>.mds-background-adaptive-utility-static-white</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-static-white"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-static-black</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-static-black"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-background-adaptive-utility-inverse</code></td>
+                <td><span class="page-demo__swatch-square mds-background-adaptive-utility-inverse"></span></td>
               </tr>
             </tbody>
           </table>
@@ -366,36 +374,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><code>.mds-text-and-icons-inverse</code></td>
-                <td>
-                  <span class="page-demo__swatch-square page-demo__swatch-square--foreground mds-text-and-icons-inverse"></span>
-                </td>
-              </tr>
-              <tr>
-                <td><code>.mds-text-and-icons-static-white</code></td>
-                <td>
-                  <span class="page-demo__swatch-square page-demo__swatch-square--foreground mds-text-and-icons-static-white"></span>
-                </td>
-              </tr>
-              <tr>
-                <td><code>.mds-text-and-icons-static-black</code></td>
-                <td>
-                  <span class="page-demo__swatch-square page-demo__swatch-square--foreground mds-text-and-icons-static-black"></span>
-                </td>
-              </tr>
-              <tr>
-                <td><code>.mds-text-and-icons-static-light-gray</code></td>
-                <td>
-                  <span class="page-demo__swatch-square page-demo__swatch-square--foreground mds-text-and-icons-static-light-gray"></span>
-                </td>
-              </tr>
-              <tr>
-                <td><code>.mds-text-and-icons-static-blue-mid</code></td>
-                <td>
-                  <span class="page-demo__swatch-square page-demo__swatch-square--foreground mds-text-and-icons-static-blue-mid"></span>
-                </td>
-              </tr>
               <tr>
                 <td><code>.mds-text-and-icons-brand-neutral-default</code></td>
                 <td>
@@ -450,6 +428,24 @@
                   <span class="page-demo__swatch-square page-demo__swatch-square--foreground mds-text-and-icons-utility-success-mid"></span>
                 </td>
               </tr>
+              <tr>
+                <td><code>.mds-text-and-icons-utility-static-white</code></td>
+                <td>
+                  <span class="page-demo__swatch-square page-demo__swatch-square--foreground mds-text-and-icons-utility-static-white"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.mds-text-and-icons-utility-static-black</code></td>
+                <td>
+                  <span class="page-demo__swatch-square page-demo__swatch-square--foreground mds-text-and-icons-utility-static-black"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><code>.mds-text-and-icons-utility-inverse</code></td>
+                <td>
+                  <span class="page-demo__swatch-square page-demo__swatch-square--foreground mds-text-and-icons-utility-inverse"></span>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -473,30 +469,114 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td><code>.mds-border-brand-neutral-lowest</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-neutral-lowest"></span></td></tr>
-              <tr><td><code>.mds-border-brand-neutral-low</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-neutral-low"></span></td></tr>
-              <tr><td><code>.mds-border-brand-neutral-mid</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-neutral-mid"></span></td></tr>
-              <tr><td><code>.mds-border-brand-neutral-high</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-neutral-high"></span></td></tr>
-              <tr><td><code>.mds-border-brand-primary-lowest</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-primary-lowest"></span></td></tr>
-              <tr><td><code>.mds-border-brand-primary-low</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-primary-low"></span></td></tr>
-              <tr><td><code>.mds-border-brand-primary-mid</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-primary-mid"></span></td></tr>
-              <tr><td><code>.mds-border-brand-primary-high</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-primary-high"></span></td></tr>
-              <tr><td><code>.mds-border-brand-primary-highest</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-primary-highest"></span></td></tr>
-              <tr><td><code>.mds-border-brand-secondary-lowest</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-secondary-lowest"></span></td></tr>
-              <tr><td><code>.mds-border-brand-secondary-low</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-secondary-low"></span></td></tr>
-              <tr><td><code>.mds-border-brand-secondary-mid</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-secondary-mid"></span></td></tr>
-              <tr><td><code>.mds-border-brand-secondary-high</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-secondary-high"></span></td></tr>
-              <tr><td><code>.mds-border-brand-secondary-highest</code></td><td><span class="page-demo__swatch-square--border mds-border-brand-secondary-highest"></span></td></tr>
-              <tr><td><code>.mds-border-focus-on-light</code></td><td><span class="page-demo__swatch-square--border mds-border-focus-on-light"></span></td></tr>
-              <tr><td><code>.mds-border-focus-on-dark</code></td><td><span class="page-demo__swatch-square--border mds-border-focus-on-dark"></span></td></tr>
-              <tr><td><code>.mds-border-utility-informative-low</code></td><td><span class="page-demo__swatch-square--border mds-border-utility-informative-low"></span></td></tr>
-              <tr><td><code>.mds-border-utility-informative-mid</code></td><td><span class="page-demo__swatch-square--border mds-border-utility-informative-mid"></span></td></tr>
-              <tr><td><code>.mds-border-utility-danger-low</code></td><td><span class="page-demo__swatch-square--border mds-border-utility-danger-low"></span></td></tr>
-              <tr><td><code>.mds-border-utility-danger-mid</code></td><td><span class="page-demo__swatch-square--border mds-border-utility-danger-mid"></span></td></tr>
-              <tr><td><code>.mds-border-utility-warning-low</code></td><td><span class="page-demo__swatch-square--border mds-border-utility-warning-low"></span></td></tr>
-              <tr><td><code>.mds-border-utility-warning-mid</code></td><td><span class="page-demo__swatch-square--border mds-border-utility-warning-mid"></span></td></tr>
-              <tr><td><code>.mds-border-utility-success-low</code></td><td><span class="page-demo__swatch-square--border mds-border-utility-success-low"></span></td></tr>
-              <tr><td><code>.mds-border-utility-success-mid</code></td><td><span class="page-demo__swatch-square--border mds-border-utility-success-mid"></span></td></tr>
+              <tr>
+                <td><code>.mds-border-brand-neutral-lowest</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-neutral-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-neutral-low</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-neutral-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-neutral-mid</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-neutral-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-neutral-high</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-neutral-high"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-primary-lowest</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-primary-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-primary-low</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-primary-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-primary-mid</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-primary-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-primary-high</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-primary-high"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-primary-highest</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-primary-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-secondary-lowest</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-secondary-lowest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-secondary-low</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-secondary-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-secondary-mid</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-secondary-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-secondary-high</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-secondary-high"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-brand-secondary-highest</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-brand-secondary-highest"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-focus-on-light</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-focus-on-light"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-focus-on-dark</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-focus-on-dark"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-utility-informative-low</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-utility-informative-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-utility-informative-mid</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-utility-informative-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-utility-danger-low</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-utility-danger-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-utility-danger-mid</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-utility-danger-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-utility-warning-low</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-utility-warning-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-utility-warning-mid</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-utility-warning-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-utility-success-low</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-utility-success-low"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-utility-success-mid</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-utility-success-mid"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-utility-static-white</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-utility-static-white"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-utility-static-black</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-utility-static-black"></span></td>
+              </tr>
+              <tr>
+                <td><code>.mds-border-utility-inverse</code></td>
+                <td><span class="page-demo__swatch-square--border mds-border-utility-inverse"></span></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -505,16 +585,16 @@
       <section class="page-demo__section">
         <div class="mds-section-container mds-padding-block-2xl">
           <div class="page-demo__section-header">
-            <h2 class="mds-text-heading-xl">Overlay Utility</h2>
-            <p class="mds-text-body-lg">The overlay is a transparent layer on top of content, used to indicate that the content below the active layer.</p>
+            <h2 class="mds-text-heading-xl">Base Overlay Utility</h2>
+            <p class="mds-text-body-lg">The base overlay utility is a transparent layer on top of content, used to indicate content below an active layer.</p>
           </div>
           <div class="page-demo__overlay-demo">
             <div class="page-demo__overlay-base mds-background-section-brand-primary-highest">
               <span>This is the background content.</span>
             </div>
-            <div class="page-demo__overlay-layer mds-background-overlay"></div>
+            <div class="page-demo__overlay-layer mds-background-base-overlay"></div>
             <div class="page-demo__overlay-content">
-              <code>.mds-background-overlay</code>
+              <code>.mds-background-base-overlay</code>
             </div>
           </div>
         </div>

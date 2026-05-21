@@ -1,0 +1,30 @@
+{
+  "name": "massachusetts-design-system",
+  "private": true,
+  "description": "Workspace root for Massachusetts Design System packages",
+  "packageManager": "npm@10.9.2",
+  "workspaces": [
+    "packages/tokens",
+    "packages/assets",
+    "packages/styles"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "build:assets": "npm run build --workspace @massds/mds-assets",
+    "build:styles": "npm run build --workspace @massds/mds-styles",
+    "build:tokens": "npm run build --workspace @massds/mds-tokens",
+    "lint:styles": "npm run lint --workspace @massds/mds-styles",
+    "lint:tokens": "npm run lint --workspace @massds/mds-tokens",
+    "demo:styles": "npm run demo --workspace @massds/mds-styles",
+    "watch:styles": "npm run watch --workspace @massds/mds-styles"
+  },
+  "engines": {
+    "node": "24.14.0"
+  },
+  "volta": {
+    "node": "24.14.0",
+    "npm": "10.9.2"
+  }
+}

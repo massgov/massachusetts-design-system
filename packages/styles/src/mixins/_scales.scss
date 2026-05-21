@@ -9,14 +9,9 @@ $space-scale: (
   "2xl": var(--mds-space-2xl),
   "3xl": var(--mds-space-3xl)
 );
-
 $background-scale: (
-  "inverse": var(--mds-inverse),
-  "transparent": var(--mds-background-transparent),
-  "static-white": var(--mds-static-white),
-  "static-black": var(--mds-static-black),
-  "static-light-gray": var(--mds-static-light-gray),
-  "static-blue-mid": var(--mds-static-blue-mid),
+  "base-transparent": var(--mds-background-base-transparent),
+  "base-overlay": var(--mds-background-base-overlay),
   "surface-default": var(--mds-background-surface-default),
   "section-brand-neutral-lowest": var(--mds-background-section-brand-neutral-lowest),
   "section-brand-neutral-low": var(--mds-background-section-brand-neutral-low),
@@ -45,6 +40,9 @@ $background-scale: (
   "section-utility-success-lowest": var(--mds-background-section-utility-success-lowest),
   "section-utility-success-mid": var(--mds-background-section-utility-success-mid),
   "section-utility-success-highest": var(--mds-background-section-utility-success-highest),
+  "section-utility-static-white": var(--mds-background-section-utility-static-white),
+  "section-utility-static-black": var(--mds-background-section-utility-static-black),
+  "section-utility-inverse": var(--mds-background-section-utility-inverse),
   "adaptive-brand-neutral-lowest": var(--mds-background-adaptive-brand-neutral-lowest),
   "adaptive-brand-neutral-low": var(--mds-background-adaptive-brand-neutral-low),
   "adaptive-brand-neutral-mid": var(--mds-background-adaptive-brand-neutral-mid),
@@ -87,15 +85,11 @@ $background-scale: (
   "adaptive-utility-success-mid": var(--mds-background-adaptive-utility-success-mid),
   "adaptive-utility-success-high": var(--mds-background-adaptive-utility-success-high),
   "adaptive-utility-success-highest": var(--mds-background-adaptive-utility-success-highest),
-  "overlay": var(--mds-background-overlay)
+  "adaptive-utility-static-white": var(--mds-background-adaptive-utility-static-white),
+  "adaptive-utility-static-black": var(--mds-background-adaptive-utility-static-black),
+  "adaptive-utility-inverse": var(--mds-background-adaptive-utility-inverse)
 );
-
 $text-and-icons-scale: (
-  "inverse": var(--mds-inverse),
-  "static-white": var(--mds-static-white),
-  "static-black": var(--mds-static-black),
-  "static-light-gray": var(--mds-static-light-gray),
-  "static-blue-mid": var(--mds-static-blue-mid),
   "brand-neutral-default": var(--mds-text-and-icons-brand-neutral-default),
   "brand-neutral-muted": var(--mds-text-and-icons-brand-neutral-muted),
   "brand-neutral-disabled": var(--mds-text-and-icons-brand-neutral-disabled),
@@ -104,9 +98,11 @@ $text-and-icons-scale: (
   "utility-informative-mid": var(--mds-text-and-icons-utility-informative-mid),
   "utility-danger-mid": var(--mds-text-and-icons-utility-danger-mid),
   "utility-warning-mid": var(--mds-text-and-icons-utility-warning-mid),
-  "utility-success-mid": var(--mds-text-and-icons-utility-success-mid)
+  "utility-success-mid": var(--mds-text-and-icons-utility-success-mid),
+  "utility-static-white": var(--mds-text-and-icons-utility-static-white),
+  "utility-static-black": var(--mds-text-and-icons-utility-static-black),
+  "utility-inverse": var(--mds-text-and-icons-utility-inverse)
 );
-
 $border-scale: (
   "brand-neutral-lowest": var(--mds-border-brand-neutral-lowest),
   "brand-neutral-low": var(--mds-border-brand-neutral-low),
@@ -131,26 +127,25 @@ $border-scale: (
   "utility-warning-low": var(--mds-border-utility-warning-low),
   "utility-warning-mid": var(--mds-border-utility-warning-mid),
   "utility-success-low": var(--mds-border-utility-success-low),
-  "utility-success-mid": var(--mds-border-utility-success-mid)
+  "utility-success-mid": var(--mds-border-utility-success-mid),
+  "utility-static-white": var(--mds-border-utility-static-white),
+  "utility-static-black": var(--mds-border-utility-static-black),
+  "utility-inverse": var(--mds-border-utility-inverse)
 );
-
 $radius-scale: (
   "xs": var(--mds-radius-xs),
   "sm": var(--mds-radius-sm),
   "md": var(--mds-radius-md),
   "max": var(--mds-radius-max)
 );
-
 $shadow-scale: (
   "container": var(--mds-shadow-container),
   "modal": var(--mds-shadow-modal)
 );
-
 $shadow-hover-scale: (
   "hover-sm": var(--mds-shadow-hover-sm),
   "hover-md": var(--mds-shadow-hover-md)
 );
-
 $font-scale: (
   "heading-2xs": var(--mds-text-heading-2xs),
   "heading-xs": var(--mds-text-heading-xs),
@@ -175,13 +170,10 @@ $font-scale: (
   "caption-bold": var(--mds-text-caption-bold),
   "caption-md": var(--mds-text-caption-md)
 );
-
 $text-transform-scale: (
   "eyebrow": var(--mds-text-transform-eyebrow)
 );
-
 $letter-spacing-scale: (
   "eyebrow": var(--mds-text-letter-spacing-eyebrow)
 );
-
 $grid-span-scale: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
