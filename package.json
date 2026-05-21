@@ -6,7 +6,8 @@
   "workspaces": [
     "packages/tokens",
     "packages/assets",
-    "packages/styles"
+    "packages/styles",
+    "components"
   ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
