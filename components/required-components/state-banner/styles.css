@@ -2,8 +2,6 @@
   State Banner Required Component Styles
   This file contains the styles for the State Banner component, which is a required component in the Massachusetts design system.
 **/
-@import url("../../../packages/tokens/src/index.css");
-
 /** Reset styles TODO: move to css reset **/
 *,
 *::before,
