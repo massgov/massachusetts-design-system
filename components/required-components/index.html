@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Required Components</title>
+    <link rel="stylesheet" href="/@massds/mds-tokens/dist/index.css" />
+    <link rel="stylesheet" href="/@massds/mds-styles/dist/index.css" />
+    <style>
+      body {
+        margin: 0;
+        background: var(--mds-background-section-brand-neutral-lowest);
+        color: var(--mds-text-and-icons-brand-neutral-default);
+        font: var(--mds-text-body);
+      }
+
+      main {
+        box-sizing: border-box;
+        inline-size: min(100%, 64rem);
+        margin-inline: auto;
+        padding: var(--mds-space-xl) var(--mds-space-md);
+      }
+
+      h1,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font: var(--mds-text-heading-2xl);
+      }
+
+      p {
+        max-inline-size: 42rem;
+        padding-block-start: var(--mds-space-2xs);
+      }
+
+      ul {
+        display: grid;
+        gap: var(--mds-space-sm);
+        margin: 0;
+        padding: var(--mds-space-lg) 0 0;
+      }
+
+      li {
+        display: block;
+      }
+
+      a {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--mds-space-sm);
+        padding: var(--mds-space-md);
+        border: 1px solid var(--mds-border-brand-neutral-low);
+        border-radius: var(--mds-radius-sm);
+        background: var(--mds-background-surface-default);
+        color: var(--mds-text-and-icons-brand-primary-mid);
+        font: var(--mds-text-label);
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.18em;
+      }
+
+      a::after {
+        content: "View example";
+        color: var(--mds-text-and-icons-brand-neutral-muted);
+        font: var(--mds-text-caption);
+      }
+
+      a:focus-visible,
+      a:hover {
+        border-color: var(--mds-border-brand-primary-mid);
+        color: var(--mds-text-and-icons-brand-primary-mid);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Required Components</h1>
+      <p>Component examples for the Massachusetts Design System.</p>
+      <ul>
+        <li>
+          <a href="./state-banner/">State Banner</a>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
