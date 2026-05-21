@@ -6,6 +6,10 @@
   "files": [
     "required-components/"
   ],
+  "scripts": {
+    "demo": "node ./scripts/demo-server.js --open",
+    "serve": "node ./scripts/demo-server.js"
+  },
   "peerDependencies": {
     "@massds/mds-assets": "^1.1.1",
     "@massds/mds-styles": "^0.1.0",
