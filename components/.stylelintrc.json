@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
+  "rules": {
+    "alpha-value-notation": null,
+    "color-hex-length": "long",
+    "color-function-notation": null,
+    "custom-property-empty-line-before": null,
+    "font-family-name-quotes": "always-where-required",
+    "import-notation": null,
+    "media-feature-range-notation": "prefix",
+    "selector-class-pattern": null,
+    "value-keyword-case": null,
+    "scss/at-import-partial-extension": null
+  }
+}
