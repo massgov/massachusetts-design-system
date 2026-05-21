@@ -3,6 +3,7 @@
   This file contains the styles for the State Banner component, which is a required component in the Massachusetts design system.
   It is compiled into styles.css by components/scripts/build.js.
 **/
+
 /** Reset styles TODO: move to css reset **/
 *,
 *::before,
@@ -48,7 +49,7 @@ p {
   flex-wrap: wrap;
   align-items: center;
   gap: 0 var(--mds-space-sm);
-  width: 100%; /** Make clickable area of the banner full width**/
+  width: 100%; /** Make clickable area of the banner full width **/
 }
 
 .mds-state-banner__brand {
@@ -107,17 +108,16 @@ p {
 .mds-state-banner__summary::-webkit-details-marker {
   display: none;
 }
-/**/
-
-.mds-state-banner__details[open] .mds-state-banner__caret {
-  transform: rotate(180deg);
-}
 
 .mds-state-banner__caret {
   width: 1.5rem;
   height: 1.5rem;
   transition: transform 160ms ease;
   font-weight: bold;
+}
+
+.mds-state-banner__details[open] .mds-state-banner__caret {
+  transform: rotate(180deg);
 }
 
 .mds-state-banner__items {
