@@ -6,7 +6,8 @@ Describe the change in a few sentences.
 
 - [ ] `packages/assets`
 - [ ] `packages/tokens`
-- [ ] No package release impact
+- [ ] `packages/styles`
+- [ ] No impact on published packages
 
 ## Changelog
 

@@ -2,15 +2,46 @@
   "name": "@massds/mds-styles",
   "version": "0.1.0",
   "description": "Generated helper and utility CSS for the Massachusetts Design System",
+  "style": "dist/index.css",
+  "sass": "src/index.scss",
   "files": [
-    "dist/"
+    "dist/",
+    "src/"
   ],
+  "exports": {
+    ".": {
+      "sass": "./src/index.scss",
+      "style": "./dist/index.css",
+      "default": "./dist/index.css"
+    },
+    "./index.css": "./dist/index.css",
+    "./index.min.css": "./dist/index.min.css",
+    "./colors.css": "./dist/colors.css",
+    "./helpers.css": "./dist/helpers.css",
+    "./utilities.css": "./dist/utilities.css",
+    "./dist/*": "./dist/*",
+    "./scss": "./src/index.scss",
+    "./scss/colors": "./src/colors.scss",
+    "./scss/helpers": "./src/helpers.scss",
+    "./scss/utilities": "./src/utilities.scss",
+    "./scss/mixins": "./src/mixins/index.scss",
+    "./scss/mixins/index": "./src/mixins/index.scss",
+    "./scss/mixins/*": "./src/mixins/_*.scss",
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "build": "node ./scripts/build.js",
+    "changelog:release": "bash ../../scripts/compile-package-changelog.sh .",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "demo": "node ./scripts/open-styles-demo.js",
     "lint": "stylelint \"src/**/*.scss\" \"demo/**/*.css\"",
     "lint:fix": "stylelint --fix \"src/**/*.scss\" \"demo/**/*.css\"",
+    "prepublishOnly": "node ./scripts/build.js",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "release": "git push origin --tags",
     "watch": "node ./scripts/watch.js"
   },
   "repository": {

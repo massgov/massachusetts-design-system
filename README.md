@@ -4,7 +4,7 @@ This repository contains the source code for Massachusetts Design System package
 
 - `packages/assets` for icons, animation files, and state seal assets published as `@massds/mds-assets`
 - `packages/tokens` for CSS design tokens published as `@massds/mds-tokens`
-- `packages/styles` for generated helper and utility CSS `@massds/mds-styles` (currently not published)
+- `packages/styles` for generated helper and utility CSS published as `@massds/mds-styles`
 
 Each package has its own README with package-specific development and publishing details.
 
