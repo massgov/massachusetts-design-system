@@ -2,6 +2,12 @@
 
 Helper and utility CSS for the Massachusetts Design System. This package is intended to sit on top of `@massds/mds-tokens` and provide composable layout and spacing classes generated from a small Sass source layer.
 
+## Installation
+
+```bash
+npm install @massds/mds-styles @massds/mds-tokens
+```
+
 ## Usage
 
 Import tokens first, then styles:
@@ -11,7 +17,20 @@ Import tokens first, then styles:
 @import "@massds/mds-styles/dist/index.min.css";
 ```
 
+The package also exposes shorter CSS entrypoints for bundlers that honor package exports:
+
+```css
+@import "@massds/mds-styles/index.min.css";
+```
+
 This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages. The build publishes a bundled `dist/index.css` for readable distribution and a bundled, minified `dist/index.min.css` for production use. The individual layer files are also published when you want to import them separately.
+
+For Sass consumers, the package publishes its source SCSS:
+
+```scss
+@use "@massds/mds-styles/scss";
+@use "@massds/mds-styles/scss/mixins";
+```
 
 ## Package Contents
 
@@ -24,6 +43,17 @@ dist/
 ├── index.css
 ├── index.min.css
 └── utilities.css
+```
+
+It also includes Sass source files under `src/` for consumers and component packages that need the authored utility and mixin layer:
+
+```text
+src/
+├── colors.scss
+├── helpers.scss
+├── index.scss
+├── mixins/
+└── utilities.scss
 ```
 
 - `dist/colors.css` contains color utility classes generated from semantic background and text/icon tokens
@@ -266,3 +296,36 @@ To add a new utility family:
 4. Rebuild with `npm run build`
 
 This keeps the authored source small while still producing explicit CSS for consumers.
+
+## Changelogs
+
+For each PR, add a changelog fragment under `packages/styles/changelog.d/` using the example in `changelog.template.md`.
+
+When preparing a release, run `npm run changelog:release -- <version> <date>` from `packages/styles`, or omit arguments to use the version from `package.json` and today’s date.
+
+## Publishing
+
+The package is published to npm as `@massds/mds-styles` with the GitHub Actions workflow at `.github/workflows/publish-styles.yml`.
+
+Recommended branch and tag strategy for styles:
+
+- Use `main` as the long-lived release branch for `@massds/mds-styles`.
+- Merge styles release work into `main` through a pull request with required checks.
+- Create styles release tags only from commits already on `main`.
+- Use the `styles-v*` tag prefix for every styles release.
+
+Styles release flow:
+
+1. Create a release branch from `main`, based on [semantic versioning](https://semver.org/), for example `release/styles-0.1.1`
+2. Update `packages/styles/package.json` to the release version
+3. Run `npm i & npm run build` and commit changes
+4. Run `npm run changelog:release -- <version> <date>` from `packages/styles`, or omit arguments to use the version from `package.json` and today’s date
+5. Merge the release branch into `main` through a pull request
+6. In the GitHub UI, create the release tag for the merged release commit using the format `styles-v*`, for example `styles-v0.1.1`
+7. In the GitHub Release for that tag, copy the relevant release notes from `packages/styles/CHANGELOG.md`
+8. Creating the tag in GitHub triggers `.github/workflows/publish-styles.yml` to publish the package
+
+Release channels:
+
+- Stable releases use normal semver versions such as `0.1.1` and tags such as `styles-v0.1.1`. These publish to npm on the default `latest` dist-tag.
+- Prereleases use semver prerelease versions such as `0.2.0-beta.1` and tags such as `styles-v0.2.0-beta.1`. These publish to npm on the `beta` dist-tag.
