@@ -6,13 +6,14 @@
     <title>MDS Footer</title>
     <link rel="stylesheet" href="../../../packages/tokens/src/index.css" />
     <link rel="stylesheet" href="../../../packages/styles/dist/index.css" />
+    <link rel="stylesheet" href="/@massds/mds-styles/dist/index.css" />
     <link rel="stylesheet" href="./footer.css" />
   </head>
   <body class="mds-body">
     <footer class="mds-footer mds-background-section-brand-neutral-lowest mds-text-and-icons-brand-neutral-default">
       <div class="mds-section-container mds-footer__container">
-        <div class="mds-footer__primary mds-padding-block-2xl">
-          <section class="mds-footer__brand" aria-labelledby="mds-footer-site-name">
+        <div class="mds-footer__primary mds-grid mds-padding-block-2xl">
+          <section class="mds-footer__brand mds-grid-4-column" aria-labelledby="mds-footer-site-name">
             <div class="mds-footer__brand-heading">
               <img
                 class="mds-footer__seal"
@@ -59,7 +60,7 @@
             </p>
           </section>
 
-          <section class="mds-footer__column" aria-labelledby="mds-footer-contact-heading">
+          <section class="mds-footer__column mds-grid-4-column" aria-labelledby="mds-footer-contact-heading">
             <h2
               id="mds-footer-contact-heading"
               class="mds-footer__heading mds-text-eyebrow-md mds-text-transform-eyebrow mds-letter-spacing-eyebrow mds-text-and-icons-brand-neutral-muted"
@@ -113,7 +114,7 @@
             </address>
           </section>
 
-          <nav class="mds-footer__column" aria-labelledby="mds-footer-links-heading-1">
+          <nav class="mds-footer__column mds-grid-4-column" aria-labelledby="mds-footer-links-heading-1">
             <h2
               id="mds-footer-links-heading-1"
               class="mds-footer__heading mds-text-eyebrow-md mds-text-transform-eyebrow mds-letter-spacing-eyebrow mds-text-and-icons-brand-neutral-muted"
@@ -130,7 +131,7 @@
             </ul>
           </nav>
 
-          <nav class="mds-footer__column" aria-labelledby="mds-footer-links-heading-2">
+          <nav class="mds-footer__column mds-grid-4-column" aria-labelledby="mds-footer-links-heading-2">
             <h2
               id="mds-footer-links-heading-2"
               class="mds-footer__heading mds-text-eyebrow-md mds-text-transform-eyebrow mds-letter-spacing-eyebrow mds-text-and-icons-brand-neutral-muted"
@@ -147,21 +148,22 @@
             </ul>
           </nav>
         </div>
+        <section class="mds-grid-full">
+          <nav class="mds-footer__legal-nav mds-text-label-md" aria-label="Required policies">
+            <ul>
+              <li><a href="#">Digital Accessibility Statement</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Site Policies</a></li>
+              <li><a href="#">Public Records Requests</a></li>
+            </ul>
+          </nav>
 
-        <nav class="mds-footer__legal-nav mds-text-label-md" aria-label="Required policies">
-          <ul>
-            <li><a href="#">Digital Accessibility Statement</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Site Policies</a></li>
-            <li><a href="#">Public Records Requests</a></li>
-          </ul>
-        </nav>
-
-        <div class="mds-footer__fine-print mds-text-caption-md mds-text-and-icons-brand-neutral-muted">
-          <p>Funding details lorem ipsum dolor sit amet lorem ipsum dolore sit amet</p>
-          <p><strong>© 2026 Commonwealth of Massachusetts.</strong></p>
-          <p>Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.</p>
-        </div>
+          <div class="mds-footer__fine-print mds-text-caption-md mds-text-and-icons-brand-neutral-muted">
+            <p>Funding details lorem ipsum dolor sit amet lorem ipsum dolore sit amet</p>
+            <p><strong>© 2026 Commonwealth of Massachusetts.</strong></p>
+            <p>Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.</p>
+          </div>
+        </section>
       </div>
     </footer>
   </body>

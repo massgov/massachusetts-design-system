@@ -10,16 +10,11 @@
 .mds-footer *::after {
   box-sizing: border-box;
 }
+
 /** overrides section container
 .mds-footer__container {
   width: 100%;
 } **/
-
-.mds-footer__primary {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--mds-space-lg);
-}
 
 /** List resets, TODO: move to global reset **/
 .mds-footer__link-list,
@@ -198,12 +193,6 @@
 
 .mds-footer__icon--envelope {
   --mds-footer-icon-path: url("../../../packages/assets/src/icons/static/envelope.svg");
-}
-
-@media (max-width: 1024px) {
-  .mds-footer__primary {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 768px) {
