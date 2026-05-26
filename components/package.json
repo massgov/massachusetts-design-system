@@ -17,12 +17,12 @@
   },
   "peerDependencies": {
     "@massds/mds-assets": "^1.1.1",
-    "@massds/mds-styles": "^0.1.0",
+    "@massds/mds-styles": "^0.1.0-beta.0",
     "@massds/mds-tokens": "^1.0.0"
   },
   "devDependencies": {
     "@massds/mds-assets": "^1.1.1",
-    "@massds/mds-styles": "^0.1.0",
+    "@massds/mds-styles": "^0.1.0-beta.0",
     "@massds/mds-tokens": "^1.0.0",
     "htmlhint": "^1.7.1",
     "sass": "^1.93.2",
