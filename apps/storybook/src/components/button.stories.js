@@ -1,3 +1,4 @@
+import '@massds/mds-components/button.css';
 import { initMdsButtons, renderButton } from '@massds/mds-components/button';
 
 const meta = {

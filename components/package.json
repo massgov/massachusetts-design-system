@@ -1,5 +1,5 @@
 {
-  "name": "@massds/mds-components",
+  "name": "@massds/mds-components-legacy",
   "version": "0.1.0",
   "private": true,
   "description": "Required HTML, CSS, and JavaScript components for the Massachusetts Design System",

@@ -1,3 +1,5 @@
+import { mergeConfig } from 'vite';
+
 const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|mjs)'],
   addons: ['@storybook/addon-docs'],
@@ -7,7 +9,17 @@ const config = {
   },
   docs: {
     autodocs: 'tag'
-  }
+  },
+  viteFinal: async (config) => mergeConfig(config, {
+    build: {
+      chunkSizeWarningLimit: 1200
+    },
+    resolve: {
+      alias: {
+        path: 'path-browserify'
+      }
+    }
+  })
 };
 
 export default config;

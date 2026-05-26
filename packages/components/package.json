@@ -1,0 +1,46 @@
+{
+  "name": "@massds/mds-components",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Twig-authored static HTML, CSS, and JavaScript components for the Massachusetts Design System",
+  "type": "module",
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./button": {
+      "import": "./dist/button/index.js",
+      "default": "./dist/button/index.js"
+    },
+    "./button.css": "./dist/button/button.css",
+    "./button.js": "./dist/button/button.js",
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "node ./scripts/build.js",
+    "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "twig": "^3.0.0"
+  },
+  "peerDependencies": {
+    "@massds/mds-tokens": "^1.0.0"
+  },
+  "devDependencies": {
+    "@massds/mds-tokens": "^1.0.0"
+  },
+  "engines": {
+    "node": "24.14.0"
+  },
+  "volta": {
+    "node": "24.14.0",
+    "npm": "10.9.2"
+  }
+}

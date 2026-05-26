@@ -1,0 +1,56 @@
+.mds-button {
+  --mds-button-background: var(--mds-background-section-brand-primary-mid);
+  --mds-button-background-hover: var(--mds-background-section-brand-primary-highest);
+  --mds-button-border: var(--mds-border-brand-primary-mid);
+  --mds-button-color: var(--mds-text-and-icons-utility-static-white);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  max-width: 100%;
+  padding: var(--mds-space-100) var(--mds-space-200);
+  border: 2px solid var(--mds-button-border);
+  border-radius: var(--mds-radius-sm);
+  background: var(--mds-button-background);
+  color: var(--mds-button-color);
+  cursor: pointer;
+  font: var(--mds-text-label);
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+.mds-button:hover {
+  --mds-button-background: var(--mds-button-background-hover);
+}
+
+.mds-button:focus-visible {
+  outline: 3px solid var(--mds-border-focus-on-light);
+  outline-offset: 2px;
+}
+
+.mds-button:disabled,
+.mds-button[aria-disabled="true"] {
+  --mds-button-background: var(--mds-background-section-brand-neutral-disabled);
+  --mds-button-border: var(--mds-border-brand-neutral-low);
+  --mds-button-color: var(--mds-text-and-icons-brand-neutral-disabled);
+
+  cursor: not-allowed;
+}
+
+.mds-button--secondary {
+  --mds-button-background: var(--mds-background-surface-default);
+  --mds-button-background-hover: var(--mds-background-section-brand-primary-lowest);
+  --mds-button-border: var(--mds-border-brand-primary-mid);
+  --mds-button-color: var(--mds-text-and-icons-brand-primary-mid);
+}
+
+.mds-button--full-width {
+  display: flex;
+  width: 100%;
+}
+
+.mds-button__label {
+  overflow-wrap: anywhere;
+}
