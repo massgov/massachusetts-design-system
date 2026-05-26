@@ -16,3 +16,17 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 ### Removed
 * [DP-45882] Cleaned up duplicated primitive tokens. #16
 
+
+## 1.1.0 (5/26/2026)
+
+### Added
+* [DP-46579] Added line height tokens to semantic token file #38
+* [DP-46621] Add specific context variables for static colors, with updates to related styles. Update primitives to match latest variables in Figma.
+
+### Fixed
+* [DP-46214] Fix mismatching primitive token names. #30
+* [DP-46814] Updated to latest value for static black #41
+
+### Removed
+* [DP-47113] Remove tokens empty lines at the end of file. #45
+
