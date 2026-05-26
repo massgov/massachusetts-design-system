@@ -35,11 +35,15 @@ p {
 }
 
 .mds-state-banner__container {
+  @include mds-section-container;
   background: transparent;
   color: inherit;
 }
 
 .mds-state-banner {
+  background-color: var(--mds-background-section-utility-static-black);
+  color: var(--mds-background-section-utility-static-white);
+  padding-block: var(--mds-space-3xs);
   width: 100%;
   font: var(--mds-text-body); /** need to use var instead of utility class to best support font size change for smaller screens **/
 }
