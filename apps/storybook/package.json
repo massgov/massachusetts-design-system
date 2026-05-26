@@ -1,0 +1,31 @@
+{
+  "name": "@massds/storybook",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Storybook documentation site for Massachusetts Design System packages",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run storybook",
+    "storybook": "npm run build --workspace @massds/mds-components && storybook dev -p 6006",
+    "storybook:build": "npm run build --workspace @massds/mds-components && storybook build"
+  },
+  "dependencies": {
+    "@massds/mds-assets": "^1.1.1",
+    "@massds/mds-components": "^0.1.0",
+    "@massds/mds-styles": "^0.1.0",
+    "@massds/mds-tokens": "^1.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "^10.4.1",
+    "@storybook/html-vite": "^10.4.1",
+    "storybook": "^10.4.1",
+    "vite": "^8.0.14"
+  },
+  "engines": {
+    "node": "24.14.0"
+  },
+  "volta": {
+    "node": "24.14.0",
+    "npm": "10.9.2"
+  }
+}
