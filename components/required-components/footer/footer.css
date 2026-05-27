@@ -3,6 +3,11 @@
   color: var(--mds-text-and-icons-brand-neutral-default);
 }
 
+.mds-footer--primary {
+  background-color: var(--mds-background-adaptive-brand-primary-highest);
+  color: var(--mds-text-and-icons-utility-inverse);
+}
+
 .mds-footer *,
 .mds-footer *::before,
 .mds-footer *::after {
@@ -75,18 +80,6 @@ address {
   display: flex;
   flex-wrap: wrap;
   gap: var(--mds-space-2xs);
-}
-
-.mds-footer__social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: var(--mds-radius-md);
-  background-color: var(--mds-background-adaptive-brand-primary-mid);
-  color: var(--mds-inverse);
-  text-decoration: none;
 }
 
 .mds-footer__social-link:hover {
@@ -181,50 +174,24 @@ address {
   margin-block-end: var(--mds-space-sm);
 }
 
-/** These will be atomic components **/
 .mds-footer__icon {
   display: inline-block;
   flex: 0 0 auto;
   width: 1.25rem;
   height: 1.25rem;
-  background-color: currentcolor;
-  mask: var(--mds-footer-icon-path) center / contain no-repeat;
-} /** why don't these icons show up? **/
-
-.mds-footer__icon--facebook {
-  --mds-footer-icon-path: url("../../../packages/assets/src/icons/static/facebook-logo.svg");
 }
 
-.mds-footer__icon--x {
-  --mds-footer-icon-path: url("../../../packages/assets/src/icons/static/x-logo.svg");
+.mds-footer__contact svg {
+  color: var(--mds-background-adaptive-brand-primary-mid);
+  margin-top: var(--mds-space-3xs);
 }
 
-.mds-footer__icon--linkedin {
-  --mds-footer-icon-path: url("../../../packages/assets/src/icons/static/linked-in-logo.svg");
+.mds-footer--primary .mds-footer__description, .mds-footer--primary .mds-footer__heading, .mds-footer--primary .mds-footer__contact-address, .mds-footer--primary .mds-footer__contact-note, .mds-footer--primary .mds-footer__contact-item, .mds-footer--primary .mds-footer__fine-print p, .mds-footer--primary .mds-footer__contact-link, .mds-footer--primary .mds-footer__link-list a, .mds-footer--primary .mds-footer__legal-nav a {
+  color: var(--mds-text-and-icons-utility-inverse);
 }
 
-.mds-footer__icon--youtube {
-  --mds-footer-icon-path: url("../../../packages/assets/src/icons/static/youtube-logo.svg");
-}
-
-.mds-footer__icon--instagram {
-  --mds-footer-icon-path: url("../../../packages/assets/src/icons/static/instagram-logo.svg");
-}
-
-.mds-footer__icon--map-pin {
-  --mds-footer-icon-path: url("../../../packages/assets/src/icons/static/map-pin.svg");
-}
-
-.mds-footer__icon--phone {
-  --mds-footer-icon-path: url("../../../packages/assets/src/icons/static/phone-call.svg");
-}
-
-.mds-footer__icon--globe {
-  --mds-footer-icon-path: url("../../../packages/assets/src/icons/static/globe.svg");
-}
-
-.mds-footer__icon--envelope {
-  --mds-footer-icon-path: url("../../../packages/assets/src/icons/static/envelope.svg");
+.mds-footer--primary .mds-footer__contact-link, .mds-footer--primary .mds-footer__contact-icon svg {
+  color: var(--mds-background-adaptive-brand-primary-low);
 }
 
 @media (max-width: 768px) {
