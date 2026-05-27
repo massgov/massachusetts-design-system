@@ -27,8 +27,8 @@ npm run lint
 
 ## Scripts
 
-- `npm run build` compiles component source files, including `styles.scss` to `styles.css`
-- `npm run clean` removes generated component CSS
+- `npm run build` compiles component source files, including `styles.scss` to `styles.css`, then writes publishable HTML and CSS to `dist/required-components/`
+- `npm run clean` removes generated component CSS and the `dist/` output
 - `npm run lint` runs HTML and SCSS lint checks
 - `npm run lint:html` lints component demo HTML
 - `npm run lint:scss` lints component SCSS
@@ -40,3 +40,6 @@ npm run lint
 Component examples live in `required-components/`.
 
 The demo entry page is `required-components/index.html`. Add each new component example in its own folder, then link to it from the entry page.
+
+Source HTML can use local workspace package routes such as `/@massds/mds-tokens/dist/index.css`.
+During `npm run build`, those routes are rewritten in `dist/required-components/**/*.html` to versioned unpkg URLs using the versions declared in `devDependencies`.
