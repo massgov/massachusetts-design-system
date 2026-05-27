@@ -234,26 +234,26 @@
  */
 
 /** Duration **/
-  --mds-motion-duration-fastest: var(--mds-duration-100);
-  --mds-motion-duration-faster: var(--mds-duration-200);
-  --mds-motion-duration-fast: var(--mds-duration-300);
-  --mds-motion-duration-mid: var(--mds-duration-400);
-  --mds-motion-duration-slow: var(--mds-duration-500);
-  --mds-motion-duration-slower: var(--mds-duration-600);
-  --mds-motion-duration-slowest: var(--mds-duration-800);
+  --mds-motion-duration-fastest: var(--mds-motion-duration-100);
+  --mds-motion-duration-faster: var(--mds-motion-duration-200);
+  --mds-motion-duration-fast: var(--mds-motion-duration-300);
+  --mds-motion-duration-mid: var(--mds-motion-duration-400);
+  --mds-motion-duration-slow: var(--mds-motion-duration-500);
+  --mds-motion-duration-slower: var(--mds-motion-duration-600);
+  --mds-motion-duration-slowest: var(--mds-motion-duration-800);
 
   /** Easing **/
-  --mds-motion-ease-linear: var(--mds-ease-curve-linear);
-  --mds-motion-ease-in: var(--mds-ease-curve-accelerate);
-  --mds-motion-ease-out: var(--mds-ease-curve-decelerate);
-  --mds-motion-ease-in-out: var(--mds-ease-curve-standard);
+  --mds-motion-ease-linear: var(--mds-motion-ease-curve-linear);
+  --mds-motion-ease-in: var(--mds-motion-ease-curve-accelerate);
+  --mds-motion-ease-out: var(--mds-motion-ease-curve-decelerate);
+  --mds-motion-ease-in-out: var(--mds-motion-ease-curve-standard);
 
   /** Delay **/
-  --mds-motion-delay-shortest: var(--mds-delay-60);
-  --mds-motion-delay-short: var(--mds-delay-150);
-  --mds-motion-delay-long: var(--mds-delay-2000);
-  --mds-motion-delay-longer: var(--mds-delay-5000);
-  --mds-motion-delay-longest: var(--mds-delay-8000);
+  --mds-motion-delay-shortest: var(--mds-motion-delay-60);
+  --mds-motion-delay-short: var(--mds-motion-delay-150);
+  --mds-motion-delay-long: var(--mds-motion-delay-2000);
+  --mds-motion-delay-longer: var(--mds-motion-delay-5000);
+  --mds-motion-delay-longest: var(--mds-motion-delay-8000);
 
   /** Distance (how far an element travels) **/
   --mds-motion-distance-2xs: var(--mds-space-50);
