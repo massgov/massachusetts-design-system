@@ -1,3 +1,10 @@
+/** TODO: put this in general styling rather than in the specific component styles **/
+:focus-visible, :focus {
+  border-radius: var(--mds-radius-sm);
+  outline: 2px solid var(--mds-border-focus-on-light);
+  outline-offset: 2px;
+}
+
 .mds-footer {
   background-color: var(--mds-background-section-brand-neutral-lowest);
   color: var(--mds-text-and-icons-brand-neutral-default);
