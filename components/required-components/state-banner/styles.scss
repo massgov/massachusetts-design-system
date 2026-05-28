@@ -1,15 +1,19 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
 
-/**
-  State Banner Required Component Styles
-  This file contains the styles for the State Banner component, which is a required component in the Massachusetts design system.
-  It is compiled into styles.css by components/scripts/build.js.
-**/
+$state-banner-transition-duration: 300ms;
+$state-banner-transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
+$state-banner-transition-open-easing: ease-in;
+$state-banner-panel-offset: -8px;
+$state-banner-caret-transition-duration: 160ms;
+$state-banner-icon-size: 1.5rem;
+$state-banner-item-icon-size: 1.875rem;
+$state-banner-item-min-width: 20rem;
 
 @include mixins.component-reset;
 
 /** Actual MDS component styles **/
 
+// Container and banner shell.
 .mds-state-banner__container {
   @include mixins.section-container;
 
@@ -25,6 +29,7 @@
   font: var(--mds-text-body); /** need to use var instead of utility class to best support font size change for smaller screens **/
 }
 
+// Banner summary content.
 .mds-state-banner__inner {
   display: flex;
   flex-wrap: wrap;
@@ -40,8 +45,8 @@
 }
 
 .mds-state-banner__seal {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: $state-banner-icon-size;
+  height: $state-banner-icon-size;
   align-self: self-start;
   margin-top: 2px; /** needs more spacing above, but needs to align to top for wrapping to work **/
 }
@@ -54,6 +59,7 @@
   line-height: 1.75; /** to match how it renders in figma, even though this is the same value of 1.8 in both **/
 }
 
+// Expandable details panel.
 .mds-state-banner__details {
   interpolate-size: allow-keywords; /** need this to allow for the "auto" value in block-size to transition properly **/
 }
@@ -62,12 +68,12 @@
   block-size: 0;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(-8px);
+  transform: translateY($state-banner-panel-offset);
   transition: /** TODO update with animation tokens once we have them defined **/
-    block-size 300ms cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 300ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
-    content-visibility 300ms cubic-bezier(0.16, 1, 0.3, 1) allow-discrete;
+    block-size $state-banner-transition-duration $state-banner-transition-easing,
+    opacity $state-banner-transition-duration $state-banner-transition-easing,
+    transform $state-banner-transition-duration $state-banner-transition-easing,
+    content-visibility $state-banner-transition-duration $state-banner-transition-easing allow-discrete;
 }
 
 .mds-state-banner__details[open]::details-content {
@@ -75,12 +81,13 @@
   opacity: 1;
   transform: translateY(0);
   transition: /** TODO update with animation duration token once we have them **/
-    block-size 300ms ease-in,
-    opacity 300ms ease-in,
-    transform 300ms ease-in,
-    content-visibility 300ms ease-in allow-discrete;
+    block-size $state-banner-transition-duration $state-banner-transition-open-easing,
+    opacity $state-banner-transition-duration $state-banner-transition-open-easing,
+    transform $state-banner-transition-duration $state-banner-transition-open-easing,
+    content-visibility $state-banner-transition-duration $state-banner-transition-open-easing allow-discrete;
 }
 
+// Summary disclosure affordance.
 .mds-state-banner__summary {
   @include mixins.focus;
 }
@@ -95,10 +102,10 @@
 }
 
 .mds-state-banner__caret {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: $state-banner-icon-size;
+  height: $state-banner-icon-size;
   margin-inline-start: var(--mds-space-2xs);
-  transition: transform 160ms ease;
+  transition: transform $state-banner-caret-transition-duration ease;
   font-weight: bold;
 }
 
@@ -106,6 +113,7 @@
   transform: rotate(180deg);
 }
 
+// Expanded panel content.
 .mds-state-banner__items {
   display: flex;
   flex-wrap: wrap;
@@ -116,13 +124,13 @@
   display: flex;
   align-items: flex-start;
   gap: var(--mds-space-sm);
-  flex: 1 1 20rem;
+  flex: 1 1 $state-banner-item-min-width;
   padding-block: var(--mds-space-2xs) var(--mds-space-sm);
 }
 
 .mds-state-banner__item-icon {
-  width: 1.875rem;
-  height: 1.875rem;
+  width: $state-banner-item-icon-size;
+  height: $state-banner-item-icon-size;
   fill: currentColor;
   flex: none;
 }
@@ -147,13 +155,14 @@
   padding-block-start: var(--mds-space-2xs);
 }
 
-@media (max-width: 768px) {
+// Responsive refinements.
+@include mixins.max-width(md) {
   .mds-state-banner__seal {
     align-self: self-start;
   }
 }
 
-@media (max-width: 480px) {
+@include mixins.max-width(sm) {
   .mds-state-banner__container {
     padding-inline: var(--mds-space-sm);
   }
@@ -183,8 +192,8 @@
   }
 
   .mds-state-banner__item-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: $state-banner-icon-size;
+    height: $state-banner-icon-size;
   }
 
   .mds-state-banner__item-copy p,
