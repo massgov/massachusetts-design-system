@@ -248,7 +248,7 @@ These aliases should be treated as deprecated for new work. Prefer `.mds-grid-sp
 src/
 ├── class-generators/
 │   ├── _colors.scss
-│   ├── _helper-classes.scss
+│   ├── _helpers.scss
 │   ├── _scales.scss
 │   ├── _utilities.scss
 │   ├── emitters/
@@ -273,7 +273,7 @@ src/
 - `mixins/_grid.scss` contains component-facing grid mixins
 - `mixins/index.scss` forwards the public shared mixin API so files can `@use "./mixins"`
 - `class-generators/index.scss` is the internal CSS build entrypoint
-- `class-generators/_colors.scss`, `_helper-classes.scss`, and `_utilities.scss` define which classes get emitted
+- `class-generators/_colors.scss`, `_helpers.scss`, and `_utilities.scss` define which classes get emitted
 - `class-generators/_scales.scss` stores token-backed scales shared by generated class families
 - `class-generators/emitters/` contains reusable class-emitter mixins
 
