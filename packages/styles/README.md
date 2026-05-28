@@ -1,6 +1,6 @@
 # Massachusetts Design System Styles
 
-Helper and utility CSS for the Massachusetts Design System. This package is intended to sit on top of `@massds/mds-tokens` and provide composable layout and spacing classes generated from a small Sass source layer.
+Shared Sass and bundled CSS for the Massachusetts Design System. This package is intended to sit on top of `@massds/mds-tokens`, provide composable utility classes for standalone use, and give component packages build-time mixins for self-contained component CSS.
 
 ## Installation
 
@@ -14,7 +14,7 @@ Import tokens first, then styles:
 
 ```css
 @import "@massds/mds-tokens/dist/index.css";
-@import "@massds/mds-styles/dist/index.min.css";
+@import "@massds/mds-styles/dist/css/index.min.css";
 ```
 
 The package also exposes shorter CSS entrypoints for bundlers that honor package exports:
@@ -23,29 +23,38 @@ The package also exposes shorter CSS entrypoints for bundlers that honor package
 @import "@massds/mds-styles/index.min.css";
 ```
 
-This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages. The build publishes a bundled `dist/index.css` for readable distribution and a bundled, minified `dist/index.min.css` for production use. The individual layer files are also published when you want to import them separately.
+This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages. The build publishes a bundled `dist/css/index.css` for readable distribution and a bundled, minified `dist/css/index.min.css` for production use.
 
-For Sass consumers, the package publishes its source SCSS:
+For Sass consumers, the package publishes build-time SCSS under `dist/scss`:
 
 ```scss
-@use "@massds/mds-styles/scss";
-@use "@massds/mds-styles/scss/mixins";
+@use "pkg:@massds/mds-styles/scss";
+@use "pkg:@massds/mds-styles/scss/helpers";
+@use "pkg:@massds/mds-styles/scss/mixins";
 ```
+
+Use Sass's Node package importer for `pkg:` imports.
 
 ## Package Contents
 
-The published package includes generated CSS files under `dist/`:
+The published package includes bundled CSS and Sass files under `dist/`:
 
 ```text
 dist/
-├── colors.css
-├── helpers.css
-├── index.css
-├── index.min.css
-└── utilities.css
+├── css/
+│   ├── index.css
+│   └── index.min.css
+└── scss/
+    ├── helpers.scss
+    ├── index.scss
+    └── mixins/
+        ├── _breakpoints.scss
+        ├── _grid.scss
+        ├── _resets.scss
+        └── index.scss
 ```
 
-It also includes Sass source files under `src/` for consumers and component packages that need the authored utility and mixin layer:
+The source files remain authored under `src/` in this repository. The shared helper and mixin modules are copied into `dist/scss/` at build time for consumers and component packages.
 
 ```text
 src/
@@ -56,21 +65,20 @@ src/
 └── utilities.scss
 ```
 
-- `dist/colors.css` contains color utility classes generated from semantic background and text/icon tokens
-- `dist/helpers.css` contains reusable structural classes such as the grid container and section container
-- `dist/utilities.css` contains generated utility classes such as typography, spacing, radius, shadow, gap, and grid span utilities
-- `dist/index.css` is the bundled unminified package entry stylesheet
-- `dist/index.min.css` is the bundled, minified production stylesheet for the package
+- `dist/css/index.css` is the bundled unminified package entry stylesheet
+- `dist/css/index.min.css` is the bundled, minified production stylesheet for the package
+- `dist/scss/helpers.scss` exposes helper mixins, so component packages can include structural styles without requiring helper classes in markup
+- `dist/scss/mixins/_resets.scss` exposes shared reset mixins for component builds
 
 ## Naming Conventions
 
-Utilities and helpers uses flat, token-driven classnames, for example `.mds-padding-inline-md`, `.mds-gap-sm`, `.mds-shadow-container` and `mds-section-container`.
+Utilities and helpers use flat, token-driven classnames, for example `.mds-padding-inline-md`, `.mds-gap-sm`, `.mds-shadow-container` and `mds-section-container`.
 
 As a rule of thumb, helpers describe reusable layout patterns or structural roles, while utilities describe one specific CSS property driven by a token scale.
 
 ## Color Utilities
 
-Color utilities are generated from the semantic background, text/icon, and border token sets in `@massds/mds-tokens` and live in a dedicated `colors.css` layer.
+Color utilities are generated from the semantic background, text/icon, and border token sets in `@massds/mds-tokens` and are bundled into `dist/css/index.css`.
 
 ```html
 <div class="mds-background-section-brand-primary-lowest mds-text-inverse"></div>
@@ -234,10 +242,13 @@ These aliases should be treated as deprecated for new work. Prefer `.mds-grid-sp
 
 ```text
 src/
+├── _helper-classes.scss
 ├── colors.scss
 ├── mixins/
 │   ├── _base.scss
+│   ├── _breakpoints.scss
 │   ├── _grid.scss
+│   ├── _resets.scss
 │   ├── _space.scss
 │   ├── _scales.scss
 │   └── index.scss
@@ -247,11 +258,13 @@ src/
 ```
 
 - `mixins/_scales.scss` stores the token-backed scales shared by utility generation
+- `mixins/_resets.scss` contains reset mixins shared by component builds
 - `mixins/_base.scss` contains the shared utility generator mixins
 - `mixins/_space.scss` and `mixins/_grid.scss` contain specialized utility mixins
-- `mixins/index.scss` forwards the mixin API so files can `@use "./mixins"`
+- `mixins/index.scss` forwards the public shared mixin API so files can `@use "./mixins"`
 - `colors.scss` emits the color utility layer for background and text/icon tokens
-- `helpers.scss` contains authored structural classes
+- `helpers.scss` exposes authored structural helper mixins
+- `_helper-classes.scss` emits helper classes from those mixins for the bundled CSS entry
 - `utilities.scss` emits utility classes from the shared mixins module, including numeric grid spans such as `.mds-grid-span-6`
 - `index.scss` is the package entrypoint that imports both layers
 
@@ -268,7 +281,7 @@ npm install
 npm run build
 ```
 
-The build compiles the Sass entrypoints into `dist/`.
+The build compiles the bundled CSS entrypoint into `dist/css/` and copies Sass modules into `dist/scss/`.
 
 For local Sass development, use the watcher:
 
@@ -276,7 +289,7 @@ For local Sass development, use the watcher:
 npm run watch
 ```
 
-This opens the styles demo through a local server with hot reload. It keeps all four Sass entrypoints in `packages/styles/src/` synced to `packages/styles/dist/`, mirrors `packages/tokens/src/` into `packages/tokens/dist/`, and reloads the browser when compiled styles, token CSS, or demo files change. The demo server exposes npm workspace packages at URLs such as `/@massds/mds-tokens/dist/index.css`, so demo pages do not need fragile `../` paths back through the repository.
+This opens the styles demo through a local server with hot reload. It keeps the bundled Sass entrypoint in `packages/styles/src/` synced to `packages/styles/dist/css/`, mirrors Sass modules into `packages/styles/dist/scss/`, mirrors `packages/tokens/src/` into `packages/tokens/dist/`, and reloads the browser when compiled styles, token CSS, or demo files change. The demo server exposes npm workspace packages at URLs such as `/@massds/mds-tokens/dist/index.css`, so demo pages do not need fragile `../` paths back through the repository.
 
 You can also run the demo without Sass watchers:
 
