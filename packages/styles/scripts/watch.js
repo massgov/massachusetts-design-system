@@ -30,14 +30,7 @@ async function ensureDist() {
 
 async function syncScssDist() {
   await fsPromises.rm(scssDistDir, { recursive: true, force: true });
-  await fsPromises.mkdir(path.join(scssDistDir, 'mixins'), { recursive: true });
-  await Promise.all([
-    fsPromises.copyFile(path.join(srcDir, 'mixins', '_breakpoints.scss'), path.join(scssDistDir, 'mixins', '_breakpoints.scss')),
-    fsPromises.copyFile(path.join(srcDir, 'mixins', '_grid.scss'), path.join(scssDistDir, 'mixins', '_grid.scss')),
-    fsPromises.copyFile(path.join(srcDir, 'mixins', '_layout.scss'), path.join(scssDistDir, 'mixins', '_layout.scss')),
-    fsPromises.copyFile(path.join(srcDir, 'mixins', '_resets.scss'), path.join(scssDistDir, 'mixins', '_resets.scss')),
-    fsPromises.copyFile(path.join(srcDir, 'mixins', 'index.scss'), path.join(scssDistDir, 'mixins', 'index.scss'))
-  ]);
+  await fsPromises.cp(path.join(srcDir, 'mixins'), path.join(scssDistDir, 'mixins'), { recursive: true });
   await fsPromises.writeFile(
     path.join(scssDistDir, 'index.scss'),
     ['@forward "./mixins";', ''].join('\n'),

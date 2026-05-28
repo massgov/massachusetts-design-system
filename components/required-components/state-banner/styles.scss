@@ -10,13 +10,6 @@
 
 /** Actual MDS component styles **/
 
-/** TODO: put this in general styling rather than in the specific component styles **/
-:focus-visible, :focus {
-  border-radius: var(--mds-radius-sm);
-  outline: 2px solid var(--mds-border-focus-on-light);
-  outline-offset: 2px;
-}
-
 .mds-state-banner__container {
   @include mixins.section-container;
 
@@ -86,6 +79,10 @@
     opacity 300ms ease-in,
     transform 300ms ease-in,
     content-visibility 300ms ease-in allow-discrete;
+}
+
+.mds-state-banner__summary {
+  @include mixins.focus;
 }
 
 /** Hide the default "disclosure triangle" on the summary element **/

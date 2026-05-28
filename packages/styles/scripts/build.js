@@ -44,14 +44,7 @@ function compileSass(inputFile, outputFile, style = 'expanded') {
 
 async function copyScss() {
   await fs.rm(scssDistDir, { recursive: true, force: true });
-  await fs.mkdir(path.join(scssDistDir, 'mixins'), { recursive: true });
-  await Promise.all([
-    fs.copyFile(path.join(srcDir, 'mixins', '_breakpoints.scss'), path.join(scssDistDir, 'mixins', '_breakpoints.scss')),
-    fs.copyFile(path.join(srcDir, 'mixins', '_grid.scss'), path.join(scssDistDir, 'mixins', '_grid.scss')),
-    fs.copyFile(path.join(srcDir, 'mixins', '_layout.scss'), path.join(scssDistDir, 'mixins', '_layout.scss')),
-    fs.copyFile(path.join(srcDir, 'mixins', '_resets.scss'), path.join(scssDistDir, 'mixins', '_resets.scss')),
-    fs.copyFile(path.join(srcDir, 'mixins', 'index.scss'), path.join(scssDistDir, 'mixins', 'index.scss'))
-  ]);
+  await fs.cp(path.join(srcDir, 'mixins'), path.join(scssDistDir, 'mixins'), { recursive: true });
   await fs.writeFile(
     path.join(scssDistDir, 'index.scss'),
     ['@forward "./mixins";', ''].join('\n'),

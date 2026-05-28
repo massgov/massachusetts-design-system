@@ -47,6 +47,7 @@ dist/
     ├── index.scss
     └── mixins/
         ├── _breakpoints.scss
+        ├── _focus.scss
         ├── _grid.scss
         ├── _layout.scss
         ├── _resets.scss
@@ -61,6 +62,7 @@ src/
 ├── index.scss
 ├── mixins/
 │   ├── _breakpoints.scss
+│   ├── _focus.scss
 │   ├── _grid.scss
 │   ├── _layout.scss
 │   ├── _resets.scss
@@ -265,6 +267,7 @@ src/
 ```
 
 - Root `index.scss` and `mixins/` are the public, component-facing Sass API
+- `mixins/_focus.scss` contains focus-state styling mixins
 - `mixins/_resets.scss` contains reset mixins shared by component builds
 - `mixins/_layout.scss` contains component-facing layout mixins such as `body` and `section-container`
 - `mixins/_grid.scss` contains component-facing grid mixins
