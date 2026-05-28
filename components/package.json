@@ -4,25 +4,27 @@
   "private": true,
   "description": "Required HTML, CSS, and JavaScript components for the Massachusetts Design System",
   "files": [
-    "required-components/"
+    "dist/"
   ],
   "scripts": {
     "build": "node ./scripts/build.js",
-    "clean": "node -e \"require('fs').rmSync('required-components/state-banner/styles.css', { force: true })\"",
+    "clean": "node -e \"const fs = require('fs'); fs.rmSync('dist', { recursive: true, force: true }); fs.rmSync('required-components/state-banner/styles.css', { force: true });\"",
     "demo": "npm run build && node ./scripts/demo-server.js --open",
     "lint": "npm run lint:html && npm run lint:scss",
     "lint:html": "htmlhint \"required-components/**/*.html\"",
     "lint:scss": "stylelint \"required-components/**/*.scss\"",
-    "lint:scss:fix": "stylelint --fix \"required-components/**/*.scss\""
+    "lint:scss:fix": "stylelint --fix \"required-components/**/*.scss\"",
+    "prepublishOnly": "node ./scripts/build.js"
   },
   "peerDependencies": {
     "@massds/mds-assets": "^1.1.1",
-    "@massds/mds-tokens": "^1.0.0"
+    "@massds/mds-styles": "^0.1.0-beta.0",
+    "@massds/mds-tokens": "^1.1.0"
   },
   "devDependencies": {
     "@massds/mds-assets": "^1.1.1",
     "@massds/mds-styles": "^0.1.0-beta.0",
-    "@massds/mds-tokens": "^1.0.0",
+    "@massds/mds-tokens": "^1.1.0",
     "htmlhint": "^1.7.1",
     "sass": "^1.93.2",
     "stylelint": "^16.24.0",
