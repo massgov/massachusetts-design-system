@@ -2,14 +2,11 @@ const path = require('path');
 
 const packageRoot = path.resolve(__dirname, '..');
 const distDir = path.join(packageRoot, 'dist');
+const cssDistDir = path.join(distDir, 'css');
+const scssDistDir = path.join(distDir, 'scss');
 const srcDir = path.join(packageRoot, 'src');
 
-const sassEntries = [
-  ['colors.scss', 'colors.css'],
-  ['index.scss', 'index.css'],
-  ['helpers.scss', 'helpers.css'],
-  ['utilities.scss', 'utilities.css']
-];
+const cssEntries = [['index.scss', 'index.css']];
 
 function getSassBin() {
   const sassEntry = require.resolve('sass');
@@ -25,10 +22,12 @@ function getWorkspacePackageRoot(packageName) {
 }
 
 module.exports = {
+  cssDistDir,
+  cssEntries,
   distDir,
   getSassBin,
   getWorkspacePackageRoot,
   packageRoot,
-  sassEntries,
+  scssDistDir,
   srcDir
 };

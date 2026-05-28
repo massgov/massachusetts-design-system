@@ -1,11 +1,20 @@
 const fs = require('fs/promises');
 const path = require('path');
 const { spawn } = require('child_process');
-const { distDir, getSassBin, packageRoot, sassEntries, srcDir } = require('./shared');
+const {
+  cssDistDir,
+  cssEntries,
+  distDir,
+  getSassBin,
+  packageRoot,
+  scssDistDir,
+  srcDir
+} = require('./shared');
 
 async function cleanDist() {
   await fs.rm(distDir, { recursive: true, force: true });
-  await fs.mkdir(distDir, { recursive: true });
+  await fs.mkdir(cssDistDir, { recursive: true });
+  await fs.mkdir(scssDistDir, { recursive: true });
 }
 
 function compileSass(inputFile, outputFile, style = 'expanded') {
@@ -33,34 +42,34 @@ function compileSass(inputFile, outputFile, style = 'expanded') {
   });
 }
 
-async function bundleIndex(outputName, style) {
-  const bundleInputFile = path.join(distDir, '__bundle.scss');
-  const bundleInput = [
-    '@use "../src/colors";',
-    '@use "../src/helpers";',
-    '@use "../src/utilities";'
-  ].join('\n');
-
-  await fs.writeFile(bundleInputFile, bundleInput, 'utf8');
-
-  try {
-    await compileSass(bundleInputFile, path.join(distDir, outputName), style);
-  } finally {
-    await fs.rm(bundleInputFile, { force: true });
-  }
+async function copyScss() {
+  await fs.rm(scssDistDir, { recursive: true, force: true });
+  await fs.mkdir(path.join(scssDistDir, 'mixins'), { recursive: true });
+  await Promise.all([
+    fs.copyFile(path.join(srcDir, 'helpers.scss'), path.join(scssDistDir, 'helpers.scss')),
+    fs.copyFile(path.join(srcDir, 'mixins', '_breakpoints.scss'), path.join(scssDistDir, 'mixins', '_breakpoints.scss')),
+    fs.copyFile(path.join(srcDir, 'mixins', '_grid.scss'), path.join(scssDistDir, 'mixins', '_grid.scss')),
+    fs.copyFile(path.join(srcDir, 'mixins', '_resets.scss'), path.join(scssDistDir, 'mixins', '_resets.scss')),
+    fs.copyFile(path.join(srcDir, 'mixins', 'index.scss'), path.join(scssDistDir, 'mixins', 'index.scss'))
+  ]);
+  await fs.writeFile(
+    path.join(scssDistDir, 'index.scss'),
+    ['@forward "./helpers";', '@forward "./mixins";', ''].join('\n'),
+    'utf8'
+  );
 }
 
 async function build() {
   await cleanDist();
+  await copyScss();
 
   await Promise.all(
-    sassEntries.map(([inputName, outputName]) =>
-      compileSass(path.join(srcDir, inputName), path.join(distDir, outputName), 'expanded')
+    cssEntries.map(([inputName, outputName]) =>
+      compileSass(path.join(srcDir, inputName), path.join(cssDistDir, outputName), 'expanded')
     )
   );
 
-  await bundleIndex('index.css', 'expanded');
-  await bundleIndex('index.min.css', 'compressed');
+  await compileSass(path.join(srcDir, 'index.scss'), path.join(cssDistDir, 'index.min.css'), 'compressed');
 }
 
 build().catch((error) => {
