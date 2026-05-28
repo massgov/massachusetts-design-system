@@ -2,6 +2,8 @@
 
 Required HTML, CSS, and JavaScript components for the Massachusetts Design System.
 
+Components compile any shared `@massds/mds-styles` Sass into their own `styles.css` at build time. Component examples should only require tokens as an external stylesheet at runtime.
+
 ## Quick Start
 
 Install dependencies from the repository root:
