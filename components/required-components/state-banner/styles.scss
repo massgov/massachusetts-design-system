@@ -9,6 +9,14 @@ $state-banner-icon-size: 1.5rem;
 $state-banner-item-icon-size: 1.875rem;
 $state-banner-item-min-width: 20rem;
 
+@mixin details-content-transition($easing) {
+  transition:
+    block-size $state-banner-transition-duration $easing,
+    opacity $state-banner-transition-duration $easing,
+    transform $state-banner-transition-duration $easing,
+    content-visibility $state-banner-transition-duration $easing allow-discrete;
+}
+
 @include mixins.component-reset;
 
 /** Actual MDS component styles **/
@@ -27,132 +35,126 @@ $state-banner-item-min-width: 20rem;
   background-color: var(--mds-background-section-utility-static-black);
   color: var(--mds-text-and-icons-utility-static-white);
   font: var(--mds-text-body); /** need to use var instead of utility class to best support font size change for smaller screens **/
-}
 
-// Banner summary content.
-.mds-state-banner__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0 var(--mds-space-sm);
-  width: 100%; /** Make clickable area of the banner full width **/
-}
+  // Banner summary content.
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 var(--mds-space-sm);
+    width: 100%; /** Make clickable area of the banner full width **/
+  }
 
-.mds-state-banner__brand {
-  display: flex;
-  align-items: center;
-  gap: var(--mds-space-2xs);
-}
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-2xs);
+  }
 
-.mds-state-banner__seal {
-  width: $state-banner-icon-size;
-  height: $state-banner-icon-size;
-  align-self: self-start;
-  margin-top: 2px; /** needs more spacing above, but needs to align to top for wrapping to work **/
-}
+  &__seal {
+    width: $state-banner-icon-size;
+    height: $state-banner-icon-size;
+    align-self: self-start;
+    margin-top: 2px; /** needs more spacing above, but needs to align to top for wrapping to work **/
+  }
 
-.mds-state-banner__toggle-text {
-  display: inline-flex;
-  align-items: center;
-  border-bottom: 2px solid;
-  border-color: currentColor;
-  line-height: 1.75; /** to match how it renders in figma, even though this is the same value of 1.8 in both **/
-}
+  &__toggle-text {
+    display: inline-flex;
+    align-items: center;
+    border-bottom: 2px solid;
+    border-color: currentColor;
+    line-height: 1.75; /** to match how it renders in figma, even though this is the same value of 1.8 in both **/
+  }
 
-// Expandable details panel.
-.mds-state-banner__details {
-  interpolate-size: allow-keywords; /** need this to allow for the "auto" value in block-size to transition properly **/
-}
+  // Expandable details panel.
+  &__details {
+    interpolate-size: allow-keywords; /** need this to allow for the "auto" value in block-size to transition properly **/
 
-.mds-state-banner__details::details-content {
-  block-size: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY($state-banner-panel-offset);
-  transition: /** TODO update with animation tokens once we have them defined **/
-    block-size $state-banner-transition-duration $state-banner-transition-easing,
-    opacity $state-banner-transition-duration $state-banner-transition-easing,
-    transform $state-banner-transition-duration $state-banner-transition-easing,
-    content-visibility $state-banner-transition-duration $state-banner-transition-easing allow-discrete;
-}
+    &::details-content {
+      block-size: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY($state-banner-panel-offset);
 
-.mds-state-banner__details[open]::details-content {
-  block-size: auto;
-  opacity: 1;
-  transform: translateY(0);
-  transition: /** TODO update with animation duration token once we have them **/
-    block-size $state-banner-transition-duration $state-banner-transition-open-easing,
-    opacity $state-banner-transition-duration $state-banner-transition-open-easing,
-    transform $state-banner-transition-duration $state-banner-transition-open-easing,
-    content-visibility $state-banner-transition-duration $state-banner-transition-open-easing allow-discrete;
-}
+      @include details-content-transition($state-banner-transition-easing);
+    }
 
-// Summary disclosure affordance.
-.mds-state-banner__summary {
-  @include mixins.focus;
-}
+    &[open]::details-content {
+      block-size: auto;
+      opacity: 1;
+      transform: translateY(0);
 
-/** Hide the default "disclosure triangle" on the summary element **/
-.mds-state-banner__summary::marker {
-  content: "";
-}
+      @include details-content-transition($state-banner-transition-open-easing);
+    }
+  }
 
-.mds-state-banner__summary::-webkit-details-marker {
-  display: none;
-}
+  // Summary disclosure affordance.
+  &__summary {
+    @include mixins.focus;
 
-.mds-state-banner__caret {
-  width: $state-banner-icon-size;
-  height: $state-banner-icon-size;
-  margin-inline-start: var(--mds-space-2xs);
-  transition: transform $state-banner-caret-transition-duration ease;
-  font-weight: bold;
-}
+    /** Hide the default "disclosure triangle" on the summary element **/
+    &::marker {
+      content: "";
+    }
 
-.mds-state-banner__details[open] .mds-state-banner__caret {
-  transform: rotate(180deg);
-}
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
 
-// Expanded panel content.
-.mds-state-banner__items {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: var(--mds-breakpoint-horizontal-space-gutter);
-}
+  &__caret {
+    width: $state-banner-icon-size;
+    height: $state-banner-icon-size;
+    margin-inline-start: var(--mds-space-2xs);
+    transition: transform $state-banner-caret-transition-duration ease;
+    font-weight: bold;
+  }
 
-.mds-state-banner__item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--mds-space-sm);
-  flex: 1 1 $state-banner-item-min-width;
-  padding-block: var(--mds-space-2xs) var(--mds-space-sm);
-}
+  &__details[open] &__caret {
+    transform: rotate(180deg);
+  }
 
-.mds-state-banner__item-icon {
-  width: $state-banner-item-icon-size;
-  height: $state-banner-item-icon-size;
-  fill: currentColor;
-  flex: none;
-}
+  // Expanded panel content.
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--mds-breakpoint-horizontal-space-gutter);
+  }
 
-.mds-state-banner__text {
-  display: block;
-}
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--mds-space-sm);
+    flex: 1 1 $state-banner-item-min-width;
+    padding-block: var(--mds-space-2xs) var(--mds-space-sm);
+  }
 
-.mds-state-banner__text-prefix {
-  margin-inline-end: var(--mds-space-sm);
-}
+  &__item-icon {
+    width: $state-banner-item-icon-size;
+    height: $state-banner-item-icon-size;
+    fill: currentColor;
+    flex: none;
+  }
 
-.mds-state-banner__item-copy {
-  padding-block-start: var(--mds-space-2xs);
-}
+  &__text {
+    display: block;
+  }
 
-.mds-state-banner__item-heading {
-  font: var(--mds-text-label);
-}
+  &__text-prefix {
+    margin-inline-end: var(--mds-space-sm);
+  }
 
-.mds-state-banner__item-description {
-  padding-block-start: var(--mds-space-2xs);
+  &__item-copy {
+    padding-block-start: var(--mds-space-2xs);
+  }
+
+  &__item-heading {
+    font: var(--mds-text-label);
+  }
+
+  &__item-description {
+    padding-block-start: var(--mds-space-2xs);
+  }
 }
 
 // Responsive refinements.
@@ -196,8 +198,10 @@ $state-banner-item-min-width: 20rem;
     height: $state-banner-icon-size;
   }
 
-  .mds-state-banner__item-copy p,
-  .mds-state-banner__item-copy h2 {
-    font: var(--mds-text-caption);
+  .mds-state-banner__item-copy {
+    p,
+    h2 {
+      font: var(--mds-text-caption);
+    }
   }
 }

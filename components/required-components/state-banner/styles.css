@@ -33,7 +33,6 @@ p {
   color: var(--mds-text-and-icons-utility-static-white);
   font: var(--mds-text-body); /** need to use var instead of utility class to best support font size change for smaller screens **/
 }
-
 .mds-state-banner__inner {
   display: flex;
   flex-wrap: wrap;
@@ -41,20 +40,17 @@ p {
   gap: 0 var(--mds-space-sm);
   width: 100%; /** Make clickable area of the banner full width **/
 }
-
 .mds-state-banner__brand {
   display: flex;
   align-items: center;
   gap: var(--mds-space-2xs);
 }
-
 .mds-state-banner__seal {
   width: 1.5rem;
   height: 1.5rem;
   align-self: self-start;
   margin-top: 2px; /** needs more spacing above, but needs to align to top for wrapping to work **/
 }
-
 .mds-state-banner__toggle-text {
   display: inline-flex;
   align-items: center;
@@ -62,11 +58,9 @@ p {
   border-color: currentColor;
   line-height: 1.75; /** to match how it renders in figma, even though this is the same value of 1.8 in both **/
 }
-
 .mds-state-banner__details {
   interpolate-size: allow-keywords; /** need this to allow for the "auto" value in block-size to transition properly **/
 }
-
 .mds-state-banner__details::details-content {
   block-size: 0;
   overflow: hidden;
@@ -74,29 +68,23 @@ p {
   transform: translateY(-8px);
   transition: block-size 300ms cubic-bezier(0.16, 1, 0.3, 1), opacity 300ms cubic-bezier(0.16, 1, 0.3, 1), transform 300ms cubic-bezier(0.16, 1, 0.3, 1), content-visibility 300ms cubic-bezier(0.16, 1, 0.3, 1) allow-discrete;
 }
-
 .mds-state-banner__details[open]::details-content {
   block-size: auto;
   opacity: 1;
   transform: translateY(0);
   transition: block-size 300ms ease-in, opacity 300ms ease-in, transform 300ms ease-in, content-visibility 300ms ease-in allow-discrete;
 }
-
 .mds-state-banner__summary:focus-visible {
   border-radius: var(--mds-radius-sm);
   outline: 2px solid var(--mds-border-focus-on-light);
   outline-offset: 2px;
 }
-
-/** Hide the default "disclosure triangle" on the summary element **/
 .mds-state-banner__summary::marker {
   content: "";
 }
-
 .mds-state-banner__summary::-webkit-details-marker {
   display: none;
 }
-
 .mds-state-banner__caret {
   width: 1.5rem;
   height: 1.5rem;
@@ -104,17 +92,14 @@ p {
   transition: transform 160ms ease;
   font-weight: bold;
 }
-
 .mds-state-banner__details[open] .mds-state-banner__caret {
   transform: rotate(180deg);
 }
-
 .mds-state-banner__items {
   display: flex;
   flex-wrap: wrap;
   column-gap: var(--mds-breakpoint-horizontal-space-gutter);
 }
-
 .mds-state-banner__item {
   display: flex;
   align-items: flex-start;
@@ -122,30 +107,24 @@ p {
   flex: 1 1 20rem;
   padding-block: var(--mds-space-2xs) var(--mds-space-sm);
 }
-
 .mds-state-banner__item-icon {
   width: 1.875rem;
   height: 1.875rem;
   fill: currentColor;
   flex: none;
 }
-
 .mds-state-banner__text {
   display: block;
 }
-
 .mds-state-banner__text-prefix {
   margin-inline-end: var(--mds-space-sm);
 }
-
 .mds-state-banner__item-copy {
   padding-block-start: var(--mds-space-2xs);
 }
-
 .mds-state-banner__item-heading {
   font: var(--mds-text-label);
 }
-
 .mds-state-banner__item-description {
   padding-block-start: var(--mds-space-2xs);
 }
