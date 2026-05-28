@@ -1,23 +1,27 @@
-@use "./mixins" as mixins;
+@use "./mixins/base";
+@use "./mixins/grid";
+@use "./mixins/scales";
+@use "./mixins/space";
+@use "./mixins/stateful";
 
 /* Utility classes: single-purpose composable styles */
 
 /* spacing */
-@include mixins.emit-space-utilities(mixins.$space-scale);
+@include space.emit-space-utilities(scales.$space-scale);
 
 /* border radius */
-@include mixins.emit-base-utilities("radius", border-radius, mixins.$radius-scale);
+@include base.emit-base-utilities("radius", border-radius, scales.$radius-scale);
 
 /* shadow */
-@include mixins.emit-base-utilities("shadow", box-shadow, mixins.$shadow-scale);
-@include mixins.emit-stateful-utilities("shadow", box-shadow, mixins.$shadow-hover-scale, "hover");
+@include base.emit-base-utilities("shadow", box-shadow, scales.$shadow-scale);
+@include stateful.emit-stateful-utilities("shadow", box-shadow, scales.$shadow-hover-scale, "hover");
 
 /* typography */
-@include mixins.emit-base-utilities("text", font, mixins.$font-scale);
-@include mixins.emit-base-utilities("text-transform", text-transform, mixins.$text-transform-scale);
-@include mixins.emit-base-utilities("letter-spacing", letter-spacing, mixins.$letter-spacing-scale);
+@include base.emit-base-utilities("text", font, scales.$font-scale);
+@include base.emit-base-utilities("text-transform", text-transform, scales.$text-transform-scale);
+@include base.emit-base-utilities("letter-spacing", letter-spacing, scales.$letter-spacing-scale);
 
 /* grid */
-@include mixins.emit-base-utilities("gap", gap, mixins.$space-scale);
-@include mixins.emit-grid-span-utilities(mixins.$grid-span-scale);
-@include mixins.emit-responsive-grid-span-utilities(mixins.$grid-span-scale);
+@include base.emit-base-utilities("gap", gap, scales.$space-scale);
+@include grid.emit-grid-span-utilities(scales.$grid-span-scale);
+@include grid.emit-responsive-grid-span-utilities(scales.$grid-span-scale);

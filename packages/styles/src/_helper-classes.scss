@@ -1,0 +1,31 @@
+@use "./helpers" as helpers;
+
+/* Helper classes: reusable structural patterns */
+
+.mds-body {
+  @include helpers.body;
+}
+
+.mds-section-container {
+  @include helpers.section-container;
+}
+
+.mds-grid {
+  @include helpers.grid;
+}
+
+.mds-grid-full {
+  @include helpers.grid-full;
+}
+
+.mds-grid-2-column {
+  @include helpers.grid-2-column;
+}
+
+.mds-grid-3-column {
+  @include helpers.grid-3-column;
+}
+
+.mds-grid-4-column {
+  @include helpers.grid-4-column;
+}
