@@ -6,7 +6,7 @@ const cssDistDir = path.join(distDir, 'css');
 const scssDistDir = path.join(distDir, 'scss');
 const srcDir = path.join(packageRoot, 'src');
 
-const cssEntries = [['index.scss', 'index.css']];
+const cssEntries = [['class-generators/index.scss', 'index.css']];
 
 function getSassBin() {
   const sassEntry = require.resolve('sass');

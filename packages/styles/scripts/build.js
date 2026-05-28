@@ -69,7 +69,7 @@ async function build() {
     )
   );
 
-  await compileSass(path.join(srcDir, 'index.scss'), path.join(cssDistDir, 'index.min.css'), 'compressed');
+  await compileSass(path.join(srcDir, 'class-generators', 'index.scss'), path.join(cssDistDir, 'index.min.css'), 'compressed');
 }
 
 build().catch((error) => {

@@ -58,11 +58,14 @@ The source files remain authored under `src/` in this repository. The shared hel
 
 ```text
 src/
-├── colors.scss
+├── class-generators/
 ├── helpers.scss
 ├── index.scss
 ├── mixins/
-└── utilities.scss
+│   ├── _breakpoints.scss
+│   ├── _grid.scss
+│   ├── _resets.scss
+│   └── index.scss
 ```
 
 - `dist/css/index.css` is the bundled unminified package entry stylesheet
@@ -242,31 +245,34 @@ These aliases should be treated as deprecated for new work. Prefer `.mds-grid-sp
 
 ```text
 src/
-├── _helper-classes.scss
-├── colors.scss
-├── mixins/
-│   ├── _base.scss
-│   ├── _breakpoints.scss
-│   ├── _grid.scss
-│   ├── _resets.scss
-│   ├── _space.scss
+├── class-generators/
+│   ├── _colors.scss
+│   ├── _helper-classes.scss
 │   ├── _scales.scss
+│   ├── _utilities.scss
+│   ├── emitters/
+│   │   ├── _base.scss
+│   │   ├── _grid-spans.scss
+│   │   ├── _space.scss
+│   │   └── _stateful.scss
 │   └── index.scss
 ├── helpers.scss
 ├── index.scss
-└── utilities.scss
+├── mixins/
+│   ├── _breakpoints.scss
+│   ├── _grid.scss
+│   ├── _resets.scss
+│   └── index.scss
 ```
 
-- `mixins/_scales.scss` stores the token-backed scales shared by utility generation
+- Root `helpers.scss`, `index.scss`, and `mixins/` are the public, component-facing Sass API
 - `mixins/_resets.scss` contains reset mixins shared by component builds
-- `mixins/_base.scss` contains the shared utility generator mixins
-- `mixins/_space.scss` and `mixins/_grid.scss` contain specialized utility mixins
+- `mixins/_grid.scss` contains component-facing grid helpers
 - `mixins/index.scss` forwards the public shared mixin API so files can `@use "./mixins"`
-- `colors.scss` emits the color utility layer for background and text/icon tokens
-- `helpers.scss` exposes authored structural helper mixins
-- `_helper-classes.scss` emits helper classes from those mixins for the bundled CSS entry
-- `utilities.scss` emits utility classes from the shared mixins module, including numeric grid spans such as `.mds-grid-span-6`
-- `index.scss` is the package entrypoint that imports both layers
+- `class-generators/index.scss` is the internal CSS build entrypoint
+- `class-generators/_colors.scss`, `_helper-classes.scss`, and `_utilities.scss` define which classes get emitted
+- `class-generators/_scales.scss` stores token-backed scales shared by generated class families
+- `class-generators/emitters/` contains reusable class-emitter mixins
 
 ## Notes
 
@@ -289,7 +295,7 @@ For local Sass development, use the watcher:
 npm run watch
 ```
 
-This opens the styles demo through a local server with hot reload. It keeps the bundled Sass entrypoint in `packages/styles/src/` synced to `packages/styles/dist/css/`, mirrors Sass modules into `packages/styles/dist/scss/`, mirrors `packages/tokens/src/` into `packages/tokens/dist/`, and reloads the browser when compiled styles, token CSS, or demo files change. The demo server exposes npm workspace packages at URLs such as `/@massds/mds-tokens/dist/index.css`, so demo pages do not need fragile `../` paths back through the repository.
+This opens the styles demo through a local server with hot reload. It keeps the class generator entrypoint in `packages/styles/src/class-generators/` synced to `packages/styles/dist/css/`, mirrors public Sass modules into `packages/styles/dist/scss/`, mirrors `packages/tokens/src/` into `packages/tokens/dist/`, and reloads the browser when compiled styles, token CSS, or demo files change. The demo server exposes npm workspace packages at URLs such as `/@massds/mds-tokens/dist/index.css`, so demo pages do not need fragile `../` paths back through the repository.
 
 You can also run the demo without Sass watchers:
 
@@ -303,9 +309,9 @@ From the workspace root, use `npm run demo:styles` or `npm run watch:styles`.
 
 To add a new utility family:
 
-1. Add the token-backed scale to `src/mixins/_scales.scss`
-2. Add or reuse a mixin under `src/mixins/`
-3. Call that mixin from `src/utilities.scss`
+1. Add the token-backed scale to `src/class-generators/_scales.scss`
+2. Add or reuse an emitter under `src/class-generators/emitters/`
+3. Call that emitter from `src/class-generators/_utilities.scss`
 4. Rebuild with `npm run build`
 
 This keeps the authored source small while still producing explicit CSS for consumers.

@@ -1,8 +1,8 @@
-@use "./mixins/base";
-@use "./mixins/grid";
-@use "./mixins/scales";
-@use "./mixins/space";
-@use "./mixins/stateful";
+@use "./emitters/base";
+@use "./emitters/grid-spans";
+@use "./emitters/space";
+@use "./emitters/stateful";
+@use "./scales";
 
 /* Utility classes: single-purpose composable styles */
 
@@ -23,5 +23,5 @@
 
 /* grid */
 @include base.emit-base-utilities("gap", gap, scales.$space-scale);
-@include grid.emit-grid-span-utilities(scales.$grid-span-scale);
-@include grid.emit-responsive-grid-span-utilities(scales.$grid-span-scale);
+@include grid-spans.emit-grid-span-utilities(scales.$grid-span-scale);
+@include grid-spans.emit-responsive-grid-span-utilities(scales.$grid-span-scale);
