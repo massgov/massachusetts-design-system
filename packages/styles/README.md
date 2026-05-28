@@ -29,7 +29,6 @@ For Sass consumers, the package publishes build-time SCSS under `dist/scss`:
 
 ```scss
 @use "pkg:@massds/mds-styles/scss";
-@use "pkg:@massds/mds-styles/scss/helpers";
 @use "pkg:@massds/mds-styles/scss/mixins";
 ```
 
@@ -45,39 +44,39 @@ dist/
 │   ├── index.css
 │   └── index.min.css
 └── scss/
-    ├── helpers.scss
     ├── index.scss
     └── mixins/
         ├── _breakpoints.scss
         ├── _grid.scss
+        ├── _layout.scss
         ├── _resets.scss
         └── index.scss
 ```
 
-The source files remain authored under `src/` in this repository. The shared helper and mixin modules are copied into `dist/scss/` at build time for consumers and component packages.
+The source files remain authored under `src/` in this repository. The public mixin modules are copied into `dist/scss/` at build time for consumers and component packages.
 
 ```text
 src/
 ├── class-generators/
-├── helpers.scss
 ├── index.scss
 ├── mixins/
 │   ├── _breakpoints.scss
 │   ├── _grid.scss
+│   ├── _layout.scss
 │   ├── _resets.scss
 │   └── index.scss
 ```
 
 - `dist/css/index.css` is the bundled unminified package entry stylesheet
 - `dist/css/index.min.css` is the bundled, minified production stylesheet for the package
-- `dist/scss/helpers.scss` exposes helper mixins, so component packages can include structural styles without requiring helper classes in markup
+- `dist/scss/mixins/_layout.scss` exposes structural layout mixins, so component packages can include layout styles without requiring helper classes in markup
 - `dist/scss/mixins/_resets.scss` exposes shared reset mixins for component builds
 
 ## Naming Conventions
 
-Utilities and helpers use flat, token-driven classnames, for example `.mds-padding-inline-md`, `.mds-gap-sm`, `.mds-shadow-container` and `mds-section-container`.
+Utilities and layout classes use flat, token-driven classnames, for example `.mds-padding-inline-md`, `.mds-gap-sm`, `.mds-shadow-container` and `mds-section-container`.
 
-As a rule of thumb, helpers describe reusable layout patterns or structural roles, while utilities describe one specific CSS property driven by a token scale.
+As a rule of thumb, layout classes describe reusable structural patterns, while utilities describe one specific CSS property driven by a token scale.
 
 ## Color Utilities
 
@@ -256,18 +255,19 @@ src/
 │   │   ├── _space.scss
 │   │   └── _stateful.scss
 │   └── index.scss
-├── helpers.scss
 ├── index.scss
 ├── mixins/
 │   ├── _breakpoints.scss
 │   ├── _grid.scss
+│   ├── _layout.scss
 │   ├── _resets.scss
 │   └── index.scss
 ```
 
-- Root `helpers.scss`, `index.scss`, and `mixins/` are the public, component-facing Sass API
+- Root `index.scss` and `mixins/` are the public, component-facing Sass API
 - `mixins/_resets.scss` contains reset mixins shared by component builds
-- `mixins/_grid.scss` contains component-facing grid helpers
+- `mixins/_layout.scss` contains component-facing layout mixins such as `body` and `section-container`
+- `mixins/_grid.scss` contains component-facing grid mixins
 - `mixins/index.scss` forwards the public shared mixin API so files can `@use "./mixins"`
 - `class-generators/index.scss` is the internal CSS build entrypoint
 - `class-generators/_colors.scss`, `_helper-classes.scss`, and `_utilities.scss` define which classes get emitted

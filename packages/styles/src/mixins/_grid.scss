@@ -1,3 +1,44 @@
+@use "./breakpoints" as breakpoints;
+
 @function grid-column-span($columns) {
   @return span calc(var(--mds-breakpoint-horizontal-space-columns) / #{$columns});
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(var(--mds-breakpoint-horizontal-space-columns), minmax(0, 1fr));
+  gap: var(--mds-breakpoint-horizontal-space-gutter);
+  min-height: 100%;
+}
+
+@mixin grid-full {
+  grid-column: 1/-1;
+}
+
+@mixin grid-2-column {
+  grid-column: grid-column-span(2);
+
+  @include breakpoints.max-width(sm) {
+    grid-column: 1/-1;
+  }
+}
+
+@mixin grid-3-column {
+  grid-column: grid-column-span(3);
+
+  @include breakpoints.max-width(sm) {
+    grid-column: 1/-1;
+  }
+}
+
+@mixin grid-4-column {
+  grid-column: grid-column-span(4);
+
+  @include breakpoints.max-width(lg) {
+    grid-column: grid-column-span(2);
+  }
+
+  @include breakpoints.max-width(sm) {
+    grid-column: 1/-1;
+  }
 }

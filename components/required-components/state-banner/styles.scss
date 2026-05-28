@@ -1,5 +1,4 @@
-@use "pkg:@massds/mds-styles/scss/helpers" as helpers;
-@use "pkg:@massds/mds-styles/scss/mixins" as mixins;
+@use "pkg:@massds/mds-styles/scss" as mixins;
 
 /**
   State Banner Required Component Styles
@@ -19,7 +18,7 @@
 }
 
 .mds-state-banner__container {
-  @include helpers.section-container;
+  @include mixins.section-container;
 
   background: transparent;
   color: inherit;

@@ -17,7 +17,6 @@
     "./index.min.css": "./dist/css/index.min.css",
     "./dist/*": "./dist/*",
     "./scss": "./dist/scss/index.scss",
-    "./scss/helpers": "./dist/scss/helpers.scss",
     "./scss/mixins": "./dist/scss/mixins/index.scss",
     "./scss/mixins/index": "./dist/scss/mixins/index.scss",
     "./scss/mixins/*": "./dist/scss/mixins/_*.scss",
@@ -46,7 +45,6 @@
     "css",
     "sass",
     "utilities",
-    "helpers",
     "design-system",
     "massachusetts"
   ],
