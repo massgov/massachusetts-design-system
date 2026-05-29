@@ -21,10 +21,23 @@
   box-sizing: border-box;
 }
 
-/** overrides section container
-.mds-footer__container {
-  width: 100%;
-} **/
+/** this will be it's own atomic components */
+.mds-footer--neutral .mds-decorative-link {
+  color: var(--mds-text-and-icons-brand-neutral-default);
+}
+
+.mds-footer--neutral a:not(.mds-decorative-link) {
+  color: var(--mds-background-adaptive-brand-primary-mid);
+  fill: white;
+}
+
+.mds-footer--neutral a:not(.mds-decorative-link):hover {
+  color: var(--mds-background-adaptive-brand-primary-low);
+}
+
+.mds-footer--neutral a:not(.mds-decorative-link):visited {
+  color: var(--mds-background-adaptive-brand-tertiary-mid);
+}
 
 /** Address element reset, TODO: move to global reset **/
 address {
@@ -63,6 +76,7 @@ address {
 .mds-footer__seal {
   width: 3.5rem;
   height: 3.5rem;
+  align-self: self-start;
 }
 
 .mds-footer__site-name,
@@ -123,7 +137,7 @@ address {
 }
 
 .mds-footer__contact-note {
-  padding-block-start: var(--mds-space-3xs);
+  padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
   font: var(--mds-text-caption); /* Is this the right size? check figma */
   color: var(--mds-text-and-icons-brand-neutral-muted);
 }
@@ -134,12 +148,6 @@ address {
   color: var(--mds-text-and-icons-brand-neutral-default);
   text-decoration: none;
   text-underline-offset: 0.1875rem; /** Is this a figma artifact or do we want a little more breathing room here? **/
-}
-
-.mds-footer__contact-link--accent,
-.mds-footer__contact-icon {
-  color: var(--mds-background-adaptive-brand-primary-mid);
-  fill: white;
 }
 
 /** set hover to adaptive primary high for blue links, pressed is highest */
