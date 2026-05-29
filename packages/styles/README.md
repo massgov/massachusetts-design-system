@@ -29,7 +29,6 @@ For Sass consumers, the package publishes build-time SCSS under `dist/scss`:
 
 ```scss
 @use "pkg:@massds/mds-styles/scss";
-@use "pkg:@massds/mds-styles/scss/mixins";
 ```
 
 Use Sass's Node package importer for `pkg:` imports.
