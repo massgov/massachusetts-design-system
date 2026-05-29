@@ -17,7 +17,7 @@ p {
   margin: 0;
 }
 
-/** Actual MDS component styles **/
+/** State Banner component styles **/
 .mds-state-banner__container {
   width: min(100%, 1280px);
   margin-inline: auto;

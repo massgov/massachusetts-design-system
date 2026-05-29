@@ -1,5 +1,9 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
 
+@include mixins.component-reset;
+
+/** State Banner component styles **/
+
 $state-banner-transition-duration: 300ms;
 $state-banner-transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
 $state-banner-transition-open-easing: ease-in;
@@ -16,10 +20,6 @@ $state-banner-item-min-width: 20rem;
     transform $state-banner-transition-duration $easing,
     content-visibility $state-banner-transition-duration $easing allow-discrete;
 }
-
-@include mixins.component-reset;
-
-/** Actual MDS component styles **/
 
 // Container and banner shell.
 .mds-state-banner__container {
@@ -92,7 +92,7 @@ $state-banner-item-min-width: 20rem;
   &__summary {
     @include mixins.focus;
 
-    /** Hide the default "disclosure triangle" on the summary element **/
+    // Hide the default "disclosure triangle" on the summary element
     &::marker {
       content: "";
     }
