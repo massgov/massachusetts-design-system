@@ -8,12 +8,12 @@
   ],
   "scripts": {
     "build": "node ./scripts/build.js",
-    "clean": "node -e \"const fs = require('fs'); fs.rmSync('dist', { recursive: true, force: true }); fs.rmSync('required-components/state-banner/styles.css', { force: true });\"",
+    "clean": "node -e \"const fs = require('fs'); fs.rmSync('dist', { recursive: true, force: true }); fs.rmSync('src/state-banner/styles.css', { force: true });\"",
     "demo": "npm run build && node ./scripts/demo-server.js --open",
     "lint": "npm run lint:html && npm run lint:scss",
-    "lint:html": "htmlhint \"required-components/**/*.html\"",
-    "lint:scss": "stylelint \"required-components/**/*.scss\"",
-    "lint:scss:fix": "stylelint --fix \"required-components/**/*.scss\"",
+    "lint:html": "htmlhint \"src/**/*.html\"",
+    "lint:scss": "stylelint \"src/**/*.scss\"",
+    "lint:scss:fix": "stylelint --fix \"src/**/*.scss\"",
     "prepublishOnly": "node ./scripts/build.js"
   },
   "peerDependencies": {

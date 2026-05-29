@@ -4,9 +4,9 @@ const { spawn } = require('child_process');
 const packageConfig = require('../package.json');
 
 const packageRoot = path.resolve(__dirname, '..');
-const requiredComponentsDir = path.join(packageRoot, 'required-components');
+const requiredComponentsDir = path.join(packageRoot, 'src');
 const distDir = path.join(packageRoot, 'dist');
-const distRequiredComponentsDir = path.join(distDir, 'required-components');
+const distRequiredComponentsDir = path.join(distDir, 'src');
 const stateBannerDir = path.join(requiredComponentsDir, 'state-banner');
 const stateBannerSource = path.join(stateBannerDir, 'styles.scss');
 const stateBannerOutput = path.join(stateBannerDir, 'styles.css');

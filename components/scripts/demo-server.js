@@ -71,7 +71,7 @@ function resolveRequestPath(requestUrl, workspaceRoutes) {
   }
 
   if (decodedPath === '/') {
-    return resolveFromRoot(componentsRoot, 'required-components/index.html');
+    return resolveFromRoot(componentsRoot, 'src/index.html');
   }
 
   return resolveFromRoot(componentsRoot, decodedPath);
@@ -188,7 +188,7 @@ async function startDemoServer({ open = false } = {}) {
     throw new Error(`Unable to find an available port starting at ${initialPort}`);
   }
 
-  const url = `http://${HOST}:${port}/required-components/`;
+  const url = `http://${HOST}:${port}/src/`;
   console.log(`Components demo available at ${url}`);
 
   if (open) {
