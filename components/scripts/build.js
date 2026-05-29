@@ -4,10 +4,10 @@ const { spawn } = require('child_process');
 const packageConfig = require('../package.json');
 
 const packageRoot = path.resolve(__dirname, '..');
-const requiredComponentsDir = path.join(packageRoot, 'required-components');
+const srcDir = path.join(packageRoot, 'src');
 const distDir = path.join(packageRoot, 'dist');
-const distRequiredComponentsDir = path.join(distDir, 'required-components');
-const stateBannerDir = path.join(requiredComponentsDir, 'state-banner');
+const distSrcDir = path.join(distDir, 'src');
+const stateBannerDir = path.join(srcDir, 'state-banner');
 const stateBannerSource = path.join(stateBannerDir, 'styles.scss');
 const stateBannerOutput = path.join(stateBannerDir, 'styles.css');
 const cdnOrigin = 'https://unpkg.com';
@@ -127,7 +127,7 @@ async function rewriteHtmlCdnReferences(dir) {
   );
 }
 
-function shouldCopyRequiredComponent(sourcePath) {
+function shouldCopySrcComponent(sourcePath) {
   return path.basename(sourcePath) !== '.DS_Store';
 }
 
@@ -141,11 +141,11 @@ async function build() {
     `${generatedCssBanner}\n${compiledCss}`,
     'utf8'
   );
-  await fs.cp(requiredComponentsDir, distRequiredComponentsDir, {
-    filter: shouldCopyRequiredComponent,
+  await fs.cp(srcDir, distSrcDir, {
+    filter: shouldCopySrcComponent,
     recursive: true
   });
-  await rewriteHtmlCdnReferences(distRequiredComponentsDir);
+  await rewriteHtmlCdnReferences(distSrcDir);
 }
 
 build().catch((error) => {
