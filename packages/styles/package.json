@@ -1,33 +1,25 @@
 {
   "name": "@massds/mds-styles",
   "version": "0.1.0-beta.0",
-  "description": "Generated helper and utility CSS for the Massachusetts Design System",
-  "style": "dist/index.css",
-  "sass": "src/index.scss",
+  "description": "Shared Sass and bundled CSS for the Massachusetts Design System",
+  "style": "dist/css/index.css",
+  "sass": "dist/scss/index.scss",
   "files": [
-    "dist/",
-    "src/"
+    "dist/"
   ],
   "exports": {
     ".": {
-      "sass": "./src/index.scss",
-      "style": "./dist/index.css",
-      "default": "./dist/index.css"
+      "sass": "./dist/scss/index.scss",
+      "style": "./dist/css/index.css",
+      "default": "./dist/css/index.css"
     },
-    "./index.css": "./dist/index.css",
-    "./index.min.css": "./dist/index.min.css",
-    "./colors.css": "./dist/colors.css",
-    "./helpers.css": "./dist/helpers.css",
-    "./utilities.css": "./dist/utilities.css",
+    "./index.css": "./dist/css/index.css",
+    "./index.min.css": "./dist/css/index.min.css",
     "./dist/*": "./dist/*",
-    "./scss": "./src/index.scss",
-    "./scss/colors": "./src/colors.scss",
-    "./scss/helpers": "./src/helpers.scss",
-    "./scss/utilities": "./src/utilities.scss",
-    "./scss/mixins": "./src/mixins/index.scss",
-    "./scss/mixins/index": "./src/mixins/index.scss",
-    "./scss/mixins/*": "./src/mixins/_*.scss",
-    "./src/*": "./src/*",
+    "./scss": "./dist/scss/index.scss",
+    "./scss/mixins": "./dist/scss/mixins/index.scss",
+    "./scss/mixins/index": "./dist/scss/mixins/index.scss",
+    "./scss/mixins/*": "./dist/scss/mixins/_*.scss",
     "./package.json": "./package.json"
   },
   "scripts": {
@@ -53,7 +45,6 @@
     "css",
     "sass",
     "utilities",
-    "helpers",
     "design-system",
     "massachusetts"
   ],

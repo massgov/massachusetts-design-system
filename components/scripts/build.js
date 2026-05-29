@@ -29,7 +29,7 @@ function compileSass(inputFile, outputFile) {
     const sassBin = getSassBin();
     const child = spawn(
       process.execPath,
-      [sassBin, '--no-source-map', '--style=expanded', inputFile, outputFile],
+      [sassBin, '--pkg-importer=node', '--no-source-map', '--style=expanded', inputFile, outputFile],
       {
         cwd: packageRoot,
         stdio: 'inherit'

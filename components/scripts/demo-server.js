@@ -41,7 +41,6 @@ function getWorkspacePackageRoot(packageName) {
 function getWorkspaceRoutes() {
   return new Map([
     ['/@massds/mds-assets/', getWorkspacePackageRoot('@massds/mds-assets')],
-    ['/@massds/mds-styles/', getWorkspacePackageRoot('@massds/mds-styles')],
     ['/@massds/mds-tokens/', getWorkspacePackageRoot('@massds/mds-tokens')]
   ]);
 }
