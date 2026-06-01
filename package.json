@@ -8,7 +8,7 @@
     "packages/assets",
     "packages/styles",
     "packages/components",
-    "apps/storybook",
+    "storybook",
     "components"
   ],
   "scripts": {
