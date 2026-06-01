@@ -1,0 +1,7 @@
+@mixin focus {
+  &:focus-visible {
+    border-radius: var(--mds-radius-sm);
+    outline: 2px solid var(--mds-border-focus-on-light);
+    outline-offset: 2px;
+  }
+}

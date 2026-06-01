@@ -44,4 +44,5 @@ check_package() {
 }
 
 check_package "assets"
+check_package "styles"
 check_package "tokens"

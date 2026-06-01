@@ -196,4 +196,22 @@
   --mds-shadow-hover-opacity: #00000029;
   --mds-shadow-container-opacity: #0000001a;
   --mds-shadow-modal-opacity: #00000024;
+  --mds-motion-duration-100: 100ms;
+  --mds-motion-duration-200: 200ms;
+  --mds-motion-duration-300: 300ms;
+  --mds-motion-duration-400: 400ms;
+  --mds-motion-duration-500: 500ms;
+  --mds-motion-duration-600: 600ms;
+  --mds-motion-duration-800: 800ms;
+  --mds-motion-duration-1000: 1000ms;
+  --mds-motion-ease-curve-linear: linear;
+  --mds-motion-ease-curve-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --mds-motion-ease-curve-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --mds-motion-ease-curve-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --mds-motion-delay-60: 60ms;
+  --mds-motion-delay-150: 150ms;
+  --mds-motion-delay-2000: 2000ms;
+  --mds-motion-delay-5000: 5000ms;
+  --mds-motion-delay-8000: 8000ms;
 }
+

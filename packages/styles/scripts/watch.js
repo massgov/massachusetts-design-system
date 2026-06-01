@@ -4,11 +4,13 @@ const path = require('path');
 const { spawn } = require('child_process');
 const { startDemoServer } = require('./demo-server');
 const {
+  cssDistDir,
+  cssEntries,
   distDir,
   getSassBin,
   getWorkspacePackageRoot,
   packageRoot,
-  sassEntries,
+  scssDistDir,
   srcDir
 } = require('./shared');
 
@@ -22,7 +24,19 @@ const tokensSrcDir = path.join(tokensPackageRoot, 'src');
 let demoServer;
 
 async function ensureDist() {
-  await fsPromises.mkdir(distDir, { recursive: true });
+  await fsPromises.mkdir(cssDistDir, { recursive: true });
+  await fsPromises.mkdir(scssDistDir, { recursive: true });
+}
+
+async function syncScssDist() {
+  await fsPromises.rm(scssDistDir, { recursive: true, force: true });
+  await fsPromises.cp(path.join(srcDir, 'mixins'), path.join(scssDistDir, 'mixins'), { recursive: true });
+  await fsPromises.writeFile(
+    path.join(scssDistDir, 'index.scss'),
+    ['@forward "./mixins";', ''].join('\n'),
+    'utf8'
+  );
+  console.log('Synced style SCSS from src to dist.');
 }
 
 async function syncTokenDist() {
@@ -147,10 +161,11 @@ function watchSass(inputFile, outputFile) {
 
 async function watch() {
   await ensureDist();
+  await syncScssDist();
   await syncTokenDist();
 
-  for (const [inputName, outputName] of sassEntries) {
-    watchSass(path.join(srcDir, inputName), path.join(distDir, outputName));
+  for (const [inputName, outputName] of cssEntries) {
+    watchSass(path.join(srcDir, inputName), path.join(cssDistDir, outputName));
   }
 
   demoServer = await startDemoServer({ liveReload: true, open: true });
@@ -162,8 +177,13 @@ async function watch() {
     await syncTokenDist();
     demoServer.reload();
   });
+  const syncScssAndReload = debounceTask(async () => {
+    await syncScssDist();
+    demoServer.reload();
+  });
 
   watchDirectory(distDir, 'compiled style CSS', reloadDemo);
+  watchDirectory(srcDir, 'style Sass source', syncScssAndReload);
   watchDirectory(demoRoot, 'styles demo files', reloadDemo);
   watchDirectory(tokensSrcDir, 'token source CSS', syncTokensAndReload);
 }

@@ -4,7 +4,7 @@ This repository contains the source code for Massachusetts Design System package
 
 - `packages/assets` for icons, animation files, and state seal assets published as `@massds/mds-assets`
 - `packages/tokens` for CSS design tokens published as `@massds/mds-tokens`
-- `packages/styles` for generated helper and utility CSS `@massds/mds-styles` (currently not published)
+- `packages/styles` for shared Sass and bundled utility CSS published as `@massds/mds-styles`
 
 Each package has its own README with package-specific development and publishing details.
 
@@ -37,6 +37,8 @@ For package-specific setup and commands, see the README inside each package dire
 The root `package.json` uses npm workspaces for local development across the packages in `packages/`. Use normal semver ranges for internal package relationships so each published package manifest stays valid outside the monorepo.
 
 Use `peerDependencies` when a package expects the consuming app to install another Design System package. For example, `@massds/mds-styles` declares `@massds/mds-tokens` as a peer dependency because consumers need tokens available when they use the styles package.
+
+Component packages should keep `@massds/mds-styles` as a development dependency when they only use its Sass mixins during build time. That keeps component snippets self-contained at runtime, with tokens provided by the consuming page.
 
 If a package's own build or tests directly import a peer package, add the same range to that package's `devDependencies` as well. npm will link the local workspace package during root installs when the local version satisfies the range.
 

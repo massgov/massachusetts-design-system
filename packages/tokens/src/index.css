@@ -228,9 +228,46 @@
   --mds-text-caption-bold: var(--mds-font-weight-medium) var(--mds-font-size-175)/var(--mds-line-height-130) var(--mds-font-family);
   --mds-text-caption-md: var(--mds-font-weight-regular) var(--mds-font-size-200)/var(--mds-line-height-130) var(--mds-font-family);
 
+/**
+ * Motion/Animation tokens
+ *
+ */
+
+/** Duration **/
+  --mds-motion-duration-fastest: var(--mds-motion-duration-100);
+  --mds-motion-duration-faster: var(--mds-motion-duration-200);
+  --mds-motion-duration-fast: var(--mds-motion-duration-300);
+  --mds-motion-duration-mid: var(--mds-motion-duration-400);
+  --mds-motion-duration-slow: var(--mds-motion-duration-500);
+  --mds-motion-duration-slower: var(--mds-motion-duration-600);
+  --mds-motion-duration-slowest: var(--mds-motion-duration-800);
+
+  /** Easing **/
+  --mds-motion-ease-linear: var(--mds-motion-ease-curve-linear);
+  --mds-motion-ease-in: var(--mds-motion-ease-curve-accelerate);
+  --mds-motion-ease-out: var(--mds-motion-ease-curve-decelerate);
+  --mds-motion-ease-in-out: var(--mds-motion-ease-curve-standard);
+
+  /** Delay **/
+  --mds-motion-delay-shortest: var(--mds-motion-delay-60);
+  --mds-motion-delay-short: var(--mds-motion-delay-150);
+  --mds-motion-delay-long: var(--mds-motion-delay-2000);
+  --mds-motion-delay-longer: var(--mds-motion-delay-5000);
+  --mds-motion-delay-longest: var(--mds-motion-delay-8000);
+
+  /** Distance (how far an element travels) **/
+  --mds-motion-distance-2xs: var(--mds-space-50);
+  --mds-motion-distance-xs: var(--mds-space-100);
+  --mds-motion-distance-sm: var(--mds-space-200);
+  --mds-motion-distance-md: var(--mds-space-300);
+  --mds-motion-distance-lg: var(--mds-space-600);
+  --mds-motion-distance-xl: var(--mds-space-1200);
 
 
-/** These values change based on screen sizes **/
+/**
+ * Breakpoint-specific tokens for handling responsive sizing
+ *
+ */
 
 /** Default values are set for 1024px and above **/
   --mds-breakpoint-horizontal-space-columns: 12;
@@ -304,9 +341,3 @@
     --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-350)/var(--mds-line-height-120) var(--mds-font-family-headings);
   }
 }
-
-
-
-
-
-

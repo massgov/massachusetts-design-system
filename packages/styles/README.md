@@ -1,6 +1,12 @@
 # Massachusetts Design System Styles
 
-Helper and utility CSS for the Massachusetts Design System. This package is intended to sit on top of `@massds/mds-tokens` and provide composable layout and spacing classes generated from a small Sass source layer.
+Shared Sass and bundled CSS for the Massachusetts Design System. This package is intended to sit on top of `@massds/mds-tokens`, provide composable utility classes for standalone use, and give component packages build-time mixins for self-contained component CSS.
+
+## Installation
+
+```bash
+npm install @massds/mds-styles @massds/mds-tokens
+```
 
 ## Usage
 
@@ -8,222 +14,105 @@ Import tokens first, then styles:
 
 ```css
 @import "@massds/mds-tokens/dist/index.css";
-@import "@massds/mds-styles/dist/index.min.css";
+@import "@massds/mds-styles/dist/css/index.min.css";
 ```
 
-This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages. The build publishes a bundled `dist/index.css` for readable distribution and a bundled, minified `dist/index.min.css` for production use. The individual layer files are also published when you want to import them separately.
+The package also exposes shorter CSS entrypoints for bundlers that honor package exports:
+
+```css
+@import "@massds/mds-styles/index.min.css";
+```
+
+This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages. The build publishes a bundled `dist/css/index.css` for readable distribution and a bundled, minified `dist/css/index.min.css` for production use.
+
+For Sass consumers, the package publishes build-time SCSS under `dist/scss`:
+
+```scss
+@use "pkg:@massds/mds-styles/scss";
+```
+
+Use Sass's Node package importer for `pkg:` imports.
 
 ## Package Contents
 
-The published package includes generated CSS files under `dist/`:
+The published package includes bundled CSS and Sass files under `dist/`:
 
 ```text
 dist/
-├── colors.css
-├── helpers.css
-├── index.css
-├── index.min.css
-└── utilities.css
+├── css/
+│   ├── index.css
+│   └── index.min.css
+└── scss/
+    ├── index.scss
+    └── mixins/
+        ├── _breakpoints.scss
+        ├── _focus.scss
+        ├── _grid.scss
+        ├── _layout.scss
+        ├── _resets.scss
+        └── index.scss
 ```
 
-- `dist/colors.css` contains color utility classes generated from semantic background and text/icon tokens
-- `dist/helpers.css` contains reusable structural classes such as the grid container and section container
-- `dist/utilities.css` contains generated utility classes such as typography, spacing, radius, shadow, gap, and grid span utilities
-- `dist/index.css` is the bundled unminified package entry stylesheet
-- `dist/index.min.css` is the bundled, minified production stylesheet for the package
+The source files remain authored under `src/` in this repository. The public mixin modules are copied into `dist/scss/` at build time for consumers and component packages.
+
+```text
+src/
+├── class-generators/
+├── index.scss
+├── mixins/
+│   ├── _breakpoints.scss
+│   ├── _focus.scss
+│   ├── _grid.scss
+│   ├── _layout.scss
+│   ├── _resets.scss
+│   └── index.scss
+```
+
+- `dist/css/index.css` is the bundled unminified package entry stylesheet
+- `dist/css/index.min.css` is the bundled, minified production stylesheet for the package
+- `dist/scss/mixins/_layout.scss` exposes structural layout mixins, so component packages can include layout styles without requiring helper classes in markup
+- `dist/scss/mixins/_resets.scss` exposes shared reset mixins for component builds
 
 ## Naming Conventions
 
-Utilities and helpers uses flat, token-driven classnames, for example `.mds-padding-inline-md`, `.mds-gap-sm`, `.mds-shadow-container` and `mds-section-container`.
+Utilities and layout classes use flat, token-driven classnames, for example `.mds-padding-inline-md`, `.mds-gap-sm`, `.mds-shadow-container` and `mds-section-container`.
 
-As a rule of thumb, helpers describe reusable layout patterns or structural roles, while utilities describe one specific CSS property driven by a token scale.
-
-## Color Utilities
-
-Color utilities are generated from the semantic background, text/icon, and border token sets in `@massds/mds-tokens` and live in a dedicated `colors.css` layer.
-
-```html
-<div class="mds-background-section-brand-primary-lowest mds-text-inverse"></div>
-```
-
-Examples:
-
-- `.mds-background-surface-default`
-- `.mds-background-static-white`
-- `.mds-background-section-brand-primary-lowest`
-- `.mds-background-adaptive-brand-secondary-mid`
-- `.mds-background-adaptive-utility-success-high`
-- `.mds-background-overlay`
-- `.mds-text-brand-neutral-default`
-- `.mds-text-and-icons-static-blue-mid`
-- `.mds-text-brand-primary-mid`
-- `.mds-text-inverse`
-- `.mds-border-brand-primary-mid`
-- `.mds-border-focus-on-light`
-
-## Spacing Utilities
-
-Spacing utilities are generated from the semantic spacing tokens and support horizontal and vertical padding and margin.
-
-```html
-<div class="mds-padding-inline-md mds-padding-block-sm"></div>
-```
-
-Available class families:
-
-- `.mds-padding-inline-*`
-- `.mds-padding-block-*`
-- `.mds-margin-inline-*`
-- `.mds-margin-block-*`
-- `.mds-padding-inline-start-*`
-- `.mds-padding-inline-end-*`
-- `.mds-padding-block-start-*`
-- `.mds-padding-block-end-*`
-- `.mds-margin-inline-start-*`
-- `.mds-margin-inline-end-*`
-- `.mds-margin-block-start-*`
-- `.mds-margin-block-end-*`
-
-## Gap Utilities
-
-Gap utilities reuse the spacing scale for grid and flex layouts.
-
-```html
-<div class="mds-grid mds-gap-md"></div>
-```
-
-Available classes:
-
-- `.mds-gap-3xs`
-- `.mds-gap-2xs`
-- `.mds-gap-xs`
-- `.mds-gap-sm`
-- `.mds-gap-md`
-- `.mds-gap-lg`
-- `.mds-gap-xl`
-- `.mds-gap-2xl`
-- `.mds-gap-3xl`
-
-## Radius Utilities
-
-Border radius utilities are generated from the semantic radius tokens:
-
-```html
-<div class="mds-radius-md"></div>
-```
-
-Available classes:
-
-- `.mds-radius-xs`
-- `.mds-radius-sm`
-- `.mds-radius-md`
-- `.mds-radius-max`
-
-## Shadow Utilities
-
-Shadow utilities are generated from the semantic elevation tokens:
-
-```html
-<div class="mds-shadow-container"></div>
-```
-
-Available classes:
-
-- `.mds-shadow-container`
-- `.mds-shadow-modal`
-
-Hover-only elevation utilities are stateful and apply their shadow on `:hover`:
-
-- `.mds-shadow-hover-sm:hover`
-- `.mds-shadow-hover-md:hover`
-
-## Typography Utilities
-
-Typography utilities are generated from the semantic text tokens and set the full `font` shorthand:
-
-```html
-<h2 class="mds-text-heading-lg">Section heading</h2>
-<p class="mds-text-body-lg">Introductory body copy</p>
-<span class="mds-text-label">Field label</span>
-```
-
-Available class families include:
-
-- `.mds-text-heading-2xs`
-- `.mds-text-heading-xs`
-- `.mds-text-heading-sm`
-- `.mds-text-heading-md`
-- `.mds-text-heading-lg`
-- `.mds-text-heading-xl`
-- `.mds-text-heading-2xl`
-- `.mds-text-body`
-- `.mds-text-body-bold`
-- `.mds-text-body-lg`
-- `.mds-text-body-lg-bold`
-- `.mds-text-label-sm`
-- `.mds-text-label`
-- `.mds-text-label-md`
-- `.mds-text-label-lg`
-- `.mds-text-label-xl`
-- `.mds-text-eyebrow`
-- `.mds-text-eyebrow-md`
-- `.mds-text-caption-sm`
-- `.mds-text-caption`
-- `.mds-text-caption-bold`
-- `.mds-text-caption-md`
-
-Eyebrow tokens intentionally keep casing and tracking separate. Pair the font utility with:
-
-- `.mds-text-transform-eyebrow`
-- `.mds-letter-spacing-eyebrow`
-
-## Grid Utilities
-
-The preferred grid span API is numeric:
-
-```html
-<div class="mds-grid-span-6"></div>
-```
-
-Responsive prefixed variants are also generated for grid span utilities using the design system's max-width breakpoints:
-
-```html
-<div class="mds-grid-span-12 md:mds-grid-span-6 lg:mds-grid-span-4"></div>
-```
-
-This means:
-
-- `md:` applies at `768px` and below
-- `lg:` applies at `1024px` and below
-
-Legacy alias classes such as `.mds-grid-full`, `.mds-grid-2-column`, `.mds-grid-3-column`, and `.mds-grid-4-column` are still generated for backward compatibility.
-
-These aliases should be treated as deprecated for new work. Prefer `.mds-grid-span-n` for new utilities and component examples.
+As a rule of thumb, helper classes describe reusable structural patterns, while utilities describe one specific CSS property driven by a token scale.
 
 ## Source Layout
 
 ```text
 src/
-├── colors.scss
-├── mixins/
-│   ├── _base.scss
-│   ├── _grid.scss
-│   ├── _space.scss
+├── class-generators/
+│   ├── _colors.scss
+│   ├── _helpers.scss
 │   ├── _scales.scss
+│   ├── _utilities.scss
+│   ├── emitters/
+│   │   ├── _base.scss
+│   │   ├── _grid-spans.scss
+│   │   ├── _space.scss
+│   │   └── _stateful.scss
 │   └── index.scss
-├── helpers.scss
 ├── index.scss
-└── utilities.scss
+├── mixins/
+│   ├── _breakpoints.scss
+│   ├── _grid.scss
+│   ├── _layout.scss
+│   ├── _resets.scss
+│   └── index.scss
 ```
 
-- `mixins/_scales.scss` stores the token-backed scales shared by utility generation
-- `mixins/_base.scss` contains the shared utility generator mixins
-- `mixins/_space.scss` and `mixins/_grid.scss` contain specialized utility mixins
-- `mixins/index.scss` forwards the mixin API so files can `@use "./mixins"`
-- `colors.scss` emits the color utility layer for background and text/icon tokens
-- `helpers.scss` contains authored structural classes
-- `utilities.scss` emits utility classes from the shared mixins module, including numeric grid spans such as `.mds-grid-span-6`
-- `index.scss` is the package entrypoint that imports both layers
+- Root `index.scss` and `mixins/` are the public, component-facing Sass API
+- `mixins/_focus.scss` contains focus-state styling mixins
+- `mixins/_resets.scss` contains reset mixins shared by component builds
+- `mixins/_layout.scss` contains component-facing layout mixins such as `body` and `section-container`
+- `mixins/_grid.scss` contains component-facing grid mixins
+- `mixins/index.scss` forwards the public shared mixin API so files can `@use "./mixins"`
+- `class-generators/index.scss` is the internal CSS build entrypoint
+- `class-generators/_colors.scss`, `_helpers.scss`, and `_utilities.scss` define which classes get emitted
+- `class-generators/_scales.scss` stores token-backed scales shared by generated class families
+- `class-generators/emitters/` contains reusable class-emitter mixins
 
 ## Notes
 
@@ -238,7 +127,7 @@ npm install
 npm run build
 ```
 
-The build compiles the Sass entrypoints into `dist/`.
+The build compiles the bundled CSS entrypoint into `dist/css/` and copies Sass modules into `dist/scss/`.
 
 For local Sass development, use the watcher:
 
@@ -246,7 +135,7 @@ For local Sass development, use the watcher:
 npm run watch
 ```
 
-This opens the styles demo through a local server with hot reload. It keeps all four Sass entrypoints in `packages/styles/src/` synced to `packages/styles/dist/`, mirrors `packages/tokens/src/` into `packages/tokens/dist/`, and reloads the browser when compiled styles, token CSS, or demo files change. The demo server exposes npm workspace packages at URLs such as `/@massds/mds-tokens/dist/index.css`, so demo pages do not need fragile `../` paths back through the repository.
+This opens the styles demo through a local server with hot reload. It keeps the class generator entrypoint in `packages/styles/src/class-generators/` synced to `packages/styles/dist/css/`, mirrors public Sass modules into `packages/styles/dist/scss/`, mirrors `packages/tokens/src/` into `packages/tokens/dist/`, and reloads the browser when compiled styles, token CSS, or demo files change. The demo server exposes npm workspace packages at URLs such as `/@massds/mds-tokens/dist/index.css`, so demo pages do not need fragile `../` paths back through the repository.
 
 You can also run the demo without Sass watchers:
 
@@ -260,9 +149,42 @@ From the workspace root, use `npm run demo:styles` or `npm run watch:styles`.
 
 To add a new utility family:
 
-1. Add the token-backed scale to `src/mixins/_scales.scss`
-2. Add or reuse a mixin under `src/mixins/`
-3. Call that mixin from `src/utilities.scss`
+1. Add the token-backed scale to `src/class-generators/_scales.scss`
+2. Add or reuse an emitter under `src/class-generators/emitters/`
+3. Call that emitter from `src/class-generators/_utilities.scss`
 4. Rebuild with `npm run build`
 
 This keeps the authored source small while still producing explicit CSS for consumers.
+
+## Changelogs
+
+For each PR, add a changelog fragment under `packages/styles/changelog.d/` using the example in `changelog.template.md`.
+
+When preparing a release, run `npm run changelog:release -- <version> <date>` from `packages/styles`, or omit arguments to use the version from `package.json` and today’s date.
+
+## Publishing
+
+The package is published to npm as `@massds/mds-styles` with the GitHub Actions workflow at `.github/workflows/publish-styles.yml`.
+
+Recommended branch and tag strategy for styles:
+
+- Use `main` as the long-lived release branch for `@massds/mds-styles`.
+- Merge styles release work into `main` through a pull request with required checks.
+- Create styles release tags only from commits already on `main`.
+- Use the `styles-v*` tag prefix for every styles release.
+
+Styles release flow:
+
+1. Create a release branch from `main`, based on [semantic versioning](https://semver.org/), for example `release/styles-0.1.1`
+2. Update `packages/styles/package.json` to the release version
+3. Run `npm i & npm run build` and commit changes
+4. Run `npm run changelog:release -- <version> <date>` from `packages/styles`, or omit arguments to use the version from `package.json` and today’s date
+5. Merge the release branch into `main` through a pull request
+6. In the GitHub UI, create the release tag for the merged release commit using the format `styles-v*`, for example `styles-v0.1.1`
+7. In the GitHub Release for that tag, copy the relevant release notes from `packages/styles/CHANGELOG.md`
+8. Creating the tag in GitHub triggers `.github/workflows/publish-styles.yml` to publish the package
+
+Release channels:
+
+- Stable releases use normal semver versions such as `0.1.1` and tags such as `styles-v0.1.1`. These publish to npm on the default `latest` dist-tag.
+- Prereleases use semver prerelease versions such as `0.2.0-beta.1` and tags such as `styles-v0.2.0-beta.1`. These publish to npm on the `beta` dist-tag.
