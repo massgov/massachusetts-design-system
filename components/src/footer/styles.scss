@@ -1,4 +1,7 @@
-/** TODO: put this in general styling rather than in the specific component styles **/
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
+@include mixins.component-reset;
+
 :focus-visible, :focus {
   border-radius: var(--mds-radius-sm);
   outline: 2px solid var(--mds-border-focus-on-light);
@@ -44,6 +47,13 @@ address {
   font-style: normal;
 }
 
+.mds-footer__container {
+  @include mixins.section-container;
+
+  background: transparent;
+  color: inherit;
+}
+
 /** List resets, TODO: move to global reset **/
 .mds-footer__link-list,
 .mds-footer__social-list,
@@ -51,6 +61,10 @@ address {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.mds-footer__column {
+  @include mixins.grid-4-column;
 }
 
 .mds-footer__content {
