@@ -2,6 +2,8 @@
 
 Required HTML, CSS, and JavaScript components for the Massachusetts Design System.
 
+Components compile any shared `@massds/mds-styles` Sass into their own `styles.css` at build time. Component examples should only require tokens as an external stylesheet at runtime.
+
 ## Quick Start
 
 Install dependencies from the repository root:
@@ -27,8 +29,8 @@ npm run lint
 
 ## Scripts
 
-- `npm run build` compiles component source files, including `styles.scss` to `styles.css`
-- `npm run clean` removes generated component CSS
+- `npm run build` compiles component source files, including `styles.scss` to `styles.css`, then writes publishable HTML and CSS to `dist/src/`
+- `npm run clean` removes generated component CSS and the `dist/` output
 - `npm run lint` runs HTML and SCSS lint checks
 - `npm run lint:html` lints component demo HTML
 - `npm run lint:scss` lints component SCSS
@@ -37,6 +39,9 @@ npm run lint
 
 ## Local Examples
 
-Component examples live in `required-components/`.
+Component examples live in `src/`.
 
-The demo entry page is `required-components/index.html`. Add each new component example in its own folder, then link to it from the entry page.
+The demo entry page is `src/index.html`. Add each new component example in its own folder, then link to it from the entry page.
+
+Source HTML can use local workspace package routes such as `/@massds/mds-tokens/dist/index.css`.
+During `npm run build`, those routes are rewritten in `dist/src/**/*.html` to versioned unpkg URLs using the versions declared in `devDependencies`.

@@ -1,7 +1,0 @@
-@use "./mixins" as mixins;
-
-/* Color utilities generated from semantic color tokens */
-
-@include mixins.emit-base-utilities("background", background-color, mixins.$background-scale);
-@include mixins.emit-base-utilities("text-and-icons", color, mixins.$text-and-icons-scale);
-@include mixins.emit-base-utilities("border", border-color, mixins.$border-scale);

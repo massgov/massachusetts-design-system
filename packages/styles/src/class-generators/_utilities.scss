@@ -1,0 +1,27 @@
+@use "./emitters/base";
+@use "./emitters/grid-spans";
+@use "./emitters/space";
+@use "./emitters/stateful";
+@use "./scales";
+
+/* Utility classes: single-purpose composable styles */
+
+/* spacing */
+@include space.emit-space-utilities(scales.$space-scale);
+
+/* border radius */
+@include base.emit-base-utilities("radius", border-radius, scales.$radius-scale);
+
+/* shadow */
+@include base.emit-base-utilities("shadow", box-shadow, scales.$shadow-scale);
+@include stateful.emit-stateful-utilities("shadow", box-shadow, scales.$shadow-hover-scale, "hover");
+
+/* typography */
+@include base.emit-base-utilities("text", font, scales.$font-scale);
+@include base.emit-base-utilities("text-transform", text-transform, scales.$text-transform-scale);
+@include base.emit-base-utilities("letter-spacing", letter-spacing, scales.$letter-spacing-scale);
+
+/* grid */
+@include base.emit-base-utilities("gap", gap, scales.$space-scale);
+@include grid-spans.emit-grid-span-utilities(scales.$grid-span-scale);
+@include grid-spans.emit-responsive-grid-span-utilities(scales.$grid-span-scale);

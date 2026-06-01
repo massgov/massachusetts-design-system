@@ -1,0 +1,31 @@
+@use "../mixins" as mixins;
+
+/* Helper classes: reusable structural patterns */
+
+.mds-body {
+  @include mixins.body;
+}
+
+.mds-section-container {
+  @include mixins.section-container;
+}
+
+.mds-grid {
+  @include mixins.grid;
+}
+
+.mds-grid-full {
+  @include mixins.grid-full;
+}
+
+.mds-grid-2-column {
+  @include mixins.grid-2-column;
+}
+
+.mds-grid-3-column {
+  @include mixins.grid-3-column;
+}
+
+.mds-grid-4-column {
+  @include mixins.grid-4-column;
+}

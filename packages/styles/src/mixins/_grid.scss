@@ -4,42 +4,41 @@
   @return span calc(var(--mds-breakpoint-horizontal-space-columns) / #{$columns});
 }
 
-@function responsive-grid-selector($prefix, $class-name) {
-  @if not $prefix {
-    @return ".#{$class-name}";
-  }
-
-  @return ".#{$prefix}\\:#{$class-name}";
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(var(--mds-breakpoint-horizontal-space-columns), minmax(0, 1fr));
+  gap: var(--mds-breakpoint-horizontal-space-gutter);
+  min-height: 100%;
 }
 
-@mixin emit-grid-span-utilities($scale, $aliases: ()) {
-  @each $value in $scale {
-    .mds-grid-span-#{$value} {
-      grid-column: span #{$value};
-    }
-  }
+@mixin grid-full {
+  grid-column: 1/-1;
+}
 
-  @each $name, $value in $aliases {
-    @if $name == "full" {
-      .mds-grid-#{$name} {
-        grid-column: 1 / -1;
-      }
-    } @else {
-      .mds-grid-#{$name} {
-        grid-column: span #{$value};
-      }
-    }
+@mixin grid-2-column {
+  grid-column: grid-column-span(2);
+
+  @include breakpoints.max-width(sm) {
+    grid-column: 1/-1;
   }
 }
 
-@mixin emit-responsive-grid-span-utilities($scale, $aliases: (), $breakpoint-scale: breakpoints.$breakpoints) {
-  @each $prefix, $size in $breakpoint-scale {
-    @media (max-width: $size) {
-      @each $value in $scale {
-        #{responsive-grid-selector($prefix, "mds-grid-span-#{$value}")} {
-          grid-column: span #{$value};
-        }
-      }
-    }
+@mixin grid-3-column {
+  grid-column: grid-column-span(3);
+
+  @include breakpoints.max-width(sm) {
+    grid-column: 1/-1;
+  }
+}
+
+@mixin grid-4-column {
+  grid-column: grid-column-span(4);
+
+  @include breakpoints.max-width(lg) {
+    grid-column: grid-column-span(2);
+  }
+
+  @include breakpoints.max-width(sm) {
+    grid-column: 1/-1;
   }
 }
