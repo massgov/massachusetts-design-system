@@ -32,7 +32,7 @@
 }
 
 .mds-footer--neutral a:not(.mds-decorative-link):hover {
-  color: var(--mds-background-adaptive-brand-primary-low);
+  color: var(--mds-background-adaptive-brand-primary-high);
 }
 
 .mds-footer--neutral a:not(.mds-decorative-link):visited {
@@ -138,7 +138,7 @@ address {
 
 .mds-footer__contact-note {
   padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
-  font: var(--mds-text-caption); /* Is this the right size? check figma */
+  font: var(--mds-text-caption);
   color: var(--mds-text-and-icons-brand-neutral-muted);
 }
 
@@ -147,7 +147,7 @@ address {
 .mds-footer__legal-nav a {
   color: var(--mds-text-and-icons-brand-neutral-default);
   text-decoration: none;
-  text-underline-offset: 0.1875rem; /** Is this a figma artifact or do we want a little more breathing room here? **/
+  text-underline-offset: .375rem;
 }
 
 /** set hover to adaptive primary high for blue links, pressed is highest */
