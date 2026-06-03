@@ -10,31 +10,77 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(__dirname, '..');
 const srcRoot = path.join(packageRoot, 'src');
 const distRoot = path.join(packageRoot, 'dist');
+const buttonTypes = ['Fill', 'Outline', 'Ghost'];
+const buttonColors = ['Primary', 'Secondary', 'Light', 'Danger'];
+const buttonSizes = ['Regular', 'LG'];
+const buttonIcons = ['', 'arrow-right'];
+const htmlButtonTypes = ['button', 'submit', 'reset'];
 
 const buttonDefaults = {
   ariaLabel: '',
+  color: 'Primary',
   disabled: false,
-  fullWidth: false,
+  htmlType: 'button',
   id: '',
-  label: 'Button',
-  type: 'button',
-  variant: 'primary'
+  leftIcon: '',
+  rightIcon: 'arrow-right',
+  size: 'LG',
+  text: 'Button',
+  type: 'Fill'
 };
 
+function normalizeOption(value, options, fallback) {
+  if (typeof value !== 'string') {
+    return fallback;
+  }
+
+  const match = options.find((option) => option.toLowerCase() === value.toLowerCase());
+
+  return match === undefined ? fallback : match;
+}
+
+function getLegacyVariantDefaults(variant) {
+  if (variant === 'secondary') {
+    return {
+      color: 'Primary',
+      size: buttonDefaults.size,
+      type: 'Outline'
+    };
+  }
+
+  return {
+    color: buttonDefaults.color,
+    size: buttonDefaults.size,
+    type: buttonDefaults.type
+  };
+}
+
 function normalizeButtonProps(props = {}) {
-  const variant = ['primary', 'secondary'].includes(props.variant)
-    ? props.variant
-    : buttonDefaults.variant;
-  const type = ['button', 'submit', 'reset'].includes(props.type)
-    ? props.type
-    : buttonDefaults.type;
+  const legacyVariantDefaults = getLegacyVariantDefaults(props.variant);
+  const legacyHtmlType = htmlButtonTypes.includes(props.type) ? props.type : '';
+  const htmlType = htmlButtonTypes.includes(props.htmlType)
+    ? props.htmlType
+    : legacyHtmlType || buttonDefaults.htmlType;
+  const type = normalizeOption(
+    legacyHtmlType ? legacyVariantDefaults.type : props.type,
+    buttonTypes,
+    legacyVariantDefaults.type
+  );
+  const color = normalizeOption(props.color, buttonColors, legacyVariantDefaults.color);
+  const size = normalizeOption(props.size, buttonSizes, legacyVariantDefaults.size);
+  const leftIcon = normalizeOption(props.leftIcon, buttonIcons, buttonDefaults.leftIcon);
+  const rightIcon = normalizeOption(props.rightIcon, buttonIcons, buttonDefaults.rightIcon);
 
   return {
     ...buttonDefaults,
     ...props,
-    label: props.label || buttonDefaults.label,
-    type,
-    variant
+    color,
+    htmlType,
+    leftIcon,
+    rightIcon,
+    size,
+    text: props.text || props.label || buttonDefaults.text,
+    type
   };
 }
 
@@ -44,22 +90,65 @@ export { initMdsButtons } from './button.js';
 
 const templateSource = ${JSON.stringify(templateSource)};
 const buttonTemplate = Twig.twig({ data: templateSource });
+const buttonTypes = ${JSON.stringify(buttonTypes)};
+const buttonColors = ${JSON.stringify(buttonColors)};
+const buttonSizes = ${JSON.stringify(buttonSizes)};
+const buttonIcons = ${JSON.stringify(buttonIcons)};
+const htmlButtonTypes = ${JSON.stringify(htmlButtonTypes)};
 const buttonDefaults = ${JSON.stringify(buttonDefaults, null, 2)};
 
+function normalizeOption(value, options, fallback) {
+  if (typeof value !== 'string') {
+    return fallback;
+  }
+
+  const match = options.find((option) => option.toLowerCase() === value.toLowerCase());
+
+  return match === undefined ? fallback : match;
+}
+
+function getLegacyVariantDefaults(variant) {
+  if (variant === 'secondary') {
+    return {
+      color: 'Primary',
+      size: buttonDefaults.size,
+      type: 'Outline'
+    };
+  }
+
+  return {
+    color: buttonDefaults.color,
+    size: buttonDefaults.size,
+    type: buttonDefaults.type
+  };
+}
+
 function normalizeButtonProps(props = {}) {
-  const variant = ['primary', 'secondary'].includes(props.variant)
-    ? props.variant
-    : buttonDefaults.variant;
-  const type = ['button', 'submit', 'reset'].includes(props.type)
-    ? props.type
-    : buttonDefaults.type;
+  const legacyVariantDefaults = getLegacyVariantDefaults(props.variant);
+  const legacyHtmlType = htmlButtonTypes.includes(props.type) ? props.type : '';
+  const htmlType = htmlButtonTypes.includes(props.htmlType)
+    ? props.htmlType
+    : legacyHtmlType || buttonDefaults.htmlType;
+  const type = normalizeOption(
+    legacyHtmlType ? legacyVariantDefaults.type : props.type,
+    buttonTypes,
+    legacyVariantDefaults.type
+  );
+  const color = normalizeOption(props.color, buttonColors, legacyVariantDefaults.color);
+  const size = normalizeOption(props.size, buttonSizes, legacyVariantDefaults.size);
+  const leftIcon = normalizeOption(props.leftIcon, buttonIcons, buttonDefaults.leftIcon);
+  const rightIcon = normalizeOption(props.rightIcon, buttonIcons, buttonDefaults.rightIcon);
 
   return {
     ...buttonDefaults,
     ...props,
-    label: props.label || buttonDefaults.label,
-    type,
-    variant
+    color,
+    htmlType,
+    leftIcon,
+    rightIcon,
+    size,
+    text: props.text || props.label || buttonDefaults.text,
+    type
   };
 }
 
@@ -67,7 +156,15 @@ export function renderButton(props = {}) {
   return buttonTemplate.render(normalizeButtonProps(props));
 }
 
-export { buttonDefaults, templateSource as buttonTemplateSource };
+export {
+  buttonColors,
+  buttonDefaults,
+  buttonIcons,
+  buttonSizes,
+  buttonTypes,
+  htmlButtonTypes,
+  templateSource as buttonTemplateSource
+};
 `;
 }
 

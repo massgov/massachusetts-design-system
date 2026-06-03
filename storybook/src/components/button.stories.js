@@ -21,46 +21,70 @@ const meta = {
     fullWidth: {
       control: 'boolean'
     },
+    color: {
+      control: 'select',
+      options: ['Primary', 'Secondary', 'Light', 'Danger']
+    },
+    htmlType: {
+      control: 'select',
+      options: ['button', 'submit', 'reset']
+    },
     id: {
       control: 'text'
     },
-    label: {
+    leftIcon: {
+      control: 'select',
+      options: ['', 'arrow-right']
+    },
+    rightIcon: {
+      control: 'select',
+      options: ['arrow-right', '']
+    },
+    size: {
+      control: 'inline-radio',
+      options: ['Regular', 'LG']
+    },
+    text: {
       control: 'text'
     },
     type: {
       control: 'select',
-      options: ['button', 'submit', 'reset']
-    },
-    variant: {
-      control: 'inline-radio',
-      options: ['primary', 'secondary']
+      options: ['Fill', 'Outline', 'Ghost']
     }
   },
   args: {
     ariaLabel: '',
+    color: 'Primary',
     disabled: false,
     fullWidth: false,
+    htmlType: 'button',
     id: '',
-    label: 'Button',
-    type: 'button',
-    variant: 'primary'
+    leftIcon: '',
+    rightIcon: 'arrow-right',
+    size: 'LG',
+    text: 'Button',
+    type: 'Fill'
   }
 };
 
 export default meta;
 
-export const Primary = {};
+export const Primary = {
+  args: {
+    size: "Regular"
+  }
+};
 
 export const Secondary = {
   args: {
-    label: 'Secondary button',
-    variant: 'secondary'
+    color: 'Secondary',
+    text: 'Secondary button'
   }
 };
 
 export const Disabled = {
   args: {
     disabled: true,
-    label: 'Disabled button'
+    text: 'Disabled button'
   }
 };

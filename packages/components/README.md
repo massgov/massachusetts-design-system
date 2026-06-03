@@ -24,3 +24,14 @@ Source files live in `src/button/`:
 - `button.js` for optional browser behavior
 
 The public JavaScript API is exported from `@massds/mds-components/button`.
+
+`renderButton()` follows the Figma component properties:
+
+- `type`: `Fill`, `Outline`, `Ghost`
+- `color`: `Primary`, `Secondary`, `Light`, `Danger`
+- `size`: `Regular`, `LG`
+- `text`: button label text
+- `leftIcon`: optional icon name
+- `rightIcon`: optional icon name
+
+Use `htmlType` for the native HTML button type: `button`, `submit`, or `reset`.

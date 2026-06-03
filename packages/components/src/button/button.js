@@ -8,6 +8,10 @@ export function initMdsButtons(root = document) {
 
     button.dataset.mdsButtonInitialized = 'true';
     button.addEventListener('click', () => {
+      if (button.disabled || button.getAttribute('aria-disabled') === 'true') {
+        return;
+      }
+
       button.dispatchEvent(
         new CustomEvent('mds:button-click', {
           bubbles: true

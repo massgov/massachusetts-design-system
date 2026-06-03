@@ -1,33 +1,123 @@
 .mds-button {
-  --mds-button-background: var(--mds-background-section-brand-primary-mid);
-  --mds-button-background-hover: var(--mds-background-section-brand-primary-highest);
-  --mds-button-border: var(--mds-border-brand-primary-mid);
-  --mds-button-color: var(--mds-text-and-icons-utility-static-white);
+  --mds-button-accent: var(--mds-background-adaptive-brand-primary-mid);
+  --mds-button-accent-hover: var(--mds-background-adaptive-brand-primary-high);
+  --mds-button-accent-active: var(--mds-background-adaptive-brand-primary-highest);
+  --mds-button-accent-low: var(--mds-background-adaptive-brand-primary-lowest);
+  --mds-button-background: var(--mds-button-accent);
+  --mds-button-background-hover: var(--mds-button-accent-hover);
+  --mds-button-background-active: var(--mds-button-accent-active);
+  --mds-button-border: var(--mds-button-accent);
+  --mds-button-border-hover: var(--mds-button-accent-hover);
+  --mds-button-border-active: var(--mds-button-accent-active);
+  --mds-button-border-width: 0;
+  --mds-button-color: var(--mds-button-on-accent);
+  --mds-button-gap: var(--mds-space-xs);
+  --mds-button-on-accent: var(--mds-text-and-icons-utility-static-white);
 
+  box-sizing: border-box;
+  appearance: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.75rem;
+  gap: var(--mds-button-gap);
+  min-height: 3.375rem;
   max-width: 100%;
-  padding: var(--mds-space-100) var(--mds-space-200);
-  border: 2px solid var(--mds-button-border);
-  border-radius: var(--mds-radius-sm);
-  background: var(--mds-button-background);
+  padding: var(--mds-space-sm) var(--mds-space-md);;
+  border: var(--mds-button-border-width) solid var(--mds-button-border);
+  border-radius: var(--mds-radius-md);
+  background-color: var(--mds-button-background);
   color: var(--mds-button-color);
   cursor: pointer;
-  font: var(--mds-text-label);
+  font: var(--mds-text-label-md);
   letter-spacing: 0;
   text-align: center;
   text-decoration: none;
-}
-
-.mds-button:hover {
-  --mds-button-background: var(--mds-button-background-hover);
+  transition:
+    background-color var(--mds-motion-duration-fastest) ease,
+    border-color var(--mds-motion-duration-fastest) ease,
+    color var(--mds-motion-duration-fastest) ease;
+  user-select: none;
+  vertical-align: middle;
 }
 
 .mds-button:focus-visible {
   outline: 3px solid var(--mds-border-focus-on-light);
   outline-offset: 2px;
+}
+
+.mds-button--color-secondary {
+  --mds-button-accent: var(--mds-background-adaptive-brand-secondary-mid);
+  --mds-button-accent-hover: var(--mds-background-adaptive-brand-secondary-high);
+  --mds-button-accent-active: var(--mds-background-adaptive-brand-secondary-highest);
+  --mds-button-accent-low: var(--mds-background-adaptive-brand-secondary-lowest);
+}
+
+.mds-button--color-light {
+  --mds-button-accent: var(--mds-background-section-utility-static-white);
+  --mds-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
+  --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
+  --mds-button-accent-low: var(--mds-background-base-overlay);
+  --mds-button-on-accent: var(--mds-text-and-icons-utility-static-black);
+}
+
+.mds-button--color-danger {
+  --mds-button-accent: var(--mds-background-adaptive-utility-danger-mid);
+  --mds-button-accent-hover: var(--mds-background-adaptive-utility-danger-high);
+  --mds-button-accent-active: var(--mds-background-adaptive-utility-danger-highest);
+  --mds-button-accent-low: var(--mds-background-adaptive-utility-danger-lowest);
+}
+
+.mds-button--type-outline {
+  --mds-button-background: var(--mds-background-base-transparent);
+  --mds-button-background-hover: var(--mds-button-accent-low);
+  --mds-button-background-active: var(--mds-button-accent-low);
+  --mds-button-border: var(--mds-button-accent);
+  --mds-button-border-hover: var(--mds-button-accent-hover);
+  --mds-button-border-active: var(--mds-button-accent-active);
+  --mds-button-border-width: 2px;
+  --mds-button-color: var(--mds-button-accent);
+}
+
+.mds-button--type-ghost {
+  --mds-button-background: var(--mds-background-base-transparent);
+  --mds-button-background-hover: var(--mds-button-accent-low);
+  --mds-button-background-active: var(--mds-button-accent-low);
+  --mds-button-border: var(--mds-background-base-transparent);
+  --mds-button-border-hover: var(--mds-background-base-transparent);
+  --mds-button-border-active: var(--mds-background-base-transparent);
+  --mds-button-border-width: 0;
+  --mds-button-color: var(--mds-button-accent);
+}
+
+.mds-button--type-outline.mds-button--color-light,
+.mds-button--type-ghost.mds-button--color-light {
+  --mds-button-color: var(--mds-text-and-icons-utility-static-white);
+}
+
+.mds-button--size-regular {
+  --mds-button-gap: var(--mds-space-2xs);
+
+  min-height: 2.6875rem;
+  padding: var(--mds-space-xs) var(--mds-space-sm);
+  font: var(--mds-text-label);
+}
+
+.mds-button--size-lg {
+  --mds-button-gap: var(--mds-space-xs);
+
+  min-height: 3.375rem;
+  padding: var(--mds-space-sm) var(--mds-space-md);
+  font: var(--mds-text-label-md);
+}
+
+.mds-button:hover {
+  --mds-button-background: var(--mds-button-background-hover);
+  --mds-button-border: var(--mds-button-border-hover);
+}
+
+.mds-button:active {
+  --mds-button-background: var(--mds-button-background-active);
+  --mds-button-border: var(--mds-button-border-active);
 }
 
 .mds-button:disabled,
@@ -39,13 +129,6 @@
   cursor: not-allowed;
 }
 
-.mds-button--secondary {
-  --mds-button-background: var(--mds-background-surface-default);
-  --mds-button-background-hover: var(--mds-background-section-brand-primary-lowest);
-  --mds-button-border: var(--mds-border-brand-primary-mid);
-  --mds-button-color: var(--mds-text-and-icons-brand-primary-mid);
-}
-
 .mds-button--full-width {
   display: flex;
   width: 100%;
@@ -53,4 +136,17 @@
 
 .mds-button__label {
   overflow-wrap: anywhere;
+}
+
+.mds-button__icon {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+.mds-button__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
