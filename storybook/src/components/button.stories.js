@@ -208,16 +208,8 @@ const meta = {
 
 export default meta;
 
-export const Primary = {
+export const Demo = {
   args: buttonExamples.primary
-};
-
-export const Secondary = {
-  args: buttonExamples.secondary
-};
-
-export const Disabled = {
-  args: buttonExamples.disabled
 };
 
 export const Examples = {
