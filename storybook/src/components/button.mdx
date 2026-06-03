@@ -3,11 +3,55 @@ import * as ButtonStories from './button.stories';
 
 <Meta of={ButtonStories} />
 
+
 # Button
 
 An interactive element that enables users to take an action when selected. Buttons are fundamental components in virtually all digital interfaces and serve as the primary means for users to initiate commands or navigate through an application.
 
 <Canvas of={ButtonStories.Primary} />
+
+## Usage
+
+Use buttons to initiate actions, submit forms, save changes, trigger processes, and support primary user tasks. Buttons are also appropriate for destructive actions that require confirmation, such as delete, remove, or cancel.
+
+### When To Use
+
+- Initiating an action: when users need to submit forms, save changes, or trigger a process.
+- Primary user tasks: for the most important actions you want users to take, such as log in, register, or submit.
+- Destructive actions: for actions requiring confirmation, such as delete, remove, or cancel.
+- Command operations: for actions that make changes to data or state.
+- Call-to-action elements: when you need to draw attention to key conversion points. In some cases, this may be a link styled as a button.
+
+### When Not To Use
+
+- Simple navigation: use links for standard navigation between pages.
+- Reading more content: use links rather than buttons for content expansion.
+- Excessive options: when there are more than two potential actions, consider a link list, dropdown, or callout group.
+- Selection tasks: use checkboxes, radio buttons, or toggles for selection rather than action buttons.
+- Filtering or sorting: consider chips, segmented controls, or dropdown selectors.
+- Inline reference links: within body text, use inline links or popover links for references.
+- Secondary information display: use tooltips, popovers, or expandable sections instead.
+
+### Know The Difference
+
+- Links take users to a different location.
+- Links are represented in HTML with the `<a>` element and require a URL.
+- Link examples include read more, view all, and destination-specific labels.
+- Buttons perform a function or action.
+- Buttons are represented in HTML with the `<button>` element.
+- Button examples include submit, reset, publish, and save.
+- Links styled as buttons are technically links, but visually appear as actionable buttons.
+- Links styled as buttons are commonly used for calls to action or prominent navigation.
+
+### Icon Guidance
+
+- Icons should always provide additional context to the action the user is taking.
+- The arrow icon should only be used when the button takes the user to a new destination.
+- Many common button actions already have associated icons, such as login, download, upload, save, close, export, and refresh.
+- If there is not an obvious icon, the button likely should not have an icon.
+- Icons should almost always display on the right. Only display a left icon for navigational needs, such as a left arrow for going back.
+
+
 
 ## Variants
 
