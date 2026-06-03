@@ -3,8 +3,6 @@
 
 /** Site Header component styles **/
 
-$site-header-seal-size: 3.5rem;
-$site-header-brand-max-width: 29.5rem;
 $site-header-text-max-width: 25rem;
 
 .mds-site-header {
@@ -17,7 +15,6 @@ $site-header-text-max-width: 25rem;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 100%;
     padding-block: var(--mds-space-sm);
     padding-inline: var(--mds-breakpoint-horizontal-space-margin);
   }
@@ -25,15 +22,12 @@ $site-header-text-max-width: 25rem;
   &__title {
     display: flex;
     flex: 1 0 0;
-    align-items: center;
-    min-width: 0;
   }
 
   &__brand {
     display: flex;
     align-items: center;
     gap: var(--mds-space-sm);
-    width: min(100%, $site-header-brand-max-width);
     color: inherit;
     text-decoration: none;
 
@@ -41,10 +35,9 @@ $site-header-text-max-width: 25rem;
   }
 
   &__seal {
-    flex: none;
-    width: $site-header-seal-size;
-    height: $site-header-seal-size;
-    object-fit: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    align-self: self-start;
   }
 
   &__text {
@@ -52,18 +45,11 @@ $site-header-text-max-width: 25rem;
     flex-direction: column;
     align-items: flex-start;
     gap: var(--mds-space-2xs);
-    max-width: $site-header-text-max-width;
-    min-width: 0;
-    color: inherit;
-    overflow-wrap: anywhere;
+    max-width: 25rem; //should this be handles with flex/percentage?
   }
 
   &__site-name {
-    font-family: var(--mds-font-family-headings);
-    font-size: var(--mds-font-size-300);
-    font-weight: var(--mds-font-weight-semibold);
-    line-height: var(--mds-line-height-110);
-    letter-spacing: 0;
+    font: var(--mds-text-heading-sm);
   }
 
   &__organization {
