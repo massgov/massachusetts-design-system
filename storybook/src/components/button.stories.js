@@ -1,90 +1,81 @@
 import '@massds/mds-components/button.css';
-import { initMdsButtons, renderButton } from '@massds/mds-components/button';
+import {
+  buttonDefaults,
+  buttonExamples,
+  buttonOptions,
+  initMdsButtons,
+  renderButton
+} from '@massds/mds-components/button';
+
+function renderButtonStory(args) {
+  const preview = document.createElement('div');
+  preview.innerHTML = renderButton(args);
+  initMdsButtons(preview);
+
+  return preview;
+}
 
 const meta = {
   title: 'Components/Button',
-  tags: ['autodocs'],
-  render: (args) => {
-    const preview = document.createElement('div');
-    preview.innerHTML = renderButton(args);
-    initMdsButtons(preview);
-
-    return preview;
-  },
+  render: renderButtonStory,
   argTypes: {
     ariaLabel: {
-      control: 'text'
+      control: 'text',
+      description: 'Accessible label when the visible text is not enough.'
     },
     disabled: {
-      control: 'boolean'
+      control: 'boolean',
+      description: 'Disables the native button.'
     },
     fullWidth: {
-      control: 'boolean'
+      control: 'boolean',
+      description: 'Expands the button to the width of its container.'
     },
     color: {
       control: 'select',
-      options: ['Primary', 'Secondary', 'Light', 'Danger']
+      options: buttonOptions.color
     },
     htmlType: {
       control: 'select',
-      options: ['button', 'submit', 'reset']
+      options: buttonOptions.htmlType,
+      description: 'Native HTML button type.'
     },
     id: {
       control: 'text'
     },
     leftIcon: {
       control: 'select',
-      options: ['', 'arrow-right']
+      options: buttonOptions.icon
     },
     rightIcon: {
       control: 'select',
-      options: ['arrow-right', '']
+      options: buttonOptions.icon
     },
     size: {
       control: 'inline-radio',
-      options: ['Regular', 'LG']
+      options: buttonOptions.size
     },
     text: {
       control: 'text'
     },
     type: {
       control: 'select',
-      options: ['Fill', 'Outline', 'Ghost']
+      options: buttonOptions.type
     }
   },
-  args: {
-    ariaLabel: '',
-    color: 'Primary',
-    disabled: false,
-    fullWidth: false,
-    htmlType: 'button',
-    id: '',
-    leftIcon: '',
-    rightIcon: 'arrow-right',
-    size: 'LG',
-    text: 'Button',
-    type: 'Fill'
-  }
+  args: buttonDefaults
 };
 
 export default meta;
 
 export const Primary = {
-  args: {
-    size: "Regular"
-  }
+  args: buttonExamples.primary
 };
 
 export const Secondary = {
-  args: {
-    color: 'Secondary',
-    text: 'Secondary button'
-  }
+  args: buttonExamples.secondary
 };
 
 export const Disabled = {
-  args: {
-    disabled: true,
-    text: 'Disabled button'
-  }
+  args: buttonExamples.disabled
 };

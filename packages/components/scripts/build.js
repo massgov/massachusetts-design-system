@@ -1,171 +1,20 @@
-import { createRequire } from 'node:module';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const require = createRequire(import.meta.url);
-const Twig = require('twig');
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(__dirname, '..');
 const srcRoot = path.join(packageRoot, 'src');
 const distRoot = path.join(packageRoot, 'dist');
-const buttonTypes = ['Fill', 'Outline', 'Ghost'];
-const buttonColors = ['Primary', 'Secondary', 'Light', 'Danger'];
-const buttonSizes = ['Regular', 'LG'];
-const buttonIcons = ['', 'arrow-right'];
-const htmlButtonTypes = ['button', 'submit', 'reset'];
+const componentBuildFile = 'build.js';
 
-const buttonDefaults = {
-  ariaLabel: '',
-  color: 'Primary',
-  disabled: false,
-  htmlType: 'button',
-  id: '',
-  leftIcon: '',
-  rightIcon: 'arrow-right',
-  size: 'LG',
-  text: 'Button',
-  type: 'Fill'
-};
-
-function normalizeOption(value, options, fallback) {
-  if (typeof value !== 'string') {
-    return fallback;
+async function pathExists(filePath) {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
   }
-
-  const match = options.find((option) => option.toLowerCase() === value.toLowerCase());
-
-  return match === undefined ? fallback : match;
-}
-
-function getLegacyVariantDefaults(variant) {
-  if (variant === 'secondary') {
-    return {
-      color: 'Primary',
-      size: buttonDefaults.size,
-      type: 'Outline'
-    };
-  }
-
-  return {
-    color: buttonDefaults.color,
-    size: buttonDefaults.size,
-    type: buttonDefaults.type
-  };
-}
-
-function normalizeButtonProps(props = {}) {
-  const legacyVariantDefaults = getLegacyVariantDefaults(props.variant);
-  const legacyHtmlType = htmlButtonTypes.includes(props.type) ? props.type : '';
-  const htmlType = htmlButtonTypes.includes(props.htmlType)
-    ? props.htmlType
-    : legacyHtmlType || buttonDefaults.htmlType;
-  const type = normalizeOption(
-    legacyHtmlType ? legacyVariantDefaults.type : props.type,
-    buttonTypes,
-    legacyVariantDefaults.type
-  );
-  const color = normalizeOption(props.color, buttonColors, legacyVariantDefaults.color);
-  const size = normalizeOption(props.size, buttonSizes, legacyVariantDefaults.size);
-  const leftIcon = normalizeOption(props.leftIcon, buttonIcons, buttonDefaults.leftIcon);
-  const rightIcon = normalizeOption(props.rightIcon, buttonIcons, buttonDefaults.rightIcon);
-
-  return {
-    ...buttonDefaults,
-    ...props,
-    color,
-    htmlType,
-    leftIcon,
-    rightIcon,
-    size,
-    text: props.text || props.label || buttonDefaults.text,
-    type
-  };
-}
-
-function createRenderModule(templateSource) {
-  return `import Twig from 'twig';
-export { initMdsButtons } from './button.js';
-
-const templateSource = ${JSON.stringify(templateSource)};
-const buttonTemplate = Twig.twig({ data: templateSource });
-const buttonTypes = ${JSON.stringify(buttonTypes)};
-const buttonColors = ${JSON.stringify(buttonColors)};
-const buttonSizes = ${JSON.stringify(buttonSizes)};
-const buttonIcons = ${JSON.stringify(buttonIcons)};
-const htmlButtonTypes = ${JSON.stringify(htmlButtonTypes)};
-const buttonDefaults = ${JSON.stringify(buttonDefaults, null, 2)};
-
-function normalizeOption(value, options, fallback) {
-  if (typeof value !== 'string') {
-    return fallback;
-  }
-
-  const match = options.find((option) => option.toLowerCase() === value.toLowerCase());
-
-  return match === undefined ? fallback : match;
-}
-
-function getLegacyVariantDefaults(variant) {
-  if (variant === 'secondary') {
-    return {
-      color: 'Primary',
-      size: buttonDefaults.size,
-      type: 'Outline'
-    };
-  }
-
-  return {
-    color: buttonDefaults.color,
-    size: buttonDefaults.size,
-    type: buttonDefaults.type
-  };
-}
-
-function normalizeButtonProps(props = {}) {
-  const legacyVariantDefaults = getLegacyVariantDefaults(props.variant);
-  const legacyHtmlType = htmlButtonTypes.includes(props.type) ? props.type : '';
-  const htmlType = htmlButtonTypes.includes(props.htmlType)
-    ? props.htmlType
-    : legacyHtmlType || buttonDefaults.htmlType;
-  const type = normalizeOption(
-    legacyHtmlType ? legacyVariantDefaults.type : props.type,
-    buttonTypes,
-    legacyVariantDefaults.type
-  );
-  const color = normalizeOption(props.color, buttonColors, legacyVariantDefaults.color);
-  const size = normalizeOption(props.size, buttonSizes, legacyVariantDefaults.size);
-  const leftIcon = normalizeOption(props.leftIcon, buttonIcons, buttonDefaults.leftIcon);
-  const rightIcon = normalizeOption(props.rightIcon, buttonIcons, buttonDefaults.rightIcon);
-
-  return {
-    ...buttonDefaults,
-    ...props,
-    color,
-    htmlType,
-    leftIcon,
-    rightIcon,
-    size,
-    text: props.text || props.label || buttonDefaults.text,
-    type
-  };
-}
-
-export function renderButton(props = {}) {
-  return buttonTemplate.render(normalizeButtonProps(props));
-}
-
-export {
-  buttonColors,
-  buttonDefaults,
-  buttonIcons,
-  buttonSizes,
-  buttonTypes,
-  htmlButtonTypes,
-  templateSource as buttonTemplateSource
-};
-`;
 }
 
 async function copyFile(source, destination) {
@@ -173,31 +22,113 @@ async function copyFile(source, destination) {
   await fs.copyFile(source, destination);
 }
 
-async function buildButton() {
-  const componentName = 'button';
+async function writeFile(destination, contents) {
+  await fs.mkdir(path.dirname(destination), { recursive: true });
+  await fs.writeFile(destination, contents, 'utf8');
+}
+
+async function getComponentNames() {
+  const entries = await fs.readdir(srcRoot, { withFileTypes: true });
+
+  return entries
+    .filter((entry) => entry.isDirectory() && !entry.name.startsWith('.'))
+    .map((entry) => entry.name)
+    .sort();
+}
+
+function shouldCopySourceFile(fileName) {
+  return fileName !== componentBuildFile && fileName !== '.DS_Store';
+}
+
+function createBuildContext(componentName) {
   const sourceDir = path.join(srcRoot, componentName);
   const outputDir = path.join(distRoot, componentName);
-  const templateSource = await fs.readFile(path.join(sourceDir, 'button.twig'), 'utf8');
-  const template = Twig.twig({ data: templateSource });
 
-  await fs.mkdir(outputDir, { recursive: true });
-  await copyFile(path.join(sourceDir, 'button.css'), path.join(outputDir, 'button.css'));
-  await copyFile(path.join(sourceDir, 'button.js'), path.join(outputDir, 'button.js'));
-  await copyFile(path.join(sourceDir, 'button.twig'), path.join(outputDir, 'button.twig'));
+  return {
+    componentName,
+    outputDir,
+    sourceDir,
+    copyFile,
+    copySourceFile: (fileName) => copyFile(path.join(sourceDir, fileName), path.join(outputDir, fileName)),
+    copySourceFiles: (fileNames) =>
+      Promise.all(fileNames.map((fileName) => copyFile(path.join(sourceDir, fileName), path.join(outputDir, fileName)))),
+    readSourceFile: (fileName) => fs.readFile(path.join(sourceDir, fileName), 'utf8'),
+    writeOutputFile: (fileName, contents) => writeFile(path.join(outputDir, fileName), contents)
+  };
+}
 
-  await fs.writeFile(
-    path.join(outputDir, 'button.html'),
-    `${template.render(normalizeButtonProps())}\n`,
-    'utf8'
-  );
-  await fs.writeFile(path.join(outputDir, 'index.js'), createRenderModule(templateSource), 'utf8');
+async function copyComponentSourceFiles(context) {
+  const entries = await fs.readdir(context.sourceDir, { withFileTypes: true });
+  const files = entries
+    .filter((entry) => entry.isFile() && shouldCopySourceFile(entry.name))
+    .map((entry) => entry.name);
+
+  await context.copySourceFiles(files);
+}
+
+async function runComponentBuild(componentName) {
+  const context = createBuildContext(componentName);
+  const buildModulePath = path.join(context.sourceDir, componentBuildFile);
+
+  await fs.mkdir(context.outputDir, { recursive: true });
+
+  if (!(await pathExists(buildModulePath))) {
+    await copyComponentSourceFiles(context);
+    return context;
+  }
+
+  const buildModule = await import(pathToFileURL(buildModulePath).href);
+  const buildComponent = buildModule.buildComponent ?? buildModule.default;
+
+  if (typeof buildComponent !== 'function') {
+    throw new Error(`${buildModulePath} must export a buildComponent function.`);
+  }
+
+  await buildComponent(context);
+  return context;
+}
+
+async function getComponentCssImports(componentNames) {
+  const imports = [];
+
+  for (const componentName of componentNames) {
+    const componentSourceDir = path.join(srcRoot, componentName);
+    const entries = await fs.readdir(componentSourceDir, { withFileTypes: true });
+    const cssFiles = entries
+      .filter((entry) => entry.isFile() && path.extname(entry.name) === '.css')
+      .map((entry) => entry.name)
+      .sort();
+
+    imports.push(...cssFiles.map((fileName) => `@import './${componentName}/${fileName}';`));
+  }
+
+  return imports;
+}
+
+async function writePackageIndexes(componentNames) {
+  const jsExports = [];
+
+  for (const componentName of componentNames) {
+    const outputIndexPath = path.join(distRoot, componentName, 'index.js');
+
+    if (await pathExists(outputIndexPath)) {
+      jsExports.push(`export * from './${componentName}/index.js';`);
+    }
+  }
+
+  const cssImports = await getComponentCssImports(componentNames);
+
+  await writeFile(path.join(distRoot, 'index.js'), `${jsExports.join('\n')}\n`);
+  await writeFile(path.join(distRoot, 'index.css'), `${cssImports.join('\n')}\n`);
 }
 
 async function build() {
   await fs.rm(distRoot, { recursive: true, force: true });
-  await buildButton();
-  await fs.copyFile(path.join(distRoot, 'button', 'button.css'), path.join(distRoot, 'index.css'));
-  await fs.writeFile(path.join(distRoot, 'index.js'), "export * from './button/index.js';\n", 'utf8');
+
+  const componentNames = await getComponentNames();
+
+  await Promise.all(componentNames.map(runComponentBuild));
+  await writePackageIndexes(componentNames);
 }
 
 build().catch((error) => {

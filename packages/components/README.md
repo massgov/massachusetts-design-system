@@ -20,10 +20,15 @@ The build writes distributable files into `dist/`.
 Source files live in `src/button/`:
 
 - `button.twig` for the authored markup
+- `button.data.js` for defaults, options, and examples
+- `button.render.js` for Twig rendering and data normalization
+- `build.js` for Button-specific package artifacts
 - `button.css` for component styles
 - `button.js` for optional browser behavior
 
 The public JavaScript API is exported from `@massds/mds-components/button`.
+The shared build script discovers components and delegates component-specific
+package artifacts to each component directory.
 
 `renderButton()` follows the Figma component properties:
 
