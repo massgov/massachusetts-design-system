@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import * as sass from 'sass';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(__dirname, '..');
@@ -27,6 +28,16 @@ async function writeFile(destination, contents) {
   await fs.writeFile(destination, contents, 'utf8');
 }
 
+async function compileSass(source, destination) {
+  const result = await sass.compileAsync(source, {
+    importers: [new sass.NodePackageImporter()],
+    sourceMap: false,
+    style: 'expanded'
+  });
+
+  await writeFile(destination, `${result.css}\n`);
+}
+
 async function getComponentNames() {
   const entries = await fs.readdir(srcRoot, { withFileTypes: true });
 
@@ -40,6 +51,10 @@ function shouldCopySourceFile(fileName) {
   return fileName !== componentBuildFile && fileName !== '.DS_Store';
 }
 
+function shouldCompileSourceScss(fileName) {
+  return path.extname(fileName) === '.scss' && !path.basename(fileName).startsWith('_');
+}
+
 function createBuildContext(componentName) {
   const sourceDir = path.join(srcRoot, componentName);
   const outputDir = path.join(distRoot, componentName);
@@ -48,10 +63,20 @@ function createBuildContext(componentName) {
     componentName,
     outputDir,
     sourceDir,
+    compileSass,
+    compileSourceScss: (inputFileName, outputFileName = inputFileName.replace(/\.scss$/, '.css')) =>
+      compileSass(
+        path.join(sourceDir, inputFileName),
+        path.join(outputDir, outputFileName)
+      ),
     copyFile,
     copySourceFile: (fileName) => copyFile(path.join(sourceDir, fileName), path.join(outputDir, fileName)),
     copySourceFiles: (fileNames) =>
-      Promise.all(fileNames.map((fileName) => copyFile(path.join(sourceDir, fileName), path.join(outputDir, fileName)))),
+      Promise.all(
+        fileNames.map((fileName) =>
+          copyFile(path.join(sourceDir, fileName), path.join(outputDir, fileName))
+        )
+      ),
     readSourceFile: (fileName) => fs.readFile(path.join(sourceDir, fileName), 'utf8'),
     writeOutputFile: (fileName, contents) => writeFile(path.join(outputDir, fileName), contents)
   };
@@ -66,6 +91,15 @@ async function copyComponentSourceFiles(context) {
   await context.copySourceFiles(files);
 }
 
+async function compileComponentScssFiles(context) {
+  const entries = await fs.readdir(context.sourceDir, { withFileTypes: true });
+  const scssFiles = entries
+    .filter((entry) => entry.isFile() && shouldCompileSourceScss(entry.name))
+    .map((entry) => entry.name);
+
+  await Promise.all(scssFiles.map((fileName) => context.compileSourceScss(fileName)));
+}
+
 async function runComponentBuild(componentName) {
   const context = createBuildContext(componentName);
   const buildModulePath = path.join(context.sourceDir, componentBuildFile);
@@ -74,6 +108,7 @@ async function runComponentBuild(componentName) {
 
   if (!(await pathExists(buildModulePath))) {
     await copyComponentSourceFiles(context);
+    await compileComponentScssFiles(context);
     return context;
   }
 
@@ -85,6 +120,7 @@ async function runComponentBuild(componentName) {
   }
 
   await buildComponent(context);
+  await compileComponentScssFiles(context);
   return context;
 }
 
@@ -92,8 +128,8 @@ async function getComponentCssImports(componentNames) {
   const imports = [];
 
   for (const componentName of componentNames) {
-    const componentSourceDir = path.join(srcRoot, componentName);
-    const entries = await fs.readdir(componentSourceDir, { withFileTypes: true });
+    const componentOutputDir = path.join(distRoot, componentName);
+    const entries = await fs.readdir(componentOutputDir, { withFileTypes: true });
     const cssFiles = entries
       .filter((entry) => entry.isFile() && path.extname(entry.name) === '.css')
       .map((entry) => entry.name)

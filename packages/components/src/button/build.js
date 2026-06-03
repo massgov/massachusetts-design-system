@@ -1,7 +1,7 @@
 import { buttonDefaults } from './button.data.js';
 import { createButtonRenderer } from './button.render.js';
 
-const sourceFiles = ['button.css', 'button.data.js', 'button.js', 'button.render.js', 'button.twig'];
+const sourceFiles = ['button.data.js', 'button.js', 'button.render.js', 'button.scss', 'button.twig'];
 
 function createTemplateModule(templateSource) {
   return `export const buttonTemplateSource = ${JSON.stringify(templateSource)};\n`;

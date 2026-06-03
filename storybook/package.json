@@ -13,7 +13,7 @@
     "@massds/mds-assets": "^1.1.1",
     "@massds/mds-components": "^0.1.0",
     "@massds/mds-styles": "^1.0.0",
-    "@massds/mds-tokens": "^1.0.0"
+    "@massds/mds-tokens": "^1.1.0"
   },
   "devDependencies": {
     "@storybook/addon-docs": "^10.4.1",

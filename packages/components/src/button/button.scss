@@ -1,3 +1,5 @@
+@use "pkg:@massds/mds-styles/scss/mixins" as mixins;
+
 .mds-button {
   --mds-button-accent: var(--mds-background-adaptive-brand-primary-mid);
   --mds-button-accent-hover: var(--mds-background-adaptive-brand-primary-high);
@@ -22,7 +24,7 @@
   gap: var(--mds-button-gap);
   min-height: 3.375rem;
   max-width: 100%;
-  padding: var(--mds-space-sm) var(--mds-space-md);;
+  padding: var(--mds-space-sm) var(--mds-space-md);
   border: var(--mds-button-border-width) solid var(--mds-button-border);
   border-radius: var(--mds-radius-md);
   background-color: var(--mds-button-background);

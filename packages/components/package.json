@@ -31,10 +31,12 @@
     "twig": "^3.0.0"
   },
   "peerDependencies": {
-    "@massds/mds-tokens": "^1.0.0"
+    "@massds/mds-tokens": "^1.1.0"
   },
   "devDependencies": {
-    "@massds/mds-tokens": "^1.0.0"
+    "@massds/mds-styles": "^1.0.0",
+    "@massds/mds-tokens": "^1.1.0",
+    "sass": "^1.93.2"
   },
   "engines": {
     "node": "24.14.0"
