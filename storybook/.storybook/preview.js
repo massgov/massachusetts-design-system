@@ -1,5 +1,12 @@
+import { create } from 'storybook/theming';
 import '@massds/mds-tokens/dist/index.css';
 import '@massds/mds-styles/index.css';
+
+const docsTheme = create({
+  base: 'light',
+  fontBase: '"Noto Sans", Arial, sans-serif',
+  fontCode: '"SFMono-Regular", Consolas, monospace'
+});
 
 const preview = {
   parameters: {
@@ -10,6 +17,7 @@ const preview = {
       }
     },
     docs: {
+      theme: docsTheme,
       toc: {
         headingSelector: 'h2',
         title: 'On this page'
