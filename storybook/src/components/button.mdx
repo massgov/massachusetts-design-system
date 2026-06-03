@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta, Stories } from '@storybook/addon-docs/blocks';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import * as ButtonStories from './button.stories';
 
 <Meta of={ButtonStories} />
@@ -55,16 +55,6 @@ Use buttons to initiate actions, submit forms, save changes, trigger processes, 
 
 <Canvas of={ButtonStories.Examples} />
 
-## Variants
-
-<Canvas of={ButtonStories.Secondary} />
-
-<Canvas of={ButtonStories.Disabled} />
-
 ## API
 
-<Controls />
-
-## Stories
-
-<Stories />
+<Controls of={ButtonStories.Primary} />
