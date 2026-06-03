@@ -9,6 +9,12 @@ const preview = {
         date: /Date$/i
       }
     },
+    docs: {
+      toc: {
+        headingSelector: 'h2',
+        title: 'On this page'
+      }
+    },
     layout: 'centered'
   }
 };
