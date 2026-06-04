@@ -44,7 +44,7 @@ $site-header-text-max-width: 25rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--mds-space-2xs);
+    gap: var(--mds-space-3xs);
     max-width: 25rem; //should this be handles with flex/percentage?
   }
 
