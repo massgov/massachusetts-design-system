@@ -8,6 +8,15 @@
   outline-offset: 2px;
 }
 
+address {
+  font-style: normal;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 .mds-footer {
   background-color: var(--mds-background-section-brand-neutral-lowest);
   color: var(--mds-text-and-icons-brand-neutral-default);
@@ -60,6 +69,7 @@
 }
 
 .mds-footer__content {
+  @include mixins.grid;
   padding-block: var(--mds-space-2xl) var(--mds-space-md);
 }
 
@@ -217,27 +227,13 @@
 }
 
 @media (max-width: 768px) {
-  .mds-footer__content {
-    grid-template-columns: 1fr;
-  }
 
-  .mds-footer__description {
-    max-width: 34rem;
-  }
+
 }
 
 @media (max-width: 480px) {
-  .mds-footer__brand-heading {
-    align-items: flex-start;
+  .mds-footer__content {
+    row-gap: var(--mds-space-md);
   }
 
-  .mds-footer__social-link {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .mds-footer__legal-nav ul {
-    flex-direction: column;
-    gap: var(--mds-space-sm);
-  }
 }
