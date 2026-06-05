@@ -44,7 +44,20 @@ const exampleSizes = [
     size: 'Regular'
   }
 ];
-const exampleTypes = ['Fill', 'Outline', 'Ghost'];
+const exampleTypes = [
+  {
+    label: 'Fill',
+    type: 'Fill'
+  },
+  {
+    label: 'Outline',
+    type: 'Outline'
+  },
+  {
+    label: 'Ghost',
+    type: 'Ghost'
+  }
+];
 
 function renderExampleButton({ color, disabled = false, size, text, type }) {
   return renderButton({
@@ -57,43 +70,53 @@ function renderExampleButton({ color, disabled = false, size, text, type }) {
   });
 }
 
-function renderExampleGroup({ color, label, surface }) {
-  const rows = exampleSizes.map(({ label: sizeLabel, size }) => {
-    const buttons = exampleTypes
-      .map((type) =>
-        renderExampleButton({
+function renderColorExample({ color, label, size, surface, type }) {
+  return `
+    <div class="mds-button-examples__color-example${
+      surface === 'dark' ? ' mds-button-examples__color-example--dark' : ''
+    }">
+      <h5 class="mds-button-examples__color-heading">${label}</h5>
+      <div class="mds-button-examples__button-stack">
+        ${renderExampleButton({
           color,
           size,
-          text: type,
+          text: 'Button',
           type
-        })
-      )
-      .join('');
-    const disabledButtons = exampleTypes
-      .map((type) =>
-        renderExampleButton({
+        })}
+        ${renderExampleButton({
           color,
           disabled: true,
           size,
-          text: `${type} disabled`,
+          text: 'Button',
           type
-        })
-      )
-      .join('');
+        })}
+      </div>
+    </div>
+  `;
+}
 
+function renderExampleGroup({ label, type }) {
+  const rows = exampleSizes.map(({ label: sizeLabel, size }) => {
     return `
       <div class="mds-button-examples__variant-row">
         <h4 class="mds-button-examples__variant-heading">${sizeLabel}</h4>
-        <div class="mds-button-examples__button-row">${buttons}</div>
-        <div class="mds-button-examples__button-row">${disabledButtons}</div>
+        <div class="mds-button-examples__color-grid">
+          ${exampleColors
+            .map((colorExample) =>
+              renderColorExample({
+                ...colorExample,
+                size,
+                type
+              })
+            )
+            .join('')}
+        </div>
       </div>
     `;
   });
 
   return `
-    <section class="mds-button-examples__group${
-      surface === 'dark' ? ' mds-button-examples__group--dark' : ''
-    }">
+    <section class="mds-button-examples__group">
       <h3 class="mds-button-examples__group-heading">${label}</h3>
       ${rows.join('')}
     </section>
@@ -120,18 +143,18 @@ function renderExamplesStory() {
         background: var(--mds-background-section-utility-static-white);
       }
 
-      .mds-button-examples__group--dark {
-        background: var(--mds-background-section-brand-primary-highest);
-      }
-
       .mds-button-examples__group-heading,
       .mds-button-examples__variant-heading {
         margin: 0;
         color: var(--mds-text-and-icons-brand-neutral-default);
       }
 
-      .mds-button-examples__group--dark .mds-button-examples__group-heading,
-      .mds-button-examples__group--dark .mds-button-examples__variant-heading {
+      .mds-button-examples__color-heading {
+        margin: 0;
+        color: var(--mds-text-and-icons-brand-neutral-default);
+      }
+
+      .mds-button-examples__color-example--dark .mds-button-examples__color-heading {
         color: var(--mds-text-and-icons-utility-static-white);
       }
 
@@ -140,14 +163,47 @@ function renderExamplesStory() {
         gap: 12px;
       }
 
-      .mds-button-examples__button-row {
+      .mds-button-examples__color-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px 24px;
+        align-items: stretch;
+      }
+
+      .mds-button-examples__color-example {
+        display: grid;
+        gap: 10px;
+        align-content: start;
+        min-width: 0;
+        padding: 16px;
+        border-radius: var(--mds-radius-md);
+        background: var(--mds-background-section-utility-static-white);
+      }
+
+      .mds-button-examples__color-example--dark {
+        background: var(--mds-background-section-brand-neutral-high);
+      }
+
+      .mds-button-examples__button-stack {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
         align-items: center;
       }
+
+      @media (max-width: 900px) {
+        .mds-button-examples__color-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 560px) {
+        .mds-button-examples__color-grid {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
-    ${exampleColors.map(renderExampleGroup).join('')}
+    ${exampleTypes.map(renderExampleGroup).join('')}
   `;
 
   initMdsButtons(preview);
