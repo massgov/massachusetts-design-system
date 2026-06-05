@@ -24,7 +24,8 @@
     "lint:tokens": "npm run lint --workspace @massds/mds-tokens",
     "demo:styles": "npm run demo --workspace @massds/mds-styles",
     "storybook": "npm run storybook --workspace @massds/storybook",
-    "watch:styles": "npm run watch --workspace @massds/mds-styles"
+    "watch:styles": "npm run watch --workspace @massds/mds-styles",
+    "watch:components": "npm run watch --workspace @massds/mds-components"
   },
   "engines": {
     "node": "24.14.0"
