@@ -159,6 +159,17 @@ const meta = {
   title: 'Components/Button',
   render: renderButtonStory,
   argTypes: {
+    text: {
+      control: 'text'
+    },
+    id: {
+      control: 'text'
+    },
+    htmlType: {
+      control: 'select',
+      options: buttonOptions.htmlType,
+      description: 'Native HTML button type.'
+    },
     ariaLabel: {
       control: 'text',
       description: 'Accessible label when the visible text is not enough.'
@@ -167,21 +178,17 @@ const meta = {
       control: 'boolean',
       description: 'Disables the native button.'
     },
-    fullWidth: {
-      control: 'boolean',
-      description: 'Expands the button to the width of its container.'
+    type: {
+      control: 'select',
+      options: buttonOptions.type
     },
     color: {
       control: 'select',
       options: buttonOptions.color
     },
-    htmlType: {
-      control: 'select',
-      options: buttonOptions.htmlType,
-      description: 'Native HTML button type.'
-    },
-    id: {
-      control: 'text'
+    size: {
+      control: 'inline-radio',
+      options: buttonOptions.size
     },
     leftIcon: {
       control: 'select',
@@ -190,17 +197,6 @@ const meta = {
     rightIcon: {
       control: 'select',
       options: buttonOptions.icon
-    },
-    size: {
-      control: 'inline-radio',
-      options: buttonOptions.size
-    },
-    text: {
-      control: 'text'
-    },
-    type: {
-      control: 'select',
-      options: buttonOptions.type
     }
   },
   args: buttonDefaults

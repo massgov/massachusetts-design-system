@@ -5,6 +5,18 @@ import { massdsDocsTheme } from './theme';
 
 const preview = {
   parameters: {
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: [
+          'Overview',
+          ['Introduction'],
+          'Components',
+          ['Button', ['Docs', 'Demo', 'Examples']]
+        ],
+        includeNames: true
+      }
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
