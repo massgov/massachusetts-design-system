@@ -10,6 +10,9 @@ const config = {
   docs: {
     autodocs: 'tag'
   },
+  features: {
+    sidebarOnboardingChecklist: false
+  },
   viteFinal: async (config) => mergeConfig(config, {
     build: {
       chunkSizeWarningLimit: 1200
