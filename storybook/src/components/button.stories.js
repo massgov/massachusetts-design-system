@@ -121,7 +121,7 @@ function renderExamplesStory() {
       }
 
       .mds-button-examples__group--dark {
-        background: var(--mds-background-section-brand-neutral-highest);
+        background: var(--mds-background-section-brand-primary-highest);
       }
 
       .mds-button-examples__group-heading,
@@ -155,51 +155,57 @@ function renderExamplesStory() {
   return preview;
 }
 
+const buttonArgTypes = {
+  text: {
+    control: 'text'
+  },
+  id: {
+    control: 'text'
+  },
+  htmlType: {
+    control: 'select',
+    options: buttonOptions.htmlType,
+    description: 'Native HTML button type.'
+  },
+  ariaLabel: {
+    control: 'text',
+    description: 'Accessible label when the visible text is not enough.'
+  },
+  disabled: {
+    control: 'boolean',
+    description: 'Disables the native button.'
+  },
+  type: {
+    control: 'select',
+    options: buttonOptions.type
+  },
+  color: {
+    control: 'select',
+    options: buttonOptions.color
+  },
+  size: {
+    control: 'inline-radio',
+    options: buttonOptions.size
+  },
+  leftIcon: {
+    control: 'select',
+    options: buttonOptions.icon
+  },
+  rightIcon: {
+    control: 'select',
+    options: buttonOptions.icon
+  }
+};
+
+const buttonArgs = Object.fromEntries(
+  Object.keys(buttonArgTypes).map((key) => [key, buttonDefaults[key]])
+);
+
 const meta = {
   title: 'Components/Button',
   render: renderButtonStory,
-  argTypes: {
-    text: {
-      control: 'text'
-    },
-    id: {
-      control: 'text'
-    },
-    htmlType: {
-      control: 'select',
-      options: buttonOptions.htmlType,
-      description: 'Native HTML button type.'
-    },
-    ariaLabel: {
-      control: 'text',
-      description: 'Accessible label when the visible text is not enough.'
-    },
-    disabled: {
-      control: 'boolean',
-      description: 'Disables the native button.'
-    },
-    type: {
-      control: 'select',
-      options: buttonOptions.type
-    },
-    color: {
-      control: 'select',
-      options: buttonOptions.color
-    },
-    size: {
-      control: 'inline-radio',
-      options: buttonOptions.size
-    },
-    leftIcon: {
-      control: 'select',
-      options: buttonOptions.icon
-    },
-    rightIcon: {
-      control: 'select',
-      options: buttonOptions.icon
-    }
-  },
-  args: buttonDefaults
+  argTypes: buttonArgTypes,
+  args: buttonArgs
 };
 
 export default meta;

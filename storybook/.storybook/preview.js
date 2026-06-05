@@ -18,6 +18,7 @@ const preview = {
       }
     },
     controls: {
+      sort: 'none',
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i
