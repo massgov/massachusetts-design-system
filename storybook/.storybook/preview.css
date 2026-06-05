@@ -1,0 +1,4 @@
+#storybook-root {
+  color: var(--mds-text-and-icons-brand-neutral-default);
+  font: var(--mds-text-body);
+}
