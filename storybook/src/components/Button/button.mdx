@@ -1,5 +1,33 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  buttonDefaults,
+  renderButton
+} from '@massds/mds-components/button';
+import buttonCss from '../../../../packages/components/dist/button/button.css?raw';
+import buttonJs from '../../../../packages/components/dist/button/button.js?raw';
+import { StoryCodeTabs } from '../code-tabs';
 import * as ButtonStories from './button.stories';
+
+export const getButtonCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderButton({
+      ...buttonDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: buttonCss
+  },
+  {
+    label: 'JS',
+    language: 'js',
+    code: buttonJs
+  }
+];
 
 <Meta of={ButtonStories} />
 
@@ -9,6 +37,10 @@ import * as ButtonStories from './button.stories';
 An interactive element that enables users to take an action when selected. Buttons are fundamental components in virtually all digital interfaces and serve as the primary means for users to initiate commands or navigate through an application.
 
 <Canvas of={ButtonStories.Demo} />
+
+## Code
+
+<StoryCodeTabs of={ButtonStories.Demo} getTabs={getButtonCodeTabs} />
 
 ## API
 
