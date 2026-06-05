@@ -157,8 +157,7 @@
   border-bottom: 2px solid var(--mds-button-color-active);
 }
 
-.mds-button:disabled,
-.mds-button[aria-disabled="true"] {
+.mds-button:disabled {
   --mds-button-background: var(--mds-background-section-brand-neutral-disabled);
   --mds-button-border: var(--mds-border-brand-neutral-low);
   --mds-button-color: var(--mds-text-and-icons-brand-neutral-disabled);
@@ -167,8 +166,7 @@
   cursor: not-allowed;
 }
 
-.mds-button--type-ghost:disabled,
-.mds-button--type-ghost[aria-disabled="true"] {
+.mds-button--type-ghost:disabled {
   --mds-button-background: var(--mds-background-base-transparent);
 }
 
