@@ -13,6 +13,8 @@
   --mds-button-border-active: var(--mds-button-accent-active);
   --mds-button-border-width: 0;
   --mds-button-color: var(--mds-button-on-accent);
+  --mds-button-color-hover: var(--mds-button-on-accent);
+  --mds-button-color-active: var(--mds-button-on-accent);
   --mds-button-gap: var(--mds-space-xs);
   --mds-button-on-accent: var(--mds-text-and-icons-utility-static-white);
 
@@ -78,17 +80,28 @@
   --mds-button-border-active: var(--mds-button-accent-active);
   --mds-button-border-width: 2px;
   --mds-button-color: var(--mds-button-accent);
+  --mds-button-color-hover: var(--mds-button-accent);
+  --mds-button-color-active: var(--mds-button-accent);
 }
 
 .mds-button--type-ghost {
   --mds-button-background: var(--mds-background-base-transparent);
-  --mds-button-background-hover: var(--mds-button-accent-low);
-  --mds-button-background-active: var(--mds-button-accent-low);
+  --mds-button-background-hover: var(--mds-background-base-transparent);
+  --mds-button-background-active: var(--mds-background-base-transparent);
   --mds-button-border: var(--mds-background-base-transparent);
   --mds-button-border-hover: var(--mds-background-base-transparent);
   --mds-button-border-active: var(--mds-background-base-transparent);
   --mds-button-border-width: 0;
   --mds-button-color: var(--mds-button-accent);
+  --mds-button-color-hover: var(--mds-button-accent-hover);
+  --mds-button-color-active: var(--mds-button-accent-active);
+  border-radius: 0;
+  border-bottom-width: 2px;
+  padding-bottom: 0;
+}
+
+.mds-button--type-ghost.mds-button--color-danger {
+  --mds-button-color-hover: var(--mds-background-adaptive-utility-danger-lowest);
 }
 
 .mds-button--type-outline.mds-button--color-light,
@@ -112,14 +125,36 @@
   font: var(--mds-text-label-md);
 }
 
+.mds-button--type-ghost {
+  min-height: auto;
+  padding-right: 0;
+  padding-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .mds-button:hover {
   --mds-button-background: var(--mds-button-background-hover);
   --mds-button-border: var(--mds-button-border-hover);
+  --mds-button-color: var(--mds-button-color-hover);
+}
+
+.mds-button--type-ghost:hover {
+  border-bottom: 2px solid var(--mds-button-color-hover);
+}
+
+.mds-button--type-ghost.mds-button--color-danger:hover {
+  border-bottom: 2px solid var(--mds-background-adaptive-utility-danger-lowest);
 }
 
 .mds-button:active {
   --mds-button-background: var(--mds-button-background-active);
   --mds-button-border: var(--mds-button-border-active);
+  --mds-button-color: var(--mds-button-color-active);
+}
+
+.mds-button--type-ghost:active {
+  border-bottom: 2px solid var(--mds-button-color-active);
 }
 
 .mds-button:disabled,
@@ -128,7 +163,13 @@
   --mds-button-border: var(--mds-border-brand-neutral-low);
   --mds-button-color: var(--mds-text-and-icons-brand-neutral-disabled);
 
+  border-bottom: var(--mds-button-border-width) solid var(--mds-button-border);
   cursor: not-allowed;
+}
+
+.mds-button--type-ghost:disabled,
+.mds-button--type-ghost[aria-disabled="true"] {
+  --mds-button-background: var(--mds-background-base-transparent);
 }
 
 .mds-button--full-width {
