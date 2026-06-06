@@ -7,7 +7,7 @@
 @mixin grid {
   display: grid;
   grid-template-columns: repeat(var(--mds-breakpoint-horizontal-space-columns), minmax(0, 1fr));
-  gap: var(--mds-breakpoint-horizontal-space-gutter);
+  column-gap: var(--mds-breakpoint-horizontal-space-gutter);
   min-height: 100%;
 }
 
