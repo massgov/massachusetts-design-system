@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-03-27T22:31:17.941Z",
+  "generated_at": "2026-06-04T14:16:30Z",
   "figma_names_source": "packages/assets/src/icons/scripts/figma-component-set-names.json",
   "summary": {
-    "repo_regular_count": 256,
-    "repo_bold_count": 256,
-    "figma_component_set_count": 256,
-    "exact_name_match_count": 255,
+    "repo_regular_count": 258,
+    "repo_bold_count": 258,
+    "figma_component_set_count": 258,
+    "exact_name_match_count": 258,
     "renamed_high_confidence_count": 0,
     "renamed_needs_review_count": 0,
-    "repo_only_unmapped_count": 1,
+    "repo_only_unmapped_count": 0,
     "figma_only_new_or_unmapped_count": 0
   },
   "notes": [
     "This inventory compares current repo filenames to Figma component set names from the Functional icons page.",
     "Figma names were normalized to kebab-case for comparison, and -mds suffixes were stripped before matching.",
-    "A few names in Figma collide after normalization, for example Check and Check-mds both normalize to check.",
+    "Duplicate normalized Figma names should be handled explicitly if they appear in future exports.",
     "High-confidence renames are intended to be safe for bulk rename planning. Needs-review entries should be spot-checked in Figma before applying."
   ],
   "exact_matches": [
@@ -54,6 +54,13 @@
       "notes": ""
     },
     {
+      "repo_name": "arrow-down-right",
+      "proposed_figma_name": "arrow-down-right",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
       "repo_name": "arrow-elbow-down-right",
       "proposed_figma_name": "arrow-elbow-down-right",
       "status": "exact_name_match",
@@ -91,6 +98,13 @@
     {
       "repo_name": "arrow-up",
       "proposed_figma_name": "arrow-up",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-up-right",
+      "proposed_figma_name": "arrow-up-right",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -203,13 +217,6 @@
     {
       "repo_name": "bluesky-logo",
       "proposed_figma_name": "bluesky-logo",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
-    },
-    {
-      "repo_name": "boat",
-      "proposed_figma_name": "boat",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -435,12 +442,19 @@
       "repo_name": "check",
       "proposed_figma_name": "check",
       "status": "exact_name_match",
-      "confidence": "high_with_collision",
-      "notes": "Multiple Figma components normalize to this name: Check, Check"
+      "confidence": "high",
+      "notes": ""
     },
     {
       "repo_name": "check-circle",
       "proposed_figma_name": "check-circle",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "check-payment",
+      "proposed_figma_name": "check-payment",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -518,6 +532,13 @@
     {
       "repo_name": "dog",
       "proposed_figma_name": "dog",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "dots-nine",
+      "proposed_figma_name": "dots-nine",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -621,8 +642,8 @@
       "notes": ""
     },
     {
-      "repo_name": "fax-icon",
-      "proposed_figma_name": "fax-icon",
+      "repo_name": "fax",
+      "proposed_figma_name": "fax",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -1804,15 +1825,14 @@
       "notes": ""
     }
   ],
-  "renamed_high_confidence": [],
-  "renamed_needs_review": [],
+  "renamed_high_confidence": [
+
+  ],
+  "renamed_needs_review": [
+
+  ],
   "repo_only_stale": [
-    {
-      "repo_name": "check-payment",
-      "proposed_figma_name": "",
-      "status": "repo_only_unmapped",
-      "confidence": "low"
-    }
+
   ],
   "repo_inventory": [
     {
@@ -1851,6 +1871,13 @@
       "notes": ""
     },
     {
+      "repo_name": "arrow-down-right",
+      "proposed_figma_name": "arrow-down-right",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
       "repo_name": "arrow-elbow-down-right",
       "proposed_figma_name": "arrow-elbow-down-right",
       "status": "exact_name_match",
@@ -1888,6 +1915,13 @@
     {
       "repo_name": "arrow-up",
       "proposed_figma_name": "arrow-up",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "arrow-up-right",
+      "proposed_figma_name": "arrow-up-right",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -2000,13 +2034,6 @@
     {
       "repo_name": "bluesky-logo",
       "proposed_figma_name": "bluesky-logo",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
-    },
-    {
-      "repo_name": "boat",
-      "proposed_figma_name": "boat",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -2232,8 +2259,8 @@
       "repo_name": "check",
       "proposed_figma_name": "check",
       "status": "exact_name_match",
-      "confidence": "high_with_collision",
-      "notes": "Multiple Figma components normalize to this name: Check, Check"
+      "confidence": "high",
+      "notes": ""
     },
     {
       "repo_name": "check-circle",
@@ -2244,9 +2271,10 @@
     },
     {
       "repo_name": "check-payment",
-      "proposed_figma_name": "",
-      "status": "repo_only_unmapped",
-      "confidence": "low"
+      "proposed_figma_name": "check-payment",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
     },
     {
       "repo_name": "clipboard-text",
@@ -2321,6 +2349,13 @@
     {
       "repo_name": "dog",
       "proposed_figma_name": "dog",
+      "status": "exact_name_match",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "repo_name": "dots-nine",
+      "proposed_figma_name": "dots-nine",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -2424,8 +2459,8 @@
       "notes": ""
     },
     {
-      "repo_name": "fax-icon",
-      "proposed_figma_name": "fax-icon",
+      "repo_name": "fax",
+      "proposed_figma_name": "fax",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -3607,5 +3642,7 @@
       "notes": ""
     }
   ],
-  "figma_only": []
+  "figma_only": [
+
+  ]
 }
