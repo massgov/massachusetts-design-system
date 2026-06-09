@@ -15,6 +15,12 @@ npm run build --workspace @massds/mds-components
 
 The build writes distributable files into `dist/`.
 
+## Shared Rendering
+
+Shared render helpers live in `src/shared/`. Use `createTwigRenderer()` when a
+component needs to compile a Twig template and render it with component data.
+Keep component-specific markup decisions in the `.twig` file whenever possible.
+
 ## Icon
 
 Source files live in `src/icon/`:
@@ -38,7 +44,6 @@ Source files live in `src/button/`:
 - `button.render.js` for Twig rendering and data normalization
 - `build.js` for Button-specific package artifacts
 - `button.scss` for component styles
-- `button.js` for optional browser behavior
 
 The public JavaScript API is exported from `@massds/mds-components/button`.
 The shared build script discovers components and delegates component-specific

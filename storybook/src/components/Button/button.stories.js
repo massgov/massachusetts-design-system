@@ -4,14 +4,12 @@ import {
   buttonDefaults,
   buttonExamples,
   buttonOptions,
-  initMdsButtons,
   renderButton
 } from '@massds/mds-components/button';
 
 function renderButtonStory(args) {
   const preview = document.createElement('div');
   preview.innerHTML = renderButton(args);
-  initMdsButtons(preview);
 
   return preview;
 }
@@ -128,8 +126,6 @@ function renderExamplesStory() {
   const preview = document.createElement('div');
   preview.className = 'mds-button-examples';
   preview.innerHTML = exampleTypes.map(renderExampleGroup).join('');
-
-  initMdsButtons(preview);
 
   return preview;
 }

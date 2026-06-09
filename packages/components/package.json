@@ -18,7 +18,6 @@
       "default": "./dist/button/index.js"
     },
     "./button.css": "./dist/button/button.css",
-    "./button.js": "./dist/button/button.js",
     "./icon": {
       "import": "./dist/icon/index.js",
       "default": "./dist/icon/index.js"

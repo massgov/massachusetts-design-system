@@ -4,7 +4,6 @@ import {
   renderButton
 } from '@massds/mds-components/button';
 import buttonCss from '../../../../packages/components/dist/button/button.css?raw';
-import buttonJs from '../../../../packages/components/dist/button/button.js?raw';
 import { StoryCodeTabs } from '../code-tabs';
 import * as ButtonStories from './button.stories';
 
@@ -21,11 +20,6 @@ export const getButtonCodeTabs = (args) => [
     label: 'CSS',
     language: 'css',
     code: buttonCss
-  },
-  {
-    label: 'JS',
-    language: 'js',
-    code: buttonJs
   }
 ];
 

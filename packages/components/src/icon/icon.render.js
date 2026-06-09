@@ -1,4 +1,4 @@
-import Twig from 'twig';
+import { createTwigRenderer } from '../shared/twig-renderer.js';
 import { iconDefaults, iconOptions } from './icon.data.js';
 
 function normalizeOption(value, options, fallback) {
@@ -65,15 +65,13 @@ export function normalizeIconData(data = {}, iconSvgMap = {}) {
 }
 
 export function createIconRenderer(templateSource, iconSvgMap = {}) {
-  const iconTemplate = Twig.twig({ data: templateSource });
-
-  return function renderIcon(data = {}) {
+  return createTwigRenderer(templateSource, (data = {}) => {
     const normalizedData = normalizeIconData(data, iconSvgMap);
 
     if (!normalizedData.svg) {
-      return '';
+      return null;
     }
 
-    return iconTemplate.render(normalizedData);
-  };
+    return normalizedData;
+  });
 }
