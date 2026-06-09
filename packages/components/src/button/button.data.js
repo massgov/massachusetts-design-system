@@ -16,11 +16,10 @@ export const buttonDefaults = {
   ariaLabel: '',
   color: 'Primary',
   disabled: false,
-  fullWidth: false,
   htmlType: 'button',
   id: '',
   leftIcon: '',
-  rightIcon: 'arrow-right',
+  rightIcon: '',
   size: 'LG',
   text: 'Button',
   type: 'Fill'

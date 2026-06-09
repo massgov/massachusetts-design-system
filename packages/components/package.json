@@ -19,6 +19,11 @@
     },
     "./button.css": "./dist/button/button.css",
     "./button.js": "./dist/button/button.js",
+    "./icon": {
+      "import": "./dist/icon/index.js",
+      "default": "./dist/icon/index.js"
+    },
+    "./icon.css": "./dist/icon/icon.css",
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"
   },

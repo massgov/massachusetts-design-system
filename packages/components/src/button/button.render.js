@@ -58,10 +58,30 @@ export function normalizeButtonData(data = {}) {
   };
 }
 
-export function createButtonRenderer(templateSource) {
+function renderButtonIcon(renderIcon, iconName, position) {
+  if (!iconName) {
+    return '';
+  }
+
+  return renderIcon({
+    className: `mds-button__icon${position === 'left' ? ' mds-button__icon--left' : ''}`,
+    decorative: true,
+    name: iconName,
+    weight: 'Bold'
+  });
+}
+
+export function createButtonRenderer(templateSource, options = {}) {
   const buttonTemplate = Twig.twig({ data: templateSource });
+  const renderIcon = typeof options.renderIcon === 'function' ? options.renderIcon : () => '';
 
   return function renderButton(data = {}) {
-    return buttonTemplate.render(normalizeButtonData(data));
+    const normalizedData = normalizeButtonData(data);
+
+    return buttonTemplate.render({
+      ...normalizedData,
+      leftIconMarkup: renderButtonIcon(renderIcon, normalizedData.leftIcon, 'left'),
+      rightIconMarkup: renderButtonIcon(renderIcon, normalizedData.rightIcon, 'right')
+    });
   };
 }

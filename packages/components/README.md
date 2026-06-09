@@ -15,6 +15,20 @@ npm run build --workspace @massds/mds-components
 
 The build writes distributable files into `dist/`.
 
+## Icon
+
+Source files live in `src/icon/`:
+
+- `icon.twig` for the authored markup
+- `icon.data.js` for defaults and options
+- `icon.render.js` for Twig rendering and data normalization
+- `build.js` for Icon-specific package artifacts
+- `icon.scss` for primitive styles
+
+The public JavaScript API is exported from `@massds/mds-components/icon`.
+`renderIcon()` renders inline SVG from the `@massds/mds-assets` icon library
+using a validated icon name and optional `Regular` or `Bold` weight.
+
 ## Button
 
 Source files live in `src/button/`:

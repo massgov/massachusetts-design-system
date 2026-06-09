@@ -1,0 +1,17 @@
+.mds-icon {
+  --mds-icon-size: 1em;
+
+  display: inline-flex;
+  flex: none;
+  width: var(--mds-icon-size);
+  height: var(--mds-icon-size);
+  color: currentColor;
+  line-height: 0;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+}
