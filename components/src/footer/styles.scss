@@ -33,21 +33,18 @@ ul {
   box-sizing: border-box;
 }
 
-/** figure out what we want to do with "decorative link" */
+/** figure out what we want to do with "action link" */
 .mds-footer--neutral {
-  & .mds-decorative-link {
+  & .mds-action-link {
     color: var(--mds-text-and-icons-brand-neutral-default);
   }
 
-  & a:not(.mds-decorative-link) {
+  & a:not(.mds-action-link) {
     color: var(--mds-background-adaptive-brand-primary-mid);
     fill: white;
   }
-  & a:not(.mds-decorative-link):hover {
+  & a:not(.mds-action-link):hover {
     color: var(--mds-background-adaptive-brand-primary-high);
-  }
-  & a:not(.mds-decorative-link):visited {
-    color: var(--mds-background-adaptive-brand-tertiary-mid);
   }
 }
 
@@ -154,7 +151,7 @@ ul {
 
 .mds-footer__contact-note {
   padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
-  font: var(--mds-text-caption);
+  font: var(--mds-text-caption-md);
   color: var(--mds-text-and-icons-brand-neutral-muted);
 }
 
@@ -227,7 +224,9 @@ ul {
 }
 
 @media (max-width: 768px) {
-
+  .mds-footer__column {
+    row-gap: var(--mds-space-sm);
+  }
 
 }
 
@@ -235,5 +234,7 @@ ul {
   .mds-footer__content {
     row-gap: var(--mds-space-md);
   }
+  //Update padding top to space small for component
+  // adjust spacing for mds-footer__legal-nav - space-sm
 
 }

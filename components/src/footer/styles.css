@@ -59,9 +59,6 @@ ul {
 .mds-footer--neutral a:not(.mds-decorative-link):hover {
   color: var(--mds-background-adaptive-brand-primary-high);
 }
-.mds-footer--neutral a:not(.mds-decorative-link):visited {
-  color: var(--mds-background-adaptive-brand-tertiary-mid);
-}
 
 .mds-footer__container {
   width: min(100%, 1280px);
@@ -135,7 +132,7 @@ ul {
 .mds-footer__contact-note,
 .mds-footer__contact-item,
 .mds-footer__description {
-  font-size: var(--mds-text-label-md);
+  font: var(--mds-text-label);
 }
 
 .mds-footer__social-list {
@@ -179,7 +176,7 @@ ul {
 
 .mds-footer__contact-note {
   padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
-  font: var(--mds-text-caption);
+  font: var(--mds-text-caption-md);
   color: var(--mds-text-and-icons-brand-neutral-muted);
 }
 
@@ -247,6 +244,11 @@ ul {
   /** check this for links for adaptive **/
 }
 
+@media (max-width: 768px) {
+  .mds-footer__column {
+    row-gap: var(--mds-space-sm);
+  }
+}
 @media (max-width: 480px) {
   .mds-footer__content {
     row-gap: var(--mds-space-md);
