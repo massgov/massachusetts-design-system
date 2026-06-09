@@ -1,5 +1,42 @@
-<button class="mds-button mds-button--type-{{ type|lower|e }} mds-button--color-{{ color|lower|e }} mds-button--size-{{ size|lower|e }}" type="{{ htmlType|default('button')|e }}" data-mds-button{% if id %} id="{{ id|e }}"{% endif %}{% if disabled %} disabled{% endif %}{% if ariaLabel %} aria-label="{{ ariaLabel|e }}"{% endif %}>
-{% if leftIconMarkup %}{{ leftIconMarkup|raw }}{% endif %}
-  <span class="mds-button__label">{{ text|e }}</span>
-{% if rightIconMarkup %}{{ rightIconMarkup|raw }}{% endif %}
+{#
+  Button data:
+  - type, color, and size become CSS modifier classes.
+  - htmlType becomes the native <button type=""> attribute.
+  - leftIcon and rightIcon are icon names from the assets package.
+#}
+{% set buttonType = type in buttonOptions.type ? type : buttonDefaults.type %}
+{% set buttonColor = color in buttonOptions.color ? color : buttonDefaults.color %}
+{% set buttonSize = size in buttonOptions.size ? size : buttonDefaults.size %}
+{% set buttonHtmlType = htmlType in buttonOptions.htmlType ? htmlType : buttonDefaults.htmlType %}
+{% set buttonText = text|default(buttonDefaults.text) %}
+{% set leftIconName = leftIcon in buttonOptions.icon ? leftIcon : buttonDefaults.leftIcon %}
+{% set rightIconName = rightIcon in buttonOptions.icon ? rightIcon : buttonDefaults.rightIcon %}
+
+<button
+  class="mds-button mds-button--type-{{ buttonType|lower|e }} mds-button--color-{{ buttonColor|lower|e }} mds-button--size-{{ buttonSize|lower|e }}"
+  type="{{ buttonHtmlType|e }}"
+  data-mds-button{% if id %}
+  id="{{ id|e }}"{% endif %}{% if disabled %}
+  disabled{% endif %}{% if ariaLabel %}
+  aria-label="{{ ariaLabel|e }}"{% endif %}
+>
+  {% if leftIconName %}
+    {{ renderIcon({
+      className: 'mds-button__icon mds-button__icon--left',
+      decorative: true,
+      name: leftIconName,
+      weight: 'Bold'
+    })|raw }}
+  {% endif %}
+
+  <span class="mds-button__label">{{ buttonText|e }}</span>
+
+  {% if rightIconName %}
+    {{ renderIcon({
+      className: 'mds-button__icon',
+      decorative: true,
+      name: rightIconName,
+      weight: 'Bold'
+    })|raw }}
+  {% endif %}
 </button>
