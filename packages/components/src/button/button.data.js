@@ -1,7 +1,9 @@
+import { iconNames } from '../icon/icon.names.js';
+
 export const buttonTypes = ['Fill', 'Outline', 'Ghost'];
 export const buttonColors = ['Primary', 'Secondary', 'Light', 'Danger'];
 export const buttonSizes = ['Regular', 'LG'];
-export const buttonIcons = ['', 'arrow-right'];
+export const buttonIcons = ['', ...iconNames];
 export const htmlButtonTypes = ['button', 'submit', 'reset'];
 
 export const buttonOptions = {

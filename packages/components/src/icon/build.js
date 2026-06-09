@@ -1,4 +1,8 @@
-import { createIconSvgMapModule, readIconSvgMap } from '../../scripts/icon-registry.js';
+import {
+  createIconNamesModule,
+  createIconSvgMapModule,
+  readIconSvgMap
+} from '../../scripts/icon-registry.js';
 import { iconDefaults } from './icon.data.js';
 import { createIconRenderer } from './icon.render.js';
 
@@ -29,6 +33,7 @@ export async function buildComponent({ copySourceFiles, readSourceFile, writeOut
 
   await copySourceFiles(sourceFiles);
   await writeOutputFile('icon.html', `${renderIcon(iconDefaults)}\n`);
+  await writeOutputFile('icon.names.js', createIconNamesModule(iconSvgMap));
   await writeOutputFile('icon.svg.js', createIconSvgMapModule(iconSvgMap));
   await writeOutputFile('icon.template.js', createTemplateModule(templateSource));
   await writeOutputFile('index.js', createIndexModule());

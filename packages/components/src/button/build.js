@@ -26,7 +26,8 @@ export const renderButton = createButtonRenderer(buttonTemplateSource, { renderI
 export async function buildComponent({ copySourceFiles, readSourceFile, writeOutputFile }) {
   const templateSource = await readSourceFile('button.twig');
   const iconTemplateSource = await readSourceFile('../icon/icon.twig');
-  const renderIcon = createIconRenderer(iconTemplateSource, await readIconSvgMap());
+  const iconSvgMap = await readIconSvgMap();
+  const renderIcon = createIconRenderer(iconTemplateSource, iconSvgMap);
   const renderButton = createButtonRenderer(templateSource, { renderIcon });
 
   await copySourceFiles(sourceFiles);

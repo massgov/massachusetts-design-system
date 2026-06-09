@@ -56,6 +56,14 @@ export async function readIconSvgMap(iconsDir = defaultIconsDir) {
   );
 }
 
+export function getIconNames(iconSvgMap) {
+  return Object.keys(iconSvgMap).sort();
+}
+
+export function createIconNamesModule(iconSvgMap) {
+  return `export const iconNames = Object.freeze(${JSON.stringify(getIconNames(iconSvgMap), null, 2)});\n`;
+}
+
 export function createIconSvgMapModule(iconSvgMap) {
-  return `export const iconSvgMap = ${JSON.stringify(iconSvgMap, null, 2)};\n\nexport const iconNames = Object.freeze(Object.keys(iconSvgMap));\n`;
+  return `export const iconSvgMap = ${JSON.stringify(iconSvgMap, null, 2)};\n\nexport const iconNames = Object.freeze(${JSON.stringify(getIconNames(iconSvgMap), null, 2)});\n`;
 }

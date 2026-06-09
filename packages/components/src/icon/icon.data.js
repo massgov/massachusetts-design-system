@@ -1,3 +1,5 @@
+import { iconNames } from './icon.names.js';
+
 export const iconWeights = ['Regular', 'Bold'];
 
 export const iconDefaults = {
@@ -9,5 +11,6 @@ export const iconDefaults = {
 };
 
 export const iconOptions = {
+  name: iconNames,
   weight: iconWeights
 };
