@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma Token Sync"
+  short_description: "Keep MDS primitive CSS tokens aligned with Figma variables."
+  default_prompt: "Use the Figma token sync skill to check or update primitive tokens from the Base Tokens Figma file."
