@@ -7,14 +7,25 @@ import {
   renderButton
 } from '@massds/mds-components/button';
 
-function renderButtonStory(args) {
+// Storybook render functions return an HTML element.
+function createPreview(html, className = '') {
   const preview = document.createElement('div');
-  preview.innerHTML = renderButton(args);
+
+  if (className) {
+    preview.className = className;
+  }
+
+  preview.innerHTML = html;
 
   return preview;
 }
 
-const exampleColors = [
+function renderDemo(args) {
+  return createPreview(renderButton(args));
+}
+
+// These lists build the large Examples story below.
+const buttonColorExamples = [
   {
     color: 'Primary',
     label: 'Primary'
@@ -33,7 +44,8 @@ const exampleColors = [
     label: 'Danger'
   }
 ];
-const exampleSizes = [
+
+const buttonSizeExamples = [
   {
     label: 'Large',
     size: 'LG'
@@ -43,7 +55,8 @@ const exampleSizes = [
     size: 'Regular'
   }
 ];
-const exampleTypes = [
+
+const buttonTypeExamples = [
   {
     label: 'Fill',
     type: 'Fill'
@@ -58,35 +71,35 @@ const exampleTypes = [
   }
 ];
 
-function renderExampleButton({ color, disabled = false, size, text, type }) {
+function renderButtonExample({ color, disabled = false, size, type }) {
   return renderButton({
     color,
     disabled,
     rightIcon: '',
     size,
-    text,
+    text: 'Button',
     type
   });
 }
 
-function renderColorExample({ color, label, size, surface, type }) {
+function renderColorExample(colorExample, size, type) {
+  const darkSurfaceClass = colorExample.surface === 'dark'
+    ? ' mds-button-examples__color-example--dark'
+    : '';
+
   return `
-    <div class="mds-button-examples__color-example${
-      surface === 'dark' ? ' mds-button-examples__color-example--dark' : ''
-    }">
-      <h5 class="mds-button-examples__color-heading">${label}</h5>
+    <div class="mds-button-examples__color-example${darkSurfaceClass}">
+      <h5 class="mds-button-examples__color-heading">${colorExample.label}</h5>
       <div class="mds-button-examples__button-stack">
-        ${renderExampleButton({
-          color,
+        ${renderButtonExample({
+          color: colorExample.color,
           size,
-          text: 'Button',
           type
         })}
-        ${renderExampleButton({
-          color,
+        ${renderButtonExample({
+          color: colorExample.color,
           disabled: true,
           size,
-          text: 'Button',
           type
         })}
       </div>
@@ -94,43 +107,50 @@ function renderColorExample({ color, label, size, surface, type }) {
   `;
 }
 
-function renderExampleGroup({ label, type }) {
-  const rows = exampleSizes.map(({ label: sizeLabel, size }) => {
-    return `
-      <div class="mds-button-examples__variant-row">
-        <h4 class="mds-button-examples__variant-heading">${sizeLabel}</h4>
-        <div class="mds-button-examples__color-grid">
-          ${exampleColors
-            .map((colorExample) =>
-              renderColorExample({
-                ...colorExample,
-                size,
-                type
-              })
-            )
-            .join('')}
-        </div>
+function renderSizeRow(sizeExample, type) {
+  let colorExamplesHtml = '';
+
+  for (const colorExample of buttonColorExamples) {
+    colorExamplesHtml += renderColorExample(colorExample, sizeExample.size, type);
+  }
+
+  return `
+    <div class="mds-button-examples__variant-row">
+      <h4 class="mds-button-examples__variant-heading">${sizeExample.label}</h4>
+      <div class="mds-button-examples__color-grid">
+        ${colorExamplesHtml}
       </div>
-    `;
-  });
+    </div>
+  `;
+}
+
+function renderTypeSection(typeExample) {
+  let sizeRowsHtml = '';
+
+  for (const sizeExample of buttonSizeExamples) {
+    sizeRowsHtml += renderSizeRow(sizeExample, typeExample.type);
+  }
 
   return `
     <section class="mds-button-examples__group">
-      <h3 class="mds-button-examples__group-heading">${label}</h3>
-      ${rows.join('')}
+      <h3 class="mds-button-examples__group-heading">${typeExample.label}</h3>
+      ${sizeRowsHtml}
     </section>
   `;
 }
 
-function renderExamplesStory() {
-  const preview = document.createElement('div');
-  preview.className = 'mds-button-examples';
-  preview.innerHTML = exampleTypes.map(renderExampleGroup).join('');
+function renderAllExamples() {
+  let examplesHtml = '';
 
-  return preview;
+  for (const typeExample of buttonTypeExamples) {
+    examplesHtml += renderTypeSection(typeExample);
+  }
+
+  return createPreview(examplesHtml, 'mds-button-examples');
 }
 
-const buttonArgTypes = {
+// Controls are the editable fields in the Storybook UI.
+const buttonControls = {
   text: {
     control: 'text'
   },
@@ -172,15 +192,24 @@ const buttonArgTypes = {
   }
 };
 
-const buttonArgs = Object.fromEntries(
-  Object.keys(buttonArgTypes).map((key) => [key, buttonDefaults[key]])
-);
+const defaultDemoArgs = {
+  ariaLabel: buttonDefaults.ariaLabel,
+  color: buttonDefaults.color,
+  disabled: buttonDefaults.disabled,
+  htmlType: buttonDefaults.htmlType,
+  id: buttonDefaults.id,
+  leftIcon: buttonDefaults.leftIcon,
+  rightIcon: buttonDefaults.rightIcon,
+  size: buttonDefaults.size,
+  text: buttonDefaults.text,
+  type: buttonDefaults.type
+};
 
 const meta = {
   title: 'Components/Button',
-  render: renderButtonStory,
-  argTypes: buttonArgTypes,
-  args: buttonArgs
+  render: renderDemo,
+  argTypes: buttonControls,
+  args: defaultDemoArgs
 };
 
 export default meta;
@@ -190,7 +219,7 @@ export const Demo = {
 };
 
 export const Examples = {
-  render: renderExamplesStory,
+  render: renderAllExamples,
   parameters: {
     controls: {
       disable: true
