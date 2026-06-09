@@ -1,4 +1,4 @@
-<button class="mds-button mds-button--type-{{ type|lower|e }} mds-button--color-{{ color|lower|e }} mds-button--size-{{ size|lower|e }}{% if fullWidth %} mds-button--full-width{% endif %}" type="{{ htmlType|default('button')|e }}" data-mds-button{% if id %} id="{{ id|e }}"{% endif %}{% if disabled %} disabled{% endif %}{% if ariaLabel %} aria-label="{{ ariaLabel|e }}"{% endif %}>
+<button class="mds-button mds-button--type-{{ type|lower|e }} mds-button--color-{{ color|lower|e }} mds-button--size-{{ size|lower|e }}" type="{{ htmlType|default('button')|e }}" data-mds-button{% if id %} id="{{ id|e }}"{% endif %}{% if disabled %} disabled{% endif %}{% if ariaLabel %} aria-label="{{ ariaLabel|e }}"{% endif %}>
 {% if leftIcon == 'arrow-right' %}
   <span class="mds-button__icon mds-button__icon--left" aria-hidden="true">
     <svg viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg">

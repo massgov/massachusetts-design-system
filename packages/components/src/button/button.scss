@@ -194,12 +194,6 @@
     --mds-button-background: var(--mds-background-base-transparent);
   }
 
-  // Layout modifiers
-  &--full-width {
-    display: flex;
-    width: 100%;
-  }
-
   // Child elements
   &__label {
     overflow-wrap: anywhere;
