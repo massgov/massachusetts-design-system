@@ -2,24 +2,17 @@
   "name": "@massds/mds-components",
   "version": "0.1.0",
   "private": true,
-  "description": "Twig-authored static HTML, CSS, and JavaScript components for the Massachusetts Design System",
+  "description": "Twig-authored static HTML and CSS components for the Massachusetts Design System",
   "type": "module",
   "files": [
     "dist/",
     "src/"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
-    },
     "./index.css": "./dist/index.css",
     "./*.css": "./dist/*/*.css",
     "./*.html": "./dist/*/*.html",
-    "./*": {
-      "import": "./dist/*/index.js",
-      "default": "./dist/*/index.js"
-    },
+    "./*.twig": "./dist/*/*.twig",
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"
   },
@@ -29,16 +22,14 @@
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "prepublishOnly": "npm run build"
   },
-  "dependencies": {
-    "twig": "^3.0.0"
-  },
   "peerDependencies": {
     "@massds/mds-tokens": "^1.1.0"
   },
   "devDependencies": {
     "@massds/mds-styles": "^1.0.0",
     "@massds/mds-tokens": "^1.1.0",
-    "sass": "^1.93.2"
+    "sass": "^1.93.2",
+    "twig": "^3.0.0"
   },
   "engines": {
     "node": "24.14.0"

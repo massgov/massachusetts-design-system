@@ -9,6 +9,7 @@ const packageRoot = path.resolve(__dirname, '..');
 const srcRoot = path.join(packageRoot, 'src');
 const distRoot = path.join(packageRoot, 'dist');
 const componentBuildFile = 'build.js';
+const ignoredSourceDirs = new Set(['shared']);
 
 async function pathExists(filePath) {
   try {
@@ -43,7 +44,11 @@ async function getComponentNames() {
   const entries = await fs.readdir(srcRoot, { withFileTypes: true });
 
   return entries
-    .filter((entry) => entry.isDirectory() && !entry.name.startsWith('.'))
+    .filter((entry) =>
+      entry.isDirectory() &&
+      !entry.name.startsWith('.') &&
+      !ignoredSourceDirs.has(entry.name)
+    )
     .map((entry) => entry.name)
     .sort();
 }
@@ -143,19 +148,8 @@ async function getComponentCssImports(componentNames) {
 }
 
 async function writePackageIndexes(componentNames) {
-  const jsExports = [];
-
-  for (const componentName of componentNames) {
-    const outputIndexPath = path.join(distRoot, componentName, 'index.js');
-
-    if (await pathExists(outputIndexPath)) {
-      jsExports.push(`export * from './${componentName}/index.js';`);
-    }
-  }
-
   const cssImports = await getComponentCssImports(componentNames);
 
-  await writeFile(path.join(distRoot, 'index.js'), `${jsExports.join('\n')}\n`);
   await writeFile(path.join(distRoot, 'index.css'), `${cssImports.join('\n')}\n`);
 }
 

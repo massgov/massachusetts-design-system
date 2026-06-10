@@ -1,9 +1,7 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
-import {
-  buttonDefaults,
-  renderButton
-} from '@massds/mds-components/button';
+import { buttonDefaults } from '../../../../packages/components/src/button/button.data.js';
 import buttonCss from '@massds/mds-components/button.css?raw';
+import { renderButton } from '../../utils/component-renderers.js';
 import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
 import * as ButtonStories from './button.stories';
 

@@ -2,9 +2,9 @@ import '@massds/mds-components/icon.css';
 import './icon.examples.css';
 import {
   iconDefaults,
-  iconOptions,
-  renderIcon
-} from '@massds/mds-components/icon';
+  iconOptions
+} from '../../../../packages/components/src/icon/icon.data.js';
+import { renderIcon } from '../../utils/component-renderers.js';
 
 const iconDemoColors = {
   Neutral: 'var(--mds-text-and-icons-brand-neutral-default)',

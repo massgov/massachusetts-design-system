@@ -2,9 +2,9 @@ import '@massds/mds-components/button.css';
 import './button.examples.css';
 import {
   buttonDefaults,
-  buttonOptions,
-  renderButton
-} from '@massds/mds-components/button';
+  buttonOptions
+} from '../../../../packages/components/src/button/button.data.js';
+import { renderButton } from '../../utils/component-renderers.js';
 
 // Storybook render functions return an HTML element.
 function createPreview(html, className = '') {

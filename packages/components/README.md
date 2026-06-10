@@ -5,7 +5,7 @@ Twig-authored static components for the Massachusetts Design System.
 This package is intentionally separate from the legacy root-level `components/`
 workspace, which is named `@massds/mds-components-legacy`. It is a fresh
 implementation path for components that can render static HTML, CSS, and
-JavaScript.
+Twig templates.
 
 ## Scripts
 
@@ -22,19 +22,19 @@ matching file in `dist/<component>/`, consumers can import it with the flat
 public package path:
 
 ```js
-import { renderButton } from '@massds/mds-components/button';
 import '@massds/mds-components/index.css';
 import '@massds/mds-components/button.css';
 import buttonHtml from '@massds/mds-components/button.html?raw';
 import buttonCss from '@massds/mds-components/button.css?raw';
+import buttonTwig from '@massds/mds-components/button.twig?raw';
 ```
 
 Use these package paths in docs and examples instead of relative `dist/` paths.
 They are the supported public API and apply to every component:
 
-- JavaScript: `@massds/mds-components/<component>`
 - CSS: `@massds/mds-components/<component>.css`
 - HTML: `@massds/mds-components/<component>.html`
+- Twig: `@massds/mds-components/<component>.twig`
 
 The aggregate component stylesheet is exported from
 `@massds/mds-components/index.css`.
@@ -43,9 +43,9 @@ When adding a new component, keep its distributable files in
 `dist/<component>/`. No package export change is needed as long as the component
 build writes the standard files:
 
-- `dist/<component>/index.js`
 - `dist/<component>/<component>.css`
 - `dist/<component>/<component>.html`
+- `dist/<component>/<component>.twig`
 
 ## Shared Rendering
 
@@ -79,5 +79,8 @@ Use this file structure for new components:
 
 The shared build script discovers components and delegates component-specific
 package artifacts to each component directory.
+Use `createComponentBuild()` from `scripts/component-build.js` for component
+build files whenever possible. It handles the standard source copy, example
+HTML, and Twig output.
 Component SCSS can use shared style mixins with Sass package imports, for
 example `@use "pkg:@massds/mds-styles/scss/mixins" as mixins;`.
