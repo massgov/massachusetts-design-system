@@ -1,7 +1,6 @@
 import { DocsContext, Source, useOf } from '@storybook/addon-docs/blocks';
-import { STORY_ARGS_UPDATED } from 'storybook/internal/core-events';
-import { useContext, useEffect, useId, useMemo, useState } from 'react';
-import './CodeTabs.css';
+import { useContext, useId, useMemo, useState } from 'react';
+import './index.css';
 
 export function CodeTabs({ tabs }) {
   const fallbackTab = tabs[0];
@@ -52,27 +51,8 @@ export function CodeTabs({ tabs }) {
 function useStoryArgs(of) {
   const { story } = useOf(of, ['story']);
   const context = useContext(DocsContext);
-  const [args, setArgs] = useState(() => context.getStoryContext(story).args);
 
-  useEffect(() => {
-    setArgs(context.getStoryContext(story).args);
-  }, [context, story]);
-
-  useEffect(() => {
-    const handleArgsUpdated = ({ storyId, args: updatedArgs }) => {
-      if (storyId === story.id) {
-        setArgs(updatedArgs);
-      }
-    };
-
-    context.channel.on(STORY_ARGS_UPDATED, handleArgsUpdated);
-
-    return () => {
-      context.channel.off(STORY_ARGS_UPDATED, handleArgsUpdated);
-    };
-  }, [context.channel, story.id]);
-
-  return args;
+  return context.getStoryContext(story).args;
 }
 
 export function StoryCodeTabs({ getTabs, of }) {
