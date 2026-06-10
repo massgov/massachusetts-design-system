@@ -19,18 +19,44 @@ function getRendererFactoryName(componentName) {
   return `create${toPascalCase(componentName)}Renderer`;
 }
 
-function normalizeIncludedComponent(includedComponent) {
-  if (typeof includedComponent === 'string') {
-    return {
-      componentName: includedComponent,
-      templateId: `${includedComponent}.twig`
-    };
+function getStaticIncludeTemplateIds(templateSource) {
+  const includePattern = /{%-?\s*include\s+(['"])([^'"]+)\1/g;
+  const templateIds = new Set();
+  const sourceWithoutComments = templateSource.replace(/{#[\s\S]*?#}/g, '');
+  let match;
+
+  while ((match = includePattern.exec(sourceWithoutComments)) !== null) {
+    templateIds.add(match[2]);
   }
 
+  return Array.from(templateIds);
+}
+
+function getComponentNameFromTemplateId(templateId) {
+  if (path.extname(templateId) !== '.twig') {
+    throw new Error(`Static Twig include "${templateId}" must point to a .twig file.`);
+  }
+
+  return path.basename(templateId, '.twig');
+}
+
+function createIncludedComponent(templateId) {
   return {
-    ...includedComponent,
-    templateId: includedComponent.templateId ?? `${includedComponent.componentName}.twig`
+    componentName: getComponentNameFromTemplateId(templateId),
+    templateId
   };
+}
+
+function getIncludedComponents(templateSource) {
+  const includedComponents = new Map();
+
+  for (const templateId of getStaticIncludeTemplateIds(templateSource)) {
+    const includedComponent = createIncludedComponent(templateId);
+
+    includedComponents.set(includedComponent.templateId, includedComponent);
+  }
+
+  return Array.from(includedComponents.values());
 }
 
 async function importModule(filePath) {
@@ -56,7 +82,14 @@ async function createDefaultRenderer({ componentName, rendererOptions, sourceDir
 }
 
 async function getComponentBuildModule(componentName, sourceDir) {
-  return importModule(path.join(sourceDir, 'build.js'));
+  try {
+    return await importModule(path.join(sourceDir, 'build.js'));
+  } catch (error) {
+    throw new Error(
+      `Could not load build.js for included component "${componentName}". Static Twig includes should point to component templates such as "icon.twig".`,
+      { cause: error }
+    );
+  }
 }
 
 async function getOwnRendererOptions(getRendererOptions, buildContext) {
@@ -67,28 +100,36 @@ async function getOwnRendererOptions(getRendererOptions, buildContext) {
   return getRendererOptions(buildContext);
 }
 
-async function getIncludedComponentContext(includeComponents, buildContext) {
+async function getIncludedComponentContext(buildContext, seenTemplateIds = new Set()) {
   const includes = {};
   const rendererOptions = {};
+  const currentTemplateId = `${buildContext.componentName}.twig`;
 
-  for (const includedComponent of includeComponents) {
-    const included = normalizeIncludedComponent(includedComponent);
-    const includedSourceDir = path.resolve(buildContext.sourceDir, '..', included.componentName);
-    const includedTemplateSource = await buildContext.readSourceFile(`../${included.componentName}/${included.componentName}.twig`);
-    const includedBuildModule = await getComponentBuildModule(included.componentName, includedSourceDir);
+  seenTemplateIds.add(currentTemplateId);
+
+  for (const includedComponent of getIncludedComponents(buildContext.templateSource)) {
+    if (seenTemplateIds.has(includedComponent.templateId)) {
+      continue;
+    }
+
+    seenTemplateIds.add(includedComponent.templateId);
+
+    const includedSourceDir = path.resolve(buildContext.sourceDir, '..', includedComponent.componentName);
+    const includedTemplateSource = await buildContext.readSourceFile(`../${includedComponent.componentName}/${includedComponent.componentName}.twig`);
+    const includedBuildModule = await getComponentBuildModule(includedComponent.componentName, includedSourceDir);
     const includedBuildContext = {
       ...buildContext,
-      componentName: included.componentName,
+      componentName: includedComponent.componentName,
       sourceDir: includedSourceDir,
       templateSource: includedTemplateSource
     };
     const nestedContext = await getIncludedComponentContext(
-      includedBuildModule.includeComponents ?? [],
-      includedBuildContext
+      includedBuildContext,
+      seenTemplateIds
     );
 
     Object.assign(includes, nestedContext.includes, {
-      [included.templateId]: includedTemplateSource
+      [includedComponent.templateId]: includedTemplateSource
     });
     Object.assign(
       rendererOptions,
@@ -124,7 +165,6 @@ export function createComponentBuild({
   createRenderer = createDefaultRenderer,
   defaults,
   getRendererOptions,
-  includeComponents = [],
   sourceFiles = getDefaultSourceFiles(componentName),
   writeAdditionalOutputs = async () => {}
 }) {
@@ -136,7 +176,6 @@ export function createComponentBuild({
       templateSource
     };
     const includedContext = await getIncludedComponentContext(
-      includeComponents,
       buildContext
     );
     const rendererOptions = {

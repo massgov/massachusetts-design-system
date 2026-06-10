@@ -50,14 +50,18 @@ Shared render helpers live in `src/shared/`. Use `createTwigRenderer()` when a
 component needs to compile a Twig template and render it with component data.
 Keep component-specific markup decisions in the `.twig` file whenever possible.
 
-When a component Twig template includes another component, declare it in the
-build file:
+When a component Twig template includes another component, use a static Twig
+include:
 
-```js
-export const includeComponents = ['icon'];
+```twig
+{% include 'icon.twig' with {
+  name: leftIconName,
+  decorative: true
+} %}
 ```
 
-This lets the shared build register the included Twig templates and pass along their renderer data, such as the icon SVG map.
+The shared build scans these static includes, registers the included Twig
+templates, and passes along their renderer data, such as the icon SVG map.
 
 ## Data Schemas
 
@@ -87,7 +91,6 @@ The shared build script discovers components and delegates component-specific
 package artifacts to each component directory.
 Use `createComponentBuild()` from `scripts/component-build.js` for component
 build files whenever possible. It handles the standard source copy, example
-HTML, Twig output, and declarative Twig includes such as
-`includeComponents: ['icon']`.
+HTML, Twig output, and static Twig includes.
 Component SCSS can use shared style mixins with Sass package imports, for
 example `@use "pkg:@massds/mds-styles/scss/mixins" as mixins;`.
