@@ -1,5 +1,4 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
-
 @include mixins.component-reset;
 
 // TODO: Evaluate tehse resets and determine where they should live, and which should be global.
@@ -21,33 +20,16 @@ ul {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-// end resets
 
 // Set the colors for the two variants
 .mds-footer--neutral {
   background-color: var(--mds-background-section-brand-neutral-lowest);
   color: var(--mds-text-and-icons-brand-neutral-default);
+
   & :focus-visible, & :focus {
     outline: 2px solid var(--mds-border-focus-on-light);
   }
-}
 
-.mds-footer--primary {
-  background-color: var(--mds-background-adaptive-brand-primary-mid);
-  color: var(--mds-text-and-icons-utility-inverse);
-  & :focus-visible, & :focus {
-    outline: 2px solid var(--mds-border-focus-on-dark);
-}
-}
-//
-
-.mds-footer *,
-.mds-footer *::before,
-.mds-footer *::after {
-  box-sizing: border-box;
-}
-
-.mds-footer--neutral {
   & .mds-action-link {
     color: var(--mds-text-and-icons-brand-neutral-default);
   }
@@ -56,9 +38,34 @@ ul {
     color: var(--mds-background-adaptive-brand-primary-mid);
     fill: white;
   }
+
   & a:not(.mds-action-link):hover {
     color: var(--mds-background-adaptive-brand-primary-high);
   }
+}
+
+.mds-footer--primary {
+  background-color: var(--mds-background-adaptive-brand-primary-mid);
+  color: var(--mds-text-and-icons-utility-inverse);
+
+  & :focus-visible, & :focus {
+    outline: 2px solid var(--mds-border-focus-on-dark);
+  }
+
+  // Set all text to the white color for Primary
+  & .mds-footer__description, & .mds-footer__heading, & .mds-footer__contact-address, & .mds-footer__contact-note,
+  & .mds-footer__contact-item, & .mds-footer__fine-print p,
+  & .mds-footer__contact-link, & .mds-footer__link-list a,
+  & .mds-footer__legal-nav a,  & .mds-footer__contact-link--accent,
+  & .mds-footer__contact-icon svg, & a {
+    color: var(--mds-text-and-icons-utility-inverse);
+  }
+}
+
+.mds-footer *,
+.mds-footer *::before,
+.mds-footer *::after {
+  box-sizing: border-box;
 }
 
 .mds-footer__container {
@@ -80,6 +87,7 @@ ul {
 
 .mds-footer__content {
   @include mixins.grid;
+
   padding-block: var(--mds-space-2xl) var(--mds-space-md);
 }
 
@@ -158,8 +166,12 @@ ul {
 .mds-footer__contact-item {
   display: flex;
   align-items: flex-start;
-  gap: var(--mds-space-3xs);
+  padding-block: var(--mds-space-3xs);
   font: var(--mds-text-label-md);
+}
+
+.mds-footer__contact svg {
+  color: var(--mds-background-adaptive-brand-primary-mid);
 }
 
 .mds-footer__contact-note {
@@ -187,9 +199,13 @@ ul {
 .mds-footer__link-list {
   display: flex;
   flex-direction: column;
-  gap: var(--mds-space-2xs);
   padding-block-start: var(--mds-space-xs);
   font: var(--mds-text-label-md);
+
+  & .mds-action-link {
+    display: block;
+    padding-block: var(--mds-space-2xs);
+  }
 }
 
 .mds-footer__legal-nav {
@@ -218,40 +234,20 @@ ul {
   flex: 0 0 auto;
   width: 1.25rem;
   height: 1.25rem;
-}
-
-.mds-footer__contact svg {
-  color: var(--mds-background-adaptive-brand-primary-mid);
-  margin-top: 1px; // Adjust for visual alignment with text
-}
-
-.mds-footer--primary {
-  & .mds-footer__description, & .mds-footer__heading, & .mds-footer__contact-address, & .mds-footer__contact-note,
-  & .mds-footer__contact-item, & .mds-footer__fine-print p,
-  & .mds-footer__contact-link, & .mds-footer__link-list a,
-  & .mds-footer__legal-nav a,  & .mds-footer__contact-link--accent,
-  & .mds-footer__contact-icon svg, & a {
-    color: var(--mds-text-and-icons-utility-inverse);
-  }
-
+  margin-right: var(--mds-space-3xs);
+  margin-top: 3px; // Adjust for optical alignment with text
 }
 
 @media (max-width: 768px) {
-  .mds-footer__column {
-    row-gap: var(--mds-space-md);
-  }
   .mds-footer__content {
+    row-gap: var(--mds-space-md);
     padding-block-start: var(--mds-space-md);
   }
-
 }
 
 @media (max-width: 480px) {
   .mds-footer__content {
     row-gap: var(--mds-space-md);
-  }
-  .mds-footer__content {
     padding-block-start: var(--mds-space-sm);
   }
-
 }
