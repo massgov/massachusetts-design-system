@@ -16,6 +16,7 @@
     "@massds/mds-tokens": "^1.1.0"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^10.4.3",
     "@storybook/addon-docs": "^10.4.1",
     "@storybook/html-vite": "^10.4.1",
     "path-browserify": "^1.0.1",
