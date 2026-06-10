@@ -2,7 +2,6 @@ import '@massds/mds-components/button.css';
 import './button.examples.css';
 import {
   buttonDefaults,
-  buttonExamples,
   buttonOptions,
   renderButton
 } from '@massds/mds-components/button';
@@ -219,7 +218,7 @@ const meta = {
 export default meta;
 
 export const Demo = {
-  args: buttonExamples.primary
+  args: buttonDefaults
 };
 
 export const Examples = {

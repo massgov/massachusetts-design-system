@@ -1,16 +1,10 @@
-import { iconNames } from './icon.names.js';
+import { getSchemaDefaults, getSchemaOptions } from '../shared/schema.js';
+import { iconSchema } from './icon.schema.js';
 
-export const iconWeights = ['Regular', 'Bold'];
+export { iconSchema } from './icon.schema.js';
 
-export const iconDefaults = {
-  ariaLabel: '',
-  className: '',
-  decorative: true,
-  name: 'arrow-right',
-  weight: 'Regular'
-};
+const schemaOptions = getSchemaOptions(iconSchema);
 
-export const iconOptions = {
-  name: iconNames,
-  weight: iconWeights
-};
+export const iconWeights = schemaOptions.weight;
+export const iconDefaults = getSchemaDefaults(iconSchema);
+export const iconOptions = schemaOptions;

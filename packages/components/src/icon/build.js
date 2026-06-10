@@ -6,7 +6,7 @@ import {
 import { iconDefaults } from './icon.data.js';
 import { createIconRenderer } from './icon.render.js';
 
-const sourceFiles = ['icon.data.js', 'icon.render.js', 'icon.scss', 'icon.twig'];
+const sourceFiles = ['icon.data.js', 'icon.render.js', 'icon.schema.js', 'icon.scss', 'icon.twig'];
 
 function createTemplateModule(templateSource) {
   return `export const iconTemplateSource = ${JSON.stringify(templateSource)};\n`;

@@ -1,10 +1,15 @@
-import { iconNames } from '../icon/icon.names.js';
+import { getSchemaDefaults, getSchemaOptions } from '../shared/schema.js';
+import { buttonSchema } from './button.schema.js';
 
-export const buttonTypes = ['Fill', 'Outline', 'Ghost'];
-export const buttonColors = ['Primary', 'Secondary', 'Light', 'Danger'];
-export const buttonSizes = ['Regular', 'LG'];
-export const buttonIcons = ['', ...iconNames];
-export const htmlButtonTypes = ['button', 'submit', 'reset'];
+export { buttonSchema } from './button.schema.js';
+
+const schemaOptions = getSchemaOptions(buttonSchema);
+
+export const buttonTypes = schemaOptions.type;
+export const buttonColors = schemaOptions.color;
+export const buttonSizes = schemaOptions.size;
+export const buttonIcons = schemaOptions.leftIcon;
+export const htmlButtonTypes = schemaOptions.htmlType;
 
 export const buttonOptions = {
   color: buttonColors,
@@ -14,29 +19,4 @@ export const buttonOptions = {
   type: buttonTypes
 };
 
-export const buttonDefaults = {
-  ariaLabel: '',
-  color: 'Primary',
-  disabled: false,
-  htmlType: 'button',
-  id: '',
-  leftIcon: '',
-  rightIcon: '',
-  size: 'LG',
-  text: 'Button',
-  type: 'Fill'
-};
-
-export const buttonExamples = {
-  primary: {
-    size: 'Regular'
-  },
-  secondary: {
-    color: 'Secondary',
-    text: 'Secondary button'
-  },
-  disabled: {
-    disabled: true,
-    text: 'Disabled button'
-  }
-};
+export const buttonDefaults = getSchemaDefaults(buttonSchema);

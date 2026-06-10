@@ -3,7 +3,7 @@ import { createButtonRenderer } from './button.render.js';
 import { readIconSvgMap } from '../../scripts/icon-registry.js';
 import { createIconRenderer } from '../icon/icon.render.js';
 
-const sourceFiles = ['button.data.js', 'button.render.js', 'button.scss', 'button.twig'];
+const sourceFiles = ['button.data.js', 'button.render.js', 'button.schema.js', 'button.scss', 'button.twig'];
 
 function createTemplateModule(templateSource) {
   return `export const buttonTemplateSource = ${JSON.stringify(templateSource)};\n`;

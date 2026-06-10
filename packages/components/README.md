@@ -53,6 +53,14 @@ Shared render helpers live in `src/shared/`. Use `createTwigRenderer()` when a
 component needs to compile a Twig template and render it with component data.
 Keep component-specific markup decisions in the `.twig` file whenever possible.
 
+## Data Schemas
+
+Each component should define accepted data in `<component>.schema.js`. Use the
+schema as the source of truth for defaults and option lists, then derive the
+compatibility exports in `<component>.data.js`.
+
+Shared schema helpers live in `src/shared/schema.js`.
+
 ## Component Folders
 
 Each component lives in `src/<component>/`. Keep component-specific API notes,
@@ -62,6 +70,7 @@ needed.
 Use this file structure for new components:
 
 - `<component>.twig` for authored markup
+- `<component>.schema.js` for accepted data, defaults, and options
 - `<component>.data.js` for defaults, options, and examples
 - `<component>.render.js` for Twig rendering and data normalization
 - `<component>.scss` for component styles
