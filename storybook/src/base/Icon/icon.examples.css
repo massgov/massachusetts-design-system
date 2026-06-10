@@ -25,7 +25,7 @@
   min-width: 0;
   min-height: 120px;
   gap: 12px;
-  align-content: center;
+  align-content: top;
   justify-items: center;
   padding: 16px;
   border: 1px solid var(--mds-border-brand-neutral-low);
@@ -35,12 +35,14 @@
 
 .mds-icon-gallery__item .mds-icon {
   --mds-icon-size: 2rem;
+  align-self: center;;
   color: var(--mds-text-and-icons-brand-neutral-default);
 }
 
 .mds-icon-gallery__name {
   overflow-wrap: anywhere;
-  color: var(--mds-text-and-icons-brand-neutral-muted);
-  font: var(--mds-text-body-sm);
+  color: var(--mds-text-and-icons-brand-neutral-default);
+  font: var(--mds-text-label);
+  font-size: var(--mds-font-size-175);
   text-align: center;
 }
