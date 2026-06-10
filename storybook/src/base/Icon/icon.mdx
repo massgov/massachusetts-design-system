@@ -1,0 +1,50 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  iconDefaults,
+  renderIcon
+} from '@massds/mds-components/icon';
+import iconCss from '../../../../packages/components/dist/icon/icon.css?raw';
+import { StoryCodeTabs } from '../../utils/CodeTabs';
+import * as IconStories from './icon.stories';
+
+export const getIconCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderIcon({
+      ...iconDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: iconCss
+  }
+];
+
+<Meta of={IconStories} />
+
+# Icon
+
+Icons are inline SVG symbols from the Massachusetts Design System asset library.
+Use them to reinforce meaning, support scanning, or label familiar actions.
+
+<Canvas
+  of={IconStories.Demo}
+  sourceState="none"
+/>
+
+## API
+
+<Controls of={IconStories.Demo} />
+
+## Code
+
+<StoryCodeTabs of={IconStories.Demo} getTabs={getIconCodeTabs} />
+
+## All Icons
+
+Every icon name below can be used anywhere an icon prop accepts an asset icon name.
+
+<Canvas of={IconStories.AllIcons} sourceState="none" />

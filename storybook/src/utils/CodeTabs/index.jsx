@@ -1,7 +1,7 @@
 import { DocsContext, Source, useOf } from '@storybook/addon-docs/blocks';
 import { STORY_ARGS_UPDATED } from 'storybook/internal/core-events';
 import { useContext, useEffect, useId, useMemo, useState } from 'react';
-import './code-tabs.css';
+import './CodeTabs.css';
 
 export function CodeTabs({ tabs }) {
   const fallbackTab = tabs[0];

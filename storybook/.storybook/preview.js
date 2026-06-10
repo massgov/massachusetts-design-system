@@ -11,6 +11,8 @@ const preview = {
         order: [
           'Overview',
           ['Introduction'],
+          'Base',
+          ['Icon', ['Docs', 'Demo', 'All Icons']],
           'Components',
           ['Button', ['Docs', 'Demo', 'Examples']]
         ],
