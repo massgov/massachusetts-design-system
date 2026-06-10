@@ -2,14 +2,10 @@
 
 @include mixins.component-reset;
 
+// TODO: Evaluate tehse resets and determine where they should live, and which should be global.
 :focus-visible, :focus {
   border-radius: var(--mds-radius-sm);
-  outline: 2px solid var(--mds-border-focus-on-light);
   outline-offset: 2px;
-}
-
-address {
-  font-style: normal;
 }
 
 ul {
@@ -17,15 +13,33 @@ ul {
   padding: 0;
 }
 
+.mds-footer address {
+  font-style: normal;
+}
+
 .mds-footer {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+// end resets
+
+// Set the colors for the two variants
+.mds-footer--neutral {
   background-color: var(--mds-background-section-brand-neutral-lowest);
   color: var(--mds-text-and-icons-brand-neutral-default);
+  & :focus-visible, & :focus {
+    outline: 2px solid var(--mds-border-focus-on-light);
+  }
 }
 
 .mds-footer--primary {
   background-color: var(--mds-background-adaptive-brand-primary-mid);
   color: var(--mds-text-and-icons-utility-inverse);
+  & :focus-visible, & :focus {
+    outline: 2px solid var(--mds-border-focus-on-dark);
 }
+}
+//
 
 .mds-footer *,
 .mds-footer *::before,
@@ -33,7 +47,6 @@ ul {
   box-sizing: border-box;
 }
 
-/** figure out what we want to do with "action link" */
 .mds-footer--neutral {
   & .mds-action-link {
     color: var(--mds-text-and-icons-brand-neutral-default);
@@ -107,7 +120,7 @@ ul {
 .mds-footer__contact-note,
 .mds-footer__contact-item,
 .mds-footer__description {
-  font-size: var(--mds-text-label-md);
+  font: var(--mds-text-label-md);
 }
 
 .mds-footer__social-list {
@@ -146,7 +159,7 @@ ul {
   display: flex;
   align-items: flex-start;
   gap: var(--mds-space-3xs);
-  font-size: var(--mds-text-label-md);
+  font: var(--mds-text-label-md);
 }
 
 .mds-footer__contact-note {
@@ -163,7 +176,6 @@ ul {
   text-underline-offset: .375rem;
 }
 
-/** set hover to adaptive primary high for blue links, pressed is highest */
 
 .mds-footer__contact-link:hover,
 .mds-footer__link-list a:hover,
@@ -177,13 +189,13 @@ ul {
   flex-direction: column;
   gap: var(--mds-space-2xs);
   padding-block-start: var(--mds-space-xs);
-  font-size: var(--mds-text-label-md);
+  font: var(--mds-text-label-md);
 }
 
 .mds-footer__legal-nav {
   border-block: 1px solid var(--mds-border-brand-neutral-low);
   padding-block: var(--mds-space-2xs);
-  font-size: var(--mds-text-label-md);
+  font: var(--mds-text-label-md);
 }
 
 .mds-footer__legal-nav ul {
@@ -197,7 +209,7 @@ ul {
   flex-direction: column;
   gap: var(--mds-space-sm);
   padding-block: var(--mds-space-md) var(--mds-space-2xl);
-  font-size: var(--mds-text-caption-md);
+  font: var(--mds-text-caption-md);
   color: var(--mds-text-and-icons-brand-neutral-muted);
 }
 
@@ -210,7 +222,7 @@ ul {
 
 .mds-footer__contact svg {
   color: var(--mds-background-adaptive-brand-primary-mid);
-  margin-top: var(--mds-space-3xs);
+  margin-top: 1px; // Adjust for visual alignment with text
 }
 
 .mds-footer--primary {
@@ -218,14 +230,18 @@ ul {
   & .mds-footer__contact-item, & .mds-footer__fine-print p,
   & .mds-footer__contact-link, & .mds-footer__link-list a,
   & .mds-footer__legal-nav a,  & .mds-footer__contact-link--accent,
-  & .mds-footer__contact-icon svg {
+  & .mds-footer__contact-icon svg, & a {
     color: var(--mds-text-and-icons-utility-inverse);
-  } /** check this for links for adaptive **/
+  }
+
 }
 
 @media (max-width: 768px) {
   .mds-footer__column {
-    row-gap: var(--mds-space-sm);
+    row-gap: var(--mds-space-md);
+  }
+  .mds-footer__content {
+    padding-block-start: var(--mds-space-md);
   }
 
 }
@@ -234,7 +250,8 @@ ul {
   .mds-footer__content {
     row-gap: var(--mds-space-md);
   }
-  //Update padding top to space small for component
-  // adjust spacing for mds-footer__legal-nav - space-sm
+  .mds-footer__content {
+    padding-block-start: var(--mds-space-sm);
+  }
 
 }
