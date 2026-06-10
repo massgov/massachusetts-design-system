@@ -73,7 +73,7 @@ const iconControls = {
 const defaultDemoArgs = {
   ariaLabel: 'Arrow right',
   className: iconDefaults.className,
-  decorative: false,
+  decorative: true,
   name: iconDefaults.name,
   weight: iconDefaults.weight
 };
