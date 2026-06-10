@@ -6,6 +6,13 @@ import {
   renderIcon
 } from '@massds/mds-components/icon';
 
+const iconDemoColors = {
+  Neutral: 'var(--mds-text-and-icons-brand-neutral-default)',
+  Primary: 'var(--mds-text-and-icons-brand-primary-mid)',
+  Secondary: 'var(--mds-text-and-icons-brand-secondary-mid)',
+  Danger: 'var(--mds-text-and-icons-utility-danger-mid)'
+};
+
 // Storybook render functions return an HTML element.
 function createPreview(html, className = '') {
   const preview = document.createElement('div');
@@ -20,7 +27,19 @@ function createPreview(html, className = '') {
 }
 
 function renderDemo(args) {
-  return createPreview(renderIcon(args), 'mds-icon-demo');
+  const {
+    color,
+    size,
+    ...iconArgs
+  } = args;
+  const demoColor = iconDemoColors[color] || color || iconDemoColors.Primary;
+  const demoSize = typeof size === 'string' && size.trim() ? size.trim() : '48px';
+  const preview = createPreview(renderIcon(iconArgs), 'mds-icon-demo');
+
+  preview.style.setProperty('--mds-icon-demo-color', demoColor);
+  preview.style.setProperty('--mds-icon-demo-size', demoSize);
+
+  return preview;
 }
 
 function renderGalleryItem(iconName) {
@@ -56,6 +75,15 @@ const iconControls = {
     control: 'inline-radio',
     options: iconOptions.weight
   },
+  size: {
+    control: 'text',
+    description: 'Demo-only CSS dimension, such as 24px, 1.5rem, or 2em.'
+  },
+  color: {
+    control: 'select',
+    options: Object.keys(iconDemoColors),
+    description: 'Demo-only CSS color.'
+  },
   decorative: {
     control: 'boolean',
     description: 'When true, the icon is hidden from assistive technology.'
@@ -73,8 +101,10 @@ const iconControls = {
 const defaultDemoArgs = {
   ariaLabel: 'Arrow right',
   className: iconDefaults.className,
+  color: 'Neutral',
   decorative: true,
   name: iconDefaults.name,
+  size: '48px',
   weight: iconDefaults.weight
 };
 
