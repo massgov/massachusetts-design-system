@@ -15,49 +15,60 @@ npm run build --workspace @massds/mds-components
 
 The build writes distributable files into `dist/`.
 
+## Public Imports
+
+Component entry points are exported with wildcard paths. When a component has a
+matching file in `dist/<component>/`, consumers can import it with the flat
+public package path:
+
+```js
+import { renderButton } from '@massds/mds-components/button';
+import '@massds/mds-components/index.css';
+import '@massds/mds-components/button.css';
+import buttonHtml from '@massds/mds-components/button.html?raw';
+import buttonCss from '@massds/mds-components/button.css?raw';
+```
+
+Use these package paths in docs and examples instead of relative `dist/` paths.
+They are the supported public API and apply to every component:
+
+- JavaScript: `@massds/mds-components/<component>`
+- CSS: `@massds/mds-components/<component>.css`
+- HTML: `@massds/mds-components/<component>.html`
+
+The aggregate component stylesheet is exported from
+`@massds/mds-components/index.css`.
+
+When adding a new component, keep its distributable files in
+`dist/<component>/`. No package export change is needed as long as the component
+build writes the standard files:
+
+- `dist/<component>/index.js`
+- `dist/<component>/<component>.css`
+- `dist/<component>/<component>.html`
+
 ## Shared Rendering
 
 Shared render helpers live in `src/shared/`. Use `createTwigRenderer()` when a
 component needs to compile a Twig template and render it with component data.
 Keep component-specific markup decisions in the `.twig` file whenever possible.
 
-## Icon
+## Component Folders
 
-Source files live in `src/icon/`:
+Each component lives in `src/<component>/`. Keep component-specific API notes,
+usage guidance, and property details close to that component when they are
+needed.
 
-- `icon.twig` for the authored markup
-- `icon.data.js` for defaults and options
-- `icon.render.js` for Twig rendering and data normalization
-- `build.js` for Icon-specific package artifacts
-- `icon.scss` for primitive styles
+Use this file structure for new components:
 
-The public JavaScript API is exported from `@massds/mds-components/icon`.
-`renderIcon()` renders inline SVG from the `@massds/mds-assets` icon library
-using a validated icon name and optional `Regular` or `Bold` weight.
+- `<component>.twig` for authored markup
+- `<component>.data.js` for defaults, options, and examples
+- `<component>.render.js` for Twig rendering and data normalization
+- `<component>.scss` for component styles
+- `build.js` for component-specific package artifacts
+- `README.md` for component-specific implementation notes, when useful
 
-## Button
-
-Source files live in `src/button/`:
-
-- `button.twig` for the authored markup
-- `button.data.js` for defaults, options, and examples
-- `button.render.js` for Twig rendering and data normalization
-- `build.js` for Button-specific package artifacts
-- `button.scss` for component styles
-
-The public JavaScript API is exported from `@massds/mds-components/button`.
 The shared build script discovers components and delegates component-specific
 package artifacts to each component directory.
 Component SCSS can use shared style mixins with Sass package imports, for
 example `@use "pkg:@massds/mds-styles/scss/mixins" as mixins;`.
-
-`renderButton()` follows the Figma component properties:
-
-- `type`: `Fill`, `Outline`, `Ghost`
-- `color`: `Primary`, `Secondary`, `Light`, `Danger`
-- `size`: `Regular`, `LG`
-- `text`: button label text
-- `leftIcon`: optional icon name
-- `rightIcon`: optional icon name
-
-Use `htmlType` for the native HTML button type: `button`, `submit`, or `reset`.

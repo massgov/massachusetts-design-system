@@ -13,16 +13,13 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
-    "./button": {
-      "import": "./dist/button/index.js",
-      "default": "./dist/button/index.js"
+    "./index.css": "./dist/index.css",
+    "./*.css": "./dist/*/*.css",
+    "./*.html": "./dist/*/*.html",
+    "./*": {
+      "import": "./dist/*/index.js",
+      "default": "./dist/*/index.js"
     },
-    "./button.css": "./dist/button/button.css",
-    "./icon": {
-      "import": "./dist/icon/index.js",
-      "default": "./dist/icon/index.js"
-    },
-    "./icon.css": "./dist/icon/icon.css",
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"
   },
