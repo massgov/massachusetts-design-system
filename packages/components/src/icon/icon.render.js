@@ -64,7 +64,9 @@ export function normalizeIconData(data = {}, iconSvgMap = {}) {
   };
 }
 
-export function createIconRenderer(templateSource, iconSvgMap = {}) {
+export function createIconRenderer(templateSource, options = {}) {
+  const iconSvgMap = options.iconSvgMap ?? options;
+
   return createTwigRenderer(templateSource, (data = {}) => {
     const normalizedData = normalizeIconData(data, iconSvgMap);
 

@@ -81,6 +81,7 @@ The shared build script discovers components and delegates component-specific
 package artifacts to each component directory.
 Use `createComponentBuild()` from `scripts/component-build.js` for component
 build files whenever possible. It handles the standard source copy, example
-HTML, and Twig output.
+HTML, Twig output, and declarative nested renderers such as
+`nestedComponents: ['icon']`.
 Component SCSS can use shared style mixins with Sass package imports, for
 example `@use "pkg:@massds/mds-styles/scss/mixins" as mixins;`.
