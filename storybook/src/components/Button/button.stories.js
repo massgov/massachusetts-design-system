@@ -149,6 +149,16 @@ function renderAllExamples() {
   return createPreview(examplesHtml, 'mds-button-examples');
 }
 
+const iconSelectControl = {
+  control: {
+    type: 'select',
+    labels: {
+      '': 'None'
+    }
+  },
+  options: buttonOptions.icon
+};
+
 // Controls are the editable fields in the Storybook UI.
 const buttonControls = {
   text: {
@@ -182,14 +192,8 @@ const buttonControls = {
     control: 'inline-radio',
     options: buttonOptions.size
   },
-  leftIcon: {
-    control: 'select',
-    options: buttonOptions.icon
-  },
-  rightIcon: {
-    control: 'select',
-    options: buttonOptions.icon
-  }
+  leftIcon: iconSelectControl,
+  rightIcon: iconSelectControl
 };
 
 const defaultDemoArgs = {
