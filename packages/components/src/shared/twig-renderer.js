@@ -1,4 +1,5 @@
 import Twig from 'twig';
+import { formatHtml } from './format-html.js';
 
 export function createTwigRenderer(templateSource, getContext = (data) => data) {
   const template = Twig.twig({ data: templateSource });
@@ -10,6 +11,6 @@ export function createTwigRenderer(templateSource, getContext = (data) => data) 
       return '';
     }
 
-    return template.render(context);
+    return formatHtml(template.render(context));
   };
 }

@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import * as sass from 'sass';
+import { formatGeneratedOutput } from './format-generated-output.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(__dirname, '..');
@@ -25,7 +26,7 @@ async function copyFile(source, destination) {
 
 async function writeFile(destination, contents) {
   await fs.mkdir(path.dirname(destination), { recursive: true });
-  await fs.writeFile(destination, contents, 'utf8');
+  await fs.writeFile(destination, formatGeneratedOutput(destination, contents), 'utf8');
 }
 
 async function compileSass(source, destination) {
