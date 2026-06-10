@@ -36,12 +36,9 @@ They are the supported public API and apply to every component:
 - HTML: `@massds/mds-components/<component>.html`
 - Twig: `@massds/mds-components/<component>.twig`
 
-The aggregate component stylesheet is exported from
-`@massds/mds-components/index.css`.
+The aggregate component stylesheet is exported from `@massds/mds-components/index.css`.
 
-When adding a new component, keep its distributable files in
-`dist/<component>/`. No package export change is needed as long as the component
-build writes the standard files:
+When adding a new component, keep its distributable files in `dist/<component>/`. No package export change is needed as long as the component build writes the standard files:
 
 - `dist/<component>/<component>.css`
 - `dist/<component>/<component>.html`
@@ -52,6 +49,15 @@ build writes the standard files:
 Shared render helpers live in `src/shared/`. Use `createTwigRenderer()` when a
 component needs to compile a Twig template and render it with component data.
 Keep component-specific markup decisions in the `.twig` file whenever possible.
+
+When a component Twig template includes another component, declare it in the
+build file:
+
+```js
+export const includeComponents = ['icon'];
+```
+
+This lets the shared build register the included Twig templates and pass along their renderer data, such as the icon SVG map.
 
 ## Data Schemas
 
@@ -72,7 +78,7 @@ Use this file structure for new components:
 - `<component>.twig` for authored markup
 - `<component>.schema.js` for accepted data, defaults, and options
 - `<component>.data.js` for defaults, options, and examples
-- `<component>.render.js` for Twig rendering and data normalization
+- `<component>.render.js` for the thin Twig rendering context
 - `<component>.scss` for component styles
 - `build.js` for component-specific package artifacts
 - `README.md` for component-specific implementation notes, when useful
@@ -81,7 +87,7 @@ The shared build script discovers components and delegates component-specific
 package artifacts to each component directory.
 Use `createComponentBuild()` from `scripts/component-build.js` for component
 build files whenever possible. It handles the standard source copy, example
-HTML, Twig output, and declarative nested renderers such as
-`nestedComponents: ['icon']`.
+HTML, Twig output, and declarative Twig includes such as
+`includeComponents: ['icon']`.
 Component SCSS can use shared style mixins with Sass package imports, for
 example `@use "pkg:@massds/mds-styles/scss/mixins" as mixins;`.

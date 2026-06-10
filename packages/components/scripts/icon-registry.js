@@ -1,13 +1,14 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { normalizeIconSvg } from '../src/icon/icon-svg.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(__dirname, '..');
 const defaultIconsDir = path.resolve(packageRoot, '../assets/src/icons/static');
 
 function normalizeSvg(svg) {
-  return svg.trim();
+  return normalizeIconSvg(svg);
 }
 
 function getRegularIconName(fileName) {

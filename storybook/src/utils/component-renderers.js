@@ -2,6 +2,7 @@ import buttonTwig from '@massds/mds-components/button.twig?raw';
 import iconTwig from '@massds/mds-components/icon.twig?raw';
 import { createButtonRenderer } from '../../../packages/components/src/button/button.render.js';
 import { createIconRenderer } from '../../../packages/components/src/icon/icon.render.js';
+import { normalizeIconSvg } from '../../../packages/components/src/icon/icon-svg.js';
 
 const regularIconSvgs = import.meta.glob('../../../packages/assets/src/icons/static/*.svg', {
   eager: true,
@@ -28,7 +29,7 @@ function addIconSvg(iconSvgMap, filePath, svg, weight) {
 
   iconSvgMap[iconName] = {
     ...iconSvgMap[iconName],
-    [weight]: svg
+    [weight]: normalizeIconSvg(svg)
   };
 }
 
@@ -48,4 +49,9 @@ function createIconSvgMap() {
 
 export const iconSvgMap = createIconSvgMap();
 export const renderIcon = createIconRenderer(iconTwig, iconSvgMap);
-export const renderButton = createButtonRenderer(buttonTwig, { renderIcon });
+export const renderButton = createButtonRenderer(buttonTwig, {
+  iconSvgMap,
+  includes: {
+    'icon.twig': iconTwig
+  }
+});

@@ -15,25 +15,21 @@ function toPascalCase(value) {
   return `${identifier.charAt(0).toUpperCase()}${identifier.slice(1)}`;
 }
 
-function getRenderFunctionName(componentName) {
-  return `render${toPascalCase(componentName)}`;
-}
-
 function getRendererFactoryName(componentName) {
   return `create${toPascalCase(componentName)}Renderer`;
 }
 
-function normalizeNestedComponent(nestedComponent) {
-  if (typeof nestedComponent === 'string') {
+function normalizeIncludedComponent(includedComponent) {
+  if (typeof includedComponent === 'string') {
     return {
-      componentName: nestedComponent,
-      renderFunctionName: getRenderFunctionName(nestedComponent)
+      componentName: includedComponent,
+      templateId: `${includedComponent}.twig`
     };
   }
 
   return {
-    ...nestedComponent,
-    renderFunctionName: nestedComponent.renderFunctionName ?? getRenderFunctionName(nestedComponent.componentName)
+    ...includedComponent,
+    templateId: includedComponent.templateId ?? `${includedComponent.componentName}.twig`
   };
 }
 
@@ -71,32 +67,40 @@ async function getOwnRendererOptions(getRendererOptions, buildContext) {
   return getRendererOptions(buildContext);
 }
 
-async function getNestedRendererOptions(nestedComponents, buildContext) {
+async function getIncludedComponentContext(includeComponents, buildContext) {
+  const includes = {};
   const rendererOptions = {};
 
-  for (const nestedComponent of nestedComponents) {
-    const nested = normalizeNestedComponent(nestedComponent);
-    const nestedSourceDir = path.resolve(buildContext.sourceDir, '..', nested.componentName);
-    const nestedTemplateSource = await buildContext.readSourceFile(`../${nested.componentName}/${nested.componentName}.twig`);
-    const nestedBuildModule = await getComponentBuildModule(nested.componentName, nestedSourceDir);
-    const nestedBuildContext = {
+  for (const includedComponent of includeComponents) {
+    const included = normalizeIncludedComponent(includedComponent);
+    const includedSourceDir = path.resolve(buildContext.sourceDir, '..', included.componentName);
+    const includedTemplateSource = await buildContext.readSourceFile(`../${included.componentName}/${included.componentName}.twig`);
+    const includedBuildModule = await getComponentBuildModule(included.componentName, includedSourceDir);
+    const includedBuildContext = {
       ...buildContext,
-      componentName: nested.componentName,
-      sourceDir: nestedSourceDir,
-      templateSource: nestedTemplateSource
+      componentName: included.componentName,
+      sourceDir: includedSourceDir,
+      templateSource: includedTemplateSource
     };
-    const nestedRendererOptions = {
-      ...(await getNestedRendererOptions(nestedBuildModule.nestedComponents ?? [], nestedBuildContext)),
-      ...(await getOwnRendererOptions(nestedBuildModule.getRendererOptions, nestedBuildContext))
-    };
+    const nestedContext = await getIncludedComponentContext(
+      includedBuildModule.includeComponents ?? [],
+      includedBuildContext
+    );
 
-    rendererOptions[nested.renderFunctionName] = await createDefaultRenderer({
-      ...nestedBuildContext,
-      rendererOptions: nestedRendererOptions
+    Object.assign(includes, nestedContext.includes, {
+      [included.templateId]: includedTemplateSource
     });
+    Object.assign(
+      rendererOptions,
+      nestedContext.rendererOptions,
+      await getOwnRendererOptions(includedBuildModule.getRendererOptions, includedBuildContext)
+    );
   }
 
-  return rendererOptions;
+  return {
+    includes,
+    rendererOptions
+  };
 }
 
 async function getRendererContext(createRenderer, buildContext) {
@@ -120,7 +124,7 @@ export function createComponentBuild({
   createRenderer = createDefaultRenderer,
   defaults,
   getRendererOptions,
-  nestedComponents = [],
+  includeComponents = [],
   sourceFiles = getDefaultSourceFiles(componentName),
   writeAdditionalOutputs = async () => {}
 }) {
@@ -131,8 +135,13 @@ export function createComponentBuild({
       componentName,
       templateSource
     };
+    const includedContext = await getIncludedComponentContext(
+      includeComponents,
+      buildContext
+    );
     const rendererOptions = {
-      ...(await getNestedRendererOptions(nestedComponents, buildContext)),
+      includes: includedContext.includes,
+      ...includedContext.rendererOptions,
       ...(await getOwnRendererOptions(getRendererOptions, buildContext))
     };
     const rendererContext = await getRendererContext(createRenderer, {

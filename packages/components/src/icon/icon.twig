@@ -1,1 +1,13 @@
-<span class="mds-icon mds-icon--weight-{{ weightKey|e }}{% if className %} {{ className|e }}{% endif %}"{% if decorative %} aria-hidden="true"{% elseif ariaLabel %} role="img" aria-label="{{ ariaLabel|e }}"{% endif %}>{{ svg|raw }}</span>
+{% set requestedName = name|default(iconDefaults.name) %}
+{% set iconName = requestedName in iconOptions.name ? requestedName : '' %}
+{% set requestedWeight = weight|default(iconDefaults.weight) %}
+{% set iconWeight = requestedWeight in iconOptions.weight ? requestedWeight : iconDefaults.weight %}
+{% set weightKey = iconWeight|lower %}
+{% set iconSvg = iconSvgMap[iconName][weightKey]|default(iconSvgMap[iconName].regular|default('')) %}
+{% set iconClassName = className|default(iconDefaults.className)|trim %}
+{% set isDecorative = decorative is defined ? decorative : iconDefaults.decorative %}
+{% set label = ariaLabel|default(iconDefaults.ariaLabel) %}
+
+{% if iconSvg %}
+  <span class="mds-icon mds-icon--weight-{{ weightKey|e }}{% if iconClassName %} {{ iconClassName|e }}{% endif %}"{% if isDecorative %} aria-hidden="true"{% elseif label %} role="img" aria-label="{{ label|e }}"{% endif %}>{{ iconSvg|raw }}</span>
+{% endif %}

@@ -21,22 +21,22 @@
   aria-label="{{ ariaLabel|e }}"{% endif %}
 >
   {% if leftIconName %}
-    {{ renderIcon({
+    {% include 'icon.twig' with {
       className: 'mds-button__icon mds-button__icon--left',
       decorative: true,
       name: leftIconName,
       weight: 'Bold'
-    })|raw }}
+    } %}
   {% endif %}
 
   <span class="mds-button__label">{{ buttonText|e }}</span>
 
   {% if rightIconName %}
-    {{ renderIcon({
+    {% include 'icon.twig' with {
       className: 'mds-button__icon',
       decorative: true,
       name: rightIconName,
       weight: 'Bold'
-    })|raw }}
+    } %}
   {% endif %}
 </button>
