@@ -19,7 +19,7 @@ function createPreview(html, className = '') {
   return preview;
 }
 
-function renderDemo(args) {
+function renderPlayground(args) {
   return createPreview(renderButton(args));
 }
 
@@ -195,7 +195,7 @@ const buttonControls = {
   rightIcon: iconSelectControl
 };
 
-const defaultDemoArgs = {
+const defaultPlaygroundArgs = {
   ariaLabel: buttonDefaults.ariaLabel,
   color: buttonDefaults.color,
   disabled: buttonDefaults.disabled,
@@ -210,14 +210,14 @@ const defaultDemoArgs = {
 
 const meta = {
   title: 'Components/Button',
-  render: renderDemo,
+  render: renderPlayground,
   argTypes: buttonControls,
-  args: defaultDemoArgs
+  args: defaultPlaygroundArgs
 };
 
 export default meta;
 
-export const Demo = {
+export const Playground = {
   args: buttonDefaults
 };
 
