@@ -11,10 +11,10 @@ const preview = {
         order: [
           'Overview',
           ['Introduction'],
-          'Base',
-          ['Icon', ['Docs', 'Demo', 'All Icons']],
+          'Foundations',
+          ['*', ['Overview', 'Code', 'Playground']],
           'Components',
-          ['Button', ['Overview', 'Dev', 'Demo']]
+          ['*', ['Overview', 'Code', 'Playground']]
         ],
         includeNames: true
       }

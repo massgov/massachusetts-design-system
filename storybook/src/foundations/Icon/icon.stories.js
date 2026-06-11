@@ -110,7 +110,7 @@ const defaultPlaygroundArgs = {
 };
 
 const meta = {
-  title: 'Base/Icon',
+  title: 'Foundations/Icon',
   render: renderPlayground,
   argTypes: iconControls,
   args: defaultPlaygroundArgs
