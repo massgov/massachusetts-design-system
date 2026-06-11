@@ -3,7 +3,7 @@ import { iconDefaults } from '../../../../packages/components/src/icon/icon.data
 import iconCss from '@massds/mds-components/icon.css?raw';
 import { renderIcon } from '../../utils/component-renderers.js';
 import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
-import * as IconStories from './icon.stories';
+import * as IconStories from './icon.stories.js';
 
 export const getIconCodeTabs = (args) => [
   {
@@ -29,20 +29,14 @@ Icons are inline SVG symbols from the Massachusetts Design System asset library.
 Use them to reinforce meaning, support scanning, or label familiar actions.
 
 <Canvas
-  of={IconStories.Demo}
+  of={IconStories.Playground}
   sourceState="none"
 />
 
 ## API
 
-<Controls of={IconStories.Demo} />
+<Controls of={IconStories.Playground} />
 
 ## Code
 
-<StoryCodeTabs of={IconStories.Demo} getTabs={getIconCodeTabs} />
-
-## All Icons
-
-Every icon name below can be used anywhere an icon prop accepts an asset icon name.
-
-<Canvas of={IconStories.AllIcons} sourceState="none" />
+<StoryCodeTabs of={IconStories.Playground} getTabs={getIconCodeTabs} />

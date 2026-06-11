@@ -1,0 +1,15 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { iconDefaults } from '../../../../packages/components/src/icon/icon.data.js';
+import iconCss from '@massds/mds-components/icon.css?raw';
+import { renderIcon } from '../../utils/component-renderers.js';
+import * as IconStories from './icon.stories.js';
+
+<Meta of={IconStories} />
+
+# Icon
+
+Icons are inline SVG symbols from the Massachusetts Design System asset library.
+Use them to reinforce meaning, support scanning, or label familiar actions.
+
+
+<Canvas of={IconStories.AllIcons} sourceState="none" />

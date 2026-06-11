@@ -5,8 +5,9 @@ import {
   iconOptions
 } from '../../../../packages/components/src/icon/icon.data.js';
 import { renderIcon } from '../../utils/component-renderers.js';
+import { Tag } from 'storybook/manager-api';
 
-const iconDemoColors = {
+const iconPlaygroundColors = {
   Neutral: 'var(--mds-text-and-icons-brand-neutral-default)',
   Primary: 'var(--mds-text-and-icons-brand-primary-mid)',
   Secondary: 'var(--mds-text-and-icons-brand-secondary-mid)',
@@ -26,18 +27,18 @@ function createPreview(html, className = '') {
   return preview;
 }
 
-function renderDemo(args) {
+function renderPlayground(args) {
   const {
     color,
     size,
     ...iconArgs
   } = args;
-  const demoColor = iconDemoColors[color] || color || iconDemoColors.Primary;
-  const demoSize = typeof size === 'string' && size.trim() ? size.trim() : '48px';
-  const preview = createPreview(renderIcon(iconArgs), 'mds-icon-demo');
+  const PlaygroundColor = iconPlaygroundColors[color] || color || iconPlaygroundColors.Primary;
+  const PlaygroundSize = typeof size === 'string' && size.trim() ? size.trim() : '48px';
+  const preview = createPreview(renderIcon(iconArgs), 'mds-icon-Playground');
 
-  preview.style.setProperty('--mds-icon-demo-color', demoColor);
-  preview.style.setProperty('--mds-icon-demo-size', demoSize);
+  preview.style.setProperty('--mds-icon-Playground-color', PlaygroundColor);
+  preview.style.setProperty('--mds-icon-Playground-size', PlaygroundSize);
 
   return preview;
 }
@@ -77,12 +78,12 @@ const iconControls = {
   },
   size: {
     control: 'text',
-    description: 'Demo-only CSS dimension, such as 24px, 1.5rem, or 2em.'
+    description: 'Playground-only CSS dimension, such as 24px, 1.5rem, or 2em.'
   },
   color: {
     control: 'select',
-    options: Object.keys(iconDemoColors),
-    description: 'Demo-only CSS color.'
+    options: Object.keys(iconPlaygroundColors),
+    description: 'Playground-only CSS color.'
   },
   decorative: {
     control: 'boolean',
@@ -98,7 +99,7 @@ const iconControls = {
   }
 };
 
-const defaultDemoArgs = {
+const defaultPlaygroundArgs = {
   ariaLabel: 'Arrow right',
   className: iconDefaults.className,
   color: 'Neutral',
@@ -110,17 +111,18 @@ const defaultDemoArgs = {
 
 const meta = {
   title: 'Base/Icon',
-  render: renderDemo,
+  render: renderPlayground,
   argTypes: iconControls,
-  args: defaultDemoArgs
+  args: defaultPlaygroundArgs
 };
 
 export default meta;
 
-export const Demo = {};
+export const Playground = {};
 
 export const AllIcons = {
   render: renderAllIcons,
+  tags: ['!dev'],
   parameters: {
     controls: {
       disable: true
