@@ -223,6 +223,7 @@ export const Demo = {
 
 export const Examples = {
   render: renderAllExamples,
+  tags: ['!dev'],
   parameters: {
     controls: {
       disable: true

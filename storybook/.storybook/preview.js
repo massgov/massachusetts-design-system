@@ -14,7 +14,7 @@ const preview = {
           'Base',
           ['Icon', ['Docs', 'Demo', 'All Icons']],
           'Components',
-          ['Button', ['Docs', 'Demo', 'Examples']]
+          ['Button', ['Overview', 'Dev', 'Demo']]
         ],
         includeNames: true
       }
