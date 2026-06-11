@@ -9,6 +9,8 @@ $site-header-text-max-width: 25rem;
   width: 100%;
   background-color: var(--mds-background-section-brand-neutral-lowest);
   color: var(--mds-text-and-icons-brand-secondary-mid);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &__container {
     display: flex;
@@ -35,8 +37,8 @@ $site-header-text-max-width: 25rem;
   }
 
   &__seal {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 54px;
+    height: 54px;
     align-self: self-start;
   }
 
