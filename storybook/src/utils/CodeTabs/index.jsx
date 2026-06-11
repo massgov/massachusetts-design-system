@@ -1,6 +1,9 @@
 import { DocsContext, Source, useOf } from '@storybook/addon-docs/blocks';
-import { useContext, useId, useMemo, useState } from 'react';
+import { useContext, useEffect, useId, useMemo, useState } from 'react';
+import { addons } from 'storybook/preview-api';
 import './index.css';
+
+const STORY_ARGS_UPDATED = 'storyArgsUpdated';
 
 export function CodeTabs({ tabs }) {
   const fallbackTab = tabs[0];
@@ -42,7 +45,11 @@ export function CodeTabs({ tabs }) {
         id={`${tabGroupId}-${activeTab.label}-panel`}
         role="tabpanel"
       >
-        <Source code={activeTab.code} language={activeTab.language} />
+        <Source
+          code={activeTab.code}
+          key={`${activeTab.label}:${activeTab.code}`}
+          language={activeTab.language}
+        />
       </div>
     </div>
   );
@@ -51,8 +58,27 @@ export function CodeTabs({ tabs }) {
 function useStoryArgs(of) {
   const { story } = useOf(of, ['story']);
   const context = useContext(DocsContext);
+  const getCurrentArgs = () => context.getStoryContext(story).args;
+  const [args, setArgs] = useState(getCurrentArgs);
 
-  return context.getStoryContext(story).args;
+  useEffect(() => {
+    setArgs(getCurrentArgs());
+
+    const channel = addons.getChannel();
+    const handleArgsUpdated = ({ args: nextArgs, storyId }) => {
+      if (storyId === story.id) {
+        setArgs(nextArgs);
+      }
+    };
+
+    channel.on(STORY_ARGS_UPDATED, handleArgsUpdated);
+
+    return () => {
+      channel.off(STORY_ARGS_UPDATED, handleArgsUpdated);
+    };
+  }, [context, story]);
+
+  return args;
 }
 
 export function StoryCodeTabs({ getTabs, of }) {
