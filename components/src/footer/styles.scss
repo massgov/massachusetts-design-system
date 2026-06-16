@@ -222,7 +222,7 @@ ul {
     color: var(--mds-footer-muted-color);
   }
 }
-
+/* stylelint-disable no-descending-specificity */
 .mds-footer--primary {
   --mds-footer-background: var(--mds-background-adaptive-brand-primary-mid);
   --mds-footer-color: var(--mds-text-and-icons-utility-inverse);
@@ -246,7 +246,7 @@ ul {
     color: var(--mds-footer-color);
   }
 }
-
+/* stylelint-enable no-descending-specificity */
 
 
 @media (max-width: 768px) {
