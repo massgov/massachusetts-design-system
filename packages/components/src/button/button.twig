@@ -17,26 +17,25 @@
   type="{{ buttonHtmlType|e }}"
   data-mds-button{% if id %}
   id="{{ id|e }}"{% endif %}{% if disabled %}
-  disabled{% endif %}{% if ariaLabel %}
-  aria-label="{{ ariaLabel|e }}"{% endif %}
+  disabled{% endif %}
 >
   {% if leftIconName %}
-    {% include 'icon.twig' with {
-      className: 'mds-button__icon mds-button__icon--left',
-      decorative: true,
-      name: leftIconName,
-      weight: 'Bold'
-    } %}
+    <span class="mds-button__icon mds-button__icon--left">
+      {% include 'icon.twig' with {
+        name: leftIconName,
+        weight: 'Bold'
+      } %}
+    </span>
   {% endif %}
 
   <span class="mds-button__label">{{ buttonText|e }}</span>
 
   {% if rightIconName %}
-    {% include 'icon.twig' with {
-      className: 'mds-button__icon',
-      decorative: true,
-      name: rightIconName,
-      weight: 'Bold'
-    } %}
+    <span class="mds-button__icon">
+      {% include 'icon.twig' with {
+        name: rightIconName,
+        weight: 'Bold'
+      } %}
+    </span>
   {% endif %}
 </button>

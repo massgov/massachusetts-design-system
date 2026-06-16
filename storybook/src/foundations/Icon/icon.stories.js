@@ -5,7 +5,6 @@ import {
   iconOptions
 } from '../../../../packages/components/src/icon/icon.data.js';
 import { renderIcon } from '../../utils/component-renderers.js';
-import { Tag } from 'storybook/manager-api';
 
 const iconPlaygroundColors = {
   Neutral: 'var(--mds-text-and-icons-brand-neutral-default)',
@@ -47,7 +46,6 @@ function renderGalleryItem(iconName) {
   return `
     <div class="mds-icon-gallery__item">
       ${renderIcon({
-        decorative: true,
         name: iconName,
         weight: 'Regular'
       })}
@@ -84,26 +82,11 @@ const iconControls = {
     control: 'select',
     options: Object.keys(iconPlaygroundColors),
     description: 'Playground-only CSS color.'
-  },
-  decorative: {
-    control: 'boolean',
-    description: 'When true, the icon is hidden from assistive technology.'
-  },
-  ariaLabel: {
-    control: 'text',
-    description: 'Accessible label for non-decorative icons.'
-  },
-  className: {
-    control: 'text',
-    description: 'Optional CSS class added to the icon wrapper.'
   }
 };
 
 const defaultPlaygroundArgs = {
-  ariaLabel: 'Arrow right',
-  className: iconDefaults.className,
   color: 'Neutral',
-  decorative: true,
   name: iconDefaults.name,
   size: '48px',
   weight: iconDefaults.weight

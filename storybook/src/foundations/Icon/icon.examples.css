@@ -1,4 +1,4 @@
-.mds-icon-demo {
+.mds-icon-Playground {
   display: inline-grid;
   place-items: center;
   min-width: 120px;
@@ -6,9 +6,9 @@
   background: var(--mds-background-section-utility-static-white);
 }
 
-.mds-icon-demo .mds-icon {
-  --mds-icon-size: var(--mds-icon-demo-size, 24px);
-  color: var(--mds-icon-demo-color, var(--mds-text-and-icons-brand-primary-mid));
+.mds-icon-Playground .mds-icon {
+  --mds-icon-size: var(--mds-icon-Playground-size, 24px);
+  color: var(--mds-icon-Playground-color, var(--mds-text-and-icons-brand-primary-mid));
 }
 
 .mds-icon-gallery {

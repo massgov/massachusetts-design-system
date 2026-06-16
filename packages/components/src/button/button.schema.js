@@ -16,10 +16,6 @@ export const buttonSchema = {
     default: 'button',
     options: ['button', 'submit', 'reset']
   },
-  ariaLabel: {
-    type: 'string',
-    default: ''
-  },
   disabled: {
     type: 'boolean',
     default: false

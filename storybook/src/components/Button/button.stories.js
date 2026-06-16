@@ -171,10 +171,6 @@ const buttonControls = {
     options: buttonOptions.htmlType,
     description: 'Native HTML button type.'
   },
-  ariaLabel: {
-    control: 'text',
-    description: 'Accessible label when the visible text is not enough.'
-  },
   disabled: {
     control: 'boolean',
     description: 'Disables the native button.'
@@ -196,7 +192,6 @@ const buttonControls = {
 };
 
 const defaultPlaygroundArgs = {
-  ariaLabel: buttonDefaults.ariaLabel,
   color: buttonDefaults.color,
   disabled: buttonDefaults.disabled,
   htmlType: buttonDefaults.htmlType,
