@@ -1,0 +1,82 @@
+.mds-popup-menu {
+  display: none;
+  width: 208px;
+  min-width: 208px;
+  max-width: 600px;
+  padding: var(--100, 8px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--50, 4px);
+  font: var(--mds-text-body);
+  border-radius: var(--100, 8px);
+  border: 1px solid var(--mds-border-brand-neutral-low);
+  background: var(--background-section-utility-inverse, #fff);
+  box-shadow: 0 var(--offset-050, 4px) var(--blur-300, 24px) 0
+    rgba(0, 0, 0, 0.14);
+}
+
+.mds-popup-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--50, 4px);
+  width: 100%;
+}
+
+.mds-popup-menu li {
+  display: flex;
+  padding: 0;
+  align-items: center;
+  gap: var(--100, 8px);
+  align-self: stretch;
+  border-radius: var(--50, 4px);
+}
+
+.mds-popup-menu li a {
+  display: flex;
+  width: 100%;
+  padding: 12px 8px;
+  border-radius: var(--50, 4px);
+  color: var(--mds-text-brand-primary);
+  text-decoration: none;
+  align-items: center;
+  gap: var(--100, 8px);
+  justify-content: space-between;
+}
+
+.mds-popup-menu li a:hover {
+  background: var(--mds-background-adaptive-brand-primary-mid);
+  color: var(--text-and-icons-utility-inverse, #fff);
+}
+
+.mds-popup-menu li a:active {
+  background: var(--mds-background-adaptive-brand-primary-highest);
+}
+
+.mds-popup-menu__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--100, 8px);
+  min-width: 0;
+}
+
+.mds-popup-menu__icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  background-color: currentColor;
+  mask: url("/@massds/mds-assets/dist/icons/globe.svg") center / contain
+    no-repeat;
+  -webkit-mask: url("/@massds/mds-assets/dist/icons/globe.svg") center / contain
+    no-repeat;
+}
+
+.mds-popup-menu__caret {
+  width: 24px;
+  height: auto;
+  flex: 0 0 24px;
+  display: block;
+}
