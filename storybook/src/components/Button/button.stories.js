@@ -4,6 +4,7 @@ import {
   buttonDefaults,
   buttonOptions
 } from '../../../../packages/components/src/button/button.data.js';
+import { controlCategories } from '../../utils/controlCategories.js';
 import { renderButton } from '../../utils/component-renderers.js';
 
 // Storybook render functions return an HTML element.
@@ -161,46 +162,77 @@ const iconSelectControl = {
 // Controls are the editable fields in the Storybook UI.
 const buttonControls = {
   text: {
-    control: 'text'
+    control: 'text',
+    table: {
+      category: controlCategories.content
+    }
+  },
+  type: {
+    control: 'select',
+    options: buttonOptions.type,
+    table: {
+      category: controlCategories.design
+    }
+  },
+  color: {
+    control: 'select',
+    options: buttonOptions.color,
+    table: {
+      category: controlCategories.design
+    }
+  },
+  size: {
+    control: 'inline-radio',
+    options: buttonOptions.size,
+    table: {
+      category: controlCategories.design
+    }
+  },
+  leftIcon: {
+    ...iconSelectControl,
+    table: {
+      category: controlCategories.design
+    }
+  },
+  rightIcon: {
+    ...iconSelectControl,
+    table: {
+      category: controlCategories.design
+    }
   },
   id: {
-    control: 'text'
+    control: 'text',
+    table: {
+      category: controlCategories.html
+    }
   },
   htmlType: {
     control: 'select',
     options: buttonOptions.htmlType,
-    description: 'Native HTML button type.'
+    description: 'Native HTML button type.',
+    table: {
+      category: controlCategories.html
+    }
   },
   disabled: {
     control: 'boolean',
-    description: 'Disables the native button.'
-  },
-  type: {
-    control: 'select',
-    options: buttonOptions.type
-  },
-  color: {
-    control: 'select',
-    options: buttonOptions.color
-  },
-  size: {
-    control: 'inline-radio',
-    options: buttonOptions.size
-  },
-  leftIcon: iconSelectControl,
-  rightIcon: iconSelectControl
+    description: 'Disables the native button.',
+    table: {
+      category: controlCategories.html
+    }
+  }
 };
 
 const defaultPlaygroundArgs = {
+  text: buttonDefaults.text,
+  type: buttonDefaults.type,
   color: buttonDefaults.color,
-  disabled: buttonDefaults.disabled,
-  htmlType: buttonDefaults.htmlType,
-  id: buttonDefaults.id,
+  size: buttonDefaults.size,
   leftIcon: buttonDefaults.leftIcon,
   rightIcon: buttonDefaults.rightIcon,
-  size: buttonDefaults.size,
-  text: buttonDefaults.text,
-  type: buttonDefaults.type
+  id: buttonDefaults.id,
+  htmlType: buttonDefaults.htmlType,
+  disabled: buttonDefaults.disabled,
 };
 
 const meta = {
