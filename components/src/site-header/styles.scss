@@ -13,12 +13,12 @@ $site-header-text-max-width: 25rem;
   -moz-osx-font-smoothing: grayscale;
 
   &__container {
+    @include mixins.section-container;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     padding-block: var(--mds-space-sm);
-    padding-inline: var(--mds-breakpoint-horizontal-space-margin);
   }
 
   &__title {
@@ -57,21 +57,5 @@ $site-header-text-max-width: 25rem;
     font: var(--mds-text-eyebrow-md);
     letter-spacing: var(--mds-text-letter-spacing-eyebrow);
     text-transform: var(--mds-text-transform-eyebrow);
-  }
-}
-
-@include mixins.max-width(sm) {
-  .mds-site-header {
-    &__container {
-      padding-inline: var(--mds-space-sm);
-    }
-
-    &__brand {
-      width: 100%;
-    }
-
-    &__text {
-      max-width: none;
-    }
   }
 }
