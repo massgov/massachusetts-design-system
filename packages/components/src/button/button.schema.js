@@ -1,6 +1,28 @@
-import { iconNames } from '../icon/icon.names.js';
+const buttonIconNames = [
+  'arrow-right',
+  'arrow-up',
+  'arrows-counter-clockwise',
+  'caret-down',
+  'caret-up',
+  'download-simple',
+  'export',
+  'file-arrow-down',
+  'file-pdf',
+  'file-xls',
+  'file-zip',
+  'gear',
+  'magnifying-glass',
+  'play',
+  'signin',
+  'signout',
+  'thumbs-down',
+  'thumbs-up',
+  'trash',
+  'upload-simple',
+  'x'
+];
 
-const iconOptions = ['', ...iconNames];
+const iconOptions = ['', ...buttonIconNames];
 
 export const buttonSchema = {
   text: {
