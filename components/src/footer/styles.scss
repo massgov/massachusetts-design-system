@@ -9,10 +9,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  & address {
-    font-style: normal;
-  }
-
   &__container {
     @include mixins.section-container;
 
