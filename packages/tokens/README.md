@@ -65,6 +65,40 @@ npm run lint:html
 
 The build copies the CSS token source files from `src/` into `dist/`.
 
+## Updating Tokens
+
+### Updating Primitive Tokens
+
+Primitive values live in `src/primitives.css`. Keep this file aligned with the [Base Tokens Figma file](https://www.figma.com/design/Vyi82tH3VdXfny4TYPSwZz/Base-Tokens?view=variables&var-set-id=6092-2764&m=dev), while preserving `primitives.css` as the package deliverable.
+
+#### Syncing Primitive Tokens From Figma
+
+This repo includes a Codex skill, `figma-token-sync`, for comparing the Base Tokens Figma variables to `src/primitives.css` and syncing primitive values into the repo.
+
+Before using the skill:
+
+1. Make sure Codex has the `figma-token-sync` skill installed.
+2. Make sure Codex has Figma MCP configured. In Codex, a separate `FIGMA_TOKEN` is not required.
+3. Review whether any reported Figma-only collections should remain report-only or become public CSS primitives.
+
+Typical Codex prompts:
+
+```text
+Use figma-token-sync to compare the Base Tokens Figma variables against packages/tokens/src/primitives.css and report missing tokens, figma-only tokens, and value mismatches.
+```
+
+```text
+Use figma-token-sync to sync mapped Base Tokens Figma values into packages/tokens/src/primitives.css, then run lint and build.
+```
+
+Helpful repo files:
+
+- `.codex/skills/figma-token-sync/SKILL.md`: Codex workflow for token sync tasks
+- `src/primitives.css`: primitive CSS token source
+- `src/index.css`: semantic tokens that may reference primitive values
+
+The first sync keeps the current `primitives.css` surface as the package deliverable. It updates existing CSS primitive values from the Figma `Color`, `Type`, `Space`, `Elevation`, and `Border radius` collections; it reports newer Figma-only collections such as dark color variants and `Color (COB)` without publishing them.
+
 ## Publishing
 
 The package is published to npm as `@massds/mds-tokens` with the GitHub Actions workflow at `.github/workflows/publish-tokens.yml`.
