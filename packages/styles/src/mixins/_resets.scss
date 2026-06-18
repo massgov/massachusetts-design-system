@@ -22,8 +22,23 @@
   }
 }
 
+@mixin address-reset {
+  address {
+    font-style: normal;
+  }
+}
+
+@mixin unordered-list-reset {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// These resets are grouped into one mixin for the sake of demoing our individual components, it will likely not be needed for actual implementation, at which point we can remove this and folks will use these mixins ala carte.
 @mixin component-reset {
   @include box-sizing-reset;
   @include document-reset;
   @include text-block-reset;
+  @include address-reset;
 }

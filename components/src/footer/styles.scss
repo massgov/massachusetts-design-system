@@ -1,16 +1,9 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
 @include mixins.component-reset;
+@include mixins.focus;
+@include mixins.unordered-list-reset;
+@include mixins.address-reset;
 
-// TODO: Evaluate these resets and determine where they should live, and which should be global.
-:focus-visible, :focus {
-  border-radius: var(--mds-radius-sm);
-  outline-offset: 2px;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
 
 .mds-footer {
   -webkit-font-smoothing: antialiased;
@@ -18,10 +11,6 @@ ul {
 
   & address {
     font-style: normal;
-  }
-
-  & *, & *::before, & *::after {
-  box-sizing: border-box;
   }
 
   &__container {

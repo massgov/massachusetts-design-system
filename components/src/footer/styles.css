@@ -17,6 +17,21 @@ p {
   margin: 0;
 }
 
+address {
+  font-style: normal;
+}
+
+&:focus-visible {
+  border-radius: var(--mds-radius-sm);
+  outline: 2px solid var(--mds-border-focus-on-light);
+  outline-offset: 2px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 :focus-visible, :focus {
   border-radius: var(--mds-radius-sm);
   outline-offset: 2px;
@@ -203,6 +218,7 @@ ul {
   color: var(--mds-footer-muted-color);
 }
 
+/* stylelint-disable no-descending-specificity */
 .mds-footer--primary {
   --mds-footer-background: var(--mds-background-adaptive-brand-primary-mid);
   --mds-footer-color: var(--mds-text-and-icons-utility-inverse);
@@ -219,6 +235,7 @@ ul {
   color: var(--mds-footer-color);
 }
 
+/* stylelint-enable no-descending-specificity */
 @media (max-width: 768px) {
   .mds-footer__content {
     row-gap: var(--mds-space-md);
