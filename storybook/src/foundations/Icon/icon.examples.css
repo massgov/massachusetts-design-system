@@ -7,7 +7,6 @@
 }
 
 .mds-icon-Playground .mds-icon {
-  --mds-icon-size: var(--mds-icon-Playground-size, 24px);
   color: var(--mds-icon-Playground-color, var(--mds-text-and-icons-brand-primary-mid));
 }
 
@@ -31,7 +30,6 @@
 }
 
 .mds-icon-gallery__item .mds-icon {
-  --mds-icon-size: 2rem;
   align-self: center;;
   color: var(--mds-text-and-icons-brand-neutral-default);
 }

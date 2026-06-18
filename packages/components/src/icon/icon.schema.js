@@ -10,5 +10,10 @@ export const iconSchema = {
     type: 'enum',
     default: 'Regular',
     options: ['Regular', 'Bold']
+  },
+  size: {
+    type: 'enum',
+    default: 'MD',
+    options: ['XS', 'SM', 'MD', 'LG', 'XL']
   }
 };

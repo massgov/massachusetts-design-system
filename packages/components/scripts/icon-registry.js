@@ -7,8 +7,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(__dirname, '..');
 const defaultIconsDir = path.resolve(packageRoot, '../assets/src/icons/static');
 
-function normalizeSvg(svg, weight) {
-  return normalizeIconSvg(svg, weight);
+function normalizeSvg(svg) {
+  return normalizeIconSvg(svg);
 }
 
 function getRegularIconName(fileName) {
@@ -31,7 +31,7 @@ async function readIconFiles(dirPath, getIconName, weight) {
         const svg = await fs.readFile(path.join(dirPath, entry.name), 'utf8');
 
         icons[iconName] = {
-          [weight]: normalizeSvg(svg, weight)
+          [weight]: normalizeSvg(svg)
         };
       })
   );

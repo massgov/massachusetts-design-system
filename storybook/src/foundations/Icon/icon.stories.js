@@ -29,15 +29,12 @@ function createPreview(html, className = '') {
 function renderPlayground(args) {
   const {
     color,
-    size,
     ...iconArgs
   } = args;
   const PlaygroundColor = iconPlaygroundColors[color] || color || iconPlaygroundColors.Primary;
-  const PlaygroundSize = typeof size === 'string' && size.trim() ? size.trim() : '48px';
   const preview = createPreview(renderIcon(iconArgs), 'mds-icon-Playground');
 
   preview.style.setProperty('--mds-icon-Playground-color', PlaygroundColor);
-  preview.style.setProperty('--mds-icon-Playground-size', PlaygroundSize);
 
   return preview;
 }
@@ -47,6 +44,7 @@ function renderGalleryItem(iconName) {
     <div class="mds-icon-gallery__item">
       ${renderIcon({
         name: iconName,
+        size: 'LG',
         weight: 'Regular'
       })}
       <code class="mds-icon-gallery__name">${iconName}</code>
@@ -75,8 +73,8 @@ const iconControls = {
     options: iconOptions.weight
   },
   size: {
-    control: 'text',
-    description: 'Playground-only CSS dimension, such as 24px, 1.5rem, or 2em.'
+    control: 'inline-radio',
+    options: iconOptions.size
   },
   color: {
     control: 'select',
@@ -88,7 +86,7 @@ const iconControls = {
 const defaultPlaygroundArgs = {
   color: 'Neutral',
   name: iconDefaults.name,
-  size: '48px',
+  size: iconDefaults.size,
   weight: iconDefaults.weight
 };
 

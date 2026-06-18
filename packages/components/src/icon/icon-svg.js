@@ -18,9 +18,8 @@ function addSvgClass(svg, className) {
   return svg.replace('<svg ', `<svg class="${className}" `);
 }
 
-export function normalizeIconSvg(svg = '', weight = '') {
+export function normalizeIconSvg(svg = '') {
   let nextSvg = svg.trim();
-  const weightClass = weight ? ` mds-icon--weight-${weight}` : '';
 
   if (nextSvg && !/\sfocusable=/.test(nextSvg)) {
     nextSvg = nextSvg.replace('<svg ', '<svg focusable="false" ');
@@ -30,7 +29,7 @@ export function normalizeIconSvg(svg = '', weight = '') {
     nextSvg = nextSvg.replace('<svg ', '<svg aria-hidden="true" ');
   }
 
-  nextSvg = addSvgClass(nextSvg, `mds-icon${weightClass}`);
+  nextSvg = addSvgClass(nextSvg, 'mds-icon');
 
   return nextSvg;
 }

@@ -29,7 +29,7 @@ function addIconSvg(iconSvgMap, filePath, svg, weight) {
 
   iconSvgMap[iconName] = {
     ...iconSvgMap[iconName],
-    [weight]: normalizeIconSvg(svg, weight)
+    [weight]: normalizeIconSvg(svg)
   };
 }
 

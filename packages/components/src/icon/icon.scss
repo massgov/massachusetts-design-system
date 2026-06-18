@@ -8,4 +8,24 @@
   color: currentColor;
   fill: currentColor;
   vertical-align: middle;
+
+  &--size-xs {
+    --mds-icon-size: 16px;
+  }
+
+  &--size-sm {
+    --mds-icon-size: 20px;
+  }
+
+  &--size-md {
+    --mds-icon-size: 24px;
+  }
+
+  &--size-lg {
+    --mds-icon-size: 32px;
+  }
+
+  &--size-xl {
+    --mds-icon-size: 40px;
+  }
 }
