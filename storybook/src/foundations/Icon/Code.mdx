@@ -1,9 +1,20 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
-import { iconDefaults } from '../../../../packages/components/src/icon/icon.data.js';
+import assetsPackage from '@massds/mds-assets/package.json';
+import { iconDefaults, iconOptions } from '../../../../packages/components/src/icon/icon.data.js';
 import iconCss from '@massds/mds-components/icon.css?raw';
 import { renderIcon } from '../../utils/component-renderers.js';
 import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
 import * as IconStories from './icon.stories.js';
+
+export const getIconCdnUrl = (args = {}) => {
+  const iconName = iconOptions.name.includes(args.name) ? args.name : iconDefaults.name;
+  const iconWeight = iconOptions.weight.includes(args.weight) ? args.weight : iconDefaults.weight;
+  const iconPath = iconWeight === 'Bold'
+    ? `dist/icons/bold/${iconName}--bold.svg`
+    : `dist/icons/${iconName}.svg`;
+
+  return `https://unpkg.com/@massds/mds-assets@${assetsPackage.version}/${iconPath}`;
+};
 
 export const getIconCodeTabs = (args) => [
   {
@@ -18,6 +29,11 @@ export const getIconCodeTabs = (args) => [
     label: 'CSS',
     language: 'css',
     code: iconCss
+  },
+  {
+    label: 'CDN',
+    language: 'text',
+    code: getIconCdnUrl(args)
   }
 ];
 
