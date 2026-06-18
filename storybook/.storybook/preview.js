@@ -27,11 +27,7 @@ const preview = {
       }
     },
     docs: {
-      theme: massdsDocsTheme,
-      toc: {
-        headingSelector: 'h2',
-        title: 'On this page'
-      }
+      theme: massdsDocsTheme
     },
     layout: 'centered'
   }
