@@ -21,11 +21,6 @@ address {
   font-style: normal;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-}
-
 /** State Banner component styles **/
 .mds-state-banner__container {
   width: min(100%, 1280px);

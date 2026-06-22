@@ -1,25 +1,73 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
 @include mixins.component-reset;
-@include mixins.focus;
-@include mixins.unordered-list-reset;
-@include mixins.address-reset;
 
+// TODO @include mixins.font-smoothing-reset; uncomment when the PR for this is merged in
 
 .mds-footer {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @include mixins.unordered-list-reset;
+  @include mixins.address-reset;
+
+  --mds-footer-background: var(--mds-background-section-brand-neutral-lowest);
+  --mds-footer-color: var(--mds-text-and-icons-brand-neutral-default);
+  --mds-footer-muted-color: var(--mds-text-and-icons-brand-neutral-muted);
+  --mds-footer-link-color: var(--mds-text-and-icons-brand-neutral-default);
+  --mds-footer-link-hover-color: var(--mds-background-adaptive-brand-primary-high);
+  --mds-footer-accent-color: var(--mds-background-adaptive-brand-primary-mid);
+  --mds-footer-border-color: var(--mds-border-brand-neutral-low);
+  --mds-footer-focus-color: var(--mds-border-focus-on-light);
+
+  background-color: var(--mds-footer-background);
+  color: var(--mds-footer-color);
+
+  & :focus-visible, & :focus {
+    border-radius: var(--mds-radius-sm);
+    outline: 2px solid var(--mds-footer-focus-color);
+    outline-offset: 2px;
+  }
+
+  &__contact-link,
+  &__link-list a,
+  &__legal-nav a {
+    text-decoration: none;
+    text-underline-offset: 0.375rem;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  & .mds-action-link {
+    color: var(--mds-footer-color);
+  }
+
+  & a:not(.mds-action-link) {
+    color: var(--mds-footer-link-color);
+  }
+
+  & a:not(.mds-action-link):hover {
+    color: var(--mds-footer-link-hover-color);
+  }
+
+  &__site-name,
+  &__heading,
+  &__contact-address,
+  &__contact-note,
+  &__contact-item,
+  &__description,
+  &__fine-print p {
+    margin: 0;
+  }
+
+  &__fine-print p, &__contact-note {
+    color: var(--mds-footer-muted-color);
+  }
 
   &__container {
     @include mixins.section-container;
 
     background: transparent;
     color: inherit;
-  }
-
-  &__link-list,
-  &__social-list,
-  &__legal-nav ul {
-    list-style: none;
   }
 
   &__column {
@@ -54,21 +102,8 @@
     align-self: self-start;
   }
 
-  &__site-name,
-  &__heading,
   &__contact-address,
-  &__contact-note,
-  &__contact-item,
-  &__description,
-  &__fine-print p {
-    margin: 0;
-  }
-
-
-  &__contact-address,
-  &__contact-note,
-  &__contact-item,
-  &__description {
+  &__contact-note {
     font: var(--mds-text-label-md);
   }
 
@@ -81,16 +116,14 @@
   &__description {
     max-width: 18rem;
     font: var(--mds-text-caption-md);
-    color: var(--mds-text-and-icons-brand-neutral-muted);
   }
 
   &__heading {
     padding-block-end: var(--mds-space-xs);
-    border-block-end: 1px solid var(--mds-border-brand-neutral-low);
+    border-block-end: 1px solid var(--mds-footer-border-color);
     font: var(--mds-text-eyebrow-md);
     text-transform: var(--mds-text-transform-eyebrow);
     letter-spacing: var(--mds-text-letter-spacing-eyebrow);
-    color: var(--mds-text-and-icons-brand-neutral-muted);
   }
 
   &__contact {
@@ -108,26 +141,12 @@
   }
 
   &__contact svg {
-    color: var(--mds-background-adaptive-brand-primary-mid);
+    color: var(--mds-footer-accent-color);
   }
 
   &__contact-note {
     padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
     font: var(--mds-text-caption-md);
-    color: var(--mds-text-and-icons-brand-neutral-muted);
-  }
-
-  &__contact-link,
-  &__link-list a,
-  &__legal-nav a {
-    color: var(--mds-text-and-icons-brand-neutral-default);
-    text-decoration: none;
-    text-underline-offset: .375rem;
-
-    &:hover {
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-    }
   }
 
   &__link-list {
@@ -172,76 +191,26 @@
   }
 }
 
-// Set the colors for the two variants
-.mds-footer--neutral {
-  --mds-footer-background: var(--mds-background-section-brand-neutral-lowest);
-  --mds-footer-color: var(--mds-text-and-icons-brand-neutral-default);
-  --mds-footer-muted-color: var(--mds-text-and-icons-brand-neutral-muted);
-  --mds-footer-link-color: var(--mds-text-and-icons-brand-neutral-default);
-  --mds-footer-link-hover-color: var(--mds-background-adaptive-brand-primary-high);
-  --mds-footer-accent-color: var(--mds-background-adaptive-brand-primary-mid);
-  --mds-footer-border-color: var(--mds-border-brand-neutral-low);
-  --mds-footer-focus-color: var(--mds-border-focus-on-light);
-
-  background-color: var(--mds-footer-background);
-  color: var(--mds-footer-color);
-
-  & :focus-visible, & :focus {
-    outline: 2px solid var(--mds-footer-focus-color);
-  }
-
-  & .mds-action-link {
-    color: var(--mds-footer-color);
-  }
-
-  & a:not(.mds-action-link) {
-    color: var(--mds-footer-link-color);
-    fill: currentColor;
-  }
-
-  & a:not(.mds-action-link):hover {
-    color: var(--mds-footer-link-hover-color);
-  }
-
-  & .mds-footer__fine-print p {
-    color: var(--mds-footer-muted-color);
-  }
-}
-/* stylelint-disable no-descending-specificity */
+// Set the colors for the Primary variant where text, icon, border, and accent colors are the same
 .mds-footer--primary {
   --mds-footer-background: var(--mds-background-adaptive-brand-primary-mid);
   --mds-footer-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-muted-color: var(--mds-text-and-icons-utility-inverse);
   --mds-footer-link-color: var(--mds-text-and-icons-utility-inverse);
   --mds-footer-link-hover-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-accent-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-border-color: var(--mds-text-and-icons-utility-inverse);
   --mds-footer-focus-color: var(--mds-border-focus-on-dark);
-
-  background-color: var(--mds-footer-background);
-  color: var(--mds-footer-color);
-
-  & :focus-visible, & :focus {
-    outline: 2px solid var(--mds-footer-focus-color);
-  }
-
-  // Set all text to the white color for Primary
-  & .mds-footer__description, & .mds-footer__heading, & .mds-footer__contact-address, & .mds-footer__contact-note,
-  & .mds-footer__contact-item, & .mds-footer__fine-print p,
-  & .mds-footer__contact-link, & .mds-footer__link-list a,
-  & .mds-footer__legal-nav a,  & .mds-footer__contact-link--accent,
-  & .mds-footer__contact-icon svg, & a {
-    color: var(--mds-footer-color);
-  }
 }
-/* stylelint-enable no-descending-specificity */
 
-
-@media (max-width: 768px) {
+@include mixins.max-width(md) {
   .mds-footer__content {
     row-gap: var(--mds-space-md);
     padding-block-start: var(--mds-space-md);
   }
 }
 
-@media (max-width: 480px) {
+@include mixins.max-width(sm) {
   .mds-footer__content {
     row-gap: var(--mds-space-md);
     padding-block-start: var(--mds-space-sm);

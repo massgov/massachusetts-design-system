@@ -32,6 +32,7 @@
   ul {
     margin: 0;
     padding: 0;
+    list-style: none;
   }
 }
 
@@ -40,5 +41,4 @@
   @include box-sizing-reset;
   @include document-reset;
   @include text-block-reset;
-  @include address-reset;
 }
