@@ -24,9 +24,11 @@
 
 // This reset will only make a visual difference on MacOS devices, as PCs/others do not have that level of font rendering
 @mixin font-smoothing-reset {
-  * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  *,
+  *::before,
+  *::after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
