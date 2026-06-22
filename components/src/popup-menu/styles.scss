@@ -1,0 +1,102 @@
+body.dark {
+  background: var(--mds-background-adaptive-utility-inverse);
+  color: var(--mds-text-and-icons-brand-neutral-default);
+}
+
+.mds-popup-menu {
+  display: none;
+  min-width: 288px;
+  padding: var(--mds-radius-md, 8px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--mds-radius-sm, 4px);
+  font: var(--mds-text-body);
+  border-radius: var(--mds-radius-md, 8px);
+  border: 1px solid var(--mds-border-brand-neutral-low);
+  background: var(--mds-background-section-utility-inverse);
+  box-shadow: 0 var(--offset-050, 4px) var(--blur-300, 24px) 0
+    rgba(0, 0, 0, 0.14);
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--mds-radius-sm, 4px);
+    width: 100%;
+  }
+
+  li {
+    display: flex;
+    padding: 0;
+    align-items: center;
+    gap: var(--mds-radius-md, 8px);
+    align-self: stretch;
+    border-radius: var(--mds-radius-sm, 4px);
+
+    a,
+    button {
+      display: flex;
+      width: 100%;
+      padding: 12px 8px;
+      border-radius: var(--mds-radius-sm, 4px);
+      color: var(--mds-text-and-icons-brand-neutral-default);
+      text-decoration: none;
+      align-items: center;
+      gap: var(--mds-radius-md, 8px);
+      justify-content: space-between;
+    }
+
+    button {
+      border: none;
+      font: inherit;
+      background: inherit;
+    }
+
+    a:hover,
+    button:hover {
+      background: var(--mds-background-adaptive-brand-primary-mid);
+      color: var(--mds-text-and-icons-utility-inverse);
+    }
+
+    a:active,
+    button:active {
+      background: var(--mds-background-adaptive-brand-primary-highest);
+    }
+  }
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--mds-radius-md, 8px);
+    min-width: 0;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    background-color: currentColor;
+    mask: url("/@massds/mds-assets/dist/icons/smiley.svg") center / contain
+      no-repeat;
+    -webkit-mask: url("/@massds/mds-assets/dist/icons/smiley.svg") center /
+      contain no-repeat;
+  }
+
+  &__caret {
+    width: 24px;
+    height: auto;
+    flex: 0 0 24px;
+    display: block;
+  }
+
+  &__container {
+    width: 1280px;
+    margin: 0 auto;
+    padding-inline: var(--mds-breakpoint-horizontal-space-margin);
+    background: transparent;
+    color: inherit;
+  }
+}

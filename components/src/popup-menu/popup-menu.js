@@ -20,5 +20,16 @@ let popupMenu = {
         });
       }
     });
+
+    document.body.addEventListener("click", function(event) {
+      let openPopupMenus = document.querySelectorAll(".mds-popup-menu[style='display: flex;']"),
+        trigger = document.querySelector('.mds-popup-menu-trigger');
+      openPopupMenus.forEach((menu) => {
+        if (!menu.contains(event.target) && !event.target.classList.contains("mds-popup-menu-trigger")) {
+          menu.style.display = "none";
+          trigger.focus();
+        }
+      });
+    });
   },
 };
