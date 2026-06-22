@@ -4,6 +4,7 @@
 // TODO @include mixins.font-smoothing-reset; uncomment when the PR for this is merged in
 
 .mds-footer {
+  // Neutral is the default color family, with Primary as a variant color theme set later in this stylesheet
   @include mixins.unordered-list-reset;
   @include mixins.address-reset;
 
