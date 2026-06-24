@@ -1,7 +1,6 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
 @include mixins.component-reset;
-
-// TODO @include mixins.font-smoothing-reset; uncomment when the PR for this is merged in
+@include mixins.font-smoothing-reset;
 
 .mds-footer {
   // Neutral is the default color family, with Primary as a variant color theme set later in this stylesheet
@@ -162,6 +161,7 @@
   }
 
   &__legal-nav {
+    @include mixins.grid-full;
     border-block: 1px solid var(--mds-footer-border-color);
     padding-block: var(--mds-space-2xs);
     font: var(--mds-text-label-md);
