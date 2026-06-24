@@ -46,7 +46,7 @@
   }
 }
 
-// These resets are grouped into one mixin for the sake of demoing our individual components, it will likely not be needed for actual implementation, at which point we can remove this and folks will use these mixins ala carte.
+// These resets are grouped into one mixin for the sake of demoing our individual components, it will likely not be needed for actual implementation, at which point we can remove this and folks will use these mixins a la carte.
 @mixin component-reset {
   @include box-sizing-reset;
   @include document-reset;
