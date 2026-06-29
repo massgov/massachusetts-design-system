@@ -1,0 +1,14 @@
+{% set requestedName = name|default(iconDefaults.name) %}
+{% set iconName = requestedName in iconOptions.name ? requestedName : '' %}
+{% set requestedWeight = weight|default(iconDefaults.weight) %}
+{% set iconWeight = requestedWeight in iconOptions.weight ? requestedWeight : iconDefaults.weight %}
+{% set weightKey = iconWeight|lower %}
+{% set requestedSize = size|default(iconDefaults.size) %}
+{% set iconSize = requestedSize in iconOptions.size ? requestedSize : iconDefaults.size %}
+{% set sizeKey = iconSize|lower %}
+{% set iconSvg = iconSvgMap[iconName][weightKey]|default(iconSvgMap[iconName].regular|default('')) %}
+{% set iconClass = 'mds-icon mds-icon--size-' ~ sizeKey ~ ' mds-icon--weight-' ~ weightKey %}
+
+{% if iconSvg %}
+  {{ iconSvg|replace({'class="mds-icon': 'class="' ~ iconClass})|raw }}
+{% endif %}
