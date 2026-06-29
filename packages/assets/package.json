@@ -1,6 +1,6 @@
 {
   "name": "@massds/mds-assets",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "Asset library for the Massachusetts Design System",
   "files": [
     "dist/"

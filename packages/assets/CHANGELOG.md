@@ -22,3 +22,18 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 ### Added
 * [DP-46778] Added state seal pngs. #35
 
+
+## 1.2.1 (6/29/2026)
+
+### Added
+* Added Figma-synced icon assets for `arrow-down-right`, `arrow-up-right`, `dots-nine`. (#57)
+
+### Changed
+* Update state-seal-black color and optimize all state seal PNGs. (#59)
+* Optimize svg paths, no visual changes to icons. (#63)
+* Renamed `fax-icon` to fax`. (#57)
+* Update state seal images to be cleaner and higher res (#62)
+
+### Removed
+* Removed stale `boat` icon that are no longer present in the Figma Icons file. (#57)
+
