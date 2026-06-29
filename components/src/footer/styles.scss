@@ -180,6 +180,10 @@
     font: var(--mds-text-caption-md);
   }
 
+  &__trademark {
+    line-height: var(--mds-line-height-180);
+  }
+
   &__icon {
     display: inline-block;
     flex: 0 0 auto;

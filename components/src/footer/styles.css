@@ -199,6 +199,9 @@ p {
   padding-block: var(--mds-space-md) var(--mds-space-2xl);
   font: var(--mds-text-caption-md);
 }
+.mds-footer__trademark {
+  line-height: var(--mds-line-height-180);
+}
 .mds-footer__icon {
   display: inline-block;
   flex: 0 0 auto;
