@@ -160,6 +160,7 @@
 
   &__legal-nav {
     @include mixins.grid-full;
+
     border-block: 1px solid var(--mds-footer-border-color);
     padding-block: var(--mds-space-2xs);
     font: var(--mds-text-label-md);
