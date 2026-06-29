@@ -199,6 +199,10 @@
   --mds-footer-accent-color: var(--mds-text-and-icons-utility-inverse);
   --mds-footer-border-color: var(--mds-text-and-icons-utility-inverse);
   --mds-footer-focus-color: var(--mds-border-focus-on-dark);
+
+  & a {
+    @include mixins.focus($focus-on-light: false);
+  }
 }
 
 @include mixins.max-width(md) {
