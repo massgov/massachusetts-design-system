@@ -19,10 +19,8 @@
   background-color: var(--mds-footer-background);
   color: var(--mds-footer-color);
 
-  & :focus-visible, & :focus {
-    border-radius: var(--mds-radius-sm);
-    outline: 2px solid var(--mds-footer-focus-color);
-    outline-offset: 2px;
+  & a {
+    @include mixins.focus($focus-on-light: true);
   }
 
   &__contact-link,

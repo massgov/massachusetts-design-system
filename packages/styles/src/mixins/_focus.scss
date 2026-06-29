@@ -1,7 +1,20 @@
-@mixin focus {
+/**@mixin focus {
   &:focus-visible {
     border-radius: var(--mds-radius-sm);
     outline: 2px solid var(--mds-border-focus-on-light);
     outline-offset: 2px;
+  }
+}**/
+
+@mixin focus($focus-on-light: true) {
+  &:focus-visible {
+    border-radius: var(--mds-radius-sm);
+    outline: 2px solid var(--mds-border-focus-on-light);
+    outline-offset: 2px;
+    @if $focus-on-light {
+      outline-color: var(--mds-border-focus-on-light);
+    } @else {
+      outline-color: var(--mds-border-focus-on-dark);
+    }
   }
 }
