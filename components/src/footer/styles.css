@@ -184,7 +184,7 @@ p {
 .mds-footer__legal-nav {
   grid-column: 1/-1;
   border-block: 1px solid var(--mds-footer-border-color);
-  padding-block: var(--mds-space-2xs);
+  padding-block: var(--mds-space-xs);
   font: var(--mds-text-label-md);
 }
 .mds-footer__legal-nav ul {
