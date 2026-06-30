@@ -17,6 +17,13 @@ p {
   margin: 0;
 }
 
+*,
+*::before,
+*::after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /** State Banner component styles **/
 .mds-state-banner__container {
   width: min(100%, 1280px);
@@ -76,8 +83,10 @@ p {
 }
 .mds-state-banner__summary:focus-visible {
   border-radius: var(--mds-radius-sm);
-  outline: 2px solid var(--mds-border-focus-on-light);
+  outline-width: 2px;
+  outline-style: solid;
   outline-offset: 2px;
+  outline-color: var(--mds-border-focus-on-dark);
 }
 .mds-state-banner__summary::marker {
   content: "";
