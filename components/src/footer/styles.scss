@@ -14,7 +14,6 @@
   --mds-footer-link-hover-color: var(--mds-background-adaptive-brand-primary-high);
   --mds-footer-accent-color: var(--mds-background-adaptive-brand-primary-mid);
   --mds-footer-border-color: var(--mds-border-brand-neutral-low);
-  --mds-footer-focus-color: var(--mds-border-focus-on-light);
 
   background-color: var(--mds-footer-background);
   color: var(--mds-footer-color);
@@ -203,7 +202,6 @@
   --mds-footer-link-hover-color: var(--mds-text-and-icons-utility-inverse);
   --mds-footer-accent-color: var(--mds-text-and-icons-utility-inverse);
   --mds-footer-border-color: var(--mds-text-and-icons-utility-inverse);
-  --mds-footer-focus-color: var(--mds-border-focus-on-dark);
 
   & a {
     @include mixins.focus($focus-on-light: false);
