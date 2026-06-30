@@ -1,0 +1,223 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+@include mixins.component-reset;
+@include mixins.font-smoothing-reset;
+
+.mds-footer {
+  // Neutral is the default color family, with Primary as a variant color theme set later in this stylesheet
+  @include mixins.unordered-list-reset;
+  @include mixins.address-reset;
+
+  --mds-footer-background: var(--mds-background-section-brand-neutral-lowest);
+  --mds-footer-color: var(--mds-text-and-icons-brand-neutral-default);
+  --mds-footer-muted-color: var(--mds-text-and-icons-brand-neutral-muted);
+  --mds-footer-link-color: var(--mds-text-and-icons-brand-neutral-default);
+  --mds-footer-link-hover-color: var(--mds-background-adaptive-brand-primary-high);
+  --mds-footer-accent-color: var(--mds-background-adaptive-brand-primary-mid);
+  --mds-footer-border-color: var(--mds-border-brand-neutral-low);
+
+  background-color: var(--mds-footer-background);
+  color: var(--mds-footer-color);
+
+  & a {
+    @include mixins.focus($focus-on-light: true);
+  }
+
+  &__contact-link,
+  &__link-list a,
+  &__legal-nav a {
+    text-decoration: none;
+    text-underline-offset: 0.375rem;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  & .mds-action-link {
+    color: var(--mds-footer-color);
+  }
+
+  & a:not(.mds-action-link) {
+    color: var(--mds-footer-link-color);
+  }
+
+  & a:not(.mds-action-link):hover {
+    color: var(--mds-footer-link-hover-color);
+  }
+
+  &__site-name,
+  &__heading,
+  &__contact-address,
+  &__contact-note,
+  &__contact-item,
+  &__description,
+  &__fine-print p {
+    margin: 0;
+  }
+
+  &__fine-print p, &__contact-note {
+    color: var(--mds-footer-muted-color);
+  }
+
+  &__container {
+    @include mixins.section-container;
+
+    background: transparent;
+    color: inherit;
+  }
+
+  &__column {
+    @include mixins.grid-4-column;
+  }
+
+  &__content {
+    @include mixins.grid;
+
+    padding-block: var(--mds-space-2xl) var(--mds-space-md);
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-2xs);
+  }
+
+  &__brand-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-sm);
+  }
+
+  &__site-name {
+    font: var(--mds-text-heading-sm);
+  }
+
+  &__seal {
+    width: 3.5rem;
+    height: 3.5rem;
+    align-self: self-start;
+  }
+
+  &__contact-address {
+    font: var(--mds-text-label-md);
+  }
+
+  &__social-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mds-space-2xs);
+  }
+
+  &__description {
+    max-width: 18rem;
+    font: var(--mds-text-caption-md);
+  }
+
+  &__heading {
+    padding-block-end: var(--mds-space-xs);
+    border-block-end: 1px solid var(--mds-footer-border-color);
+    font: var(--mds-text-eyebrow-md);
+    text-transform: var(--mds-text-transform-eyebrow);
+    letter-spacing: var(--mds-text-letter-spacing-eyebrow);
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-2xs);
+    padding-block-start: var(--mds-space-xs);
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: flex-start;
+    padding-block: var(--mds-space-3xs);
+    font: var(--mds-text-label-md);
+  }
+
+  &__contact svg {
+    color: var(--mds-footer-accent-color);
+  }
+
+  &__contact-note {
+    padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
+    font: var(--mds-text-caption-md);
+  }
+
+  &__link-list {
+    display: flex;
+    flex-direction: column;
+    padding-block-start: var(--mds-space-xs);
+    font: var(--mds-text-label-md);
+
+    & .mds-action-link {
+      display: block;
+      padding-block: var(--mds-space-2xs);
+    }
+  }
+
+  &__legal-nav {
+    @include mixins.grid-full;
+
+    border-block: 1px solid var(--mds-footer-border-color);
+    padding-block: var(--mds-space-xs);
+    font: var(--mds-text-label-md);
+
+    & ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--mds-space-sm) var(--mds-space-lg);
+    }
+  }
+
+  &__fine-print {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-sm);
+    padding-block: var(--mds-space-md) var(--mds-space-2xl);
+    font: var(--mds-text-caption-md);
+  }
+
+  &__trademark {
+    line-height: var(--mds-line-height-180);
+  }
+
+  &__icon {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: var(--mds-space-3xs);
+    margin-top: 3px; // Adjust for optical alignment with text
+  }
+}
+
+// Set the colors for the Primary variant where text, icon, border, and accent colors are the same
+.mds-footer--primary {
+  --mds-footer-background: var(--mds-background-adaptive-brand-primary-mid);
+  --mds-footer-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-muted-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-link-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-link-hover-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-accent-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-border-color: var(--mds-text-and-icons-utility-inverse);
+
+  & a {
+    @include mixins.focus($focus-on-light: false);
+  }
+}
+
+@include mixins.max-width(md) {
+  .mds-footer__content {
+    row-gap: var(--mds-space-md);
+    padding-block-start: var(--mds-space-md);
+  }
+}
+
+@include mixins.max-width(sm) {
+  .mds-footer__content {
+    row-gap: var(--mds-space-md);
+    padding-block-start: var(--mds-space-sm);
+  }
+}

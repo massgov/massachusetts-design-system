@@ -17,8 +17,11 @@ p {
   margin: 0;
 }
 
-address {
-  font-style: normal;
+*,
+*::before,
+*::after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /** Site Header component styles **/
@@ -50,8 +53,10 @@ address {
 }
 .mds-site-header__brand:focus-visible {
   border-radius: var(--mds-radius-sm);
-  outline: 2px solid var(--mds-border-focus-on-light);
+  outline-width: 2px;
+  outline-style: solid;
   outline-offset: 2px;
+  outline-color: var(--mds-border-focus-on-light);
 }
 .mds-site-header__seal {
   width: 54px;
