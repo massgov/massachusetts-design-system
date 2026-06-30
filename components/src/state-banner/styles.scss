@@ -1,5 +1,4 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
-
 @include mixins.component-reset;
 
 /** State Banner component styles **/
@@ -90,7 +89,7 @@ $state-banner-item-min-width: 20rem;
 
   // Summary disclosure affordance.
   &__summary {
-    @include mixins.focus;
+    @include mixins.focus($focus-on-light: false);
 
     // Hide the default "disclosure triangle" on the summary element
     &::marker {
