@@ -17,6 +17,13 @@ p {
   margin: 0;
 }
 
+*,
+*::before,
+*::after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /** State Banner component styles **/
 .mds-state-banner__container {
   width: min(100%, 1280px);
