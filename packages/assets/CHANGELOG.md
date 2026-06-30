@@ -23,7 +23,7 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 * [DP-46778] Added state seal pngs. #35
 
 
-## 1.2.1 (6/29/2026)
+## 1.2.0 (6/29/2026)
 
 ### Added
 * Added Figma-synced icon assets for `arrow-down-right`, `arrow-up-right`, `dots-nine`. (#57)
