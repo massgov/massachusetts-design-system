@@ -1,7 +1,9 @@
 import buttonTwig from '@massds/mds-components/button.twig?raw';
 import iconTwig from '@massds/mds-components/icon.twig?raw';
+import stateBannerTwig from '@massds/mds-components/state-banner.twig?raw';
 import { createButtonRenderer } from '../../../packages/components/src/button/button.render.js';
 import { createIconRenderer } from '../../../packages/components/src/icon/icon.render.js';
+import { createStateBannerRenderer } from '../../../packages/components/src/state-banner/state-banner.render.js';
 import { normalizeIconSvg } from '../../../packages/components/src/icon/icon-svg.js';
 
 const regularIconSvgs = import.meta.glob('../../../packages/assets/src/icons/static/*.svg', {
@@ -55,3 +57,4 @@ export const renderButton = createButtonRenderer(buttonTwig, {
     'icon.twig': iconTwig
   }
 });
+export const renderStateBanner = createStateBannerRenderer(stateBannerTwig);

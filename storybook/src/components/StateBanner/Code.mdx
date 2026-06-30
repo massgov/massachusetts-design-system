@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { stateBannerDefaults } from '../../../../packages/components/src/state-banner/state-banner.data.js';
+import stateBannerCss from '@massds/mds-components/state-banner.css?raw';
+import { renderStateBanner } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as StateBannerStories from './state-banner.stories.js';
+
+export const getStateBannerCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderStateBanner({
+      ...stateBannerDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: stateBannerCss
+  }
+];
+
+<Meta of={StateBannerStories} />
+
+# State Banner
+
+<Canvas
+  of={StateBannerStories.Playground}
+  sourceState="none"
+/>
+
+## API
+
+<Controls of={StateBannerStories.Playground} />
+
+## Code
+
+<StoryCodeTabs of={StateBannerStories.Playground} getTabs={getStateBannerCodeTabs} />
