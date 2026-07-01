@@ -1,10 +1,13 @@
 {#
   State banner data:
   - panelId controls the expandable panel id used by the summary/details pair.
-  - sealSrc points to the published state seal asset.
+  - sealVariant selects the seal variant used by the banner.
+  - sealSrc optionally overrides the seal component src.
   - summaryLabel provides the accessible label for the banner.
 #}
 {% set bannerPanelId = panelId|default(stateBannerDefaults.panelId) %}
+{% set requestedBannerSealVariant = sealVariant|default(stateBannerDefaults.sealVariant) %}
+{% set bannerSealVariant = requestedBannerSealVariant in stateSealVariants ? requestedBannerSealVariant : stateBannerDefaults.sealVariant %}
 {% set bannerSealSrc = sealSrc|default(stateBannerDefaults.sealSrc) %}
 {% set bannerSummaryLabel = summaryLabel|default(stateBannerDefaults.summaryLabel) %}
 
@@ -17,11 +20,12 @@
       <summary class="mds-state-banner__summary">
         <span class="mds-state-banner__inner">
           <span class="mds-state-banner__brand">
-            <img
-              class="mds-state-banner__seal"
-              src="{{ bannerSealSrc|e }}"
-              alt="Massachusetts State Seal"
-            />
+            {% include 'state-seal.twig' with {
+              alt: 'Massachusetts State Seal',
+              className: 'mds-state-banner__seal',
+              src: bannerSealSrc,
+              variant: bannerSealVariant
+            } %}
             <p class="mds-state-banner__text">
               <span class="mds-state-banner__text-prefix">
                 An official website of the Commonwealth of Massachusetts
@@ -109,4 +113,3 @@
     </details>
   </div>
 </section>
-

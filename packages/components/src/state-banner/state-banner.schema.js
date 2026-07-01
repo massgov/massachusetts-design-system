@@ -3,13 +3,17 @@ export const stateBannerSchema = {
     type: 'string',
     default: 'mds-state-banner-panel'
   },
+  sealVariant: {
+    type: 'enum',
+    default: 'white',
+    options: ['white', 'black', 'gray', 'color']
+  },
   sealSrc: {
     type: 'string',
-    default: '/@massds/mds-assets/dist/state-seal/state-seal-white.png'
+    default: ''
   },
   summaryLabel: {
     type: 'string',
     default: 'Official website banner'
   }
 };
-
