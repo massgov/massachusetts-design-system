@@ -13,10 +13,6 @@ export const stateBannerSchema = {
     default: 'png',
     options: ['png', 'svg']
   },
-  sealSrc: {
-    type: 'string',
-    default: ''
-  },
   summaryLabel: {
     type: 'string',
     default: 'Official website banner'

@@ -3,7 +3,6 @@
   - panelId controls the expandable panel id used by the summary/details pair.
   - sealVariant selects the seal variant used by the banner.
   - sealFileType selects the seal asset file type used by the banner.
-  - sealSrc optionally overrides the seal component src.
   - summaryLabel provides the accessible label for the banner.
 #}
 {% set bannerPanelId = panelId|default(stateBannerDefaults.panelId) %}
@@ -11,7 +10,6 @@
 {% set bannerSealVariant = requestedBannerSealVariant in stateSealVariants ? requestedBannerSealVariant : stateBannerDefaults.sealVariant %}
 {% set requestedBannerSealFileType = sealFileType|default(stateBannerDefaults.sealFileType) %}
 {% set bannerSealFileType = requestedBannerSealFileType in stateSealFileTypes ? requestedBannerSealFileType : stateBannerDefaults.sealFileType %}
-{% set bannerSealSrc = sealSrc|default(stateBannerDefaults.sealSrc) %}
 {% set bannerSummaryLabel = summaryLabel|default(stateBannerDefaults.summaryLabel) %}
 
 <section
@@ -27,7 +25,6 @@
               alt: 'Massachusetts State Seal',
               className: 'mds-state-banner__seal',
               fileType: bannerSealFileType,
-              src: bannerSealSrc,
               variant: bannerSealVariant
             } %}
             <p class="mds-state-banner__text">

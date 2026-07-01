@@ -40,10 +40,6 @@ const stateBannerControls = {
     description: 'State seal asset file type.',
     options: stateSealFileTypes
   },
-  sealSrc: {
-    control: 'text',
-    description: 'Override the state seal image source.'
-  },
   summaryLabel: {
     control: 'text',
     description: 'Accessible label for the banner section.'
@@ -54,7 +50,6 @@ const defaultPlaygroundArgs = {
   panelId: stateBannerDefaults.panelId,
   sealVariant: stateBannerDefaults.sealVariant,
   sealFileType: stateBannerDefaults.sealFileType,
-  sealSrc: stateBannerDefaults.sealSrc,
   summaryLabel: stateBannerDefaults.summaryLabel
 };
 
