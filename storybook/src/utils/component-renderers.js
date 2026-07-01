@@ -5,6 +5,7 @@ import stateSealTwig from '@massds/mds-components/state-seal.twig?raw';
 import { createButtonRenderer } from '../../../packages/components/src/button/button.render.js';
 import { createIconRenderer } from '../../../packages/components/src/icon/icon.render.js';
 import { createStateBannerRenderer } from '../../../packages/components/src/state-banner/state-banner.render.js';
+import { createStateSealRenderer } from '../../../packages/components/src/state-seal/state-seal.render.js';
 import { normalizeIconSvg } from '../../../packages/components/src/icon/icon-svg.js';
 
 const regularIconSvgs = import.meta.glob('../../../packages/assets/src/icons/static/*.svg', {
@@ -63,3 +64,4 @@ export const renderStateBanner = createStateBannerRenderer(stateBannerTwig, {
     'state-seal.twig': stateSealTwig
   }
 });
+export const renderStateSeal = createStateSealRenderer(stateSealTwig);
