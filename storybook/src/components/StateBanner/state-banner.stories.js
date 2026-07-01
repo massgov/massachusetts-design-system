@@ -2,7 +2,10 @@ import '@massds/mds-components/state-banner.css';
 import {
   stateBannerDefaults
 } from '../../../../packages/components/src/state-banner/state-banner.data.js';
-import { stateSealVariants } from '../../../../packages/components/src/state-seal/state-seal.data.js';
+import {
+  stateSealFileTypes,
+  stateSealVariants
+} from '../../../../packages/components/src/state-seal/state-seal.data.js';
 import { renderStateBanner } from '../../utils/component-renderers.js';
 
 // Storybook render functions return an HTML element.
@@ -32,6 +35,11 @@ const stateBannerControls = {
     description: 'State seal variant to render.',
     options: stateSealVariants
   },
+  sealFileType: {
+    control: 'select',
+    description: 'State seal asset file type.',
+    options: stateSealFileTypes
+  },
   sealSrc: {
     control: 'text',
     description: 'Override the state seal image source.'
@@ -45,6 +53,7 @@ const stateBannerControls = {
 const defaultPlaygroundArgs = {
   panelId: stateBannerDefaults.panelId,
   sealVariant: stateBannerDefaults.sealVariant,
+  sealFileType: stateBannerDefaults.sealFileType,
   sealSrc: stateBannerDefaults.sealSrc,
   summaryLabel: stateBannerDefaults.summaryLabel
 };

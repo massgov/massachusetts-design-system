@@ -1,6 +1,8 @@
 {% set requestedVariant = variant|default(stateSealDefaults.variant) %}
 {% set sealVariant = requestedVariant in stateSealVariants ? requestedVariant : stateSealDefaults.variant %}
-{% set sealSrc = src|default(stateSealAssetSrcs[sealVariant]) %}
+{% set requestedFileType = fileType|default(stateSealDefaults.fileType) %}
+{% set sealFileType = requestedFileType in stateSealFileTypes ? requestedFileType : stateSealDefaults.fileType %}
+{% set sealSrc = src|default(stateSealAssetSrcs[sealVariant][sealFileType]) %}
 {% set sealClassName = className|default('') %}
 {% set sealClass = sealClassName ? 'mds-state-seal ' ~ sealClassName : 'mds-state-seal' %}
 {% set sealAlt = alt|default(stateSealDefaults.alt) %}

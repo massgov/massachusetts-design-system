@@ -6,10 +6,10 @@ export { stateSealSchema } from './state-seal.schema.js';
 
 const cdnOrigin = 'https://unpkg.com';
 const stateSealAssetNames = {
-  white: 'state-seal-white.png',
-  black: 'state-seal-black.png',
-  gray: 'state-seal-gray.png',
-  color: 'state-seal-color.png'
+  white: 'state-seal-white',
+  black: 'state-seal-black',
+  gray: 'state-seal-gray',
+  color: 'state-seal-color'
 };
 
 function normalizeDependencyVersion(packageName, rawVersion) {
@@ -45,11 +45,17 @@ const stateSealAssetBaseUrl = toCdnUrl('@massds/mds-assets', 'dist/state-seal');
 const stateSealOptions = getSchemaOptions(stateSealSchema);
 
 export const stateSealAssetSrcs = Object.fromEntries(
-  Object.entries(stateSealAssetNames).map(([variant, fileName]) => [
+  Object.entries(stateSealAssetNames).map(([variant, fileBaseName]) => [
     variant,
-    `${stateSealAssetBaseUrl}/${fileName}`
+    Object.fromEntries(
+      stateSealOptions.fileType.map((fileType) => [
+        fileType,
+        `${stateSealAssetBaseUrl}/${fileBaseName}.${fileType}`
+      ])
+    )
   ])
 );
 
+export const stateSealFileTypes = stateSealOptions.fileType;
 export const stateSealVariants = stateSealOptions.variant;
 export const stateSealDefaults = getSchemaDefaults(stateSealSchema);

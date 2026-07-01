@@ -8,6 +8,11 @@ export const stateBannerSchema = {
     default: 'white',
     options: ['white', 'black', 'gray', 'color']
   },
+  sealFileType: {
+    type: 'enum',
+    default: 'png',
+    options: ['png', 'svg']
+  },
   sealSrc: {
     type: 'string',
     default: ''

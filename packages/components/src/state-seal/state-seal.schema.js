@@ -4,9 +4,10 @@ export const stateSealSchema = {
     default: 'white',
     options: ['white', 'black', 'gray', 'color']
   },
-  src: {
-    type: 'string',
-    default: ''
+  fileType: {
+    type: 'enum',
+    default: 'png',
+    options: ['png', 'svg']
   },
   className: {
     type: 'string',
