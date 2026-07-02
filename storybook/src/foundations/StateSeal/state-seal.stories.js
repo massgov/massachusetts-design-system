@@ -33,7 +33,14 @@ const stateSealControls = {
 };
 
 function renderPlayground(args) {
-  return createPreview(renderStateSeal(args), 'mds-state-seal-playground');
+  const previewModifierClass = args.variant === 'white'
+    ? ' mds-state-seal-playground--dark'
+    : '';
+
+  return createPreview(
+    renderStateSeal(args),
+    `mds-state-seal-playground${previewModifierClass}`
+  );
 }
 
 function renderVariantCard(variant, fileType) {
@@ -87,6 +94,7 @@ export const Playground = {};
 
 export const AllVariants = {
   render: renderAllVariants,
+  tags: ['!dev'],
   args: {
     fileType: stateSealDefaults.fileType
   },

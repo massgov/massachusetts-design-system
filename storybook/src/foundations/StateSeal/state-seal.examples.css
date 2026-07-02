@@ -1,7 +1,16 @@
 .mds-state-seal-playground {
+  align-items: center;
+  background: var(--mds-background-section-brand-neutral-lowest);
+  border: 1px solid var(--mds-border-brand-neutral-subtle);
+  border-radius: 0.5rem;
   display: flex;
   justify-content: center;
+  min-block-size: 10rem;
   padding: 1rem;
+}
+
+.mds-state-seal-playground--dark {
+  background: var(--mds-background-section-brand-neutral-highest);
 }
 
 .mds-state-seal-gallery {
