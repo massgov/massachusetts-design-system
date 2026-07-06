@@ -1,0 +1,83 @@
+{#
+  Input group data:
+  - label controls the visible label above the field group.
+  - selectLabel controls the left-side selector button text.
+  - placeholder controls the text input placeholder.
+  - searchButtonLabel controls the right-side action button label.
+#}
+{% set inputGroupId = id|default(inputGroupDefaults.id) %}
+{% set inputGroupLabel = label|default(inputGroupDefaults.label) %}
+{% set inputGroupPlaceholder = placeholder|default(inputGroupDefaults.placeholder) %}
+{% set inputGroupSelectLabel = selectLabel|default(inputGroupDefaults.selectLabel) %}
+{% set inputGroupSearchButtonLabel = searchButtonLabel|default(inputGroupDefaults.searchButtonLabel) %}
+{% set inputGroupName = name|default(inputGroupDefaults.name) %}
+{% set inputGroupValue = value|default(inputGroupDefaults.value) %}
+{% set inputGroupShowLabel = showLabel is defined ? showLabel : inputGroupDefaults.showLabel %}
+{% set inputId = inputGroupId ? inputGroupId ~ '__input' : 'mds-input-group__input' %}
+{% set labelId = inputGroupId ? inputGroupId ~ '__label' : 'mds-input-group__label' %}
+
+<div
+  class="mds-input-group"
+  data-mds-input-group
+  {% if inputGroupShowLabel %}
+    aria-labelledby="{{ labelId|e }}"
+  {% else %}
+    aria-label="{{ inputGroupLabel|e }}"
+  {% endif %}
+>
+  {% if inputGroupShowLabel %}
+    <label
+      class="mds-input-group__label"
+      id="{{ labelId|e }}"
+      for="{{ inputId|e }}"
+    >
+      {{ inputGroupLabel|e }}
+    </label>
+  {% endif %}
+
+  <div class="mds-input-group__control">
+    <button
+      class="mds-input-group__segment mds-input-group__segment--select"
+      type="button"
+      aria-label="{{ inputGroupSelectLabel|e }}"
+    >
+      <span class="mds-input-group__segment-text">{{ inputGroupSelectLabel|e }}</span>
+
+      <span class="mds-input-group__segment-icon" aria-hidden="true">
+        {% include 'icon.twig' with {
+          name: 'caret-down',
+          size: 'MD',
+          weight: 'Regular'
+        } %}
+      </span>
+    </button>
+
+    <div class="mds-input-group__field">
+      <input
+        class="mds-input-group__input"
+        id="{{ inputId|e }}"
+        name="{{ inputGroupName|e }}"
+        type="search"
+        value="{{ inputGroupValue|e }}"
+        placeholder="{{ inputGroupPlaceholder|e }}"
+        {% if not inputGroupShowLabel %}
+          aria-label="{{ inputGroupLabel|e }}"
+        {% endif %}
+      />
+    </div>
+
+    <button
+      class="mds-input-group__segment mds-input-group__segment--search"
+      type="submit"
+      aria-label="{{ inputGroupSearchButtonLabel|e }}"
+    >
+      <span class="mds-input-group__segment-icon" aria-hidden="true">
+        {% include 'icon.twig' with {
+          name: 'magnifying-glass',
+          size: 'MD',
+          weight: 'Regular'
+        } %}
+      </span>
+    </button>
+  </div>
+</div>
