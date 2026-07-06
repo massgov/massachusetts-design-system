@@ -61,7 +61,8 @@ include:
 ```
 
 The shared build scans these static includes, registers the included Twig
-templates, and passes along their renderer data, such as the icon SVG map.
+templates, exposes the included components' exported data to Twig, and passes
+along renderer-only data such as the icon SVG map.
 
 ## Data Schemas
 
@@ -82,15 +83,27 @@ Use this file structure for new components:
 - `<component>.twig` for authored markup
 - `<component>.schema.js` for accepted data, defaults, and options
 - `<component>.data.js` for defaults, options, and examples
-- `<component>.render.js` for the thin Twig rendering context
 - `<component>.scss` for component styles
-- `build.js` for component-specific package artifacts
 - `README.md` for component-specific implementation notes, when useful
 
-The shared build script discovers components and delegates component-specific
-package artifacts to each component directory.
-Use `createComponentBuild()` from `scripts/component-build.js` for component
-build files whenever possible. It handles the standard source copy, example
-HTML, Twig output, and static Twig includes.
+Most components do not need a local `build.js` or `<component>.render.js`.
+The shared build script now handles the standard case automatically:
+
+- it reads `<component>.data.js` and uses `<camelComponentName>Defaults`
+- it renders `<component>.html` from `<component>.twig`
+- it discovers static Twig includes and registers included templates
+- it exposes exported data from included components to the parent Twig context
+
+Add `<component>.render.js` only when a component needs custom rendering logic
+that cannot be expressed with exported data and static includes.
+
+Add `build.js` only when a component needs extra build hooks such as
+`getRendererOptions()`, `sourceFiles`, or `writeAdditionalOutputs`. A hook-only
+`build.js` can export those values directly without wrapping them in
+`createComponentBuild()`.
+
+The shared build still supports `createComponentBuild()` from
+`scripts/component-build.js` for advanced cases, but it is now the escape hatch
+rather than the default workflow.
 Component SCSS can use shared style mixins with Sass package imports, for
 example `@use "pkg:@massds/mds-styles/scss/mixins" as mixins;`.
