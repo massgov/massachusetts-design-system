@@ -88,6 +88,38 @@ compatibility exports in `<component>.data.js`.
 
 Shared schema helpers live in `src/shared/schema.js`.
 
+For the standard component workflow, every component should also include
+`<component>.data.js`. The shared build reads that file automatically and uses
+it as the component's default render context.
+
+At minimum, `<component>.data.js` must export
+`<camelComponentName>Defaults`. The shared build uses that export to render the
+default `<component>.html` output.
+
+```js
+import { getSchemaDefaults } from '../shared/schema.js';
+import { myComponentSchema } from './my-component.schema.js';
+
+export { myComponentSchema } from './my-component.schema.js';
+
+export const myComponentDefaults = getSchemaDefaults(myComponentSchema);
+```
+
+Additional non-function exports are optional. Use them for values that Twig may
+need directly, such as option lists, aliases, computed constants, asset maps,
+or example data. Those non-function exports become available in Twig render
+context. `*Schema` exports are allowed for JS consumers, but are not exposed to
+Twig render context.
+
+Current components show the range of expected `.data.js` files:
+
+- [`state-banner.data.js`](/Users/minghuasun/Documents/Github/massachusetts-design-system/packages/components/src/state-banner/state-banner.data.js) only exports defaults
+- [`button.data.js`](/Users/minghuasun/Documents/Github/massachusetts-design-system/packages/components/src/button/button.data.js) exports defaults plus option helpers
+- [`state-seal.data.js`](/Users/minghuasun/Documents/Github/massachusetts-design-system/packages/components/src/state-seal/state-seal.data.js) exports defaults plus computed asset data
+
+`button` is not an exception to this pattern. It still has
+[`button.data.js`](/Users/minghuasun/Documents/Github/massachusetts-design-system/packages/components/src/button/button.data.js); what changed is that the standard build path no longer requires a local `build.js` or `button.render.js`.
+
 ## Component Folders
 
 Each component lives in `src/<component>/`. Keep component-specific API notes,
