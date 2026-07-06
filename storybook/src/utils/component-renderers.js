@@ -60,7 +60,9 @@ export const renderButton = createButtonRenderer(buttonTwig, {
   }
 });
 export const renderStateBanner = createStateBannerRenderer(stateBannerTwig, {
+  iconSvgMap,
   includes: {
+    'icon.twig': iconTwig,
     'state-seal.twig': stateSealTwig
   }
 });

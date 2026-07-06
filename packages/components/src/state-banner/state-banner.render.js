@@ -1,4 +1,5 @@
 import { createTwigRenderer } from '../shared/twig-renderer.js';
+import { iconDefaults, iconOptions } from '../icon/icon.data.js';
 import { stateBannerDefaults } from './state-banner.data.js';
 import {
   stateSealAssetSrcs,
@@ -9,6 +10,9 @@ import {
 
 export function createStateBannerRenderer(templateSource, options = {}) {
   return createTwigRenderer(templateSource, (data = {}) => ({
+    iconDefaults,
+    iconOptions,
+    iconSvgMap: options.iconSvgMap ?? {},
     stateBannerDefaults,
     stateSealAssetSrcs,
     stateSealDefaults,

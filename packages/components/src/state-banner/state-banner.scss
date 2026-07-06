@@ -97,6 +97,9 @@ $state-banner-item-min-width: 20rem;
   }
 
   &__caret {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: $state-banner-icon-size;
     height: $state-banner-icon-size;
     margin-inline-start: var(--mds-space-2xs);
@@ -123,10 +126,18 @@ $state-banner-item-min-width: 20rem;
   }
 
   &__item-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: $state-banner-item-icon-size;
     height: $state-banner-item-icon-size;
-    fill: currentColor;
     flex: none;
+  }
+
+  &__caret .mds-icon,
+  &__item-icon .mds-icon {
+    width: 100%;
+    height: 100%;
   }
 
   &__text {
@@ -197,4 +208,3 @@ $state-banner-item-min-width: 20rem;
     }
   }
 }
-
