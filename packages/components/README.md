@@ -64,6 +64,22 @@ The shared build scans these static includes, registers the included Twig
 templates, exposes the included components' exported data to Twig, and passes
 along renderer-only data such as the icon SVG map.
 
+Static includes can appear inside Twig control flow as long as the template
+name is still a literal string:
+
+```twig
+{% if showIcon %}
+  {% include 'icon.twig' %}
+{% else %}
+  {% include 'state-seal.twig' %}
+{% endif %}
+```
+
+Avoid dynamic include targets such as `{% include templateName %}` or
+`{% include componentName ~ '.twig' %}`. The shared build only auto-discovers
+literal include paths, so dynamic template names are not automatically
+registered for nested component rendering.
+
 ## Data Schemas
 
 Each component should define accepted data in `<component>.schema.js`. Use the
