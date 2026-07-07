@@ -1,5 +1,5 @@
 export const stateSealSchema = {
-  variant: {
+  color: {
     type: 'enum',
     default: 'white',
     options: ['white', 'black', 'gray', 'color']

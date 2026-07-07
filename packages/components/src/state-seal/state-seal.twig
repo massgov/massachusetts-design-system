@@ -1,5 +1,5 @@
-{% set requestedVariant = variant|default(stateSealDefaults.variant) %}
-{% set sealVariant = requestedVariant in stateSealVariants ? requestedVariant : stateSealDefaults.variant %}
+{% set requestedColor = color|default(stateSealDefaults.color) %}
+{% set sealColor = requestedColor in stateSealColors ? requestedColor : stateSealDefaults.color %}
 {% set requestedFileType = fileType|default(stateSealDefaults.fileType) %}
 {% set sealFileType = requestedFileType in stateSealFileTypes ? requestedFileType : stateSealDefaults.fileType %}
 {% set sealClassName = className|default('') %}
@@ -8,6 +8,6 @@
 
 <img
   class="{{ sealClass|e }}"
-  src="{{ stateSealAssetSrcs[sealVariant][sealFileType]|e }}"
+  src="{{ stateSealAssetSrcs[sealColor][sealFileType]|e }}"
   alt="{{ sealAlt|e }}"
 />

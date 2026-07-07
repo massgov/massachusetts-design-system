@@ -2,7 +2,7 @@ import './state-seal.examples.css';
 import {
   stateSealDefaults,
   stateSealFileTypes,
-  stateSealVariants
+  stateSealColors
 } from '../../../../packages/components/src/state-seal/state-seal.data.js';
 import { renderStateSeal } from '../../utils/component-renderers.js';
 
@@ -20,10 +20,10 @@ function createPreview(html, className = '') {
 }
 
 const stateSealControls = {
-  variant: {
+  color: {
     control: 'select',
-    description: 'State seal variant to render.',
-    options: stateSealVariants
+    description: 'State seal color to render.',
+    options: stateSealColors
   },
   fileType: {
     control: 'select',
@@ -33,7 +33,7 @@ const stateSealControls = {
 };
 
 function renderPlayground(args) {
-  const previewModifierClass = args.variant === 'white'
+  const previewModifierClass = args.color === 'white'
     ? ' mds-state-seal-playground--dark'
     : '';
 
@@ -43,8 +43,8 @@ function renderPlayground(args) {
   );
 }
 
-function renderVariantCard(variant, fileType) {
-  const previewModifierClass = variant === 'white'
+function renderColorCard(color, fileType) {
+  const previewModifierClass = color === 'white'
     ? ' mds-state-seal-gallery__preview--dark'
     : '';
 
@@ -54,10 +54,10 @@ function renderVariantCard(variant, fileType) {
         ${renderStateSeal({
           ...stateSealDefaults,
           fileType,
-          variant
+          color
         })}
       </div>
-      <code class="mds-state-seal-gallery__label">${variant}</code>
+      <code class="mds-state-seal-gallery__label">${color}</code>
     </div>
   `;
 }
@@ -69,8 +69,8 @@ function renderAllVariants(args = {}) {
     : stateSealDefaults.fileType;
   let galleryHtml = '';
 
-  for (const variant of stateSealVariants) {
-    galleryHtml += renderVariantCard(variant, fileType);
+  for (const color of stateSealColors) {
+    galleryHtml += renderColorCard(color, fileType);
   }
 
   return createPreview(galleryHtml, 'mds-state-seal-gallery');
@@ -78,7 +78,7 @@ function renderAllVariants(args = {}) {
 
 const defaultPlaygroundArgs = {
   fileType: stateSealDefaults.fileType,
-  variant: stateSealDefaults.variant
+  color: stateSealDefaults.color
 };
 
 const meta = {

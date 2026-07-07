@@ -1,15 +1,9 @@
 {#
   State banner data:
   - panelId controls the expandable panel id used by the summary/details pair.
-  - sealVariant selects the seal variant used by the banner.
-  - sealFileType selects the seal asset file type used by the banner.
   - summaryLabel provides the accessible label for the banner.
 #}
 {% set bannerPanelId = panelId|default(stateBannerDefaults.panelId) %}
-{% set requestedBannerSealVariant = sealVariant|default(stateBannerDefaults.sealVariant) %}
-{% set bannerSealVariant = requestedBannerSealVariant in stateSealVariants ? requestedBannerSealVariant : stateBannerDefaults.sealVariant %}
-{% set requestedBannerSealFileType = sealFileType|default(stateBannerDefaults.sealFileType) %}
-{% set bannerSealFileType = requestedBannerSealFileType in stateSealFileTypes ? requestedBannerSealFileType : stateBannerDefaults.sealFileType %}
 {% set bannerSummaryLabel = summaryLabel|default(stateBannerDefaults.summaryLabel) %}
 
 <section
@@ -24,8 +18,8 @@
             {% include 'state-seal.twig' with {
               alt: 'Massachusetts State Seal',
               className: 'mds-state-banner__seal',
-              fileType: bannerSealFileType,
-              variant: bannerSealVariant
+              fileType: 'white',
+              color: 'png'
             } %}
             <p class="mds-state-banner__text">
               <span class="mds-state-banner__text-prefix">

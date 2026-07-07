@@ -57,5 +57,5 @@ export const stateSealAssetSrcs = Object.fromEntries(
 );
 
 export const stateSealFileTypes = stateSealOptions.fileType;
-export const stateSealVariants = stateSealOptions.variant;
+export const stateSealColors = stateSealOptions.color;
 export const stateSealDefaults = getSchemaDefaults(stateSealSchema);
