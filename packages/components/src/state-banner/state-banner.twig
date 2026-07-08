@@ -5,6 +5,14 @@
 #}
 {% set bannerPanelId = panelId|default(stateBannerDefaults.panelId) %}
 {% set bannerSummaryLabel = summaryLabel|default(stateBannerDefaults.summaryLabel) %}
+{% set bannerSummaryPrefix = summaryPrefix|default(stateBannerDefaults.summaryPrefix) %}
+{% set bannerSealSrc = sealSrc|default(stateBannerDefaults.sealSrc) %}
+{% set bannerSealAlt = sealAlt|default(stateBannerDefaults.sealAlt) %}
+{% set bannerRegionLabel = regionLabel|default(stateBannerDefaults.regionLabel) %}
+{% set bannerOfficialWebsitesHeading = officialWebsitesHeading|default(stateBannerDefaults.officialWebsitesHeading) %}
+{% set bannerOfficialWebsitesDescription = officialWebsitesDescription|default(stateBannerDefaults.officialWebsitesDescription) %}
+{% set bannerSecureWebsitesHeading = secureWebsitesHeading|default(stateBannerDefaults.secureWebsitesHeading) %}
+{% set bannerSecureWebsitesDescription = secureWebsitesDescription|default(stateBannerDefaults.secureWebsitesDescription) %}
 
 <section
   class="mds-state-banner"
@@ -16,14 +24,15 @@
         <span class="mds-state-banner__inner">
           <span class="mds-state-banner__brand">
             {% include 'state-seal.twig' with {
-              alt: 'Massachusetts State Seal',
+              src: bannerSealSrc,
+              alt: bannerSealAlt,
               className: 'mds-state-banner__seal',
               fileType: 'white',
               color: 'png'
             } %}
             <p class="mds-state-banner__text">
               <span class="mds-state-banner__text-prefix">
-                An official website of the Commonwealth of Massachusetts
+                {{ bannerSummaryPrefix|e }}
               </span>
               <span class="mds-state-banner__toggle-text">
                 <span>Here's how you know</span>
@@ -46,7 +55,7 @@
         <div
           class="mds-state-banner__items"
           role="region"
-          aria-label="Official website indicators"
+          aria-label="{{ bannerRegionLabel|e }}"
         >
           <div class="mds-state-banner__item">
             <span class="mds-state-banner__item-icon" aria-hidden="true">
@@ -58,11 +67,10 @@
             </span>
             <div class="mds-state-banner__item-copy">
               <h2 class="mds-state-banner__item-heading">
-                Official websites use .mass.gov
+                {{ bannerOfficialWebsitesHeading|e }}
               </h2>
               <p class="mds-state-banner__item-description">
-                A .mass.gov website belongs to an official government
-                organization in Massachusetts.
+                {{ bannerOfficialWebsitesDescription|e }}
               </p>
             </div>
           </div>
@@ -77,12 +85,10 @@
             </span>
             <div class="mds-state-banner__item-copy">
               <h2 class="mds-state-banner__item-heading">
-                Secure websites use HTTPS
+                {{ bannerSecureWebsitesHeading|e }}
               </h2>
               <p class="mds-state-banner__item-description">
-                A lock icon or https:// means you've safely connected
-                to the official website. Share sensitive information
-                only on official, secure websites.
+                {{ bannerSecureWebsitesDescription|e }}
               </p>
             </div>
           </div>

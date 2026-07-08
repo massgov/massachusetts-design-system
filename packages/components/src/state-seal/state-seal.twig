@@ -5,9 +5,11 @@
 {% set sealClassName = className|default('') %}
 {% set sealClass = sealClassName ? 'mds-state-seal ' ~ sealClassName : 'mds-state-seal' %}
 {% set sealAlt = alt|default(stateSealDefaults.alt) %}
+{% set sealSrc = src|default('') %}
+{% set sealAssetSrc = sealSrc ? sealSrc : stateSealAssetSrcs[sealColor][sealFileType] %}
 
 <img
   class="{{ sealClass|e }}"
-  src="{{ stateSealAssetSrcs[sealColor][sealFileType]|e }}"
+  src="{{ sealAssetSrc|e }}"
   alt="{{ sealAlt|e }}"
 />

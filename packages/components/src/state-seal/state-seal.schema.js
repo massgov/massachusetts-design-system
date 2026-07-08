@@ -13,6 +13,10 @@ export const stateSealSchema = {
     type: 'string',
     default: ''
   },
+  src: {
+    type: 'string',
+    default: ''
+  },
   alt: {
     type: 'string',
     default: 'Massachusetts State Seal'
