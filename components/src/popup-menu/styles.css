@@ -8,8 +8,8 @@ body.dark {
   --mds-popup-menu-offset: var(--mds-space-2xs, 4px);
   --mds-popup-menu-viewport-padding: var(--mds-space-md, 16px);
   display: none;
-  min-width: min(288px, calc(100vw - var(--mds-popup-menu-viewport-padding) * 2));
-  max-width: min(480px, calc(100vw - var(--mds-popup-menu-viewport-padding) * 2));
+  min-width: min(288px, 100vw - var(--mds-popup-menu-viewport-padding) * 2);
+  max-width: min(480px, 100vw - var(--mds-popup-menu-viewport-padding) * 2);
   box-sizing: border-box;
   padding: var(--mds-radius-md, 8px);
   flex-direction: column;
@@ -24,7 +24,6 @@ body.dark {
   box-shadow: 0 var(--offset-050, 4px) var(--blur-300, 24px) 0 rgba(0, 0, 0, 0.14);
   overflow: auto;
   max-block-size: calc(100vh - var(--mds-popup-menu-viewport-padding) * 2);
-  inset: auto auto auto 0;
 }
 .mds-popup-menu ul {
   list-style-type: none;
@@ -77,6 +76,13 @@ body.dark {
   min-width: 0;
   overflow-wrap: anywhere;
 }
+.mds-popup-menu--no-icons .mds-popup-menu__label {
+  gap: 0;
+  padding-inline-start: 0;
+}
+.mds-popup-menu__label--no-icon {
+  padding-inline-start: calc(24px + var(--mds-radius-md, 8px));
+}
 .mds-popup-menu__icon {
   width: 24px;
   height: 24px;
@@ -84,6 +90,9 @@ body.dark {
   background-color: currentColor;
   mask: url("/@massds/mds-assets/dist/icons/smiley.svg") center/contain no-repeat;
   -webkit-mask: url("/@massds/mds-assets/dist/icons/smiley.svg") center/contain no-repeat;
+}
+.mds-popup-menu--no-icons .mds-popup-menu__icon {
+  display: none;
 }
 .mds-popup-menu__caret {
   width: 24px;
@@ -98,4 +107,7 @@ body.dark {
   box-sizing: border-box;
   background: transparent;
   color: inherit;
+}
+.mds-popup-menu {
+  inset: auto auto auto 0;
 }

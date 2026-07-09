@@ -87,6 +87,15 @@ body.dark {
     overflow-wrap: anywhere;
   }
 
+  &--no-icons &__label {
+    gap: 0;
+    padding-inline-start: 0;
+  }
+
+  &__label--no-icon {
+    padding-inline-start: calc(24px + var(--mds-radius-md, 8px));
+  }
+
   &__icon {
     width: 24px;
     height: 24px;
@@ -96,6 +105,10 @@ body.dark {
       no-repeat;
     -webkit-mask: url("/@massds/mds-assets/dist/icons/smiley.svg") center /
       contain no-repeat;
+  }
+
+  &--no-icons &__icon {
+    display: none;
   }
 
   &__caret {
@@ -113,5 +126,6 @@ body.dark {
     background: transparent;
     color: inherit;
   }
+
   inset: auto auto auto 0;
 }

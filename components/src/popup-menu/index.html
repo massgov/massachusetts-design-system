@@ -127,6 +127,83 @@
         </ul>
       </div>
 
+      <h2 style="margin-top: 48px">Popup menu without left icons</h2>
+      <button
+        class="mds-popup-menu-trigger"
+        aria-haspopup="true"
+        aria-controls="mds-popup-menu-links-no-icons"
+      >
+        Open Popup Menu without icons
+      </button>
+      <div
+        id="mds-popup-menu-links-no-icons"
+        class="mds-popup-menu mds-popup-menu--no-icons"
+        role="menu"
+      >
+        <ul>
+          <li>
+            <a href="#" role="menuitem">
+              <span class="mds-popup-menu__label">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non diam sit amet lacus molestie dapibus molestie eu diam.
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#" role="menuitem">
+              <span class="mds-popup-menu__label">Select item</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" role="menuitem">
+              <span class="mds-popup-menu__label">Select item</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <h2 style="margin-top: 48px">Popup menu with mixed icon usage</h2>
+      <button
+        class="mds-popup-menu-trigger"
+        aria-haspopup="true"
+        aria-controls="mds-popup-menu-links-mixed-icons"
+      >
+        Open Popup Menu with mixed icons
+      </button>
+      <div id="mds-popup-menu-links-mixed-icons" class="mds-popup-menu" role="menu">
+        <ul>
+          <li>
+            <a href="#" role="menuitem">
+              <span class="mds-popup-menu__label">
+                <span class="mds-popup-menu__icon" aria-hidden="true"></span>
+                Select item with icon
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#" role="menuitem">
+              <span class="mds-popup-menu__label mds-popup-menu__label--no-icon">
+                Select item without icon
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#" role="menuitem">
+              <span class="mds-popup-menu__label">
+                <span class="mds-popup-menu__icon" aria-hidden="true"></span>
+                Another item with icon
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#" role="menuitem">
+              <span class="mds-popup-menu__label mds-popup-menu__label--no-icon">
+                Another item without icon
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
       <!-- <h2>Popup menu with buttons</h2>
       <button class="mds-popup-menu-trigger" aria-haspopup="true" aria-controls="mds-popup-menu-buttons">
         Open Popup Menu with buttons
