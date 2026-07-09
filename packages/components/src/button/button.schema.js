@@ -1,4 +1,3 @@
-
 import { iconNames } from '../icon/icon.names.js';
 
 const iconOptions = ['', ...iconNames];
