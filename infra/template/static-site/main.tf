@@ -1,17 +1,3 @@
-###############################################################################
-# Custom static-site module: private S3 origin + OAC + CloudFront.
-#
-# Why custom instead of mds-terraform-common//static-site:
-# the shared module hard-requires a domain + Route53 zone (it names the bucket
-# after the domain and always provisions an ACM cert + DNS CNAME). DP-47212
-# stands the site up on the default *.cloudfront.net URL with NO domain yet
-# (the domain is wired in later by DP-47214). This module supports that
-# domain-less state via optional `aliases` / `acm_certificate_arn` inputs.
-#
-# Tagging and the deploy role follow house conventions (mds-terraform-common
-# //tagging and //gha_pipeline) at the env layer — see infra/env/dev.
-###############################################################################
-
 resource "aws_s3_bucket" "site" {
   bucket = var.name
   tags   = var.tags
