@@ -146,34 +146,34 @@ $shadow-hover-scale: (
   "hover-sm": var(--mds-shadow-hover-sm),
   "hover-md": var(--mds-shadow-hover-md)
 );
-$font-scale: (
-  "heading-2xs": var(--mds-text-heading-2xs),
-  "heading-xs": var(--mds-text-heading-xs),
-  "heading-sm": var(--mds-text-heading-sm),
-  "heading-md": var(--mds-text-heading-md),
-  "heading-lg": var(--mds-text-heading-lg),
-  "heading-xl": var(--mds-text-heading-xl),
-  "heading-2xl": var(--mds-text-heading-2xl),
-  "body": var(--mds-text-body),
-  "body-bold": var(--mds-text-body-bold),
-  "body-lg": var(--mds-text-body-lg),
-  "body-lg-bold": var(--mds-text-body-lg-bold),
-  "label-sm": var(--mds-text-label-sm),
-  "label": var(--mds-text-label),
-  "label-md": var(--mds-text-label-md),
-  "label-lg": var(--mds-text-label-lg),
-  "label-xl": var(--mds-text-label-xl),
-  "eyebrow": var(--mds-text-eyebrow),
-  "eyebrow-md": var(--mds-text-eyebrow-md),
-  "caption-sm": var(--mds-text-caption-sm),
-  "caption": var(--mds-text-caption),
-  "caption-bold": var(--mds-text-caption-bold),
-  "caption-md": var(--mds-text-caption-md)
-);
-$text-transform-scale: (
-  "eyebrow": var(--mds-text-transform-eyebrow)
-);
-$letter-spacing-scale: (
-  "eyebrow": var(--mds-text-letter-spacing-eyebrow)
+$text-style-scale: (
+  "heading-2xs": (),
+  "heading-xs": (),
+  "heading-sm": (),
+  "heading-md": (),
+  "heading-lg": (),
+  "heading-xl": (),
+  "heading-2xl": (),
+  "body": (),
+  "body-bold": (),
+  "body-lg": (),
+  "body-lg-bold": (),
+  "label-sm": (),
+  "label": (),
+  "label-md": (),
+  "label-lg": (),
+  "label-xl": (),
+  "eyebrow": (
+    "letter-spacing": true,
+    "text-transform": true
+  ),
+  "eyebrow-md": (
+    "letter-spacing": true,
+    "text-transform": true
+  ),
+  "caption-sm": (),
+  "caption": (),
+  "caption-bold": (),
+  "caption-md": ()
 );
 $grid-span-scale: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;

@@ -28,10 +28,14 @@ This package does not rebundle tokens. Keeping tokens and styles separate makes 
 For Sass consumers, the package publishes build-time SCSS under `dist/scss`:
 
 ```scss
-@use "pkg:@massds/mds-styles/scss";
+@use "pkg:@massds/mds-styles/scss" as mds;
+
+.example {
+  @include mds.text("body");
+}
 ```
 
-Use Sass's Node package importer for `pkg:` imports.
+Use Sass's Node package importer for `pkg:` imports. Typography mixins apply the split semantic typography tokens from `@massds/mds-tokens`; they do not own raw type values.
 
 ## Package Contents
 
@@ -47,10 +51,11 @@ dist/
     └── mixins/
         ├── _breakpoints.scss
         ├── _focus.scss
-        ├── _grid.scss
-        ├── _layout.scss
-        ├── _resets.scss
-        └── index.scss
+    ├── _grid.scss
+    ├── _layout.scss
+    ├── _resets.scss
+    ├── _typography.scss
+    └── index.scss
 ```
 
 The source files remain authored under `src/` in this repository. The public mixin modules are copied into `dist/scss/` at build time for consumers and component packages.
@@ -65,6 +70,7 @@ src/
 │   ├── _grid.scss
 │   ├── _layout.scss
 │   ├── _resets.scss
+│   ├── _typography.scss
 │   └── index.scss
 ```
 
@@ -72,6 +78,7 @@ src/
 - `dist/css/index.min.css` is the bundled, minified production stylesheet for the package
 - `dist/scss/mixins/_layout.scss` exposes structural layout mixins, so component packages can include layout styles without requiring helper classes in markup
 - `dist/scss/mixins/_resets.scss` exposes shared reset mixins for component builds
+- `dist/scss/mixins/_typography.scss` exposes composite typography mixins backed by semantic type tokens
 
 ## Naming Conventions
 
@@ -100,6 +107,7 @@ src/
 │   ├── _grid.scss
 │   ├── _layout.scss
 │   ├── _resets.scss
+│   ├── _typography.scss
 │   └── index.scss
 ```
 
@@ -107,6 +115,7 @@ src/
 - `mixins/_focus.scss` contains focus-state styling mixins
 - `mixins/_resets.scss` contains reset mixins shared by component builds
 - `mixins/_layout.scss` contains component-facing layout mixins such as `body` and `section-container`
+- `mixins/_typography.scss` contains composite text-style mixins such as `@include text("body")`
 - `mixins/_grid.scss` contains component-facing grid mixins
 - `mixins/index.scss` forwards the public shared mixin API so files can `@use "./mixins"`
 - `class-generators/index.scss` is the internal CSS build entrypoint

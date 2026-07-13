@@ -1,8 +1,11 @@
+@use "typography";
+
 @mixin body {
   margin: 0;
   background: var(--mds-background-surface-default);
   color: var(--mds-text-and-icons-brand-neutral-default);
-  font: var(--mds-text-body);
+
+  @include typography.text("body");
 }
 
 @mixin section-container {
