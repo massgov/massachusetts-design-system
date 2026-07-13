@@ -68,4 +68,7 @@
     --mds-button-color: var(--mds-button-color-active);
     --mds-button-shadow: var(--mds-button-shadow-active);
   }
+  &:focus-visible {
+    outline-offset: 2px;
+  }
 }
