@@ -39,12 +39,14 @@
   --mds-button-color: var(--mds-button-on-accent);
   --mds-button-color-hover: var(--mds-button-on-accent);
   --mds-button-color-active: var(--mds-button-on-accent);
+  --mds-button-color-focus: var(--mds-border-focus-on-light);
 }
 .mds-icon-button.mds-button--color-light {
   --mds-button-accent: var(--mds-background-section-utility-static-white);
   --mds-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
   --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
   --mds-button-on-accent: var(--mds-text-and-icons-utility-static-black);
+  --mds-button-color-focus: var(--mds-border-focus-on-dark);
 }
 .mds-icon-button:hover {
   --mds-button-background: var(--mds-button-background-hover);
@@ -59,5 +61,6 @@
   --mds-button-shadow: var(--mds-button-shadow-active);
 }
 .mds-icon-button:focus-visible {
+  outline: 1px solid var(--mds-button-color-focus);
   outline-offset: 2px;
 }
