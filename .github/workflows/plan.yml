@@ -1,0 +1,41 @@
+name: Run terraform plan
+run-name: Running `terraform plan` for ${{ github.ref_name }}
+
+# Reusable workflow: runs `terraform plan` against the test environment using
+# the read-only PLAN_ROLE_ARN (GitHub OIDC). Called by pr-plan.yml as a PR
+# check so infrastructure changes are reviewable before merge.
+
+env:
+  TF_IN_AUTOMATION: "true"
+  TFENV_AUTO_INSTALL: "true"
+
+on:
+  workflow_call:
+
+defaults:
+  run:
+    shell: bash -eo pipefail {0}
+
+jobs:
+  infrastructure_plan:
+    name: Infrastructure Plan (test)
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write  
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ vars.PLAN_ROLE_ARN }}
+
+      - name: Install Terraform
+        uses: massgov/mds-gh-actions/actions/setup-terraform@main
+
+      - name: Terraform plan
+        run: |
+          terraform init -input=false
+          terraform plan -no-color -input=false
+        working-directory: infra/env/test

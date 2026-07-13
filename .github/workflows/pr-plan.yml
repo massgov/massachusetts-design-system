@@ -1,0 +1,22 @@
+name: "Terraform PR Plan"
+
+# Runs `terraform plan` as a required-style check on PRs that touch
+# infrastructure, so reviewers see the planned AWS changes before merge.
+
+on:
+  pull_request:
+    paths:
+      - infra/**
+      - .github/workflows/plan.yml
+      - .github/workflows/pr-plan.yml
+      - .terraform-version
+
+defaults:
+  run:
+    shell: bash -eo pipefail {0}
+
+jobs:
+  plan:
+    name: "Terraform Plan"
+    uses: ./.github/workflows/plan.yml
+    secrets: inherit
