@@ -1,0 +1,99 @@
+{#
+  State banner data:
+  - panelId controls the expandable panel id used by the summary/details pair.
+  - summaryLabel provides the accessible label for the banner.
+#}
+{% set bannerPanelId = panelId|default(stateBannerDefaults.panelId) %}
+{% set bannerSummaryLabel = summaryLabel|default(stateBannerDefaults.summaryLabel) %}
+{% set bannerSummaryPrefix = summaryPrefix|default(stateBannerDefaults.summaryPrefix) %}
+{% set bannerSealSrc = sealSrc|default(stateBannerDefaults.sealSrc) %}
+{% set bannerSealAlt = sealAlt|default(stateBannerDefaults.sealAlt) %}
+{% set bannerRegionLabel = regionLabel|default(stateBannerDefaults.regionLabel) %}
+{% set bannerOfficialWebsitesHeading = officialWebsitesHeading|default(stateBannerDefaults.officialWebsitesHeading) %}
+{% set bannerOfficialWebsitesDescription = officialWebsitesDescription|default(stateBannerDefaults.officialWebsitesDescription) %}
+{% set bannerSecureWebsitesHeading = secureWebsitesHeading|default(stateBannerDefaults.secureWebsitesHeading) %}
+{% set bannerSecureWebsitesDescription = secureWebsitesDescription|default(stateBannerDefaults.secureWebsitesDescription) %}
+
+<section
+  class="mds-state-banner"
+  aria-label="{{ bannerSummaryLabel|e }}"
+>
+  <div class="mds-state-banner__container">
+    <details class="mds-state-banner__details">
+      <summary class="mds-state-banner__summary">
+        <span class="mds-state-banner__inner">
+          <span class="mds-state-banner__brand">
+            {% include 'state-seal.twig' with {
+              src: bannerSealSrc,
+              alt: bannerSealAlt,
+              className: 'mds-state-banner__seal',
+              fileType: 'white',
+              color: 'png'
+            } %}
+            <p class="mds-state-banner__text">
+              <span class="mds-state-banner__text-prefix">
+                {{ bannerSummaryPrefix|e }}
+              </span>
+              <span class="mds-state-banner__toggle-text">
+                <span>Here's how you know</span>
+                <span class="mds-state-banner__caret" aria-hidden="true">
+                  {% include 'icon.twig' with {
+                    name: 'caret-down',
+                    size: 'MD',
+                    weight: 'Bold'
+                  } %}
+                </span>
+              </span>
+            </p>
+          </span>
+        </span>
+      </summary>
+      <div
+        class="mds-state-banner__panel"
+        id="{{ bannerPanelId|e }}"
+      >
+        <div
+          class="mds-state-banner__items"
+          role="region"
+          aria-label="{{ bannerRegionLabel|e }}"
+        >
+          <div class="mds-state-banner__item">
+            <span class="mds-state-banner__item-icon" aria-hidden="true">
+              {% include 'icon.twig' with {
+                name: 'building',
+                size: 'LG',
+                weight: 'Regular'
+              } %}
+            </span>
+            <div class="mds-state-banner__item-copy">
+              <h2 class="mds-state-banner__item-heading">
+                {{ bannerOfficialWebsitesHeading|e }}
+              </h2>
+              <p class="mds-state-banner__item-description">
+                {{ bannerOfficialWebsitesDescription|e }}
+              </p>
+            </div>
+          </div>
+
+          <div class="mds-state-banner__item">
+            <span class="mds-state-banner__item-icon" aria-hidden="true">
+              {% include 'icon.twig' with {
+                name: 'lock-simple',
+                size: 'LG',
+                weight: 'Regular'
+              } %}
+            </span>
+            <div class="mds-state-banner__item-copy">
+              <h2 class="mds-state-banner__item-heading">
+                {{ bannerSecureWebsitesHeading|e }}
+              </h2>
+              <p class="mds-state-banner__item-description">
+                {{ bannerSecureWebsitesDescription|e }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>

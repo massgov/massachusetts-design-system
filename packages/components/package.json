@@ -23,9 +23,11 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
+    "@massds/mds-assets": "^1.2.0",
     "@massds/mds-tokens": "^1.1.0"
   },
   "devDependencies": {
+    "@massds/mds-assets": "^1.2.0",
     "@massds/mds-styles": "^1.0.0",
     "@massds/mds-tokens": "^1.1.0",
     "sass": "^1.93.2",

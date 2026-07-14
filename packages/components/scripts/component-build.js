@@ -1,43 +1,23 @@
+import fs from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import {
+  getComponentDefaults,
+  getComponentNameFromTemplateId,
+  getModuleContext,
+  getRendererContextOptions,
+  getStaticIncludeTemplateIds,
+  getTemplateId,
+  toPascalCase
+} from '../src/shared/component-context.js';
+import { createTwigRenderer } from '../src/shared/twig-renderer.js';
 
 function getDefaultSourceFiles(componentName) {
   return [`${componentName}.twig`];
 }
 
-function toIdentifier(value) {
-  return value.replace(/-([a-z0-9])/g, (_, character) => character.toUpperCase());
-}
-
-function toPascalCase(value) {
-  const identifier = toIdentifier(value);
-
-  return `${identifier.charAt(0).toUpperCase()}${identifier.slice(1)}`;
-}
-
 function getRendererFactoryName(componentName) {
   return `create${toPascalCase(componentName)}Renderer`;
-}
-
-function getStaticIncludeTemplateIds(templateSource) {
-  const includePattern = /{%-?\s*include\s+(['"])([^'"]+)\1/g;
-  const templateIds = new Set();
-  const sourceWithoutComments = templateSource.replace(/{#[\s\S]*?#}/g, '');
-  let match;
-
-  while ((match = includePattern.exec(sourceWithoutComments)) !== null) {
-    templateIds.add(match[2]);
-  }
-
-  return Array.from(templateIds);
-}
-
-function getComponentNameFromTemplateId(templateId) {
-  if (path.extname(templateId) !== '.twig') {
-    throw new Error(`Static Twig include "${templateId}" must point to a .twig file.`);
-  }
-
-  return path.basename(templateId, '.twig');
 }
 
 function createIncludedComponent(templateId) {
@@ -63,8 +43,33 @@ async function importModule(filePath) {
   return import(pathToFileURL(filePath).href);
 }
 
+async function pathExists(filePath) {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function getComponentDataModule(componentName, sourceDir) {
+  const dataModulePath = path.join(sourceDir, `${componentName}.data.js`);
+
+  if (!(await pathExists(dataModulePath))) {
+    return {};
+  }
+
+  return importModule(dataModulePath);
+}
+
 async function getRendererFactory(componentName, sourceDir) {
-  const renderModule = await importModule(path.join(sourceDir, `${componentName}.render.js`));
+  const renderModulePath = path.join(sourceDir, `${componentName}.render.js`);
+
+  if (!(await pathExists(renderModulePath))) {
+    return null;
+  }
+
+  const renderModule = await importModule(renderModulePath);
   const rendererFactoryName = getRendererFactoryName(componentName);
   const rendererFactory = renderModule[rendererFactoryName];
 
@@ -75,21 +80,42 @@ async function getRendererFactory(componentName, sourceDir) {
   return rendererFactory;
 }
 
-async function createDefaultRenderer({ componentName, rendererOptions, sourceDir, templateSource }) {
+async function createDefaultRenderer({
+  baseContext,
+  componentName,
+  rendererOptions,
+  sourceDir,
+  templateSource
+}) {
   const rendererFactory = await getRendererFactory(componentName, sourceDir);
 
-  return rendererFactory(templateSource, rendererOptions);
+  if (rendererFactory) {
+    return rendererFactory(templateSource, rendererOptions);
+  }
+
+  const { includes = {}, templateId = getTemplateId(componentName) } = rendererOptions;
+  const baseRendererContext = {
+    ...baseContext,
+    ...getRendererContextOptions(rendererOptions)
+  };
+
+  return createTwigRenderer(templateSource, (data = {}) => ({
+    ...baseRendererContext,
+    ...data
+  }), {
+    includes,
+    templateId
+  });
 }
 
-async function getComponentBuildModule(componentName, sourceDir) {
-  try {
-    return await importModule(path.join(sourceDir, 'build.js'));
-  } catch (error) {
-    throw new Error(
-      `Could not load build.js for included component "${componentName}". Static Twig includes should point to component templates such as "icon.twig".`,
-      { cause: error }
-    );
+async function getComponentBuildModule(sourceDir) {
+  const buildModulePath = path.join(sourceDir, 'build.js');
+
+  if (!(await pathExists(buildModulePath))) {
+    return null;
   }
+
+  return importModule(buildModulePath);
 }
 
 async function getOwnRendererOptions(getRendererOptions, buildContext) {
@@ -103,7 +129,8 @@ async function getOwnRendererOptions(getRendererOptions, buildContext) {
 async function getIncludedComponentContext(buildContext, seenTemplateIds = new Set()) {
   const includes = {};
   const rendererOptions = {};
-  const currentTemplateId = `${buildContext.componentName}.twig`;
+  const dataContext = {};
+  const currentTemplateId = getTemplateId(buildContext.componentName);
 
   seenTemplateIds.add(currentTemplateId);
 
@@ -116,7 +143,8 @@ async function getIncludedComponentContext(buildContext, seenTemplateIds = new S
 
     const includedSourceDir = path.resolve(buildContext.sourceDir, '..', includedComponent.componentName);
     const includedTemplateSource = await buildContext.readSourceFile(`../${includedComponent.componentName}/${includedComponent.componentName}.twig`);
-    const includedBuildModule = await getComponentBuildModule(includedComponent.componentName, includedSourceDir);
+    const includedBuildModule = await getComponentBuildModule(includedSourceDir);
+    const includedDataModule = await getComponentDataModule(includedComponent.componentName, includedSourceDir);
     const includedBuildContext = {
       ...buildContext,
       componentName: includedComponent.componentName,
@@ -134,13 +162,19 @@ async function getIncludedComponentContext(buildContext, seenTemplateIds = new S
     Object.assign(
       rendererOptions,
       nestedContext.rendererOptions,
-      await getOwnRendererOptions(includedBuildModule.getRendererOptions, includedBuildContext)
+      await getOwnRendererOptions(includedBuildModule?.getRendererOptions, includedBuildContext)
+    );
+    Object.assign(
+      dataContext,
+      nestedContext.dataContext,
+      getModuleContext(includedDataModule)
     );
   }
 
   return {
     includes,
-    rendererOptions
+    rendererOptions,
+    dataContext
   };
 }
 
@@ -170,6 +204,7 @@ export function createComponentBuild({
 }) {
   return async function buildComponent(context) {
     const templateSource = await context.readSourceFile(`${componentName}.twig`);
+    const ownDataModule = await getComponentDataModule(componentName, context.sourceDir);
     const buildContext = {
       ...context,
       componentName,
@@ -183,16 +218,22 @@ export function createComponentBuild({
       ...includedContext.rendererOptions,
       ...(await getOwnRendererOptions(getRendererOptions, buildContext))
     };
+    const componentDefaults = defaults ?? getComponentDefaults(componentName, ownDataModule);
     const rendererContext = await getRendererContext(createRenderer, {
       ...buildContext,
+      baseContext: {
+        ...includedContext.dataContext,
+        ...getModuleContext(ownDataModule)
+      },
       rendererOptions
     });
 
     await context.copySourceFiles(sourceFiles);
-    await context.writeOutputFile(`${componentName}.html`, rendererContext.renderComponent(defaults));
+    await context.writeOutputFile(`${componentName}.html`, rendererContext.renderComponent(componentDefaults));
     await writeAdditionalOutputs({
       ...context,
       componentName,
+      defaults: componentDefaults,
       rendererContext,
       renderComponent: rendererContext.renderComponent,
       templateSource
