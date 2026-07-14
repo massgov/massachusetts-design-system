@@ -1,5 +1,5 @@
 ###############################################################################
-# Dev environment for designsysytem.mass.gov
+# Dev environment for designsystem.mass.gov
 #
 # Backend, provider, and managed tags follow massgov/SSR conventions:
 #  - shared remote state bucket terraform.secure.digital.mass.gov

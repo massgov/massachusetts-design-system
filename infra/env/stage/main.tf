@@ -3,16 +3,10 @@ module "static_site" {
   name   = "massachusetts-design-system-stage"
   bucket_name = "massachusetts-design-system-stage"
   environments = ["stage"]
+  zone_id = data.aws_route53_zone.zone_id
   tags = module.tagging.tags
 }
 
-module "tagging" {
-  source = "github.com/massgov/mds-terraform-common//tagging?ref=1.x"
-  org    = "massgov"
-  repo   = "mymassgov"
-  additional_tags = {
-    environment           = "stage"
-    terraform             = true
-    terraform_module_path = "massgov/massachusetts-design-system/infra/env/stage"
-  }
+data "aws_route53_zone" "primary" {
+  name = "Z39CCHR590O423"
 }

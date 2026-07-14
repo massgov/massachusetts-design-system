@@ -1,5 +1,5 @@
 ###############################################################################
-# Stage environment for designsysytem.mass.gov
+# Stage environment for designsystem.mass.gov
 #
 # Backend, provider, and managed tags follow massgov/SSR conventions:
 #  - shared remote state bucket terraform.secure.digital.mass.gov
