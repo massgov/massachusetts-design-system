@@ -48,13 +48,13 @@
   outline-offset: 2px;
   outline-color: var(--mds-border-focus-on-light);
 }
-.mds-icon-button.mds-button--color-light {
+.mds-icon-button--color-light {
   --mds-button-accent: var(--mds-background-section-utility-static-white);
   --mds-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
   --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
   --mds-button-on-accent: var(--mds-text-and-icons-utility-static-black);
 }
-.mds-icon-button.mds-button--color-light:focus-visible {
+.mds-icon-button--color-light:focus-visible {
   border-radius: var(--mds-radius-sm);
   outline-width: 2px;
   outline-style: solid;
