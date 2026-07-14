@@ -52,7 +52,7 @@
     @include mixins.focus($focus-on-light: true);
   }
 
-  &.mds-button--color-light {
+  &--color-light {
     --mds-button-accent: var(--mds-background-section-utility-static-white);
     --mds-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
     --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
