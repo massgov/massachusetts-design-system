@@ -56,8 +56,6 @@
     --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
     --mds-button-accent-low: var(--mds-background-base-overlay);
     --mds-button-on-accent: var(--mds-text-and-icons-utility-static-black);
-
-    @include mixins.focus($focus-on-light: false);
   }
 
   &--color-danger {
@@ -80,8 +78,6 @@
     --mds-button-color-hover: var(--mds-button-on-accent);
     --mds-button-color-active: var(--mds-button-on-accent);
     --mds-button-shadow-hover: var(--mds-shadow-hover-sm);
-
-    @include mixins.focus($focus-on-light: true);
   }
 
   &--type-outline {
@@ -159,10 +155,8 @@
   }
 
   // Interaction states
-  &:focus-visible {
-    outline: 3px solid var(--mds-border-focus-on-light);
-    outline-offset: 2px;
-  }
+
+  @include mixins.focus($focus-on-light: true);
 
   &:hover {
     --mds-button-background: var(--mds-button-background-hover);
