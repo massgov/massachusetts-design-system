@@ -357,11 +357,6 @@
     --mds-breakpoint-horizontal-space-columns: 12;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
-    --mds-text-body-lg-font-size: var(--mds-font-size-225);
-    --mds-text-body-lg-bold-font-size: var(--mds-font-size-225);
-    --mds-text-heading-2xl-font-size: var(--mds-font-size-550);
-    --mds-text-heading-xl-font-size: var(--mds-font-size-500);
-    --mds-text-heading-lg-font-size: var(--mds-font-size-450);
   }
 }
 
@@ -371,9 +366,6 @@
     --mds-breakpoint-horizontal-space-columns: 6;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-400);
-    --mds-text-body-lg-font-size: var(--mds-font-size-225);
-    --mds-text-body-lg-bold-font-size: var(--mds-font-size-225);
-    --mds-text-heading-2xl-font-size: var(--mds-font-size-550);
     --mds-text-heading-xl-font-size: var(--mds-font-size-450);
     --mds-text-heading-lg-font-size: var(--mds-font-size-400);
   }
@@ -400,10 +392,5 @@
     --mds-breakpoint-horizontal-space-columns: 6;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-200);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-200);
-    --mds-text-body-lg-font-size: var(--mds-font-size-200);
-    --mds-text-body-lg-bold-font-size: var(--mds-font-size-200);
-    --mds-text-heading-2xl-font-size: var(--mds-font-size-450);
-    --mds-text-heading-xl-font-size: var(--mds-font-size-400);
-    --mds-text-heading-lg-font-size: var(--mds-font-size-350);
   }
 }
