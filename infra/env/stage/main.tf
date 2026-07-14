@@ -1,10 +1,18 @@
 module "static_site" {
-  source = "../../template/static-site"
-
-  name    = "massachusetts-design-system-stage"
-  comment = "designsystem.mass.gov (stage)"
-
-  # aliases             = ["dev.massachusetts-design-system.mass.gov"]
-  # acm_certificate_arn = "<us-east-1 ACM cert arn>"
+  source = "github.com/massgov/mds-terraform-common//static-site?ref=1.109"
+  name   = "massachusetts-design-system-stage"
+  bucket_name = "massachusetts-design-system-stage"
+  environments = ["stage"]
+  tags = module.tagging.tags
 }
 
+module "tagging" {
+  source = "github.com/massgov/mds-terraform-common//tagging?ref=1.x"
+  org    = "massgov"
+  repo   = "mymassgov"
+  additional_tags = {
+    environment           = "stage"
+    terraform             = true
+    terraform_module_path = "massgov/massachusetts-design-system/infra/env/stage"
+  }
+}
