@@ -13,6 +13,8 @@
   align-items: center;
   justify-content: center;
   max-width: 100%;
+  inline-size: 44px;
+  block-size: 44px;
   padding: var(--mds-space-2xs);
   border: var(--mds-button-border-width) solid var(--mds-button-border);
   border-radius: var(--mds-radius-md);
@@ -38,7 +40,6 @@
   --mds-button-color: var(--mds-button-on-accent);
   --mds-button-color-hover: var(--mds-button-on-accent);
   --mds-button-color-active: var(--mds-button-on-accent);
-  --mds-button-color-focus: var(--mds-border-focus-on-light);
 }
 .mds-icon-button--type-fill:focus-visible {
   border-radius: var(--mds-radius-sm);
@@ -52,7 +53,6 @@
   --mds-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
   --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
   --mds-button-on-accent: var(--mds-text-and-icons-utility-static-black);
-  --mds-button-color-focus: var(--mds-border-focus-on-dark);
 }
 .mds-icon-button.mds-button--color-light:focus-visible {
   border-radius: var(--mds-radius-sm);
