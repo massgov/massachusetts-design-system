@@ -86,7 +86,7 @@ p {
   outline-width: 2px;
   outline-style: solid;
   outline-offset: 2px;
-  outline-color: var(--mds-border-focus-on-light);
+  outline-color: var(--mds-border-focus-on-dark);
 }
 .mds-state-banner__summary::marker {
   content: "";

@@ -7,6 +7,8 @@
     "packages/tokens",
     "packages/assets",
     "packages/styles",
+    "packages/components",
+    "storybook",
     "components"
   ],
   "scripts": {
@@ -14,12 +16,16 @@
     "clean": "npm run clean --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "build:assets": "npm run build --workspace @massds/mds-assets",
+    "build:components": "npm run build --workspace @massds/mds-components",
     "build:styles": "npm run build --workspace @massds/mds-styles",
     "build:tokens": "npm run build --workspace @massds/mds-tokens",
+    "build:storybook": "npm run storybook:build --workspace @massds/storybook",
     "lint:styles": "npm run lint --workspace @massds/mds-styles",
     "lint:tokens": "npm run lint --workspace @massds/mds-tokens",
     "demo:styles": "npm run demo --workspace @massds/mds-styles",
-    "watch:styles": "npm run watch --workspace @massds/mds-styles"
+    "storybook": "npm run storybook --workspace @massds/storybook",
+    "watch:styles": "npm run watch --workspace @massds/mds-styles",
+    "watch:components": "npm run watch --workspace @massds/mds-components"
   },
   "engines": {
     "node": "24.14.0"

@@ -1,0 +1,19 @@
+import { iconNames } from './icon.names.js';
+
+export const iconSchema = {
+  name: {
+    type: 'icon',
+    default: 'arrow-right',
+    options: iconNames
+  },
+  weight: {
+    type: 'enum',
+    default: 'Regular',
+    options: ['Regular', 'Bold']
+  },
+  size: {
+    type: 'enum',
+    default: 'MD',
+    options: ['XS', 'SM', 'MD', 'LG', 'XL']
+  }
+};

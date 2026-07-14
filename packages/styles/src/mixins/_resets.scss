@@ -22,8 +22,36 @@
   }
 }
 
+@mixin address-reset {
+  address {
+    font-style: normal;
+  }
+}
+
+@mixin unordered-list-reset {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+// This reset will only make a visual difference on MacOS devices, as PCs/others do not have that level of font rendering
+@mixin font-smoothing-reset {
+  *,
+  *::before,
+  *::after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+// These resets are grouped into one mixin for the sake of demoing our individual components, it will likely not be needed for actual implementation, at which point we can remove this and folks will use these mixins a la carte.
 @mixin component-reset {
   @include box-sizing-reset;
   @include document-reset;
   @include text-block-reset;
+  @include font-smoothing-reset;
 }
+
+

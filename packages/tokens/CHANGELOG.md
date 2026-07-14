@@ -30,3 +30,10 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 ### Removed
 * [DP-47113] Remove tokens empty lines at the end of file. #45
 
+
+## 1.2.0 (6/10/2026)
+
+### Added
+* Added a Codex skill workflow for comparing and syncing `primitives.css` with Base Tokens Figma variables.
+* [DP-47071] Added motion tokens to primitives and semantic variables. #47
+

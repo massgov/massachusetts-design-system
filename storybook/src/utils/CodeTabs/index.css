@@ -1,0 +1,46 @@
+.mds-docs-code-tabs {
+  display: grid;
+  gap: 0;
+  margin: 24px 0;
+}
+
+.mds-docs-code-tabs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--mds-border-brand-neutral-low);
+}
+
+.mds-docs-code-tabs__tab {
+  appearance: none;
+  margin: 0;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  border-radius: var(--mds-radius-sm) var(--mds-radius-sm) 0 0;
+  background: transparent;
+  color: var(--mds-text-and-icons-brand-neutral-muted);
+  cursor: pointer;
+  font: var(--mds-text-label);
+}
+
+.mds-docs-code-tabs__tab:hover {
+  background: var(--mds-background-section-brand-primary-lowest);
+  color: var(--mds-text-and-icons-brand-primary-mid);
+}
+
+.mds-docs-code-tabs__tab:focus-visible {
+  outline: 3px solid var(--mds-border-focus-on-light);
+  outline-offset: 2px;
+}
+
+.mds-docs-code-tabs__tab[aria-selected="true"] {
+  border-color: var(--mds-border-brand-neutral-low);
+  background: var(--mds-background-section-utility-static-white);
+  color: var(--mds-text-and-icons-brand-neutral-default);
+}
+
+.mds-docs-code-tabs__panel {
+  min-width: 0;
+}
