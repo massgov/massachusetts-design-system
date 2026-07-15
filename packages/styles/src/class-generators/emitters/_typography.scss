@@ -1,0 +1,9 @@
+@mixin emit-text-utilities($scale) {
+  @each $name, $properties in $scale {
+    .mds-text-#{$name} {
+      @each $property, $value in $properties {
+        #{$property}: $value;
+      }
+    }
+  }
+}

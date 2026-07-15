@@ -2,7 +2,7 @@
 @use "./emitters/grid-spans";
 @use "./emitters/space";
 @use "./emitters/stateful";
-@use "../mixins/typography";
+@use "./emitters/typography";
 @use "./scales";
 
 /* Utility classes: single-purpose composable styles */
@@ -18,9 +18,7 @@
 @include stateful.emit-stateful-utilities("shadow", box-shadow, scales.$shadow-hover-scale, "hover");
 
 /* typography */
-@include typography.emit-text-utilities;
-@include base.emit-base-utilities("text-transform", text-transform, scales.$text-transform-scale);
-@include base.emit-base-utilities("letter-spacing", letter-spacing, scales.$letter-spacing-scale);
+@include typography.emit-text-utilities(scales.$text-styles);
 
 /* grid */
 @include base.emit-base-utilities("gap", gap, scales.$space-scale);
