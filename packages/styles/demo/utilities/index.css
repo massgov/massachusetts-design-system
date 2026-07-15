@@ -93,8 +93,8 @@
   background: #99c0d0;
   font-family: var(--mds-text-body-font-family);
   font-weight: var(--mds-text-body-font-weight);
-  font-size: var(--mds-text-body-lg-font-size);
-  line-height: var(--mds-text-body-lg-line-height);
+  font-size: var(--mds-text-body-font-size-lg);
+  line-height: var(--mds-text-body-line-height-lg);
 }
 
 .page-demo__grid {
@@ -230,8 +230,8 @@
   color: var(--mds-text-and-icons-utility-inverse);
   font-family: var(--mds-text-heading-font-family);
   font-weight: var(--mds-text-heading-font-weight);
-  font-size: var(--mds-text-heading-lg-font-size);
-  line-height: var(--mds-text-heading-lg-line-height);
+  font-size: var(--mds-text-heading-font-size-lg);
+  line-height: var(--mds-text-heading-line-height-lg);
 }
 
 .page-demo__overlay-content {

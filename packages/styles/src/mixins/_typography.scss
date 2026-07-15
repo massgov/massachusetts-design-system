@@ -4,44 +4,44 @@ $text-styles: (
   "heading-2xs": (
     font-family: var(--mds-text-heading-font-family),
     font-weight: var(--mds-text-heading-font-weight),
-    font-size: var(--mds-text-heading-2xs-font-size),
-    line-height: var(--mds-text-heading-2xs-line-height)
+    font-size: var(--mds-text-heading-font-size-2xs),
+    line-height: var(--mds-text-heading-line-height-2xs)
   ),
   "heading-xs": (
     font-family: var(--mds-text-heading-font-family),
     font-weight: var(--mds-text-heading-font-weight),
-    font-size: var(--mds-text-heading-xs-font-size),
-    line-height: var(--mds-text-heading-xs-line-height)
+    font-size: var(--mds-text-heading-font-size-xs),
+    line-height: var(--mds-text-heading-line-height-xs)
   ),
   "heading-sm": (
     font-family: var(--mds-text-heading-font-family),
     font-weight: var(--mds-text-heading-font-weight),
-    font-size: var(--mds-text-heading-sm-font-size),
-    line-height: var(--mds-text-heading-sm-line-height)
+    font-size: var(--mds-text-heading-font-size-sm),
+    line-height: var(--mds-text-heading-line-height-sm)
   ),
   "heading-md": (
     font-family: var(--mds-text-heading-font-family),
     font-weight: var(--mds-text-heading-font-weight),
-    font-size: var(--mds-text-heading-md-font-size),
-    line-height: var(--mds-text-heading-md-line-height)
+    font-size: var(--mds-text-heading-font-size-md),
+    line-height: var(--mds-text-heading-line-height-md)
   ),
   "heading-lg": (
     font-family: var(--mds-text-heading-font-family),
     font-weight: var(--mds-text-heading-font-weight),
-    font-size: var(--mds-text-heading-lg-font-size),
-    line-height: var(--mds-text-heading-lg-line-height)
+    font-size: var(--mds-text-heading-font-size-lg),
+    line-height: var(--mds-text-heading-line-height-lg)
   ),
   "heading-xl": (
     font-family: var(--mds-text-heading-font-family),
     font-weight: var(--mds-text-heading-font-weight),
-    font-size: var(--mds-text-heading-xl-font-size),
-    line-height: var(--mds-text-heading-xl-line-height)
+    font-size: var(--mds-text-heading-font-size-xl),
+    line-height: var(--mds-text-heading-line-height-xl)
   ),
   "heading-2xl": (
     font-family: var(--mds-text-heading-font-family),
     font-weight: var(--mds-text-heading-font-weight),
-    font-size: var(--mds-text-heading-2xl-font-size),
-    line-height: var(--mds-text-heading-2xl-line-height)
+    font-size: var(--mds-text-heading-font-size-2xl),
+    line-height: var(--mds-text-heading-line-height-2xl)
   ),
   "body": (
     font-family: var(--mds-text-body-font-family),
@@ -51,27 +51,27 @@ $text-styles: (
   ),
   "body-bold": (
     font-family: var(--mds-text-body-font-family),
-    font-weight: var(--mds-text-body-bold-font-weight),
+    font-weight: var(--mds-text-body-font-weight-bold),
     font-size: var(--mds-text-body-font-size),
     line-height: var(--mds-text-body-line-height)
   ),
   "body-lg": (
     font-family: var(--mds-text-body-font-family),
     font-weight: var(--mds-text-body-font-weight),
-    font-size: var(--mds-text-body-lg-font-size),
-    line-height: var(--mds-text-body-lg-line-height)
+    font-size: var(--mds-text-body-font-size-lg),
+    line-height: var(--mds-text-body-line-height-lg)
   ),
   "body-lg-bold": (
     font-family: var(--mds-text-body-font-family),
-    font-weight: var(--mds-text-body-bold-font-weight),
-    font-size: var(--mds-text-body-lg-font-size),
-    line-height: var(--mds-text-body-lg-line-height)
+    font-weight: var(--mds-text-body-font-weight-bold),
+    font-size: var(--mds-text-body-font-size-lg),
+    line-height: var(--mds-text-body-line-height-lg)
   ),
   "label-sm": (
     font-family: var(--mds-text-label-font-family),
     font-weight: var(--mds-text-label-font-weight),
-    font-size: var(--mds-text-label-sm-font-size),
-    line-height: var(--mds-text-label-sm-line-height)
+    font-size: var(--mds-text-label-font-size-sm),
+    line-height: var(--mds-text-label-line-height-sm)
   ),
   "label": (
     font-family: var(--mds-text-label-font-family),
@@ -82,20 +82,20 @@ $text-styles: (
   "label-md": (
     font-family: var(--mds-text-label-font-family),
     font-weight: var(--mds-text-label-font-weight),
-    font-size: var(--mds-text-label-md-font-size),
-    line-height: var(--mds-text-label-md-line-height)
+    font-size: var(--mds-text-label-font-size-md),
+    line-height: var(--mds-text-label-line-height-md)
   ),
   "label-lg": (
     font-family: var(--mds-text-label-font-family),
     font-weight: var(--mds-text-label-font-weight),
-    font-size: var(--mds-text-label-lg-font-size),
-    line-height: var(--mds-text-label-lg-line-height)
+    font-size: var(--mds-text-label-font-size-lg),
+    line-height: var(--mds-text-label-line-height-lg)
   ),
   "label-xl": (
     font-family: var(--mds-text-label-font-family),
     font-weight: var(--mds-text-label-font-weight),
-    font-size: var(--mds-text-label-xl-font-size),
-    line-height: var(--mds-text-label-xl-line-height)
+    font-size: var(--mds-text-label-font-size-xl),
+    line-height: var(--mds-text-label-line-height-xl)
   ),
   "eyebrow": (
     font-family: var(--mds-text-eyebrow-font-family),
@@ -108,16 +108,16 @@ $text-styles: (
   "eyebrow-md": (
     font-family: var(--mds-text-eyebrow-font-family),
     font-weight: var(--mds-text-eyebrow-font-weight),
-    font-size: var(--mds-text-eyebrow-md-font-size),
-    line-height: var(--mds-text-eyebrow-md-line-height),
+    font-size: var(--mds-text-eyebrow-font-size-md),
+    line-height: var(--mds-text-eyebrow-line-height-md),
     letter-spacing: var(--mds-text-eyebrow-letter-spacing),
     text-transform: var(--mds-text-eyebrow-text-transform)
   ),
   "caption-sm": (
     font-family: var(--mds-text-caption-font-family),
     font-weight: var(--mds-text-caption-font-weight),
-    font-size: var(--mds-text-caption-sm-font-size),
-    line-height: var(--mds-text-caption-sm-line-height)
+    font-size: var(--mds-text-caption-font-size-sm),
+    line-height: var(--mds-text-caption-line-height-sm)
   ),
   "caption": (
     font-family: var(--mds-text-caption-font-family),
@@ -127,15 +127,15 @@ $text-styles: (
   ),
   "caption-bold": (
     font-family: var(--mds-text-caption-font-family),
-    font-weight: var(--mds-text-caption-bold-font-weight),
+    font-weight: var(--mds-text-caption-font-weight-bold),
     font-size: var(--mds-text-caption-font-size),
     line-height: var(--mds-text-caption-line-height)
   ),
   "caption-md": (
     font-family: var(--mds-text-caption-font-family),
     font-weight: var(--mds-text-caption-font-weight),
-    font-size: var(--mds-text-caption-md-font-size),
-    line-height: var(--mds-text-caption-md-line-height)
+    font-size: var(--mds-text-caption-font-size-md),
+    line-height: var(--mds-text-caption-line-height-md)
   )
 );
 

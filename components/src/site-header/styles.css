@@ -72,14 +72,14 @@ p {
 .mds-site-header__site-name {
   font-family: var(--mds-text-heading-font-family);
   font-weight: var(--mds-text-heading-font-weight);
-  font-size: var(--mds-text-heading-sm-font-size);
-  line-height: var(--mds-text-heading-sm-line-height);
+  font-size: var(--mds-text-heading-font-size-sm);
+  line-height: var(--mds-text-heading-line-height-sm);
 }
 .mds-site-header__organization {
   font-family: var(--mds-text-eyebrow-font-family);
   font-weight: var(--mds-text-eyebrow-font-weight);
-  font-size: var(--mds-text-eyebrow-md-font-size);
-  line-height: var(--mds-text-eyebrow-md-line-height);
+  font-size: var(--mds-text-eyebrow-font-size-md);
+  line-height: var(--mds-text-eyebrow-line-height-md);
   letter-spacing: var(--mds-text-eyebrow-letter-spacing);
   text-transform: var(--mds-text-eyebrow-text-transform);
 }
