@@ -149,6 +149,12 @@
   --mds-font-weight-semibold: 600;
   --mds-font-weight-bold: 700;
   --mds-font-weight-extrabold: 800;
+  --mds-line-height-100: 1;
+  --mds-line-height-110: 1.1;
+  --mds-line-height-120: 1.2;
+  --mds-line-height-130: 1.3;
+  --mds-line-height-140: 1.4;
+  --mds-line-height-180: 1.8;
   --mds-space-0: 0;
   --mds-space-25: 0.125rem;
   --mds-space-50: 0.25rem;

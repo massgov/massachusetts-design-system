@@ -172,21 +172,9 @@
   --mds-space-3xl: var(--mds-space-800);
 
 /**
- * Line Height tokens
- */
-  --mds-line-height-100: 1;
-  --mds-line-height-110: 1.1;
-  --mds-line-height-120: 1.2;
-  --mds-line-height-130: 1.3;
-  --mds-line-height-140: 1.4;
-  --mds-line-height-180: 1.8;
-
-/**
- * Typography size tokens
+ * Typography tokens
  *
  */
-
-  /** Shared typography parts **/
 
   /** Font families **/
   --mds-text-heading-font-family: var(--mds-font-family-headings);
@@ -230,34 +218,20 @@
   --mds-text-heading-font-size-xs: var(--mds-font-size-275);
   --mds-text-heading-font-size-sm: var(--mds-font-size-300);
   --mds-text-heading-font-size-md: var(--mds-font-size-325);
-
-  /** The 3 values below change based on screen sizes **/
-  --mds-text-heading-font-size-lg: var(--mds-font-size-450);
-  --mds-text-heading-font-size-xl: var(--mds-font-size-500);
-  --mds-text-heading-font-size-2xl: var(--mds-font-size-550);
-
-  /** Body text **/
+  --mds-text-heading-font-size-lg: var(--mds-font-size-450); /* responsive */
+  --mds-text-heading-font-size-xl: var(--mds-font-size-500); /* responsive */
+  --mds-text-heading-font-size-2xl: var(--mds-font-size-550); /* responsive */
   --mds-text-body-font-size: var(--mds-font-size-200);
-
-  /**** The 2 values below change based on screen sizes ****/
-  --mds-text-body-font-size-lg: var(--mds-font-size-225);
-
-  /** Labels **/
+  --mds-text-body-font-size-lg: var(--mds-font-size-225); /* responsive */
   --mds-text-label-font-size-sm: var(--mds-font-size-175);
   --mds-text-label-font-size: var(--mds-font-size-200);
   --mds-text-label-font-size-md: var(--mds-font-size-225);
-
-  /**** The values below change based on screen sizes ****/
   --mds-text-label-font-size-lg: var(--mds-font-size-250);
   --mds-text-label-font-size-xl: var(--mds-font-size-275);
-
-  /** Eyebrow text (uppercase text labels). Needs 1px Letter spacing **/
   --mds-text-eyebrow-font-size: var(--mds-font-size-175);
   --mds-text-eyebrow-font-size-md: var(--mds-font-size-200);
   --mds-text-eyebrow-text-transform: uppercase;
   --mds-text-eyebrow-letter-spacing: 1px;
-
-  /** Caption text **/
   --mds-text-caption-font-size-sm: var(--mds-font-size-125);
   --mds-text-caption-font-size: var(--mds-font-size-175);
   --mds-text-caption-font-size-md: var(--mds-font-size-200);
