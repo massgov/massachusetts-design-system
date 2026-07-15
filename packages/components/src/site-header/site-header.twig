@@ -1,0 +1,31 @@
+{% set headerHref = href|default(siteHeaderDefaults.href) %}
+{% set headerSealSrc = sealSrc|default(siteHeaderDefaults.sealSrc) %}
+{% set headerSealAlt = sealAlt|default(siteHeaderDefaults.sealAlt) %}
+{% set headerSiteName = siteName|default(siteHeaderDefaults.siteName) %}
+{% set headerOrganization = organization is defined ? organization : siteHeaderDefaults.organization %}
+
+<div class="mds-site-header">
+  <div class="mds-site-header__container">
+    <div class="mds-site-header__title">
+      <a class="mds-site-header__brand" href="{{ headerHref|e }}">
+        {% include 'state-seal.twig' with {
+          src: headerSealSrc,
+          alt: headerSealAlt,
+          className: 'mds-site-header__seal',
+          color: 'black',
+          fileType: 'png'
+        } %}
+        <span class="mds-site-header__text">
+          <span class="mds-site-header__site-name">
+            {{ headerSiteName|e }}
+          </span>
+          {% if headerOrganization %}
+            <span class="mds-site-header__organization">
+              {{ headerOrganization|e }}
+            </span>
+          {% endif %}
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
