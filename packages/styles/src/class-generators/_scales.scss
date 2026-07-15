@@ -147,9 +147,9 @@ $shadow-hover-scale: (
   "hover-md": var(--mds-shadow-hover-md)
 );
 $text-transform-scale: (
-  "eyebrow": var(--mds-text-eyebrow-text-transform)
+  "eyebrow": uppercase
 );
 $letter-spacing-scale: (
-  "eyebrow": var(--mds-text-eyebrow-letter-spacing)
+  "eyebrow": 1px
 );
 $grid-span-scale: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;

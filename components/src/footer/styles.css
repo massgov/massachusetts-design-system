@@ -153,8 +153,8 @@ p {
   font-weight: var(--mds-text-eyebrow-font-weight);
   font-size: var(--mds-text-eyebrow-font-size-md);
   line-height: var(--mds-text-eyebrow-line-height-md);
-  letter-spacing: var(--mds-text-eyebrow-letter-spacing);
-  text-transform: var(--mds-text-eyebrow-text-transform);
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 .mds-footer__contact {
   display: flex;
