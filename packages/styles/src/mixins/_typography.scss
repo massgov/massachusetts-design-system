@@ -1,47 +1,12 @@
-@use "sass:list";
-
-$text-styles: (
-  "heading-2xs",
-  "heading-xs",
-  "heading-sm",
-  "heading-md",
-  "heading-lg",
-  "heading-xl",
-  "heading-2xl",
-  "body",
-  "body-bold",
-  "body-lg",
-  "body-lg-bold",
-  "label-sm",
-  "label",
-  "label-md",
-  "label-lg",
-  "label-xl",
-  "eyebrow",
-  "eyebrow-md",
-  "caption-sm",
-  "caption",
-  "caption-bold",
-  "caption-md"
-) !default;
-$text-styles-with-letter-spacing: ("eyebrow", "eyebrow-md") !default;
-$text-styles-with-transform: ("eyebrow", "eyebrow-md") !default;
+@use "sass:map";
+@use "../class-generators/variables" as variables;
 
 @mixin text($style) {
-  @if not list.index($text-styles, $style) {
+  @if not map.has-key(variables.$text-style-scale, $style) {
     @error "Unknown text style: #{$style}.";
   }
 
-  font-family: var(--mds-text-#{$style}-font-family);
-  font-weight: var(--mds-text-#{$style}-font-weight);
-  font-size: var(--mds-text-#{$style}-font-size);
-  line-height: var(--mds-text-#{$style}-line-height);
-
-  @if list.index($text-styles-with-letter-spacing, $style) {
-    letter-spacing: var(--mds-text-#{$style}-letter-spacing);
-  }
-
-  @if list.index($text-styles-with-transform, $style) {
-    text-transform: var(--mds-text-#{$style}-text-transform);
+  @each $property, $value in map.get(variables.$text-style-scale, $style) {
+    #{$property}: #{$value};
   }
 }

@@ -59,12 +59,6 @@ code {
 .page-demo__eyebrow {
   margin-bottom: var(--mds-space-xs);
   color: var(--page-demo-eyebrow-color);
-  font-family: var(--mds-text-eyebrow-font-family);
-  font-weight: var(--mds-text-eyebrow-font-weight);
-  font-size: var(--mds-text-eyebrow-font-size);
-  line-height: var(--mds-text-eyebrow-line-height);
-  letter-spacing: var(--mds-text-eyebrow-letter-spacing);
-  text-transform: var(--mds-text-eyebrow-text-transform);
 }
 
 .page-demo__section {

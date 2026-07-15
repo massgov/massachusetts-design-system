@@ -147,33 +147,141 @@ $shadow-hover-scale: (
   "hover-md": var(--mds-shadow-hover-md)
 );
 $text-style-scale: (
-  "heading-2xs": (),
-  "heading-xs": (),
-  "heading-sm": (),
-  "heading-md": (),
-  "heading-lg": (),
-  "heading-xl": (),
-  "heading-2xl": (),
-  "body": (),
-  "body-bold": (),
-  "body-lg": (),
-  "body-lg-bold": (),
-  "label-sm": (),
-  "label": (),
-  "label-md": (),
-  "label-lg": (),
-  "label-xl": (),
+  "heading-2xs": (
+    "font-family": var(--mds-text-heading-2xs-font-family),
+    "font-weight": var(--mds-text-heading-2xs-font-weight),
+    "font-size": var(--mds-text-heading-2xs-font-size),
+    "line-height": var(--mds-text-heading-2xs-line-height)
+  ),
+  "heading-xs": (
+    "font-family": var(--mds-text-heading-xs-font-family),
+    "font-weight": var(--mds-text-heading-xs-font-weight),
+    "font-size": var(--mds-text-heading-xs-font-size),
+    "line-height": var(--mds-text-heading-xs-line-height)
+  ),
+  "heading-sm": (
+    "font-family": var(--mds-text-heading-sm-font-family),
+    "font-weight": var(--mds-text-heading-sm-font-weight),
+    "font-size": var(--mds-text-heading-sm-font-size),
+    "line-height": var(--mds-text-heading-sm-line-height)
+  ),
+  "heading-md": (
+    "font-family": var(--mds-text-heading-md-font-family),
+    "font-weight": var(--mds-text-heading-md-font-weight),
+    "font-size": var(--mds-text-heading-md-font-size),
+    "line-height": var(--mds-text-heading-md-line-height)
+  ),
+  "heading-lg": (
+    "font-family": var(--mds-text-heading-lg-font-family),
+    "font-weight": var(--mds-text-heading-lg-font-weight),
+    "font-size": var(--mds-text-heading-lg-font-size),
+    "line-height": var(--mds-text-heading-lg-line-height)
+  ),
+  "heading-xl": (
+    "font-family": var(--mds-text-heading-xl-font-family),
+    "font-weight": var(--mds-text-heading-xl-font-weight),
+    "font-size": var(--mds-text-heading-xl-font-size),
+    "line-height": var(--mds-text-heading-xl-line-height)
+  ),
+  "heading-2xl": (
+    "font-family": var(--mds-text-heading-2xl-font-family),
+    "font-weight": var(--mds-text-heading-2xl-font-weight),
+    "font-size": var(--mds-text-heading-2xl-font-size),
+    "line-height": var(--mds-text-heading-2xl-line-height)
+  ),
+  "body": (
+    "font-family": var(--mds-text-body-font-family),
+    "font-weight": var(--mds-text-body-font-weight),
+    "font-size": var(--mds-text-body-font-size),
+    "line-height": var(--mds-text-body-line-height)
+  ),
+  "body-bold": (
+    "font-family": var(--mds-text-body-bold-font-family),
+    "font-weight": var(--mds-text-body-bold-font-weight),
+    "font-size": var(--mds-text-body-bold-font-size),
+    "line-height": var(--mds-text-body-bold-line-height)
+  ),
+  "body-lg": (
+    "font-family": var(--mds-text-body-lg-font-family),
+    "font-weight": var(--mds-text-body-lg-font-weight),
+    "font-size": var(--mds-text-body-lg-font-size),
+    "line-height": var(--mds-text-body-lg-line-height)
+  ),
+  "body-lg-bold": (
+    "font-family": var(--mds-text-body-lg-bold-font-family),
+    "font-weight": var(--mds-text-body-lg-bold-font-weight),
+    "font-size": var(--mds-text-body-lg-bold-font-size),
+    "line-height": var(--mds-text-body-lg-bold-line-height)
+  ),
+  "label-sm": (
+    "font-family": var(--mds-text-label-sm-font-family),
+    "font-weight": var(--mds-text-label-sm-font-weight),
+    "font-size": var(--mds-text-label-sm-font-size),
+    "line-height": var(--mds-text-label-sm-line-height)
+  ),
+  "label": (
+    "font-family": var(--mds-text-label-font-family),
+    "font-weight": var(--mds-text-label-font-weight),
+    "font-size": var(--mds-text-label-font-size),
+    "line-height": var(--mds-text-label-line-height)
+  ),
+  "label-md": (
+    "font-family": var(--mds-text-label-md-font-family),
+    "font-weight": var(--mds-text-label-md-font-weight),
+    "font-size": var(--mds-text-label-md-font-size),
+    "line-height": var(--mds-text-label-md-line-height)
+  ),
+  "label-lg": (
+    "font-family": var(--mds-text-label-lg-font-family),
+    "font-weight": var(--mds-text-label-lg-font-weight),
+    "font-size": var(--mds-text-label-lg-font-size),
+    "line-height": var(--mds-text-label-lg-line-height)
+  ),
+  "label-xl": (
+    "font-family": var(--mds-text-label-xl-font-family),
+    "font-weight": var(--mds-text-label-xl-font-weight),
+    "font-size": var(--mds-text-label-xl-font-size),
+    "line-height": var(--mds-text-label-xl-line-height)
+  ),
   "eyebrow": (
-    "letter-spacing": true,
-    "text-transform": true
+    "font-family": var(--mds-text-eyebrow-font-family),
+    "font-weight": var(--mds-text-eyebrow-font-weight),
+    "font-size": var(--mds-text-eyebrow-font-size),
+    "line-height": var(--mds-text-eyebrow-line-height),
+    "letter-spacing": 1px,
+    "text-transform": uppercase
   ),
   "eyebrow-md": (
-    "letter-spacing": true,
-    "text-transform": true
+    "font-family": var(--mds-text-eyebrow-md-font-family),
+    "font-weight": var(--mds-text-eyebrow-md-font-weight),
+    "font-size": var(--mds-text-eyebrow-md-font-size),
+    "line-height": var(--mds-text-eyebrow-md-line-height),
+    "letter-spacing": 1px,
+    "text-transform": uppercase
   ),
-  "caption-sm": (),
-  "caption": (),
-  "caption-bold": (),
-  "caption-md": ()
+  "caption-sm": (
+    "font-family": var(--mds-text-caption-sm-font-family),
+    "font-weight": var(--mds-text-caption-sm-font-weight),
+    "font-size": var(--mds-text-caption-sm-font-size),
+    "line-height": var(--mds-text-caption-sm-line-height)
+  ),
+  "caption": (
+    "font-family": var(--mds-text-caption-font-family),
+    "font-weight": var(--mds-text-caption-font-weight),
+    "font-size": var(--mds-text-caption-font-size),
+    "line-height": var(--mds-text-caption-line-height)
+  ),
+  "caption-bold": (
+    "font-family": var(--mds-text-caption-bold-font-family),
+    "font-weight": var(--mds-text-caption-bold-font-weight),
+    "font-size": var(--mds-text-caption-bold-font-size),
+    "line-height": var(--mds-text-caption-bold-line-height)
+  ),
+  "caption-md": (
+    "font-family": var(--mds-text-caption-md-font-family),
+    "font-weight": var(--mds-text-caption-md-font-weight),
+    "font-size": var(--mds-text-caption-md-font-size),
+    "line-height": var(--mds-text-caption-md-line-height)
+  )
 );
 $grid-span-scale: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;

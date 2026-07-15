@@ -267,14 +267,10 @@
   --mds-text-eyebrow-font-weight: var(--mds-font-weight-semibold);
   --mds-text-eyebrow-font-size: var(--mds-font-size-175);
   --mds-text-eyebrow-line-height: var(--mds-line-height-100);
-  --mds-text-eyebrow-letter-spacing: 1px;
-  --mds-text-eyebrow-text-transform: uppercase;
   --mds-text-eyebrow-md-font-family: var(--mds-font-family-label);
   --mds-text-eyebrow-md-font-weight: var(--mds-font-weight-semibold);
   --mds-text-eyebrow-md-font-size: var(--mds-font-size-200);
   --mds-text-eyebrow-md-line-height: var(--mds-line-height-100);
-  --mds-text-eyebrow-md-letter-spacing: 1px;
-  --mds-text-eyebrow-md-text-transform: uppercase;
 
   /** Caption text **/
   --mds-text-caption-sm-font-family: var(--mds-font-family-body);
