@@ -1,0 +1,158 @@
+@use "sass:map";
+
+$text-styles: (
+  "heading-2xs": (
+    font-family: var(--mds-text-heading-font-family),
+    font-weight: var(--mds-text-heading-font-weight),
+    font-size: var(--mds-text-heading-2xs-font-size),
+    line-height: var(--mds-text-heading-2xs-line-height)
+  ),
+  "heading-xs": (
+    font-family: var(--mds-text-heading-font-family),
+    font-weight: var(--mds-text-heading-font-weight),
+    font-size: var(--mds-text-heading-xs-font-size),
+    line-height: var(--mds-text-heading-xs-line-height)
+  ),
+  "heading-sm": (
+    font-family: var(--mds-text-heading-font-family),
+    font-weight: var(--mds-text-heading-font-weight),
+    font-size: var(--mds-text-heading-sm-font-size),
+    line-height: var(--mds-text-heading-sm-line-height)
+  ),
+  "heading-md": (
+    font-family: var(--mds-text-heading-font-family),
+    font-weight: var(--mds-text-heading-font-weight),
+    font-size: var(--mds-text-heading-md-font-size),
+    line-height: var(--mds-text-heading-md-line-height)
+  ),
+  "heading-lg": (
+    font-family: var(--mds-text-heading-font-family),
+    font-weight: var(--mds-text-heading-font-weight),
+    font-size: var(--mds-text-heading-lg-font-size),
+    line-height: var(--mds-text-heading-lg-line-height)
+  ),
+  "heading-xl": (
+    font-family: var(--mds-text-heading-font-family),
+    font-weight: var(--mds-text-heading-font-weight),
+    font-size: var(--mds-text-heading-xl-font-size),
+    line-height: var(--mds-text-heading-xl-line-height)
+  ),
+  "heading-2xl": (
+    font-family: var(--mds-text-heading-font-family),
+    font-weight: var(--mds-text-heading-font-weight),
+    font-size: var(--mds-text-heading-2xl-font-size),
+    line-height: var(--mds-text-heading-2xl-line-height)
+  ),
+  "body": (
+    font-family: var(--mds-text-body-font-family),
+    font-weight: var(--mds-text-body-font-weight),
+    font-size: var(--mds-text-body-font-size),
+    line-height: var(--mds-text-body-line-height)
+  ),
+  "body-bold": (
+    font-family: var(--mds-text-body-font-family),
+    font-weight: var(--mds-text-body-bold-font-weight),
+    font-size: var(--mds-text-body-font-size),
+    line-height: var(--mds-text-body-line-height)
+  ),
+  "body-lg": (
+    font-family: var(--mds-text-body-font-family),
+    font-weight: var(--mds-text-body-font-weight),
+    font-size: var(--mds-text-body-lg-font-size),
+    line-height: var(--mds-text-body-lg-line-height)
+  ),
+  "body-lg-bold": (
+    font-family: var(--mds-text-body-font-family),
+    font-weight: var(--mds-text-body-bold-font-weight),
+    font-size: var(--mds-text-body-lg-font-size),
+    line-height: var(--mds-text-body-lg-line-height)
+  ),
+  "label-sm": (
+    font-family: var(--mds-text-label-font-family),
+    font-weight: var(--mds-text-label-font-weight),
+    font-size: var(--mds-text-label-sm-font-size),
+    line-height: var(--mds-text-label-sm-line-height)
+  ),
+  "label": (
+    font-family: var(--mds-text-label-font-family),
+    font-weight: var(--mds-text-label-font-weight),
+    font-size: var(--mds-text-label-font-size),
+    line-height: var(--mds-text-label-line-height)
+  ),
+  "label-md": (
+    font-family: var(--mds-text-label-font-family),
+    font-weight: var(--mds-text-label-font-weight),
+    font-size: var(--mds-text-label-md-font-size),
+    line-height: var(--mds-text-label-md-line-height)
+  ),
+  "label-lg": (
+    font-family: var(--mds-text-label-font-family),
+    font-weight: var(--mds-text-label-font-weight),
+    font-size: var(--mds-text-label-lg-font-size),
+    line-height: var(--mds-text-label-lg-line-height)
+  ),
+  "label-xl": (
+    font-family: var(--mds-text-label-font-family),
+    font-weight: var(--mds-text-label-font-weight),
+    font-size: var(--mds-text-label-xl-font-size),
+    line-height: var(--mds-text-label-xl-line-height)
+  ),
+  "eyebrow": (
+    font-family: var(--mds-text-eyebrow-font-family),
+    font-weight: var(--mds-text-eyebrow-font-weight),
+    font-size: var(--mds-text-eyebrow-font-size),
+    line-height: var(--mds-text-eyebrow-line-height),
+    letter-spacing: var(--mds-text-eyebrow-letter-spacing),
+    text-transform: var(--mds-text-eyebrow-text-transform)
+  ),
+  "eyebrow-md": (
+    font-family: var(--mds-text-eyebrow-font-family),
+    font-weight: var(--mds-text-eyebrow-font-weight),
+    font-size: var(--mds-text-eyebrow-md-font-size),
+    line-height: var(--mds-text-eyebrow-md-line-height),
+    letter-spacing: var(--mds-text-eyebrow-letter-spacing),
+    text-transform: var(--mds-text-eyebrow-text-transform)
+  ),
+  "caption-sm": (
+    font-family: var(--mds-text-caption-font-family),
+    font-weight: var(--mds-text-caption-font-weight),
+    font-size: var(--mds-text-caption-sm-font-size),
+    line-height: var(--mds-text-caption-sm-line-height)
+  ),
+  "caption": (
+    font-family: var(--mds-text-caption-font-family),
+    font-weight: var(--mds-text-caption-font-weight),
+    font-size: var(--mds-text-caption-font-size),
+    line-height: var(--mds-text-caption-line-height)
+  ),
+  "caption-bold": (
+    font-family: var(--mds-text-caption-font-family),
+    font-weight: var(--mds-text-caption-bold-font-weight),
+    font-size: var(--mds-text-caption-font-size),
+    line-height: var(--mds-text-caption-line-height)
+  ),
+  "caption-md": (
+    font-family: var(--mds-text-caption-font-family),
+    font-weight: var(--mds-text-caption-font-weight),
+    font-size: var(--mds-text-caption-md-font-size),
+    line-height: var(--mds-text-caption-md-line-height)
+  )
+);
+
+@mixin text($name) {
+  @if not map.has-key($text-styles, $name) {
+    @error "Unknown text style `#{$name}`. Expected one of: #{map.keys($text-styles)}.";
+  }
+
+  @each $property, $value in map.get($text-styles, $name) {
+    #{$property}: $value;
+  }
+}
+
+@mixin emit-text-utilities {
+  @each $name, $properties in $text-styles {
+    .mds-text-#{$name} {
+      @include text($name);
+    }
+  }
+}

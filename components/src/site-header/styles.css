@@ -70,10 +70,16 @@ p {
   gap: var(--mds-space-3xs);
 }
 .mds-site-header__site-name {
-  font: var(--mds-text-heading-sm);
+  font-family: var(--mds-text-heading-font-family);
+  font-weight: var(--mds-text-heading-font-weight);
+  font-size: var(--mds-text-heading-sm-font-size);
+  line-height: var(--mds-text-heading-sm-line-height);
 }
 .mds-site-header__organization {
-  font: var(--mds-text-eyebrow-md);
-  letter-spacing: var(--mds-text-letter-spacing-eyebrow);
-  text-transform: var(--mds-text-transform-eyebrow);
+  font-family: var(--mds-text-eyebrow-font-family);
+  font-weight: var(--mds-text-eyebrow-font-weight);
+  font-size: var(--mds-text-eyebrow-md-font-size);
+  line-height: var(--mds-text-eyebrow-md-line-height);
+  letter-spacing: var(--mds-text-eyebrow-letter-spacing);
+  text-transform: var(--mds-text-eyebrow-text-transform);
 }

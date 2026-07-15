@@ -90,7 +90,7 @@
   }
 
   &__site-name {
-    font: var(--mds-text-heading-sm);
+    @include mixins.text("heading-sm");
   }
 
   &__seal {
@@ -100,7 +100,7 @@
   }
 
   &__contact-address {
-    font: var(--mds-text-label-md);
+    @include mixins.text("label-md");
   }
 
   &__social-list {
@@ -111,15 +111,15 @@
 
   &__description {
     max-width: 18rem;
-    font: var(--mds-text-caption-md);
+
+    @include mixins.text("caption-md");
   }
 
   &__heading {
     padding-block-end: var(--mds-space-xs);
     border-block-end: 1px solid var(--mds-footer-border-color);
-    font: var(--mds-text-eyebrow-md);
-    text-transform: var(--mds-text-transform-eyebrow);
-    letter-spacing: var(--mds-text-letter-spacing-eyebrow);
+
+    @include mixins.text("eyebrow-md");
   }
 
   &__contact {
@@ -133,7 +133,8 @@
     display: flex;
     align-items: flex-start;
     padding-block: var(--mds-space-3xs);
-    font: var(--mds-text-label-md);
+
+    @include mixins.text("label-md");
   }
 
   &__contact svg {
@@ -142,14 +143,16 @@
 
   &__contact-note {
     padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
-    font: var(--mds-text-caption-md);
+
+    @include mixins.text("caption-md");
   }
 
   &__link-list {
     display: flex;
     flex-direction: column;
     padding-block-start: var(--mds-space-xs);
-    font: var(--mds-text-label-md);
+
+    @include mixins.text("label-md");
 
     & .mds-action-link {
       display: block;
@@ -162,7 +165,8 @@
 
     border-block: 1px solid var(--mds-footer-border-color);
     padding-block: var(--mds-space-xs);
-    font: var(--mds-text-label-md);
+
+    @include mixins.text("label-md");
 
     & ul {
       display: flex;
@@ -176,7 +180,8 @@
     flex-direction: column;
     gap: var(--mds-space-sm);
     padding-block: var(--mds-space-md) var(--mds-space-2xl);
-    font: var(--mds-text-caption-md);
+
+    @include mixins.text("caption-md");
   }
 
   &__trademark {

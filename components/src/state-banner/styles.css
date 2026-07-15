@@ -38,7 +38,10 @@ p {
   padding-block: var(--mds-space-3xs);
   background-color: var(--mds-background-section-utility-static-black);
   color: var(--mds-text-and-icons-utility-static-white);
-  font: var(--mds-text-body); /** need to use var instead of utility class to best support font size change for smaller screens **/
+  font-family: var(--mds-text-body-font-family);
+  font-weight: var(--mds-text-body-font-weight);
+  font-size: var(--mds-text-body-font-size);
+  line-height: var(--mds-text-body-line-height);
 }
 .mds-state-banner__inner {
   display: flex;
@@ -132,7 +135,10 @@ p {
   padding-block-start: var(--mds-space-2xs);
 }
 .mds-state-banner__item-heading {
-  font: var(--mds-text-label);
+  font-family: var(--mds-text-label-font-family);
+  font-weight: var(--mds-text-label-font-weight);
+  font-size: var(--mds-text-label-font-size);
+  line-height: var(--mds-text-label-line-height);
 }
 .mds-state-banner__item-description {
   padding-block-start: var(--mds-space-2xs);
@@ -156,7 +162,10 @@ p {
   }
   .mds-state-banner__text,
   .mds-state-banner__toggle-text {
-    font: var(--mds-text-caption);
+    font-family: var(--mds-text-caption-font-family);
+    font-weight: var(--mds-text-caption-font-weight);
+    font-size: var(--mds-text-caption-font-size);
+    line-height: var(--mds-text-caption-line-height);
   }
   .mds-state-banner__toggle-text {
     display: inline-flex;
@@ -172,6 +181,9 @@ p {
   }
   .mds-state-banner__item-copy p,
   .mds-state-banner__item-copy h2 {
-    font: var(--mds-text-caption);
+    font-family: var(--mds-text-caption-font-family);
+    font-weight: var(--mds-text-caption-font-weight);
+    font-size: var(--mds-text-caption-font-size);
+    line-height: var(--mds-text-caption-line-height);
   }
 }
