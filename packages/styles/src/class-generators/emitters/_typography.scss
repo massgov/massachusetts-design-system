@@ -1,0 +1,5 @@
+@use "./base";
+
+@mixin emit-text-utilities($scale) {
+  @include base.emit-base-composite-utilities("text", $scale);
+}
