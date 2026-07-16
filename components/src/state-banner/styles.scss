@@ -33,7 +33,8 @@ $state-banner-item-min-width: 20rem;
   padding-block: var(--mds-space-3xs);
   background-color: var(--mds-background-section-utility-static-black);
   color: var(--mds-text-and-icons-utility-static-white);
-  font: var(--mds-text-body); /** need to use var instead of utility class to best support font size change for smaller screens **/
+
+  @include mixins.text("body");
 
   // Banner summary content.
   &__inner {
@@ -148,7 +149,7 @@ $state-banner-item-min-width: 20rem;
   }
 
   &__item-heading {
-    font: var(--mds-text-label);
+    @include mixins.text("label");
   }
 
   &__item-description {
@@ -179,7 +180,7 @@ $state-banner-item-min-width: 20rem;
 
   .mds-state-banner__text,
   .mds-state-banner__toggle-text {
-    font: var(--mds-text-caption);
+    @include mixins.text("caption");
   }
 
   .mds-state-banner__toggle-text {
@@ -200,7 +201,7 @@ $state-banner-item-min-width: 20rem;
   .mds-state-banner__item-copy {
     p,
     h2 {
-      font: var(--mds-text-caption);
+      @include mixins.text("caption");
     }
   }
 }

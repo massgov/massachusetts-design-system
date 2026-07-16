@@ -13,3 +13,13 @@
     }
   }
 }
+
+@mixin emit-base-composite-utilities($class, $scale) {
+  @each $name, $properties in $scale {
+    .#{utility-class-name($class, $name)} {
+      @each $property, $value in $properties {
+        #{$property}: $value;
+      }
+    }
+  }
+}

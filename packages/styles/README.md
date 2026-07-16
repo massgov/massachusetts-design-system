@@ -33,6 +33,16 @@ For Sass consumers, the package publishes build-time SCSS under `dist/scss`:
 
 Use Sass's Node package importer for `pkg:` imports.
 
+Component styles can import the public mixin API directly:
+
+```scss
+@use "pkg:@massds/mds-styles/scss/mixins" as mixins;
+
+.example {
+  @include mixins.text("body");
+}
+```
+
 ## Package Contents
 
 The published package includes bundled CSS and Sass files under `dist/`:
@@ -43,6 +53,8 @@ dist/
 │   ├── index.css
 │   └── index.min.css
 └── scss/
+    ├── class-generators/
+    │   └── _variables.scss
     ├── index.scss
     └── mixins/
         ├── _breakpoints.scss
@@ -50,10 +62,11 @@ dist/
         ├── _grid.scss
         ├── _layout.scss
         ├── _resets.scss
+        ├── _typography.scss
         └── index.scss
 ```
 
-The source files remain authored under `src/` in this repository. The public mixin modules are copied into `dist/scss/` at build time for consumers and component packages.
+The source files remain authored under `src/` in this repository. The public mixin modules are copied into `dist/scss/` at build time for consumers and component packages. The copied `class-generators/_variables.scss` file supports public mixins that compose styles from shared token-backed maps.
 
 ```text
 src/
@@ -65,6 +78,7 @@ src/
 │   ├── _grid.scss
 │   ├── _layout.scss
 │   ├── _resets.scss
+│   ├── _typography.scss
 │   └── index.scss
 ```
 
@@ -75,9 +89,37 @@ src/
 
 ## Naming Conventions
 
-Utilities and layout classes use flat, token-driven classnames, for example `.mds-padding-inline-md`, `.mds-gap-sm`, `.mds-shadow-container` and `mds-section-container`.
+Utilities and layout classes use flat, token-driven classnames, for example `.mds-padding-inline-md`, `.mds-gap-sm`, `.mds-shadow-container`, `.mds-text-body`, and `.mds-section-container`.
 
-As a rule of thumb, helper classes describe reusable structural patterns, while utilities describe one specific CSS property driven by a token scale.
+As a rule of thumb, helper classes describe reusable structural patterns, while utilities describe token-backed styles. Most utilities map to one CSS property; text utilities are composite utilities that emit font family, weight, size, line height, and any style-only typography details such as eyebrow casing.
+
+## Typography
+
+Typography tokens live in `@massds/mds-tokens` as longhand CSS custom properties, grouped by text family and attribute. This package composes those attributes into ergonomic utility classes and Sass mixins.
+
+Use utility classes in markup when a standalone class is the clearest fit:
+
+```html
+<p class="mds-text-body">Body copy</p>
+<p class="mds-text-body-bold">Important body copy</p>
+<h2 class="mds-text-heading-lg">Section heading</h2>
+```
+
+Use the `text()` mixin in component SCSS when typography should be compiled into component CSS:
+
+```scss
+@use "pkg:@massds/mds-styles/scss/mixins" as mixins;
+
+.component-title {
+  @include mixins.text("heading-lg");
+}
+
+.component-kicker {
+  @include mixins.text("eyebrow");
+}
+```
+
+The mixin and utilities share the same source map in `src/class-generators/_variables.scss`, so the class and mixin output stay aligned.
 
 ## Source Layout
 
@@ -86,20 +128,23 @@ src/
 ├── class-generators/
 │   ├── _colors.scss
 │   ├── _helpers.scss
-│   ├── _scales.scss
+│   ├── _variables.scss
 │   ├── _utilities.scss
 │   ├── emitters/
 │   │   ├── _base.scss
 │   │   ├── _grid-spans.scss
 │   │   ├── _space.scss
-│   │   └── _stateful.scss
+│   │   ├── _stateful.scss
+│   │   └── _typography.scss
 │   └── index.scss
 ├── index.scss
 ├── mixins/
 │   ├── _breakpoints.scss
+│   ├── _focus.scss
 │   ├── _grid.scss
 │   ├── _layout.scss
 │   ├── _resets.scss
+│   ├── _typography.scss
 │   └── index.scss
 ```
 
@@ -108,10 +153,11 @@ src/
 - `mixins/_resets.scss` contains reset mixins shared by component builds
 - `mixins/_layout.scss` contains component-facing layout mixins such as `body` and `section-container`
 - `mixins/_grid.scss` contains component-facing grid mixins
+- `mixins/_typography.scss` contains the component-facing `text()` mixin for composite typography styles
 - `mixins/index.scss` forwards the public shared mixin API so files can `@use "./mixins"`
 - `class-generators/index.scss` is the internal CSS build entrypoint
 - `class-generators/_colors.scss`, `_helpers.scss`, and `_utilities.scss` define which classes get emitted
-- `class-generators/_scales.scss` stores token-backed scales shared by generated class families
+- `class-generators/_variables.scss` stores token-backed variable maps shared by generated class families and typography mixins
 - `class-generators/emitters/` contains reusable class-emitter mixins
 
 ## Notes
@@ -149,7 +195,7 @@ From the workspace root, use `npm run demo:styles` or `npm run watch:styles`.
 
 To add a new utility family:
 
-1. Add the token-backed scale to `src/class-generators/_scales.scss`
+1. Add the token-backed variable map to `src/class-generators/_variables.scss`
 2. Add or reuse an emitter under `src/class-generators/emitters/`
 3. Call that emitter from `src/class-generators/_utilities.scss`
 4. Rebuild with `npm run build`
