@@ -153,5 +153,9 @@ Add `build.js` only when a component needs extra build hooks such as
 The shared build still supports `createComponentBuild()` from
 `scripts/component-build.js` for advanced cases, but it is now the escape hatch
 rather than the default workflow.
+
 Component SCSS can use shared style mixins with Sass package imports, for
 example `@use "pkg:@massds/mds-styles/scss/mixins" as mixins;`.
+Use `@include mixins.text("<style-name>")` for component typography so compiled
+component CSS stays aligned with the typography utilities from
+`@massds/mds-styles`.
