@@ -296,7 +296,6 @@
     --mds-breakpoint-horizontal-space-columns: 12;
     --mds-breakpoint-horizontal-space-gutter: var(--mds-space-300);
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-600);
-    --mds-text-heading-font-size-lg: var(--mds-font-size-350);
   }
 }
 
