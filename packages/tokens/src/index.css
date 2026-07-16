@@ -213,10 +213,10 @@
 
   /** Font families **/
   --mds-text-heading-font-family: var(--mds-font-family-headings);
-  --mds-text-body-font-family: var(--mds-font-family);
-  --mds-text-label-font-family: var(--mds-font-family);
-  --mds-text-eyebrow-font-family: var(--mds-font-family);
-  --mds-text-caption-font-family: var(--mds-font-family);
+  --mds-text-body-font-family: var(--mds-font-family-body);
+  --mds-text-label-font-family: var(--mds-font-family-label);
+  --mds-text-eyebrow-font-family: var(--mds-font-family-utility);
+  --mds-text-caption-font-family: var(--mds-font-family-utility);
 
   /** Font weights **/
   --mds-text-heading-font-weight: var(--mds-font-weight-semibold);
