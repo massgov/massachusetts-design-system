@@ -86,7 +86,7 @@ src/
 ├── class-generators/
 │   ├── _colors.scss
 │   ├── _helpers.scss
-│   ├── _scales.scss
+│   ├── _variables.scss
 │   ├── _utilities.scss
 │   ├── emitters/
 │   │   ├── _base.scss
@@ -111,7 +111,7 @@ src/
 - `mixins/index.scss` forwards the public shared mixin API so files can `@use "./mixins"`
 - `class-generators/index.scss` is the internal CSS build entrypoint
 - `class-generators/_colors.scss`, `_helpers.scss`, and `_utilities.scss` define which classes get emitted
-- `class-generators/_scales.scss` stores token-backed scales shared by generated class families
+- `class-generators/_variables.scss` stores token-backed variables shared by generated class families
 - `class-generators/emitters/` contains reusable class-emitter mixins
 
 ## Notes
@@ -149,7 +149,7 @@ From the workspace root, use `npm run demo:styles` or `npm run watch:styles`.
 
 To add a new utility family:
 
-1. Add the token-backed scale to `src/class-generators/_scales.scss`
+1. Add the token-backed variable map to `src/class-generators/_variables.scss`
 2. Add or reuse an emitter under `src/class-generators/emitters/`
 3. Call that emitter from `src/class-generators/_utilities.scss`
 4. Rebuild with `npm run build`

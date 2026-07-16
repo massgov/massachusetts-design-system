@@ -47,8 +47,8 @@ async function copyScss() {
   await fs.cp(path.join(srcDir, 'mixins'), path.join(scssDistDir, 'mixins'), { recursive: true });
   await fs.mkdir(path.join(scssDistDir, 'class-generators'), { recursive: true });
   await fs.copyFile(
-    path.join(srcDir, 'class-generators', '_scales.scss'),
-    path.join(scssDistDir, 'class-generators', '_scales.scss')
+    path.join(srcDir, 'class-generators', '_variables.scss'),
+    path.join(scssDistDir, 'class-generators', '_variables.scss')
   );
   await fs.writeFile(
     path.join(scssDistDir, 'index.scss'),
