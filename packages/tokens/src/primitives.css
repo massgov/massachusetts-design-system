@@ -8,9 +8,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  /** We can remove this general one eventually and use body **/
-  --mds-font-family: "Noto Sans", Helvetica, Arial, sans-serif;
-
   --mds-font-family-headings: "Noto Sans", Helvetica, Arial, sans-serif;
   --mds-font-family-body: "Noto Sans", Helvetica, Arial, sans-serif;
   --mds-font-family-utility: "Noto Sans", Helvetica, Arial, sans-serif;
