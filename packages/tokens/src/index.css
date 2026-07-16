@@ -248,7 +248,7 @@
   --mds-text-caption-line-height: var(--mds-line-height-130);
   --mds-text-caption-line-height-md: var(--mds-line-height-130);
 
-  /** Headings **/
+  /** Font sizes **/
   --mds-text-heading-font-size-2xs: var(--mds-font-size-225);
   --mds-text-heading-font-size-xs: var(--mds-font-size-275);
   --mds-text-heading-font-size-sm: var(--mds-font-size-300);
