@@ -68,10 +68,10 @@ p {
 .mds-footer .mds-action-link {
   color: var(--mds-footer-color);
 }
-.mds-footer a:not(.mds-action-link) {
+.mds-footer p a {
   color: var(--mds-footer-link-color);
 }
-.mds-footer a:not(.mds-action-link):hover {
+.mds-footer p a:hover {
   color: var(--mds-footer-link-hover-color);
 }
 .mds-footer__site-name, .mds-footer__heading, .mds-footer__contact-address, .mds-footer__contact-note, .mds-footer__contact-item, .mds-footer__description, .mds-footer__fine-print p {
