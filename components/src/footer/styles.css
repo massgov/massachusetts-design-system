@@ -68,10 +68,10 @@ p {
 .mds-footer .mds-action-link {
   color: var(--mds-footer-color);
 }
-.mds-footer a:not(.mds-action-link) {
+.mds-footer p a {
   color: var(--mds-footer-link-color);
 }
-.mds-footer a:not(.mds-action-link):hover {
+.mds-footer p a:hover {
   color: var(--mds-footer-link-hover-color);
 }
 .mds-footer__site-name, .mds-footer__heading, .mds-footer__contact-address, .mds-footer__contact-note, .mds-footer__contact-item, .mds-footer__description, .mds-footer__fine-print p {
@@ -134,10 +134,11 @@ p {
   font-size: var(--mds-text-label-font-size-md);
   line-height: var(--mds-text-label-line-height-md);
 }
-.mds-footer__social-list {
+.mds-footer ul.mds-footer__social-list {
   display: flex;
   flex-wrap: wrap;
   gap: var(--mds-space-2xs);
+  margin-block: var(--mds-space-sm);
 }
 .mds-footer__description {
   max-width: 18rem;
@@ -195,7 +196,6 @@ p {
   padding-block: var(--mds-space-2xs);
 }
 .mds-footer__legal-nav {
-  grid-column: 1/-1;
   border-block: 1px solid var(--mds-footer-border-color);
   padding-block: var(--mds-space-xs);
   font-family: var(--mds-text-label-font-family);

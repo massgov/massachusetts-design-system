@@ -158,10 +158,8 @@
   }
 
   // Interaction states
-  &:focus-visible {
-    outline: 3px solid var(--mds-border-focus-on-light);
-    outline-offset: 2px;
-  }
+
+  @include mixins.focus($focus-on-light: true);
 
   &:hover {
     --mds-button-background: var(--mds-button-background-hover);

@@ -38,11 +38,11 @@
     color: var(--mds-footer-color);
   }
 
-  & a:not(.mds-action-link) {
+  & p a {
     color: var(--mds-footer-link-color);
   }
 
-  & a:not(.mds-action-link):hover {
+  & p a:hover {
     color: var(--mds-footer-link-hover-color);
   }
 
@@ -103,10 +103,11 @@
     @include mixins.text("label-md");
   }
 
-  &__social-list {
+  & ul.mds-footer__social-list {
     display: flex;
     flex-wrap: wrap;
     gap: var(--mds-space-2xs);
+    margin-block: var(--mds-space-sm);
   }
 
   &__description {
@@ -161,8 +162,6 @@
   }
 
   &__legal-nav {
-    @include mixins.grid-full;
-
     border-block: 1px solid var(--mds-footer-border-color);
     padding-block: var(--mds-space-xs);
 
