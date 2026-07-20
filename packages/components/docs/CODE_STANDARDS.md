@@ -1,13 +1,10 @@
 # Component Code Standards
 
-These standards apply to component code in `@massds/mds-components`. They are
-intended to keep component markup and styles predictable, portable, and aligned
-with the Massachusetts Design System token and style packages.
+These standards apply to component code in `@massds/mds-components`. They are intended to keep component markup and styles predictable, portable, and aligned with the Massachusetts Design System token and style packages.
 
 ## Class Naming
 
-Always apply component styles through component classes. Avoid styling raw HTML
-elements directly inside component styles.
+Always apply component styles through component classes. Avoid styling raw HTML elements directly inside component styles.
 
 ```scss
 /* Avoid */
@@ -73,6 +70,7 @@ For utility and helper classes, use simple slugified class names prefixed with
 ```
 
 Utility classes should describe a reusable behavior or styling outcome. They should not be tied to one component's internal structure.
+
 Do not reference utility classes in component styles. We want to keep component styles self-contained and portable. Utility classes are meant to be exposed as separate layer of our styles API and helping teams to build layouts and custom components more efficiently.
 
 ## Selectors
@@ -117,8 +115,7 @@ Use existing design tokens and mixins wherever available.
   @include mixins.text("body-md");
 }
 ```
-Do not add fallback values to token usage. Component styles should remain fully
-token-driven.
+Do not add fallback values to token usage. Component styles should remain fully token-driven.
 
 ```scss
 /* Preferred */
@@ -130,8 +127,7 @@ padding-block: var(--mds-space-sm, 1rem);
 
 ## Component Custom Properties
 
-Use component-scoped custom properties when they make variants or states easier
-to maintain.
+Use component-scoped custom properties when they make variants or states easier to maintain.
 
 ```scss
 .mds-button {
@@ -141,14 +137,11 @@ to maintain.
 }
 ```
 
-Component custom properties must also use the `--mds-` prefix. Prefer names that
-include the component block, such as `--mds-button-background`, so they do not
-collide with tokens or other components.
+Component custom properties must also use the `--mds-` prefix. Prefer names that include the component block, such as `--mds-button-background`, so they do not collide with tokens or other components.
 
 ## Markup Contracts
 
-Component markup should expose stable classes for styled parts. Do not rely on
-consumers to preserve a specific tag hierarchy for styling to work.
+Component markup should expose stable classes for styled parts. Do not rely on consumers to preserve a specific tag hierarchy for styling to work.
 
 ```twig
 <section class="mds-section">
@@ -158,8 +151,7 @@ consumers to preserve a specific tag hierarchy for styling to work.
 </section>
 ```
 
-Prefer adding a clearly named element class over targeting the same element by
-its parent and tag name.
+Prefer adding a clearly named element class over targeting the same element by its parent and tag name.
 
 ## Review Checklist
 
@@ -170,7 +162,6 @@ Before opening a component PR, check that:
 - [] utility classes use simple slugified names
 - [] styles target classes instead of raw HTML elements
 - [] selectors stay low-specificity and avoid unnecessary nesting
-- [] spacing, color, typography, radius, motion, and shadow values use tokens or
-  mixins where available
+- [] spacing, color, typography, radius, motion, and shadow values use tokens or mixins where available
 - [] token references do not include fallback values
 - [] repeatable or themable values are abstracted as component-scoped custom properties and are prefixed and named accordingly
