@@ -86,7 +86,10 @@
   border-radius: var(--mds-radius-max);
   background-color: var(--mds-background-adaptive-brand-primary-mid);
   color: var(--mds-text-and-icons-utility-inverse);
-  font: var(--mds-text-label);
+  font-family: var(--mds-text-label-font-family);
+  font-weight: var(--mds-text-label-font-weight);
+  font-size: var(--mds-text-label-font-size);
+  line-height: var(--mds-text-label-line-height);
 }
 
 .page-demo__breakpoint-note {

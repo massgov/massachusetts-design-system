@@ -47,12 +47,10 @@
   }
 
   &__site-name {
-    font: var(--mds-text-heading-sm);
+    @include mixins.text("heading-sm");
   }
 
   &__organization {
-    font: var(--mds-text-eyebrow-md);
-    letter-spacing: var(--mds-text-letter-spacing-eyebrow);
-    text-transform: var(--mds-text-transform-eyebrow);
+    @include mixins.text("eyebrow-md");
   }
 }

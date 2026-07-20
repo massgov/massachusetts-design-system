@@ -1,3 +1,5 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
 // Base
 .mds-button {
   // Primary is the default color family. Type modifiers consume these tokens.
@@ -28,7 +30,6 @@
   box-shadow: var(--mds-button-shadow);
   color: var(--mds-button-color);
   cursor: pointer;
-  font: var(--mds-text-label-md);
   letter-spacing: 0;
   text-align: center;
   text-decoration: none;
@@ -39,6 +40,8 @@
     color var(--mds-motion-duration-fastest) ease;
   user-select: none;
   vertical-align: middle;
+
+  @include mixins.text("label-md");
 
   // Color modifiers
   &--color-secondary {
@@ -131,7 +134,8 @@
 
     min-height: 2.6875rem;
     padding: var(--mds-space-xs) var(--mds-space-sm);
-    font: var(--mds-text-label);
+
+    @include mixins.text("label");
   }
 
   &--size-lg {
@@ -139,7 +143,8 @@
 
     min-height: 3.375rem;
     padding: var(--mds-space-sm) var(--mds-space-md);
-    font: var(--mds-text-label-md);
+
+    @include mixins.text("label-md");
   }
 
   // Type layout adjustments
@@ -153,10 +158,8 @@
   }
 
   // Interaction states
-  &:focus-visible {
-    outline: 3px solid var(--mds-border-focus-on-light);
-    outline-offset: 2px;
-  }
+
+  @include mixins.focus($focus-on-light: true);
 
   &:hover {
     --mds-button-background: var(--mds-button-background-hover);

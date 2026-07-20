@@ -1,0 +1,12 @@
+@use "sass:map";
+@use "../class-generators/variables";
+
+@mixin text($name) {
+  @if not map.has-key(variables.$text-styles, $name) {
+    @error "Unknown text style `#{$name}`. Expected one of: #{map.keys(variables.$text-styles)}.";
+  }
+
+  @each $property, $value in map.get(variables.$text-styles, $name) {
+    #{$property}: $value;
+  }
+}

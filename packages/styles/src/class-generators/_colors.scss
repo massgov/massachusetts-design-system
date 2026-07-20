@@ -1,8 +1,8 @@
 @use "./emitters/base";
-@use "./scales";
+@use "./variables";
 
 /* Color utilities generated from semantic color tokens */
 
-@include base.emit-base-utilities("background", background-color, scales.$background-scale);
-@include base.emit-base-utilities("text-and-icons", color, scales.$text-and-icons-scale);
-@include base.emit-base-utilities("border", border-color, scales.$border-scale);
+@include base.emit-base-utilities("background", background-color, variables.$background-scale);
+@include base.emit-base-utilities("text-and-icons", color, variables.$text-and-icons-scale);
+@include base.emit-base-utilities("border", border-color, variables.$border-scale);
