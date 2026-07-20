@@ -49,7 +49,7 @@ Packages are released independently and published to npm through GitHub Actions.
 
 - `packages/assets` publishes through `.github/workflows/publish-assets.yml`
 - `packages/tokens` publishes through `.github/workflows/publish-tokens.yml`
-- `packages/styles` will need its own publish workflow before the first npm release
+- `packages/styles` publishes through `.github/workflows/publish-styles.yml`
 
 Recommended branch and tag strategy:
 - Use `main` as the only long-lived release branch.

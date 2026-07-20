@@ -19,7 +19,8 @@ code {
   border-radius: var(--mds-radius-sm);
   background-color: var(--mds-background-section-brand-neutral-low);
   color: var(--mds-text-and-icons-brand-neutral-default);
-  font: var(--mds-text-body-sm);
+  font-weight: var(--mds-text-caption-font-weight);
+  font-size: var(--mds-text-caption-font-size);
   font-family: ui-monospace, SFMono-Regular, SF Mono, Monaco, Consolas, Liberation Mono, monospace;
   line-height: 1.2;
 }
@@ -35,7 +36,10 @@ code {
   align-items: center;
   gap: var(--mds-space-3xs);
   margin-bottom: var(--mds-space-sm);
-  font: var(--mds-text-label);
+  font-family: var(--mds-text-label-font-family);
+  font-weight: var(--mds-text-label-font-weight);
+  font-size: var(--mds-text-label-font-size);
+  line-height: var(--mds-text-label-line-height);
 }
 
 .page-demo {
@@ -55,7 +59,10 @@ code {
 .page-demo__eyebrow {
   margin-bottom: var(--mds-space-xs);
   color: var(--page-demo-eyebrow-color);
-  font: var(--mds-text-label);
+  font-family: var(--mds-text-label-font-family);
+  font-weight: var(--mds-text-label-font-weight);
+  font-size: var(--mds-text-label-font-size);
+  line-height: var(--mds-text-label-line-height);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -77,7 +84,10 @@ code {
 .page-demo__lede {
   max-width: 58ch;
   margin-top: var(--mds-space-sm);
-  font: var(--mds-text-body-lg);
+  font-family: var(--mds-text-body-font-family);
+  font-weight: var(--mds-text-body-font-weight);
+  font-size: var(--mds-text-body-font-size-lg);
+  line-height: var(--mds-text-body-line-height-lg);
 }
 
 .page-demo__class-table {
@@ -94,7 +104,10 @@ code {
 }
 
 .page-demo__class-table th {
-  font: var(--mds-text-label);
+  font-family: var(--mds-text-label-font-family);
+  font-weight: var(--mds-text-label-font-weight);
+  font-size: var(--mds-text-label-font-size);
+  line-height: var(--mds-text-label-line-height);
 }
 
 .page-demo__section--alt {

@@ -33,6 +33,28 @@ Import the semantic token file from your CSS entrypoint:
 
 Use `index.css` as the public entrypoint for the package. Applications should not reference `primitives.css` directly, primitive values are for theming and may change as the design system evolves.
 
+### Typography Tokens
+
+Typography tokens in `index.css` are longhand attribute tokens rather than composite `font` shorthand tokens. The naming pattern is:
+
+```text
+--mds-text-<family>-<attribute>
+--mds-text-<family>-<attribute>-<modifier>
+```
+
+Examples:
+
+```css
+font-family: var(--mds-text-body-font-family);
+font-weight: var(--mds-text-body-font-weight-bold);
+font-size: var(--mds-text-heading-font-size-lg);
+line-height: var(--mds-text-heading-line-height-lg);
+```
+
+Use these tokens when you need direct access to a single typography attribute. For complete text styles, prefer the `@massds/mds-styles` package, which composes these tokens into `.mds-text-*` utility classes and the Sass `text()` mixin.
+
+The tokens package does not publish typography behavior tokens for eyebrow casing or tracking. Those details are applied in the styles layer so the token layer stays focused on reusable typography attributes.
+
 ## Source Layout
 
 Source files live under `src/` and are copied into `dist/` during the build:

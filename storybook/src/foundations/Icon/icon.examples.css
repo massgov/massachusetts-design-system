@@ -37,7 +37,9 @@
 .mds-icon-gallery__name {
   overflow-wrap: anywhere;
   color: var(--mds-text-and-icons-brand-neutral-default);
-  font: var(--mds-text-label);
-  font-size: var(--mds-font-size-175);
+  font-family: var(--mds-text-label-font-family);
+  font-weight: var(--mds-text-label-font-weight);
+  font-size: var(--mds-text-label-font-size-sm);
+  line-height: var(--mds-text-label-line-height-sm);
   text-align: center;
 }

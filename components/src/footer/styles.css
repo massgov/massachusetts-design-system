@@ -68,10 +68,10 @@ p {
 .mds-footer .mds-action-link {
   color: var(--mds-footer-color);
 }
-.mds-footer a:not(.mds-action-link) {
+.mds-footer p a {
   color: var(--mds-footer-link-color);
 }
-.mds-footer a:not(.mds-action-link):hover {
+.mds-footer p a:hover {
   color: var(--mds-footer-link-hover-color);
 }
 .mds-footer__site-name, .mds-footer__heading, .mds-footer__contact-address, .mds-footer__contact-note, .mds-footer__contact-item, .mds-footer__description, .mds-footer__fine-print p {
@@ -118,7 +118,10 @@ p {
   gap: var(--mds-space-sm);
 }
 .mds-footer__site-name {
-  font: var(--mds-text-heading-sm);
+  font-family: var(--mds-text-heading-font-family);
+  font-weight: var(--mds-text-heading-font-weight);
+  font-size: var(--mds-text-heading-font-size-sm);
+  line-height: var(--mds-text-heading-line-height-sm);
 }
 .mds-footer__seal {
   width: 3.5rem;
@@ -126,23 +129,33 @@ p {
   align-self: self-start;
 }
 .mds-footer__contact-address {
-  font: var(--mds-text-label-md);
+  font-family: var(--mds-text-label-font-family);
+  font-weight: var(--mds-text-label-font-weight);
+  font-size: var(--mds-text-label-font-size-md);
+  line-height: var(--mds-text-label-line-height-md);
 }
-.mds-footer__social-list {
+.mds-footer ul.mds-footer__social-list {
   display: flex;
   flex-wrap: wrap;
   gap: var(--mds-space-2xs);
+  margin-block: var(--mds-space-sm);
 }
 .mds-footer__description {
   max-width: 18rem;
-  font: var(--mds-text-caption-md);
+  font-family: var(--mds-text-caption-font-family);
+  font-weight: var(--mds-text-caption-font-weight);
+  font-size: var(--mds-text-caption-font-size-md);
+  line-height: var(--mds-text-caption-line-height-md);
 }
 .mds-footer__heading {
   padding-block-end: var(--mds-space-xs);
   border-block-end: 1px solid var(--mds-footer-border-color);
-  font: var(--mds-text-eyebrow-md);
-  text-transform: var(--mds-text-transform-eyebrow);
-  letter-spacing: var(--mds-text-letter-spacing-eyebrow);
+  font-family: var(--mds-text-eyebrow-font-family);
+  font-weight: var(--mds-text-eyebrow-font-weight);
+  font-size: var(--mds-text-eyebrow-font-size-md);
+  line-height: var(--mds-text-eyebrow-line-height-md);
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 .mds-footer__contact {
   display: flex;
@@ -154,30 +167,41 @@ p {
   display: flex;
   align-items: flex-start;
   padding-block: var(--mds-space-3xs);
-  font: var(--mds-text-label-md);
+  font-family: var(--mds-text-label-font-family);
+  font-weight: var(--mds-text-label-font-weight);
+  font-size: var(--mds-text-label-font-size-md);
+  line-height: var(--mds-text-label-line-height-md);
 }
 .mds-footer__contact svg {
   color: var(--mds-footer-accent-color);
 }
 .mds-footer__contact-note {
   padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
-  font: var(--mds-text-caption-md);
+  font-family: var(--mds-text-caption-font-family);
+  font-weight: var(--mds-text-caption-font-weight);
+  font-size: var(--mds-text-caption-font-size-md);
+  line-height: var(--mds-text-caption-line-height-md);
 }
 .mds-footer__link-list {
   display: flex;
   flex-direction: column;
   padding-block-start: var(--mds-space-xs);
-  font: var(--mds-text-label-md);
+  font-family: var(--mds-text-label-font-family);
+  font-weight: var(--mds-text-label-font-weight);
+  font-size: var(--mds-text-label-font-size-md);
+  line-height: var(--mds-text-label-line-height-md);
 }
 .mds-footer__link-list .mds-action-link {
   display: block;
   padding-block: var(--mds-space-2xs);
 }
 .mds-footer__legal-nav {
-  grid-column: 1/-1;
   border-block: 1px solid var(--mds-footer-border-color);
   padding-block: var(--mds-space-xs);
-  font: var(--mds-text-label-md);
+  font-family: var(--mds-text-label-font-family);
+  font-weight: var(--mds-text-label-font-weight);
+  font-size: var(--mds-text-label-font-size-md);
+  line-height: var(--mds-text-label-line-height-md);
 }
 .mds-footer__legal-nav ul {
   display: flex;
@@ -189,7 +213,10 @@ p {
   flex-direction: column;
   gap: var(--mds-space-sm);
   padding-block: var(--mds-space-md) var(--mds-space-2xl);
-  font: var(--mds-text-caption-md);
+  font-family: var(--mds-text-caption-font-family);
+  font-weight: var(--mds-text-caption-font-weight);
+  font-size: var(--mds-text-caption-font-size-md);
+  line-height: var(--mds-text-caption-line-height-md);
 }
 .mds-footer__trademark {
   line-height: var(--mds-line-height-180);
