@@ -11,19 +11,25 @@ elements directly inside component styles.
 
 ```scss
 /* Avoid */
-* {}
-html {}
-body {}
+* {
+}
+html {
+}
+body {
+}
 ```
 
-Class-based styling keeps selectors scoped and portable without risking overrides. 
+Class-based styling keeps selectors scoped and portable without risking overrides.
 
 All externally exposed classes must be prefixed with `mds-`.
 
 ```scss
-.mds-button {}
-.mds-utility-nav {}
-.mds-padding-block-xs {}
+.mds-button {
+}
+.mds-utility-nav {
+}
+.mds-padding-block-xs {
+}
 ```
 
 ### Component Classes
@@ -40,10 +46,14 @@ For component classes, use BEM naming:
 Examples:
 
 ```scss
-.mds-section {}
-.mds-section__container {}
-.mds-section--narrow {}
-.mds-section__heading--compact {}
+.mds-section {
+}
+.mds-section__container {
+}
+.mds-section--narrow {
+}
+.mds-section__heading--compact {
+}
 ```
 
 Use the block class for the component root. Use element classes for named parts of the component. Use modifier classes for supported variants, states, or configuration options.
@@ -54,14 +64,16 @@ For utility and helper classes, use simple slugified class names prefixed with
 `mds-`.
 
 ```scss
-.mds-padding-block-xs {}
-.mds-margin-inline-md {}
-.mds-visually-hidden {}
+.mds-padding-block-xs {
+}
+.mds-margin-inline-md {
+}
+.mds-visually-hidden {
+}
 ```
 
 Utility classes should describe a reusable behavior or styling outcome. They should not be tied to one component's internal structure.
-
-Use component BEM classes when the style belongs to a component part. Use utility classes when the style is intentionally reusable across components.
+Do not reference utility classes in component styles. We want to keep component styles self-contained and portable. Utility classes are meant to be exposed as separate layer of our styles API and helping teams to build layouts and custom components more efficiently.
 
 ## Selectors
 
@@ -69,10 +81,12 @@ Keep selectors direct and easy to override.
 
 ```scss
 /* Preferred */
-.mds-state-banner__toggle {}
+.mds-state-banner__toggle {
+}
 
 /* Avoid */
-.mds-state-banner .mds-state-banner__summary button {}
+.mds-state-banner .mds-state-banner__summary button {
+}
 ```
 
 Avoid styling by tag name, DOM depth, or broad descendant selectors. These patterns make components harder to reuse and easier to break during markup changes.
@@ -87,8 +101,7 @@ Acceptable exceptions should be intentional and limited, such as:
 
 ## Tokens And Mixins
 
-In component SCSS, import the styles package at the top of the file to access
-shared mixins as a build-time dependency.
+In component SCSS, import the styles package at the top of the file to access shared mixins as a build-time dependency.
 
 ```scss
 @use "pkg:@massds/mds-styles/scss" as mixins;
@@ -104,7 +117,6 @@ Use existing design tokens and mixins wherever available.
   @include mixins.text("body-md");
 }
 ```
-
 Do not add fallback values to token usage. Component styles should remain fully
 token-driven.
 
