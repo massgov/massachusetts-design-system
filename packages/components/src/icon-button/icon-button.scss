@@ -1,0 +1,154 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
+.mds-icon-button {
+  --mds-button-accent: var(--mds-background-adaptive-brand-primary-mid);
+  --mds-button-accent-hover: var(--mds-background-adaptive-brand-primary-high);
+  --mds-button-accent-active: var(--mds-background-adaptive-brand-primary-highest);
+  --mds-button-on-accent: var(--mds-text-and-icons-utility-static-white);
+  --mds-button-shadow: none;
+  --mds-button-shadow-hover: var(--mds-shadow-hover-sm);
+  --mds-button-shadow-active: none;
+
+  box-sizing: border-box;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  inline-size: 44px;
+  block-size: 44px;
+  padding: var(--mds-space-2xs);
+  border: var(--mds-button-border-width) solid var(--mds-button-border);
+  border-radius: var(--mds-radius-md);
+  background-color: var(--mds-button-background);
+  box-shadow: var(--mds-button-shadow);
+  color: var(--mds-button-color);
+  cursor: pointer;
+  transition:
+    background-color var(--mds-motion-duration-fastest) ease,
+    border-color var(--mds-motion-duration-fastest) ease,
+    box-shadow var(--mds-motion-duration-fastest) ease,
+    color var(--mds-motion-duration-fastest) ease;
+
+  & > svg {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+    // Color modifiers
+  &--color-secondary {
+    --mds-button-accent: var(--mds-background-adaptive-brand-secondary-mid);
+    --mds-button-accent-hover: var(--mds-background-adaptive-brand-secondary-high);
+    --mds-button-accent-active: var(--mds-background-adaptive-brand-secondary-highest);
+    --mds-button-accent-low: var(--mds-background-adaptive-brand-secondary-lowest);
+  }
+
+  &--color-light {
+    --mds-button-accent: var(--mds-background-section-utility-static-white);
+    --mds-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
+    --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
+    --mds-button-accent-low: var(--mds-background-base-overlay);
+    --mds-button-on-accent: var(--mds-text-and-icons-utility-static-black);
+  }
+
+  &--color-danger {
+    --mds-button-accent: var(--mds-background-adaptive-utility-danger-mid);
+    --mds-button-accent-hover: var(--mds-background-adaptive-utility-danger-high);
+    --mds-button-accent-active: var(--mds-background-adaptive-utility-danger-highest);
+    --mds-button-accent-low: var(--mds-background-adaptive-utility-danger-lowest);
+  }
+
+  &--type-fill {
+    --mds-button-background: var(--mds-button-accent);
+    --mds-button-background-hover: var(--mds-button-accent-hover);
+    --mds-button-background-active: var(--mds-button-accent-active);
+    --mds-button-border: var(--mds-button-accent);
+    --mds-button-border-hover: var(--mds-button-accent-hover);
+    --mds-button-border-active: var(--mds-button-accent-active);
+    --mds-button-border-width: 0;
+    --mds-button-color: var(--mds-button-on-accent);
+    --mds-button-color-hover: var(--mds-button-on-accent);
+    --mds-button-color-active: var(--mds-button-on-accent);
+
+    @include mixins.focus($focus-on-light: true);
+  }
+
+  &--color-light {
+    --mds-button-accent: var(--mds-background-section-utility-static-white);
+    --mds-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
+    --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
+    --mds-button-on-accent: var(--mds-text-and-icons-utility-static-black);
+
+    @include mixins.focus($focus-on-light: false);
+  }
+
+  &--type-outline {
+    --mds-button-background: var(--mds-background-adaptive-utility-inverse);
+    --mds-button-background-hover: var(--mds-background-adaptive-brand-neutral-lowest);
+    --mds-button-background-active: var(--mds-background-adaptive-brand-neutral-low);
+    --mds-button-border: var(--mds-button-accent);
+    --mds-button-border-hover: var(--mds-button-accent-hover);
+    --mds-button-border-active: var(--mds-button-accent-active);
+    --mds-button-border-width: 2px;
+    --mds-button-color: var(--mds-button-accent);
+    --mds-button-color-hover: var(--mds-button-accent);
+    --mds-button-color-active: var(--mds-button-accent);
+    --mds-button-shadow-hover: var(--mds-shadow-hover-sm);
+
+    &.mds-button--color-light {
+      --mds-button-background: var(--mds-background-base-transparent);
+      --mds-button-background-hover: var(--mds-background-adaptive-brand-neutral-high);
+      --mds-button-background-active: var(--mds-background-adaptive-brand-neutral-highest);
+      --mds-button-border: var(--mds-background-adaptive-brand-neutral-lowest);
+      --mds-button-border-hover: var(--mds-background-adaptive-brand-neutral-lowest);
+      --mds-button-border-active: var(--mds-background-adaptive-brand-neutral-lowest);
+      --mds-button-color: var(--mds-background-adaptive-brand-neutral-lowest);
+      --mds-button-color-hover: var(--mds-background-adaptive-brand-neutral-lowest);
+      --mds-button-color-active: var(--mds-background-adaptive-brand-neutral-lowest);
+    }
+  }
+
+  &--type-ghost {
+    --mds-button-background: var(--mds-background-base-transparent);
+    --mds-button-background-hover: var(--mds-background-base-transparent);
+    --mds-button-background-active: var(--mds-background-base-transparent);
+    --mds-button-border: var(--mds-background-base-transparent);
+    --mds-button-border-hover: var(--mds-background-base-transparent);
+    --mds-button-border-active: var(--mds-background-base-transparent);
+    --mds-button-border-width: 0;
+    --mds-button-color: var(--mds-button-accent);
+    --mds-button-color-hover: var(--mds-button-accent-hover);
+    --mds-button-color-active: var(--mds-button-accent-active);
+
+    border-radius: 0;
+    border-bottom-width: 2px;
+    padding-bottom: 0;
+
+    &.mds-button--color-light {
+      --mds-button-color: var(--mds-text-and-icons-utility-static-white);
+    }
+  }
+
+  // Interaction states
+
+  @include mixins.focus($focus-on-light: true);
+
+  &:hover {
+    --mds-button-background: var(--mds-button-background-hover);
+    --mds-button-border: var(--mds-button-border-hover);
+    --mds-button-color: var(--mds-button-color-hover);
+    --mds-button-shadow: var(--mds-button-shadow-hover);
+  }
+
+  &:active {
+    --mds-button-background: var(--mds-button-background-active);
+    --mds-button-border: var(--mds-button-border-active);
+    --mds-button-color: var(--mds-button-color-active);
+    --mds-button-shadow: var(--mds-button-shadow-active);
+  }
+}
+
+a.mds-icon-button {
+  text-decoration: none;
+}

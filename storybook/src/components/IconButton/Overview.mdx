@@ -1,0 +1,36 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as IconButtonStories from './icon-button.stories.js';
+
+<Meta of={IconButtonStories} />
+
+# Icon Button
+
+An icon button is a compact interactive control whose visible label is an icon. Use it for familiar actions or destinations where space is limited and the icon meaning is clear.
+
+## Usage
+
+Use icon buttons for repeated, recognizable actions such as social media links, opening menus, downloading files, or navigating to an external destination. Every icon button needs an accessible text label because there is no visible text.
+
+### When To Use
+
+- Familiar actions represented by a recognizable icon.
+- Compact toolbars or repeated action groups.
+- Social media or destination links with well-known brand icons.
+- Controls where a visible text label would add unnecessary repetition.
+
+### When Not To Use
+
+- Unfamiliar or complex actions that need visible text.
+- Primary page actions where a text button would be clearer.
+- Body copy links or inline navigation.
+- Cases where the icon alone could be ambiguous.
+
+### Know The Difference
+
+- Use `element: 'a'` when the icon button navigates to another page or destination.
+- Use `element: 'button'` when the icon button triggers an in-page action.
+- Always provide `ariaLabel` that describes the destination or action.
+
+## Examples
+
+<Canvas of={IconButtonStories.Examples} sourceState="none" />

@@ -151,5 +151,6 @@ function createIconSvgMap() {
 export const iconSvgMap = createIconSvgMap();
 export const renderIcon = createComponentRenderer('icon', { iconSvgMap });
 export const renderButton = createComponentRenderer('button', { iconSvgMap });
+export const renderIconButton = createComponentRenderer('icon-button', { iconSvgMap });
 export const renderStateBanner = createComponentRenderer('state-banner', { iconSvgMap });
 export const renderStateSeal = createComponentRenderer('state-seal');

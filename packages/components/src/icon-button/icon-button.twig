@@ -1,0 +1,45 @@
+{#
+  Icon button data:
+  - element controls whether the component renders an <a> or <button>.
+  - type and color become CSS modifier classes.
+  - icon is an icon name from the assets package.
+#}
+{% set iconButtonElement = element in iconButtonOptions.element ? element : iconButtonDefaults.element %}
+{% set iconButtonType = type in iconButtonOptions.type ? type : iconButtonDefaults.type %}
+{% set iconButtonColor = color in iconButtonOptions.color ? color : iconButtonDefaults.color %}
+{% set iconButtonHtmlType = htmlType in iconButtonOptions.htmlType ? htmlType : iconButtonDefaults.htmlType %}
+{% set iconButtonIcon = icon in iconButtonOptions.icon ? icon : iconButtonDefaults.icon %}
+{% set iconButtonHref = href|default(iconButtonDefaults.href) %}
+{% set iconButtonId = id|default(iconButtonDefaults.id) %}
+{% set iconButtonAriaLabel = ariaLabel|default(iconButtonDefaults.ariaLabel) %}
+{% set iconButtonExtraClass = className|default(iconButtonDefaults.className) %}
+{% set iconButtonClass = 'mds-icon-button mds-icon-button--type-' ~ (iconButtonType|lower) ~ ' mds-icon-button--color-' ~ (iconButtonColor|lower) %}
+{% if iconButtonExtraClass %}
+  {% set iconButtonClass = iconButtonClass ~ ' ' ~ iconButtonExtraClass %}
+{% endif %}
+
+{% if iconButtonElement == 'button' %}
+  <button
+    class="{{ iconButtonClass|e }}"
+    type="{{ iconButtonHtmlType|e }}"
+    aria-label="{{ iconButtonAriaLabel|e }}"{% if iconButtonId %}
+    id="{{ iconButtonId|e }}"{% endif %}
+  >
+    {% include 'icon.twig' with {
+      name: iconButtonIcon,
+      weight: 'Regular'
+    } %}
+  </button>
+{% else %}
+  <a
+    class="{{ iconButtonClass|e }}"
+    href="{{ iconButtonHref|e }}"
+    aria-label="{{ iconButtonAriaLabel|e }}"{% if iconButtonId %}
+    id="{{ iconButtonId|e }}"{% endif %}
+  >
+    {% include 'icon.twig' with {
+      name: iconButtonIcon,
+      weight: 'Regular'
+    } %}
+  </a>
+{% endif %}
