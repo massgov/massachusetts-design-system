@@ -22,7 +22,10 @@ body {
   padding: var(--mds-space-xs);
   background: var(--mds-static-black);
   color: var(--mds-static-white);
-  font: var(--mds-text-body);
+  font-family: var(--mds-text-body-font-family);
+  font-weight: var(--mds-text-body-font-weight);
+  font-size: var(--mds-text-body-font-size);
+  line-height: var(--mds-text-body-line-height);
   cursor: pointer;
   box-shadow: var(--mds-shadow-container);
 }
@@ -35,7 +38,10 @@ body {
   padding: var(--mds-space-3xs);
   background: color-mix(in srgb, var(--mds-static-white) 80%, transparent);
   color: var(--mds-static-black);
-  font: var(--mds-text-body-sm);
+  font-family: var(--mds-text-caption-font-family);
+  font-weight: var(--mds-text-caption-font-weight);
+  font-size: var(--mds-text-caption-font-size);
+  line-height: var(--mds-text-caption-line-height);
   box-shadow: var(--mds-shadow-container);
 }
 

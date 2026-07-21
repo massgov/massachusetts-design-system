@@ -22,7 +22,10 @@
   background: transparent;
   color: var(--mds-text-and-icons-brand-neutral-muted);
   cursor: pointer;
-  font: var(--mds-text-label);
+  font-family: var(--mds-text-label-font-family);
+  font-weight: var(--mds-text-label-font-weight);
+  font-size: var(--mds-text-label-font-size);
+  line-height: var(--mds-text-label-line-height);
 }
 
 .mds-docs-code-tabs__tab:hover {

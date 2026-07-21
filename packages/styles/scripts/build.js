@@ -45,6 +45,11 @@ function compileSass(inputFile, outputFile, style = 'expanded') {
 async function copyScss() {
   await fs.rm(scssDistDir, { recursive: true, force: true });
   await fs.cp(path.join(srcDir, 'mixins'), path.join(scssDistDir, 'mixins'), { recursive: true });
+  await fs.mkdir(path.join(scssDistDir, 'class-generators'), { recursive: true });
+  await fs.copyFile(
+    path.join(srcDir, 'class-generators', '_variables.scss'),
+    path.join(scssDistDir, 'class-generators', '_variables.scss')
+  );
   await fs.writeFile(
     path.join(scssDistDir, 'index.scss'),
     ['@forward "./mixins";', ''].join('\n'),

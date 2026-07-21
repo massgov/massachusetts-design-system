@@ -39,7 +39,7 @@ export const massdsDocsTheme = create({
 
 export const massdsManagerTheme = create({
   brandTitle,
-  brandUrl: 'https://www.mass.gov/',
+  brandUrl: '/',
   brandTarget: '_blank',
   base: 'dark',
   appBg: '#0a2b48',

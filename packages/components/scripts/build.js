@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import * as sass from 'sass';
+import { createComponentBuild } from './component-build.js';
 import { formatGeneratedOutput } from './format-generated-output.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -53,10 +54,6 @@ async function getComponentNames() {
     .sort();
 }
 
-function shouldCopySourceFile(fileName) {
-  return fileName !== componentBuildFile && fileName !== '.DS_Store';
-}
-
 function shouldCompileSourceScss(fileName) {
   return path.extname(fileName) === '.scss' && !path.basename(fileName).startsWith('_');
 }
@@ -88,15 +85,6 @@ function createBuildContext(componentName) {
   };
 }
 
-async function copyComponentSourceFiles(context) {
-  const entries = await fs.readdir(context.sourceDir, { withFileTypes: true });
-  const files = entries
-    .filter((entry) => entry.isFile() && shouldCopySourceFile(entry.name))
-    .map((entry) => entry.name);
-
-  await context.copySourceFiles(files);
-}
-
 async function compileComponentScssFiles(context) {
   const entries = await fs.readdir(context.sourceDir, { withFileTypes: true });
   const scssFiles = entries
@@ -109,20 +97,40 @@ async function compileComponentScssFiles(context) {
 async function runComponentBuild(componentName) {
   const context = createBuildContext(componentName);
   const buildModulePath = path.join(context.sourceDir, componentBuildFile);
+  let buildComponent;
 
   await fs.mkdir(context.outputDir, { recursive: true });
 
-  if (!(await pathExists(buildModulePath))) {
-    await copyComponentSourceFiles(context);
-    await compileComponentScssFiles(context);
-    return context;
+  if (await pathExists(buildModulePath)) {
+    const buildModule = await import(pathToFileURL(buildModulePath).href);
+
+    buildComponent = buildModule.buildComponent ?? buildModule.default;
+
+    if (buildComponent !== undefined && typeof buildComponent !== 'function') {
+      throw new Error(
+        `${buildModulePath} must export a buildComponent function when using a default or named build export.`
+      );
+    }
+
+    if (typeof buildComponent !== 'function') {
+      const buildConfig = Object.fromEntries(
+        Object.entries(buildModule).filter(([exportName]) =>
+          exportName !== 'buildComponent' &&
+          exportName !== 'default'
+        )
+      );
+
+      buildComponent = createComponentBuild({
+        componentName,
+        ...buildConfig
+      });
+    }
   }
 
-  const buildModule = await import(pathToFileURL(buildModulePath).href);
-  const buildComponent = buildModule.buildComponent ?? buildModule.default;
-
   if (typeof buildComponent !== 'function') {
-    throw new Error(`${buildModulePath} must export a buildComponent function.`);
+    buildComponent = createComponentBuild({
+      componentName
+    });
   }
 
   await buildComponent(context);
