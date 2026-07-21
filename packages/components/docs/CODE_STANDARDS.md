@@ -157,11 +157,11 @@ Prefer adding a clearly named element class over targeting the same element by i
 
 Before opening a component PR, check that:
 
-- [] externally exposed classes use the `mds-` prefix
-- [] component classes follow BEM naming
-- [] utility classes use simple slugified names
-- [] styles target classes instead of raw HTML elements
-- [] selectors stay low-specificity and avoid unnecessary nesting
-- [] spacing, color, typography, radius, motion, and shadow values use tokens or mixins where available
-- [] token references do not include fallback values
-- [] repeatable or themable values are abstracted as component-scoped custom properties and are prefixed and named accordingly
+- [ ] externally exposed classes use the `mds-` prefix
+- [ ] component classes follow BEM naming
+- [ ] utility classes use simple slugified names
+- [ ] styles target classes instead of raw HTML elements
+- [ ] selectors stay low-specificity and avoid unnecessary nesting
+- [ ] spacing, color, typography, radius, motion, and shadow values use tokens or mixins where available
+- [ ] token references do not include fallback values
+- [ ] repeatable or themable values are abstracted as component-scoped custom properties and are prefixed and named accordingly
