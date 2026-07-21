@@ -1,5 +1,14 @@
 let popupMenu = {
+  initialized: false,
+
   init: function () {
+    if (this.initialized) {
+      return;
+    }
+
+    this.initialized = true;
+    
+    // rest of the current init function...
     let popupMenuTriggers = document.querySelectorAll(".mds-popup-menu-trigger");
     let allMenus = document.querySelectorAll(".mds-popup-menu");
     let menuItemSelector = "[role='menuitem']";
