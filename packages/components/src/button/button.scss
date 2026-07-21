@@ -153,16 +153,6 @@
     @include mixins.text("label-md");
   }
 
-  // Type layout adjustments
-  // Keep this after size modifiers so ghost buttons remain text-sized.
-  &--type-ghost {
-    min-height: auto;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-  }
-
   // Interaction states
 
   @include mixins.focus($focus-on-light: true);
