@@ -162,12 +162,6 @@
     --mds-button-shadow: var(--mds-button-shadow-hover);
   }
 
-  &--type-ghost:not(:disabled):hover .mds-button__label {
-    text-decoration-line: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: var(--mds-space-3xs);
-  }
-
   &:active {
     --mds-button-background: var(--mds-button-background-active);
     --mds-button-border: var(--mds-button-border-active);
@@ -175,6 +169,7 @@
     --mds-button-shadow: var(--mds-button-shadow-active);
   }
 
+  &--type-ghost:not(:disabled):hover .mds-button__label,
   &--type-ghost:not(:disabled):active .mds-button__label {
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
