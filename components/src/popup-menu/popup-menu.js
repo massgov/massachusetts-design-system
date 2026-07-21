@@ -173,8 +173,12 @@ let popupMenu = {
       }
 
       trigger.setAttribute("aria-expanded", "false");
+      trigger.setAttribute("aria-haspopup", "menu");
       menu.dataset.triggerId = trigger.id;
 
+      if (!menu.hasAttribute("aria-labelledby") && !menu.hasAttribute("aria-label")) {
+        menu.setAttribute("aria-labelledby", trigger.id);
+      }
       getMenuItems(menu).forEach((item) => {
         item.setAttribute("tabindex", "-1");
       });
