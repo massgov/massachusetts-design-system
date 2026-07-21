@@ -126,6 +126,12 @@
     &.mds-button--color-light {
       --mds-button-color: var(--mds-text-and-icons-utility-static-white);
     }
+
+    &.mds-button--color-white {
+      --mds-button-color: var(--mds-text-and-icons-utility-static-white);
+      --mds-button-color-hover: var(--mds-text-and-icons-utility-static-white);
+      --mds-button-color-active: var(--mds-text-and-icons-utility-static-white);
+    }
   }
 
   // Size modifiers
