@@ -17,6 +17,6 @@ export const siteHeaderSchema = {
   },
   organization: {
     type: 'string',
-    default: 'Organization info (Optional)'
+    default: ''
   }
 };
