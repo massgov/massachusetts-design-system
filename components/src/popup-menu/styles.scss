@@ -73,6 +73,17 @@ body.dark {
       color: var(--mds-text-and-icons-utility-inverse);
     }
 
+    a:focus-visible,
+    button:focus-visible {
+      background: var(--mds-background-adaptive-brand-primary-mid);
+      color: var(--mds-text-and-icons-utility-inverse);
+      border-radius: var(--mds-radius-sm, 4px);
+      outline-width: 2px;
+      outline-style: solid;
+      outline-offset: 2px;
+      outline-color: var(--mds-border-focus-on-dark);
+    }
+
     a:active,
     button:active {
       background: var(--mds-background-adaptive-brand-primary-highest);
