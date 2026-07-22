@@ -50,4 +50,5 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 ### Removed
 * [DP-145] Removed one-off eyebrow text transform and letter spacing tokens, they now live in the styles layer. #77
 * [DP-145] Removed unused `--mds-font-family` primitive token. #77
+* [DP-361] Removed unused packages/tokens/package-lock.json. #84
 
