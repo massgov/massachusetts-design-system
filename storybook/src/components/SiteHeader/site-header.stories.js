@@ -1,10 +1,10 @@
 import '@massds/mds-components/site-header.css';
-import './site-header.examples.css';
 import {
   siteHeaderDefaults
 } from '../../../../packages/components/src/site-header/site-header.data.js';
-import { controlCategories } from '../../utils/controlCategories.js';
 import { renderSiteHeader } from '../../utils/component-renderers.js';
+import { controlCategories } from '../../utils/controlCategories.js';
+import './site-header.examples.css';
 
 // Storybook render functions return an HTML element.
 function createPreview(html, className = '') {
@@ -32,10 +32,10 @@ const siteHeaderExamples = [
     }
   },
   {
-    label: 'With organization info',
+    label: 'With subheading',
     args: {
       siteName: 'Site name',
-      subHeading: 'Organization info (Optional)'
+      subHeading: 'Subheading (Optional)'
     }
   }
 ];

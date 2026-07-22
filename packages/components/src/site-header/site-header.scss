@@ -50,7 +50,7 @@
     @include mixins.text("heading-sm");
   }
 
-  &__organization {
+  &__subheading {
     @include mixins.text("eyebrow-md");
   }
 }
