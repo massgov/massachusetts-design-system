@@ -2,7 +2,7 @@
 {% set headerSealSrc = sealSrc|default(siteHeaderDefaults.sealSrc) %}
 {% set headerSealAlt = sealAlt|default(siteHeaderDefaults.sealAlt) %}
 {% set headerSiteName = siteName|default(siteHeaderDefaults.siteName) %}
-{% set headerOrganization = organization is defined ? organization : siteHeaderDefaults.organization %}
+{% set headerSubHeading = subHeading is defined ? subHeading : siteHeaderDefaults.subHeading %}
 
 <div class="mds-site-header">
   <div class="mds-site-header__container">
@@ -19,9 +19,9 @@
           <span class="mds-site-header__site-name">
             {{ headerSiteName|e }}
           </span>
-          {% if headerOrganization %}
+          {% if headerSubHeading %}
             <span class="mds-site-header__organization">
-              {{ headerOrganization|e }}
+              {{ headerSubHeading|e }}
             </span>
           {% endif %}
         </span>

@@ -15,7 +15,7 @@ export const siteHeaderSchema = {
     type: 'string',
     default: 'Site name'
   },
-  organization: {
+  subHeading: {
     type: 'string',
     default: ''
   }

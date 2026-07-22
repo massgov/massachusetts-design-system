@@ -1,0 +1,28 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as SiteHeaderStories from './site-header.stories.js';
+
+<Meta of={SiteHeaderStories} />
+
+# Site Header
+
+The site header identifies a Mass.gov site or service and gives users a consistent way to return to the site home page.
+
+## Usage
+
+Use the site header at the top of a Mass.gov site, below the official state banner when that banner is present. The header should include the state seal, a clear site name, and optional organization information when it helps users understand ownership or context.
+
+### When To Use
+
+- At the top of a Mass.gov site or service.
+- When users need a consistent link back to the site home page.
+- When the page belongs to a named agency, program, or service.
+
+### When Not To Use
+
+- Inside page content or repeated sections.
+- As a replacement for page-level headings.
+- For non-Mass.gov experiences that should not use Commonwealth branding.
+
+## Examples
+
+<Canvas of={SiteHeaderStories.Examples} sourceState="none" />
