@@ -23,8 +23,8 @@ export const iconButtonSchema = {
   },
   ariaLabel: {
     type: 'string',
-    default: 'x'
-  },
+    default: 'Close'
+  }
   icon: {
     type: 'icon',
     default: 'x',
