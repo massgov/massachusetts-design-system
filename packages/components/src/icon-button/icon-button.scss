@@ -44,21 +44,6 @@
     --mds-icon-button-accent-low: var(--mds-background-adaptive-brand-secondary-lowest);
   }
 
-  &--color-light {
-    --mds-icon-button-accent: var(--mds-background-section-utility-static-white);
-    --mds-icon-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
-    --mds-icon-button-accent-active: var(--mds-background-section-brand-neutral-low);
-    --mds-icon-button-accent-low: var(--mds-background-base-overlay);
-    --mds-icon-button-on-accent: var(--mds-text-and-icons-utility-static-black);
-  }
-
-  &--color-danger {
-    --mds-icon-button-accent: var(--mds-background-adaptive-utility-danger-mid);
-    --mds-icon-button-accent-hover: var(--mds-background-adaptive-utility-danger-high);
-    --mds-icon-button-accent-active: var(--mds-background-adaptive-utility-danger-highest);
-    --mds-icon-button-accent-low: var(--mds-background-adaptive-utility-danger-lowest);
-  }
-
   &--type-fill {
     --mds-icon-button-background: var(--mds-icon-button-accent);
     --mds-icon-button-background-hover: var(--mds-icon-button-accent-hover);
@@ -72,15 +57,15 @@
     --mds-icon-button-color-active: var(--mds-icon-button-on-accent);
 
     @include mixins.focus($focus-on-light: true);
-  }
 
-  &--color-light {
-    --mds-icon-button-accent: var(--mds-background-section-utility-static-white);
-    --mds-icon-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
-    --mds-icon-button-accent-active: var(--mds-background-section-brand-neutral-low);
-    --mds-icon-button-on-accent: var(--mds-text-and-icons-utility-static-black);
+    &.mds-icon-button--color-light {
+      --mds-icon-button-accent: var(--mds-background-section-utility-static-white);
+      --mds-icon-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
+      --mds-icon-button-accent-active: var(--mds-background-section-brand-neutral-low);
+      --mds-icon-button-on-accent: var(--mds-text-and-icons-utility-static-black);
 
-    @include mixins.focus($focus-on-light: false);
+      @include mixins.focus($focus-on-light: false);
+    }
   }
 
   &--type-outline {
