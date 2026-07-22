@@ -13,9 +13,6 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: packages/tokens
     steps:
       - name: Check out repository
         uses: actions/checkout@v5
@@ -26,18 +23,19 @@ jobs:
           node-version: 24.14.0
           registry-url: https://registry.npmjs.org/
           cache: npm
-          cache-dependency-path: packages/tokens/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build package
-        run: npm run build
+        run: npm run build --workspace @massds/mds-tokens
 
       - name: Verify tag matches package version
         if: startsWith(github.ref, 'refs/tags/')
         env:
           GITHUB_REF_NAME: ${{ github.ref_name }}
+        working-directory: packages/tokens
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
           EXPECTED_TAG="tokens-v${PACKAGE_VERSION}"
@@ -51,6 +49,7 @@ jobs:
       - name: Publish to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        working-directory: packages/tokens
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
 
