@@ -37,3 +37,17 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 * Added a Codex skill workflow for comparing and syncing `primitives.css` with Base Tokens Figma variables.
 * [DP-47071] Added motion tokens to primitives and semantic variables. #47
 
+
+## 2.0.0 (7/22/2026)
+
+### Changed
+* [DP-145] Replaced composite typography shorthand tokens with longhand typography attribute tokens for font family, font weight, font size, and line height. #77
+
+### Fixed
+* [DP-145] Fix mismatched `--mds-text-heading-font-size-lg` value in media query. #77
+* [DS-134] Updated mds-border-brand-neutral-high from mds-color-brand-gray-750 to mds-color-brand-gray-800 to meet accessibility criteria. #69
+
+### Removed
+* [DP-145] Removed one-off eyebrow text transform and letter spacing tokens, they now live in the styles layer. #77
+* [DP-145] Removed unused `--mds-font-family` primitive token. #77
+
