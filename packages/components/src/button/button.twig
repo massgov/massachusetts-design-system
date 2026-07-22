@@ -5,7 +5,8 @@
   - leftIcon and rightIcon are icon names from the assets package.
 #}
 {% set buttonType = type in buttonOptions.type ? type : buttonDefaults.type %}
-{% set buttonColor = color in buttonOptions.color ? color : buttonDefaults.color %}
+{% set requestedColor = color in buttonOptions.color ? color : buttonDefaults.color %}
+{% set buttonColor = requestedColor == 'White' and buttonType != 'Ghost' ? buttonDefaults.color : requestedColor %}
 {% set buttonSize = size in buttonOptions.size ? size : buttonDefaults.size %}
 {% set buttonHtmlType = htmlType in buttonOptions.htmlType ? htmlType : buttonDefaults.htmlType %}
 {% set buttonText = text|default(buttonDefaults.text) %}
