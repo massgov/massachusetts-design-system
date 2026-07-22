@@ -45,6 +45,15 @@ const buttonColorExamples = [
   }
 ];
 
+const ghostButtonColorExamples = [
+  ...buttonColorExamples,
+  {
+    color: 'White',
+    label: 'White',
+    surface: 'dark'
+  }
+];
+
 const buttonSizeExamples = [
   {
     label: 'Large',
@@ -107,10 +116,14 @@ function renderColorExample(colorExample, size, type) {
   `;
 }
 
+function getButtonColorExamples(type) {
+  return type === 'Ghost' ? ghostButtonColorExamples : buttonColorExamples;
+}
+
 function renderSizeRow(sizeExample, type) {
   let colorExamplesHtml = '';
 
-  for (const colorExample of buttonColorExamples) {
+  for (const colorExample of getButtonColorExamples(type)) {
     colorExamplesHtml += renderColorExample(colorExample, sizeExample.size, type);
   }
 
@@ -177,6 +190,7 @@ const buttonControls = {
   color: {
     control: 'select',
     options: buttonOptions.color,
+    description: 'White applies to Ghost buttons only.',
     table: {
       category: controlCategories.design
     }
