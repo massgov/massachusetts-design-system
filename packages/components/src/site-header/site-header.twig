@@ -2,7 +2,7 @@
 {% set headerSealSrc = sealSrc|default(siteHeaderDefaults.sealSrc) %}
 {% set headerSealAlt = sealAlt|default(siteHeaderDefaults.sealAlt) %}
 {% set headerSiteName = siteName|default(siteHeaderDefaults.siteName) %}
-{% set headerSubHeading = subHeading is defined ? subHeading : siteHeaderDefaults.subHeading %}
+{% set headerSubHeading = subHeading|default(siteHeaderDefaults.subHeading) %}
 
 <div class="mds-site-header">
   <div class="mds-site-header__container">
