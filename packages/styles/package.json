@@ -51,7 +51,7 @@
   "author": "Massachusetts Digital Services",
   "license": "MIT",
   "peerDependencies": {
-    "@massds/mds-tokens": "^1.0.0"
+    "@massds/mds-tokens": "^2.0.0"
   },
   "devDependencies": {
     "sass": "^1.93.2",
