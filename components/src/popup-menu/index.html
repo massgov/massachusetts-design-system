@@ -10,7 +10,7 @@
   <body>
     <main class="mds-popup-menu__container">
       <h1>Pop-up menu</h1>
-      <button class="mds-popup-menu-trigger" aria-haspopup="true" aria-controls="mds-popup-menu-links">
+      <button type="button" class="mds-popup-menu-trigger" aria-haspopup="true" aria-controls="mds-popup-menu-links">
         Open Popup Menu with links
       </button>
       <div id="mds-popup-menu-links" class="mds-popup-menu" role="menu">
@@ -21,20 +21,6 @@
                 <span class="mds-popup-menu__icon" aria-hidden="true"></span>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non diam sit amet lacus molestie dapibus molestie eu diam. Donec vitae diam in nunc ultricies euismod.
               </span>
-              <!-- <svg
-                class="mds-popup-menu__caret"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M4 12h10" />
-                <path d="M11 6l6 6-6 6" />
-              </svg> -->
             </a>
           </li>
           <li>
@@ -83,6 +69,7 @@
       <h2 style="margin-top: 48px; text-align: right">Popup menu on right edge</h2>
       <div style="display: flex; justify-content: flex-end">
         <button
+          type="button"
           class="mds-popup-menu-trigger"
           aria-haspopup="true"
           aria-controls="mds-popup-menu-links-right"
@@ -129,6 +116,7 @@
 
       <h2 style="margin-top: 48px">Popup menu without left icons</h2>
       <button
+        type="button"
         class="mds-popup-menu-trigger"
         aria-haspopup="true"
         aria-controls="mds-popup-menu-links-no-icons"
@@ -163,6 +151,7 @@
 
       <h2 style="margin-top: 48px">Popup menu with mixed icon usage</h2>
       <button
+        type="button"
         class="mds-popup-menu-trigger"
         aria-haspopup="true"
         aria-controls="mds-popup-menu-links-mixed-icons"
@@ -204,17 +193,38 @@
         </ul>
       </div>
 
-      <!-- <h2>Popup menu with buttons</h2>
-      <button class="mds-popup-menu-trigger" aria-haspopup="true" aria-controls="mds-popup-menu-buttons">
-        Open Popup Menu with buttons
+      <h2 style="margin-top: 48px">Popup menu with disabled buttons</h2>
+      <button
+        type="button"
+        class="mds-popup-menu-trigger"
+        aria-haspopup="true"
+        aria-controls="mds-popup-menu-buttons-disabled"
+      >
+        Open Popup Menu with disabled buttons
       </button>
-      <div id="mds-popup-menu-buttons" class="mds-popup-menu" role="menu">
+      <div id="mds-popup-menu-buttons-disabled" class="mds-popup-menu" role="menu">
         <ul>
           <li>
             <button type="button" role="menuitem">
               <span class="mds-popup-menu__label">
                 <span class="mds-popup-menu__icon" aria-hidden="true"></span>
-                Select item
+                Enabled action
+              </span>
+            </button>
+          </li>
+          <li>
+            <button type="button" role="menuitem" disabled>
+              <span class="mds-popup-menu__label">
+                <span class="mds-popup-menu__icon" aria-hidden="true"></span>
+                Disabled action
+              </span>
+            </button>
+          </li>
+          <li>
+            <button type="button" role="menuitem" disabled>
+              <span class="mds-popup-menu__label">
+                <span class="mds-popup-menu__icon" aria-hidden="true"></span>
+                Another disabled action
               </span>
             </button>
           </li>
@@ -222,20 +232,12 @@
             <button type="button" role="menuitem">
               <span class="mds-popup-menu__label">
                 <span class="mds-popup-menu__icon" aria-hidden="true"></span>
-                Select item
+                Final enabled action
               </span>
             </button>
           </li>
-          <li>
-            <button type="button" role="menuitem">
-              <span class="mds-popup-menu__label">
-                <span class="mds-popup-menu__icon" aria-hidden="true"></span>
-                Select item
-              </span>
-            </button>
-          </li>          
         </ul>
-      </div> -->
+      </div>
     </main>
     <script src="popup-menu.js"></script>
     <script>
