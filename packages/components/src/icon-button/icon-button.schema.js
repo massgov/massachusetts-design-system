@@ -38,7 +38,7 @@ export const iconButtonSchema = {
   color: {
     type: 'enum',
     default: 'Primary',
-    options: ['Primary', 'Secondary', 'Light']
+    options: ['Primary', 'Secondary', 'Light', 'White']
   },
   className: {
     type: 'string',

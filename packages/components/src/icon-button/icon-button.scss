@@ -112,6 +112,12 @@
     &.mds-icon-button--color-light {
       --mds-icon-button-color: var(--mds-text-and-icons-utility-static-white);
     }
+
+    &.mds-icon-button--color-white {
+      --mds-icon-button-color: var(--mds-text-and-icons-utility-static-white);
+      --mds-icon-button-color-hover: var(--mds-text-and-icons-utility-static-white);
+      --mds-icon-button-color-active: var(--mds-text-and-icons-utility-static-white);
+    }
   }
 
   // Interaction states

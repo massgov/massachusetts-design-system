@@ -1,11 +1,11 @@
 import '@massds/mds-components/icon-button.css';
-import './icon-button.examples.css';
 import {
   iconButtonDefaults,
   iconButtonOptions
 } from '../../../../packages/components/src/icon-button/icon-button.data.js';
-import { controlCategories } from '../../utils/controlCategories.js';
 import { renderIconButton } from '../../utils/component-renderers.js';
+import { controlCategories } from '../../utils/controlCategories.js';
+import './icon-button.examples.css';
 
 // Storybook render functions return an HTML element.
 function createPreview(html, className = '') {
@@ -150,7 +150,7 @@ const iconButtonControls = {
   },
   href: {
     control: 'text',
-    description: 'Link destination when element is a.',
+    description: 'Link destination - entering a value here will make the element an anchor tag.',
     table: {
       category: controlCategories.html
     }

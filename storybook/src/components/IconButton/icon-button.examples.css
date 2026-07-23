@@ -4,7 +4,7 @@
   min-width: 120px;
   min-height: 120px;
   padding: 24px;
-  background: var(--mds-background-section-utility-static-white);
+  /**background: var(--mds-background-section-utility-static-white);**/
 }
 
 .mds-icon-button-playground--dark {
