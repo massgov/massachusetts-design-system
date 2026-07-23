@@ -1,25 +1,25 @@
-body {
-  font-size: var(--mds-text-body-font-size);
-  font-family: var(--mds-text-body-font-family);
-  font-weight: var(--mds-text-body-font-weight);
-  line-height: var(--mds-text-body-line-height);
-}
+@use "pkg:@massds/mds-styles/scss" as mixins;
+@include mixins.component-reset;
 
-body.dark {
-  background: var(--mds-background-adaptive-utility-inverse);
-  color: var(--mds-text-and-icons-brand-neutral-default);
+body {
+  @include mixins.text("body");
 }
 
 .mds-popup-menu {
   --mds-popup-menu-offset: var(--mds-space-2xs);
   --mds-popup-menu-viewport-padding: var(--mds-space-md);
+  --mds-popup-menu-min-width: 288px;
+  --mds-popup-menu-max-width: 480px;
 
   display: none;
   min-width: min(
-    288px,
+    var(--mds-popup-menu-min-width),
     calc(100vw - (var(--mds-popup-menu-viewport-padding) * 2))
   );
-  max-width: min(480px, calc(100vw - (var(--mds-popup-menu-viewport-padding) * 2)));
+  max-width: min(
+    var(--mds-popup-menu-max-width),
+    calc(100vw - (var(--mds-popup-menu-viewport-padding) * 2))
+  );
   box-sizing: border-box;
   padding: var(--mds-space-2xs);
   flex-direction: column;
@@ -27,10 +27,7 @@ body.dark {
   gap: var(--mds-space-3xs);
   position: fixed;
   z-index: 10;
-  font-family: var(--mds-text-body-font-family);
-  font-weight: var(--mds-text-body-font-weight);
-  font-size: var(--mds-text-body-font-size);
-  line-height: var(--mds-text-body-line-height);
+  @include mixins.text("body");
   border-radius: var(--mds-radius-md);
   border: 1px solid var(--mds-border-brand-neutral-low);
   background: var(--mds-background-section-utility-inverse);
@@ -38,7 +35,7 @@ body.dark {
   overflow: auto;
   max-block-size: calc(100vh - (var(--mds-popup-menu-viewport-padding) * 2));
 
-  ul {
+  &__list {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -49,7 +46,7 @@ body.dark {
     width: 100%;
   }
 
-  li {
+  &__item {
     display: flex;
     padding: 0;
     align-items: center;
@@ -122,11 +119,8 @@ body.dark {
     width: 24px;
     height: 24px;
     flex: 0 0 24px;
-    background-color: currentColor;
-    mask: url("/@massds/mds-assets/dist/icons/smiley.svg") center / contain
-      no-repeat;
-    -webkit-mask: url("/@massds/mds-assets/dist/icons/smiley.svg") center /
-      contain no-repeat;
+    display: block;
+    fill: currentColor;
   }
 
   &--no-icons &__icon {
@@ -141,9 +135,8 @@ body.dark {
   }
 
   &__container {
-    width: min(100%, 1280px);
-    margin: 0 auto;
-    padding-inline: var(--mds-breakpoint-horizontal-space-margin);
+    @include mixins.section-container;
+
     box-sizing: border-box;
     background: transparent;
     color: inherit;

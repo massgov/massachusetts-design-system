@@ -382,7 +382,7 @@ let popupMenu = {
           !menu.contains(event.target) &&
           !clickedTrigger
         ) {
-          closeMenu(menu, true);
+          closeMenu(menu, false);
         }
       });
     });
