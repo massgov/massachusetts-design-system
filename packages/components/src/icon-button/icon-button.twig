@@ -24,6 +24,8 @@
     type="{{ iconButtonHtmlType|e }}"
     aria-label="{{ iconButtonAriaLabel|e }}"{% if iconButtonId %}
     id="{{ iconButtonId|e }}"{% endif %}
+    {% if disabled %}
+  disabled{% endif %}
   >
     {% include 'icon.twig' with {
       name: iconButtonIcon,
@@ -35,7 +37,8 @@
     class="{{ iconButtonClass|e }}"
     href="{{ iconButtonHref|e }}"
     aria-label="{{ iconButtonAriaLabel|e }}"{% if iconButtonId %}
-    id="{{ iconButtonId|e }}"{% endif %}
+    id="{{ iconButtonId|e }}"{% endif %}{% if disabled %}
+  disabled{% endif %}
   >
     {% include 'icon.twig' with {
       name: iconButtonIcon,

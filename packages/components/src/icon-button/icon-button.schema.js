@@ -17,6 +17,10 @@ export const iconButtonSchema = {
     default: 'button',
     options: ['button', 'submit', 'reset']
   },
+  disabled: {
+    type: 'boolean',
+    default: false
+  },
   id: {
     type: 'string',
     default: ''
@@ -38,7 +42,7 @@ export const iconButtonSchema = {
   color: {
     type: 'enum',
     default: 'Primary',
-    options: ['Primary', 'Secondary', 'Light', 'White']
+    options: ['Primary', 'Secondary', 'Light', 'Error', 'White']
   },
   className: {
     type: 'string',
