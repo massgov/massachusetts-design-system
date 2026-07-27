@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { siteHeaderDefaults } from '../../../../packages/components/src/site-header/site-header.data.js';
+import siteHeaderCss from '@massds/mds-components/site-header.css?raw';
+import { renderSiteHeader } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as SiteHeaderStories from './site-header.stories.js';
+
+export const getSiteHeaderCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderSiteHeader({
+      ...siteHeaderDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: siteHeaderCss
+  }
+];
+
+<Meta of={SiteHeaderStories} />
+
+# Site Header
+
+<Canvas
+  of={SiteHeaderStories.Playground}
+  sourceState="none"
+/>
+
+## API
+
+<Controls of={SiteHeaderStories.Playground} />
+
+## Code
+
+<StoryCodeTabs of={SiteHeaderStories.Playground} getTabs={getSiteHeaderCodeTabs} />

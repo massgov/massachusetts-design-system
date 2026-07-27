@@ -120,11 +120,15 @@
     --mds-button-color-active: var(--mds-button-accent-active);
 
     border-radius: 0;
-    border-bottom-width: 2px;
-    padding-bottom: 0;
 
     &.mds-button--color-light {
       --mds-button-color: var(--mds-text-and-icons-utility-static-white);
+    }
+
+    &.mds-button--color-white {
+      --mds-button-color: var(--mds-text-and-icons-utility-static-white);
+      --mds-button-color-hover: var(--mds-text-and-icons-utility-static-white);
+      --mds-button-color-active: var(--mds-text-and-icons-utility-static-white);
     }
   }
 
@@ -147,16 +151,6 @@
     @include mixins.text("label-md");
   }
 
-  // Type layout adjustments
-  // Keep this after size modifiers so ghost buttons remain text-sized.
-  &--type-ghost {
-    min-height: auto;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-  }
-
   // Interaction states
 
   @include mixins.focus($focus-on-light: true);
@@ -168,10 +162,6 @@
     --mds-button-shadow: var(--mds-button-shadow-hover);
   }
 
-  &--type-ghost:hover {
-    border-bottom: 2px solid var(--mds-button-color-hover);
-  }
-
   &:active {
     --mds-button-background: var(--mds-button-background-active);
     --mds-button-border: var(--mds-button-border-active);
@@ -179,8 +169,11 @@
     --mds-button-shadow: var(--mds-button-shadow-active);
   }
 
-  &--type-ghost:active {
-    border-bottom: 2px solid var(--mds-button-color-active);
+  &--type-ghost:not(:disabled):hover .mds-button__label,
+  &--type-ghost:not(:disabled):active .mds-button__label {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: var(--mds-space-3xs);
   }
 
   &:disabled {
