@@ -220,10 +220,17 @@ const buttonControls = {
       category: controlCategories.html
     }
   },
+  href: {
+    control: 'text',
+    description: 'Link destination. When provided, the button renders as an anchor.',
+    table: {
+      category: controlCategories.html
+    }
+  },
   htmlType: {
     control: 'select',
     options: buttonOptions.htmlType,
-    description: 'Native HTML button type.',
+    description: 'Native HTML button type. Applies only when href is empty.',
     table: {
       category: controlCategories.html
     }
@@ -245,6 +252,7 @@ const defaultPlaygroundArgs = {
   leftIcon: buttonDefaults.leftIcon,
   rightIcon: buttonDefaults.rightIcon,
   id: buttonDefaults.id,
+  href: buttonDefaults.href,
   htmlType: buttonDefaults.htmlType,
   disabled: buttonDefaults.disabled,
 };
