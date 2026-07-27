@@ -2,6 +2,7 @@
   Button data:
   - type, color, and size become CSS modifier classes.
   - htmlType becomes the native <button type=""> attribute.
+  - href renders the component as an anchor with matching visual styles.
   - leftIcon and rightIcon are icon names from the assets package.
 #}
 {% set buttonType = type in buttonOptions.type ? type : buttonDefaults.type %}
@@ -9,17 +10,30 @@
 {% set buttonColor = requestedColor == 'White' and buttonType != 'Ghost' ? buttonDefaults.color : requestedColor %}
 {% set buttonSize = size in buttonOptions.size ? size : buttonDefaults.size %}
 {% set buttonHtmlType = htmlType in buttonOptions.htmlType ? htmlType : buttonDefaults.htmlType %}
+{% set buttonHref = href|default(buttonDefaults.href) %}
 {% set buttonText = text|default(buttonDefaults.text) %}
 {% set leftIconName = leftIcon in buttonOptions.icon ? leftIcon : buttonDefaults.leftIcon %}
 {% set rightIconName = rightIcon in buttonOptions.icon ? rightIcon : buttonDefaults.rightIcon %}
+{% set buttonClass = 'mds-button mds-button--type-' ~ buttonType|lower ~ ' mds-button--color-' ~ buttonColor|lower ~ ' mds-button--size-' ~ buttonSize|lower %}
 
+{% if buttonHref %}
+<a
+  class="{{ buttonClass|e }}"
+  href="{{ buttonHref|e }}"
+  data-mds-button{% if id %}
+  id="{{ id|e }}"{% endif %}{% if disabled %}
+  aria-disabled="true"
+  tabindex="-1"{% endif %}
+>
+{% else %}
 <button
-  class="mds-button mds-button--type-{{ buttonType|lower|e }} mds-button--color-{{ buttonColor|lower|e }} mds-button--size-{{ buttonSize|lower|e }}"
+  class="{{ buttonClass|e }}"
   type="{{ buttonHtmlType|e }}"
   data-mds-button{% if id %}
   id="{{ id|e }}"{% endif %}{% if disabled %}
   disabled{% endif %}
 >
+{% endif %}
   {% if leftIconName %}
     <span class="mds-button__icon mds-button__icon--left">
       {% include 'icon.twig' with {
@@ -39,4 +53,8 @@
       } %}
     </span>
   {% endif %}
+{% if buttonHref %}
+</a>
+{% else %}
 </button>
+{% endif %}

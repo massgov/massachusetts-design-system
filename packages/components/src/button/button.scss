@@ -169,14 +169,15 @@
     --mds-button-shadow: var(--mds-button-shadow-active);
   }
 
-  &--type-ghost:not(:disabled):hover .mds-button__label,
-  &--type-ghost:not(:disabled):active .mds-button__label {
+  &--type-ghost:not(:disabled):not([aria-disabled="true"]):hover .mds-button__label,
+  &--type-ghost:not(:disabled):not([aria-disabled="true"]):active .mds-button__label {
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: var(--mds-space-3xs);
   }
 
-  &:disabled {
+  &:disabled,
+  &[aria-disabled="true"] {
     --mds-button-background: var(--mds-background-section-brand-neutral-disabled);
     --mds-button-border: var(--mds-border-brand-neutral-low);
     --mds-button-color: var(--mds-text-and-icons-brand-neutral-disabled);
@@ -186,7 +187,8 @@
     cursor: not-allowed;
   }
 
-  &--type-ghost:disabled {
+  &--type-ghost:disabled,
+  &--type-ghost[aria-disabled="true"] {
     --mds-button-background: var(--mds-background-base-transparent);
   }
 
