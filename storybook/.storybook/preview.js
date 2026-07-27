@@ -14,7 +14,7 @@ const preview = {
           'Foundations',
           ['*', ['Overview', 'Code', 'Playground']],
           'Components',
-          ['*', ['Overview', 'Code', 'Playground']]
+          ['*', ['Overview', 'Guidance', 'Code', 'Playground']]
         ],
         includeNames: true
       }
