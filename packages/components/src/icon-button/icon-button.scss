@@ -117,7 +117,12 @@
     border-bottom-width: 2px;
 
     &.mds-icon-button--color-light {
+      --mds-icon-button-background: var(--mds-background-base-transparent);
+      --mds-icon-button-background-hover: var(--mds-background-adaptive-brand-neutral-high);
+      --mds-icon-button-background-active: var(--mds-background-adaptive-brand-neutral-highest);
       --mds-icon-button-color: var(--mds-text-and-icons-utility-static-white);
+      --mds-icon-button-color-hover: var(--mds-background-adaptive-brand-neutral-lowest);
+      --mds-icon-button-color-active: var(--mds-background-adaptive-brand-neutral-lowest);
     }
 
     &.mds-icon-button--color-white {
