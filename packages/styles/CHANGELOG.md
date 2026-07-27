@@ -28,4 +28,5 @@ All notable changes to `@massds/mds-styles` are auto-compiled in this file. See 
 ### Removed
 * [DP-47412] Removed row gap from grid styles #58
 * [DP-45434] Updated mixins: added resets for address and unordered list. Updated focus mixin to handle both focus color tokens. #53
+* [DP-366] Removed unused packages/styles/package-lock.json. #90
 
