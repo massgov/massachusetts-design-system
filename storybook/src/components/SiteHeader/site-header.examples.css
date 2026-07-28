@@ -1,0 +1,20 @@
+.mds-site-header-examples {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+}
+
+.mds-site-header-examples__item {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.mds-site-header-examples__heading {
+  margin: 0;
+  color: var(--mds-text-and-icons-brand-neutral-default);
+  font-family: var(--mds-text-label-font-family);
+  font-weight: var(--mds-text-label-font-weight);
+  font-size: var(--mds-text-label-font-size-md);
+  line-height: var(--mds-text-label-line-height-md);
+}
