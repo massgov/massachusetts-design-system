@@ -8,6 +8,22 @@
   color: var(--mds-text-and-icons-brand-neutral-default);
 }
 
+#storybook-docs .mds-docs-example-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#storybook-docs .mds-docs-example-stack {
+  display: grid;
+  justify-items: start;
+}
+
+#storybook-docs .mds-docs-example-item,
+#storybook-docs .mds-docs-example-surface {
+  display: inline-flex;
+}
+
 #storybook-docs .sbdocs-content :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)),
 #storybook-docs .sbdocs-content :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
 #storybook-docs .sbdocs-content :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),

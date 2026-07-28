@@ -3,11 +3,10 @@ import '@massds/mds-components/button.css';
 import { buttonDefaults } from '../../../../packages/components/src/button/button.data.js';
 import { renderButton } from '../../utils/component-renderers.js';
 import * as ButtonStories from './button.stories.js';
-import './button.overview.css';
 
 export const ButtonExample = (args) => (
   <span
-    className="mds-button-overview__button-example"
+    className="mds-docs-example-item"
     dangerouslySetInnerHTML={{
       __html: renderButton({
         ...buttonDefaults,
@@ -48,10 +47,10 @@ Set the `type` property to change the button's appearance. Available types inclu
 
 Set the `type` property to `Fill` to draw filled buttons.
 
-<div className="mds-button-overview__button-row">
+<div className="mds-docs-example-row mds-gap-md">
   <ButtonExample text="Primary" type="Fill" color="Primary" />
   <ButtonExample text="Secondary" type="Fill" color="Secondary" />
-  <span className="mds-button-overview__surface mds-button-overview__surface--black">
+  <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-utility-static-black">
     <ButtonExample text="Light" type="Fill" color="Light" />
   </span>
   <ButtonExample text="Danger" type="Fill" color="Danger" />
@@ -61,10 +60,10 @@ Set the `type` property to `Fill` to draw filled buttons.
 
 Set the `type` property to `Outline` to draw outline buttons.
 
-<div className="mds-button-overview__button-row">
+<div className="mds-docs-example-row mds-gap-md">
   <ButtonExample text="Primary" type="Outline" color="Primary" />
   <ButtonExample text="Secondary" type="Outline" color="Secondary" />
-  <span className="mds-button-overview__surface mds-button-overview__surface--black">
+  <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-utility-static-black">
     <ButtonExample text="Light" type="Outline" color="Light" />
   </span>
   <ButtonExample text="Danger" type="Outline" color="Danger" />
@@ -74,10 +73,10 @@ Set the `type` property to `Outline` to draw outline buttons.
 
 Set the `type` property to `Ghost` to draw text buttons.
 
-<div className="mds-button-overview__button-row">
+<div className="mds-docs-example-row mds-gap-md">
   <ButtonExample text="Primary" type="Ghost" color="Primary" />
   <ButtonExample text="Secondary" type="Ghost" color="Secondary" />
-  <span className="mds-button-overview__surface mds-button-overview__surface--black">
+  <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-utility-static-black">
     <ButtonExample text="Light" type="Ghost" color="Light" />
   </span>
   <ButtonExample text="Danger" type="Ghost" color="Danger" />
@@ -87,8 +86,8 @@ Set the `type` property to `Ghost` to draw text buttons.
 
 Set the `color` property to `White` for ghost buttons when they are used only on dark backgrounds that will maintain their color between light and dark mode.
 
-<div className="mds-button-overview__button-row">
-  <span className="mds-button-overview__surface mds-button-overview__surface--informative">
+<div className="mds-docs-example-row mds-gap-md">
+  <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-utility-informative-highest">
     <ButtonExample text="White" type="Ghost" color="White" />
   </span>
 </div>
@@ -97,7 +96,7 @@ Set the `color` property to `White` for ghost buttons when they are used only on
 
 Use the `size` property to change the button's size. Most buttons use `Regular`. `Large` is available for certain uses, like a Hamburger Menu button or a featured call to action in a hero area.
 
-<div className="mds-button-overview__button-row">
+<div className="mds-docs-example-row mds-gap-md">
   <ButtonExample text="Regular" size="Regular" />
   <ButtonExample text="Large" size="LG" />
 </div>
@@ -112,7 +111,7 @@ Place an icon before the label when the icon helps people quickly recognize the 
 
 Examples:
 
-<div className="mds-button-overview__button-stack">
+<div className="mds-docs-example-stack mds-gap-sm">
   <ButtonExample text="Download" leftIcon="download-simple" />
   <ButtonExample text="Previous" type="Outline" leftIcon="arrow-left" />
   <ButtonExample text="Log in" type="Ghost" leftIcon="user" />
@@ -124,7 +123,7 @@ Place an icon after the label when the icon suggests progression, continuation, 
 
 Examples:
 
-<div className="mds-button-overview__button-stack">
+<div className="mds-docs-example-stack mds-gap-sm">
   <ButtonExample text="Next" rightIcon="arrow-right" />
   <ButtonExample text="Start application" type="Outline" rightIcon="arrow-right" />
   <ButtonExample text="Check eligibility" type="Ghost" rightIcon="arrow-right" />
