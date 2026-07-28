@@ -9,7 +9,6 @@ run-name: Running `terraform plan` for ${{ github.ref_name }}
 
 env:
   TF_IN_AUTOMATION: "true"
-  TFENV_AUTO_INSTALL: "true"
 
 on:
   workflow_call:
@@ -40,7 +39,10 @@ jobs:
           role-to-assume: ${{ vars.PLAN_ROLE_ARN }}
 
       - name: Install Terraform
-        uses: massgov/mds-gh-actions/actions/setup-terraform@main
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "~> 1.10"
+          terraform_wrapper: false
 
       - name: Terraform plan
         run: |
