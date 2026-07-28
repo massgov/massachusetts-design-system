@@ -1,12 +1,10 @@
 module "static_site" {
-  source       = "github.com/massgov/mds-terraform-common//static-site?ref=1.109"
-  name         = "massachusetts-design-system-dev"
-  bucket_name  = "massachusetts-design-system-dev"
-  environments = ["dev"]
-  tags         = module.tagging.tags
-  zone_id      = data.aws_route53_zone.zone_id
-}
+  source = "../../template/static-site"
 
-data "aws_route53_zone" "primary" {
-  name = "Z39CCHR590O423"
+  name    = "massachusetts-design-system-dev"
+  comment = "designsystem.mass.gov (dev)"
+
+  # Custom domain deferred until designsystem.mass.gov DNS is ready:
+  # aliases             = ["dev.designsystem.mass.gov"]
+  # acm_certificate_arn = "<us-east-1 ACM cert arn>"
 }
