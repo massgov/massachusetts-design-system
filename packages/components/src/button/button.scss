@@ -120,7 +120,6 @@
     --mds-button-color-active: var(--mds-button-accent-active);
 
     border-radius: 0;
-    padding-inline: 0;
 
     &.mds-button--color-light {
       --mds-button-color: var(--mds-text-and-icons-utility-static-white);
@@ -150,6 +149,10 @@
     padding: var(--mds-space-sm) var(--mds-space-md);
 
     @include mixins.text("label-md");
+  }
+
+  &--type-ghost {
+    padding-inline: 0;
   }
 
   // Interaction states
