@@ -63,11 +63,11 @@ let popupMenu = {
       return {
         offset: parseFloat(
           menuStyles.getPropertyValue("--mds-popup-menu-offset")
-        ) || 4,
+        ) || 4, // Fallback to 4px because the offset token maps to the smallest intended gap between the trigger and menu, preserving the menu's default visual separation.
         viewportPadding:
           parseFloat(
             menuStyles.getPropertyValue("--mds-popup-menu-viewport-padding")
-          ) || 16,
+          ) || 16, // Fallback to 16px because the viewport padding token maps to the default safe margin from screen edges, helping keep the menu from touching the viewport boundary.
       };
     };
 
