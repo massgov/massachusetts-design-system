@@ -1,6 +1,7 @@
 import '@massds/mds-tokens/dist/index.css';
 import '@massds/mds-styles/index.css';
 import './preview.css';
+import './docs-markdown.css';
 import { massdsDocsTheme } from './theme';
 
 const preview = {
