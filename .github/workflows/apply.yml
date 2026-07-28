@@ -16,7 +16,6 @@ run-name: Running `terraform apply` (${{ inputs.environment || 'dev' }})
 
 env:
   TF_IN_AUTOMATION: "true"
-  TFENV_AUTO_INSTALL: "true"
 
 on:
   push:
@@ -74,7 +73,10 @@ jobs:
           role-to-assume: ${{ vars.DEPLOY_ROLE_ARN }}
 
       - name: Install Terraform
-        uses: massgov/mds-gh-actions/actions/setup-terraform@main
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "~> 1.10"
+          terraform_wrapper: false
 
       - name: Terraform apply
         run: |
