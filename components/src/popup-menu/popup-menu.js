@@ -53,7 +53,7 @@ let popupMenu = {
     };
 
     /**
-     * Reads the spacing values used to position a popup menu within the viewport.
+     * Gets the spacing values in the viewport to ensure the menu stays within the visible area of the screen and maintains a gap from its trigger.
      *
      * @param {HTMLElement} menu - The popup menu element whose computed custom properties should be read.
      * @returns {{offset: number, viewportPadding: number}} The menu offset from its trigger and the viewport edge padding.
@@ -122,6 +122,8 @@ let popupMenu = {
 
     /**
      * Positions an open popup menu relative to its trigger while keeping it inside the viewport.
+     * This ensures the menu stays visible on screen regardless of whether the trigger is near
+     * the top, bottom, left, or right edge of the window.
      *
      * @param {HTMLElement} menu - The popup menu element to position.
      */
@@ -148,6 +150,7 @@ let popupMenu = {
       let triggerRect = trigger.getBoundingClientRect();
       let menuRect = menu.getBoundingClientRect();
 
+      // Start from the trigger position, then clamp the menu so it stays within the viewport.
       let left = triggerRect.left;
       let rightAlignedLeft = triggerRect.right - menuRect.width;
 
