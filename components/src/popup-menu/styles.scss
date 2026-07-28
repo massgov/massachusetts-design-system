@@ -1,11 +1,8 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
-@include mixins.component-reset;
-
-body {
-  @include mixins.text("body");
-}
 
 .mds-popup-menu {
+  @include mixins.unordered-list-reset;
+
   --mds-popup-menu-offset: var(--mds-space-2xs);
   --mds-popup-menu-viewport-padding: var(--mds-space-md);
   --mds-popup-menu-min-width: 288px;
@@ -73,28 +70,36 @@ body {
       background: inherit;
     }
 
+    button:disabled {
+      color: var(--mds-text-and-icons-brand-neutral-disabled);
+    }
+
     a:hover,
     button:hover {
-      background: var(--mds-background-adaptive-brand-primary-mid);
-      color: var(--mds-text-and-icons-utility-inverse);
+      background: var(--mds-background-adaptive-brand-primary-lowest);
+      color: var(--mds-text-and-icons-brand-neutral-default);
+    }
+
+    button:disabled:hover {
+      background: transparent;
+      color: var(--mds-text-and-icons-brand-neutral-disabled);
     }
 
     a:focus-visible,
     a[data-force-focus-visible="true"]:focus,
     button:focus-visible,
     button[data-force-focus-visible="true"]:focus {
-      background: var(--mds-background-adaptive-brand-primary-mid);
-      color: var(--mds-text-and-icons-utility-inverse);
       border-radius: var(--mds-radius-sm);
       outline-width: 2px;
       outline-style: solid;
       outline-offset: 2px;
-      outline-color: var(--mds-border-focus-on-dark);
+      outline-color: var(--mds-border-focus-on-light);
     }
 
     a:active,
     button:active {
-      background: var(--mds-background-adaptive-brand-primary-highest);
+      background: var(--mds-background-adaptive-brand-primary-mid);
+      color: var(--mds-text-and-icons-utility-inverse);
     }
   }
 
@@ -136,10 +141,17 @@ body {
 
   &__container {
     @include mixins.section-container;
+    @include mixins.text("body");
 
     box-sizing: border-box;
     background: transparent;
     color: inherit;
+
+    h1,
+    h2,
+    p {
+      margin: 0;
+    }
   }
 
   inset: auto;

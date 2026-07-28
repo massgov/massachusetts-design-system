@@ -36,6 +36,23 @@ let popupMenu = {
     };
 
     /**
+     * Clears any forced visible-focus state from a menu and its items so pointer hover can take over styling.
+     *
+     * @param {HTMLElement} menu - The popup menu whose forced focus-visible state should be removed.
+     */
+    let clearForcedMenuFocusVisibility = function (menu) {
+      if (!menu || menu.dataset.forceFocusVisible !== "true") {
+        return;
+      }
+
+      delete menu.dataset.forceFocusVisible;
+
+      getMenuItems(menu).forEach((item) => {
+        delete item.dataset.forceFocusVisible;
+      });
+    };
+
+    /**
      * Reads the spacing values used to position a popup menu within the viewport.
      *
      * @param {HTMLElement} menu - The popup menu element whose computed custom properties should be read.
@@ -307,6 +324,10 @@ let popupMenu = {
     };
 
     allMenus.forEach((menu) => {
+      menu.addEventListener("pointermove", function () {
+        clearForcedMenuFocusVisibility(menu);
+      });
+
       menu.addEventListener("click", function (event) {
         let clickedItem = event.target.closest(menuItemSelector);
         if (clickedItem && menu.contains(clickedItem)) {
