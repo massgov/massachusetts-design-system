@@ -135,7 +135,7 @@
   &--size-regular {
     --mds-button-gap: var(--mds-space-2xs);
 
-    min-height: 44px;
+    height: 44px;
     padding: var(--mds-space-xs) var(--mds-space-sm);
 
     @include mixins.text("label");
@@ -144,7 +144,7 @@
   &--size-lg {
     --mds-button-gap: var(--mds-space-xs);
 
-    min-height: 54px;
+    height: 54px;
     padding: var(--mds-space-sm) var(--mds-space-md);
 
     @include mixins.text("label-md");
