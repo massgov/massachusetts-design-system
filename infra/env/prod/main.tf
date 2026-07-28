@@ -1,19 +1,11 @@
-data "aws_route53_zone" "digital" {
-  name = "digital.mass.gov"
-}
-
 module "static_site" {
-  source      = "github.com/massgov/mds-terraform-common//static-site?ref=1.109"
-  name        = "massachusetts-design-system-prod"
-  bucket_name = "massachusetts-design-system-prod"
-  zone_id     = data.aws_route53_zone.digital.zone_id
-  environments = [
-    {
-      # Interim domain until designsystem.mass.gov DNS is ready to cut over.
-      name         = "prod"
-      domain       = "designsystem.digital.mass.gov"
-      edge_lambdas = []
-    }
-  ]
-  tags = module.tagging.tags
+  source = "../../template/static-site"
+
+  name    = "massachusetts-design-system-prod"
+  comment = "designsystem.mass.gov (prod)"
+
+  # Domain-less for now: prod serves on its default *.cloudfront.net URL and
+  # is ready to receive the production domain when DNS cutover is scheduled:
+  # aliases             = ["designsystem.mass.gov"]
+  # acm_certificate_arn = "<us-east-1 ACM cert arn>"
 }

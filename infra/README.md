@@ -12,6 +12,7 @@ CloudFront). Follows massgov/SSR conventions (shared state backend,
 | State backend | bucket `terraform.secure.digital.mass.gov`, table `terraform` (shared, pre-existing) |
 | State key (dev) | `terraform/state/massachusetts-design-system-dev.tfstate` |
 | State key (stage) | `terraform/state/massachusetts-design-system-stage.tfstate` |
+| State key (prod) | `terraform/state/massachusetts-design-system-prod.tfstate` |
 
 ## Layout
 
@@ -28,31 +29,34 @@ infra/
       init.tf       #   backend (stage state key) + //tagging (environment=stage)
       main.tf       #   static_site module
       outputs.tf
+    prod/           # public *.cloudfront.net production environment
+      init.tf       #   backend (prod state key) + //tagging (environment=prod)
+      main.tf       #   static_site module
+      outputs.tf
 ```
-
-Note: `infra/env/prod` is added by PR DP-47440.
 
 ### Why a custom static-site module?
 
 `mds-terraform-common//static-site` hard-requires a domain + Route53 zone (it
 names the bucket after the domain and always provisions an ACM cert + DNS
-record). Dev and stage stand the site up on the default `*.cloudfront.net`
-URL with **no domain yet** (the domain is wired in later). The custom module
-supports that via optional `aliases` / `acm_certificate_arn` inputs, while
-tagging and the deploy role still use the shared `//tagging` and
+record). Dev, stage, and prod stand the site up on the default
+`*.cloudfront.net` URL with **no domain yet** (the domain is wired in later).
+The custom module supports that via optional `aliases` / `acm_certificate_arn`
+inputs, while tagging and the deploy role still use the shared `//tagging` and
 `//gha_pipeline` modules. When the domain lands, set those two inputs in
 `env/<env>/main.tf`.
 
 ## Apply
 
 ```bash
-terraform -chdir=infra/env/<env> init     # <env> = dev | stage
+terraform -chdir=infra/env/<env> init     # <env> = dev | stage | prod
 terraform -chdir=infra/env/<env> plan
 terraform -chdir=infra/env/<env> apply
 ```
 
 In CI, `apply.yml` runs this: **dev** auto-applies on push to `main`; **stage**
-applies only through the gated `stage` environment (manual dispatch).
+and **prod** apply only through their gated GitHub environments (manual
+dispatch, approval required — prod additionally gated).
 
 ## IAM roles & GitHub environments (managed in github-iac)
 
@@ -70,17 +74,21 @@ variables after applying each env:
 |---|---|---|
 | `DEV_BUCKET` / `DEV_DISTRIBUTION_ID` | dev env | `terraform output` of `infra/env/dev` |
 | `STAGE_BUCKET` / `STAGE_DISTRIBUTION_ID` | stage env | `terraform output` of `infra/env/stage` |
+| `PROD_BUCKET` / `PROD_DISTRIBUTION_ID` | prod env | `terraform output` of `infra/env/prod` |
 
 ## Workflows
 
 - `pr-plan.yml` → `plan.yml`: `terraform plan` as a PR check (`PLAN_ROLE_ARN`),
-  run against both dev and stage.
+  run against dev, stage, and prod.
 - `apply.yml`: `terraform apply`. Dev auto-applies on push to `main`; stage
-  runs in the gated `stage` environment (manual dispatch, approval required).
+  and prod run in their gated environments (manual dispatch, approval
+  required; prod is additionally gated).
 - `deploy-dev.yml`: builds Storybook and deploys it to **dev** on push to
   `main`.
 - `deploy-stage.yml`: builds Storybook and deploys it to **stage** — manual
   dispatch, runs in the gated `stage` environment.
+- `deploy-prod.yml`: builds Storybook and deploys it to **prod** — manual
+  dispatch, runs in the gated `prod` environment.
 
 ## Notes
 
