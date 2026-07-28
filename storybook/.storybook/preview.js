@@ -28,7 +28,11 @@ const preview = {
       }
     },
     docs: {
-      theme: massdsDocsTheme
+      theme: massdsDocsTheme,
+      toc: {
+        headingSelector: 'h2,h3',
+        title: null
+      }
     },
     layout: 'centered'
   }
