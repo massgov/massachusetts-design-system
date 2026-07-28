@@ -120,6 +120,7 @@
     --mds-button-color-active: var(--mds-button-accent-active);
 
     border-radius: 0;
+    padding-inline: 0;
 
     &.mds-button--color-light {
       --mds-button-color: var(--mds-text-and-icons-utility-static-white);
