@@ -17,17 +17,22 @@ Use this skill to translate a Figma documentation frame into a Storybook MDX pag
 2. Inspect the local Storybook/component patterns before editing.
    - Read the target `Overview.mdx`, sibling `Code.mdx`, and `*.stories.js`.
    - Find existing component renderers in `storybook/src/utils/component-renderers.js`.
+   - Read `storybook/.storybook/docs-markdown.css` before adding docs layout classes.
    - Reuse local component data defaults, options, CSS imports, icon names, and render helpers.
+   - Reuse styles package utility classes from `@massds/mds-styles`, such as `mds-gap-*`, `mds-padding-*`, `mds-margin-*`, `mds-background-*`, `mds-radius-*`, and text/color utilities, when they cover spacing, background, radius, color, or typography needs.
    - If Figma includes `CodeConnectSnippet` for a component, map it to the repo's real renderer or story helper rather than hand-written static HTML.
 
 3. Write content as default Markdown/MDX.
    - Use Markdown headings, paragraphs, lists, horizontal rules, and inline code for documentation text.
+   - Use Markdown blockquote syntax for key messages, notes, and callouts from Figma, e.g. `> - Use the lowest-emphasis variant...`; do not wrap these in custom `<div>` callout classes.
    - Do not add custom CSS for content typography, heading sizes, paragraph spacing, list styling, or inline code styling.
    - Keep prose close to the Figma frame, but adapt prop names and examples to the repo's actual component API.
 
-4. Add only layout-helper CSS when needed.
-   - CSS may arrange rendered component examples, dark/background surfaces, key-message borders, grids, stacks, and responsive wrapping.
-   - Scope helpers to the page, e.g. `mds-button-overview__button-row`.
+4. Use utilities first, then shared docs helpers for example layout.
+   - Prefer styles package utilities in MDX for spacing, background, radius, shadow, color, and text styling.
+   - Use shared docs layout classes from `storybook/.storybook/docs-markdown.css` for reusable patterns that utilities do not express, such as rendered example rows, stacks, inline example wrappers, or surfaces.
+   - If a new custom layout style is needed and can apply to multiple component overview pages, add it to `docs-markdown.css` with a generic `mds-docs-*` name and scope it under `#storybook-docs`.
+   - Create component-specific overview CSS only for behavior or layout that is genuinely unique to that component and cannot be generalized.
    - Avoid selectors like `.page h1`, `.page p`, `.page li`, or `.page code` unless the user explicitly asks to override Storybook's default docs typography.
 
 5. Preserve component and asset fidelity.
@@ -53,11 +58,10 @@ import '@massds/mds-components/button.css';
 import { buttonDefaults } from '../../../../packages/components/src/button/button.data.js';
 import { renderButton } from '../../utils/component-renderers.js';
 import * as ButtonStories from './button.stories.js';
-import './button.overview.css';
 
 export const ButtonExample = (args) => (
   <span
-    className="mds-button-overview__button-example"
+    className="mds-docs-example-item"
     dangerouslySetInnerHTML={{
       __html: renderButton({
         ...buttonDefaults,
@@ -73,24 +77,36 @@ export const ButtonExample = (args) => (
 
 Use normal Markdown for documentation text.
 
-<div className="mds-button-overview__button-row">
+> - Use Markdown blockquote syntax for key messages
+> - Keep prose styling in the shared Markdown stylesheet
+
+<div className="mds-docs-example-row mds-gap-md">
   <ButtonExample text="Primary" type="Fill" color="Primary" />
   <ButtonExample text="Secondary" type="Fill" color="Secondary" />
+  <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-utility-static-black">
+    <ButtonExample text="Light" type="Fill" color="Light" />
+  </span>
 </div>
 ```
 
-Keep the companion CSS limited to helpers:
+Use shared docs helpers only when utilities are not enough:
 
 ```css
-.mds-button-overview__button-row {
+#storybook-docs .mds-docs-example-row {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--mds-space-md);
   align-items: center;
 }
 
-.mds-button-overview__surface {
+#storybook-docs .mds-docs-example-stack {
+  display: grid;
+  justify-items: start;
+}
+
+#storybook-docs .mds-docs-example-item,
+#storybook-docs .mds-docs-example-surface {
   display: inline-flex;
-  padding: var(--mds-space-xs);
 }
 ```
+
+Apply utilities in MDX for the rest, for example `mds-gap-md`, `mds-padding-inline-xs`, `mds-padding-block-xs`, and `mds-background-section-utility-static-black`.
