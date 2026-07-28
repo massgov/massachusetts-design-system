@@ -1,0 +1,83 @@
+name: Run terraform apply
+run-name: Running `terraform apply` (${{ inputs.environment || 'dev' }})
+
+# Applies the infrastructure in infra/env/<environment> using a GitHub OIDC role
+# (no long-lived keys).
+#
+#  - dev: auto-applies on push to main, assuming the repo-level APPLY_ROLE_ARN.
+#  - stage: runs in the gated `stage` GitHub environment. The job declares
+#    `environment: stage`, which both enforces the approval gate AND presents
+#    the OIDC subject `environment:stage` that the environment's scoped
+#    DEPLOY_ROLE_ARN trusts. Stage never auto-applies — it is triggered by
+#    workflow_dispatch (or a workflow_call) and pauses for approval.
+#
+# Each environment (dev, stage) has its own scoped DEPLOY_ROLE_ARN variable,
+# managed in github-iac. The job binds to the environment and assumes that role.
+
+env:
+  TF_IN_AUTOMATION: "true"
+  TFENV_AUTO_INSTALL: "true"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - infra/**
+      - .terraform-version
+      - .github/workflows/apply.yml
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to apply"
+        required: true
+        type: choice
+        options:
+          - dev
+          - stage
+  workflow_call:
+    inputs:
+      environment:
+        description: "Environment to apply"
+        required: false
+        default: "dev"
+        type: string
+
+defaults:
+  run:
+    shell: bash -eo pipefail {0}
+
+concurrency:
+  group: apply-${{ inputs.environment || 'dev' }}
+  cancel-in-progress: false
+
+jobs:
+  terraform_apply:
+    name: Infrastructure Apply (${{ inputs.environment || 'dev' }})
+    runs-on: ubuntu-latest
+    # For stage this binds the job to the gated `stage` environment (approval +
+    # environment:stage OIDC subject). For dev it is a plain, unprotected label.
+    environment: ${{ inputs.environment || 'dev' }}
+    permissions:
+      id-token: write   # required for OIDC role assumption
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          aws-region: us-east-1
+          # The job runs in the <environment>, so vars.DEPLOY_ROLE_ARN resolves to
+          # the environment's scoped DEPLOY_ROLE_ARN, which bundles the
+          # terraform-apply + state policies. Symmetric for dev and stage; stage
+          # additionally requires reviewer approval (the gate).
+          role-to-assume: ${{ vars.DEPLOY_ROLE_ARN }}
+
+      - name: Install Terraform
+        uses: massgov/mds-gh-actions/actions/setup-terraform@main
+
+      - name: Terraform apply
+        run: |
+          terraform init -input=false
+          terraform apply -auto-approve -input=false
+        working-directory: infra/env/${{ inputs.environment || 'dev' }}
