@@ -1,0 +1,302 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
+.mds-footer {
+  // Neutral is the default color family. Primary overrides these tokens below.
+  @include mixins.unordered-list-reset;
+  @include mixins.address-reset;
+
+  --mds-footer-background: var(--mds-background-section-brand-neutral-lowest);
+  --mds-footer-color: var(--mds-text-and-icons-brand-neutral-default);
+  --mds-footer-muted-color: var(--mds-text-and-icons-brand-neutral-muted);
+  --mds-footer-link-color: var(--mds-text-and-icons-brand-neutral-default);
+  --mds-footer-link-hover-color: var(--mds-background-adaptive-brand-primary-high);
+  --mds-footer-accent-color: var(--mds-background-adaptive-brand-primary-mid);
+  --mds-footer-border-color: var(--mds-border-brand-neutral-low);
+
+  background-color: var(--mds-footer-background);
+  color: var(--mds-footer-color);
+
+  a {
+    @include mixins.focus($focus-on-light: true);
+  }
+
+  &__contact-link,
+  &__link-list a,
+  &__legal-nav a {
+    text-decoration: none;
+    text-underline-offset: 0.375rem;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  .mds-action-link {
+    color: var(--mds-footer-color);
+  }
+
+  p a {
+    color: var(--mds-footer-link-color);
+  }
+
+  p a:hover {
+    color: var(--mds-footer-link-hover-color);
+  }
+
+  &__site-name,
+  &__heading,
+  &__contact-address,
+  &__contact-note,
+  &__contact-item,
+  &__description,
+  &__fine-print p {
+    margin: 0;
+  }
+
+  &__fine-print p,
+  &__contact-note {
+    color: var(--mds-footer-muted-color);
+  }
+
+  &__container {
+    @include mixins.section-container;
+
+    background: transparent;
+    color: inherit;
+  }
+
+  &__column {
+    @include mixins.grid-4-column;
+  }
+
+  &__content {
+    @include mixins.grid;
+
+    padding-block: var(--mds-space-2xl) var(--mds-space-md);
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-2xs);
+  }
+
+  &__brand-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-sm);
+  }
+
+  &__site-name {
+    @include mixins.text("heading-sm");
+  }
+
+  &__seal {
+    width: 3.5rem;
+    height: 3.5rem;
+    align-self: self-start;
+  }
+
+  &__contact-address {
+    @include mixins.text("label-md");
+  }
+
+  ul.mds-footer__social-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mds-space-2xs);
+    margin-block: var(--mds-space-sm);
+  }
+
+  .mds-icon-button {
+    --mds-button-accent: var(--mds-background-adaptive-brand-primary-mid);
+    --mds-button-accent-hover: var(--mds-background-adaptive-brand-primary-high);
+    --mds-button-accent-active: var(--mds-background-adaptive-brand-primary-highest);
+    --mds-button-on-accent: var(--mds-text-and-icons-utility-static-white);
+    --mds-button-shadow: none;
+    --mds-button-shadow-hover: var(--mds-shadow-hover-sm);
+    --mds-button-shadow-active: none;
+
+    box-sizing: border-box;
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    inline-size: 44px;
+    block-size: 44px;
+    padding: var(--mds-space-2xs);
+    border: var(--mds-button-border-width) solid var(--mds-button-border);
+    border-radius: var(--mds-radius-md);
+    background-color: var(--mds-button-background);
+    box-shadow: var(--mds-button-shadow);
+    color: var(--mds-button-color);
+    cursor: pointer;
+    transition:
+      background-color var(--mds-motion-duration-fastest) ease,
+      border-color var(--mds-motion-duration-fastest) ease,
+      box-shadow var(--mds-motion-duration-fastest) ease,
+      color var(--mds-motion-duration-fastest) ease;
+
+    svg {
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    &:hover {
+      --mds-button-background: var(--mds-button-background-hover);
+      --mds-button-border: var(--mds-button-border-hover);
+      --mds-button-color: var(--mds-button-color-hover);
+      --mds-button-shadow: var(--mds-button-shadow-hover);
+    }
+
+    &:active {
+      --mds-button-background: var(--mds-button-background-active);
+      --mds-button-border: var(--mds-button-border-active);
+      --mds-button-color: var(--mds-button-color-active);
+      --mds-button-shadow: var(--mds-button-shadow-active);
+    }
+  }
+
+  .mds-icon-button--type-fill {
+    --mds-button-background: var(--mds-button-accent);
+    --mds-button-background-hover: var(--mds-button-accent-hover);
+    --mds-button-background-active: var(--mds-button-accent-active);
+    --mds-button-border: var(--mds-button-accent);
+    --mds-button-border-hover: var(--mds-button-accent-hover);
+    --mds-button-border-active: var(--mds-button-accent-active);
+    --mds-button-border-width: 0;
+    --mds-button-color: var(--mds-button-on-accent);
+    --mds-button-color-hover: var(--mds-button-on-accent);
+    --mds-button-color-active: var(--mds-button-on-accent);
+  }
+
+  .mds-icon-button--color-light {
+    --mds-button-accent: var(--mds-background-section-utility-static-white);
+    --mds-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
+    --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
+    --mds-button-on-accent: var(--mds-text-and-icons-utility-static-black);
+  }
+
+  &__description {
+    max-width: 18rem;
+
+    @include mixins.text("caption-md");
+  }
+
+  &__heading {
+    padding-block-end: var(--mds-space-xs);
+    border-block-end: 1px solid var(--mds-footer-border-color);
+
+    @include mixins.text("eyebrow-md");
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-2xs);
+    padding-block-start: var(--mds-space-xs);
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: flex-start;
+    padding-block: var(--mds-space-3xs);
+
+    @include mixins.text("label-md");
+  }
+
+  &__contact svg {
+    color: var(--mds-footer-accent-color);
+  }
+
+  &__contact-note {
+    padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
+
+    @include mixins.text("caption-md");
+  }
+
+  &__link-list {
+    display: flex;
+    flex-direction: column;
+    padding-block-start: var(--mds-space-xs);
+
+    @include mixins.text("label-md");
+
+    .mds-action-link {
+      display: block;
+      padding-block: var(--mds-space-2xs);
+    }
+  }
+
+  &__legal-nav {
+    border-block: 1px solid var(--mds-footer-border-color);
+    padding-block: var(--mds-space-xs);
+
+    @include mixins.text("label-md");
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--mds-space-sm) var(--mds-space-lg);
+    }
+  }
+
+  &__fine-print {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-sm);
+    padding-block: var(--mds-space-md) var(--mds-space-2xl);
+
+    @include mixins.text("caption-md");
+  }
+
+  &__trademark {
+    line-height: var(--mds-line-height-180);
+  }
+
+  &__icon {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: var(--mds-space-3xs);
+    margin-top: 3px; // Adjust for optical alignment with text.
+
+    .mds-icon {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.mds-footer--primary {
+  --mds-footer-background: var(--mds-background-adaptive-brand-primary-mid);
+  --mds-footer-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-muted-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-link-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-link-hover-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-accent-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-border-color: var(--mds-text-and-icons-utility-inverse);
+
+  a {
+    @include mixins.focus($focus-on-light: false);
+  }
+}
+
+@include mixins.max-width(md) {
+  .mds-footer__content {
+    row-gap: var(--mds-space-md);
+    padding-block-start: var(--mds-space-md);
+  }
+}
+
+@include mixins.max-width(sm) {
+  .mds-footer__content {
+    row-gap: var(--mds-space-md);
+    padding-block-start: var(--mds-space-sm);
+  }
+}
