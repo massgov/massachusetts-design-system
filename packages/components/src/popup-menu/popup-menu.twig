@@ -1,0 +1,70 @@
+{% set menuId = id|default(popupMenuDefaults.id) %}
+{% set menuTriggerId = triggerId|default(popupMenuDefaults.triggerId) %}
+{% set menuTriggerText = triggerText|default(popupMenuDefaults.triggerText) %}
+{% set requestedTriggerHtmlType = triggerHtmlType|default(popupMenuDefaults.triggerHtmlType) %}
+{% set menuTriggerHtmlType = requestedTriggerHtmlType in popupMenuOptions.triggerHtmlType ? requestedTriggerHtmlType : popupMenuDefaults.triggerHtmlType %}
+{% set menuLabelledBy = labelledBy|default(menuTriggerId) %}
+{% set menuLabel = label|default(popupMenuDefaults.label) %}
+{% set hasNoIcons = noIcons|default(popupMenuDefaults.noIcons) %}
+{% set menuItems = items|default(popupMenuDefaults.items) %}
+{% set popupMenuClass = 'mds-popup-menu' ~ (hasNoIcons ? ' mds-popup-menu--no-icons' : '') %}
+
+<button
+  type="{{ menuTriggerHtmlType|e }}"
+  class="mds-popup-menu-trigger"
+  aria-haspopup="true"
+  aria-controls="{{ menuId|e }}"{% if menuTriggerId %}
+  id="{{ menuTriggerId|e }}"{% endif %}
+>
+  {{ menuTriggerText|e }}
+</button>
+<div
+  id="{{ menuId|e }}"
+  class="{{ popupMenuClass|e }}"
+  role="menu"{% if menuLabelledBy %}
+  aria-labelledby="{{ menuLabelledBy|e }}"{% elseif menuLabel %}
+  aria-label="{{ menuLabel|e }}"{% endif %}
+>
+  <ul class="mds-popup-menu__list">
+    {% for item in menuItems %}
+      {% set requestedItemType = item.type|default(item.href ? 'link' : popupMenuDefaults.itemType) %}
+      {% set itemType = requestedItemType in popupMenuOptions.itemType ? requestedItemType : popupMenuDefaults.itemType %}
+      {% set itemHref = item.href|default('#') %}
+      {% set requestedItemHtmlType = item.htmlType|default(popupMenuDefaults.itemHtmlType) %}
+      {% set itemHtmlType = requestedItemHtmlType in popupMenuOptions.itemHtmlType ? requestedItemHtmlType : popupMenuDefaults.itemHtmlType %}
+      {% set itemIcon = item.icon in popupMenuOptions.icon ? item.icon : popupMenuDefaults.itemIcon %}
+      {% set itemText = item.text|default('') %}
+      {% set labelClass = 'mds-popup-menu__label' ~ (not hasNoIcons and not itemIcon ? ' mds-popup-menu__label--no-icon' : '') %}
+
+      <li class="mds-popup-menu__item">
+        {% if itemType == 'button' %}
+          <button
+            type="{{ itemHtmlType|e }}"
+            role="menuitem"{% if item.disabled %}
+            disabled{% endif %}
+          >
+        {% else %}
+          <a href="{{ itemHref|e }}" role="menuitem"{% if item.disabled %}
+            aria-disabled="true"
+            tabindex="-1"{% endif %}>
+        {% endif %}
+          <span class="{{ labelClass|e }}">
+            {% if itemIcon %}
+              <span class="mds-popup-menu__icon">
+                {% include 'icon.twig' with {
+                  name: itemIcon,
+                  weight: 'Regular'
+                } %}
+              </span>
+            {% endif %}
+            {{ itemText|e }}
+          </span>
+        {% if itemType == 'button' %}
+          </button>
+        {% else %}
+          </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
