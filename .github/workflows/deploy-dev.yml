@@ -51,6 +51,7 @@ jobs:
 
       - name: Build packages
         run: npm run build --workspaces --if-present
+        
       - name: Build site
         run: npm run build:storybook
 
