@@ -19,7 +19,7 @@ module "tagging" {
 terraform {
   backend "s3" {
     bucket         = "application-configurations"
-    key            = "terraform/state/common.tfstate"
+    key            = "terraform/state/nonprod/design-mass-gov-dev.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform"
   }
