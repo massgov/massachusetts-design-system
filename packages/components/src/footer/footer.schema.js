@@ -34,7 +34,7 @@ export const footerSchema = {
     required: false,
     items: {
       type: 'object',
-      fields: {
+      properties: {
         href: {
           type: 'string',
           required: true
@@ -70,7 +70,7 @@ export const footerSchema = {
     required: false,
     items: {
       type: 'object',
-      fields: {
+      properties: {
         icon: {
           type: 'icon',
           required: false,
@@ -103,7 +103,7 @@ export const footerSchema = {
     required: false,
     items: {
       type: 'object',
-      fields: {
+      properties: {
         headingId: {
           type: 'string',
           required: false
@@ -121,7 +121,7 @@ export const footerSchema = {
           required: false,
           items: {
             type: 'object',
-            fields: {
+            properties: {
               href: {
                 type: 'string',
                 required: true
@@ -146,7 +146,7 @@ export const footerSchema = {
     required: false,
     items: {
       type: 'object',
-      fields: {
+      properties: {
         href: {
           type: 'string',
           required: true
