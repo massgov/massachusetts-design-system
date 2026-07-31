@@ -7,6 +7,10 @@ export const stateBannerSchema = {
     type: 'string',
     default: 'Massachusetts State Seal'
   },
+  openByDefault: {
+    type: 'boolean',
+    default: false
+  },
   panelId: {
     type: 'string',
     default: 'mds-state-banner-panel'

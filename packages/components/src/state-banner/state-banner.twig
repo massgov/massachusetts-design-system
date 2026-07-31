@@ -8,6 +8,7 @@
 {% set bannerSummaryPrefix = summaryPrefix|default(stateBannerDefaults.summaryPrefix) %}
 {% set bannerSealSrc = sealSrc|default(stateBannerDefaults.sealSrc) %}
 {% set bannerSealAlt = sealAlt|default(stateBannerDefaults.sealAlt) %}
+{% set bannerOpenByDefault = openByDefault|default(stateBannerDefaults.openByDefault) %}
 {% set bannerRegionLabel = regionLabel|default(stateBannerDefaults.regionLabel) %}
 {% set bannerOfficialWebsitesHeading = officialWebsitesHeading|default(stateBannerDefaults.officialWebsitesHeading) %}
 {% set bannerOfficialWebsitesDescription = officialWebsitesDescription|default(stateBannerDefaults.officialWebsitesDescription) %}
@@ -19,7 +20,7 @@
   aria-label="{{ bannerSummaryLabel|e }}"
 >
   <div class="mds-state-banner__container">
-    <details class="mds-state-banner__details">
+    <details class="mds-state-banner__details"{% if bannerOpenByDefault %} open{% endif %}>
       <summary class="mds-state-banner__summary">
         <span class="mds-state-banner__inner">
           <span class="mds-state-banner__brand">
