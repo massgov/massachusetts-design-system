@@ -1,0 +1,99 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './button.stories.js';
+
+<Meta of={ButtonStories} />
+
+# Button guidance
+
+---
+
+## Content
+
+### Best practices
+
+#### Do
+
+- Keep labels concise, ideally using only 1 to 3 words, and less than 20 characters
+- Use plain language
+- Use sentence case
+- Begin labels with a verb whenever possible
+- Describe the action, not the destination
+
+#### Don't
+
+- Use "click here" or other vague verbiage as assistive technology users will not have the proper context
+
+---
+
+## Design
+
+### Usage
+
+#### When to use a button
+
+Use a button when someone needs to:
+
+- Submit information
+- Trigger a process or perform an action
+- Confirm or cancel an action
+- Change the current state of the interface
+
+#### When to use a link styled as a button
+
+Use a link styled as a button when navigation is the primary call to action on a page or section. This is appropriate when the experience needs the visual emphasis of a button, but the behavior is still navigation.
+
+Examples:
+
+- Start an application
+- Apply for a benefit
+- Learn about eligibility
+- View program details
+
+> Even when it looks like a button, this element should still be built as a link if it takes the user to a new destination. This is a specific approach to the markup for accessibility so that assistive technology will recognize the element as a link. For engineers using the code resources once a link is applied to the button, the markup will automatically format correctly.
+
+#### Responsive behavior
+
+Buttons should:
+
+- Preserve their visual hierarchy across screen sizes
+- Resize gracefully without truncating critical labels
+
+Buttons can:
+
+- Fill the width of their containers as needed for narrow layouts
+
+---
+
+## Accessibility
+
+### Mouse control
+
+- The button's action should trigger on mouse up (release) rather than mouse down
+- Visual feedback should be provided during hover and click states
+- No hover effects or mouse cursor changes for disabled buttons
+
+### Touch control
+
+- A single tap on the touch screen should activate the button
+- Visual feedback should be provided during pressed state
+- Touch exploration should provide audio feedback about the button's purpose
+- Visual feedback should be immediate to acknowledge touch interaction
+- Prevent accidental double-activations with appropriate touch handling
+
+### Keyboard control
+
+- Button must receive focus in a logical tab order that makes sense to users
+- Button must always show a visible focus indicator when it has keyboard focus
+- Button should be activated using either the Space or Enter key
+- Keyboard event handlers should be implemented to handle key presses
+- No unexpected behavior should occur when other keys are pressed
+
+### Assistive technology
+
+- Screen readers announce the element as a button, generally saying "click" followed by the button's accessible name
+- The accessible name comes from the content of the element or `aria-label`/`aria-labelledby` attributes
+- Additional information like disabled state or pressed state should be announced
+- Native `<button>` element automatically exposes correct role to assistive technology
+- For custom buttons using `role="button"`, ensure all necessary ARIA attributes are included
+- Following button activation, focus should be set appropriately based on the action
+- If the button closes a dialog, focus should return to the button that opened it

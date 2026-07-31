@@ -1,6 +1,7 @@
 import '@massds/mds-tokens/dist/index.css';
 import '@massds/mds-styles/index.css';
 import './preview.css';
+import './docs-markdown.css';
 import { massdsDocsTheme } from './theme';
 
 const preview = {
@@ -14,7 +15,7 @@ const preview = {
           'Foundations',
           ['*', ['Overview', 'Code', 'Playground']],
           'Components',
-          ['*', ['Overview', 'Code', 'Playground']]
+          ['*', ['Overview', 'Guidance', 'Code', 'Playground']]
         ],
         includeNames: true
       }
@@ -27,7 +28,11 @@ const preview = {
       }
     },
     docs: {
-      theme: massdsDocsTheme
+      theme: massdsDocsTheme,
+      toc: {
+        headingSelector: 'h2,h3',
+        title: null
+      }
     },
     layout: 'centered'
   }
