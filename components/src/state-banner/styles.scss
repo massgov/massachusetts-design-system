@@ -1,5 +1,4 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
-@include mixins.component-reset;
 
 /** State Banner component styles **/
 
@@ -29,6 +28,10 @@ $state-banner-item-min-width: 20rem;
 }
 
 .mds-state-banner {
+  @include mixins.box-sizing-reset;
+  @include mixins.text-block-reset;
+  @include mixins.font-smoothing-reset;
+
   width: 100%;
   padding-block: var(--mds-space-3xs);
   background-color: var(--mds-background-section-utility-static-black);

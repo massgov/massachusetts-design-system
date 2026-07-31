@@ -11,6 +11,10 @@ export const buttonSchema = {
     type: 'string',
     default: ''
   },
+  href: {
+    type: 'string',
+    default: ''
+  },
   htmlType: {
     type: 'enum',
     default: 'button',

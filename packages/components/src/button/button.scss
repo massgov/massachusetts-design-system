@@ -6,7 +6,6 @@
   --mds-button-accent: var(--mds-background-adaptive-brand-primary-mid);
   --mds-button-accent-hover: var(--mds-background-adaptive-brand-primary-high);
   --mds-button-accent-active: var(--mds-background-adaptive-brand-primary-highest);
-  --mds-button-accent-low: var(--mds-background-adaptive-brand-primary-lowest);
   --mds-button-gap: var(--mds-space-xs);
   --mds-button-on-accent: var(--mds-text-and-icons-utility-static-white);
 
@@ -136,7 +135,7 @@
   &--size-regular {
     --mds-button-gap: var(--mds-space-2xs);
 
-    min-height: 2.6875rem;
+    height: 44px;
     padding: var(--mds-space-xs) var(--mds-space-sm);
 
     @include mixins.text("label");
@@ -145,10 +144,14 @@
   &--size-lg {
     --mds-button-gap: var(--mds-space-xs);
 
-    min-height: 3.375rem;
+    height: 54px;
     padding: var(--mds-space-sm) var(--mds-space-md);
 
     @include mixins.text("label-md");
+  }
+
+  &--type-ghost {
+    padding-inline: 0;
   }
 
   // Interaction states
@@ -169,14 +172,15 @@
     --mds-button-shadow: var(--mds-button-shadow-active);
   }
 
-  &--type-ghost:not(:disabled):hover .mds-button__label,
-  &--type-ghost:not(:disabled):active .mds-button__label {
+  &--type-ghost:not(:disabled):not([aria-disabled="true"]):hover .mds-button__label,
+  &--type-ghost:not(:disabled):not([aria-disabled="true"]):active .mds-button__label {
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: var(--mds-space-3xs);
   }
 
-  &:disabled {
+  &:disabled,
+  &[aria-disabled="true"] {
     --mds-button-background: var(--mds-background-section-brand-neutral-disabled);
     --mds-button-border: var(--mds-border-brand-neutral-low);
     --mds-button-color: var(--mds-text-and-icons-brand-neutral-disabled);
@@ -186,7 +190,8 @@
     cursor: not-allowed;
   }
 
-  &--type-ghost:disabled {
+  &--type-ghost:disabled,
+  &--type-ghost[aria-disabled="true"] {
     --mds-button-background: var(--mds-background-base-transparent);
   }
 
