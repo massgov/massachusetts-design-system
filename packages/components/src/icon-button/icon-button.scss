@@ -6,11 +6,12 @@
   --mds-icon-button-accent-active: var(--mds-background-adaptive-brand-primary-highest);
   --mds-icon-button-on-accent: var(--mds-text-and-icons-utility-static-white);
   --mds-icon-button-shadow: none;
-  --mds-icon-button-shadow-hover: var(--mds-shadow-hover-sm);
+  --mds-icon-button-shadow-hover: none;
   --mds-icon-button-shadow-active: none;
 
   box-sizing: border-box;
   appearance: none;
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -31,6 +32,8 @@
     color var(--mds-motion-duration-fastest) ease;
 
   & > svg {
+    position: relative;
+    z-index: 1;
     display: block;
     width: 1.5rem;
     height: 1.5rem;
@@ -41,14 +44,12 @@
     --mds-icon-button-accent: var(--mds-background-adaptive-brand-secondary-mid);
     --mds-icon-button-accent-hover: var(--mds-background-adaptive-brand-secondary-high);
     --mds-icon-button-accent-active: var(--mds-background-adaptive-brand-secondary-highest);
-    --mds-icon-button-accent-low: var(--mds-background-adaptive-brand-secondary-lowest);
-  }
+ }
 
   &--color-error {
     --mds-icon-button-accent: var(--mds-background-adaptive-utility-danger-mid);
     --mds-icon-button-accent-hover: var(--mds-background-adaptive-utility-danger-high);
     --mds-icon-button-accent-active: var(--mds-background-adaptive-utility-danger-highest);
-    --mds-icon-button-accent-low: var(--mds-background-adaptive-utility-danger-lowest);
   }
 
   &--type-fill {
@@ -62,6 +63,7 @@
     --mds-icon-button-color: var(--mds-icon-button-on-accent);
     --mds-icon-button-color-hover: var(--mds-icon-button-on-accent);
     --mds-icon-button-color-active: var(--mds-icon-button-on-accent);
+    --mds-icon-button-shadow-hover: var(--mds-shadow-hover-sm);
 
     @include mixins.focus($focus-on-light: true);
 
@@ -113,8 +115,17 @@
     --mds-icon-button-color-hover: var(--mds-icon-button-accent-hover);
     --mds-icon-button-color-active: var(--mds-icon-button-accent-active);
 
-    border-radius: 0;
-    border-bottom-width: 2px;
+    background-color: transparent;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      border-radius: var(--mds-radius-sm);
+      background-color: var(--mds-icon-button-background);
+      transition:
+        background-color var(--mds-motion-duration-fastest) ease;
+    }
 
     &.mds-icon-button--color-light {
       --mds-icon-button-background: var(--mds-background-base-transparent);
@@ -123,12 +134,14 @@
       --mds-icon-button-color: var(--mds-text-and-icons-utility-static-white);
       --mds-icon-button-color-hover: var(--mds-background-adaptive-brand-neutral-lowest);
       --mds-icon-button-color-active: var(--mds-background-adaptive-brand-neutral-lowest);
+      @include mixins.focus($focus-on-light: false);
     }
 
     &.mds-icon-button--color-white {
       --mds-icon-button-color: var(--mds-text-and-icons-utility-static-white);
-      --mds-icon-button-color-hover: var(--mds-text-and-icons-utility-static-white);
+      --mds-icon-button-color-hover: var(--mds-background-adaptive-brand-primary-lowest);
       --mds-icon-button-color-active: var(--mds-text-and-icons-utility-static-white);
+      @include mixins.focus($focus-on-light: false);
     }
   }
 

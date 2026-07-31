@@ -5,7 +5,7 @@ const iconOptions = ['', ...iconNames];
 export const iconButtonSchema = {
   element: {
     type: 'enum',
-    default: 'a',
+    default: 'button',
     options: ['a', 'button']
   },
   href: {
