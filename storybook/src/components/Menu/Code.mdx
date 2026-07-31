@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { menuDefaults } from '../../../../packages/components/src/menu/menu.data.js';
+import menuCss from '@massds/mds-components/menu.css?raw';
+import { renderMenu } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as MenuStories from './menu.stories.js';
+
+export const getMenuCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderMenu({
+      ...menuDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: menuCss
+  }
+];
+
+<Meta of={MenuStories} />
+
+# Menu
+
+<Canvas
+  of={MenuStories.DocsPreview}
+  sourceState="none"
+/>
+
+## API
+
+<Controls of={MenuStories.DocsPreview} />
+
+## Code
+
+<StoryCodeTabs of={MenuStories.DocsPreview} getTabs={getMenuCodeTabs} />
