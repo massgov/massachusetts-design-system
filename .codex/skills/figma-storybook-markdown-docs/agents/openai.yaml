@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma Storybook Markdown Docs"
+  short_description: "Generate MDX docs from Figma frames."
+  default_prompt: "Use $figma-storybook-markdown-docs to create a Storybook MDX overview page from this Figma frame."
