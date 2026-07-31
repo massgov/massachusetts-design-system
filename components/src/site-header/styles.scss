@@ -1,9 +1,13 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
-@include mixins.component-reset;
+
 
 /** Site Header component styles **/
 
 .mds-site-header {
+  @include mixins.box-sizing-reset;
+  @include mixins.text-block-reset;
+  @include mixins.font-smoothing-reset;
+
   width: 100%;
   background-color: var(--mds-background-section-brand-neutral-lowest);
   color: var(--mds-text-and-icons-brand-secondary-mid);
