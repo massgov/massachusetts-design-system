@@ -15,6 +15,10 @@ export const footerDefaults = getSchemaDefaults(footerSchema);
 
 export const footerExampleData = {
   ...footerDefaults,
+  theme: 'Neutral',
+  siteNameId: 'mds-footer-site-name',
+  sealAlt: '',
+  socialLabel: 'Social media links',
   socialLinks: [
     {
       href: '#',
@@ -43,6 +47,8 @@ export const footerExampleData = {
     }
   ],
   descriptionHtml: 'Short description of the organization goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <a href="#">link</a> labore et dolore magna aliqua.',
+  contactHeadingId: 'mds-footer-contact-heading',
+  contactHeading: 'Contact',
   contactItems: [
     {
       icon: 'map-pin',
@@ -128,6 +134,7 @@ export const footerExampleData = {
       ]
     }
   ],
+  legalLabel: 'Required policies',
   legalLinks: [
     {
       href: '#',
@@ -147,5 +154,6 @@ export const footerExampleData = {
     }
   ],
   fundingText: 'Funding details lorem ipsum dolor sit amet lorem ipsum dolore sit amet',
+  itemIcon: '',
   trademarkHtml: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
 };

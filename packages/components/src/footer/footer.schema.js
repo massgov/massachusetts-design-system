@@ -6,13 +6,11 @@ export const footerSchema = {
   theme: {
     type: 'enum',
     required: false,
-    default: 'Neutral',
     options: ['Neutral', 'Primary']
   },
   siteNameId: {
     type: 'string',
-    required: false,
-    default: 'mds-footer-site-name'
+    required: false
   },
   siteName: {
     type: 'string',
@@ -21,13 +19,11 @@ export const footerSchema = {
   },
   sealAlt: {
     type: 'string',
-    required: false,
-    default: ''
+    required: false
   },
   socialLabel: {
     type: 'string',
-    required: false,
-    default: 'Social media links'
+    required: false
   },
   socialLinks: {
     type: 'array',
@@ -57,13 +53,11 @@ export const footerSchema = {
   },
   contactHeadingId: {
     type: 'string',
-    required: false,
-    default: 'mds-footer-contact-heading'
+    required: false
   },
   contactHeading: {
     type: 'string',
-    required: false,
-    default: 'Contact'
+    required: false
   },
   contactItems: {
     type: 'array',
@@ -138,8 +132,7 @@ export const footerSchema = {
   },
   legalLabel: {
     type: 'string',
-    required: false,
-    default: 'Required policies'
+    required: false
   },
   legalLinks: {
     type: 'array',
@@ -169,7 +162,6 @@ export const footerSchema = {
   itemIcon: {
     type: 'icon',
     required: false,
-    default: '',
     options: iconOptions
   }
 };

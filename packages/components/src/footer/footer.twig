@@ -1,19 +1,19 @@
-{% set requestedTheme = theme|default(footerDefaults.theme) %}
-{% set footerTheme = requestedTheme in footerOptions.theme ? requestedTheme : footerDefaults.theme %}
+{% set requestedTheme = theme|default('Neutral') %}
+{% set footerTheme = requestedTheme in footerOptions.theme ? requestedTheme : 'Neutral' %}
 {% set themeKey = footerTheme|lower %}
 {% set footerClass = 'mds-footer' ~ (themeKey == 'primary' ? ' mds-footer--primary' : '') %}
-{% set footerSiteNameId = siteNameId|default(footerDefaults.siteNameId) %}
+{% set footerSiteNameId = siteNameId|default('') %}
 {% set footerSiteName = siteName|default(footerDefaults.siteName) %}
-{% set footerSealAlt = sealAlt|default(footerDefaults.sealAlt) %}
+{% set footerSealAlt = sealAlt|default('') %}
 {% set footerSealColor = themeKey == 'primary' ? 'white' : 'black' %}
-{% set footerSocialLabel = socialLabel|default(footerDefaults.socialLabel) %}
+{% set footerSocialLabel = socialLabel|default('') %}
 {% set footerSocialLinks = socialLinks|default([]) %}
 {% set footerDescriptionHtml = descriptionHtml|default('') %}
-{% set footerContactHeadingId = contactHeadingId|default(footerDefaults.contactHeadingId) %}
-{% set footerContactHeading = contactHeading|default(footerDefaults.contactHeading) %}
+{% set footerContactHeadingId = contactHeadingId|default('') %}
+{% set footerContactHeading = contactHeading|default('') %}
 {% set footerContactItems = contactItems|default([]) %}
 {% set footerLinkGroups = linkGroups|default([]) %}
-{% set footerLegalLabel = legalLabel|default(footerDefaults.legalLabel) %}
+{% set footerLegalLabel = legalLabel|default('') %}
 {% set footerLegalLinks = legalLinks|default([]) %}
 {% set footerFundingText = fundingText|default('') %}
 {% set footerTrademarkHtml = trademarkHtml|default('') %}
@@ -21,7 +21,7 @@
 <footer class="{{ footerClass|e }}">
   <div class="mds-footer__container">
     <div class="mds-footer__content">
-      <section class="mds-footer__brand mds-footer__column" aria-labelledby="{{ footerSiteNameId|e }}">
+      <section class="mds-footer__brand mds-footer__column"{% if footerSiteNameId %} aria-labelledby="{{ footerSiteNameId|e }}"{% endif %}>
         <div class="mds-footer__brand-heading">
           {% include 'state-seal.twig' with {
             alt: footerSealAlt,
@@ -29,13 +29,13 @@
             color: footerSealColor,
             fileType: 'png'
           } %}
-          <h2 id="{{ footerSiteNameId|e }}" class="mds-footer__site-name">{{ footerSiteName|e }}</h2>
+          <h2{% if footerSiteNameId %} id="{{ footerSiteNameId|e }}"{% endif %} class="mds-footer__site-name">{{ footerSiteName|e }}</h2>
         </div>
 
         {% if footerSocialLinks|length %}
-          <ul class="mds-footer__social-list" aria-label="{{ footerSocialLabel|e }}">
+          <ul class="mds-footer__social-list"{% if footerSocialLabel %} aria-label="{{ footerSocialLabel|e }}"{% endif %}>
             {% for socialLink in footerSocialLinks %}
-              {% set socialIcon = socialLink.icon in footerOptions.icon ? socialLink.icon : footerDefaults.itemIcon %}
+              {% set socialIcon = socialLink.icon in footerOptions.icon ? socialLink.icon : '' %}
               {% if socialLink.href and socialLink.label and socialIcon %}
                 <li>
                   <a
@@ -60,7 +60,7 @@
       </section>
 
       {% if footerContactItems|length %}
-        <section class="mds-footer__column" aria-labelledby="{{ footerContactHeadingId|e }}">
+        <section class="mds-footer__column"{% if footerContactHeadingId and footerContactHeading %} aria-labelledby="{{ footerContactHeadingId|e }}"{% endif %}>
           {% if footerContactHeading %}
             <h3 id="{{ footerContactHeadingId|e }}" class="mds-footer__heading">
               {{ footerContactHeading|e }}
@@ -70,7 +70,7 @@
           {% if footerContactItems|length %}
             <address class="mds-footer__contact">
               {% for contactItem in footerContactItems %}
-                {% set contactIcon = contactItem.icon in footerOptions.icon ? contactItem.icon : footerDefaults.itemIcon %}
+                {% set contactIcon = contactItem.icon in footerOptions.icon ? contactItem.icon : '' %}
                 {% if contactItem.addressLines|length %}
                   <div class="mds-footer__contact-item">
                     {% if contactIcon %}
@@ -144,7 +144,7 @@
     </div>
 
     {% if footerLegalLinks|length %}
-      <nav class="mds-footer__legal-nav" aria-label="{{ footerLegalLabel|e }}">
+      <nav class="mds-footer__legal-nav"{% if footerLegalLabel %} aria-label="{{ footerLegalLabel|e }}"{% endif %}>
         <ul>
           {% for link in footerLegalLinks %}
             {% if link.href and link.text %}

@@ -158,18 +158,18 @@ const footerControls = {
 };
 
 const defaultPlaygroundArgs = {
-  theme: footerDefaults.theme,
-  siteNameId: footerDefaults.siteNameId,
+  theme: footerExampleData.theme,
+  siteNameId: footerExampleData.siteNameId,
   siteName: footerDefaults.siteName,
-  sealAlt: footerDefaults.sealAlt,
-  socialLabel: footerDefaults.socialLabel,
+  sealAlt: footerExampleData.sealAlt,
+  socialLabel: footerExampleData.socialLabel,
   socialLinks: footerExampleData.socialLinks,
   descriptionHtml: footerExampleData.descriptionHtml,
-  contactHeadingId: footerDefaults.contactHeadingId,
-  contactHeading: footerDefaults.contactHeading,
+  contactHeadingId: footerExampleData.contactHeadingId,
+  contactHeading: footerExampleData.contactHeading,
   contactItems: footerExampleData.contactItems,
   linkGroups: footerExampleData.linkGroups,
-  legalLabel: footerDefaults.legalLabel,
+  legalLabel: footerExampleData.legalLabel,
   legalLinks: footerExampleData.legalLinks,
   fundingText: footerExampleData.fundingText,
   trademarkHtml: footerExampleData.trademarkHtml
