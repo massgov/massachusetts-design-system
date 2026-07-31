@@ -19,7 +19,7 @@
 {% if buttonHref %}
 <a
   class="{{ buttonClass|e }}"
-  href="{{ buttonHref|e }}"
+  {% if not disabled %}href="{{ buttonHref|e }}"{% endif %}
   data-mds-button{% if id %}
   id="{{ id|e }}"{% endif %}{% if disabled %}
   aria-disabled="true"
