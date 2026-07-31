@@ -1,9 +1,11 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
-@include mixins.component-reset;
-@include mixins.font-smoothing-reset;
+
 
 .mds-footer {
   // Neutral is the default color family, with Primary as a variant color theme set later in this stylesheet
+  @include mixins.box-sizing-reset;
+  @include mixins.text-block-reset;
+  @include mixins.font-smoothing-reset;
   @include mixins.unordered-list-reset;
   @include mixins.address-reset;
 

@@ -6,14 +6,6 @@
   }
 }
 
-@mixin document-reset {
-  html,
-  body {
-    margin: 0;
-    min-height: 100%;
-  }
-}
-
 @mixin text-block-reset {
   h1,
   h2,
@@ -45,13 +37,3 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
-
-// These resets are grouped into one mixin for the sake of demoing our individual components, it will likely not be needed for actual implementation, at which point we can remove this and folks will use these mixins a la carte.
-@mixin component-reset {
-  @include box-sizing-reset;
-  @include document-reset;
-  @include text-block-reset;
-  @include font-smoothing-reset;
-}
-
-
