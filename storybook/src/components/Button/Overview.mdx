@@ -1,60 +1,136 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/button.css';
 import { buttonDefaults } from '../../../../packages/components/src/button/button.data.js';
-import buttonCss from '@massds/mds-components/button.css?raw';
 import { renderButton } from '../../utils/component-renderers.js';
 import * as ButtonStories from './button.stories.js';
 
+export const ButtonExample = (args) => (
+  <span
+    className="mds-docs-example-item"
+    dangerouslySetInnerHTML={{
+      __html: renderButton({
+        ...buttonDefaults,
+        ...args
+      })
+    }}
+  />
+);
+
 <Meta of={ButtonStories} />
 
+# Button overview
 
-# Button
+A button helps people take an action, such as submitting information, saving changes, starting a process, or confirming a decision.
 
-An interactive element that enables users to take an action when selected. Buttons are fundamental components in virtually all digital interfaces and serve as the primary means for users to initiate commands or navigate through an application.
+Use a button when the person needs to do something on the current page or within the current workflow. The button label should clearly describe the action so people understand what will happen when they select it.
 
+<ButtonExample text="Button" />
 
-## Usage
+---
 
-Use buttons to initiate actions, submit forms, save changes, trigger processes, and support primary user tasks. Buttons are also appropriate for destructive actions that require confirmation, such as delete, remove, or cancel.
+## Variants
 
-### When To Use
+### Color
 
-- Initiating an action: when users need to submit forms, save changes, or trigger a process.
-- Primary user tasks: for the most important actions you want users to take, such as log in, register, or submit.
-- Destructive actions: for actions requiring confirmation, such as delete, remove, or cancel.
-- Command operations: for actions that make changes to data or state.
-- Call-to-action elements: when you need to draw attention to key conversion points. In some cases, this may be a link styled as a button.
+Set the `color` property to `Primary`, `Secondary`, `Light`, or `Danger` to change the button's color.
 
-### When Not To Use
+### Type
 
-- Simple navigation: use links for standard navigation between pages.
-- Reading more content: use links rather than buttons for content expansion.
-- Excessive options: when there are more than two potential actions, consider a link list, dropdown, or callout group.
-- Selection tasks: use checkboxes, radio buttons, or toggles for selection rather than action buttons.
-- Filtering or sorting: consider chips, segmented controls, or dropdown selectors.
-- Inline reference links: within body text, use inline links or popover links for references.
-- Secondary information display: use tooltips, popovers, or expandable sections instead.
+Set the `type` property to change the button's appearance. Available types include `Fill`, `Outline`, and `Ghost`.
 
-### Know The Difference
+> - Use the lowest-emphasis button variant that clearly communicates the importance of the action
+> - Use only one filled button within an action group whenever possible
+> - Use outline and ghost buttons for supporting actions
+> - Reserve danger buttons for irreversible actions
 
-- Links take users to a different location.
-- Links are represented in HTML with the `<a>` element and require a URL.
-- Link examples include read more, view all, and destination-specific labels.
-- Buttons perform a function or action.
-- Buttons are represented in HTML with the `<button>` element.
-- Button examples include submit, reset, publish, and save.
-- Links styled as buttons are technically links, but visually appear as actionable buttons.
-- Links styled as buttons are commonly used for calls to action or prominent navigation.
+#### Filled
 
-### Icon Guidance
+Set the `type` property to `Fill` to draw filled buttons.
 
-- Icons should always provide additional context to the action the user is taking.
-- The arrow icon should only be used when the button takes the user to a new destination.
-- Many common button actions already have associated icons, such as login, download, upload, save, close, export, and refresh.
-- If there is not an obvious icon, the button likely should not have an icon.
-- Icons should almost always display on the right. Only display a left icon for navigational needs, such as a left arrow for going back.
-- **Right icon:** Optional. Contextual to button content.
-- **Left icon:** Rare; typically used for “back” buttons only. If left icon is present, right icon should be hidden.
+<div className="mds-docs-example-row mds-gap-md">
+  <ButtonExample text="Primary" type="Fill" color="Primary" />
+  <ButtonExample text="Secondary" type="Fill" color="Secondary" />
+  <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest">
+    <ButtonExample text="Light" type="Fill" color="Light" />
+  </span>
+  <ButtonExample text="Danger" type="Fill" color="Danger" />
+</div>
 
-## Examples
+#### Outline buttons
 
-<Canvas of={ButtonStories.Examples} sourceState="none" />
+Set the `type` property to `Outline` to draw outline buttons.
+
+<div className="mds-docs-example-row mds-gap-md">
+  <ButtonExample text="Primary" type="Outline" color="Primary" />
+  <ButtonExample text="Secondary" type="Outline" color="Secondary" />
+  <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest">
+    <ButtonExample text="Light" type="Outline" color="Light" />
+  </span>
+  <ButtonExample text="Danger" type="Outline" color="Danger" />
+</div>
+
+#### Ghost buttons
+
+Set the `type` property to `Ghost` to draw text buttons.
+
+<div className="mds-docs-example-row mds-gap-md">
+  <ButtonExample text="Primary" type="Ghost" color="Primary" />
+  <ButtonExample text="Secondary" type="Ghost" color="Secondary" />
+  <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest">
+    <ButtonExample text="Light" type="Ghost" color="Light" />
+  </span>
+  <ButtonExample text="Danger" type="Ghost" color="Danger" />
+</div>
+
+##### White ghost buttons
+
+Set the `color` property to `White` for ghost buttons when they are used only on dark backgrounds that will maintain their color between light and dark mode.
+
+<div className="mds-docs-example-row mds-gap-md">
+  <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-mid">
+    <ButtonExample text="White" type="Ghost" color="White" />
+  </span>
+</div>
+
+### Size
+
+Use the `size` property to change the button's size. Most buttons use `Regular`. `Large` is available for certain uses, like a Hamburger Menu button or a featured call to action in a hero area.
+
+<div className="mds-docs-example-row mds-gap-md">
+  <ButtonExample text="Regular" size="Regular" />
+  <ButtonExample text="Large" size="LG" />
+</div>
+
+### With icons
+
+Use icons only when they add helpful context or make an action easier to recognize.
+
+#### Use a left icon when the icon identifies the action
+
+Place an icon before the label when the icon helps people quickly recognize the type of action they are taking. Left icons work well for actions that are commonly associated with a specific symbol, object, or tool.
+
+Examples:
+
+<div className="mds-docs-example-row mds-gap-sm">
+  <ButtonExample text="Download" leftIcon="download-simple" />
+  <ButtonExample text="Previous" type="Outline" leftIcon="arrow-left" />
+  <ButtonExample text="Log in" type="Ghost" leftIcon="user" />
+</div>
+
+#### Use a right icon when the action moves someone forward
+
+Place an icon after the label when the icon suggests progression, continuation, or movement to another step or destination. Right icons work well for actions that move someone forward in a process or indicate that something will happen after activation.
+
+Examples:
+
+<div className="mds-docs-example-row mds-gap-sm">
+  <ButtonExample text="Next" rightIcon="arrow-right" />
+  <ButtonExample text="Start application" type="Outline" rightIcon="arrow-right" />
+  <ButtonExample text="Check eligibility" type="Ghost" rightIcon="arrow-right" />
+</div>
+
+### Disabled
+
+To disable a button, add the `disabled` property. A disabled button shows that an action is currently unavailable and cannot be selected or activated. They should be used only when the action will become available after the user completes a required step or meets a specific condition.
+
+<ButtonExample text="Button" disabled />

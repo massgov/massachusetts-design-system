@@ -13,9 +13,8 @@ run-name: Running `terraform apply` (${{ inputs.environment || 'dev' }})
 #  - prod: runs in the gated `prod` GitHub environment via manual
 #    workflow_dispatch only, same approval-gate mechanics as stage.
 #
-# Each environment (dev, stage, prod) has its own scoped DEPLOY_ROLE_ARN
-# variable, managed in github-iac. The job binds to the environment and
-# assumes that role.
+# Each environment (dev, stage, prod) has its own DEPLOY_ROLE_ARN variable,
+# managed in github-iac. The job binds to the environment and assumes that role.
 
 env:
   TF_IN_AUTOMATION: "true"

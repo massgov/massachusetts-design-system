@@ -11,6 +11,10 @@ export const buttonSchema = {
     type: 'string',
     default: ''
   },
+  href: {
+    type: 'string',
+    default: ''
+  },
   htmlType: {
     type: 'enum',
     default: 'button',
@@ -28,7 +32,7 @@ export const buttonSchema = {
   color: {
     type: 'enum',
     default: 'Primary',
-    options: ['Primary', 'Secondary', 'Light', 'Danger']
+    options: ['Primary', 'Secondary', 'Light', 'Danger', 'White']
   },
   size: {
     type: 'enum',

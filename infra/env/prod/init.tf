@@ -1,8 +1,8 @@
 ###############################################################################
 # Prod environment for designsystem.mass.gov
 #
-# Backend, provider, and managed tags follow massgov/SSR conventions:
-#  - shared remote state bucket terraform.secure.digital.mass.gov
+# Backend, provider, and managed tags follow the same conventions as dev/stage:
+#  - shared remote state bucket application-configurations
 #  - tags sourced from the central mds-terraform-common//tagging module
 ###############################################################################
 
@@ -18,8 +18,8 @@ module "tagging" {
 
 terraform {
   backend "s3" {
-    bucket         = "terraform.secure.digital.mass.gov"
-    key            = "terraform/state/massachusetts-design-system-prod.tfstate"
+    bucket         = "application-configurations"
+    key            = "terraform/state/prod/design-mass-gov-prod.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform"
   }

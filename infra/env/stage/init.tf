@@ -18,8 +18,8 @@ module "tagging" {
 
 terraform {
   backend "s3" {
-    bucket         = "terraform.secure.digital.mass.gov"
-    key            = "terraform/state/massachusetts-design-system-stage.tfstate"
+    bucket         = "application-configurations"
+    key            = "terraform/state/nonprod/design-mass-gov-stage.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform"
   }
