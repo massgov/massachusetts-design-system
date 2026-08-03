@@ -19,6 +19,11 @@
   justify-items: start;
 }
 
+#storybook-docs .mds-docs-example-frame {
+  width: 100%;
+  margin-block-end: var(--mds-space-sm);
+}
+
 #storybook-docs .mds-docs-example-item,
 #storybook-docs .mds-docs-example-surface {
   display: inline-flex;
