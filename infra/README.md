@@ -79,11 +79,11 @@ variables after applying each env:
   runs in the gated `stage` environment (manual dispatch, approval required).
 - `deploy-dev.yml`: builds Storybook and deploys it to **dev** on push to
   `main`. Pull requests can also deploy approved branch previews under
-  `/branch/<branch-name>` in the dev bucket; configure required reviewers on
+  `/branch/<branch-name>/` in the dev bucket; configure required reviewers on
   the `dev-preview` GitHub environment so these preview deploys pause for
   approval. The `main` sync preserves `branch/*` objects so approved previews
   are not removed by root deploys. When a branch is deleted, the matching
-  `/branch/<branch-name>` preview is removed from S3 and invalidated in
+  `/branch/<branch-name>/` preview is removed from S3 and invalidated in
   CloudFront.
 - `deploy-stage.yml`: builds Storybook and deploys it to **stage** — manual
   dispatch, runs in the gated `stage` environment.

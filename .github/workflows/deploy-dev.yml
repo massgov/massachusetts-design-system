@@ -58,7 +58,7 @@ jobs:
       - name: Preview target
         env:
           BRANCH_NAME: ${{ github.head_ref }}
-        run: echo "Approve deployment to /branch/${BRANCH_NAME}"
+        run: echo "Approve deployment to /branch/${BRANCH_NAME}/"
 
   build:
     name: Build Storybook
@@ -69,6 +69,7 @@ jobs:
       invalidation_path: ${{ steps.target.outputs.invalidation_path }}
       preview_path: ${{ steps.target.outputs.preview_path }}
       s3_prefix: ${{ steps.target.outputs.s3_prefix }}
+      storybook_base_path: ${{ steps.target.outputs.storybook_base_path }}
     steps:
       - name: Set deployment target
         id: target
@@ -88,11 +89,13 @@ jobs:
 
             echo "s3_prefix=branch/${branch_path}" >> "$GITHUB_OUTPUT"
             echo "invalidation_path=/branch/${branch_path}/*" >> "$GITHUB_OUTPUT"
-            echo "preview_path=/branch/${branch_path}" >> "$GITHUB_OUTPUT"
+            echo "preview_path=/branch/${branch_path}/" >> "$GITHUB_OUTPUT"
+            echo "storybook_base_path=/branch/${branch_path}/" >> "$GITHUB_OUTPUT"
           else
             echo "s3_prefix=" >> "$GITHUB_OUTPUT"
             echo "invalidation_path=/*" >> "$GITHUB_OUTPUT"
             echo "preview_path=/" >> "$GITHUB_OUTPUT"
+            echo "storybook_base_path=/" >> "$GITHUB_OUTPUT"
           fi
 
       - uses: actions/checkout@v7
@@ -110,6 +113,8 @@ jobs:
         run: npm run build --workspaces --if-present
         
       - name: Build site
+        env:
+          STORYBOOK_BASE_PATH: ${{ steps.target.outputs.storybook_base_path }}
         run: npm run build:storybook
 
       - name: Upload Storybook artifact
