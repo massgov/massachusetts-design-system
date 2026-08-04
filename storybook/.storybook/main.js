@@ -1,6 +1,22 @@
 import { mergeConfig } from 'vite';
 
-const storybookBasePath = process.env.STORYBOOK_BASE_PATH || '/';
+const normalizeBasePath = (basePath = '/') => {
+  const trimmedBasePath = basePath.trim();
+
+  if (!trimmedBasePath || trimmedBasePath === '/') {
+    return '/';
+  }
+
+  const basePathWithLeadingSlash = trimmedBasePath.startsWith('/')
+    ? trimmedBasePath
+    : `/${trimmedBasePath}`;
+
+  return basePathWithLeadingSlash.endsWith('/')
+    ? basePathWithLeadingSlash
+    : `${basePathWithLeadingSlash}/`;
+};
+
+const storybookBasePath = normalizeBasePath(process.env.STORYBOOK_BASE_PATH);
 
 const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|mjs)'],
