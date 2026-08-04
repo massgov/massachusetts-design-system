@@ -126,6 +126,9 @@ Each component lives in `src/<component>/`. Keep component-specific API notes,
 usage guidance, and property details close to that component when they are
 needed.
 
+For component class naming, selector, token, and mixin standards, see
+[`CODE_STANDARDS.md`](docs/CODE_STANDARDS.md).
+
 Use this file structure for new components:
 
 - `<component>.twig` for authored markup
