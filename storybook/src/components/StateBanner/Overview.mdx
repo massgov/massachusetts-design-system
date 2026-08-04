@@ -1,18 +1,36 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/state-banner.css';
+import { stateBannerDefaults } from '../../../../packages/components/src/state-banner/state-banner.data.js';
+import { renderStateBanner } from '../../utils/component-renderers.js';
 import * as StateBannerStories from './state-banner.stories.js';
+
+export const StateBannerExample = (args) => (
+  <div
+    className="sb-unstyled mds-docs-example-frame mds-docs-example-stack mds-gap-xs"
+    dangerouslySetInnerHTML={{
+      __html: renderStateBanner({
+        ...stateBannerDefaults,
+        secureWebsitesHeading: 'Secure websites use HTTPS certificate',
+        ...args
+      })
+    }}
+  />
+);
 
 <Meta of={StateBannerStories} />
 
-# State Banner
+# State banner overview
 
-The Massachusetts state website banner serves as a consistent, recognizable element across all Mass.gov digital properties to let users know they are on an official state website. It should appear at the top of each page within all Mass.gov sites.
+The state banner serves as a consistent, recognizable element across digital properties to let users know they are on an official state site. It must appear at the top of each page within all Mass.gov, Massachusetts.gov, Ma.gov, and State.ma.us sites, including their subdomains (e.g. example.mass.gov).
 
-<Canvas of={StateBannerStories.Playground} sourceState="none" />
+<StateBannerExample />
 
-## Usage
+<StateBannerExample openByDefault />
 
-### When To Use
-- At the top of all Mass.gov web pages
+---
 
-### When Not To Use
-- State related apps or websites that do not have the Mass.gov extension
+## Variants
+
+### Color
+
+The state banner uses one standardized color treatment to create a single, consistent trust pattern across official Commonwealth digital experiences. This helps constituents quickly recognize that they are on an official government website, regardless of which agency or organization produced the experience.
