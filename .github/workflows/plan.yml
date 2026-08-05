@@ -14,7 +14,7 @@ on:
   workflow_call:
     inputs:
       environment:
-        description: "Environment to plan (dev | stage)"
+        description: "Environment to plan (dev | stage | prod)"
         required: false
         default: "dev"
         type: string

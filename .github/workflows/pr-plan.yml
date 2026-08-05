@@ -2,9 +2,9 @@ name: "Terraform PR Plan"
 
 # Runs `terraform plan` as a required-style check on PRs that touch
 # infrastructure, so reviewers see the planned AWS changes before merge.
-# Plans every environment so a change to infra/env/stage is reviewed against
-# stage (not just dev). The plan role is read-only, so planning stage needs no
-# gate.
+# Plans every environment so a change to infra/env/prod is reviewed against
+# prod (not just dev/stage). The plan role is read-only, so planning prod
+# needs no gate.
 
 on:
   pull_request:
@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        environment: [dev, stage]
+        environment: [dev, stage, prod]
     uses: ./.github/workflows/plan.yml
     with:
       environment: ${{ matrix.environment }}
