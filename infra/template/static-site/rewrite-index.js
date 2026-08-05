@@ -5,12 +5,17 @@ function toQueryString(querystring) {
     // Preserve query strings when redirecting Storybook URLs such as
     // /branch/foo?path=/docs/... .
     for (var key in querystring) {
-        if (querystring[key].multiValue) {
-            querystring[key].multiValue.forEach(function (item) {
-                parts.push(key + '=' + item.value);
+        if (!Object.prototype.hasOwnProperty.call(querystring, key)) continue;
+
+        var entry = querystring[key] || {};
+        var encodedKey = encodeURIComponent(key);
+
+        if (entry.multiValue) {
+            entry.multiValue.forEach(function (item) {
+                parts.push(encodedKey + '=' + encodeURIComponent((item && item.value) || ''));
             });
         } else {
-            parts.push(key + '=' + querystring[key].value);
+            parts.push(encodedKey + '=' + encodeURIComponent(entry.value || ''));
         }
     }
 
