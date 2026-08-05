@@ -10,8 +10,10 @@ run-name: Running `terraform apply` (${{ inputs.environment || 'dev' }})
 #    the OIDC subject `environment:stage` that the environment's scoped
 #    DEPLOY_ROLE_ARN trusts. Stage never auto-applies — it is triggered by
 #    workflow_dispatch (or a workflow_call) and pauses for approval.
+#  - prod: runs in the gated `prod` GitHub environment via manual
+#    workflow_dispatch only, same approval-gate mechanics as stage.
 #
-# Each environment (dev, stage) has its own scoped DEPLOY_ROLE_ARN variable,
+# Each environment (dev, stage, prod) has its own DEPLOY_ROLE_ARN variable,
 # managed in github-iac. The job binds to the environment and assumes that role.
 
 env:
@@ -34,6 +36,7 @@ on:
         options:
           - dev
           - stage
+          - prod
   workflow_call:
     inputs:
       environment:
@@ -54,8 +57,8 @@ jobs:
   terraform_apply:
     name: Infrastructure Apply (${{ inputs.environment || 'dev' }})
     runs-on: ubuntu-latest
-    # For stage this binds the job to the gated `stage` environment (approval +
-    # environment:stage OIDC subject). For dev it is a plain, unprotected label.
+    # For stage/prod this binds the job to the gated environment (approval +
+    # environment:<env> OIDC subject). For dev it is a plain, unprotected label.
     environment: ${{ inputs.environment || 'dev' }}
     permissions:
       id-token: write   # required for OIDC role assumption
@@ -68,8 +71,8 @@ jobs:
           aws-region: us-east-1
           # The job runs in the <environment>, so vars.DEPLOY_ROLE_ARN resolves to
           # the environment's scoped DEPLOY_ROLE_ARN, which bundles the
-          # terraform-apply + state policies. Symmetric for dev and stage; stage
-          # additionally requires reviewer approval (the gate).
+          # terraform-apply + state policies. Symmetric across dev, stage, and
+          # prod; stage and prod additionally require reviewer approval (the gate).
           role-to-assume: ${{ vars.DEPLOY_ROLE_ARN }}
 
       - name: Install Terraform
