@@ -10,11 +10,9 @@ name: Deploy to AWS (dev)
 #   DEV_BUCKET            - site_bucket_id
 #   DEV_DISTRIBUTION_ID   - cloudfront_distro_id
 #
-# PR branch previews run through the `dev-preview` GitHub environment as an
-# approval gate, then deploy through `dev` so the existing OIDC role applies.
-# Configure required reviewers on `dev-preview` in github-iac/GitHub settings.
-# When a branch is deleted, its matching `/branch/<branch-name>` preview is
-# removed from the dev bucket.
+# PR branch previews deploy through the `dev` environment to a
+# `/branch/<branch-name>` prefix in the dev bucket, isolated from the main
+# site. When a branch is deleted, its matching preview is removed.
 
 on:
   push:
@@ -49,21 +47,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  approve-preview:
-    name: Approve Branch Preview
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    environment: dev-preview
-    steps:
-      - name: Preview target
-        env:
-          BRANCH_NAME: ${{ github.head_ref }}
-        run: echo "Approve deployment to /branch/${BRANCH_NAME}/"
-
   build:
     name: Build Storybook
-    needs: approve-preview
-    if: ${{ always() && (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && needs.approve-preview.result == 'success')) }}
+    if: github.event_name != 'delete'
     runs-on: ubuntu-latest
     outputs:
       invalidation_path: ${{ steps.target.outputs.invalidation_path }}
@@ -126,7 +112,6 @@ jobs:
 
   deploy:
     needs: build
-    if: needs.build.result == 'success'
     runs-on: ubuntu-latest
     permissions:
       contents: read
