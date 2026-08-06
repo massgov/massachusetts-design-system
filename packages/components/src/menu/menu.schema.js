@@ -1,11 +1,13 @@
 export const menuSchema = {
   id: {
     type: 'string',
-    default: 'mds-menu'
+    default: 'mds-menu',
+    required: true
   },
   className: {
     type: 'string',
-    default: ''
+    default: 'mds-popup-menu',
+    required: true
   },
   ariaLabel: {
     type: 'string',
@@ -26,25 +28,29 @@ export const menuSchema = {
         type: 'button',
         buttonType: 'button',
         label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non diam sit amet lacus molestie dapibus molestie eu diam. Donec vitae diam in nunc ultricies euismod.',
-        iconName: 'smiley'
+        iconName: 'smiley',
+        iconWeight: 'Bold'
       },
       {
         type: 'button',
         buttonType: 'button',
         label: 'Select item',
-        iconName: 'smiley'
+        iconName: 'smiley',
+        iconWeight: 'Bold'
       },
       {
         type: 'button',
         buttonType: 'button',
         label: 'Select item',
-        iconName: 'smiley'
+        iconName: 'smiley',
+        iconWeight: 'Bold'
       },
       {
         type: 'button',
         buttonType: 'button',
         label: 'Select item',
-        iconName: 'smiley'
+        iconName: 'smiley',
+        iconWeight: 'Bold'
       }
     ]
   }
