@@ -1,5 +1,7 @@
 import { mergeConfig } from 'vite';
 
+const storybookBasePath = process.env.STORYBOOK_BASE_PATH || '/';
+
 const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|mjs)'],
   addons: ['@storybook/addon-docs', '@storybook/addon-a11y'],
@@ -14,6 +16,7 @@ const config = {
     sidebarOnboardingChecklist: false
   },
   viteFinal: async (config) => mergeConfig(config, {
+    base: storybookBasePath,
     build: {
       chunkSizeWarningLimit: 1200
     },
