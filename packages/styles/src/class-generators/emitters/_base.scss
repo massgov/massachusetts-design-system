@@ -6,9 +6,28 @@
   @return "mds-#{$class}-#{$name}";
 }
 
+@function utility-class-name-color($class, $name, $context) {
+  @if $class == "" {
+    @return "mds-#{$name}";
+  }
+  @if $context == "" {
+    @return "mds-#{$class}-#{$name}"
+  }
+
+  @return "mds-#{$class}-#{$name}-#{$context}";
+}
+
 @mixin emit-base-utilities($class, $property, $scale) {
   @each $name, $value in $scale {
     .#{utility-class-name($class, $name)} {
+      #{$property}: $value;
+    }
+  }
+}
+
+@mixin emit-base-color-utilities($class, $property, $scale, $context) {
+  @each $name, $value in $scale {
+    .#{utility-class-name-color($class, $name, $context)} {
       #{$property}: $value;
     }
   }

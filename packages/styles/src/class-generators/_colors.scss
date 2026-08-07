@@ -3,11 +3,14 @@
 
 /* Color utilities generated from semantic color tokens */
 
-@include base.emit-base-utilities("content", background-color, variables.$content-scale);
-@include base.emit-base-utilities("interactive", background-color, variables.$interactive-scale);
+@include base.emit-base-color-utilities("content", background-color, variables.$content-scale, "background");
+@include base.emit-base-color-utilities("content", color, variables.$content-scale, "text");
+@include base.emit-base-color-utilities("interactive", background-color, variables.$interactive-scale, "background");
 @include base.emit-base-utilities("border", border-color, variables.$border-scale);
-@include base.emit-base-utilities("section", background-color, variables.$section-scale);
+@include base.emit-base-color-utilities("section", background-color, variables.$section-scale, "background");
+@include base.emit-base-color-utilities("section", color, variables.$section-scale, "text");
 @include base.emit-base-utilities("focus", border-color, variables.$focus-scale);
-@include base.emit-base-utilities("surface", background-color, variables.$surface-scale);
-@include base.emit-base-utilities("base", background-color, variables.$base-scale);
+@include base.emit-base-color-utilities("surface", background-color, variables.$surface-scale, "background");
+@include base.emit-base-color-utilities("base", background-color, variables.$base-scale, "background");
+@include base.emit-base-color-utilities("base", color, variables.$base-scale, "text");
 @include base.emit-base-utilities("opacity", background-color, variables.$opacity-scale);
