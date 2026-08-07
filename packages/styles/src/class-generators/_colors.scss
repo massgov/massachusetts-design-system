@@ -3,6 +3,11 @@
 
 /* Color utilities generated from semantic color tokens */
 
-@include base.emit-base-utilities("background", background-color, variables.$background-scale);
-@include base.emit-base-utilities("text-and-icons", color, variables.$text-and-icons-scale);
+@include base.emit-base-utilities("content", background-color, variables.$content-scale);
+@include base.emit-base-utilities("interactive", background-color, variables.$interactive-scale);
 @include base.emit-base-utilities("border", border-color, variables.$border-scale);
+@include base.emit-base-utilities("section", background-color, variables.$section-scale);
+@include base.emit-base-utilities("focus", border-color, variables.$focus-scale);
+@include base.emit-base-utilities("surface", background-color, variables.$surface-scale);
+@include base.emit-base-utilities("base", background-color, variables.$base-scale);
+@include base.emit-base-utilities("opacity", background-color, variables.$opacity-scale);
