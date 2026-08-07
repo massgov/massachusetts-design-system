@@ -25,7 +25,7 @@
   --mds-border-radius-450: 2.25rem;
   --mds-border-radius-500: 2.5rem;
   --mds-border-radius-600: 3rem;
-  --mds-border-radius-round: 1000px;
+  --mds-border-radius-round: 999px;
   --mds-color-brand-gray-100: #f7f7f7;
   --mds-color-brand-gray-200: #f0f0f0;
   --mds-color-brand-gray-300: #e6e6e6;
@@ -102,7 +102,7 @@
   --mds-color-utility-base-white-opacity-30: #ffffff4d;
   --mds-color-utility-base-white-opacity-70: #ffffffb3;
   --mds-color-utility-base-white-opacity-80: #ffffffcc;
-  --mds-color-utility-base-black-opacity-60: #14141499;
+  --mds-color-utility-base-black-opacity-60: #00000099;
   --mds-color-utility-danger-red-100: #fef1f1;
   --mds-color-utility-danger-red-300: #f99f9f;
   --mds-color-utility-danger-red-600: #cd0d0d;

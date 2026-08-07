@@ -6,7 +6,7 @@
   @return "mds-#{$class}-#{$name}";
 }
 
-@function utility-class-name-color($class, $name, $context) {
+@function utility-class-name-with-context($context, $class, $name) {
   @if $class == "" {
     @return "mds-#{$name}";
   }
@@ -14,7 +14,7 @@
     @return "mds-#{$class}-#{$name}"
   }
 
-  @return "mds-#{$class}-#{$name}-#{$context}";
+  @return "mds-#{$context}-#{$class}-#{$name}"; // Should be mds-text-interactive, mds-background-interactive, mds-border-interactive, etc.
 }
 
 @mixin emit-base-utilities($class, $property, $scale) {
@@ -25,9 +25,9 @@
   }
 }
 
-@mixin emit-base-color-utilities($class, $property, $scale, $context) {
+@mixin emit-base-utilities-with-context($class, $property, $scale, $context) {
   @each $name, $value in $scale {
-    .#{utility-class-name-color($class, $name, $context)} {
+    .#{utility-class-name-with-context($context, $class, $name)} {
       #{$property}: $value;
     }
   }
