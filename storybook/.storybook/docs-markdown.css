@@ -1,0 +1,147 @@
+#storybook-docs .sbdocs-wrapper,
+#storybook-docs .sbdocs {
+  background: var(--mds-background-section-utility-static-white);
+}
+
+#storybook-docs .sbdocs-content {
+  max-width: 980px;
+  color: var(--mds-text-and-icons-brand-neutral-default);
+}
+
+#storybook-docs .mds-docs-example-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#storybook-docs .mds-docs-example-stack {
+  display: grid;
+  justify-items: start;
+}
+
+#storybook-docs .mds-docs-example-frame {
+  width: 100%;
+  margin-block-end: var(--mds-space-sm);
+}
+
+#storybook-docs .mds-docs-example-item,
+#storybook-docs .mds-docs-example-surface {
+  display: inline-flex;
+}
+
+#storybook-docs .sbdocs-content :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)),
+#storybook-docs .sbdocs-content :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
+#storybook-docs .sbdocs-content :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
+#storybook-docs .sbdocs-content :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
+#storybook-docs .sbdocs-content :where(h5:not(.sb-anchor, .sb-unstyled, .sb-unstyled h5)),
+#storybook-docs .sbdocs-content :where(h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6)) {
+  color: var(--mds-text-and-icons-brand-neutral-default);
+  font-family: var(--mds-text-heading-font-family);
+  font-weight: var(--mds-text-heading-font-weight);
+  letter-spacing: 0;
+}
+
+#storybook-docs .sbdocs-content :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)) {
+  margin-block: var(--mds-space-xs) var(--mds-space-md);
+  font-size: var(--mds-text-heading-font-size-xl);
+  line-height: var(--mds-text-heading-line-height-xl);
+}
+
+#storybook-docs .sbdocs-content :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)) {
+  margin-block: var(--mds-space-lg) var(--mds-space-sm);
+  font-size: var(--mds-text-heading-font-size-lg);
+  line-height: var(--mds-text-heading-line-height-lg);
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+#storybook-docs .sbdocs-content :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)) {
+  margin-block: var(--mds-space-md) var(--mds-space-xs);
+  font-size: var(--mds-text-heading-font-size-md);
+  line-height: var(--mds-text-heading-line-height-md);
+}
+
+#storybook-docs .sbdocs-content :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)) {
+  margin-block: var(--mds-space-md) var(--mds-space-xs);
+  font-size: var(--mds-text-heading-font-size-sm);
+  line-height: var(--mds-text-heading-line-height-sm);
+}
+
+#storybook-docs .sbdocs-content :where(h5:not(.sb-anchor, .sb-unstyled, .sb-unstyled h5)) {
+  margin-block: var(--mds-space-sm) var(--mds-space-2xs);
+  font-size: var(--mds-text-heading-font-size-xs);
+  line-height: var(--mds-text-heading-line-height-xs);
+}
+
+#storybook-docs .sbdocs-content :where(h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6)) {
+  margin-block: var(--mds-space-sm) var(--mds-space-2xs);
+  font-family: var(--mds-text-label-font-family);
+  font-size: var(--mds-text-label-font-size-md);
+  font-weight: var(--mds-text-label-font-weight);
+  line-height: var(--mds-text-label-line-height-md);
+}
+
+#storybook-docs .sbdocs-content :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+#storybook-docs .sbdocs-content :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+  color: var(--mds-text-and-icons-brand-neutral-default);
+  font-family: var(--mds-text-body-font-family);
+  font-size: var(--mds-text-body-font-size-lg);
+  font-weight: var(--mds-text-body-font-weight);
+  line-height: var(--mds-text-body-line-height-lg);
+  letter-spacing: 0;
+}
+
+#storybook-docs .sbdocs-content :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) {
+  margin-block: 0 var(--mds-space-sm);
+}
+
+#storybook-docs .sbdocs-content :where(ul:not(.sb-anchor, .sb-unstyled, .sb-unstyled ul)),
+#storybook-docs .sbdocs-content :where(ol:not(.sb-anchor, .sb-unstyled, .sb-unstyled ol)) {
+  margin-block: 0 var(--mds-space-sm);
+  padding-inline-start: var(--mds-space-lg);
+}
+
+#storybook-docs .sbdocs-content :where(ul:not(.sb-anchor, .sb-unstyled, .sb-unstyled ul)) li + li,
+#storybook-docs .sbdocs-content :where(ol:not(.sb-anchor, .sb-unstyled, .sb-unstyled ol)) li + li {
+  margin-block-start: var(--mds-space-3xs);
+}
+
+#storybook-docs .sbdocs-content :where(hr:not(.sb-anchor, .sb-unstyled, .sb-unstyled hr)) {
+  margin-block: var(--mds-space-md);
+  border: 0;
+  border-top: 1px solid var(--mds-border-brand-neutral-low);
+}
+
+#storybook-docs .sbdocs-content :where(blockquote:not(.sb-anchor, .sb-unstyled, .sb-unstyled blockquote)) {
+  margin: var(--mds-space-md) 0;
+  padding: 0 0 0 var(--mds-space-md);
+  border-inline-start: 1px solid var(--mds-border-brand-neutral-low);
+  color: var(--mds-text-and-icons-brand-neutral-default);
+}
+
+#storybook-docs .sbdocs-content :where(blockquote:not(.sb-anchor, .sb-unstyled, .sb-unstyled blockquote)) p {
+  margin-block-end: 0;
+}
+
+#storybook-docs .sbdocs-content :where(p, ul, ol, blockquote):not(.sb-anchor, .sb-unstyled, .sb-unstyled *) code {
+  color: inherit;
+  font-size: 0.95em;
+}
+
+#storybook-docs .sbdocs-content :where(p, ul, ol, blockquote):not(.sb-anchor, .sb-unstyled, .sb-unstyled *) a {
+  color: var(--mds-text-and-icons-brand-primary-mid);
+}
+
+#storybook-docs .sbdocs-content :where(p, ul, ol, blockquote):not(.sb-anchor, .sb-unstyled, .sb-unstyled *) a:hover {
+  color: var(--mds-background-adaptive-brand-primary-high);
+}
+
+#storybook-docs .sbdocs-content :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) {
+  font-family: var(--mds-text-body-font-family);
+}
+
+@media (max-width: 768px) {
+  #storybook-docs .sbdocs-content {
+    max-width: 100%;
+  }
+}

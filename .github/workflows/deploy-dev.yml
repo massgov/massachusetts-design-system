@@ -1,0 +1,195 @@
+name: Deploy to AWS (dev)
+
+# Builds the Storybook site and deploys it to the dev S3 origin behind
+# CloudFront. Authenticates to AWS via GitHub OIDC role assumption — no
+# long-lived AWS keys are stored in the repo.
+#
+# Requires these repository variables (Settings → Secrets and variables →
+# Actions → Variables), populated from `terraform output` of infra/env/dev:
+#   DEPLOY_ROLE_ARN       - deploy_role_arn
+#   DEV_BUCKET            - site_bucket_id
+#   DEV_DISTRIBUTION_ID   - cloudfront_distro_id
+#
+# PR branch previews deploy through the `dev` environment to a
+# `/branch/<branch-name>` prefix in the dev bucket, isolated from the main
+# site. When a branch is deleted, its matching preview is removed.
+
+on:
+  push:
+    branches:
+      - main
+    # Site-content changes only. Infra changes are handled by apply.yml; without
+    # this filter every infra merge would needlessly rebuild and re-sync the site.
+    paths-ignore:
+      - infra/**
+      - .github/workflows/apply.yml
+      - .github/workflows/plan.yml
+      - .github/workflows/pr-plan.yml
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+    paths-ignore:
+      - infra/**
+      - .github/workflows/apply.yml
+      - .github/workflows/plan.yml
+      - .github/workflows/pr-plan.yml
+  delete:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-dev-${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.event_name == 'delete' && github.event.ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Storybook
+    if: github.event_name != 'delete'
+    runs-on: ubuntu-latest
+    outputs:
+      invalidation_path: ${{ steps.target.outputs.invalidation_path }}
+      preview_path: ${{ steps.target.outputs.preview_path }}
+      s3_prefix: ${{ steps.target.outputs.s3_prefix }}
+      storybook_base_path: ${{ steps.target.outputs.storybook_base_path }}
+    steps:
+      - name: Set deployment target
+        id: target
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          set -euo pipefail
+
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            branch_path="$(printf '%s' "$HEAD_REF" | sed -E 's|^refs/heads/||; s|[^A-Za-z0-9._/-]+|-|g; s|^/+||; s|/+$||')"
+
+            if [ -z "$branch_path" ]; then
+              echo "Could not determine a branch preview path." >&2
+              exit 1
+            fi
+
+            echo "s3_prefix=branch/${branch_path}" >> "$GITHUB_OUTPUT"
+            echo "invalidation_path=/branch/${branch_path}/*" >> "$GITHUB_OUTPUT"
+            echo "preview_path=/branch/${branch_path}/" >> "$GITHUB_OUTPUT"
+            echo "storybook_base_path=/branch/${branch_path}/" >> "$GITHUB_OUTPUT"
+          else
+            echo "s3_prefix=" >> "$GITHUB_OUTPUT"
+            echo "invalidation_path=/*" >> "$GITHUB_OUTPUT"
+            echo "preview_path=/" >> "$GITHUB_OUTPUT"
+            echo "storybook_base_path=/" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build packages
+        run: npm run build --workspaces --if-present
+        
+      - name: Build site
+        env:
+          STORYBOOK_BASE_PATH: ${{ steps.target.outputs.storybook_base_path }}
+        run: npm run build:storybook
+
+      - name: Upload Storybook artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: storybook-static
+          path: storybook/storybook-static
+          if-no-files-found: error
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write   # required for OIDC role assumption
+    # Run in the (ungated) dev environment so the env-scoped DEPLOY_ROLE_ARN
+    # resolves to the dev deploy role (trusts environment:dev).
+    environment: dev
+    steps:
+      - name: Download Storybook artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: storybook-static
+          path: storybook/storybook-static
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Sync branch preview to S3
+        if: github.event_name == 'pull_request'
+        run: aws s3 sync storybook/storybook-static/ "s3://${{ vars.DEV_BUCKET }}/${{ needs.build.outputs.s3_prefix }}" --delete
+
+      - name: Sync main site to S3
+        if: github.event_name != 'pull_request'
+        run: aws s3 sync storybook/storybook-static/ "s3://${{ vars.DEV_BUCKET }}" --delete --exclude "branch/*"
+
+      - name: Invalidate CloudFront
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${{ vars.DEV_DISTRIBUTION_ID }}" \
+            --paths "${{ needs.build.outputs.invalidation_path }}"
+
+      - name: Deployment path
+        run: echo "Deployed dev Storybook to ${{ needs.build.outputs.preview_path }}"
+
+  cleanup-preview:
+    name: Remove Branch Preview
+    if: github.event_name == 'delete' && github.event.ref_type == 'branch' && github.event.ref != 'main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write   # required for OIDC role assumption
+    environment: dev
+    steps:
+      - name: Set cleanup target
+        id: target
+        env:
+          BRANCH_NAME: ${{ github.event.ref }}
+        run: |
+          set -euo pipefail
+
+          branch_path="$(printf '%s' "$BRANCH_NAME" | sed -E 's|^refs/heads/||; s|[^A-Za-z0-9._/-]+|-|g; s|^/+||; s|/+$||')"
+
+          if [ -z "$branch_path" ]; then
+            echo "Could not determine a branch preview path." >&2
+            exit 1
+          fi
+
+          echo "s3_prefix=branch/${branch_path}" >> "$GITHUB_OUTPUT"
+          echo "invalidation_path=/branch/${branch_path}/*" >> "$GITHUB_OUTPUT"
+          echo "preview_path=/branch/${branch_path}" >> "$GITHUB_OUTPUT"
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Remove branch preview from S3
+        run: aws s3 rm "s3://${{ vars.DEV_BUCKET }}/${{ steps.target.outputs.s3_prefix }}" --recursive
+
+      - name: Invalidate branch preview
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${{ vars.DEV_DISTRIBUTION_ID }}" \
+            --paths "${{ steps.target.outputs.invalidation_path }}"
+
+      - name: Removed deployment path
+        run: echo "Removed dev Storybook preview from ${{ steps.target.outputs.preview_path }}"

@@ -1,0 +1,51 @@
+name: Run terraform plan
+run-name: Running `terraform plan` for ${{ github.ref_name }}
+
+# Reusable workflow: runs `terraform plan` against infra/env/<environment> using
+# the read-only PLAN_ROLE_ARN (GitHub OIDC). Called by pr-plan.yml as a PR check
+# so infrastructure changes are reviewable before merge. The plan role is
+# read-only, so it is safe to plan any environment with it (no gate needed for a
+# read-only plan).
+
+env:
+  TF_IN_AUTOMATION: "true"
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: "Environment to plan (dev | stage | prod)"
+        required: false
+        default: "dev"
+        type: string
+
+defaults:
+  run:
+    shell: bash -eo pipefail {0}
+
+jobs:
+  infrastructure_plan:
+    name: Infrastructure Plan (${{ inputs.environment }})
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # required for OIDC role assumption
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ vars.PLAN_ROLE_ARN }}
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "~> 1.10"
+          terraform_wrapper: false
+
+      - name: Terraform plan
+        run: |
+          terraform init -input=false
+          terraform plan -no-color -input=false
+        working-directory: infra/env/${{ inputs.environment }}
