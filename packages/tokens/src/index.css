@@ -244,7 +244,7 @@
   --mds-text-eyebrow-line-height-md: var(--mds-line-height-100);
   --mds-text-caption-line-height-sm: var(--mds-line-height-130);
   --mds-text-caption-line-height: var(--mds-line-height-130);
-  --mds-text-caption-line-height-md: var(--mds-line-height-130);
+  --mds-text-caption-line-height-lg: var(--mds-line-height-130);
 
   /** Font sizes **/
   --mds-text-heading-font-size-2xs: var(--mds-font-size-225);
@@ -265,7 +265,7 @@
   --mds-text-eyebrow-font-size-md: var(--mds-font-size-200);
   --mds-text-caption-font-size-sm: var(--mds-font-size-125);
   --mds-text-caption-font-size: var(--mds-font-size-175);
-  --mds-text-caption-font-size-md: var(--mds-font-size-200);
+  --mds-text-caption-font-size-lg: var(--mds-font-size-200);
 
 /**
  * Breakpoint-specific tokens for handling responsive sizing
