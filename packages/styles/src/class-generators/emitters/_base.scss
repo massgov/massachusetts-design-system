@@ -10,6 +10,7 @@
   @if $class == "" {
     @return "mds-#{$name}";
   }
+
   @if $context == "" {
     @return "mds-#{$class}-#{$name}"
   }

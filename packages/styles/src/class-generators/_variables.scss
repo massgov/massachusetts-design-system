@@ -77,7 +77,6 @@ $section-scale: (
   "utility-success-mid": var(--mds-background-section-utility-success-mid),
   "utility-success-highest": var(--mds-background-section-utility-success-highest)
 );
-
 $border-scale: (
   "brand-neutral-lowest": var(--mds-border-brand-neutral-lowest),
   "brand-neutral-low": var(--mds-border-brand-neutral-low),
@@ -107,7 +106,6 @@ $focus-scale: (
   "on-light": var(--mds-focus-on-light),
   "on-dark": var(--mds-focus-on-dark)
 );
-
 $surface-scale: (
   "default": var(--mds-surface-default)
 );
@@ -123,7 +121,6 @@ $overlay-scale: (
   "white-80": var(--mds-overlay-white-80),
   "black-mid": var(--mds-overlay-black-mid)
 );
-
 $radius-scale: (
   "xs": var(--mds-radius-xs),
   "sm": var(--mds-radius-sm),
