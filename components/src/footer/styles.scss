@@ -115,7 +115,7 @@
   &__description {
     max-width: 18rem;
 
-    @include mixins.text("caption-md");
+    @include mixins.text("caption-lg");
   }
 
   &__heading {
@@ -147,7 +147,7 @@
   &__contact-note {
     padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
 
-    @include mixins.text("caption-md");
+    @include mixins.text("caption-lg");
   }
 
   &__link-list {
@@ -182,7 +182,7 @@
     gap: var(--mds-space-sm);
     padding-block: var(--mds-space-md) var(--mds-space-2xl);
 
-    @include mixins.text("caption-md");
+    @include mixins.text("caption-lg");
   }
 
   &__trademark {

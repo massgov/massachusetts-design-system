@@ -128,8 +128,8 @@
   max-width: 18rem;
   font-family: var(--mds-text-caption-font-family);
   font-weight: var(--mds-text-caption-font-weight);
-  font-size: var(--mds-text-caption-font-size-md);
-  line-height: var(--mds-text-caption-line-height-md);
+  font-size: var(--mds-text-caption-font-size-lg);
+  line-height: var(--mds-text-caption-line-height-lg);
 }
 .mds-footer__heading {
   padding-block-end: var(--mds-space-xs);
@@ -163,8 +163,8 @@
   padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
   font-family: var(--mds-text-caption-font-family);
   font-weight: var(--mds-text-caption-font-weight);
-  font-size: var(--mds-text-caption-font-size-md);
-  line-height: var(--mds-text-caption-line-height-md);
+  font-size: var(--mds-text-caption-font-size-lg);
+  line-height: var(--mds-text-caption-line-height-lg);
 }
 .mds-footer__link-list {
   display: flex;
@@ -199,8 +199,8 @@
   padding-block: var(--mds-space-md) var(--mds-space-2xl);
   font-family: var(--mds-text-caption-font-family);
   font-weight: var(--mds-text-caption-font-weight);
-  font-size: var(--mds-text-caption-font-size-md);
-  line-height: var(--mds-text-caption-line-height-md);
+  font-size: var(--mds-text-caption-font-size-lg);
+  line-height: var(--mds-text-caption-line-height-lg);
 }
 .mds-footer__trademark {
   line-height: var(--mds-line-height-180);
