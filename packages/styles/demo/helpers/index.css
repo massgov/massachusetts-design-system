@@ -85,7 +85,7 @@
   height: 2rem;
   border-radius: var(--mds-radius-max);
   background-color: var(--mds-background-adaptive-brand-primary-mid);
-  color: var(--mds-text-and-icons-utility-inverse);
+  color: var(--mds-base-inverse);
   font-family: var(--mds-text-label-font-family);
   font-weight: var(--mds-text-label-font-weight);
   font-size: var(--mds-text-label-font-size);

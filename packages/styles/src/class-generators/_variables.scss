@@ -115,10 +115,10 @@ $base-scale: (
   "inverse": var(--mds-base-inverse)
 );
 $overlay-scale: (
-  "white-20": var(--mds-overlay-white-20),
-  "white-30": var(--mds-overlay-white-30),
-  "white-70": var(--mds-overlay-white-70),
-  "white-80": var(--mds-overlay-white-80),
+  "white-lowest": var(--mds-overlay-white-lowest),
+  "white-low": var(--mds-overlay-white-low),
+  "white-high": var(--mds-overlay-white-high),
+  "white-highest": var(--mds-overlay-white-highest),
   "black-mid": var(--mds-overlay-black-mid)
 );
 $radius-scale: (
@@ -214,12 +214,6 @@ $text-styles: (
     font-size: var(--mds-text-label-font-size),
     line-height: var(--mds-text-label-line-height)
   ),
-  "label-md": (
-    font-family: var(--mds-text-label-font-family),
-    font-weight: var(--mds-text-label-font-weight),
-    font-size: var(--mds-text-label-font-size-md),
-    line-height: var(--mds-text-label-line-height-md)
-  ),
   "label-lg": (
     font-family: var(--mds-text-label-font-family),
     font-weight: var(--mds-text-label-font-weight),
@@ -232,6 +226,12 @@ $text-styles: (
     font-size: var(--mds-text-label-font-size-xl),
     line-height: var(--mds-text-label-line-height-xl)
   ),
+  "label-2xl": (
+    font-family: var(--mds-text-label-font-family),
+    font-weight: var(--mds-text-label-font-weight),
+    font-size: var(--mds-text-label-font-size-2xl),
+    line-height: var(--mds-text-label-line-height-2xl)
+  ),
   "eyebrow": (
     font-family: var(--mds-text-eyebrow-font-family),
     font-weight: var(--mds-text-eyebrow-font-weight),
@@ -240,11 +240,11 @@ $text-styles: (
     letter-spacing: 1px,
     text-transform: uppercase
   ),
-  "eyebrow-md": (
+  "eyebrow-lg": (
     font-family: var(--mds-text-eyebrow-font-family),
     font-weight: var(--mds-text-eyebrow-font-weight),
-    font-size: var(--mds-text-eyebrow-font-size-md),
-    line-height: var(--mds-text-eyebrow-line-height-md),
+    font-size: var(--mds-text-eyebrow-font-size-lg),
+    line-height: var(--mds-text-eyebrow-line-height-lg),
     letter-spacing: 1px,
     text-transform: uppercase
   ),

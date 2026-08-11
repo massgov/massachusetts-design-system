@@ -132,7 +132,7 @@
   min-height: 5rem;
   border-radius: var(--mds-radius-md);
   background: var(--mds-background-adaptive-brand-primary-low);
-  color: var(--mds-text-and-icons-brand-neutral-default);
+  color: var(--mds-content-brand-neutral-default);
 }
 
 .page-demo__tile--dark {
@@ -227,7 +227,7 @@
 .page-demo__overlay-base {
   display: grid;
   place-items: center;
-  color: var(--mds-text-and-icons-utility-inverse);
+  color: var(--mds-base-inverse);
   font-family: var(--mds-text-heading-font-family);
   font-weight: var(--mds-text-heading-font-weight);
   font-size: var(--mds-text-heading-font-size-lg);
@@ -238,7 +238,7 @@
   display: grid;
   place-items: center;
   z-index: 1;
-  color: var(--mds-text-and-icons-utility-inverse);
+  color: var(--mds-base-inverse);
 }
 
 @media (max-width: 640px) {
