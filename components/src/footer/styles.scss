@@ -102,7 +102,7 @@
   }
 
   &__contact-address {
-    @include mixins.text("label-md");
+    @include mixins.text("label-lg");
   }
 
   & ul.mds-footer__social-list {
@@ -122,7 +122,7 @@
     padding-block-end: var(--mds-space-xs);
     border-block-end: 1px solid var(--mds-footer-border-color);
 
-    @include mixins.text("eyebrow-md");
+    @include mixins.text("eyebrow-lg");
   }
 
   &__contact {
@@ -137,7 +137,7 @@
     align-items: flex-start;
     padding-block: var(--mds-space-3xs);
 
-    @include mixins.text("label-md");
+    @include mixins.text("label-lg");
   }
 
   &__contact svg {
@@ -155,7 +155,7 @@
     flex-direction: column;
     padding-block-start: var(--mds-space-xs);
 
-    @include mixins.text("label-md");
+    @include mixins.text("label-lg");
 
     & .mds-action-link {
       display: block;
@@ -167,7 +167,7 @@
     border-block: 1px solid var(--mds-footer-border-color);
     padding-block: var(--mds-space-xs);
 
-    @include mixins.text("label-md");
+    @include mixins.text("label-lg");
 
     & ul {
       display: flex;

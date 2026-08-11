@@ -115,8 +115,8 @@
 .mds-footer__contact-address {
   font-family: var(--mds-text-label-font-family);
   font-weight: var(--mds-text-label-font-weight);
-  font-size: var(--mds-text-label-font-size-md);
-  line-height: var(--mds-text-label-line-height-md);
+  font-size: var(--mds-text-label-font-size-lg);
+  line-height: var(--mds-text-label-line-height-lg);
 }
 .mds-footer ul.mds-footer__social-list {
   display: flex;
@@ -136,8 +136,8 @@
   border-block-end: 1px solid var(--mds-footer-border-color);
   font-family: var(--mds-text-eyebrow-font-family);
   font-weight: var(--mds-text-eyebrow-font-weight);
-  font-size: var(--mds-text-eyebrow-font-size-md);
-  line-height: var(--mds-text-eyebrow-line-height-md);
+  font-size: var(--mds-text-eyebrow-font-size-lg);
+  line-height: var(--mds-text-eyebrow-line-height-lg);
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -153,8 +153,8 @@
   padding-block: var(--mds-space-3xs);
   font-family: var(--mds-text-label-font-family);
   font-weight: var(--mds-text-label-font-weight);
-  font-size: var(--mds-text-label-font-size-md);
-  line-height: var(--mds-text-label-line-height-md);
+  font-size: var(--mds-text-label-font-size-lg);
+  line-height: var(--mds-text-label-line-height-lg);
 }
 .mds-footer__contact svg {
   color: var(--mds-footer-accent-color);
@@ -172,8 +172,8 @@
   padding-block-start: var(--mds-space-xs);
   font-family: var(--mds-text-label-font-family);
   font-weight: var(--mds-text-label-font-weight);
-  font-size: var(--mds-text-label-font-size-md);
-  line-height: var(--mds-text-label-line-height-md);
+  font-size: var(--mds-text-label-font-size-lg);
+  line-height: var(--mds-text-label-line-height-lg);
 }
 .mds-footer__link-list .mds-action-link {
   display: block;
@@ -184,8 +184,8 @@
   padding-block: var(--mds-space-xs);
   font-family: var(--mds-text-label-font-family);
   font-weight: var(--mds-text-label-font-weight);
-  font-size: var(--mds-text-label-font-size-md);
-  line-height: var(--mds-text-label-line-height-md);
+  font-size: var(--mds-text-label-font-size-lg);
+  line-height: var(--mds-text-label-line-height-lg);
 }
 .mds-footer__legal-nav ul {
   display: flex;

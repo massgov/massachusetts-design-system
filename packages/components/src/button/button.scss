@@ -40,7 +40,7 @@
   user-select: none;
   vertical-align: middle;
 
-  @include mixins.text("label-md");
+  @include mixins.text("label-lg");
 
   // Color modifiers
   &--color-secondary {
@@ -147,7 +147,7 @@
     height: 54px;
     padding: var(--mds-space-sm) var(--mds-space-md);
 
-    @include mixins.text("label-md");
+    @include mixins.text("label-lg");
   }
 
   &--type-ghost {
