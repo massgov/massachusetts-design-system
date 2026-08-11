@@ -8,6 +8,7 @@
   --mds-popup-menu-viewport-padding: var(--mds-space-md);
   --mds-popup-menu-min-width: 288px;
   --mds-popup-menu-max-width: 480px;
+  --mds-popup-menu-z-index: 1000;
 
   display: none;
   min-width: min(
@@ -23,8 +24,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--mds-space-3xs);
-  position: fixed;
-  z-index: 10;
+  position: absolute;
+  z-index: var(--mds-popup-menu-z-index);
   border-radius: var(--mds-radius-md);
   border: 1px solid var(--mds-border-brand-neutral-low);
   background: var(--mds-background-section-utility-inverse);

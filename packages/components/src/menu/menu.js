@@ -53,7 +53,7 @@ let popupMenu = {
      * Gets the spacing values in the viewport to ensure the menu stays within the visible area of the screen and maintains a gap from its trigger.
      *
      * @param {HTMLElement} menu - The popup menu element whose computed custom properties should be read.
-     * @returns {{offset: number, viewportPadding: number}} The menu offset from its trigger and the viewport edge padding.
+     * @returns {{offset: number, viewportPadding: number, maxWidth: number}} The menu offset from its trigger, the viewport edge padding, and the configured maximum menu width.
      */
     let getMenuMeasurements = function (menu) {
       let menuStyles = window.getComputedStyle(menu);
@@ -65,6 +65,10 @@ let popupMenu = {
           parseFloat(
             menuStyles.getPropertyValue("--mds-popup-menu-viewport-padding")
           ) || 16, // Fallback to 16px because the viewport padding token maps to the default safe margin from screen edges, helping keep the menu from touching the viewport boundary.
+        maxWidth:
+          parseFloat(
+            menuStyles.getPropertyValue("--mds-popup-menu-max-width")
+          ) || 480, // Fallback to 480px because it matches the component's default max-width token value when no custom property override is available.
       };
     };
 
@@ -134,10 +138,16 @@ let popupMenu = {
         return;
       }
 
-      let { offset, viewportPadding } = getMenuMeasurements(menu);
+      let { offset, viewportPadding, maxWidth } = getMenuMeasurements(menu);
       let viewportWidth = window.innerWidth;
       let viewportHeight = window.innerHeight;
-      let maxMenuWidth = Math.min(480, viewportWidth - viewportPadding * 2);
+      let maxMenuWidth = Math.min(maxWidth, viewportWidth - viewportPadding * 2);
+      let offsetParent = menu.offsetParent || document.documentElement;
+      let offsetParentRect = offsetParent.getBoundingClientRect();
+      let offsetParentScrollLeft =
+        offsetParent === document.documentElement ? window.scrollX : offsetParent.scrollLeft;
+      let offsetParentScrollTop =
+        offsetParent === document.documentElement ? window.scrollY : offsetParent.scrollTop;
 
       menu.style.maxWidth = maxMenuWidth + "px";
       menu.style.maxHeight = viewportHeight - viewportPadding * 2 + "px";
@@ -168,8 +178,8 @@ let popupMenu = {
       top = Math.min(top, viewportHeight - viewportPadding - menuRect.height);
       top = Math.max(viewportPadding, top);
 
-      menu.style.left = left + "px";
-      menu.style.top = top + "px";
+      menu.style.left = left - offsetParentRect.left + offsetParentScrollLeft + "px";
+      menu.style.top = top - offsetParentRect.top + offsetParentScrollTop + "px";
     };
 
     /**

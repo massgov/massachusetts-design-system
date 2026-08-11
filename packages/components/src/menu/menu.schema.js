@@ -1,13 +1,11 @@
 export const menuSchema = {
   id: {
     type: 'string',
-    default: 'mds-menu',
-    required: true
+    default: 'mds-menu'
   },
   className: {
     type: 'string',
-    default: 'mds-popup-menu',
-    required: true
+    default: 'mds-popup-menu'
   },
   ariaLabel: {
     type: 'string',
