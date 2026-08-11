@@ -128,11 +128,6 @@
     flex: 0 0 24px;
   }
 
-  &__icon .mds-icon {
-    width: 100%;
-    height: 100%;
-  }
-
   &--no-icons &__icon {
     display: none;
   }
