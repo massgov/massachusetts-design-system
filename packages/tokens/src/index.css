@@ -128,15 +128,6 @@
   --mds-overlay-white-highest: var(--mds-color-utility-base-white-opacity-80);
   --mds-overlay-black-mid: var(--mds-color-utility-base-black-opacity-60);
 
-  /* Data visualization */
-  --mds-data-viz-blue-mid: #14558f;
-  --mds-data-viz-amber-mid: #ff7a00;
-  --mds-data-viz-green-mid: #2d6a46;
-  --mds-data-viz-yellow-mid: #c59e16;
-  --mds-data-viz-light-green-mid: #4ccb2f;
-  --mds-data-viz-plum-mid: #5a189a;
-  --mds-data-viz-red-mid: #c1121f;
-
 /** End color tokens **/
 
 /**
@@ -237,11 +228,11 @@
   --mds-text-body-line-height-lg: var(--mds-line-height-180);
   --mds-text-label-line-height-sm: var(--mds-line-height-120);
   --mds-text-label-line-height: var(--mds-line-height-120);
-  --mds-text-label-line-height-md: var(--mds-line-height-120);
   --mds-text-label-line-height-lg: var(--mds-line-height-120);
   --mds-text-label-line-height-xl: var(--mds-line-height-120);
+  --mds-text-label-line-height-2xl: var(--mds-line-height-120);
   --mds-text-eyebrow-line-height: var(--mds-line-height-100);
-  --mds-text-eyebrow-line-height-md: var(--mds-line-height-100);
+  --mds-text-eyebrow-line-height-lg: var(--mds-line-height-100);
   --mds-text-caption-line-height-sm: var(--mds-line-height-130);
   --mds-text-caption-line-height: var(--mds-line-height-130);
   --mds-text-caption-line-height-lg: var(--mds-line-height-130);
@@ -258,11 +249,11 @@
   --mds-text-body-font-size-lg: var(--mds-font-size-225); /* responsive */
   --mds-text-label-font-size-sm: var(--mds-font-size-175);
   --mds-text-label-font-size: var(--mds-font-size-200);
-  --mds-text-label-font-size-md: var(--mds-font-size-225);
-  --mds-text-label-font-size-lg: var(--mds-font-size-250);
-  --mds-text-label-font-size-xl: var(--mds-font-size-275);
+  --mds-text-label-font-size-lg: var(--mds-font-size-225);
+  --mds-text-label-font-size-xl: var(--mds-font-size-250);
+  --mds-text-label-font-size-2xl: var(--mds-font-size-275);
   --mds-text-eyebrow-font-size: var(--mds-font-size-175);
-  --mds-text-eyebrow-font-size-md: var(--mds-font-size-200);
+  --mds-text-eyebrow-font-size-lg: var(--mds-font-size-200);
   --mds-text-caption-font-size-sm: var(--mds-font-size-125);
   --mds-text-caption-font-size: var(--mds-font-size-175);
   --mds-text-caption-font-size-lg: var(--mds-font-size-200);
