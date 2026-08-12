@@ -172,6 +172,12 @@
     cursor: not-allowed;
   }
 
+  &--type-outline:disabled,
+  &--type-outline[aria-disabled="true"] {
+    --mds-button-background: var(--mds-base-inverse);
+    --mds-button-border: var(--mds-content-brand-neutral-disabled);
+  }
+
   &--type-ghost:disabled,
   &--type-ghost[aria-disabled="true"] {
     --mds-button-background: transparent;
