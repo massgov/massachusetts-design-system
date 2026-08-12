@@ -1,10 +1,10 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
 
 .mds-icon-button {
-  --mds-button-accent: var(--mds-background-adaptive-brand-primary-mid);
-  --mds-button-accent-hover: var(--mds-background-adaptive-brand-primary-high);
-  --mds-button-accent-active: var(--mds-background-adaptive-brand-primary-highest);
-  --mds-button-on-accent: var(--mds-text-and-icons-utility-static-white);
+  --mds-button-accent: var(--mds-interactive-brand-primary-mid);
+  --mds-button-accent-hover: var(--mds-interactive-brand-primary-high);
+  --mds-button-accent-active: var(--mds-interactive-brand-primary-highest);
+  --mds-button-on-accent: var(--mds-base-white);
   --mds-button-shadow: none;
   --mds-button-shadow-hover: var(--mds-shadow-hover-sm);
   --mds-button-shadow-active: none;
@@ -55,10 +55,10 @@
   }
 
   &--color-light {
-    --mds-button-accent: var(--mds-background-section-utility-static-white);
+    --mds-button-accent: var(--mds-base-white);
     --mds-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
     --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
-    --mds-button-on-accent: var(--mds-text-and-icons-utility-static-black);
+    --mds-button-on-accent: var(--mds-base-black);
 
     @include mixins.focus($focus-on-light: false);
   }

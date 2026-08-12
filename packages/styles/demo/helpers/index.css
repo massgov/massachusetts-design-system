@@ -7,7 +7,7 @@
   position: absolute;
   inset-block: 0;
   width: 2px;
-  background: var(--mds-border-focus-on-light);
+  background: var(--mds-focus-on-light);
 }
 
 .page-demo__container-edge--start {
@@ -23,7 +23,7 @@
   place-items: center;
   min-height: 8rem;
   border: 1px dashed var(--mds-border-brand-primary-mid);
-  background: color-mix(in srgb, var(--mds-background-adaptive-brand-primary-low) 45%, transparent);
+  background: color-mix(in srgb, var(--mds-interactive-brand-primary-low) 45%, transparent);
 }
 
 .page-demo__grid-cell {
@@ -84,8 +84,8 @@
   width: 2rem;
   height: 2rem;
   border-radius: var(--mds-radius-max);
-  background-color: var(--mds-background-adaptive-brand-primary-mid);
-  color: var(--mds-text-and-icons-utility-inverse);
+  background-color: var(--mds-interactive-brand-primary-mid);
+  color: var(--mds-base-inverse);
   font-family: var(--mds-text-label-font-family);
   font-weight: var(--mds-text-label-font-weight);
   font-size: var(--mds-text-label-font-size);
