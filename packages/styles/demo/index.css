@@ -11,7 +11,7 @@
   padding: var(--mds-space-lg);
   border: 1px solid var(--mds-background-section-brand-neutral-low);
   border-radius: var(--mds-radius-md);
-  background: var(--mds-static-white);
+  background: var(--mds-base-white);
   box-shadow: var(--mds-shadow-container);
 }
 

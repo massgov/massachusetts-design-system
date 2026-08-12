@@ -3,13 +3,13 @@
 
 /* Color utilities generated from semantic color tokens */
 
-@include base.emit-base-utilities("content", color, variables.$content-scale);
-@include base.emit-base-utilities-with-context("interactive", background-color, variables.$interactive-scale, "background");
-@include base.emit-base-utilities-with-context("interactive", color, variables.$interactive-scale, "content");
-@include base.emit-base-utilities-with-context("interactive", border-color, variables.$interactive-scale, "border");
-@include base.emit-base-utilities("border", border-color, variables.$border-scale);
-@include base.emit-base-utilities("background-section", background-color, variables.$section-scale);
-@include base.emit-base-utilities("focus", border-color, variables.$focus-scale);
-@include base.emit-base-utilities("background-surface", background-color, variables.$surface-scale);
-@include base.emit-base-utilities("base", background-color, variables.$base-scale);
-@include base.emit-base-utilities("overlay", background-color, variables.$overlay-scale);
+@include base.emit-base-utilities("content", "color", variables.$content-scale);
+@include base.emit-base-utilities-with-context("interactive", "background-color", variables.$interactive-scale, "background");
+@include base.emit-base-utilities-with-context("interactive", "color", variables.$interactive-scale, "content");
+@include base.emit-base-utilities-with-context("interactive", "border-color", variables.$interactive-scale, "border");
+@include base.emit-base-utilities("border", "border-color", variables.$border-scale);
+@include base.emit-base-utilities("background-section", "background-color", variables.$section-scale);
+@include base.emit-base-utilities("focus", "outline-color", variables.$focus-scale);
+@include base.emit-base-utilities("background-surface", "background-color", variables.$surface-scale);
+@include base.emit-base-utilities("base", "background-color", variables.$base-scale);
+@include base.emit-base-utilities("overlay", "background-color", variables.$overlay-scale);
