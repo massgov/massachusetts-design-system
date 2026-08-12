@@ -27,8 +27,8 @@
 .mds-state-banner {
   width: 100%;
   padding-block: var(--mds-space-3xs);
-  background-color: var(--mds-background-section-utility-static-black);
-  color: var(--mds-text-and-icons-utility-static-white);
+  background-color: var(--mds-base-black);
+  color: var(--mds-base-white);
   font-family: var(--mds-text-body-font-family);
   font-weight: var(--mds-text-body-font-weight);
   font-size: var(--mds-text-body-font-size);

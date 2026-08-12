@@ -19,7 +19,7 @@
 .mds-site-header {
   width: 100%;
   background-color: var(--mds-background-section-brand-neutral-lowest);
-  color: var(--mds-text-and-icons-brand-secondary-mid);
+  color: var(--mds-content-brand-secondary-mid);
 }
 .mds-site-header__container {
   width: min(100%, 1280px);

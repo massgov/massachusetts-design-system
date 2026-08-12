@@ -10,11 +10,11 @@
   @include mixins.address-reset;
 
   --mds-footer-background: var(--mds-background-section-brand-neutral-lowest);
-  --mds-footer-color: var(--mds-text-and-icons-brand-neutral-default);
-  --mds-footer-muted-color: var(--mds-text-and-icons-brand-neutral-muted);
-  --mds-footer-link-color: var(--mds-text-and-icons-brand-neutral-default);
-  --mds-footer-link-hover-color: var(--mds-background-adaptive-brand-primary-high);
-  --mds-footer-accent-color: var(--mds-background-adaptive-brand-primary-mid);
+  --mds-footer-color: var(--mds-content-brand-neutral-default);
+  --mds-footer-muted-color: var(--mds-content-brand-neutral-muted);
+  --mds-footer-link-color: var(--mds-content-brand-neutral-default);
+  --mds-footer-link-hover-color: var(--mds-interactive-brand-primary-high);
+  --mds-footer-accent-color: var(--mds-interactive-brand-primary-mid);
   --mds-footer-border-color: var(--mds-border-brand-neutral-low);
 
   background-color: var(--mds-footer-background);
@@ -201,13 +201,13 @@
 
 // Set the colors for the Primary variant where text, icon, border, and accent colors are the same
 .mds-footer--primary {
-  --mds-footer-background: var(--mds-background-adaptive-brand-primary-mid);
-  --mds-footer-color: var(--mds-text-and-icons-utility-inverse);
-  --mds-footer-muted-color: var(--mds-text-and-icons-utility-inverse);
-  --mds-footer-link-color: var(--mds-text-and-icons-utility-inverse);
-  --mds-footer-link-hover-color: var(--mds-text-and-icons-utility-inverse);
-  --mds-footer-accent-color: var(--mds-text-and-icons-utility-inverse);
-  --mds-footer-border-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-background: var(--mds-interactive-brand-primary-mid);
+  --mds-footer-color: var(--mds-base-inverse);
+  --mds-footer-muted-color: var(--mds-base-inverse);
+  --mds-footer-link-color: var(--mds-base-inverse);
+  --mds-footer-link-hover-color: var(--mds-base-inverse);
+  --mds-footer-accent-color: var(--mds-basey-inverse);
+  --mds-footer-border-color: var(--mds-base-inverse);
 
   & a {
     @include mixins.focus($focus-on-light: false);
