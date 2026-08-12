@@ -1,0 +1,91 @@
+{#
+  Menu data:
+  - id is the element id a trigger's aria-controls should reference.
+  - ariaLabel or ariaLabelledby provides the accessible menu label.
+  - noIcons hides all item icons and removes icon alignment padding.
+  - items accepts link or button menu entries.
+#}
+{% set menuId = id|default(menuDefaults.id) %}
+{% set menuClassName = className|default(menuDefaults.className) %}
+{% set menuAriaLabel = ariaLabel|default(menuDefaults.ariaLabel) %}
+{% set menuAriaLabelledby = ariaLabelledby|default(menuDefaults.ariaLabelledby) %}
+{% set menuNoIcons = noIcons is same as(true) ? true : menuDefaults.noIcons %}
+{% set menuItems = items is iterable ? items : menuDefaults.items %}
+{% set menuClasses = ['mds-popup-menu'] %}
+
+{% if menuNoIcons %}
+  {% set menuClasses = menuClasses|merge(['mds-popup-menu--no-icons']) %}
+{% endif %}
+
+{% if menuClassName %}
+  {% set menuClasses = menuClasses|merge([menuClassName]) %}
+{% endif %}
+
+<div
+  class="{{ menuClasses|join(' ')|e }}"
+  role="menu"
+  data-mds-popup-menu{% if menuId %}
+  id="{{ menuId|e }}"{% endif %}{% if menuAriaLabelledby %}
+  aria-labelledby="{{ menuAriaLabelledby|e }}"{% elseif menuAriaLabel %}
+  aria-label="{{ menuAriaLabel|e }}"{% endif %}
+>
+  <ul class="mds-popup-menu__list">
+    {% for item in menuItems %}
+      {% set itemType = item.type in menuItemTypes ? item.type : menuItemTypes[0] %}
+      {% set itemLabel = item.label|default('') %}
+      {% set itemHref = item.href|default('#') %}
+      {% set itemButtonType = item.buttonType in menuButtonTypes ? item.buttonType : menuButtonTypes[0] %}
+      {% set itemDisabled = item.disabled is same as(true) %}
+      {% set itemIconName = item.iconName in iconOptions.name ? item.iconName : '' %}
+      {% set itemIconWeight = item.iconWeight in iconOptions.weight ? item.iconWeight : 'Bold' %}
+      {% set itemIconSize = item.iconSize in iconOptions.size ? item.iconSize : iconDefaults.size %}
+      {% set showItemIcon = not menuNoIcons and itemIconName %}
+      {% set labelClasses = ['mds-popup-menu__label'] %}
+
+      {% if not menuNoIcons and not showItemIcon %}
+        {% set labelClasses = labelClasses|merge(['mds-popup-menu__label--no-icon']) %}
+      {% endif %}
+
+      <li class="mds-popup-menu__item">
+        {% if itemType == 'button' %}
+          <button
+            type="{{ itemButtonType|e }}"
+            role="menuitem"{% if itemDisabled %}
+            disabled{% endif %}
+          >
+            <span class="{{ labelClasses|join(' ')|e }}">
+              {% if showItemIcon %}
+                <span class="mds-popup-menu__icon" aria-hidden="true">
+                  {% include 'icon.twig' with {
+                    name: itemIconName,
+                    size: itemIconSize,
+                    weight: itemIconWeight
+                  } %}
+                </span>
+              {% endif %}
+              {{ itemLabel|e }}
+            </span>
+          </button>
+        {% else %}
+          <a
+            href="{{ itemHref|e }}"
+            role="menuitem"
+          >
+            <span class="{{ labelClasses|join(' ')|e }}">
+              {% if showItemIcon %}
+                <span class="mds-popup-menu__icon" aria-hidden="true">
+                  {% include 'icon.twig' with {
+                    name: itemIconName,
+                    size: itemIconSize,
+                    weight: itemIconWeight
+                  } %}
+                </span>
+              {% endif %}
+              {{ itemLabel|e }}
+            </span>
+          </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
