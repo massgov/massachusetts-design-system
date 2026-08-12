@@ -10,6 +10,6 @@
 @include base.emit-base-utilities("border", border-color, variables.$border-scale);
 @include base.emit-base-utilities("background-section", background-color, variables.$section-scale);
 @include base.emit-base-utilities("focus", border-color, variables.$focus-scale);
-@include base.emit-base-utilities("surface", background-color, variables.$surface-scale);
+@include base.emit-base-utilities("background-surface", background-color, variables.$surface-scale);
 @include base.emit-base-utilities("base", background-color, variables.$base-scale);
 @include base.emit-base-utilities("overlay", background-color, variables.$overlay-scale);
