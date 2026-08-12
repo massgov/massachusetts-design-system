@@ -3,11 +3,11 @@
 // Base
 .mds-button {
   // Primary is the default color family. Type modifiers consume these tokens.
-  --mds-button-accent: var(--mds-background-adaptive-brand-primary-mid);
-  --mds-button-accent-hover: var(--mds-background-adaptive-brand-primary-high);
-  --mds-button-accent-active: var(--mds-background-adaptive-brand-primary-highest);
+  --mds-button-accent: var(--mds-interactive-brand-primary-mid);
+  --mds-button-accent-hover: var(--mds-interactive-brand-primary-high);
+  --mds-button-accent-active: var(--mds-interactive-brand-primary-highest);
   --mds-button-gap: var(--mds-space-xs);
-  --mds-button-on-accent: var(--mds-text-and-icons-utility-static-white);
+  --mds-button-on-accent: var(--mds-base-white);
 
   // Interaction defaults. Types opt into shadows when needed.
   --mds-button-shadow: none;
@@ -40,29 +40,29 @@
   user-select: none;
   vertical-align: middle;
 
-  @include mixins.text("label-md");
+  @include mixins.text("label-lg");
 
   // Color modifiers
   &--color-secondary {
-    --mds-button-accent: var(--mds-background-adaptive-brand-secondary-mid);
-    --mds-button-accent-hover: var(--mds-background-adaptive-brand-secondary-high);
-    --mds-button-accent-active: var(--mds-background-adaptive-brand-secondary-highest);
-    --mds-button-accent-low: var(--mds-background-adaptive-brand-secondary-lowest);
+    --mds-button-accent: var(--mds-interactive-brand-secondary-mid);
+    --mds-button-accent-hover: var(--mds-interactive-brand-secondary-high);
+    --mds-button-accent-active: var(--mds-interactive-brand-secondary-highest);
+    --mds-button-accent-low: var(--mds-interactive-brand-secondary-lowest);
   }
 
   &--color-light {
-    --mds-button-accent: var(--mds-background-section-utility-static-white);
+    --mds-button-accent: var(--mds-base-white);
     --mds-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
     --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
-    --mds-button-accent-low: var(--mds-background-base-overlay);
-    --mds-button-on-accent: var(--mds-text-and-icons-utility-static-black);
+    --mds-button-accent-low: var(--mds-overlay-black-mid);
+    --mds-button-on-accent: var(--mds-base-black);
   }
 
   &--color-danger {
-    --mds-button-accent: var(--mds-background-adaptive-utility-danger-mid);
-    --mds-button-accent-hover: var(--mds-background-adaptive-utility-danger-high);
-    --mds-button-accent-active: var(--mds-background-adaptive-utility-danger-highest);
-    --mds-button-accent-low: var(--mds-background-adaptive-utility-danger-lowest);
+    --mds-button-accent: var(--mds-interactive-utility-danger-mid);
+    --mds-button-accent-hover: var(--mds-interactive-utility-danger-high);
+    --mds-button-accent-active: var(--mds-interactive-utility-danger-highest);
+    --mds-button-accent-low: var(--mds-interactive-utility-danger-lowest);
   }
 
   // Type modifiers
@@ -81,9 +81,9 @@
   }
 
   &--type-outline {
-    --mds-button-background: var(--mds-background-adaptive-utility-inverse);
-    --mds-button-background-hover: var(--mds-background-adaptive-brand-neutral-lowest);
-    --mds-button-background-active: var(--mds-background-adaptive-brand-neutral-low);
+    --mds-button-background: var(--mds-base-inverse);
+    --mds-button-background-hover: var(--mds-interactive-brand-neutral-lowest);
+    --mds-button-background-active: var(--mds-interactive-brand-neutral-low);
     --mds-button-border: var(--mds-button-accent);
     --mds-button-border-hover: var(--mds-button-accent-hover);
     --mds-button-border-active: var(--mds-button-accent-active);
@@ -95,14 +95,14 @@
 
     &.mds-button--color-light {
       --mds-button-background: var(--mds-background-base-transparent);
-      --mds-button-background-hover: var(--mds-background-adaptive-brand-neutral-high);
-      --mds-button-background-active: var(--mds-background-adaptive-brand-neutral-highest);
-      --mds-button-border: var(--mds-background-adaptive-brand-neutral-lowest);
-      --mds-button-border-hover: var(--mds-background-adaptive-brand-neutral-lowest);
-      --mds-button-border-active: var(--mds-background-adaptive-brand-neutral-lowest);
-      --mds-button-color: var(--mds-background-adaptive-brand-neutral-lowest);
-      --mds-button-color-hover: var(--mds-background-adaptive-brand-neutral-lowest);
-      --mds-button-color-active: var(--mds-background-adaptive-brand-neutral-lowest);
+      --mds-button-background-hover: var(--mds-interactive-brand-neutral-high);
+      --mds-button-background-active: var(--mds-interactive-brand-neutral-highest);
+      --mds-button-border: var(--mds-interactive-brand-neutral-lowest);
+      --mds-button-border-hover: var(--mds-interactive-brand-neutral-lowest);
+      --mds-button-border-active: var(--mds-interactive-brand-neutral-lowest);
+      --mds-button-color: var(--mds-interactive-brand-neutral-lowest);
+      --mds-button-color-hover: var(--mds-interactive-brand-neutral-lowest);
+      --mds-button-color-active: var(--mds-interactive-brand-neutral-lowest);
     }
   }
 
@@ -121,13 +121,13 @@
     border-radius: 0;
 
     &.mds-button--color-light {
-      --mds-button-color: var(--mds-text-and-icons-utility-static-white);
+      --mds-button-color: var(--mds-base-white);
     }
 
     &.mds-button--color-white {
-      --mds-button-color: var(--mds-text-and-icons-utility-static-white);
-      --mds-button-color-hover: var(--mds-text-and-icons-utility-static-white);
-      --mds-button-color-active: var(--mds-text-and-icons-utility-static-white);
+      --mds-button-color: var(--mds-base-white);
+      --mds-button-color-hover: var(--mds-base-white);
+      --mds-button-color-active: var(--mds-base-white);
     }
   }
 
@@ -147,7 +147,7 @@
     height: 54px;
     padding: var(--mds-space-sm) var(--mds-space-md);
 
-    @include mixins.text("label-md");
+    @include mixins.text("label-lg");
   }
 
   &--type-ghost {
@@ -183,7 +183,7 @@
   &[aria-disabled="true"] {
     --mds-button-background: var(--mds-background-section-brand-neutral-disabled);
     --mds-button-border: var(--mds-border-brand-neutral-low);
-    --mds-button-color: var(--mds-text-and-icons-brand-neutral-disabled);
+    --mds-button-color: var(--mds-content-brand-neutral-disabled);
     --mds-button-shadow: none;
 
     border-bottom: var(--mds-button-border-width) solid var(--mds-button-border);
