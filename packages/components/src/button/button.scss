@@ -94,7 +94,7 @@
     --mds-button-shadow-hover: var(--mds-shadow-hover-sm);
 
     &.mds-button--color-light {
-      --mds-button-background: var(--mds-background-base-transparent);
+      --mds-button-background: transparent;
       --mds-button-background-hover: var(--mds-interactive-brand-neutral-high);
       --mds-button-background-active: var(--mds-interactive-brand-neutral-highest);
       --mds-button-border: var(--mds-interactive-brand-neutral-lowest);
@@ -107,12 +107,12 @@
   }
 
   &--type-ghost {
-    --mds-button-background: var(--mds-background-base-transparent);
-    --mds-button-background-hover: var(--mds-background-base-transparent);
-    --mds-button-background-active: var(--mds-background-base-transparent);
-    --mds-button-border: var(--mds-background-base-transparent);
-    --mds-button-border-hover: var(--mds-background-base-transparent);
-    --mds-button-border-active: var(--mds-background-base-transparent);
+    --mds-button-background: transparent;
+    --mds-button-background-hover: transparent;
+    --mds-button-background-active: transparent;
+    --mds-button-border: transparent;
+    --mds-button-border-hover: transparent;
+    --mds-button-border-active: transparent;
     --mds-button-border-width: 0;
     --mds-button-color: var(--mds-button-accent);
     --mds-button-color-hover: var(--mds-button-accent-hover);
@@ -192,7 +192,7 @@
 
   &--type-ghost:disabled,
   &--type-ghost[aria-disabled="true"] {
-    --mds-button-background: var(--mds-background-base-transparent);
+    --mds-button-background: transparent;
   }
 
   // Child elements
