@@ -32,12 +32,12 @@ export const buttonSchema = {
   color: {
     type: 'enum',
     default: 'Primary',
-    options: ['Primary', 'Secondary', 'Light', 'Danger', 'White']
+    options: ['Primary', 'Secondary', 'Neutral', 'Danger', 'White']
   },
   size: {
     type: 'enum',
-    default: 'Regular',
-    options: ['Regular', 'LG']
+    default: 'Large',
+    options: ['Regular', 'Large']
   },
   leftIcon: {
     type: 'icon',
