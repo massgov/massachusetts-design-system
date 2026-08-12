@@ -39,7 +39,7 @@
   outline-width: 2px;
   outline-style: solid;
   outline-offset: 2px;
-  outline-color: var(--mds-border-focus-on-light);
+  outline-color: var(--mds-focus-on-light);
 }
 .mds-footer__contact-link, .mds-footer__link-list a, .mds-footer__legal-nav a {
   text-decoration: none;
@@ -220,7 +220,7 @@
   --mds-footer-muted-color: var(--mds-base-inverse);
   --mds-footer-link-color: var(--mds-base-inverse);
   --mds-footer-link-hover-color: var(--mds-base-inverse);
-  --mds-footer-accent-color: var(--mds-basey-inverse);
+  --mds-footer-accent-color: var(--mds-base-inverse);
   --mds-footer-border-color: var(--mds-base-inverse);
 }
 .mds-footer--primary a:focus-visible {
@@ -228,7 +228,7 @@
   outline-width: 2px;
   outline-style: solid;
   outline-offset: 2px;
-  outline-color: var(--mds-border-focus-on-dark);
+  outline-color: var(--mds-focus-on-dark);
 }
 
 @media (max-width: 768px) {

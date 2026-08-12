@@ -46,7 +46,7 @@
   outline-width: 2px;
   outline-style: solid;
   outline-offset: 2px;
-  outline-color: var(--mds-border-focus-on-light);
+  outline-color: var(--mds-focus-on-light);
 }
 .mds-icon-button--color-light {
   --mds-button-accent: var(--mds-base-white);
@@ -59,7 +59,7 @@
   outline-width: 2px;
   outline-style: solid;
   outline-offset: 2px;
-  outline-color: var(--mds-border-focus-on-dark);
+  outline-color: var(--mds-focus-on-dark);
 }
 .mds-icon-button:hover {
   --mds-button-background: var(--mds-button-background-hover);

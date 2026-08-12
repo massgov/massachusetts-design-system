@@ -28,7 +28,7 @@
   z-index: var(--mds-popup-menu-z-index);
   border-radius: var(--mds-radius-md);
   border: 1px solid var(--mds-border-brand-neutral-low);
-  background: var(--mds-background-section-utility-inverse);
+  background: var(--mds-base-inverse);
   box-shadow: var(--mds-shadow-modal);
   overflow: auto;
   max-block-size: calc(100vh - (var(--mds-popup-menu-viewport-padding) * 2));
@@ -98,7 +98,7 @@
     a:active,
     button:active {
       background: var(--mds-interactive-brand-primary-mid);
-      color: var(--mds-content-utility-inverse);
+      color: var(--mds-base-inverse);
     }
   }
 

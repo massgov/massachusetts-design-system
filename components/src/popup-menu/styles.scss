@@ -27,7 +27,7 @@
   @include mixins.text("body");
   border-radius: var(--mds-radius-md);
   border: 1px solid var(--mds-border-brand-neutral-low);
-  background: var(--mds-background-section-utility-inverse);
+  background: var(--mds-base-inverse);
   box-shadow: var(--mds-shadow-modal);
   overflow: auto;
   max-block-size: calc(100vh - (var(--mds-popup-menu-viewport-padding) * 2));
@@ -54,7 +54,7 @@
       width: 100%;
       padding: var(--mds-space-xs) var(--mds-space-2xs);
       border-radius: var(--mds-radius-sm);
-      color: var(--mds-text-and-icons-brand-neutral-default);
+      color: var(--mds-content-brand-neutral-default);
       text-decoration: none;
       align-items: center;
       gap: var(--mds-space-2xs);
@@ -90,13 +90,13 @@
       outline-width: 2px;
       outline-style: solid;
       outline-offset: 2px;
-      outline-color: var(--mds-border-focus-on-light);
+      outline-color: var(--mds-focus-on-light);
     }
 
     a:active,
     button:active {
       background: var(--mds-interactive-brand-primary-mid);
-      color: var(--mds-content-utility-inverse);
+      color: var(--mds-base-inverse);
     }
   }
 

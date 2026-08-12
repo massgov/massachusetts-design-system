@@ -47,7 +47,7 @@
   outline-width: 2px;
   outline-style: solid;
   outline-offset: 2px;
-  outline-color: var(--mds-border-focus-on-light);
+  outline-color: var(--mds-focus-on-light);
 }
 .mds-site-header__seal {
   width: 54px;
