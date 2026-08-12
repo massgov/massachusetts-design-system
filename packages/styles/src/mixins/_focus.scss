@@ -6,9 +6,9 @@
     outline-offset: 2px;
 
     @if $focus-on-light {
-      outline-color: var(--mds-border-focus-on-light);
+      outline-color: var(--mds-focus-on-light);
     } @else {
-      outline-color: var(--mds-border-focus-on-dark);
+      outline-color: var(--mds-focus-on-dark);
     }
   }
 }

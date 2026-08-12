@@ -3,7 +3,7 @@
 @mixin body {
   margin: 0;
   background: var(--mds-background-surface-default);
-  color: var(--mds-text-and-icons-brand-neutral-default);
+  color: var(--mds-content-brand-neutral-default);
 
   @include typography.text("body");
 }

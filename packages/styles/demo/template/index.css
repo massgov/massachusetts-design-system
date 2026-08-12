@@ -18,7 +18,7 @@ code {
   padding: var(--mds-space-3xs);
   border-radius: var(--mds-radius-sm);
   background-color: var(--mds-background-section-brand-neutral-low);
-  color: var(--mds-text-and-icons-brand-neutral-default);
+  color: var(--mds-content-brand-neutral-default);
   font-weight: var(--mds-text-caption-font-weight);
   font-size: var(--mds-text-caption-font-size);
   font-family: ui-monospace, SFMono-Regular, SF Mono, Monaco, Consolas, Liberation Mono, monospace;
@@ -43,7 +43,7 @@ code {
 }
 
 .page-demo {
-  --page-demo-eyebrow-color: var(--mds-text-and-icons-brand-primary-mid);
+  --page-demo-eyebrow-color: var(--mds-content-brand-primary-mid);
   --page-demo-hero-background: transparent;
   --page-demo-section-border-color: var(--mds-border-brand-neutral-low);
   --page-demo-section-alt-background: var(--mds-background-section-brand-neutral-low);
