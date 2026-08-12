@@ -12,7 +12,7 @@
   }
 
   @if $context == "" {
-    @return "mds-#{$class}-#{$name}"
+    @return "mds-#{$class}-#{$name}";
   }
 
   @return "mds-#{$context}-#{$class}-#{$name}"; // Should be mds-text-interactive, mds-background-interactive, mds-border-interactive, etc.
