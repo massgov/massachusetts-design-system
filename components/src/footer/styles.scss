@@ -102,7 +102,7 @@
   }
 
   &__contact-address {
-    @include mixins.text("label-lg");
+    @include mixins.text("label-md");
   }
 
   & ul.mds-footer__social-list {
@@ -115,14 +115,14 @@
   &__description {
     max-width: 18rem;
 
-    @include mixins.text("caption-lg");
+    @include mixins.text("caption-md");
   }
 
   &__heading {
     padding-block-end: var(--mds-space-xs);
     border-block-end: 1px solid var(--mds-footer-border-color);
 
-    @include mixins.text("eyebrow-lg");
+    @include mixins.text("eyebrow-md");
   }
 
   &__contact {
@@ -137,7 +137,7 @@
     align-items: flex-start;
     padding-block: var(--mds-space-3xs);
 
-    @include mixins.text("label-lg");
+    @include mixins.text("label-md");
   }
 
   &__contact svg {
@@ -147,7 +147,7 @@
   &__contact-note {
     padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
 
-    @include mixins.text("caption-lg");
+    @include mixins.text("caption-md");
   }
 
   &__link-list {
@@ -155,7 +155,7 @@
     flex-direction: column;
     padding-block-start: var(--mds-space-xs);
 
-    @include mixins.text("label-lg");
+    @include mixins.text("label-md");
 
     & .mds-action-link {
       display: block;
@@ -167,7 +167,7 @@
     border-block: 1px solid var(--mds-footer-border-color);
     padding-block: var(--mds-space-xs);
 
-    @include mixins.text("label-lg");
+    @include mixins.text("label-md");
 
     & ul {
       display: flex;
@@ -182,7 +182,7 @@
     gap: var(--mds-space-sm);
     padding-block: var(--mds-space-md) var(--mds-space-2xl);
 
-    @include mixins.text("caption-lg");
+    @include mixins.text("caption-md");
   }
 
   &__trademark {
