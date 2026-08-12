@@ -36,7 +36,7 @@ export const buttonSchema = {
   },
   size: {
     type: 'enum',
-    default: 'Large',
+    default: 'Regular',
     options: ['Regular', 'Large']
   },
   leftIcon: {
