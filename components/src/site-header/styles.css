@@ -19,7 +19,7 @@
 .mds-site-header {
   width: 100%;
   background-color: var(--mds-background-section-brand-neutral-lowest);
-  color: var(--mds-text-and-icons-brand-secondary-mid);
+  color: var(--mds-content-brand-secondary-mid);
 }
 .mds-site-header__container {
   width: min(100%, 1280px);
@@ -47,7 +47,7 @@
   outline-width: 2px;
   outline-style: solid;
   outline-offset: 2px;
-  outline-color: var(--mds-border-focus-on-light);
+  outline-color: var(--mds-focus-on-light);
 }
 .mds-site-header__seal {
   width: 54px;
@@ -69,8 +69,8 @@
 .mds-site-header__organization {
   font-family: var(--mds-text-eyebrow-font-family);
   font-weight: var(--mds-text-eyebrow-font-weight);
-  font-size: var(--mds-text-eyebrow-font-size-md);
-  line-height: var(--mds-text-eyebrow-line-height-md);
+  font-size: var(--mds-text-eyebrow-font-size-lg);
+  line-height: var(--mds-text-eyebrow-line-height-lg);
   letter-spacing: 1px;
   text-transform: uppercase;
 }

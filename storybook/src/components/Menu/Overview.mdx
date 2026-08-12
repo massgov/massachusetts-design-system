@@ -1,0 +1,20 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as MenuStories from './menu.stories.js';
+
+<Meta of={MenuStories} />
+
+# Menu
+
+This component renders the menu surface and menu items. Pair it with a trigger button and the interaction script when you need an attached dropdown-style menu in product code.
+
+<Canvas of={MenuStories.Examples} sourceState="none" />
+
+## Usage
+
+### When To Use
+- To present a short list of contextual actions or navigation choices from a trigger
+- When menu items need optional icons or disabled button states
+
+### When Not To Use
+- For long-form navigation that should stay visible on the page
+- When the content is better represented as a list of standard buttons or links
