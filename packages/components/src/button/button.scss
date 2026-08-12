@@ -43,9 +43,10 @@
   }
 
   &--color-neutral {
-    --mds-button-accent: var(--mds-interactive-brand-neutral-highest);
-    --mds-button-accent-hover: var(--mds-interactive-brand-neutral-highest);
-    --mds-button-accent-active: var(--mds-interactive-brand-neutral-highest);
+    --mds-button-accent: var(--mds-base-white);
+    --mds-button-accent-hover: var(--mds-overlay-white-highest);
+    --mds-button-accent-active: var(--mds-overlay-white-high);
+    --mds-button-on-accent: var(--mds-base-black);
   }
 
   &--color-danger {
@@ -80,6 +81,18 @@
     --mds-button-color: var(--mds-button-accent);
     --mds-button-color-hover: var(--mds-button-accent);
     --mds-button-color-active: var(--mds-button-accent);
+
+    &.mds-button--color-neutral {
+      --mds-button-background: transparent;
+      --mds-button-background-hover: var(--mds-overlay-white-lowest);
+      --mds-button-background-active: var(--mds-overlay-white-low);
+      --mds-button-border: var(--mds-base-white);
+      --mds-button-border-hover: var(--mds-base-white);
+      --mds-button-border-active: var(--mds-base-white);
+      --mds-button-color: var(--mds-base-white);
+      --mds-button-color-hover: var(--mds-base-white);
+      --mds-button-color-active: var(--mds-base-white);
+    }
   }
 
   &--type-ghost {
