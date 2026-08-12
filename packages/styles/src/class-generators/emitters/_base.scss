@@ -6,9 +6,29 @@
   @return "mds-#{$class}-#{$name}";
 }
 
+@function utility-class-name-with-context($context, $class, $name) {
+  @if $class == "" {
+    @return "mds-#{$name}";
+  }
+
+  @if $context == "" {
+    @return "mds-#{$class}-#{$name}";
+  }
+
+  @return "mds-#{$context}-#{$class}-#{$name}"; // Should be mds-text-interactive, mds-background-interactive, mds-border-interactive, etc.
+}
+
 @mixin emit-base-utilities($class, $property, $scale) {
   @each $name, $value in $scale {
     .#{utility-class-name($class, $name)} {
+      #{$property}: $value;
+    }
+  }
+}
+
+@mixin emit-base-utilities-with-context($class, $property, $scale, $context) {
+  @each $name, $value in $scale {
+    .#{utility-class-name-with-context($context, $class, $name)} {
       #{$property}: $value;
     }
   }

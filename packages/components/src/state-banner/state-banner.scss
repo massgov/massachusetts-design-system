@@ -33,8 +33,8 @@ $state-banner-item-min-width: 20rem;
 
   width: 100%;
   padding-block: var(--mds-space-3xs);
-  background-color: var(--mds-background-section-utility-static-black);
-  color: var(--mds-text-and-icons-utility-static-white);
+  background-color: var(--mds-base-black);
+  color: var(--mds-base-white);
 
   @include mixins.text("body");
 
