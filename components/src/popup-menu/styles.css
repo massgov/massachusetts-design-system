@@ -63,16 +63,16 @@
   background: inherit;
 }
 .mds-popup-menu__item button:disabled {
-  color: var(--mds-text-and-icons-brand-neutral-disabled);
+  color: var(--mds-content-brand-neutral-disabled);
 }
 .mds-popup-menu__item a:hover,
 .mds-popup-menu__item button:hover {
-  background: var(--mds-background-adaptive-brand-primary-lowest);
-  color: var(--mds-text-and-icons-brand-neutral-default);
+  background: var(--mds-interactive-brand-primary-lowest);
+  color: var(--mds-content-brand-neutral-default);
 }
 .mds-popup-menu__item button:disabled:hover {
   background: transparent;
-  color: var(--mds-text-and-icons-brand-neutral-disabled);
+  color: var(--mds-content-brand-neutral-disabled);
 }
 .mds-popup-menu__item a:focus-visible,
 .mds-popup-menu__item a[data-force-focus-visible=true]:focus,
@@ -86,8 +86,8 @@
 }
 .mds-popup-menu__item a:active,
 .mds-popup-menu__item button:active {
-  background: var(--mds-background-adaptive-brand-primary-mid);
-  color: var(--mds-text-and-icons-utility-inverse);
+  background: var(--mds-interactive-brand-primary-mid);
+  color: var(--mds-content-utility-inverse);
 }
 .mds-popup-menu__label {
   display: inline-flex;

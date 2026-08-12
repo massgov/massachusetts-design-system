@@ -68,18 +68,18 @@
     }
 
     button:disabled {
-      color: var(--mds-text-and-icons-brand-neutral-disabled);
+      color: var(--mds-content-brand-neutral-disabled);
     }
 
     a:hover,
     button:hover {
-      background: var(--mds-background-adaptive-brand-primary-lowest);
-      color: var(--mds-text-and-icons-brand-neutral-default);
+      background: var(--mds-interactive-brand-primary-lowest);
+      color: var(--mds-content-brand-neutral-default);
     }
 
     button:disabled:hover {
       background: transparent;
-      color: var(--mds-text-and-icons-brand-neutral-disabled);
+      color: var(--mds-content-brand-neutral-disabled);
     }
 
     a:focus-visible,
@@ -95,8 +95,8 @@
 
     a:active,
     button:active {
-      background: var(--mds-background-adaptive-brand-primary-mid);
-      color: var(--mds-text-and-icons-utility-inverse);
+      background: var(--mds-interactive-brand-primary-mid);
+      color: var(--mds-content-utility-inverse);
     }
   }
 
