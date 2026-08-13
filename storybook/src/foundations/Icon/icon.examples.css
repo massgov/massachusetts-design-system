@@ -7,7 +7,7 @@
 }
 
 .mds-icon-Playground .mds-icon {
-  color: var(--mds-icon-Playground-color, var(--mds-text-and-icons-brand-primary-mid));
+  color: var(--mds-icon-Playground-color, var(--mds-content-brand-primary-mid));
 }
 
 .mds-icon-gallery {
@@ -31,12 +31,12 @@
 
 .mds-icon-gallery__item .mds-icon {
   align-self: center;;
-  color: var(--mds-text-and-icons-brand-neutral-default);
+  color: var(--mds-content-brand-neutral-default);
 }
 
 .mds-icon-gallery__name {
   overflow-wrap: anywhere;
-  color: var(--mds-text-and-icons-brand-neutral-default);
+  color: var(--mds-content-brand-neutral-default);
   font-family: var(--mds-text-label-font-family);
   font-weight: var(--mds-text-label-font-weight);
   font-size: var(--mds-text-label-font-size-sm);
