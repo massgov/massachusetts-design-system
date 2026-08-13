@@ -70,15 +70,15 @@
 
   &--type-outline {
     --mds-button-background: var(--mds-base-inverse);
-    --mds-button-background-hover: var(--mds-interactive-brand-neutral-lowest);
-    --mds-button-background-active: var(--mds-interactive-brand-neutral-low);
+    --mds-button-background-hover: var(--mds-base-inverse);
+    --mds-button-background-active: var(--mds-base-inverse);
     --mds-button-border: var(--mds-button-accent);
     --mds-button-border-hover: var(--mds-button-accent-hover);
     --mds-button-border-active: var(--mds-button-accent-active);
     --mds-button-border-width: 2px;
     --mds-button-color: var(--mds-button-accent);
-    --mds-button-color-hover: var(--mds-button-accent);
-    --mds-button-color-active: var(--mds-button-accent);
+    --mds-button-color-hover: var(--mds-button-accent-hover);
+    --mds-button-color-active: var(--mds-button-accent-active);
 
     &.mds-button--color-neutral {
       --mds-button-background: transparent;
