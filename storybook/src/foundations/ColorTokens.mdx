@@ -1,0 +1,332 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+export const tokenGroups = {
+  interactiveBrand: [
+    ['neutral-lowest', '--mds-interactive-brand-neutral-lowest'],
+    ['neutral-low', '--mds-interactive-brand-neutral-low'],
+    ['neutral-mid', '--mds-interactive-brand-neutral-mid'],
+    ['neutral-high', '--mds-interactive-brand-neutral-high'],
+    ['neutral-highest', '--mds-interactive-brand-neutral-highest'],
+    ['neutral-disabled', '--mds-interactive-brand-neutral-disabled'],
+    ['primary-lowest', '--mds-interactive-brand-primary-lowest'],
+    ['primary-low', '--mds-interactive-brand-primary-low'],
+    ['primary-mid', '--mds-interactive-brand-primary-mid'],
+    ['primary-high', '--mds-interactive-brand-primary-high'],
+    ['primary-highest', '--mds-interactive-brand-primary-highest'],
+    ['secondary-lowest', '--mds-interactive-brand-secondary-lowest'],
+    ['secondary-low', '--mds-interactive-brand-secondary-low'],
+    ['secondary-mid', '--mds-interactive-brand-secondary-mid'],
+    ['secondary-high', '--mds-interactive-brand-secondary-high'],
+    ['secondary-highest', '--mds-interactive-brand-secondary-highest'],
+    ['tertiary-lowest', '--mds-interactive-brand-tertiary-lowest'],
+    ['tertiary-low', '--mds-interactive-brand-tertiary-low'],
+    ['tertiary-mid', '--mds-interactive-brand-tertiary-mid'],
+    ['tertiary-high', '--mds-interactive-brand-tertiary-high'],
+    ['tertiary-highest', '--mds-interactive-brand-tertiary-highest']
+  ],
+  interactiveUtility: [
+    ['danger-lowest', '--mds-interactive-utility-danger-lowest'],
+    ['danger-low', '--mds-interactive-utility-danger-low'],
+    ['danger-mid', '--mds-interactive-utility-danger-mid'],
+    ['danger-high', '--mds-interactive-utility-danger-high'],
+    ['danger-highest', '--mds-interactive-utility-danger-highest']
+  ],
+  contentBrand: [
+    ['neutral-default', '--mds-content-brand-neutral-default'],
+    ['neutral-muted', '--mds-content-brand-neutral-muted'],
+    ['neutral-disabled', '--mds-content-brand-neutral-disabled'],
+    ['primary-mid', '--mds-content-brand-primary-mid'],
+    ['secondary-mid', '--mds-content-brand-secondary-mid']
+  ],
+  contentUtility: [
+    ['informative-mid', '--mds-content-utility-informative-mid'],
+    ['danger-mid', '--mds-content-utility-danger-mid'],
+    ['warning-mid', '--mds-content-utility-warning-mid'],
+    ['success-mid', '--mds-content-utility-success-mid']
+  ],
+  sectionBrand: [
+    ['neutral-lowest', '--mds-background-section-brand-neutral-lowest'],
+    ['neutral-low', '--mds-background-section-brand-neutral-low'],
+    ['neutral-mid', '--mds-background-section-brand-neutral-mid'],
+    ['neutral-high', '--mds-background-section-brand-neutral-high'],
+    ['neutral-highest', '--mds-background-section-brand-neutral-highest'],
+    ['neutral-disabled', '--mds-background-section-brand-neutral-disabled'],
+    ['primary-lowest', '--mds-background-section-brand-primary-lowest'],
+    ['primary-mid', '--mds-background-section-brand-primary-mid'],
+    ['primary-highest', '--mds-background-section-brand-primary-highest'],
+    ['secondary-lowest', '--mds-background-section-brand-secondary-lowest'],
+    ['secondary-mid', '--mds-background-section-brand-secondary-mid'],
+    ['secondary-highest', '--mds-background-section-brand-secondary-highest'],
+    ['tertiary-lowest', '--mds-background-section-brand-tertiary-lowest'],
+    ['tertiary-mid', '--mds-background-section-brand-tertiary-mid'],
+    ['tertiary-highest', '--mds-background-section-brand-tertiary-highest']
+  ],
+  sectionUtility: [
+    ['informative-lowest', '--mds-background-section-utility-informative-lowest'],
+    ['informative-mid', '--mds-background-section-utility-informative-mid'],
+    ['informative-highest', '--mds-background-section-utility-informative-highest'],
+    ['danger-lowest', '--mds-background-section-utility-danger-lowest'],
+    ['danger-mid', '--mds-background-section-utility-danger-mid'],
+    ['danger-highest', '--mds-background-section-utility-danger-highest'],
+    ['warning-lowest', '--mds-background-section-utility-warning-lowest'],
+    ['warning-mid', '--mds-background-section-utility-warning-mid'],
+    ['warning-highest', '--mds-background-section-utility-warning-highest'],
+    ['success-lowest', '--mds-background-section-utility-success-lowest'],
+    ['success-mid', '--mds-background-section-utility-success-mid'],
+    ['success-highest', '--mds-background-section-utility-success-highest']
+  ],
+  borderBrand: [
+    ['neutral-lowest', '--mds-border-brand-neutral-lowest'],
+    ['neutral-low', '--mds-border-brand-neutral-low'],
+    ['neutral-mid', '--mds-border-brand-neutral-mid'],
+    ['neutral-high', '--mds-border-brand-neutral-high'],
+    ['primary-lowest', '--mds-border-brand-primary-lowest'],
+    ['primary-low', '--mds-border-brand-primary-low'],
+    ['primary-mid', '--mds-border-brand-primary-mid'],
+    ['primary-high', '--mds-border-brand-primary-high'],
+    ['primary-highest', '--mds-border-brand-primary-highest'],
+    ['secondary-lowest', '--mds-border-brand-secondary-lowest'],
+    ['secondary-low', '--mds-border-brand-secondary-low'],
+    ['secondary-mid', '--mds-border-brand-secondary-mid'],
+    ['secondary-high', '--mds-border-brand-secondary-high'],
+    ['secondary-highest', '--mds-border-brand-secondary-highest'],
+    ['highlight-mid', '--mds-border-brand-highlight-mid']
+  ],
+  borderUtility: [
+    ['informative-low', '--mds-border-utility-informative-low'],
+    ['informative-mid', '--mds-border-utility-informative-mid'],
+    ['danger-low', '--mds-border-utility-danger-low'],
+    ['danger-mid', '--mds-border-utility-danger-mid'],
+    ['warning-low', '--mds-border-utility-warning-low'],
+    ['warning-mid', '--mds-border-utility-warning-mid'],
+    ['success-low', '--mds-border-utility-success-low'],
+    ['success-mid', '--mds-border-utility-success-mid']
+  ],
+  focus: [
+    ['on-light', '--mds-focus-on-light'],
+    ['on-dark', '--mds-focus-on-dark']
+  ],
+  surface: [
+    ['default', '--mds-background-surface-default']
+  ],
+  base: [
+    ['white', '--mds-base-white'],
+    ['black', '--mds-base-black'],
+    ['inverse', '--mds-base-inverse']
+  ],
+  overlay: [
+    ['white-lowest', '--mds-overlay-white-lowest'],
+    ['white-low', '--mds-overlay-white-low'],
+    ['white-high', '--mds-overlay-white-high'],
+    ['white-highest', '--mds-overlay-white-highest'],
+    ['black-mid', '--mds-overlay-black-mid']
+  ]
+};
+
+export const ColorTokenTable = ({ tokens }) => (
+  <div className="mds-docs-token-table-scroll">
+    <table className="mds-docs-token-table">
+      <thead>
+        <tr>
+          <th>Color</th>
+          <th>Name</th>
+          <th>CSS variable</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tokens.map(([name, variable]) => (
+          <tr key={variable}>
+            <td>
+              <span
+                className="mds-docs-token-swatch"
+                style={{ '--mds-docs-token-swatch-color': `var(${variable})` }}
+                aria-label={`${name} color swatch`}
+              />
+            </td>
+            <td>{name}</td>
+            <td>
+              <code>{`var(${variable})`}</code>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
+
+<Meta title="Foundations/Color Tokens" />
+
+# Color tokens
+
+---
+
+## Brand and utility colors
+
+The design system separates **brand** colors from **utility** colors so each serves a distinct purpose.
+
+Brand colors create a consistent visual identity for Commonwealth digital experiences. Utility colors communicate universally recognized meanings such as success, warning, danger, and information so people can quickly understand system status wherever it appears.
+
+[Learn more about the design system brand and utility colors](https://www.mass.gov/info-details/colors).
+
+---
+
+## How to choose color tokens
+
+Choose a token based on the role the color performs in the interface.
+
+**Interactive** - Changes when someone interacts with an element  
+**Content** - Helps people read, understand, and recognize information  
+**Section** - Groups related content and creates visual hierarchy  
+**Borders** - Separates content, organizes layouts, and communicates status  
+**Focus** - Shows where keyboard focus is on the page  
+**Surface** - Provides the default background for the experience  
+**Base** - Supports light and dark themes with white, black, and inverse colors  
+**Overlay** - Creates transparency and layered interface effects
+
+---
+
+## Interactive colors
+
+Interactive color tokens define colors that change when someone interacts with an element.
+
+Use them for buttons, links, icons, borders, and other interactive elements that respond to hover, focus, active, or disabled states.
+
+Interactive colors are organized by visual emphasis - **lowest**, **low**, **mid**, **high**, and **highest** - instead of by component. This makes the tokens flexible, reusable, and consistent across the design system.
+
+> **Rule of thumb**
+>
+> If the color changes when someone interacts with it, use an **interactive** token.
+
+### Interactive brand
+
+Use interactive brand colors for the majority of interactive elements.
+
+**Usage examples include:**
+
+- Filled button backgrounds
+- Outline button borders, text, and icons
+- Ghost button text and icons
+- Inline links
+- Single action interactive card borders
+- Menu item hover and active state backgrounds
+
+<ColorTokenTable tokens={tokenGroups.interactiveBrand} />
+
+### Interactive utility
+
+Use interactive utility colors only for destructive actions.
+
+**Usage examples include:**
+
+- Filled danger button backgrounds
+- Outline danger button borders, text, and icons
+- Ghost danger button text and icons
+- Delete actions
+- Remove actions
+
+<ColorTokenTable tokens={tokenGroups.interactiveUtility} />
+
+---
+
+## Content colors
+
+Content color tokens define the colors used for text and icons throughout the interface.
+
+Use content colors whenever the color does not change because of interaction.
+
+### Content brand
+
+Use content brand colors for the majority of text and icons.
+
+**Usage examples include:**
+
+- Headings
+- Body text
+- Supporting text
+- Decorative icons
+- Navigation icons
+- Disabled button labels
+- Placeholder text
+
+<ColorTokenTable tokens={tokenGroups.contentBrand} />
+
+### Content utility
+
+Use content utility colors to communicate status.
+
+**Usage examples include:**
+
+- Inline message icons
+- Form input error messaging
+- Password creation success messaging
+- Badge labels
+
+<ColorTokenTable tokens={tokenGroups.contentUtility} />
+
+---
+
+## Section
+
+Section color tokens organize content and establish visual hierarchy by applying color to backgrounds across larger areas of a page.
+
+### Section brand
+
+Use section brand colors for page areas, containers, and supporting surfaces that reinforce visual identity.
+
+<ColorTokenTable tokens={tokenGroups.sectionBrand} />
+
+### Section utility
+
+Use section utility colors for status-based areas such as informational, danger, warning, and success messages.
+
+<ColorTokenTable tokens={tokenGroups.sectionUtility} />
+
+---
+
+## Surface
+
+Surface color tokens provide the default background for the overall experience.
+
+<ColorTokenTable tokens={tokenGroups.surface} />
+
+---
+
+## Borders
+
+Border color tokens separate content, organize layouts, and communicate status.
+
+### Border brand
+
+Use border brand colors for structural boundaries, brand-aligned outlines, and emphasized interface divisions.
+
+<ColorTokenTable tokens={tokenGroups.borderBrand} />
+
+### Border utility
+
+Use border utility colors for status-based boundaries and validation states.
+
+<ColorTokenTable tokens={tokenGroups.borderUtility} />
+
+---
+
+## Focus
+
+Focus color tokens show where keyboard focus is on the page.
+
+<ColorTokenTable tokens={tokenGroups.focus} />
+
+---
+
+## Base
+
+Base color tokens support light and dark themes with white, black, and inverse colors.
+
+<ColorTokenTable tokens={tokenGroups.base} />
+
+---
+
+## Overlay
+
+Overlay color tokens create transparency and layered interface effects.
+
+<ColorTokenTable tokens={tokenGroups.overlay} />
