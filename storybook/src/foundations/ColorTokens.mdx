@@ -271,13 +271,28 @@ Section color tokens organize content and establish visual hierarchy by applying
 
 ### Section brand
 
-Use section brand colors for page areas, containers, and supporting surfaces that reinforce visual identity.
+Use section brand colors to reinforce the visual identity of the experience.
+
+**Usage examples include:**
+
+- Hero sections
+- Landing page banners
+- Featured content
+- Content bands
+- Alternate page sections
 
 <ColorTokenTable tokens={tokenGroups.sectionBrand} />
 
 ### Section utility
 
-Use section utility colors for status-based areas such as informational, danger, warning, and success messages.
+Use section utility colors when an entire section background communicates system status.
+
+**Usage examples include:**
+
+- Success confirmation sections
+- Warning callouts
+- Danger summaries
+- Informational notices
 
 <ColorTokenTable tokens={tokenGroups.sectionUtility} />
 
@@ -285,7 +300,14 @@ Use section utility colors for status-based areas such as informational, danger,
 
 ## Surface
 
-Surface color tokens provide the default background for the overall experience.
+Surface color tokens define the default background for Commonwealth digital experiences.
+
+The design system intentionally uses a single surface color to provide a consistent visual foundation across products and services. For light themes we use a slightly off-white color to reduce visual glare, improve reading comfort, and create a softer foundation for content.
+
+**Usage examples include:**
+
+- Page backgrounds
+- Application backgrounds
 
 <ColorTokenTable tokens={tokenGroups.surface} />
 
@@ -293,17 +315,35 @@ Surface color tokens provide the default background for the overall experience.
 
 ## Borders
 
-Border color tokens separate content, organize layouts, and communicate status.
+Border color tokens separate content, organize layouts, reinforce hierarchy, and communicate status.
 
 ### Border brand
 
-Use border brand colors for structural boundaries, brand-aligned outlines, and emphasized interface divisions.
+Use border brand colors for structure and decoration.
+
+**Usage examples include:**
+
+- Cards with multiple actions
+- Panel borders
+- Content wrappers
+- Section dividers
+- Table and list separators
+- Decorative accents, such as a line beneath a heading
+- Non-interactive step indicators
 
 <ColorTokenTable tokens={tokenGroups.borderBrand} />
 
 ### Border utility
 
-Use border utility colors for status-based boundaries and validation states.
+Use border utility colors when a border communicates status.
+
+**Usage examples include:**
+
+- Success messages
+- Warning messages
+- Danger messages
+- Informational messages
+- Validation containers
 
 <ColorTokenTable tokens={tokenGroups.borderUtility} />
 
@@ -311,7 +351,9 @@ Use border utility colors for status-based boundaries and validation states.
 
 ## Focus
 
-Focus color tokens show where keyboard focus is on the page.
+Focus color tokens define the colors used to communicate keyboard focus throughout the interface.
+
+We use one focus color for light backgrounds and one for dark backgrounds. This ensures focus indicators remain highly visible, consistent, and accessible across all components and themes.
 
 <ColorTokenTable tokens={tokenGroups.focus} />
 
@@ -319,7 +361,11 @@ Focus color tokens show where keyboard focus is on the page.
 
 ## Base
 
-Base color tokens support light and dark themes with white, black, and inverse colors.
+Base color token sets include **white**, **black**, and **inverse** values to support light and dark themes.
+
+- Use **white** when the color should always be white
+- Use **black** when the color should always be black
+- Use **inverse** when the color should automatically switch between white and black based on the active theme
 
 <ColorTokenTable tokens={tokenGroups.base} />
 
@@ -327,6 +373,10 @@ Base color tokens support light and dark themes with white, black, and inverse c
 
 ## Overlay
 
-Overlay color tokens create transparency and layered interface effects.
+Overlay color tokens define colors with built-in opacity for creating layered interface effects.
+
+**Usage examples include:**
+
+- A scrim behind a modal
 
 <ColorTokenTable tokens={tokenGroups.overlay} />
