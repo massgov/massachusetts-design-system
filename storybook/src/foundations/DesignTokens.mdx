@@ -1,0 +1,21 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Design Tokens" />
+
+# Design tokens
+
+---
+
+## Overview
+
+Design tokens are named, reusable values that store core design decisions such as color, typography, spacing, corner radius, elevation, and motion. They create a shared source of truth between design and code, making it easier to build consistent interfaces and update visual styles across components, patterns, and products.
+
+Instead of hardcoding values in individual components, teams reference tokens throughout the interface. This improves consistency, reduces duplication, and makes future updates easier.
+
+## How tokens work
+
+Tokens replace one-off style values with a defined set of reusable variables. For example, instead of setting a custom border radius in a component, an engineer can use a token such as `--mds-radius-sm` or `--mds-radius-md`. This keeps implementation aligned with the design system and gives teams a predictable set of values to use across interfaces.
+
+Some tokens define raw values, such as a specific color, spacing unit, or font size. Other tokens are semantic and describe how to use a value. For example, a semantic token may define the border color for an error state, the background color for a primary action, or the text color for disabled content.
+
+Semantic tokens are especially useful because they separate intent from implementation. Engineers can apply a token based on purpose, such as `--mds-border-utility-danger-mid`, `--mds-background-section-brand-primary-mid`, or `--mds-text-and-icons-brand-neutral-muted`. This makes components easier to theme, easier to maintain, and more resilient as the resources continue to scale.
