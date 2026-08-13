@@ -6,11 +6,11 @@
   @include mixins.address-reset;
 
   --mds-footer-background: var(--mds-background-section-brand-neutral-lowest);
-  --mds-footer-color: var(--mds-text-and-icons-brand-neutral-default);
-  --mds-footer-muted-color: var(--mds-text-and-icons-brand-neutral-muted);
-  --mds-footer-link-color: var(--mds-text-and-icons-brand-neutral-default);
-  --mds-footer-link-hover-color: var(--mds-background-adaptive-brand-primary-high);
-  --mds-footer-accent-color: var(--mds-background-adaptive-brand-primary-mid);
+  --mds-footer-color: var(--mds-content-brand-neutral-default);
+  --mds-footer-muted-color: var(--mds-content-brand-neutral-muted);
+  --mds-footer-link-color: var(--mds-content-brand-neutral-default);
+  --mds-footer-link-hover-color: var(--mds-interactive-brand-primary-high);
+  --mds-footer-accent-color: var(--mds-interactive-brand-primary-mid);
   --mds-footer-border-color: var(--mds-border-brand-neutral-low);
 
   background-color: var(--mds-footer-background);
@@ -99,7 +99,7 @@
   }
 
   &__contact-address {
-    @include mixins.text("label-md");
+    @include mixins.text("label-lg");
   }
 
   ul.mds-footer__social-list {
@@ -110,10 +110,10 @@
   }
 
   .mds-icon-button {
-    --mds-button-accent: var(--mds-background-adaptive-brand-primary-mid);
-    --mds-button-accent-hover: var(--mds-background-adaptive-brand-primary-high);
-    --mds-button-accent-active: var(--mds-background-adaptive-brand-primary-highest);
-    --mds-button-on-accent: var(--mds-text-and-icons-utility-static-white);
+    --mds-button-accent: var(--mds-interactive-brand-primary-mid);
+    --mds-button-accent-hover: var(--mds-interactive-brand-primary-high);
+    --mds-button-accent-active: var(--mds-interactive-brand-primary-highest);
+    --mds-button-on-accent: var(--mds-base-white);
     --mds-button-shadow: none;
     --mds-button-shadow-hover: var(--mds-shadow-hover-sm);
     --mds-button-shadow-active: none;
@@ -174,23 +174,23 @@
   }
 
   .mds-icon-button--color-light {
-    --mds-button-accent: var(--mds-background-section-utility-static-white);
+    --mds-button-accent: var(--mds-base-white);
     --mds-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
     --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
-    --mds-button-on-accent: var(--mds-text-and-icons-utility-static-black);
+    --mds-button-on-accent: var(--mds-base-black);
   }
 
   &__description {
     max-width: 18rem;
 
-    @include mixins.text("caption-md");
+    @include mixins.text("caption-lg");
   }
 
   &__heading {
     padding-block-end: var(--mds-space-xs);
     border-block-end: 1px solid var(--mds-footer-border-color);
 
-    @include mixins.text("eyebrow-md");
+    @include mixins.text("eyebrow-lg");
   }
 
   &__contact {
@@ -205,7 +205,7 @@
     align-items: flex-start;
     padding-block: var(--mds-space-3xs);
 
-    @include mixins.text("label-md");
+    @include mixins.text("label-lg");
   }
 
   &__contact svg {
@@ -215,7 +215,7 @@
   &__contact-note {
     padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
 
-    @include mixins.text("caption-md");
+    @include mixins.text("caption-lg");
   }
 
   &__link-list {
@@ -223,7 +223,7 @@
     flex-direction: column;
     padding-block-start: var(--mds-space-xs);
 
-    @include mixins.text("label-md");
+    @include mixins.text("label-lg");
 
     .mds-action-link {
       display: block;
@@ -235,7 +235,7 @@
     border-block: 1px solid var(--mds-footer-border-color);
     padding-block: var(--mds-space-xs);
 
-    @include mixins.text("label-md");
+    @include mixins.text("label-lg");
 
     ul {
       display: flex;
@@ -250,7 +250,7 @@
     gap: var(--mds-space-sm);
     padding-block: var(--mds-space-md) var(--mds-space-2xl);
 
-    @include mixins.text("caption-md");
+    @include mixins.text("caption-lg");
   }
 
   &__trademark {
@@ -274,13 +274,13 @@
 }
 
 .mds-footer--primary {
-  --mds-footer-background: var(--mds-background-adaptive-brand-primary-mid);
-  --mds-footer-color: var(--mds-text-and-icons-utility-inverse);
-  --mds-footer-muted-color: var(--mds-text-and-icons-utility-inverse);
-  --mds-footer-link-color: var(--mds-text-and-icons-utility-inverse);
-  --mds-footer-link-hover-color: var(--mds-text-and-icons-utility-inverse);
-  --mds-footer-accent-color: var(--mds-text-and-icons-utility-inverse);
-  --mds-footer-border-color: var(--mds-text-and-icons-utility-inverse);
+  --mds-footer-background: var(--mds-background-section-brand-primary-mid);
+  --mds-footer-color: var(--mds-base-white);
+  --mds-footer-muted-color: var(--mds-base-white);
+  --mds-footer-link-color: var(--mds-base-inverse);
+  --mds-footer-link-hover-color: var(--mds-base-white);
+  --mds-footer-accent-color: var(--mds-base-white);
+  --mds-footer-border-color: var(--mds-base-white);
 
   a {
     @include mixins.focus($focus-on-light: false);
