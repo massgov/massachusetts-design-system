@@ -32,7 +32,7 @@ Use a button when the person needs to do something on the current page or within
 
 ### Color
 
-Set the `color` property to `Primary`, `Secondary`, `Light`, or `Danger` to change the button's color.
+Set the `color` property to `Primary`, `Secondary`, `White`, or `Danger` to change the button's color.
 
 ### Type
 
@@ -51,7 +51,7 @@ Set the `type` property to `Fill` to draw filled buttons.
   <ButtonExample text="Primary" type="Fill" color="Primary" />
   <ButtonExample text="Secondary" type="Fill" color="Secondary" />
   <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest">
-    <ButtonExample text="Light" type="Fill" color="Light" />
+    <ButtonExample text="White" type="Fill" color="White" />
   </span>
   <ButtonExample text="Danger" type="Fill" color="Danger" />
 </div>
@@ -64,7 +64,7 @@ Set the `type` property to `Outline` to draw outline buttons.
   <ButtonExample text="Primary" type="Outline" color="Primary" />
   <ButtonExample text="Secondary" type="Outline" color="Secondary" />
   <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest">
-    <ButtonExample text="Light" type="Outline" color="Light" />
+    <ButtonExample text="White" type="Outline" color="White" />
   </span>
   <ButtonExample text="Danger" type="Outline" color="Danger" />
 </div>
@@ -77,19 +77,9 @@ Set the `type` property to `Ghost` to draw text buttons.
   <ButtonExample text="Primary" type="Ghost" color="Primary" />
   <ButtonExample text="Secondary" type="Ghost" color="Secondary" />
   <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest">
-    <ButtonExample text="Light" type="Ghost" color="Light" />
-  </span>
-  <ButtonExample text="Danger" type="Ghost" color="Danger" />
-</div>
-
-##### White ghost buttons
-
-Set the `color` property to `White` for ghost buttons when they are used only on dark backgrounds that will maintain their color between light and dark mode.
-
-<div className="mds-docs-example-row mds-gap-md">
-  <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-mid">
     <ButtonExample text="White" type="Ghost" color="White" />
   </span>
+  <ButtonExample text="Danger" type="Ghost" color="Danger" />
 </div>
 
 ### Size
@@ -98,7 +88,7 @@ Use the `size` property to change the button's size. Most buttons use `Regular`.
 
 <div className="mds-docs-example-row mds-gap-md">
   <ButtonExample text="Regular" size="Regular" />
-  <ButtonExample text="Large" size="LG" />
+  <ButtonExample text="Large" size="Large" />
 </div>
 
 ### With icons
@@ -133,4 +123,8 @@ Examples:
 
 To disable a button, add the `disabled` property. A disabled button shows that an action is currently unavailable and cannot be selected or activated. They should be used only when the action will become available after the user completes a required step or meets a specific condition.
 
-<ButtonExample text="Button" disabled />
+<div className="mds-docs-example-row mds-gap-md">
+  <ButtonExample text="Fill" disabled />
+  <ButtonExample text="Outline" type="Outline" disabled />
+  <ButtonExample text="Ghost" type="Ghost" disabled />
+</div>
