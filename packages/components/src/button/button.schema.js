@@ -32,7 +32,7 @@ export const buttonSchema = {
   color: {
     type: 'enum',
     default: 'Primary',
-    options: ['Primary', 'Secondary', 'Neutral', 'Danger']
+    options: ['Primary', 'Secondary', 'White', 'Danger']
   },
   size: {
     type: 'enum',

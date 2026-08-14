@@ -41,7 +41,7 @@
     --mds-button-accent-active: var(--mds-interactive-brand-secondary-highest);
   }
 
-  &--color-neutral {
+  &--color-white {
     --mds-button-accent: var(--mds-base-white);
     --mds-button-accent-hover: var(--mds-overlay-white-highest);
     --mds-button-accent-active: var(--mds-overlay-white-high);
@@ -80,7 +80,7 @@
     --mds-button-color-hover: var(--mds-button-accent-hover);
     --mds-button-color-active: var(--mds-button-accent-active);
 
-    &.mds-button--color-neutral {
+    &.mds-button--color-white {
       --mds-button-background: transparent;
       --mds-button-background-hover: var(--mds-overlay-white-lowest);
       --mds-button-background-active: var(--mds-overlay-white-low);
@@ -108,7 +108,7 @@
     border-radius: 0;
     padding-inline: 0;
 
-    &.mds-button--color-neutral {
+    &.mds-button--color-white {
       --mds-button-color: var(--mds-base-white);
       --mds-button-color-hover: var(--mds-base-white);
       --mds-button-color-active: var(--mds-base-white);
