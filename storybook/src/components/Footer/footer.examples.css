@@ -14,9 +14,9 @@
   width: min(100%, 1280px);
   margin: 0 auto;
   padding-inline: var(--mds-breakpoint-horizontal-space-margin);
-  color: var(--mds-text-and-icons-brand-neutral-default);
-  font-family: var(--mds-text-label-md-font-family);
-  font-size: var(--mds-text-label-md-font-size);
-  font-weight: var(--mds-text-label-md-font-weight);
-  line-height: var(--mds-text-label-md-line-height);
+  color: var(--mds-content-brand-neutral-default);
+  font-family: var(--mds-text-label-font-family);
+  font-size: var(--mds-text-label-font-size-lg);
+  font-weight: var(--mds-text-label-font-weight);
+  line-height: var(--mds-text-label-line-height-lg);
 }

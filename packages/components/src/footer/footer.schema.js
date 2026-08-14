@@ -159,9 +159,8 @@ export const footerSchema = {
     type: 'string',
     required: false
   },
-  itemIcon: {
-    type: 'icon',
-    required: false,
-    options: iconOptions
+  showExternalLinkIcon: {
+    type: 'boolean',
+    default: false
   }
 };

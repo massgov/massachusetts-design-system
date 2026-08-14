@@ -1,4 +1,5 @@
 import { getSchemaDefaults, getSchemaOptions } from '../shared/schema.js';
+import { iconNames } from '../icon/icon.names.js';
 import { footerSchema } from './footer.schema.js';
 
 export { footerSchema } from './footer.schema.js';
@@ -6,7 +7,7 @@ export { footerSchema } from './footer.schema.js';
 const schemaOptions = getSchemaOptions(footerSchema);
 
 export const footerThemes = schemaOptions.theme;
-export const footerIcons = schemaOptions.itemIcon;
+export const footerIcons = ['', ...iconNames];
 export const footerOptions = {
   icon: footerIcons,
   theme: footerThemes
@@ -154,6 +155,5 @@ export const footerExampleData = {
     }
   ],
   fundingText: 'Funding details lorem ipsum dolor sit amet lorem ipsum dolore sit amet',
-  itemIcon: '',
   trademarkHtml: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
 };

@@ -71,6 +71,13 @@ const footerControls = {
       category: controlCategories.design
     }
   },
+  showExternalLinkIcon: {
+    control: 'boolean',
+    description: 'Shows an external-link icon after each link in a link group.',
+    table: {
+      category: controlCategories.design
+    }
+  },
   siteName: {
     control: 'text',
     table: {
@@ -159,6 +166,7 @@ const footerControls = {
 
 const defaultPlaygroundArgs = {
   theme: footerExampleData.theme,
+  showExternalLinkIcon: footerDefaults.showExternalLinkIcon,
   siteNameId: footerExampleData.siteNameId,
   siteName: footerDefaults.siteName,
   sealAlt: footerExampleData.sealAlt,
@@ -188,7 +196,7 @@ const meta = {
 export default meta;
 
 export const Playground = {
-  args: footerExampleData
+  args: defaultPlaygroundArgs
 };
 
 export const Examples = {

@@ -287,6 +287,15 @@
   }
 }
 
+.mds-footer .hidden {
+  position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 @include mixins.max-width(md) {
   .mds-footer__content {
     row-gap: var(--mds-space-md);
