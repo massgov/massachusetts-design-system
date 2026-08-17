@@ -161,6 +161,6 @@ export const footerSchema = {
   },
   showExternalLinkIcon: {
     type: 'boolean',
-    default: false
+    default: true //switch to false after testing
   }
 };
