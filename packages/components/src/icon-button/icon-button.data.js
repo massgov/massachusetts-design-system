@@ -5,18 +5,12 @@ export { iconButtonSchema } from './icon-button.schema.js';
 
 const schemaOptions = getSchemaOptions(iconButtonSchema);
 
-export const iconButtonElements = schemaOptions.element;
-export const iconButtonTypes = schemaOptions.type;
-export const iconButtonColors = schemaOptions.color;
-export const iconButtonIcons = schemaOptions.icon;
-export const htmlButtonTypes = schemaOptions.htmlType;
-
 export const iconButtonOptions = {
-  color: iconButtonColors,
-  element: iconButtonElements,
-  htmlType: htmlButtonTypes,
-  icon: iconButtonIcons,
-  type: iconButtonTypes
+  color: schemaOptions.color,
+  element: schemaOptions.element,
+  htmlType: schemaOptions.htmlType,
+  icon: schemaOptions.icon,
+  type: schemaOptions.type
 };
 
 export const iconButtonDefaults = getSchemaDefaults(iconButtonSchema);
