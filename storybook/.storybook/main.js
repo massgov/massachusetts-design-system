@@ -1,10 +1,23 @@
 import { mergeConfig } from 'vite';
+import remarkGfm from 'remark-gfm';
 
 const storybookBasePath = process.env.STORYBOOK_BASE_PATH || '/';
 
 const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|mjs)'],
-  addons: ['@storybook/addon-docs', '@storybook/addon-a11y'],
+  addons: [
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm]
+          }
+        }
+      }
+    },
+    '@storybook/addon-a11y'
+  ],
   framework: {
     name: '@storybook/html-vite',
     options: {}
