@@ -1,0 +1,125 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+import assetsPackage from '@massds/mds-assets/package.json';
+import stylesPackage from '@massds/mds-styles/package.json';
+import tokensPackage from '@massds/mds-tokens/package.json';
+
+export const tokenCdnUrl = `https://unpkg.com/@massds/mds-tokens@${tokensPackage.version}/dist/index.css`;
+export const stylesCdnUrl = `https://unpkg.com/@massds/mds-styles@${stylesPackage.version}/dist/css/index.css`;
+export const stateSealColorCdnUrl = `https://unpkg.com/@massds/mds-assets@${assetsPackage.version}/dist/state-seal/state-seal-color.svg`;
+export const stateSealWhiteCdnUrl = `https://unpkg.com/@massds/mds-assets@${assetsPackage.version}/dist/state-seal/state-seal-white.svg`;
+
+<Meta title="Overview/Getting Started" />
+
+# Getting started
+
+The Massachusetts Design System publishes shared code resources as npm
+packages. Teams can install the packages and reference them at build time, or
+load specific files directly from a CDN.
+
+## Packages
+
+| Package | Current documented version | Use for |
+| --- | --- | --- |
+| [`@massds/mds-assets`](https://www.npmjs.com/package/@massds/mds-assets) | {assetsPackage.version} | Shared icons, state seal files, and animation assets |
+| [`@massds/mds-tokens`](https://www.npmjs.com/package/@massds/mds-tokens) | {tokensPackage.version} | CSS custom properties for color, typography, spacing, radius, elevation, and related design decisions |
+| [`@massds/mds-styles`](https://www.npmjs.com/package/@massds/mds-styles) | {stylesPackage.version} | Utility classes, reusable layout styles, and public Sass mixins built on top of tokens |
+
+> Each package is released independently using semantic versioning. When this
+Storybook becomes version controlled, the package versions documented in a
+Storybook release will be labeled here. The latest Storybook will be hosted at
+the domain root, and archived releases will be available at paths such as
+`/version/v#.#.#`.
+
+## Install with npm
+
+Install the package or packages your application needs:
+
+```bash
+npm install @massds/mds-tokens @massds/mds-styles @massds/mds-assets
+```
+
+Import tokens before styles from your application's CSS entrypoint:
+
+```css
+@import "@massds/mds-tokens/dist/index.css";
+@import "@massds/mds-styles/dist/css/index.min.css";
+```
+
+The styles package also exposes shorter CSS entrypoints for bundlers that honor
+package exports:
+
+```css
+@import "@massds/mds-styles/index.min.css";
+```
+
+Use `@massds/mds-tokens/dist/index.css` as the public token entrypoint. Avoid
+referencing `dist/primitives.css` directly in applications; primitive values are
+lower-level inputs for the semantic token layer and may change as the design
+system evolves.
+
+## Use Sass mixins
+
+For component or application Sass, use the public styles package API:
+
+```scss
+@use "pkg:@massds/mds-styles/scss/mixins" as mixins;
+
+.example-heading {
+  @include mixins.text("heading-lg");
+}
+```
+
+Use Sass's Node package importer for `pkg:` imports. The styles package does not
+rebundle tokens, so applications should still load the token CSS before compiled
+MDS styles.
+
+## Use assets
+
+The assets package publishes plain files under `dist/`, including regular icons,
+bold icons, state seal variants, and animation assets.
+
+```text
+dist/icons/alert.svg
+dist/icons/bold/alert--bold.svg
+dist/state-seal/state-seal-color.svg
+dist/state-seal/state-seal-white.svg
+dist/animation/loader.json
+```
+
+Icon filenames use kebab-case. Bold icon variants use the `--bold` suffix.
+
+## Use the CDN
+
+MDS package files are available through [UNPKG](https://unpkg.com/). For stable
+applications, link to a specific package version instead of relying on the
+latest published version.
+
+Tokens:
+
+<Source language="text" code={tokenCdnUrl} />
+
+Styles:
+
+<Source language="text" code={stylesCdnUrl} />
+
+State seal, color:
+
+<Source language="text" code={stateSealColorCdnUrl} />
+
+State seal, white:
+
+<Source language="text" code={stateSealWhiteCdnUrl} />
+
+## Explore locally
+
+To browse tokens and utility classes locally, clone the repository and run the
+styles demo:
+
+```bash
+npm install
+npm run build
+npm run demo:styles
+```
+
+For package-specific setup, source files, release notes, and publishing details,
+see the README in each package directory.
