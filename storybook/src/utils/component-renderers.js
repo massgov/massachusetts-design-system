@@ -150,6 +150,7 @@ function createIconSvgMap() {
 
 export const iconSvgMap = createIconSvgMap();
 export const renderIcon = createComponentRenderer('icon', { iconSvgMap });
+export const renderActionLink = createComponentRenderer('action-link', { iconSvgMap });
 export const renderButton = createComponentRenderer('button', { iconSvgMap });
 export const renderMenu = createComponentRenderer('menu', { iconSvgMap });
 export const renderSiteHeader = createComponentRenderer('site-header');

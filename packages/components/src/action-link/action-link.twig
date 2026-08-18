@@ -1,0 +1,48 @@
+{#
+  Action link data:
+  - The design has no disabled state.
+  - size controls both the label typography and icon box.
+  - leftIcon and rightIcon are icon names from the assets package.
+#}
+{% set actionLinkColor = color in actionLinkOptions.color ? color : actionLinkDefaults.color %}
+{% set actionLinkSize = size in actionLinkOptions.size ? size : actionLinkDefaults.size %}
+{% set actionLinkIconWeight = iconWeight in actionLinkOptions.iconWeight ? iconWeight : actionLinkDefaults.iconWeight %}
+{% set actionLinkLeftIcon = leftIcon in actionLinkOptions.icon ? leftIcon : actionLinkDefaults.leftIcon %}
+{% set actionLinkRightIcon = rightIcon in actionLinkOptions.icon ? rightIcon : actionLinkDefaults.rightIcon %}
+{% set actionLinkIconSize = actionLinkIconSizes[actionLinkSize] %}
+{% set actionLinkText = text|default(actionLinkDefaults.text) %}
+{% set actionLinkHref = href|default(actionLinkDefaults.href) %}
+{% set actionLinkId = id|default(actionLinkDefaults.id) %}
+{% set actionLinkExtraClass = className|default(actionLinkDefaults.className) %}
+{% set actionLinkClass = 'mds-action-link mds-action-link--color-' ~ (actionLinkColor|lower) ~ ' mds-action-link--size-' ~ (actionLinkSize|lower) %}
+{% if actionLinkExtraClass %}
+  {% set actionLinkClass = actionLinkClass ~ ' ' ~ actionLinkExtraClass %}
+{% endif %}
+
+<a
+  class="{{ actionLinkClass|e }}"
+  href="{{ actionLinkHref|e }}"{% if actionLinkId %}
+  id="{{ actionLinkId|e }}"{% endif %}
+>
+  {% if actionLinkLeftIcon %}
+    <span class="mds-action-link__icon">
+      {% include 'icon.twig' with {
+        name: actionLinkLeftIcon,
+        weight: actionLinkIconWeight,
+        size: actionLinkIconSize
+      } %}
+    </span>
+  {% endif %}
+
+  <span class="mds-action-link__label">{{ actionLinkText|e }}</span>
+
+  {% if actionLinkRightIcon %}
+    <span class="mds-action-link__icon">
+      {% include 'icon.twig' with {
+        name: actionLinkRightIcon,
+        weight: actionLinkIconWeight,
+        size: actionLinkIconSize
+      } %}
+    </span>
+  {% endif %}
+</a>
