@@ -51,7 +51,6 @@ const buttonControls = {
   color: {
     control: 'select',
     options: buttonOptions.color,
-    description: 'White applies to Ghost buttons only.',
     table: {
       category: controlCategories.design
     }

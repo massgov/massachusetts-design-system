@@ -7,10 +7,16 @@ import {
 import { renderIcon } from '../../utils/component-renderers.js';
 
 const iconPlaygroundColors = {
-  Neutral: 'var(--mds-text-and-icons-brand-neutral-default)',
-  Primary: 'var(--mds-text-and-icons-brand-primary-mid)',
-  Secondary: 'var(--mds-text-and-icons-brand-secondary-mid)',
-  Danger: 'var(--mds-text-and-icons-utility-danger-mid)'
+  'Neutral default': 'var(--mds-content-brand-neutral-default)',
+  'Neutral muted': 'var(--mds-content-brand-neutral-muted)',
+  'Neutral disabled': 'var(--mds-content-brand-neutral-disabled)',
+  Primary: 'var(--mds-content-brand-primary-mid)',
+  Secondary: 'var(--mds-content-brand-secondary-mid)',
+  White: 'var(--mds-base-white)',
+  Informative: 'var(--mds-content-utility-informative-mid)',
+  Danger: 'var(--mds-content-utility-danger-mid)',
+  Warning: 'var(--mds-content-utility-warning-mid)',
+  Success: 'var(--mds-content-utility-success-mid)'
 };
 
 // Storybook render functions return an HTML element.
@@ -84,7 +90,7 @@ const iconControls = {
 };
 
 const defaultPlaygroundArgs = {
-  color: 'Neutral',
+  color: 'Neutral default',
   name: iconDefaults.name,
   size: iconDefaults.size,
   weight: iconDefaults.weight
