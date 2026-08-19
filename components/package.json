@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@massds/mds-assets": "^1.1.1",
-    "@massds/mds-styles": "^1.0.0",
+    "@massds/mds-styles": "^2.0.0-beta.1",
     "@massds/mds-tokens": "^3.0.0-beta.1",
     "htmlhint": "^1.7.1",
     "sass": "^1.93.2",
