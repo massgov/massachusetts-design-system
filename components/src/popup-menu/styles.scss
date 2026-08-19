@@ -24,7 +24,7 @@
   gap: var(--mds-space-3xs);
   position: fixed;
   z-index: 10;
-  @include mixins.text("caption-lg");
+  @include mixins.text("caption-md");
   border-radius: var(--mds-radius-md);
   border: 1px solid var(--mds-border-brand-neutral-low);
   background: var(--mds-base-inverse);
