@@ -122,7 +122,7 @@
   }
 
   // Size modifiers
-  &--size-regular {
+  &--size-md {
     --mds-button-gap: var(--mds-space-2xs);
 
     height: 44px;
@@ -131,7 +131,7 @@
     @include mixins.text("label");
   }
 
-  &--size-large {
+  &--size-lg {
     --mds-button-gap: var(--mds-space-xs);
 
     height: 54px;
