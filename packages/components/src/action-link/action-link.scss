@@ -64,12 +64,14 @@
   }
 
   &__icon {
-    block-size: var(--mds-action-link-icon-size);
-
+    //block-size: var(--mds-action-link-icon-size);
+    display: inline-block;
+    width: var(--mds-action-link-icon-size);
+/**
     .mds-icon {
       display: block;
       inline-size: 100%;
       block-size: 100%;
-    }
+    }**/
   }
 }

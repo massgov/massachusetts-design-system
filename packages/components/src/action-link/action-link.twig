@@ -24,6 +24,7 @@
   href="{{ actionLinkHref|e }}"{% if actionLinkId %}
   id="{{ actionLinkId|e }}"{% endif %}
 >
+<span class="mds-action-link__label">
   {% if actionLinkLeftIcon %}
     <span class="mds-action-link__icon">
       {% include 'icon.twig' with {
@@ -34,7 +35,7 @@
     </span>
   {% endif %}
 
-  <span class="mds-action-link__label">{{ actionLinkText|e }}</span>
+  {{ actionLinkText|e }}
 
   {% if actionLinkRightIcon %}
     <span class="mds-action-link__icon">
@@ -43,6 +44,7 @@
         weight: actionLinkIconWeight,
         size: actionLinkIconSize
       } %}
+    </span>
     </span>
   {% endif %}
 </a>
