@@ -115,11 +115,11 @@ export const tokenGroups = {
     ['inverse', '--mds-base-inverse']
   ],
   overlay: [
+    ['black-mid', '--mds-overlay-black-mid'],
     ['white-lowest', '--mds-overlay-white-lowest'],
     ['white-low', '--mds-overlay-white-low'],
     ['white-high', '--mds-overlay-white-high'],
-    ['white-highest', '--mds-overlay-white-highest'],
-    ['black-mid', '--mds-overlay-black-mid']
+    ['white-highest', '--mds-overlay-white-highest']
   ]
 };
 
@@ -373,10 +373,23 @@ Base color token sets include **white**, **black**, and **inverse** values to su
 
 ## Overlay
 
-Overlay color tokens define colors with built-in opacity for creating layered interface effects.
+Overlay color tokens define black and white colors with built-in opacity for creating layered interface effects.
+
+### Black overlay
+`--mds-overlay-black-mid` provides a semi-transparent black overlay that improves the readability of content displayed over visually complex backgrounds.
 
 **Usage examples include:**
 
-- A scrim behind a modal
+- Scrims behind dialogs
+- Other layered interface patterns where additional contrast is needed while allowing the underlying content to remain visible
+
+### White overlays
+White overlay tokens are reserved for button fills on colored backgrounds. They provide a consistent translucent fill across interaction states while allowing the underlying color to remain visible.
+
+Limiting white overlays to this pattern helps maintain visual consistency and discourages their use in situations where a neutral overlay is more appropriate.
+
+**Usage examples include:**
+
+- White outline button backgrounds
 
 <ColorTokenTable tokens={tokenGroups.overlay} />
