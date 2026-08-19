@@ -18,15 +18,13 @@ jobs:
         working-directory: packages/assets
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 24.14.0
-          registry-url: https://registry.npmjs.org/
-          cache: npm
-          cache-dependency-path: packages/assets/package-lock.json
+          package-manager-cache: false
 
       - name: Install dependencies
         run: npm ci
@@ -49,8 +47,6 @@ jobs:
           fi
 
       - name: Publish to npm
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
 

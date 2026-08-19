@@ -46,7 +46,7 @@
 }
 
 .mds-state-seal-gallery__label {
-  color: var(--mds-text-and-icons-brand-neutral-default);
+  color: var(--mds-content-brand-neutral-default);
   font-family: var(--mds-text-label-font-family);
   font-weight: var(--mds-text-label-font-weight);
   font-size: var(--mds-text-label-font-size);
