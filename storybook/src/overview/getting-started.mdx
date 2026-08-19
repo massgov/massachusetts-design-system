@@ -21,24 +21,18 @@ your product needs them.
 
 ## Choose the resources you need
 
-| Package | Version documented here | What it provides | Design System dependencies |
+| Package | Version documented | What it provides | Design System dependencies |
 | --- | --- | --- | --- |
 | [`@massds/mds-assets`](https://www.npmjs.com/package/@massds/mds-assets) | {assetsPackage.version} | Icons, state seal assets, and animation files | None |
 | [`@massds/mds-tokens`](https://www.npmjs.com/package/@massds/mds-tokens) | {tokensPackage.version} | Semantic CSS custom properties for color, typography, spacing, radius, elevation, and other design decisions | None |
 | [`@massds/mds-styles`](https://www.npmjs.com/package/@massds/mds-styles) | {stylesPackage.version} | Bundled CSS utilities and public Sass mixins | `@massds/mds-tokens` |
 | [`@massds/mds-components`](https://github.com/massgov/massachusetts-design-system/tree/main/packages/components) | {componentsPackage.version} | Emerging Twig-authored components with static HTML, CSS, and Twig exports, documented in Storybook | `@massds/mds-tokens` and `@massds/mds-assets` |
 
-The styles package does not bundle tokens. Load token CSS before utility or
-component CSS so their custom properties are available. The components package
-uses styles mixins while building its self-contained CSS, so consumers only
-need to install `@massds/mds-styles` when they also want its utilities or Sass
-API.
+The styles package does not bundle tokens. Load token CSS before utility or component CSS so their custom properties are available. The components package uses styles mixins while building its self-contained CSS, so consumers only need to install `@massds/mds-styles` when they also want its utilities or Sass API.
 
 > Package versions are read from the manifests used to build this Storybook.
-> Packages are released independently, and each package release is paired with
-> a production Storybook deployment so the documentation identifies the package
-> set it supports. The latest Storybook is hosted at the domain root; archived
-> releases are available at paths such as `/version/v#.#.#`.
+> Packages are released independently, and each package release is paired with a production Storybook deployment so the documentation identifies the package set it supports. 
+> The latest Storybook is hosted at the domain root.
 
 ## Install from npm
 
