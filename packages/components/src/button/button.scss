@@ -143,6 +143,11 @@
     @include mixins.text("label-lg");
   }
 
+  // Size modifiers use padding shorthand, so keep ghost buttons flush.
+  &--type-ghost {
+    padding-inline: 0;
+  }
+
   // Interaction states
 
   @include mixins.focus($focus-on-light: true);
