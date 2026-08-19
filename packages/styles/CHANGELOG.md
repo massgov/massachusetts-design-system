@@ -35,5 +35,7 @@ All notable changes to `@massds/mds-styles` are auto-compiled in this file. See 
 
 ### Removed
 * [DS-306] Removed Document reset mixin. Removed Component reset so contained mixins can be used ala carte. #95
+
+### Changed
 * [DS-383] Updated all color and font tokens styles to use the latest updated tokens from design decisions as of 8/7/26. #105
 
