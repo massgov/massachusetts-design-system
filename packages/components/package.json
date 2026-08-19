@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@massds/mds-assets": "^1.2.0",
-    "@massds/mds-styles": "^1.0.0",
+    "@massds/mds-styles": "^2.0.0-beta.1",
     "@massds/mds-tokens": "^3.0.0-beta.1",
     "sass": "^1.93.2",
     "twig": "^3.0.0"

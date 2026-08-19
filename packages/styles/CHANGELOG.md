@@ -30,3 +30,10 @@ All notable changes to `@massds/mds-styles` are auto-compiled in this file. See 
 * [DP-45434] Updated mixins: added resets for address and unordered list. Updated focus mixin to handle both focus color tokens. #53
 * [DP-366] Removed unused packages/styles/package-lock.json. #90
 
+
+## 2.0.0-beta.1 (8/19/2026)
+
+### Removed
+* [DS-306] Removed Document reset mixin. Removed Component reset so contained mixins can be used ala carte. #95
+* [DS-383] Updated all color and font tokens styles to use the latest updated tokens from design decisions as of 8/7/26. #105
+
