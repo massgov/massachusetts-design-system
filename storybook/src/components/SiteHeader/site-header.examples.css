@@ -12,7 +12,7 @@
 
 .mds-site-header-examples__heading {
   margin: 0;
-  color: var(--mds-text-and-icons-brand-neutral-default);
+  color: var(--mds-content-brand-neutral-default);
   font-family: var(--mds-text-label-font-family);
   font-weight: var(--mds-text-label-font-weight);
   font-size: var(--mds-text-label-font-size-md);

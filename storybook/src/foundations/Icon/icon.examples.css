@@ -3,7 +3,7 @@
   place-items: center;
   min-width: 120px;
   min-height: 120px;
-  background: var(--mds-background-section-utility-static-white);
+  background: var(--mds-base-white);
 }
 
 .mds-icon-Playground .mds-icon {
@@ -26,7 +26,7 @@
   padding: 16px;
   border: 1px solid var(--mds-border-brand-neutral-low);
   border-radius: var(--mds-radius-sm);
-  background: var(--mds-background-section-utility-static-white);
+  background: var(--mds-base-white);
 }
 
 .mds-icon-gallery__item .mds-icon {
