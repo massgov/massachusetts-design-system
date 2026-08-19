@@ -110,9 +110,11 @@
     --mds-button-color: var(--mds-button-accent);
     --mds-button-color-hover: var(--mds-button-accent-hover);
     --mds-button-color-active: var(--mds-button-accent-active);
+    --mds-button-underline-offset: calc(var(--mds-space-xs) - var(--mds-space-3xs));
 
     border-radius: 0;
     padding-inline: 0;
+    position: relative;
 
     &.mds-button--color-white {
       --mds-button-color: var(--mds-base-white);
@@ -133,6 +135,7 @@
 
   &--size-lg {
     --mds-button-gap: var(--mds-space-xs);
+    --mds-button-underline-offset: calc(var(--mds-space-sm) - var(--mds-space-3xs));
 
     height: 54px;
     padding: var(--mds-space-sm) var(--mds-space-md);
@@ -156,11 +159,15 @@
     --mds-button-color: var(--mds-button-color-active);
   }
 
-  &--type-ghost:not(:disabled):not([aria-disabled="true"]):hover .mds-button__label,
-  &--type-ghost:not(:disabled):not([aria-disabled="true"]):active .mds-button__label {
-    text-decoration-line: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: var(--mds-space-3xs);
+  &--type-ghost:not(:disabled):not([aria-disabled="true"]):hover::after,
+  &--type-ghost:not(:disabled):not([aria-disabled="true"]):active::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: var(--mds-button-underline-offset);
+    height: 2px;
+    background-color: currentColor;
+    pointer-events: none;
   }
 
   &:disabled,
