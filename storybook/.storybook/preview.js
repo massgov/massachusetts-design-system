@@ -13,7 +13,7 @@ const preview = {
           'Overview',
           ['Introduction', 'Getting Started'],
           'Foundations',
-          ['*', ['Overview', 'Guidance', 'Code', 'Playground']],
+          ['Design Tokens', 'Color Tokens', ['Overview', 'Guidance', 'Code', 'Playground']],
           'Components',
           ['*', ['Overview', 'Guidance', 'Code', 'Playground']]
         ],
