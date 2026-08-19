@@ -76,9 +76,9 @@
 #storybook-docs .sbdocs-content :where(h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6)) {
   margin-block: var(--mds-space-sm) var(--mds-space-2xs);
   font-family: var(--mds-text-label-font-family);
-  font-size: var(--mds-text-label-font-size-md);
+  font-size: var(--mds-text-label-font-size-lg);
   font-weight: var(--mds-text-label-font-weight);
-  line-height: var(--mds-text-label-line-height-md);
+  line-height: var(--mds-text-label-line-height-lg);
 }
 
 #storybook-docs .sbdocs-content :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),

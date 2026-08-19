@@ -15,6 +15,6 @@
   color: var(--mds-content-brand-neutral-default);
   font-family: var(--mds-text-label-font-family);
   font-weight: var(--mds-text-label-font-weight);
-  font-size: var(--mds-text-label-font-size-md);
-  line-height: var(--mds-text-label-line-height-md);
+  font-size: var(--mds-text-label-font-size-lg);
+  line-height: var(--mds-text-label-line-height-lg);
 }
