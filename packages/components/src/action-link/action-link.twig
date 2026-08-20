@@ -9,6 +9,7 @@
 {% set actionLinkIconWeight = iconWeight in actionLinkOptions.iconWeight ? iconWeight : actionLinkDefaults.iconWeight %}
 {% set actionLinkLeftIcon = leftIcon in actionLinkOptions.icon ? leftIcon : actionLinkDefaults.leftIcon %}
 {% set actionLinkRightIcon = rightIcon in actionLinkOptions.icon ? rightIcon : actionLinkDefaults.rightIcon %}
+{% set actionLinkRightIconAccessibleText = rightIconAccessibleText|default(actionLinkDefaults.rightIconAccessibleText) %}
 {% set actionLinkIconSize = actionLinkIconSizes[actionLinkSize] %}
 {% set actionLinkText = text|default(actionLinkDefaults.text) %}
 {% set actionLinkHref = href|default(actionLinkDefaults.href) %}
@@ -38,12 +39,15 @@
     {{ actionLinkText|e }}
 
     {% if actionLinkRightIcon %}
-      <span class="mds-action-link__icon">
+      <span class="mds-action-link__icon"  {% if actionLinkRightIconAccessibleText %}aria-describedby="externalWebsite"{% endif %}>
         {% include 'icon.twig' with {
           name: actionLinkRightIcon,
           weight: actionLinkIconWeight,
           size: actionLinkIconSize
         } %}
+        {% if actionLinkRightIconAccessibleText %}
+          <span id="accessible-text" tabindex="-1" aria-hidden="true" class="mds-visually-hidden">{{ actionLinkRightIconAccessibleText|e }}</span>
+        {% endif %}
       </span>
 
     {% endif %}

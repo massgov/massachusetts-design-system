@@ -64,14 +64,17 @@
   }
 
   &__icon {
-    //block-size: var(--mds-action-link-icon-size);
-    display: inline-block;
+    display: inline-flex;
     width: var(--mds-action-link-icon-size);
-/**
-    .mds-icon {
-      display: block;
-      inline-size: 100%;
-      block-size: 100%;
-    }**/
+    vertical-align: middle;
+  }
+  .mds-visually-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
 }
+

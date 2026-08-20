@@ -41,6 +41,10 @@ export const actionLinkSchema = {
     default: 'arrow-right',
     options: iconOptions
   },
+  rightIconAccessibleText: {
+    type: 'string',
+    default: 'test',
+  },
   className: {
     type: 'string',
     default: ''

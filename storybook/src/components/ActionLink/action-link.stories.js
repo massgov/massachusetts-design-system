@@ -77,6 +77,13 @@ const actionLinkControls = {
       category: controlCategories.design
     }
   },
+  rightIconAccessibleText: {
+    control: 'text',
+    description: 'Accessible text for the right icon when it conveys information not included in the link label.',
+    table: {
+      category: controlCategories.content
+    }
+  },
   href: {
     control: 'text',
     description: 'Link destination.',
@@ -85,6 +92,12 @@ const actionLinkControls = {
     }
   },
   id: {
+    control: 'text',
+    table: {
+      category: controlCategories.html
+    }
+  },
+  className: {
     control: 'text',
     table: {
       category: controlCategories.html
@@ -99,8 +112,10 @@ const defaultPlaygroundArgs = {
   iconWeight: actionLinkDefaults.iconWeight,
   leftIcon: actionLinkDefaults.leftIcon,
   rightIcon: actionLinkDefaults.rightIcon,
+  rightIconAccessibleText: actionLinkDefaults.rightIconAccessibleText,
   href: actionLinkDefaults.href,
-  id: actionLinkDefaults.id
+  id: actionLinkDefaults.id,
+  className: actionLinkDefaults.className
 };
 
 const meta = {
