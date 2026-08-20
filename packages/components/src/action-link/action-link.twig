@@ -24,27 +24,28 @@
   href="{{ actionLinkHref|e }}"{% if actionLinkId %}
   id="{{ actionLinkId|e }}"{% endif %}
 >
-<span class="mds-action-link__label">
-  {% if actionLinkLeftIcon %}
-    <span class="mds-action-link__icon">
-      {% include 'icon.twig' with {
-        name: actionLinkLeftIcon,
-        weight: actionLinkIconWeight,
-        size: actionLinkIconSize
-      } %}
-    </span>
-  {% endif %}
+  <span class="mds-action-link__label">
+    {% if actionLinkLeftIcon %}
+      <span class="mds-action-link__icon">
+        {% include 'icon.twig' with {
+          name: actionLinkLeftIcon,
+          weight: actionLinkIconWeight,
+          size: actionLinkIconSize
+        } %}
+      </span>
+    {% endif %}
 
-  {{ actionLinkText|e }}
+    {{ actionLinkText|e }}
 
-  {% if actionLinkRightIcon %}
-    <span class="mds-action-link__icon">
-      {% include 'icon.twig' with {
-        name: actionLinkRightIcon,
-        weight: actionLinkIconWeight,
-        size: actionLinkIconSize
-      } %}
-    </span>
-    </span>
-  {% endif %}
+    {% if actionLinkRightIcon %}
+      <span class="mds-action-link__icon">
+        {% include 'icon.twig' with {
+          name: actionLinkRightIcon,
+          weight: actionLinkIconWeight,
+          size: actionLinkIconSize
+        } %}
+      </span>
+
+    {% endif %}
+  </span>
 </a>
