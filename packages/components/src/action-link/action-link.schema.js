@@ -5,8 +5,7 @@ const iconOptions = ['', ...iconNames];
 export const actionLinkSchema = {
   text: {
     type: 'string',
-    //default: 'Action link'
-    default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut sagittis ipsum, et tempus libero. Nulla facilisi. Praesent viverra ornare auctor. '
+    default: 'Action link'
   },
   href: {
     type: 'string',
@@ -43,7 +42,11 @@ export const actionLinkSchema = {
   },
   rightIconAccessibleText: {
     type: 'string',
-    default: 'test',
+    default: '',
+  },
+  rightIconAccessibleTextId: {
+    type: 'string',
+    default: '',
   },
   className: {
     type: 'string',

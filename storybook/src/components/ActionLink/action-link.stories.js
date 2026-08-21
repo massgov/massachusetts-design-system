@@ -3,8 +3,8 @@ import {
   actionLinkDefaults,
   actionLinkOptions
 } from '../../../../packages/components/src/action-link/action-link.data.js';
-import { controlCategories } from '../../utils/controlCategories.js';
 import { renderActionLink } from '../../utils/component-renderers.js';
+import { controlCategories } from '../../utils/controlCategories.js';
 
 // Storybook render functions return an HTML element.
 function createPreview(html, className = '') {
@@ -80,6 +80,13 @@ const actionLinkControls = {
   rightIconAccessibleText: {
     control: 'text',
     description: 'Accessible text for the right icon when it conveys information not included in the link label.',
+    table: {
+      category: controlCategories.content
+    }
+  },
+  rightIconAccessibleTextId: {
+    control: 'text',
+    description: 'ID for the accessible text element for the right icon.',
     table: {
       category: controlCategories.content
     }
