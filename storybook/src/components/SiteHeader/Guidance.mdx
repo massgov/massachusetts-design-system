@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as SiteHeaderStories from './site-header.stories.js';
+
+<Meta of={SiteHeaderStories} />
+
+# Site header guidance
+
+---
+
+## Content
+
+### Best practices
+
+The site name should reinforce the service, tool, or product name.
+
+The subheading can be an organization name or supporting information as needed.
+
+#### Do
+
+- Use sentence case, unless title case is needed for proper names
+
+#### Don’t
+
+- Use acronyms unless shown alongside full names
+
+---
+
+## Design
+
+### Usage
+
+#### When to use
+
+You can use the site header for public-facing content when your site will be hosted as a subdomain of mass.gov, for example, example.mass.gov.
+
+#### When not to use
+
+Don't use the site header when it doesn't make sense for the user experience. This could be a specialized online experience like a:
+
+- Full-screen login page
+- Data visualization report
+- Admin portal with a left-side panel navigation
+
+If you're unsure whether to include the site header, please reach out to the design system team at [designsystem@mass.gov](mailto:designsystem@mass.gov) for support.
+
+### Best practices
+
+Do not make the site header sticky.
+
+---
+
+## Accessibility
+
+The state seal (or logo) and site name elements must act as a link to the homepage.
