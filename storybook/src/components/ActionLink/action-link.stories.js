@@ -71,6 +71,20 @@ const actionLinkControls = {
       category: controlCategories.design
     }
   },
+  leftIconAccessibleText: {
+    control: 'text',
+    description: 'Accessible text for the left icon when it conveys information not included in the link label.',
+    table: {
+      category: controlCategories.content
+    }
+  },
+  leftIconAccessibleTextId: {
+    control: 'text',
+    description: 'ID for the accessible text element for the left icon.',
+    table: {
+      category: controlCategories.content
+    }
+  },
   rightIcon: {
     ...iconSelectControl,
     table: {
