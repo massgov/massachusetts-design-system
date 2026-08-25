@@ -1,0 +1,118 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { iconButtonDefaults } from '../../../../packages/components/src/icon-button/icon-button.data.js';
+import { renderIconButton } from '../../utils/component-renderers.js';
+import * as IconButtonStories from './icon-button.stories.js';
+
+export const IconButtonExample = (args) => (
+	<span
+		className="mds-docs-example-item"
+		dangerouslySetInnerHTML={{
+			__html: renderIconButton({
+				...iconButtonDefaults,
+				...args
+			})
+		}}
+	/>
+);
+
+export const IconButtonExamples = ({ examples }) => (
+	<div className="mds-docs-example-row mds-gap-md">
+		{examples.map((example) => (
+			<span
+				className={example.surfaceClass || ''}
+				key={`${example.type || 'Fill'}-${example.color || 'Primary'}-${example.disabled || false}`}
+			>
+				<IconButtonExample {...example} />
+			</span>
+		))}
+	</div>
+);
+
+<Meta of={IconButtonStories} />
+
+# Icon button overview
+
+An icon button helps people perform a common action using a graphical symbol instead of a visible text label. Use an icon button only when the action can be recognized without accompanying text and space is limited or a compact interface is needed.
+
+> **Rule of thumb**
+>
+> Use an Icon Button only when the action can be understood without a visible text label. Otherwise, use a [Button](../?path=/docs/components-button--overview).
+> Give every Icon Button a clear, descriptive label so people using assistive technology can understand its purpose.
+
+<IconButtonExample ariaLabel="Close" icon="x" />
+
+---
+
+## Variants
+
+### Color
+
+Set the `color` property to `Primary`, `Secondary`, `White`, or `Error` to change the button's color. Reserve Error icon buttons for destructive actions.
+
+### Type
+
+Set the `type` property to change the button's appearance. Available types include `Fill`, `Outline`, and `Ghost`.
+
+> - Use the lowest-emphasis variant that clearly communicates the importance of the action
+> - Use Fill for primary actions
+> - Use Outline for supporting actions
+> - Use Ghost when the action should remain visually lightweight
+
+#### Filled
+
+Set the `type` property to `Fill` to draw filled buttons.
+
+<IconButtonExamples examples={[
+	{ ariaLabel: 'Close', color: 'Primary' },
+	{ ariaLabel: 'Close', color: 'Secondary' },
+	{ ariaLabel: 'Close', color: 'White', surfaceClass: 'mds-docs-example-surface mds-padding-xs mds-background-section-brand-primary-highest' },
+	{ ariaLabel: 'Delete', color: 'Error', icon: 'trash' }
+]} />
+
+#### Outline
+
+Set the `type` property to `Outline` to draw outline buttons.
+
+<IconButtonExamples examples={[
+	{ ariaLabel: 'Close', type: 'Outline' },
+	{ ariaLabel: 'Close', color: 'Secondary', type: 'Outline' },
+	{ ariaLabel: 'Close', color: 'White', type: 'Outline', surfaceClass: 'mds-docs-example-surface mds-padding-xs mds-background-section-brand-primary-highest' },
+	{ ariaLabel: 'Delete', color: 'Error', icon: 'trash', type: 'Outline' }
+]} />
+
+#### Ghost
+
+Set the `type` property to `Ghost` to draw ghost buttons.
+
+<IconButtonExamples examples={[
+	{ ariaLabel: 'Close', type: 'Ghost' },
+	{ ariaLabel: 'Close', color: 'Secondary', type: 'Ghost' },
+	{ ariaLabel: 'Close', color: 'White', type: 'Ghost', surfaceClass: 'mds-docs-example-surface mds-padding-xs mds-background-section-brand-primary-highest' },
+	{ ariaLabel: 'Delete', color: 'Error', icon: 'trash', type: 'Ghost' }
+]} />
+
+### Size
+
+Icon buttons use a 24 x 24 px icon and maintain a minimum 44 x 44 px touch target across all variants to support accessibility and touch interaction.
+
+### With menus
+
+An icon button may be used to trigger a supporting component, such as a menu. For example, the More actions (kebab) icon opens a contextual menu while remaining an icon button.
+
+### Disabled
+
+To disable an icon button, apply the `disabled` property. A disabled icon button indicates that an action is currently unavailable and cannot be selected or activated. Disabled icon buttons should only be used when the action will become available after the user completes a required step or meets a specific condition.
+
+<IconButtonExamples examples={[
+	{ ariaLabel: 'Close', disabled: true },
+	{ ariaLabel: 'Close', disabled: true, type: 'Outline' },
+	{ ariaLabel: 'Close', disabled: true, type: 'Ghost' }
+]} />
+
+---
+
+## Related components
+
+[Button](../?path=/docs/components-button--overview)
+
+[Menu](../?path=/docs/components-menu--overview)
