@@ -1,16 +1,78 @@
-import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/site-header.css';
+import { siteHeaderDefaults } from '../../../../packages/components/src/site-header/site-header.data.js';
+import { renderSiteHeader } from '../../utils/component-renderers.js';
+import resilientMassLogo from './resilient-mass-logo.svg';
 import * as SiteHeaderStories from './site-header.stories.js';
+
+export const SiteHeaderExample = (args) => (
+  <div
+    className="sb-unstyled mds-docs-example-frame"
+    dangerouslySetInnerHTML={{
+      __html: renderSiteHeader({
+        ...siteHeaderDefaults,
+        ...args
+      })
+    }}
+  />
+);
 
 <Meta of={SiteHeaderStories} />
 
-# Site Header
+# Site header overview
 
-The site header identifies a Mass.gov site or service and gives users a consistent way to return to the site home page.
+The site header identifies your website or application and helps people understand who they're interacting with. It's required for public-facing, content-focused websites on a [Mass.gov](https://www.mass.gov/) subdomain (e.g., [example.mass.gov](https://example.mass.gov/)). Different requirements may apply to specialized online experiences (like applications, interactive tools, login pages, etc.).
 
-## Usage
-
-Use the site header at the top of a Mass.gov site, below the official state banner when that banner is present. The header should include the state seal, a clear site name, and optional subheading.
+---
 
 ## Examples
 
-<Canvas of={SiteHeaderStories.Examples} sourceState="none" />
+### Mass.gov
+
+<SiteHeaderExample siteName="Mass.gov" />
+
+This is the default [Mass.gov](https://www.mass.gov/) site header used across all pages authored in the [Mass.gov](https://www.mass.gov/) Drupal content management system (CMS).
+
+### Mass.gov subdomain
+
+If you're not using the [Mass.gov](https://www.mass.gov/) Drupal CMS, you can use the simple site header or two additional custom options.
+
+#### Simple
+
+<SiteHeaderExample siteName="ServiceNow" />
+
+#### With state seal and organization name
+
+<SiteHeaderExample
+  siteName="License verification"
+  subHeading="Board of registration in medicine (BORIM)"
+/>
+
+You can add your organization as a subheading under the site name. This can tell people who's responsible for the website or application.
+
+#### With custom logo and organization name
+
+<SiteHeaderExample
+  sealSrc={resilientMassLogo}
+  sealAlt="Resilient Mass logo"
+  siteName="Guides for Equitable and Actionable Resilience (GEAR)"
+  subHeading="Resilient Mass"
+/>
+
+You can replace the state seal with your organization's custom logo.
+
+In this case, be sure to:
+
+- Display the site header consistently across every page
+- Use your custom logo only if it meets color contrast and accessibility requirements
+- Use a file format that supports transparency if needed
+
+Please note:
+
+A 56px by 56px square logo is recommended.
+
+---
+
+## Related components
+
+[State seal](?path=/docs/foundations-state-seal--overview)
