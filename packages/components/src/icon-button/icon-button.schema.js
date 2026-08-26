@@ -42,7 +42,7 @@ export const iconButtonSchema = {
   color: {
     type: 'enum',
     default: 'Primary',
-    options: ['Primary', 'Secondary', 'Light', 'Error', 'White']
+    options: ['Primary', 'Secondary', 'White', 'Error']
   },
   className: {
     type: 'string',
