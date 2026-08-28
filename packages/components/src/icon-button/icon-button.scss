@@ -1,6 +1,7 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
 
 .mds-icon-button {
+  // Defaults are set for ghost type and primary color
   --mds-icon-button-accent: var(--mds-interactive-brand-primary-mid);
   --mds-icon-button-accent-lowest: var(--mds-interactive-brand-primary-lowest);
   --mds-icon-button-accent-low: var(--mds-interactive-brand-primary-low);
@@ -31,6 +32,8 @@
   border-radius: var(--mds-radius-md);
   background-color: var(--mds-icon-button-background);
   color: var(--mds-icon-button-color);
+  cursor: pointer;
+  text-decoration: none;
 
   @include mixins.focus($focus-on-light: true);
 
@@ -66,13 +69,14 @@
     --mds-icon-button-accent-highest: var(--mds-interactive-utility-danger-highest);
   }
 
+  &--color-white {
+    @include mixins.focus($focus-on-light: false);
+  }
+
   &--type-fill {
     --mds-icon-button-background: var(--mds-icon-button-accent);
     --mds-icon-button-background-hover: var(--mds-icon-button-accent-high);
     --mds-icon-button-background-active: var(--mds-icon-button-accent-highest);
-    --mds-icon-button-border: var(--mds-icon-button-accent);
-    --mds-icon-button-border-hover: var(--mds-icon-button-accent-high);
-    --mds-icon-button-border-active: var(--mds-icon-button-accent-highest);
     --mds-icon-button-color: var(--mds-base-white);
     --mds-icon-button-color-hover: var(--mds-base-white);
     --mds-icon-button-color-active: var(--mds-base-white);
@@ -119,7 +123,6 @@
     --mds-icon-button-background: transparent;
     --mds-icon-button-background-hover: var(--mds-icon-button-accent-lowest);
     --mds-icon-button-background-active: var(--mds-icon-button-accent-low);
-    --mds-icon-button-border-width: 0;
     --mds-icon-button-color: var(--mds-icon-button-accent);
     --mds-icon-button-color-hover: var(--mds-icon-button-accent-high);
     --mds-icon-button-color-active: var(--mds-icon-button-accent-highest);
@@ -133,7 +136,7 @@
     --mds-icon-button-color-active: var(--mds-base-white);
   }
 
-  &--disabled {
+  &:is(:disabled, [aria-disabled="true"], .mds-icon-button--disabled) {
     --mds-icon-button-color: var(--mds-content-brand-neutral-disabled);
 
     cursor: not-allowed;
@@ -153,17 +156,18 @@
     --mds-icon-button-background: transparent;
   }
 
-  &--element-link {
-    text-decoration: none;
-  }
-
   &__icon {
-    display: block;
     flex: none;
     inline-size: 24px;
     block-size: 24px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    & > svg {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+    }
   }
 }
