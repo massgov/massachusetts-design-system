@@ -1,0 +1,56 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/button.css';
+import '@massds/mds-components/utility-nav.css';
+import { utilityNavDefaults } from '../../../../packages/components/src/utility-nav/utility-nav.data.js';
+import { renderUtilityNav } from '../../utils/component-renderers.js';
+import * as UtilityNavStories from './utility-nav.stories.js';
+
+export const UtilityNavExample = (args) => (
+  <div
+    className="sb-unstyled mds-docs-example-frame mds-docs-example-stack mds-gap-xs"
+    dangerouslySetInnerHTML={{
+      __html: renderUtilityNav({
+        ...utilityNavDefaults,
+        ...args
+      })
+    }}
+  />
+);
+
+<Meta of={UtilityNavStories} />
+
+# Utility Navigation overview
+
+The utility navigation component provides a compact action bar for high-priority utility actions that sit above or alongside primary navigation.
+
+Use it when people need quick access to global actions like opening a menu, changing language, logging in, or returning to the main Mass.gov home experience.
+
+<UtilityNavExample />
+
+---
+
+## Variants
+
+### Default
+
+Use the default variant when the experience needs both a menu trigger and supporting utility actions on the same bar.
+
+<UtilityNavExample />
+
+### Hamburger menu only
+
+Use this variant when the utility bar only needs to expose a primary menu entry point.
+
+<UtilityNavExample actionButtons={[]} />
+
+### Utility buttons only
+
+Use this variant when the surrounding page already provides the main navigation trigger elsewhere.
+
+<UtilityNavExample startVariant="none" />
+
+### Mass.gov home link and utility buttons
+
+Use this variant when the left-side action should return people to the main Mass.gov home destination instead of opening a menu.
+
+<UtilityNavExample startVariant="home-link" />

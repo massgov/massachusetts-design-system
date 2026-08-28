@@ -1,0 +1,102 @@
+{#
+  Utility Nav data:
+  - startVariant chooses the left-side control: menu, home-link, or none.
+  - menuButton* controls the primary navigation trigger button.
+  - homeLink* controls the optional Mass.gov link variant.
+  - actionButtons renders up to two ghost buttons on the right side.
+  - className appends optional custom classes to the component root.
+#}
+{% set utilityNavClassName = className|default(utilityNavDefaults.className) %}
+{% set utilityNavStartVariant = startVariant|default(utilityNavDefaults.startVariant) %}
+{% set menuButtonTextValue = menuButtonText|default(utilityNavDefaults.menuButtonText) %}
+{% set menuButtonAriaLabelValue = menuButtonAriaLabel|default(utilityNavDefaults.menuButtonAriaLabel) %}
+{% set menuButtonExpandedValue = menuButtonExpanded is same as(true) ? true : utilityNavDefaults.menuButtonExpanded %}
+{% set menuButtonControlsValue = menuButtonControls|default(utilityNavDefaults.menuButtonControls) %}
+{% set homeLinkTextValue = homeLinkText|default(utilityNavDefaults.homeLinkText) %}
+{% set homeLinkHrefValue = homeLinkHref|default(utilityNavDefaults.homeLinkHref) %}
+{% set homeLinkAriaLabelValue = homeLinkAriaLabel|default(utilityNavDefaults.homeLinkAriaLabel) %}
+{% set utilityNavActionButtons = actionButtons is iterable ? actionButtons|slice(0, 2) : utilityNavDefaults.actionButtons %}
+{% set utilityNavClasses = ['mds-utility-nav'] %}
+
+{% if utilityNavClassName %}
+  {% set utilityNavClasses = utilityNavClasses|merge([utilityNavClassName]) %}
+{% endif %}
+
+<div class="{{ utilityNavClasses|join(' ')|e }}">
+  <div class="mds-utility-nav__section mds-utility-nav__section--start">
+    {% if utilityNavStartVariant == 'menu' %}
+      <button
+        type="button"
+        class="mds-button mds-button--type-ghost mds-button--color-white mds-button--size-regular mds-utility-nav__button mds-utility-nav__button--menu"
+        aria-expanded="{{ menuButtonExpandedValue ? 'true' : 'false' }}"
+        aria-controls="{{ menuButtonControlsValue|e }}"
+        aria-label="{{ menuButtonAriaLabelValue|e }}"
+      >
+        <span class="mds-button__icon mds-button__icon--left">
+          {% include 'icon.twig' with {
+            name: 'list',
+            weight: 'Bold'
+          } %}
+        </span>
+        <span class="mds-button__label">{{ menuButtonTextValue|e }}</span>
+      </button>
+    {% elseif utilityNavStartVariant == 'home-link' %}
+      <a
+        class="mds-button mds-button--type-ghost mds-button--color-white mds-button--size-regular mds-utility-nav__button mds-utility-nav__button--home"
+        href="{{ homeLinkHrefValue|e }}"
+        aria-label="{{ homeLinkAriaLabelValue|e }}"
+        data-mds-button
+      >
+        <span class="mds-button__icon mds-button__icon--left">
+          {% include 'icon.twig' with {
+            name: 'house-line',
+            weight: 'Regular'
+          } %}
+        </span>
+        <span class="mds-button__label">{{ homeLinkTextValue|e }}</span>
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="mds-utility-nav__section mds-utility-nav__section--end">
+    {% for actionButton in utilityNavActionButtons %}
+      {% set actionButtonText = actionButton.text|default('') %}
+      {% set actionButtonHref = actionButton.href|default('') %}
+      {% set actionButtonIconName = actionButton.iconName in iconOptions.name ? actionButton.iconName : '' %}
+      {% set actionButtonIconWeight = actionButton.iconWeight in iconOptions.weight ? actionButton.iconWeight : iconDefaults.weight %}
+      {% if actionButtonHref %}
+        <a
+          class="mds-button mds-button--type-ghost mds-button--color-white mds-button--size-regular mds-utility-nav__button mds-utility-nav__button--action"
+          href="{{ actionButtonHref|e }}"
+          data-mds-button
+        >
+          {% if actionButtonIconName %}
+            <span class="mds-button__icon mds-button__icon--left">
+              {% include 'icon.twig' with {
+                name: actionButtonIconName,
+                weight: actionButtonIconWeight
+              } %}
+            </span>
+          {% endif %}
+          <span class="mds-button__label">{{ actionButtonText|e }}</span>
+        </a>
+      {% else %}
+        <button
+          type="button"
+          class="mds-button mds-button--type-ghost mds-button--color-white mds-button--size-regular mds-utility-nav__button mds-utility-nav__button--action"
+          data-mds-button
+        >
+          {% if actionButtonIconName %}
+            <span class="mds-button__icon mds-button__icon--left">
+              {% include 'icon.twig' with {
+                name: actionButtonIconName,
+                weight: actionButtonIconWeight
+              } %}
+            </span>
+          {% endif %}
+          <span class="mds-button__label">{{ actionButtonText|e }}</span>
+        </button>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
