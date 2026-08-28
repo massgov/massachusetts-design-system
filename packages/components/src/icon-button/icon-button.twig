@@ -1,15 +1,11 @@
 {#
   Icon button data:
   - type and color map to the Figma Style and Color properties.
-  - White is the always-white treatment and is only available as Ghost.
   - disabled prevent native button interaction.
 #}
 {% set iconButtonElement = element in iconButtonOptions.element ? element : iconButtonDefaults.element %}
 {% set iconButtonColor = color in iconButtonOptions.color ? color : iconButtonDefaults.color %}
 {% set iconButtonType = type in iconButtonOptions.type ? type : iconButtonDefaults.type %}
-{% if iconButtonColor == 'White' %}
-  {% set iconButtonType = 'Ghost' %}
-{% endif %}
 {% set iconButtonHtmlType = htmlType in iconButtonOptions.htmlType ? htmlType : iconButtonDefaults.htmlType %}
 {% set iconButtonIcon = icon in iconButtonOptions.icon ? icon : iconButtonDefaults.icon %}
 {% set iconButtonHref = href|default(iconButtonDefaults.href) %}

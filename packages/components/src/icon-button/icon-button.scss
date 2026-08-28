@@ -1,14 +1,15 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
 
 .mds-icon-button {
+  // Defaults are set for ghost type and primary color
   --mds-icon-button-accent: var(--mds-interactive-brand-primary-mid);
   --mds-icon-button-accent-lowest: var(--mds-interactive-brand-primary-lowest);
   --mds-icon-button-accent-low: var(--mds-interactive-brand-primary-low);
   --mds-icon-button-accent-high: var(--mds-interactive-brand-primary-high);
   --mds-icon-button-accent-highest: var(--mds-interactive-brand-primary-highest);
-  --mds-icon-button-background: transparent;
   --mds-icon-button-background-hover: var(--mds-icon-button-accent-lowest);
   --mds-icon-button-background-active: var(--mds-icon-button-accent-low);
+  --mds-icon-button-background: transparent;
   --mds-icon-button-border: transparent;
   --mds-icon-button-border-hover: transparent;
   --mds-icon-button-border-active: transparent;
@@ -16,8 +17,6 @@
   --mds-icon-button-color: var(--mds-icon-button-accent);
   --mds-icon-button-color-hover: var(--mds-icon-button-accent-high);
   --mds-icon-button-color-active: var(--mds-icon-button-accent-highest);
-  --mds-icon-button-shadow: none;
-  --mds-icon-button-shadow-hover: none;
 
   box-sizing: border-box;
   appearance: none;
@@ -32,14 +31,9 @@
   border: var(--mds-icon-button-border-width) solid var(--mds-icon-button-border);
   border-radius: var(--mds-radius-md);
   background-color: var(--mds-icon-button-background);
-  box-shadow: var(--mds-icon-button-shadow);
   color: var(--mds-icon-button-color);
   cursor: pointer;
-  transition:
-    background-color var(--mds-motion-duration-fastest) ease,
-    border-color var(--mds-motion-duration-fastest) ease,
-    box-shadow var(--mds-motion-duration-fastest) ease,
-    color var(--mds-motion-duration-fastest) ease;
+  text-decoration: none;
 
   @include mixins.focus($focus-on-light: true);
 
@@ -51,14 +45,12 @@
     --mds-icon-button-background: var(--mds-icon-button-background-hover);
     --mds-icon-button-border: var(--mds-icon-button-border-hover);
     --mds-icon-button-color: var(--mds-icon-button-color-hover);
-    --mds-icon-button-shadow: var(--mds-icon-button-shadow-hover);
   }
 
   &:active:not(.mds-icon-button--disabled) {
     --mds-icon-button-background: var(--mds-icon-button-background-active);
     --mds-icon-button-border: var(--mds-icon-button-border-active);
     --mds-icon-button-color: var(--mds-icon-button-color-active);
-    --mds-icon-button-shadow: none;
   }
 
   &--color-secondary {
@@ -77,30 +69,20 @@
     --mds-icon-button-accent-highest: var(--mds-interactive-utility-danger-highest);
   }
 
-  &--color-light,
   &--color-white {
-    --mds-icon-button-accent: var(--mds-base-white);
-    --mds-icon-button-accent-lowest: var(--mds-overlay-white-lowest);
-    --mds-icon-button-accent-low: var(--mds-overlay-white-low);
-    --mds-icon-button-accent-high: var(--mds-overlay-white-high);
-    --mds-icon-button-accent-highest: var(--mds-overlay-white-highest);
-
+    @include mixins.focus($focus-on-light: false);
   }
 
   &--type-fill {
     --mds-icon-button-background: var(--mds-icon-button-accent);
     --mds-icon-button-background-hover: var(--mds-icon-button-accent-high);
     --mds-icon-button-background-active: var(--mds-icon-button-accent-highest);
-    --mds-icon-button-border: var(--mds-icon-button-accent);
-    --mds-icon-button-border-hover: var(--mds-icon-button-accent-high);
-    --mds-icon-button-border-active: var(--mds-icon-button-accent-highest);
     --mds-icon-button-color: var(--mds-base-white);
     --mds-icon-button-color-hover: var(--mds-base-white);
     --mds-icon-button-color-active: var(--mds-base-white);
-    --mds-icon-button-shadow-hover: var(--mds-shadow-hover-sm);
   }
 
-  &--type-fill.mds-icon-button--color-light {
+  &--type-fill.mds-icon-button--color-white {
     --mds-icon-button-background: var(--mds-base-white);
     --mds-icon-button-background-hover: var(--mds-overlay-white-highest);
     --mds-icon-button-background-active: var(--mds-overlay-white-high);
@@ -123,10 +105,9 @@
     --mds-icon-button-color: var(--mds-icon-button-accent);
     --mds-icon-button-color-hover: var(--mds-icon-button-accent-high);
     --mds-icon-button-color-active: var(--mds-icon-button-accent-highest);
-    --mds-icon-button-shadow-hover: var(--mds-shadow-hover-sm);
   }
 
-  &--type-outline.mds-icon-button--color-light {
+  &--type-outline.mds-icon-button--color-white {
     --mds-icon-button-background: transparent;
     --mds-icon-button-background-hover: var(--mds-overlay-white-lowest);
     --mds-icon-button-background-active: var(--mds-overlay-white-low);
@@ -147,7 +128,6 @@
     --mds-icon-button-color-active: var(--mds-icon-button-accent-highest);
   }
 
-  &--type-ghost.mds-icon-button--color-light,
   &--type-ghost.mds-icon-button--color-white {
     --mds-icon-button-background-hover: var(--mds-overlay-white-lowest);
     --mds-icon-button-background-active: var(--mds-overlay-white-low);
@@ -156,9 +136,8 @@
     --mds-icon-button-color-active: var(--mds-base-white);
   }
 
-  &--disabled {
+  &:is(:disabled, [aria-disabled="true"], .mds-icon-button--disabled) {
     --mds-icon-button-color: var(--mds-content-brand-neutral-disabled);
-    --mds-icon-button-shadow: none;
 
     cursor: not-allowed;
   }
@@ -177,22 +156,18 @@
     --mds-icon-button-background: transparent;
   }
 
-  &--element-link {
-    text-decoration: none;
-  }
-
   &__icon {
-    position: relative;
-    z-index: 1;
-    display: block;
     flex: none;
     inline-size: 24px;
     block-size: 24px;
-  }
-
-  &__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    & > svg {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+    }
   }
 }
