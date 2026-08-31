@@ -158,9 +158,5 @@ export const footerSchema = {
   trademarkHtml: {
     type: 'string',
     required: false
-  },
-  showExternalLinkIcon: {
-    type: 'boolean',
-    default: true //switch to false after testing
   }
 };

@@ -1,11 +1,12 @@
+import '@massds/mds-components/action-link.css';
 import '@massds/mds-components/footer.css';
 import {
   footerDefaults,
   footerExampleData,
   footerOptions
 } from '../../../../packages/components/src/footer/footer.data.js';
-import { controlCategories } from '../../utils/controlCategories.js';
 import { renderFooter } from '../../utils/component-renderers.js';
+import { controlCategories } from '../../utils/controlCategories.js';
 import './footer.examples.css';
 
 // Storybook render functions return an HTML element.

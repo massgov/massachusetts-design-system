@@ -38,14 +38,11 @@
               {% set socialIcon = socialLink.icon in footerOptions.icon ? socialLink.icon : '' %}
               {% if socialLink.href and socialLink.label and socialIcon %}
                 <li>
-                  <a
-                    href="{{ socialLink.href|e }}"
-                    class="mds-icon-button mds-icon-button--type-fill{% if themeKey == 'primary' %} mds-icon-button--color-light{% endif %}"
-                    aria-label="{{ socialLink.label|e }}"
-                  >
-                    {% include 'icon.twig' with {
-                      name: socialIcon,
-                      weight: 'Regular'
+                  {% include 'icon-button.twig' with {
+                      href: socialLink.href,
+                      icon: socialLink.icon,
+                      iconWeight: 'Regular',
+                      ariaLabel: socialLink.label
                     } %}
                   </a>
                 </li>
@@ -134,8 +131,12 @@
                 {% for link in linkGroup.links %}
                   {% if link.href and link.text %}
                     <li>
-                    <a href="{{ link.href|e }}" class="mds-action-link">{{ link.text|e }}
-                      </a>
+                    {% include 'action-link.twig' with {
+                        href: link.href,
+                        rightIcon: 'arrow-square-out',
+                        size: 'Small',
+                        text: link.text
+                      } %}
                     </li>
                   {% endif %}
                 {% endfor %}

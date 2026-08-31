@@ -21,7 +21,6 @@
   }
 
   &__contact-link,
-  &__link-list a,
   &__legal-nav a {
     text-decoration: none;
     text-underline-offset: 0.375rem;
@@ -226,7 +225,7 @@
     @include mixins.text("label-lg");
 
     .mds-action-link {
-      display: block;
+      display: inline-block;
       padding-block: var(--mds-space-2xs);
     }
   }
