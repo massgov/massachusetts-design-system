@@ -135,16 +135,6 @@
                   {% if link.href and link.text %}
                     <li>
                     <a href="{{ link.href|e }}" class="mds-action-link">{{ link.text|e }}
-                      {% if showExternalLinkIcon %}
-                        <span class="mds-footer__icon--external-link mds-footer__icon" aria-describedby="externalWebsite" aria-hidden="true">
-                          {% include 'icon.twig' with {
-                            name: 'arrow-square-out',
-                            weight: 'Regular'
-                          } %}
-                        </span>
-                        <span id="externalWebsite" tabindex="-1" aria-hidden="true" class="hidden">
-    This link will take you to an external website which may or may not be accessible.
-                      {% endif %}
                       </a>
                     </li>
                   {% endif %}
