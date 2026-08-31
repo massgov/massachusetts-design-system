@@ -12,8 +12,8 @@
   "dependencies": {
     "@massds/mds-assets": "^1.1.1",
     "@massds/mds-components": "^0.1.0",
-    "@massds/mds-styles": "^1.1.0",
-    "@massds/mds-tokens": "^2.0.0",
+    "@massds/mds-styles": "^2.0.0-beta.1",
+    "@massds/mds-tokens": "^3.0.0-beta.1",
     "twig": "^3.0.0"
   },
   "devDependencies": {
@@ -21,6 +21,7 @@
     "@storybook/addon-docs": "^10.4.1",
     "@storybook/html-vite": "^10.4.1",
     "path-browserify": "^1.0.1",
+    "remark-gfm": "^4.0.1",
     "storybook": "^10.4.1",
     "vite": "^8.0.16"
   },

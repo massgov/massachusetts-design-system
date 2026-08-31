@@ -1,0 +1,95 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as IconButtonStories from './icon-button.stories.js';
+
+<Meta of={IconButtonStories} />
+
+# Icon button guidance
+
+---
+
+## Content
+
+### Best practices
+
+Icon buttons rely on a graphical symbol to communicate their purpose. Every icon button must provide a meaningful accessible name that describes the action.
+
+#### Do
+
+- Use universally recognized icons
+- Provide a meaningful accessible name
+- Keep the action concise and easy to understand
+- Use the same icon consistently for the same action throughout the experience
+
+#### Don't
+
+- Don't rely on the icon alone for uncommon or complex actions
+- Don't create new icon metaphors when a standard icon already exists
+- Don't use icon buttons when a visible text label would improve understanding
+- Don't use tooltips as the only way to communicate the purpose of an icon button
+- Don't display tooltips for disabled icon buttons
+
+---
+
+## Design
+
+### Usage
+
+#### When to use
+
+Use an icon button when:
+
+- The action is commonly recognized without a text label
+- Space is limited
+- Multiple actions are displayed together in a toolbar
+- The same action is repeated across many items, such as cards, tables, or lists
+- The icon represents a familiar state, such as expand, collapse, close, search, or more actions
+
+#### When not to use
+
+Do not use an icon button when:
+
+- The action is unfamiliar or requires explanation
+- The action is critical to completing the primary workflow
+- Multiple similar icons could be easily confused
+- The action is destructive and requires additional context or confirmation
+- A standard button would improve clarity
+
+#### Design decisions
+
+The Icon Button component is designed to:
+
+- Support compact interfaces where space is limited
+- Provide consistent interaction behavior across all icon-only actions
+- Maintain a minimum 44 x 44 px touch target regardless of the visible icon size
+- Encourage the use of familiar and recognizable iconography
+
+Follow these recommendations to create consistent experiences:
+
+- Use icon buttons only for actions that are widely recognized
+- Group related icon buttons together when building toolbars
+- Use the same icon consistently for the same action
+- Reserve the Error variant for destructive actions only
+
+#### Responsive behavior
+
+Icon buttons maintain a 44 x 44 px minimum touch target across all supported screen sizes.
+
+When displaying multiple icon buttons together:
+
+- Maintain adequate spacing between adjacent controls
+- Allow toolbars to wrap or scroll when necessary rather than reducing touch target size
+- Preserve the visual hierarchy by using the lowest-emphasis variant appropriate for each action
+
+---
+
+## Accessibility
+
+In addition to the button accessibility guidance provided for the [Button component](../Button/Guidance.mdx):
+
+- Every icon button must have a meaningful accessible name that describes the action
+- Do not rely on the icon alone to communicate the action
+- Use icons that are widely recognized and consistently applied
+- Icon buttons that open menus should communicate the expanded and collapsed state appropriately
+- Related icon buttons may be grouped using a toolbar pattern when appropriate
+
+Refer to the [Button accessibility guidance](../?path=/docs/components-button--guidance#accessibility) for interaction behavior, keyboard support, focus management, disabled states, and assistive technology requirements.

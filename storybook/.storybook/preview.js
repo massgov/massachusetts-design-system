@@ -1,7 +1,7 @@
-import '@massds/mds-tokens/dist/index.css';
 import '@massds/mds-styles/index.css';
-import './preview.css';
+import '@massds/mds-tokens/dist/index.css';
 import './docs-markdown.css';
+import './preview.css';
 import { massdsDocsTheme } from './theme';
 
 const preview = {
@@ -11,9 +11,9 @@ const preview = {
         method: 'alphabetical',
         order: [
           'Overview',
-          ['Introduction'],
+          ['Introduction', 'Getting Started'],
           'Foundations',
-          ['*', ['Overview', 'Guidance', 'Code', 'Playground']],
+          ['Design Tokens', 'Color Tokens', ['Overview', 'Guidance', 'Code', 'Playground']],
           'Components',
           ['*', ['Overview', 'Guidance', 'Code', 'Playground']]
         ],

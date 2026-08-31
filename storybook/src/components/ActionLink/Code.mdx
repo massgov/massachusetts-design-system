@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { actionLinkDefaults } from '../../../../packages/components/src/action-link/action-link.data.js';
+import actionLinkCss from '@massds/mds-components/action-link.css?raw';
+import { renderActionLink } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as ActionLinkStories from './action-link.stories.js';
+
+export const getActionLinkCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderActionLink({
+      ...actionLinkDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: actionLinkCss
+  }
+];
+
+<Meta of={ActionLinkStories} />
+
+# Action link
+
+<Canvas
+  of={ActionLinkStories.Playground}
+  sourceState="none"
+/>
+
+## API
+
+<Controls of={ActionLinkStories.Playground} />
+
+## Code
+
+<StoryCodeTabs of={ActionLinkStories.Playground} getTabs={getActionLinkCodeTabs} />
