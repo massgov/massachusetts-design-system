@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-09-02T16:40:57.285Z",
+  "generated_at": "2026-09-02T18:39:23.653Z",
   "figma_names_source": "packages/assets/src/icons/scripts/figma-component-set-names.json",
   "summary": {
-    "repo_regular_count": 259,
+    "repo_regular_count": 258,
     "repo_bold_count": 258,
     "figma_component_set_count": 248,
     "exact_name_match_count": 248,
     "renamed_high_confidence_count": 0,
     "renamed_needs_review_count": 0,
-    "repo_only_unmapped_count": 11,
+    "repo_only_unmapped_count": 10,
     "figma_only_new_or_unmapped_count": 0
   },
   "notes": [
@@ -1771,12 +1771,6 @@
       "confidence": "low"
     },
     {
-      "repo_name": "hamburger-list",
-      "proposed_figma_name": "",
-      "status": "repo_only_unmapped",
-      "confidence": "low"
-    },
-    {
       "repo_name": "map-pin",
       "proposed_figma_name": "",
       "status": "repo_only_unmapped",
@@ -2670,12 +2664,6 @@
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
-    },
-    {
-      "repo_name": "hamburger-list",
-      "proposed_figma_name": "",
-      "status": "repo_only_unmapped",
-      "confidence": "low"
     },
     {
       "repo_name": "hand-tap",
