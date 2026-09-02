@@ -122,6 +122,7 @@ export const iconNames = Object.freeze([
   "graduation-cap",
   "hand-tap",
   "hard-hat",
+  "hamburger-list",
   "horse",
   "hospital",
   "house",

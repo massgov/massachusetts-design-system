@@ -14,7 +14,7 @@
   gap: var(--mds-space-sm);
   width: 100%;
   height: 48px;
-  padding: var(--mds-space-2xs) var(--mds-space-md);
+  padding: 0 var(--mds-space-md);
   background: var(--mds-utility-nav-background);
 
   @include mixins.text("label");
@@ -23,6 +23,7 @@
     display: flex;
     align-items: center;
     min-width: 0;
+    transform: translateY(-2px);
   }
 
   &__section--start {
