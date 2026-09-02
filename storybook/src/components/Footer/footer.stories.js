@@ -1,5 +1,7 @@
 import '@massds/mds-components/action-link.css';
 import '@massds/mds-components/footer.css';
+import '@massds/mds-components/icon-button.css';
+
 import {
   footerDefaults,
   footerExampleData,
@@ -72,13 +74,6 @@ const footerControls = {
       category: controlCategories.design
     }
   },
-  showExternalLinkIcon: {
-    control: 'boolean',
-    description: 'Shows an external-link icon after each link in a link group.',
-    table: {
-      category: controlCategories.design
-    }
-  },
   siteName: {
     control: 'text',
     table: {
@@ -116,6 +111,19 @@ const footerControls = {
     }
   },
   legalLinks: {
+    control: 'object',
+    table: {
+      category: controlCategories.content
+    }
+  },
+  showOptionalLegalLinks: {
+    control: 'boolean',
+    description: 'Shows the optional legal links after the required legal links.',
+    table: {
+      category: controlCategories.content
+    }
+  },
+  legalLinksOptional: {
     control: 'object',
     table: {
       category: controlCategories.content
@@ -167,7 +175,6 @@ const footerControls = {
 
 const defaultPlaygroundArgs = {
   theme: footerExampleData.theme,
-  showExternalLinkIcon: footerDefaults.showExternalLinkIcon,
   siteNameId: footerExampleData.siteNameId,
   siteName: footerDefaults.siteName,
   sealAlt: footerExampleData.sealAlt,
@@ -180,6 +187,8 @@ const defaultPlaygroundArgs = {
   linkGroups: footerExampleData.linkGroups,
   legalLabel: footerExampleData.legalLabel,
   legalLinks: footerExampleData.legalLinks,
+  showOptionalLegalLinks: footerExampleData.showOptionalLegalLinks ?? false,
+  legalLinksOptional: footerExampleData.legalLinksOptional,
   fundingText: footerExampleData.fundingText,
   trademarkHtml: footerExampleData.trademarkHtml
 };

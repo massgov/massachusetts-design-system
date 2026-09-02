@@ -99,6 +99,7 @@
 
   &__contact-address {
     @include mixins.text("label-lg");
+    padding-block-start: var(--mds-space-3xs);
   }
 
   ul.mds-footer__social-list {
@@ -106,77 +107,6 @@
     flex-wrap: wrap;
     gap: var(--mds-space-2xs);
     margin-block: var(--mds-space-sm);
-  }
-
-  .mds-icon-button {
-    --mds-button-accent: var(--mds-interactive-brand-primary-mid);
-    --mds-button-accent-hover: var(--mds-interactive-brand-primary-high);
-    --mds-button-accent-active: var(--mds-interactive-brand-primary-highest);
-    --mds-button-on-accent: var(--mds-base-white);
-    --mds-button-shadow: none;
-    --mds-button-shadow-hover: var(--mds-shadow-hover-sm);
-    --mds-button-shadow-active: none;
-
-    box-sizing: border-box;
-    appearance: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 100%;
-    inline-size: 44px;
-    block-size: 44px;
-    padding: var(--mds-space-2xs);
-    border: var(--mds-button-border-width) solid var(--mds-button-border);
-    border-radius: var(--mds-radius-md);
-    background-color: var(--mds-button-background);
-    box-shadow: var(--mds-button-shadow);
-    color: var(--mds-button-color);
-    cursor: pointer;
-    transition:
-      background-color var(--mds-motion-duration-fastest) ease,
-      border-color var(--mds-motion-duration-fastest) ease,
-      box-shadow var(--mds-motion-duration-fastest) ease,
-      color var(--mds-motion-duration-fastest) ease;
-
-    svg {
-      display: block;
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-
-    &:hover {
-      --mds-button-background: var(--mds-button-background-hover);
-      --mds-button-border: var(--mds-button-border-hover);
-      --mds-button-color: var(--mds-button-color-hover);
-      --mds-button-shadow: var(--mds-button-shadow-hover);
-    }
-
-    &:active {
-      --mds-button-background: var(--mds-button-background-active);
-      --mds-button-border: var(--mds-button-border-active);
-      --mds-button-color: var(--mds-button-color-active);
-      --mds-button-shadow: var(--mds-button-shadow-active);
-    }
-  }
-
-  .mds-icon-button--type-fill {
-    --mds-button-background: var(--mds-button-accent);
-    --mds-button-background-hover: var(--mds-button-accent-hover);
-    --mds-button-background-active: var(--mds-button-accent-active);
-    --mds-button-border: var(--mds-button-accent);
-    --mds-button-border-hover: var(--mds-button-accent-hover);
-    --mds-button-border-active: var(--mds-button-accent-active);
-    --mds-button-border-width: 0;
-    --mds-button-color: var(--mds-button-on-accent);
-    --mds-button-color-hover: var(--mds-button-on-accent);
-    --mds-button-color-active: var(--mds-button-on-accent);
-  }
-
-  .mds-icon-button--color-light {
-    --mds-button-accent: var(--mds-base-white);
-    --mds-button-accent-hover: var(--mds-background-section-brand-neutral-lowest);
-    --mds-button-accent-active: var(--mds-background-section-brand-neutral-low);
-    --mds-button-on-accent: var(--mds-base-black);
   }
 
   &__description {
@@ -196,7 +126,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--mds-space-2xs);
-    padding-block-start: var(--mds-space-xs);
+    padding-block-start: var(--mds-space-2xs);
   }
 
   &__contact-item {
@@ -220,7 +150,7 @@
   &__link-list {
     display: flex;
     flex-direction: column;
-    padding-block-start: var(--mds-space-xs);
+    padding-block-start: var(--mds-space-2xs);
 
     @include mixins.text("label-lg");
 
@@ -260,7 +190,7 @@
     flex: 0 0 auto;
     width: 1.25rem;
     height: 1.25rem;
-    margin-right: var(--mds-space-3xs);
+    margin: var(--mds-space-3xs) var(--mds-space-3xs) 0 0;
 
     .mds-icon {
       display: block;

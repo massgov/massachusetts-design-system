@@ -6,6 +6,7 @@
 {% set footerSiteName = siteName|default(footerDefaults.siteName) %}
 {% set footerSealAlt = sealAlt|default('') %}
 {% set footerSealColor = themeKey == 'primary' ? 'white' : 'black' %}
+{% set footerIconButtonColor = themeKey == 'primary' ? 'White' : 'Primary' %}
 {% set footerSocialLabel = socialLabel|default('') %}
 {% set footerSocialLinks = socialLinks|default([]) %}
 {% set footerDescriptionHtml = descriptionHtml|default('') %}
@@ -15,6 +16,10 @@
 {% set footerLinkGroups = linkGroups|default([]) %}
 {% set footerLegalLabel = legalLabel|default('') %}
 {% set footerLegalLinks = legalLinks|default([]) %}
+{% set footerLegalLinksOptional = legalLinksOptional|default([]) %}
+{% set footerShowOptionalLegalLinks =
+  showOptionalLegalLinks|default(footerDefaults.showOptionalLegalLinks)
+%}
 {% set footerFundingText = fundingText|default('') %}
 {% set footerTrademarkHtml = trademarkHtml|default('') %}
 
@@ -39,6 +44,7 @@
               {% if socialLink.href and socialLink.label and socialIcon %}
                 <li>
                   {% include 'icon-button.twig' with {
+                      color: footerIconButtonColor,
                       href: socialLink.href,
                       icon: socialLink.icon,
                       iconWeight: 'Regular',
@@ -152,9 +158,28 @@
         <ul>
           {% for link in footerLegalLinks %}
             {% if link.href and link.text %}
-              <li><a href="{{ link.href|e }}" class="mds-action-link">{{ link.text|e }}</a></li>
+              <li>
+              {% include 'action-link.twig' with {
+                href: link.href,
+                size: 'Medium',
+                text: link.text
+              } %}
+              </li>
             {% endif %}
           {% endfor %}
+          {% if footerShowOptionalLegalLinks %}
+            {% for link in footerLegalLinksOptional %}
+              {% if link.href and link.text %}
+                <li>
+                {% include 'action-link.twig' with {
+                  href: link.href,
+                  size: 'Medium',
+                  text: link.text
+                } %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         </ul>
       </nav>
     {% endif %}

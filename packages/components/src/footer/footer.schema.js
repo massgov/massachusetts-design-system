@@ -151,6 +151,28 @@ export const footerSchema = {
       }
     }
   },
+  showOptionalLegalLinks: {
+    type: 'boolean',
+    default: true
+  },
+  legalLinksOptional: {
+    type: 'array',
+    required: false,
+    default: [],
+    items: {
+      type: 'object',
+      properties: {
+        href: {
+          type: 'string',
+          required: true
+        },
+        text: {
+          type: 'string',
+          required: true
+        }
+      }
+    }
+  },
   fundingText: {
     type: 'string',
     required: false

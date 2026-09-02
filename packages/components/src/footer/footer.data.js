@@ -1,5 +1,5 @@
-import { getSchemaDefaults, getSchemaOptions } from '../shared/schema.js';
 import { iconNames } from '../icon/icon.names.js';
+import { getSchemaDefaults, getSchemaOptions } from '../shared/schema.js';
 import { footerSchema } from './footer.schema.js';
 
 export { footerSchema } from './footer.schema.js';
@@ -145,6 +145,8 @@ export const footerExampleData = {
       href: '#',
       text: 'Privacy Notice'
     },
+  ],
+  legalLinksOptional: [
     {
       href: '#',
       text: 'Site Policies'

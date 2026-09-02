@@ -20,8 +20,9 @@
   }
 }
 
+// the :where() pseudo-class avoids specificity issues when using this mixin in a component that has a ul element
 @mixin unordered-list-reset {
-  ul {
+  :where(ul) {
     margin: 0;
     padding: 0;
     list-style: none;
