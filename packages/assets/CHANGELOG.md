@@ -37,3 +37,8 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 ### Removed
 * Removed stale `boat` icon that are no longer present in the Figma Icons file. (#57)
 
+## 1.2.1 (9/2/2026)
+
+### Changed
+ * Deleted old "list" icon which was a duplicate icon of "receipt"
+ * Added new "list.svg" icon to match the icon set in Figma
