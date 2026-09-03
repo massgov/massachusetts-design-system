@@ -32,7 +32,9 @@
   }
 
   .mds-action-link {
-    color: var(--mds-footer-color);
+    --mds-action-link-color: var(--mds-footer-link-color);
+    --mds-action-link-color-hover: var(--mds-footer-link-hover-color);
+    --mds-action-link-color-active: var(--mds-footer-link-hover-color);
   }
 
   p a {
@@ -92,8 +94,8 @@
   }
 
   &__seal {
-    width: 3.5rem;
-    height: 3.5rem;
+    inline-size: 3.5rem;
+    block-size: 3.5rem;
     align-self: self-start;
   }
 
@@ -102,7 +104,7 @@
     padding-block-start: var(--mds-space-3xs);
   }
 
-  ul.mds-footer__social-list {
+  &__social-list {
     display: flex;
     flex-wrap: wrap;
     gap: var(--mds-space-2xs);
@@ -190,7 +192,8 @@
     flex: 0 0 auto;
     width: 1.25rem;
     height: 1.25rem;
-    margin: var(--mds-space-3xs) var(--mds-space-3xs) 0 0;
+    margin-block-start: var(--mds-space-3xs);
+    margin-inline-end: var(--mds-space-3xs);
 
     .mds-icon {
       display: block;
@@ -198,13 +201,9 @@
       height: 100%;
     }
 
-    &--conact {
+    &--contact {
       display: flex;
       align-self: center;
-    }
-    &--external-link {
-      display: inline-block;
-      margin-top: -3px; //align with link text
     }
   }
 }
@@ -221,15 +220,6 @@
   a {
     @include mixins.focus($focus-on-light: false);
   }
-}
-
-.mds-footer .hidden {
-  position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
 }
 
 @include mixins.max-width(md) {

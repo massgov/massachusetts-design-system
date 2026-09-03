@@ -44,13 +44,13 @@
               {% if socialLink.href and socialLink.label and socialIcon %}
                 <li>
                   {% include 'icon-button.twig' with {
-                      color: footerIconButtonColor,
-                      href: socialLink.href,
-                      icon: socialLink.icon,
-                      iconWeight: 'Regular',
-                      ariaLabel: socialLink.label
-                    } %}
-                  </a>
+                    element: 'a',
+                    color: footerIconButtonColor,
+                    href: socialLink.href,
+                    icon: socialIcon,
+                    iconWeight: 'Regular',
+                    ariaLabel: socialLink.label
+                  } %}
                 </li>
               {% endif %}
             {% endfor %}
@@ -69,58 +69,56 @@
               {{ footerContactHeading|e }}
             </h3>
           {% endif %}
-
-          {% if footerContactItems|length %}
-            <address class="mds-footer__contact">
-              {% for contactItem in footerContactItems %}
-                {% set contactIcon = contactItem.icon in footerOptions.icon ? contactItem.icon : '' %}
-                {% if contactItem.addressLines|length %}
-                  <div class="mds-footer__contact-item">
-                    {% if contactIcon %}
-                      <span class="mds-footer__contact-icon mds-footer__icon" aria-hidden="true">
-                        {% include 'icon.twig' with {
-                          name: contactIcon,
-                          weight: 'Regular'
-                        } %}
-                      </span>
-                    {% endif %}
-                    <div>
-                      <p class="mds-footer__contact-address">
-                        {% for addressLine in contactItem.addressLines %}
-                          {{ addressLine|e }}{% if not loop.last %}<br />{% endif %}
-                        {% endfor %}
+          <address class="mds-footer__contact">
+            {% for contactItem in footerContactItems %}
+              {% set contactIcon = contactItem.icon in footerOptions.icon ? contactItem.icon : '' %}
+              {% if contactItem.addressLines|length %}
+                <div class="mds-footer__contact-item">
+                  {% if contactIcon %}
+                    <span class="mds-footer__contact-icon mds-footer__icon" aria-hidden="true">
+                      {% include 'icon.twig' with {
+                        name: contactIcon,
+                        weight: 'Regular'
+                      } %}
+                    </span>
+                  {% endif %}
+                  <div>
+                    <p class="mds-footer__contact-address">
+                      {% for addressLine in contactItem.addressLines %}
+                        {{ addressLine|e }}{% if not loop.last %}<br />{% endif %}
+                      {% endfor %}
+                    </p>
+                    {% if contactItem.note %}
+                      <p class="mds-footer__contact-note">
+                        {{ contactItem.note|e }}
                       </p>
-                      {% if contactItem.note %}
-                        <p class="mds-footer__contact-note">
-                          {{ contactItem.note|e }}
-                        </p>
-                      {% endif %}
-                    </div>
+                    {% endif %}
                   </div>
-                {% elseif contactItem.text %}
-                  <p class="mds-footer__contact-item">
-                    {% if contactIcon %}
-                      <span class="mds-footer__icon--contact mds-footer__icon" aria-hidden="true">
-                        {% include 'icon.twig' with {
-                          name: contactIcon,
-                          weight: 'Regular'
-                        } %}
-                      </span>
-                    {% endif %}
-                    {% if contactItem.href %}
-                      <a class="mds-footer__contact-link mds-action-link" href="{{ contactItem.href|e }}">{{ contactItem.text|e }}</a>
-                    {% else %}
-                      {{ contactItem.text|e }}
-                    {% endif %}
-                  </p>
-                {% endif %}
-              {% endfor %}
-            </address>
-          {% endif %}
+                </div>
+              {% elseif contactItem.text %}
+                <p class="mds-footer__contact-item">
+                  {% if contactIcon %}
+                    <span class="mds-footer__icon--contact mds-footer__icon" aria-hidden="true">
+                      {% include 'icon.twig' with {
+                        name: contactIcon,
+                        weight: 'Regular'
+                      } %}
+                    </span>
+                  {% endif %}
+                  {% if contactItem.href %}
+                    <a class="mds-footer__contact-link mds-action-link" href="{{ contactItem.href|e }}">{{ contactItem.text|e }}</a>
+                  {% else %}
+                    {{ contactItem.text|e }}
+                  {% endif %}
+                </p>
+              {% endif %}
+            {% endfor %}
+          </address>
         </section>
       {% endif %}
 
       {% for linkGroup in footerLinkGroups %}
+        {% set linkGroupIndex = loop.index %}
         {% if linkGroup.heading or linkGroup.links|length %}
           {% set linkGroupHeadingId = linkGroup.headingId|default('mds-footer-links-heading-' ~ loop.index) %}
           <nav class="mds-footer__column" aria-labelledby="{{ linkGroupHeadingId|e }}">
@@ -140,7 +138,9 @@
                     {% include 'action-link.twig' with {
                         href: link.href,
                         rightIcon: 'arrow-square-out',
-                        size: 'Small',
+                        rightIconAccessibleText: 'Links to an external site',
+                        rightIconAccessibleTextId: 'mds-footer-link-icon-accessible-text-' ~ linkGroupIndex ~ '-' ~ loop.index,
+                        size: 'Medium',
                         text: link.text
                       } %}
                     </li>
