@@ -100,8 +100,9 @@
   }
 
   &__contact-address {
-    @include mixins.text("label-lg");
     padding-block-start: var(--mds-space-3xs);
+
+    @include mixins.text("label-lg");
   }
 
   &__social-list {
@@ -157,7 +158,6 @@
     @include mixins.text("label-lg");
 
     .mds-action-link {
-      display: inline-block;
       padding-block: var(--mds-space-2xs);
     }
   }

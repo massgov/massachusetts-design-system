@@ -6,6 +6,7 @@ export const footerSchema = {
   theme: {
     type: 'enum',
     required: false,
+    default: 'Neutral',
     options: ['Neutral', 'Primary']
   },
   siteNameId: {

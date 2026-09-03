@@ -134,15 +134,20 @@
               <ul class="mds-footer__link-list">
                 {% for link in linkGroup.links %}
                   {% if link.href and link.text %}
+                  {% set actionLinkData = {
+                      href: link.href,
+                      rightIcon: link.icon,
+                      size: 'Medium',
+                      text: link.text
+                    } %}
+                    {% if link.iconAccessibleText is defined and link.iconAccessibleText %}
+                      {% set actionLinkData = actionLinkData|merge({
+                        rightIconAccessibleText: link.iconAccessibleText,
+                        rightIconAccessibleTextId: 'mds-footer-link-icon-accessible-text-' ~ linkGroupIndex ~ '-' ~ loop.index
+                      }) %}
+                    {% endif %}
                     <li>
-                    {% include 'action-link.twig' with {
-                        href: link.href,
-                        rightIcon: 'arrow-square-out',
-                        rightIconAccessibleText: 'Links to an external site',
-                        rightIconAccessibleTextId: 'mds-footer-link-icon-accessible-text-' ~ linkGroupIndex ~ '-' ~ loop.index,
-                        size: 'Medium',
-                        text: link.text
-                      } %}
+                       {% include 'action-link.twig' with actionLinkData %}
                     </li>
                   {% endif %}
                 {% endfor %}

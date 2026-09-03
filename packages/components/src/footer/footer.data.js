@@ -79,10 +79,13 @@ export const footerExampleData = {
       eyebrow: true,
       links: [
         {
+          icon: 'arrow-square-out',
+          iconAccessibleText: 'Links to external site',
           href: '#',
           text: 'Optional link 1'
         },
         {
+          icon: 'arrow-right',
           href: '#',
           text: 'Optional link 2'
         },
