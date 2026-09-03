@@ -21,17 +21,17 @@ infra/
   template/
     static-site/    # Custom S3 + OAC + CloudFront module (domain-less friendly)
   env/
-    dev/            # public *.cloudfront.net UAT environment
+    dev/            # UAT environment (designsystem.dev.tss.mass.gov, pending cert)
       init.tf       #   backend + //tagging + provider
       main.tf       #   static_site module
       outputs.tf
-    stage/          # public *.cloudfront.net staging environment
+    stage/          # staging environment (designsystem.stage.tss.mass.gov, pending cert)
       init.tf       #   backend (stage state key) + //tagging (environment=stage)
       main.tf       #   static_site module
       outputs.tf
     prod/           # production, reuses template/static-site verbatim
       init.tf       #   backend (prod state key) + //tagging (environment=prod)
-      main.tf       #   static_site module (domain-ready: aliases/acm inputs)
+      main.tf       #   static_site module (designsystem.mass.gov wired in)
       outputs.tf
 ```
 
@@ -39,12 +39,25 @@ infra/
 
 `mds-terraform-common//static-site` hard-requires a domain + Route53 zone (it
 names the bucket after the domain and always provisions an ACM cert + DNS
-record). Dev and stage stand the site up on the default `*.cloudfront.net`
-URL with **no domain yet** (the domain is wired in later). The custom module
-supports that via optional `aliases` / `acm_certificate_arn` inputs, while
-tagging and the deploy role still use the shared `//tagging` and
-`//gha_pipeline` modules. When the domain lands, set those two inputs in
-`env/<env>/main.tf`.
+record), and our DNS zones are not in Route53. Each env stands the site up
+on the default `*.cloudfront.net` URL first, then attaches its custom domain
+via the optional `aliases` / `acm_certificate_arn` inputs once DNS and a
+us-east-1 ACM cert exist. Tagging and the deploy role still use the shared
+`//tagging` and `//gha_pipeline` modules.
+
+## Custom domains
+
+| Env | Hostname | DNS CNAME target | ACM cert (us-east-1) | SNOW |
+|---|---|---|---|---|
+| dev | `designsystem.dev.tss.mass.gov` | `dzf18n4wmc83k.cloudfront.net` | pending | RITM0488699 |
+| stage | `designsystem.stage.tss.mass.gov` | `dazaojizlhqqt.cloudfront.net` | pending | RITM0488702 |
+| prod | `designsystem.mass.gov` | `d3grhllmck6oga.cloudfront.net` | issued, wired in | RITM0488614 |
+
+DNS records are owned by the mass.gov / tss.mass.gov DNS teams and are
+requested via ServiceNow. ACM certs are DNS-validated, so each new cert also
+needs its validation CNAME added through the same channel. To wire a domain
+in: request the cert, get the validation CNAME published, wait for `ISSUED`,
+then set `aliases` and `acm_certificate_arn` in `env/<env>/main.tf`.
 
 ## Apply
 
