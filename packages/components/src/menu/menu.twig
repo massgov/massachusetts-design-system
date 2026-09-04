@@ -37,7 +37,7 @@
       {% set itemButtonType = item.buttonType in menuButtonTypes ? item.buttonType : menuButtonTypes[0] %}
       {% set itemDisabled = item.disabled is same as(true) %}
       {% set itemIconName = item.iconName in iconOptions.name ? item.iconName : '' %}
-      {% set itemIconWeight = item.iconWeight in iconOptions.weight ? item.iconWeight : 'Bold' %}
+      {% set itemIconWeight = item.iconWeight in iconOptions.weight ? item.iconWeight : iconDefaults.weight %}
       {% set itemIconSize = item.iconSize in iconOptions.size ? item.iconSize : iconDefaults.size %}
       {% set showItemIcon = not menuNoIcons and itemIconName %}
       {% set labelClasses = ['mds-popup-menu__label'] %}
