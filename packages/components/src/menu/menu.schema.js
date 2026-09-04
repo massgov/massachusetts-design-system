@@ -25,30 +25,30 @@ export const menuSchema = {
       {
         type: 'button',
         buttonType: 'button',
-        label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non diam sit amet lacus molestie dapibus molestie eu diam. Donec vitae diam in nunc ultricies euismod.',
+        label: 'Select item',
         iconName: 'smiley',
-        iconWeight: 'Bold'
+        iconWeight: 'Regular'
       },
       {
         type: 'button',
         buttonType: 'button',
         label: 'Select item',
         iconName: 'smiley',
-        iconWeight: 'Bold'
+        iconWeight: 'Regular'
       },
       {
         type: 'button',
         buttonType: 'button',
         label: 'Select item',
         iconName: 'smiley',
-        iconWeight: 'Bold'
+        iconWeight: 'Regular'
       },
       {
         type: 'button',
         buttonType: 'button',
         label: 'Select item',
         iconName: 'smiley',
-        iconWeight: 'Bold'
+        iconWeight: 'Regular'
       }
     ]
   }

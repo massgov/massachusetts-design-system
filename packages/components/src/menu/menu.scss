@@ -2,7 +2,7 @@
 
 .mds-popup-menu {
   @include mixins.unordered-list-reset;
-  @include mixins.text("body");
+  @include mixins.text("caption-lg");
 
   --mds-popup-menu-offset: var(--mds-space-2xs);
   --mds-popup-menu-viewport-padding: var(--mds-space-md);
@@ -104,7 +104,7 @@
 
   &__label {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--mds-space-2xs);
     min-width: 0;
     overflow-wrap: anywhere;
@@ -121,7 +121,7 @@
 
   &__icon {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 24px;
     height: 24px;
