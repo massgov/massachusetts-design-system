@@ -2,7 +2,7 @@
 
 .mds-popup-menu {
   @include mixins.unordered-list-reset;
-  @include mixins.text("caption-md");
+  @include mixins.text("caption-lg");
 
   --mds-popup-menu-offset: var(--mds-space-2xs);
   --mds-popup-menu-viewport-padding: var(--mds-space-md);
