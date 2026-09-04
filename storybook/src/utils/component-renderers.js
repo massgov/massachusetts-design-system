@@ -154,6 +154,7 @@ export const renderActionLink = createComponentRenderer('action-link', { iconSvg
 export const renderButton = createComponentRenderer('button', { iconSvgMap });
 export const renderIconButton = createComponentRenderer('icon-button', { iconSvgMap });
 export const renderMenu = createComponentRenderer('menu', { iconSvgMap });
+export const renderFooter = createComponentRenderer('footer', { iconSvgMap });
 export const renderSiteHeader = createComponentRenderer('site-header');
 export const renderStateBanner = createComponentRenderer('state-banner', { iconSvgMap });
 export const renderStateSeal = createComponentRenderer('state-seal');

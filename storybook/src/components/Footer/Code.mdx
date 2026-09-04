@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { footerDefaults } from '../../../../packages/components/src/footer/footer.data.js';
+import footerCss from '@massds/mds-components/footer.css?raw';
+import { renderFooter } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as FooterStories from './footer.stories.js';
+
+export const getFooterCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderFooter({
+      ...footerDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: footerCss
+  }
+];
+
+<Meta of={FooterStories} />
+
+# Footer
+
+<Canvas
+  of={FooterStories.Playground}
+  sourceState="none"
+/>
+
+## API
+
+<Controls of={FooterStories.Playground} />
+
+## Code
+
+<StoryCodeTabs of={FooterStories.Playground} getTabs={getFooterCodeTabs} />

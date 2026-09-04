@@ -61,7 +61,8 @@
   &__icon {
     display: inline-flex;
     width: var(--mds-action-link-icon-size);
-    vertical-align: middle;
+    vertical-align: top;
+    margin-top: 1px; // align with link text
   }
   .mds-visually-hidden {
     position: absolute;

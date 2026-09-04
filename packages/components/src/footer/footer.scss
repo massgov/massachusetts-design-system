@@ -1,0 +1,226 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
+.mds-footer {
+  // Neutral is the default color family. Primary overrides these tokens below.
+  @include mixins.unordered-list-reset;
+  @include mixins.address-reset;
+
+  --mds-footer-background: var(--mds-background-section-brand-neutral-lowest);
+  --mds-footer-color: var(--mds-content-brand-neutral-default);
+  --mds-footer-muted-color: var(--mds-content-brand-neutral-muted);
+  --mds-footer-link-color: var(--mds-content-brand-neutral-default);
+  --mds-footer-link-hover-color: var(--mds-interactive-brand-primary-mid);
+  --mds-footer-accent-color: var(--mds-interactive-brand-primary-mid);
+  --mds-footer-border-color: var(--mds-border-brand-neutral-low);
+
+  background-color: var(--mds-footer-background);
+  color: var(--mds-footer-color);
+
+  a {
+    @include mixins.focus($focus-on-light: true);
+  }
+
+  .mds-action-link {
+    --mds-action-link-color: var(--mds-footer-link-color);
+    --mds-action-link-color-hover: var(--mds-footer-link-color);
+    --mds-action-link-color-active: var(--mds-footer-link-hover-color);
+  }
+
+  p a {
+    color: var(--mds-footer-link-color);
+  }
+
+  p a:hover {
+    color: var(--mds-footer-link-hover-color);
+  }
+
+  &__site-name,
+  &__heading,
+  &__contact-address,
+  &__contact-note,
+  &__contact-item,
+  &__description,
+  &__fine-print p {
+    margin: 0;
+  }
+
+  &__fine-print p,
+  &__contact-note {
+    color: var(--mds-footer-muted-color);
+  }
+
+  &__container {
+    @include mixins.section-container;
+
+    background: transparent;
+    color: inherit;
+  }
+
+  &__column {
+    @include mixins.grid-4-column;
+  }
+
+  &__content {
+    @include mixins.grid;
+
+    padding-block: var(--mds-space-2xl) var(--mds-space-md);
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-2xs);
+  }
+
+  &__brand-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-sm);
+  }
+
+  &__site-name {
+    @include mixins.text("heading-sm");
+  }
+
+  &__seal {
+    inline-size: 3.5rem;
+    block-size: 3.5rem;
+    align-self: self-start;
+  }
+
+  &__contact-address {
+    padding-block-start: var(--mds-space-3xs);
+
+    @include mixins.text("label-lg");
+  }
+
+  &__social-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mds-space-2xs);
+    margin-block: var(--mds-space-sm);
+  }
+
+  &__description {
+    max-width: 18rem;
+
+    @include mixins.text("caption-lg");
+  }
+
+  &__heading {
+    padding-block-end: var(--mds-space-xs);
+    border-block-end: 1px solid var(--mds-footer-border-color);
+
+    @include mixins.text("eyebrow-lg");
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-2xs);
+    padding-block-start: var(--mds-space-2xs);
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: flex-start;
+    padding-block: var(--mds-space-3xs);
+
+    @include mixins.text("label-lg");
+  }
+
+  &__contact svg {
+    color: var(--mds-footer-accent-color);
+  }
+
+  &__contact-note {
+    padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
+
+    @include mixins.text("caption-lg");
+  }
+
+  &__link-list {
+    display: flex;
+    flex-direction: column;
+    padding-block-start: var(--mds-space-2xs);
+
+    @include mixins.text("label-lg");
+
+    .mds-action-link {
+      padding-block: var(--mds-space-2xs);
+    }
+  }
+
+  &__legal-nav {
+    border-block: 1px solid var(--mds-footer-border-color);
+    padding-block: var(--mds-space-xs);
+
+    @include mixins.text("label-lg");
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--mds-space-sm) var(--mds-space-lg);
+    }
+  }
+
+  &__fine-print {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-sm);
+    padding-block: var(--mds-space-md) var(--mds-space-2xl);
+
+    @include mixins.text("caption-lg");
+  }
+
+  &__trademark {
+    line-height: var(--mds-line-height-180);
+  }
+
+  &__icon {
+    flex: 0 0 auto;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-block-start: var(--mds-space-3xs);
+    margin-inline-end: var(--mds-space-3xs);
+
+    .mds-icon {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &--contact {
+      display: flex;
+      align-self: center;
+    }
+  }
+}
+
+.mds-footer--primary {
+  --mds-footer-background: var(--mds-background-section-brand-primary-mid);
+  --mds-footer-color: var(--mds-base-white);
+  --mds-footer-muted-color: var(--mds-base-white);
+  --mds-footer-link-color: var(--mds-base-inverse);
+  --mds-footer-link-hover-color: var(--mds-base-white);
+  --mds-footer-accent-color: var(--mds-base-white);
+  --mds-footer-border-color: var(--mds-base-white);
+
+  a {
+    @include mixins.focus($focus-on-light: false);
+  }
+}
+
+@include mixins.max-width(lg) {
+  .mds-footer__content {
+    row-gap: var(--mds-space-md);
+    padding-block-start: var(--mds-space-md);
+  }
+}
+
+@include mixins.max-width(sm) {
+  .mds-footer__content {
+    row-gap: var(--mds-space-md);
+    padding-block-start: var(--mds-space-sm);
+  }
+}

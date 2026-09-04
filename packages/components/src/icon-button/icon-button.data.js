@@ -10,6 +10,7 @@ export const iconButtonOptions = {
   element: schemaOptions.element,
   htmlType: schemaOptions.htmlType,
   icon: schemaOptions.icon,
+  iconWeight: schemaOptions.iconWeight,
   type: schemaOptions.type
 };
 
