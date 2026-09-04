@@ -1,0 +1,15 @@
+.mds-utility-nav-examples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-md);
+}
+
+.mds-utility-nav-examples__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-2xs);
+}
+
+.mds-utility-nav-examples__heading {
+  margin: 0;
+}

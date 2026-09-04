@@ -1,0 +1,63 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
+.mds-utility-nav {
+  --mds-utility-nav-background: var(--mds-background-section-brand-primary-mid);
+  --mds-utility-nav-hover-background: var(--mds-interactive-brand-primary-low);
+  --mds-utility-nav-active-background: var(--mds-interactive-brand-primary-lowest);
+
+  box-sizing: border-box;
+  color: var(--mds-base-white);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: var(--mds-space-sm);
+  width: 100%;
+  height: 48px;
+  padding: 0 var(--mds-space-md);
+  background: var(--mds-utility-nav-background);
+
+  @include mixins.text("label");
+
+  &__section {
+    display: flex;
+    align-items: center;
+    transform: translateY(-2px);
+  }
+
+  &__section--start {
+    flex: 1 1 auto;
+  }
+
+  &__section--end {
+    flex: 0 1 auto;
+    margin-inline-start: auto;
+    gap: var(--mds-space-2xs);
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    min-width: 0;
+  }
+
+  &__button.mds-button {
+    padding-inline: var(--mds-space-2xs);
+    border-radius: var(--mds-radius-sm);
+  }
+
+  &__button--action .mds-button__label {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .mds-utility-nav {
+    padding-inline: var(--mds-space-2xs);
+  }
+
+  .mds-utility-nav__section--end {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

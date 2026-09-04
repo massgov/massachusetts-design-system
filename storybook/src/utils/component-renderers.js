@@ -157,3 +157,4 @@ export const renderMenu = createComponentRenderer('menu', { iconSvgMap });
 export const renderSiteHeader = createComponentRenderer('site-header');
 export const renderStateBanner = createComponentRenderer('state-banner', { iconSvgMap });
 export const renderStateSeal = createComponentRenderer('state-seal');
+export const renderUtilityNav = createComponentRenderer('utility-nav', { iconSvgMap });

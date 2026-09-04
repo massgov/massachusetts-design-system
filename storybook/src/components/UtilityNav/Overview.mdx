@@ -1,0 +1,82 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/button.css';
+import '@massds/mds-components/utility-nav.css';
+import { utilityNavDefaults } from '../../../../packages/components/src/utility-nav/utility-nav.data.js';
+import { renderUtilityNav } from '../../utils/component-renderers.js';
+import * as UtilityNavStories from './utility-nav.stories.js';
+
+export const UtilityNavExample = (args) => (
+  <div
+    className="sb-unstyled mds-docs-example-frame mds-docs-example-stack mds-gap-xs"
+    dangerouslySetInnerHTML={{
+      __html: renderUtilityNav({
+        ...utilityNavDefaults,
+        ...args
+      })
+    }}
+  />
+);
+
+<Meta of={UtilityNavStories} />
+
+# Utility Navigation overview
+
+The utility navigation gives people quick access to global actions and tools from anywhere within a website or application. It is always placed directly beneath the State banner. 
+It provides a consistent location for actions such as:
+<ul>
+  <li>Opening the main menu</li>
+  <li>Changing languages</li>
+  <li>Signing in</li>
+  <li>Accessing help</li>
+</ul>
+Unlike the Main Navigation, the utility navigation is optional and should only include actions that are relevant across the entire experience. Applications with focused workflows may use the utility navigation without a main navigation.
+
+<UtilityNavExample />
+
+---
+
+## Color
+The utility navigation uses the same colors across Commonwealth websites and services. This consistency helps people easily find common actions on any service.
+
+## Variants
+
+Choose the simplest configuration that meets your experience's needs. Include only the global actions that provide value to your users.
+
+### Hamburger menu
+
+<UtilityNavExample actionButtons={[]} />
+
+<strong>Use when:</strong> The experience includes a collapsible main navigation.
+A hamburger menu opens and closes the primary navigation. It is commonly used when navigation needs to remain compact or responsive across screen sizes.
+
+
+
+### Hamburger menu and utilities
+
+<UtilityNavExample />
+
+<strong>Use when:</strong> People need access to both primary navigation and language selection.
+Use utility navigation buttons to launch supporting components such as menus or dialogs. For example, the language selector may open a menu or native select depending on the implementation.
+
+
+
+### Utilities only
+
+<UtilityNavExample startVariant="none" />
+
+<strong>Use when:</strong> The experience does not require a primary navigation, such as a portal or application with a focused workflow.
+Keep the number of utility navigation items to a minimum. Limiting global actions preserves space on smaller screens and helps people quickly find common tasks.
+
+
+
+### Mass.gov home link and utility buttons
+
+<UtilityNavExample startVariant="home-link" />
+
+<strong>Use when:</strong> The experience is hosted on a Mass.gov subdomain and supporting information is available on Mass.gov.
+Include a link to the most relevant supporting content for your agency or organization on Mass.gov. Use a simple Mass.gov label styled as a ghost button to help people easily return to official supporting information.
+Linking back to Mass.gov reinforces that the experience is part of the broader Commonwealth digital ecosystem.
+
+## Related components
+
+[Button](?path=/docs/components-button--overview)

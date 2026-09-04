@@ -1,0 +1,72 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as UtilityNavStories from './utility-nav.stories.js';
+
+<Meta of={UtilityNavStories} />
+
+# Utility Navigation guidance
+
+## Content
+
+### Best practices
+
+The utility navigation is composed of button components. Follow the Button component content guidance for writing clear, concise labels.
+Use short, action-oriented labels that people can quickly recognize.
+
+## Design
+
+### Usage
+
+### When to use
+
+Use the utility navigation for global actions that should remain available throughout the experience.
+#### Common uses include:
+
+Navigation
+- Opening the main navigation
+- Language selection
+
+Account
+- Sign in
+- Account menu
+
+Global tools
+- Accessibility tools
+- Notifications
+- Help resources
+- Other global utilities
+
+### When not to use
+
+Do not use the utility navigation for:
+- Page-specific actions
+- Primary site navigation links
+- Promotional content
+- Alerts or announcements
+- Actions that are only relevant within a single page or workflow
+
+### Design decisions
+
+The utility navigation is designed to:
+- Provide consistent access to global actions across the experience
+- Remain visually lightweight so it does not compete with primary navigation
+- Support applications with or without a main navigation
+
+#### Best practices
+
+Follow these recommendations to help provide familiar interaction patterns across Commonwealth digital experiences.
+- Keep the number of utility navigation items to a minimum
+- Prioritize the most frequently used global actions
+- Display the utility navigation consistently across every page
+- Use familiar labels and icons whenever possible
+
+### Responsive behavior
+The utility navigation automatically adapts across supported screen sizes. As available space decreases, the layout preserves touch targets, spacing, and alignment while maintaining quick access to global actions.
+
+## Accessibility
+
+The utility navigation should:
+
+- Support keyboard navigation for every interactive element
+- Provide meaningful accessible names for all actions
+- Maintain visible keyboard focus indicators
+- Meet the accessibility guidance defined by the Button component

@@ -36,4 +36,3 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 
 ### Removed
 * Removed stale `boat` icon that are no longer present in the Figma Icons file. (#57)
-
