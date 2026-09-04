@@ -20,20 +20,9 @@
     @include mixins.focus($focus-on-light: true);
   }
 
-  &__contact-link,
-  &__legal-nav a {
-    text-decoration: none;
-    text-underline-offset: 0.375rem;
-
-    &:hover {
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-    }
-  }
-
   .mds-action-link {
     --mds-action-link-color: var(--mds-footer-link-color);
-    --mds-action-link-color-hover: var(--mds-footer-link-hover-color);
+    --mds-action-link-color-hover: var(--mds-footer-link-color);
     --mds-action-link-color-active: var(--mds-footer-link-hover-color);
   }
 
