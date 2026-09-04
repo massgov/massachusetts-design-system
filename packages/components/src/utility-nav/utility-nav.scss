@@ -6,7 +6,7 @@
   --mds-utility-nav-active-background: var(--mds-interactive-brand-primary-lowest);
 
   box-sizing: border-box;
-  color: var(--mds-text-and-icons-utility-static-white);
+  color: var(--mds-base-white);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -22,7 +22,6 @@
   &__section {
     display: flex;
     align-items: center;
-    min-width: 0;
     transform: translateY(-2px);
   }
 
@@ -42,7 +41,7 @@
     min-width: 0;
   }
 
-  &__button.mds-button--type-ghost.mds-button--color-white {
+  &__button.mds-button {
     padding-inline: var(--mds-space-2xs);
     border-radius: var(--mds-radius-sm);
   }
