@@ -211,7 +211,7 @@
   }
 }
 
-@include mixins.max-width(md) {
+@include mixins.max-width(lg) {
   .mds-footer__content {
     row-gap: var(--mds-space-md);
     padding-block-start: var(--mds-space-md);
