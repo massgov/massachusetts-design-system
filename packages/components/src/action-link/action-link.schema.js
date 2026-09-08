@@ -45,7 +45,7 @@ export const actionLinkSchema = {
   },
   rightIcon: {
     type: 'icon',
-    default: 'arrow-right',
+    default: '',
     options: iconOptions
   },
   rightIconAccessibleText: {

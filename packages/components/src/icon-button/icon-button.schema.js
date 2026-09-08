@@ -34,6 +34,11 @@ export const iconButtonSchema = {
     default: 'x',
     options: iconOptions
   },
+  iconWeight: {
+    type: 'enum',
+    default: 'Bold',
+    options: ['Regular', 'Bold']
+  },
   type: {
     type: 'enum',
     default: 'Fill',

@@ -8,6 +8,7 @@
 {% set iconButtonType = type in iconButtonOptions.type ? type : iconButtonDefaults.type %}
 {% set iconButtonHtmlType = htmlType in iconButtonOptions.htmlType ? htmlType : iconButtonDefaults.htmlType %}
 {% set iconButtonIcon = icon in iconButtonOptions.icon ? icon : iconButtonDefaults.icon %}
+{% set iconButtonIconWeight = iconWeight in iconButtonOptions.iconWeight ? iconWeight : iconButtonDefaults.iconWeight %}
 {% set iconButtonHref = href|default(iconButtonDefaults.href) %}
 {% set iconButtonId = id|default(iconButtonDefaults.id) %}
 {% set iconButtonAriaLabel = ariaLabel|default(iconButtonDefaults.ariaLabel) %}
@@ -47,7 +48,7 @@
     <span class="mds-icon-button__icon">
       {% include 'icon.twig' with {
         name: iconButtonIcon,
-        weight: 'Bold',
+        weight: 'iconButtonIconWeight',
         size: 'MD'
       } %}
 {% if iconButtonElement == 'button' %}

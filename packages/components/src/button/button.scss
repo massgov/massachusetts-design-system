@@ -35,6 +35,7 @@
   vertical-align: middle;
 
   @include mixins.text("label-lg");
+  @include mixins.text("label-lg");
 
   // Color modifiers
   &--color-secondary {
