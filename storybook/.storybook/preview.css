@@ -1,6 +1,6 @@
 #storybook-root,
 #storybook-docs,
 .docs-story {
-  color: var(--mds-text-and-icons-brand-neutral-default);
+  color: var(--mds-content-brand-neutral-default);
   font: var(--mds-text-body);
 }

@@ -11,9 +11,9 @@ const preview = {
         method: 'alphabetical',
         order: [
           'Overview',
-          ['Introduction'],
+          ['Introduction', 'Getting Started'],
           'Foundations',
-          ['*', ['Overview', 'Guidance', 'Code', 'Playground']],
+          ['Design Tokens', 'Color Tokens', ['Overview', 'Guidance', 'Code', 'Playground']],
           'Components',
           ['*', ['Overview', 'Guidance', 'Code', 'Playground']]
         ],

@@ -20,7 +20,7 @@
   border-bottom: 0;
   border-radius: var(--mds-radius-sm) var(--mds-radius-sm) 0 0;
   background: transparent;
-  color: var(--mds-text-and-icons-brand-neutral-muted);
+  color: var(--mds-content-brand-neutral-muted);
   cursor: pointer;
   font-family: var(--mds-text-label-font-family);
   font-weight: var(--mds-text-label-font-weight);
@@ -30,18 +30,18 @@
 
 .mds-docs-code-tabs__tab:hover {
   background: var(--mds-background-section-brand-primary-lowest);
-  color: var(--mds-text-and-icons-brand-primary-mid);
+  color: var(--mds-content-brand-primary-mid);
 }
 
 .mds-docs-code-tabs__tab:focus-visible {
-  outline: 3px solid var(--mds-border-focus-on-light);
+  outline: 3px solid var(--mds-focus-on-light);
   outline-offset: 2px;
 }
 
 .mds-docs-code-tabs__tab[aria-selected="true"] {
   border-color: var(--mds-border-brand-neutral-low);
-  background: var(--mds-background-section-utility-static-white);
-  color: var(--mds-text-and-icons-brand-neutral-default);
+  background: var(--mds-base-white);
+  color: var(--mds-content-brand-neutral-default);
 }
 
 .mds-docs-code-tabs__panel {

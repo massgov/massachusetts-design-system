@@ -2,18 +2,15 @@ import { iconNames } from '../icon/icon.names.js';
 
 const iconOptions = ['', ...iconNames];
 
-export const buttonSchema = {
-  text: {
-    type: 'string',
-    default: 'Button'
-  },
-  id: {
-    type: 'string',
-    default: ''
+export const iconButtonSchema = {
+  element: {
+    type: 'enum',
+    default: 'button',
+    options: ['a', 'button']
   },
   href: {
     type: 'string',
-    default: ''
+    default: '#'
   },
   htmlType: {
     type: 'enum',
@@ -24,6 +21,19 @@ export const buttonSchema = {
     type: 'boolean',
     default: false
   },
+  id: {
+    type: 'string',
+    default: ''
+  },
+  ariaLabel: {
+    type: 'string',
+    default: 'Close'
+  },
+  icon: {
+    type: 'icon',
+    default: 'x',
+    options: iconOptions
+  },
   type: {
     type: 'enum',
     default: 'Fill',
@@ -32,21 +42,10 @@ export const buttonSchema = {
   color: {
     type: 'enum',
     default: 'Primary',
-    options: ['Primary', 'Secondary', 'White', 'Danger']
+    options: ['Primary', 'Secondary', 'White', 'Error']
   },
-  size: {
-    type: 'enum',
-    default: 'MD',
-    options: ['MD', 'LG']
-  },
-  leftIcon: {
-    type: 'icon',
-    default: '',
-    options: iconOptions
-  },
-  rightIcon: {
-    type: 'icon',
-    default: '',
-    options: iconOptions
+  className: {
+    type: 'string',
+    default: ''
   }
 };

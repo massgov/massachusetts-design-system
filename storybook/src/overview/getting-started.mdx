@@ -1,0 +1,133 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+import assetsPackage from '@massds/mds-assets/package.json';
+import componentsPackage from '@massds/mds-components/package.json';
+import stylesPackage from '@massds/mds-styles/package.json';
+import tokensPackage from '@massds/mds-tokens/package.json';
+
+export const tokenCdnUrl = `https://unpkg.com/@massds/mds-tokens@${tokensPackage.version}/dist/index.css`;
+export const stylesCdnUrl = `https://unpkg.com/@massds/mds-styles@${stylesPackage.version}/dist/css/index.min.css`;
+export const stateSealColorCdnUrl = `https://unpkg.com/@massds/mds-assets@${assetsPackage.version}/dist/state-seal/state-seal-color.svg`;
+export const cdnStylesheetExample = `<link rel="stylesheet" href="${tokenCdnUrl}">
+<link rel="stylesheet" href="${stylesCdnUrl}">`;
+export const cdnAssetExample = `<img src="${stateSealColorCdnUrl}" alt="Massachusetts State Seal">`;
+
+<Meta title="Overview/Getting Started" />
+
+# Getting started
+
+Use the Massachusetts Design System packages directly in your application.
+Start with semantic design tokens, then add utilities, assets, or components as
+your product needs them.
+
+## Choose the resources you need
+
+| Package | Version documented | What it provides | Design System dependencies |
+| --- | --- | --- | --- |
+| [`@massds/mds-assets`](https://www.npmjs.com/package/@massds/mds-assets) | {assetsPackage.version} | Icons, state seal assets, and animation files | None |
+| [`@massds/mds-tokens`](https://www.npmjs.com/package/@massds/mds-tokens) | {tokensPackage.version} | Semantic CSS custom properties for color, typography, spacing, radius, elevation, and other design decisions | None |
+| [`@massds/mds-styles`](https://www.npmjs.com/package/@massds/mds-styles) | {stylesPackage.version} | Bundled CSS utilities and public Sass mixins | `@massds/mds-tokens` |
+| [`@massds/mds-components`](https://github.com/massgov/massachusetts-design-system/tree/main/packages/components) | {componentsPackage.version} | Emerging Twig-authored components with static HTML, CSS, and Twig exports, documented in Storybook | `@massds/mds-tokens` and `@massds/mds-assets` |
+
+The styles package does not bundle tokens. Load token CSS before utility or component CSS so their custom properties are available. The components package uses styles mixins while building its self-contained CSS, so consumers only need to install `@massds/mds-styles` when they also want its utilities or Sass API.
+
+> Package versions are read from the manifests used to build this Storybook.
+> Packages are released independently, and each package release is paired with a production Storybook deployment so the documentation identifies the package set it supports. 
+> The latest Storybook is hosted at the domain root.
+
+## Install from npm
+
+Install only the layers your application needs. For tokens, utility classes,
+Sass mixins, and static assets:
+
+```bash
+npm install @massds/mds-tokens @massds/mds-styles @massds/mds-assets
+```
+
+Import tokens before styles from your application's CSS entrypoint:
+
+```css
+@import "@massds/mds-tokens/dist/index.css";
+@import "@massds/mds-styles/index.min.css";
+```
+
+Use `@massds/mds-tokens/dist/index.css` as the public semantic token entrypoint.
+Do not reference `dist/primitives.css` directly in applications; primitives are
+lower-level inputs that may change as the semantic layer evolves.
+
+For Sass, use the public mixin API with Sass's Node package importer:
+
+```scss
+@use "pkg:@massds/mds-styles/scss/mixins" as mixins;
+
+.example-heading {
+  @include mixins.text("heading-lg");
+}
+```
+
+## Use components
+
+`@massds/mds-components` is the emerging package for Twig-authored components
+that render static HTML and publish self-contained component CSS. Use Storybook
+for component behavior and usage guidance, and use the package exports instead
+of reaching into `dist/` directly.
+
+For a released component package version, install its runtime Design System
+dependencies with it:
+
+```bash
+npm install @massds/mds-components @massds/mds-tokens @massds/mds-assets
+```
+
+Component exports follow the same flat paths for each component:
+
+```js
+import '@massds/mds-components/state-banner.css';
+import stateBannerHtml from '@massds/mds-components/state-banner.html?raw';
+import stateBannerTwig from '@massds/mds-components/state-banner.twig?raw';
+```
+
+Use `@massds/mds-components/index.css` when you need the aggregate component
+stylesheet. Individual component exports are preferable when your build should
+include only the CSS it uses.
+
+## Load files from the CDN
+
+Published package files are also available through
+[UNPKG](https://unpkg.com/). UNPKG serves the contents of npm packages, so the
+same package paths and dependencies apply. Pin every URL to a complete version,
+including the prerelease identifier when applicable. Do not omit the version or
+use `@latest` in production.
+
+Load tokens before styles:
+
+<Source language="html" code={cdnStylesheetExample} />
+
+Reference assets directly by file path:
+
+<Source language="html" code={cdnAssetExample} />
+
+The same pattern works for icons and animation files, for example
+`dist/icons/alert.svg`, `dist/icons/bold/alert--bold.svg`, and
+`dist/animation/loader.json`. Keep each URL pinned to the version of its own
+package because packages are released independently.
+
+## Work in the repository
+
+The sections above are sufficient for most package consumers. To contribute or
+run the documentation and demos locally, clone the
+[Massachusetts Design System repository](https://github.com/massgov/massachusetts-design-system):
+
+```bash
+git clone https://github.com/massgov/massachusetts-design-system.git
+cd massachusetts-design-system
+npm install
+npm run build
+npm run storybook
+```
+
+Use these contributor resources before opening a pull request:
+
+- [Local development and release guidance](https://github.com/massgov/massachusetts-design-system/blob/main/README.md#development)
+- [Pull request and changelog checklist](https://github.com/massgov/massachusetts-design-system/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
+- [Component code standards](https://github.com/massgov/massachusetts-design-system/blob/main/packages/components/docs/CODE_STANDARDS.md)
+- Package READMEs: [tokens](https://github.com/massgov/massachusetts-design-system/blob/main/packages/tokens/README.md), [styles](https://github.com/massgov/massachusetts-design-system/blob/main/packages/styles/README.md), [assets](https://github.com/massgov/massachusetts-design-system/blob/main/packages/assets/README.md), and [components](https://github.com/massgov/massachusetts-design-system/blob/main/packages/components/README.md)

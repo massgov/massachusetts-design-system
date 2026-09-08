@@ -1,0 +1,57 @@
+{#
+  Icon button data:
+  - type and color map to the Figma Style and Color properties.
+  - disabled prevent native button interaction.
+#}
+{% set iconButtonElement = element in iconButtonOptions.element ? element : iconButtonDefaults.element %}
+{% set iconButtonColor = color in iconButtonOptions.color ? color : iconButtonDefaults.color %}
+{% set iconButtonType = type in iconButtonOptions.type ? type : iconButtonDefaults.type %}
+{% set iconButtonHtmlType = htmlType in iconButtonOptions.htmlType ? htmlType : iconButtonDefaults.htmlType %}
+{% set iconButtonIcon = icon in iconButtonOptions.icon ? icon : iconButtonDefaults.icon %}
+{% set iconButtonHref = href|default(iconButtonDefaults.href) %}
+{% set iconButtonId = id|default(iconButtonDefaults.id) %}
+{% set iconButtonAriaLabel = ariaLabel|default(iconButtonDefaults.ariaLabel) %}
+{% set iconButtonExtraClass = className|default(iconButtonDefaults.className) %}
+{% set iconButtonDisabled = disabled|default(iconButtonDefaults.disabled) %}
+{% set iconButtonUnavailable = iconButtonDisabled %}
+{% set iconButtonClass = 'mds-icon-button mds-icon-button--type-' ~ (iconButtonType|lower) ~ ' mds-icon-button--color-' ~ (iconButtonColor|lower) %}
+{% if iconButtonElement == 'a' %}
+  {% set iconButtonClass = iconButtonClass ~ ' mds-icon-button--element-link' %}
+{% endif %}
+{% if iconButtonDisabled %}
+  {% set iconButtonClass = iconButtonClass ~ ' mds-icon-button--disabled' %}
+{% endif %}
+{% if iconButtonExtraClass %}
+  {% set iconButtonClass = iconButtonClass ~ ' ' ~ iconButtonExtraClass %}
+{% endif %}
+
+{% if iconButtonElement == 'button' %}
+<button
+  class="{{ iconButtonClass|e }}"
+  type="{{ iconButtonHtmlType|e }}"
+  aria-label="{{ iconButtonAriaLabel|e }}"{% if iconButtonId %}
+  id="{{ iconButtonId|e }}"{% endif %}{% if iconButtonLoading %}
+  aria-busy="true"{% endif %}{% if iconButtonUnavailable %}
+  disabled{% endif %}
+>
+{% else %}
+<a
+  class="{{ iconButtonClass|e }}"{% if not iconButtonUnavailable %}
+  href="{{ iconButtonHref|e }}"{% endif %}
+  aria-label="{{ iconButtonAriaLabel|e }}"{% if iconButtonId %}
+  id="{{ iconButtonId|e }}"{% endif %}{% if iconButtonUnavailable %}
+  aria-disabled="true"
+  tabindex="-1"{% endif %}
+>
+{% endif %}
+    <span class="mds-icon-button__icon">
+      {% include 'icon.twig' with {
+        name: iconButtonIcon,
+        weight: 'Bold',
+        size: 'MD'
+      } %}
+{% if iconButtonElement == 'button' %}
+</button>
+{% else %}
+</a>
+{% endif %}

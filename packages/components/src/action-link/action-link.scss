@@ -1,0 +1,75 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
+.mds-action-link {
+  --mds-action-link-color: var(--mds-interactive-brand-primary-mid);
+  --mds-action-link-color-hover: var(--mds-interactive-brand-primary-high);
+  --mds-action-link-color-active: var(--mds-interactive-brand-primary-highest);
+  --mds-action-link-icon-size: 16px;
+
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--mds-space-3xs) 0;
+  color: var(--mds-action-link-color);
+  text-decoration: none;
+  transition:
+    box-shadow var(--mds-motion-duration-fastest) ease,
+    color var(--mds-motion-duration-fastest) ease;
+  @include mixins.focus;
+
+  &:hover {
+    color: var(--mds-action-link-color-hover);
+    box-shadow: inset 0 -2px currentColor;
+  }
+
+  &:active {
+    color: var(--mds-action-link-color-active);
+    box-shadow: inset 0 -2px currentColor;
+  }
+
+  &--color-neutral {
+    --mds-action-link-color: var(--mds-content-brand-neutral-default);
+    --mds-action-link-color-hover: var(--mds-interactive-brand-neutral-highest);
+    --mds-action-link-color-active: var(--mds-interactive-brand-neutral-highest);
+  }
+
+  &--color-white {
+    --mds-action-link-color: var(--mds-base-white);
+    --mds-action-link-color-hover: var(--mds-base-white);
+    --mds-action-link-color-active: var(--mds-base-white);
+    @include mixins.focus($focus-on-light: false);
+  }
+
+  &--size-small {
+    --mds-action-link-icon-size: 16px;
+
+    @include mixins.text("label");
+  }
+
+  &--size-medium {
+    --mds-action-link-icon-size: 20px;
+
+    @include mixins.text("label-lg");
+  }
+
+  &--size-large {
+    --mds-action-link-icon-size: 24px;
+
+    @include mixins.text("label-xl");
+  }
+
+  &__icon {
+    display: inline-flex;
+    width: var(--mds-action-link-icon-size);
+    vertical-align: middle;
+  }
+  .mds-visually-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+}
+

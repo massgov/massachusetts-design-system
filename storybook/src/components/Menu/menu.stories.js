@@ -75,14 +75,14 @@ function renderDocsMenuPreview(args) {
 const menuExamples = [
   {
     label: 'Default menu example',
-    args: menuDefaults
-  },
-  {
-    label: 'Menu items without icons',
     args: {
       ...menuDefaults,
       noIcons: true
     }
+  },
+  {
+    label: 'Menu items with icons',
+    args: menuDefaults
   },
   {
     label: 'Menu with disabled items',
@@ -188,7 +188,10 @@ const meta = {
   title: 'Components/Menu',
   render: renderMenuPreview,
   argTypes: menuControls,
-  args: menuDefaults,
+  args: {
+    ...menuDefaults,
+    noIcons: true
+  },
   parameters: {
     layout: 'padded'
   }

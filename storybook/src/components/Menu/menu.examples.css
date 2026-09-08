@@ -5,7 +5,7 @@
   background: linear-gradient(
     180deg,
     var(--mds-background-canvas-default) 0%,
-    var(--mds-background-adaptive-brand-primary-lowest) 100%
+    var(--mds-interactive-brand-primary-lowest) 100%
   );
 }
 
