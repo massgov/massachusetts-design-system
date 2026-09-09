@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-04T14:16:30Z",
+  "generated_at": "2026-09-02T18:39:23.653Z",
   "figma_names_source": "packages/assets/src/icons/scripts/figma-component-set-names.json",
   "summary": {
     "repo_regular_count": 258,
     "repo_bold_count": 258,
-    "figma_component_set_count": 258,
-    "exact_name_match_count": 258,
+    "figma_component_set_count": 248,
+    "exact_name_match_count": 248,
     "renamed_high_confidence_count": 0,
     "renamed_needs_review_count": 0,
-    "repo_only_unmapped_count": 0,
+    "repo_only_unmapped_count": 10,
     "figma_only_new_or_unmapped_count": 0
   },
   "notes": [
@@ -292,13 +292,6 @@
       "notes": ""
     },
     {
-      "repo_name": "bus",
-      "proposed_figma_name": "bus",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
-    },
-    {
       "repo_name": "calendar",
       "proposed_figma_name": "calendar",
       "status": "exact_name_match",
@@ -329,13 +322,6 @@
     {
       "repo_name": "campfire",
       "proposed_figma_name": "campfire",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
-    },
-    {
-      "repo_name": "car",
-      "proposed_figma_name": "car",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -1069,13 +1055,6 @@
       "notes": ""
     },
     {
-      "repo_name": "map-pin",
-      "proposed_figma_name": "map-pin",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
-    },
-    {
       "repo_name": "map-pin-area",
       "proposed_figma_name": "map-pin-area",
       "status": "exact_name_match",
@@ -1148,13 +1127,6 @@
     {
       "repo_name": "mosquito",
       "proposed_figma_name": "mosquito",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
-    },
-    {
-      "repo_name": "motorcycle",
-      "proposed_figma_name": "motorcycle",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -1552,13 +1524,6 @@
       "notes": ""
     },
     {
-      "repo_name": "subway",
-      "proposed_figma_name": "subway",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
-    },
-    {
       "repo_name": "sun",
       "proposed_figma_name": "sun",
       "status": "exact_name_match",
@@ -1575,13 +1540,6 @@
     {
       "repo_name": "syringe",
       "proposed_figma_name": "syringe",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
-    },
-    {
-      "repo_name": "taxi",
-      "proposed_figma_name": "taxi",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -1643,13 +1601,6 @@
       "notes": ""
     },
     {
-      "repo_name": "train-regional",
-      "proposed_figma_name": "train-regional",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
-    },
-    {
       "repo_name": "transit",
       "proposed_figma_name": "transit",
       "status": "exact_name_match",
@@ -1685,20 +1636,6 @@
       "notes": ""
     },
     {
-      "repo_name": "truck",
-      "proposed_figma_name": "truck",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
-    },
-    {
-      "repo_name": "truck-trailer",
-      "proposed_figma_name": "truck-trailer",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
-    },
-    {
       "repo_name": "upload-simple",
       "proposed_figma_name": "upload-simple",
       "status": "exact_name_match",
@@ -1729,13 +1666,6 @@
     {
       "repo_name": "users-three",
       "proposed_figma_name": "users-three",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
-    },
-    {
-      "repo_name": "van",
-      "proposed_figma_name": "van",
       "status": "exact_name_match",
       "confidence": "high",
       "notes": ""
@@ -1825,14 +1755,69 @@
       "notes": ""
     }
   ],
-  "renamed_high_confidence": [
-
-  ],
-  "renamed_needs_review": [
-
-  ],
+  "renamed_high_confidence": [],
+  "renamed_needs_review": [],
   "repo_only_stale": [
-
+    {
+      "repo_name": "bus",
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
+    },
+    {
+      "repo_name": "car",
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
+    },
+    {
+      "repo_name": "map-pin",
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
+    },
+    {
+      "repo_name": "motorcycle",
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
+    },
+    {
+      "repo_name": "subway",
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
+    },
+    {
+      "repo_name": "taxi",
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
+    },
+    {
+      "repo_name": "train-regional",
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
+    },
+    {
+      "repo_name": "truck",
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
+    },
+    {
+      "repo_name": "truck-trailer",
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
+    },
+    {
+      "repo_name": "van",
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
+    }
   ],
   "repo_inventory": [
     {
@@ -2110,10 +2095,9 @@
     },
     {
       "repo_name": "bus",
-      "proposed_figma_name": "bus",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
     },
     {
       "repo_name": "calendar",
@@ -2152,10 +2136,9 @@
     },
     {
       "repo_name": "car",
-      "proposed_figma_name": "car",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
     },
     {
       "repo_name": "caret-circle-right",
@@ -2887,10 +2870,9 @@
     },
     {
       "repo_name": "map-pin",
-      "proposed_figma_name": "map-pin",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
     },
     {
       "repo_name": "map-pin-area",
@@ -2971,10 +2953,9 @@
     },
     {
       "repo_name": "motorcycle",
-      "proposed_figma_name": "motorcycle",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
     },
     {
       "repo_name": "mountains",
@@ -3370,10 +3351,9 @@
     },
     {
       "repo_name": "subway",
-      "proposed_figma_name": "subway",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
     },
     {
       "repo_name": "sun",
@@ -3398,10 +3378,9 @@
     },
     {
       "repo_name": "taxi",
-      "proposed_figma_name": "taxi",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
     },
     {
       "repo_name": "tent",
@@ -3461,10 +3440,9 @@
     },
     {
       "repo_name": "train-regional",
-      "proposed_figma_name": "train-regional",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
     },
     {
       "repo_name": "transit",
@@ -3503,17 +3481,15 @@
     },
     {
       "repo_name": "truck",
-      "proposed_figma_name": "truck",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
     },
     {
       "repo_name": "truck-trailer",
-      "proposed_figma_name": "truck-trailer",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
     },
     {
       "repo_name": "upload-simple",
@@ -3552,10 +3528,9 @@
     },
     {
       "repo_name": "van",
-      "proposed_figma_name": "van",
-      "status": "exact_name_match",
-      "confidence": "high",
-      "notes": ""
+      "proposed_figma_name": "",
+      "status": "repo_only_unmapped",
+      "confidence": "low"
     },
     {
       "repo_name": "video",
@@ -3642,7 +3617,5 @@
       "notes": ""
     }
   ],
-  "figma_only": [
-
-  ]
+  "figma_only": []
 }
