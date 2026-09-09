@@ -4,7 +4,6 @@ module "static_site" {
   name    = "massachusetts-design-system-stage"
   comment = "designsystem.mass.gov (stage)"
 
-  # Custom domain deferred until the ACM cert for designsystem.stage.tss.mass.gov is issued:
-  # aliases             = ["designsystem.stage.tss.mass.gov"]
-  # acm_certificate_arn = "<us-east-1 ACM cert arn>"
+  aliases             = ["designsystem.stage.tss.mass.gov"]
+  acm_certificate_arn = "arn:aws:acm:us-east-1:748039698304:certificate/be3fc473-1e85-4b11-8887-252d9a128288"
 }

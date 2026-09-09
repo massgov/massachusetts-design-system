@@ -21,11 +21,11 @@ infra/
   template/
     static-site/    # Custom S3 + OAC + CloudFront module (domain-less friendly)
   env/
-    dev/            # UAT environment (designsystem.dev.tss.mass.gov, pending cert)
+    dev/            # UAT environment (designsystem.dev.tss.mass.gov)
       init.tf       #   backend + //tagging + provider
       main.tf       #   static_site module
       outputs.tf
-    stage/          # staging environment (designsystem.stage.tss.mass.gov, pending cert)
+    stage/          # staging environment (designsystem.stage.tss.mass.gov)
       init.tf       #   backend (stage state key) + //tagging (environment=stage)
       main.tf       #   static_site module
       outputs.tf
@@ -49,8 +49,8 @@ us-east-1 ACM cert exist. Tagging and the deploy role still use the shared
 
 | Env | Hostname | DNS CNAME target | ACM cert (us-east-1) | SNOW |
 |---|---|---|---|---|
-| dev | `designsystem.dev.tss.mass.gov` | `dzf18n4wmc83k.cloudfront.net` | pending | RITM0488699 |
-| stage | `designsystem.stage.tss.mass.gov` | `dazaojizlhqqt.cloudfront.net` | pending | RITM0488702 |
+| dev | `designsystem.dev.tss.mass.gov` | `dzf18n4wmc83k.cloudfront.net` | issued, wired in | RITM0488699 |
+| stage | `designsystem.stage.tss.mass.gov` | `dazaojizlhqqt.cloudfront.net` | issued, wired in | RITM0488702 |
 | prod | `designsystem.mass.gov` | `d3grhllmck6oga.cloudfront.net` | issued, wired in | RITM0488614 |
 
 DNS records are owned by the mass.gov / tss.mass.gov DNS teams and are
