@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { iconButtonDefaults } from '../../../../packages/components/src/icon-button/icon-button.data.js';
+import iconButtonCss from '@massds/mds-components/icon-button.css?raw';
+import { renderIconButton } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as IconButtonStories from './icon-button.stories.js';
+
+export const getIconButtonCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderIconButton({
+      ...iconButtonDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: iconButtonCss
+  }
+];
+
+<Meta of={IconButtonStories} />
+
+# Icon Button
+
+<Canvas
+  of={IconButtonStories.Playground}
+  sourceState="none"
+/>
+
+## API
+
+<Controls of={IconButtonStories.Playground} />
+
+## Code
+
+<StoryCodeTabs of={IconButtonStories.Playground} getTabs={getIconButtonCodeTabs} />

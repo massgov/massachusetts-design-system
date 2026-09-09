@@ -52,3 +52,10 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 * [DP-145] Removed unused `--mds-font-family` primitive token. #77
 * [DP-361] Removed unused packages/tokens/package-lock.json. #84
 
+
+## 3.0.0-beta.1 (8/19/2026)
+
+### Changed
+* [DS-443] Updated berkshire green 1300 and danger red 300 in primitives, updated interactive brand secondary scale in semantic tokens/index.css. #115
+* [DS-381] Updated all color and font tokens to the latest updated tokens from design decisions as of 8/7/26. #105
+

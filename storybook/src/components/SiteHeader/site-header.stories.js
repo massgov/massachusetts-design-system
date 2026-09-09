@@ -85,7 +85,7 @@ const siteHeaderControls = {
   },
   sealSrc: {
     control: 'text',
-    description: 'Optional state seal image override.',
+    description: 'Optional state seal image override. A 56px x 56px square logo is recommended.',
     table: {
       category: controlCategories.html
     }

@@ -1,0 +1,62 @@
+{#
+  Action link data:
+  - The design has no disabled state.
+  - size controls both the label typography and icon box.
+  - leftIcon and rightIcon are icon names from the assets package.
+#}
+{% set actionLinkColor = color in actionLinkOptions.color ? color : actionLinkDefaults.color %}
+{% set actionLinkSize = size in actionLinkOptions.size ? size : actionLinkDefaults.size %}
+{% set actionLinkIconWeight = iconWeight in actionLinkOptions.iconWeight ? iconWeight : actionLinkDefaults.iconWeight %}
+{% set actionLinkLeftIcon = leftIcon in actionLinkOptions.icon ? leftIcon : actionLinkDefaults.leftIcon %}
+{% set actionLinkLeftIconAccessibleText = leftIconAccessibleText|default(actionLinkDefaults.leftIconAccessibleText) %}
+{% set actionLinkLeftIconAccessibleTextId = leftIconAccessibleTextId|default(actionLinkDefaults.leftIconAccessibleTextId) %}
+{% set actionLinkRightIcon = rightIcon in actionLinkOptions.icon ? rightIcon : actionLinkDefaults.rightIcon %}
+{% set actionLinkRightIconAccessibleText = rightIconAccessibleText|default(actionLinkDefaults.rightIconAccessibleText) %}
+{% set actionLinkRightIconAccessibleTextId = rightIconAccessibleTextId|default(actionLinkDefaults.rightIconAccessibleTextId) %}
+{% set actionLinkIconSize = actionLinkIconSizes[actionLinkSize] %}
+{% set actionLinkText = text|default(actionLinkDefaults.text) %}
+{% set actionLinkHref = href|default(actionLinkDefaults.href) %}
+{% set actionLinkId = id|default(actionLinkDefaults.id) %}
+{% set actionLinkExtraClass = className|default(actionLinkDefaults.className) %}
+{% set actionLinkClass = 'mds-action-link mds-action-link--color-' ~ (actionLinkColor|lower) ~ ' mds-action-link--size-' ~ (actionLinkSize|lower) %}
+{% if actionLinkExtraClass %}
+  {% set actionLinkClass = actionLinkClass ~ ' ' ~ actionLinkExtraClass %}
+{% endif %}
+
+<a
+  class="{{ actionLinkClass|e }}"
+  href="{{ actionLinkHref|e }}"{% if actionLinkId %}
+  id="{{ actionLinkId|e }}"{% endif %}
+   {% if actionLinkRightIconAccessibleTextId %}aria-describedby="{{ actionLinkRightIconAccessibleTextId|e }}"{% endif %}
+>
+  <span class="mds-action-link__label">
+    {% if actionLinkLeftIcon %}
+      <span class="mds-action-link__icon">
+        {% include 'icon.twig' with {
+          name: actionLinkLeftIcon,
+          weight: actionLinkIconWeight,
+          size: actionLinkIconSize
+        } %}
+        {% if actionLinkLeftIconAccessibleText %}
+          <span id="{{ actionLinkLeftIconAccessibleTextId|e }}" tabindex="-1" class="mds-visually-hidden">{{ actionLinkLeftIconAccessibleText|e }}</span>
+        {% endif %}
+      </span>
+    {% endif %}
+
+    {{ actionLinkText|e }}
+
+    {% if actionLinkRightIcon %}
+      <span class="mds-action-link__icon">
+        {% include 'icon.twig' with {
+          name: actionLinkRightIcon,
+          weight: actionLinkIconWeight,
+          size: actionLinkIconSize
+        } %}
+        {% if actionLinkRightIconAccessibleText %}
+          <span id="{{ actionLinkRightIconAccessibleTextId|e }}" tabindex="-1" aria-hidden="true" class="mds-visually-hidden">{{ actionLinkRightIconAccessibleText|e }}</span>
+        {% endif %}
+      </span>
+
+    {% endif %}
+  </span>
+</a>
