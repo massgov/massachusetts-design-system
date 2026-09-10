@@ -212,3 +212,9 @@ $state-banner-item-min-width: 20rem;
     }
   }
 }
+// Hide state banner on print
+@media print {
+  .mds-state-banner {
+    display: none;
+  }
+}
