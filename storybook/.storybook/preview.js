@@ -30,7 +30,7 @@ const preview = {
     docs: {
       theme: massdsDocsTheme,
       toc: {
-        headingSelector: 'h2,h3',
+        headingSelector: 'h2',
         title: null
       }
     },
