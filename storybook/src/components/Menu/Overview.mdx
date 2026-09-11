@@ -1,20 +1,72 @@
-import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/menu.css';
+import { menuDefaults } from '../../../../packages/components/src/menu/menu.data.js';
+import { renderMenu } from '../../utils/component-renderers.js';
 import * as MenuStories from './menu.stories.js';
+import './menu.examples.css';
+
+export const MenuExample = (args) => (
+  <div
+    className="sb-unstyled mds-menu-story-static-example"
+    dangerouslySetInnerHTML={{
+      __html: renderMenu({
+        ...menuDefaults,
+        ...args
+      })
+    }}
+  />
+);
 
 <Meta of={MenuStories} />
 
-# Menu
+# Menu overview
 
-This component renders the menu surface and menu items. Pair it with a trigger button and the interaction script when you need an attached dropdown-style menu in product code.
+A temporary menu that appears when a user selects a button, icon, or other element. It shows actions or options related to what the user selected. The menu disappears when the user chooses an option or interacts elsewhere on the screen.
 
-<Canvas of={MenuStories.Examples} sourceState="none" />
+---
 
-## Usage
+## Variants
 
-### When To Use
-- To present a short list of contextual actions or navigation choices from a trigger
-- When menu items need optional icons or disabled button states
+### Menu
 
-### When Not To Use
-- For long-form navigation that should stay visible on the page
-- When the content is better represented as a list of standard buttons or links
+Menu items adapt dynamically based on user interaction. Ensure high contrast and visible focus indicators across all modes. The available states are `Default`, `Hover`, `Active`, `Focus`, and `Disabled`.
+
+<MenuExample
+  noIcons={true}
+  items={[
+    { type: 'button', buttonType: 'button', label: 'View profile' },
+    { type: 'button', buttonType: 'button', label: 'Contact information' },
+    { type: 'button', buttonType: 'button', label: 'Communication preferences' },
+    { type: 'button', buttonType: 'button', label: 'Sign out' }
+  ]}
+/>
+
+### Menu with icons
+
+Use icons only when they add helpful context or make an action easier to recognize.
+
+<MenuExample
+  items={[
+    {
+      type: 'button',
+      buttonType: 'button',
+      label: 'Profile',
+      iconName: 'user',
+      iconWeight: 'Regular'
+    },
+    {
+      type: 'button',
+      buttonType: 'button',
+      label: 'Help and support',
+      iconName: 'question',
+      iconWeight: 'Regular'
+    },
+    {
+      type: 'button',
+      buttonType: 'button',
+      label: 'Sign out',
+      iconName: 'signout',
+      iconWeight: 'Regular'
+    }
+  ]}
+/>

@@ -1,0 +1,86 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as MenuStories from './menu.stories.js';
+
+<Meta of={MenuStories} />
+
+# Menu guidance
+
+---
+
+## Content
+
+### Best practices
+
+#### Do
+
+- Keep labels concise, ideally using only 1 to 3 words and fewer than 20 characters.
+- Use plain language.
+- Use sentence case.
+
+#### Don't
+
+- Use acronyms that may not be immediately understood.
+
+---
+
+## Design
+
+### Usage
+
+#### When to use a menu
+
+- To provide a compact list of related actions or commands.
+- When the actions are secondary and do not need to be visible at all times.
+- When displaying all actions on the page would add unnecessary clutter.
+- For familiar, predictable groups of actions, such as account or profile actions.
+
+#### When not to use a menu
+
+- For important or frequently used actions that should remain visible.
+- When people need to see or compare all available options before making a choice.
+- For navigation that would be clearer as visible links or other navigation components.
+- As a form control for selecting and submitting a value; use a native selection component instead.
+
+#### Responsive behavior
+
+- Position the menu relative to its trigger and keep it within the visible viewport.
+- On larger screens, allow the menu to use more available width if labels are wrapping to a second line.
+- Avoid horizontal scrolling or truncating important menu labels.
+
+---
+
+## Accessibility
+
+### Mouse control
+
+- The menu opens on click.
+- Select an option with a single click.
+- Clicking outside the menu area closes it.
+
+### Touch control
+
+- Tap the menu trigger to open the menu.
+- Tap outside the menu area to close it.
+- Support momentum scrolling in longer lists.
+
+### Keyboard control
+
+- The Tab key navigates to the menu control.
+- The Enter or Space key opens the menu when focused.
+- The Up and Down arrow keys navigate between options.
+- The Home and End keys move to the first and last options.
+- Support type-ahead to quickly navigate to options starting with typed characters.
+- The Enter key selects the focused option and closes the menu for single-select menus.
+- The Escape key closes the menu without changing the selection.
+- The Tab key moves focus out of an open menu and closes it.
+
+### Assistive technology
+
+- Add `role="menu"` to the menu container.
+- Add `role="menuitem"` to each menu option.
+- Provide an accessible label, such as `aria-label="User menu"` or `aria-label="Profile menu"`.
+- Use `aria-haspopup="true"` and toggle `aria-expanded="true"` or `aria-expanded="false"` based on the menu state.
+- Connect the trigger to the menu with `aria-controls="menu-id"`.
+- Associate the menu with its trigger using `aria-labelledby="trigger-button-id"`.
+- Announce when the menu opens, for example "menu expanded, 5 items," and when it closes.
+- Announce the current item as people move through menu items, for example "Preferences, 1 of 5."
