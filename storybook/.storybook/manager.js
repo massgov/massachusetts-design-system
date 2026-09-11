@@ -1,11 +1,52 @@
 import { addons } from 'storybook/manager-api';
 import { STORY_CHANGED } from 'storybook/internal/core-events';
+import '@massds/mds-tokens/dist/index.css';
+import '@massds/mds-styles/index.css';
+import '@massds/mds-components/state-banner.css';
+import { renderStorybookStateBanner } from './manager-state-banner.js';
 import { massdsManagerTheme } from './theme';
 
 addons.setConfig({
   theme: massdsManagerTheme
 });
 
+// Mount the state banner in the Storybook preview area
+const stateBannerId = 'storybook-main-banner';
+const toolbarSelector = '.sb-bar[data-testid="sb-preview-toolbar"]';
+
+function mountStateBanner() {
+  const toolbar = document.querySelector(toolbarSelector);
+
+  if (!toolbar || !toolbar.parentElement) {
+    return;
+  }
+
+  const previewContainer = toolbar.parentElement;
+  let banner = document.getElementById(stateBannerId);
+
+  if (!banner) {
+    banner = document.createElement('div');
+    banner.id = stateBannerId;
+    banner.innerHTML = renderStorybookStateBanner();
+  }
+
+  if (banner.parentElement !== previewContainer || banner.nextElementSibling !== toolbar) {
+    previewContainer.insertBefore(banner, toolbar);
+  }
+}
+
+const storybookRoot = document.getElementById('root');
+
+if (storybookRoot) {
+  new MutationObserver(mountStateBanner).observe(storybookRoot, {
+    childList: true,
+    subtree: true
+  });
+  mountStateBanner();
+}
+
+
+// GA4 SPA route tracking for Storybook
 let lastTrackedView;
 
 function getStorybookView() {

@@ -1,0 +1,63 @@
+import stateSeal from '@massds/mds-assets/dist/state-seal/state-seal-white.svg';
+
+const caretIcon = `
+  <svg class="mds-icon mds-icon--size-md mds-icon--weight-bold" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor">
+    <path d="m19.796 9.796-7.5 7.5a1.124 1.124 0 0 1-1.594 0l-7.5-7.5a1.127 1.127 0 1 1 1.594-1.594l6.704 6.704 6.704-6.705a1.127 1.127 0 1 1 1.594 1.594z" />
+  </svg>
+`;
+
+const buildingIcon = `
+  <svg class="mds-icon mds-icon--size-lg mds-icon--weight-regular" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor">
+    <path d="M17.561 10.804a.645.645 0 0 1-.644-.645 4.804 4.804 0 0 0-4.799-4.798 4.804 4.804 0 0 0-4.798 4.798.645.645 0 1 1-1.29 0 6.094 6.094 0 0 1 6.088-6.088 6.094 6.094 0 0 1 6.088 6.088.645.645 0 0 1-.645.644m4.018 2.343H2.395a.645.645 0 1 1 0-1.29h19.184a.645.645 0 1 1 0 1.29m.027 8.93h-19.2a.645.645 0 0 1-.644-.644V17.73c0-.356.289-.645.645-.645h19.195c.356 0 .645.29.645.645l.003 3.702a.645.645 0 0 1-.644.646M3.052 20.789H20.96l-.002-2.413H3.052z" />
+    <path d="M12.119 5.36a.645.645 0 0 1-.645-.644v-2.15a.645.645 0 1 1 1.29 0v2.15a.645.645 0 0 1-.646.645m6.699 7.043a.645.645 0 0 1-.645-.645v-.936H6.023v.936a.645.645 0 1 1-1.29 0v-1.58c0-.357.29-.646.646-.646h13.439c.356 0 .645.289.645.645v1.58a.645.645 0 0 1-.645.646m-15.715 5.76a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645m17.864 0a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645M7.57 18.164a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.646.645m4.466 0a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645m4.466 0a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645" />
+  </svg>
+`;
+
+const lockIcon = `
+  <svg class="mds-icon mds-icon--size-lg mds-icon--weight-regular" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor">
+    <path d="M19.5 7.5h-3V5.25a4.5 4.5 0 1 0-9 0V7.5h-3A1.5 1.5 0 0 0 3 9v10.5A1.5 1.5 0 0 0 4.5 21h15a1.5 1.5 0 0 0 1.5-1.5V9a1.5 1.5 0 0 0-1.5-1.5M9 5.25a3 3 0 1 1 6 0V7.5H9zM19.5 19.5h-15V9h15z" />
+  </svg>
+`;
+
+export function renderStorybookStateBanner() {
+  return `
+    <section class="mds-state-banner" aria-label="Official website banner">
+      <div class="mds-state-banner__container">
+        <details class="mds-state-banner__details">
+          <summary class="mds-state-banner__summary">
+            <span class="mds-state-banner__inner">
+              <span class="mds-state-banner__brand">
+                <img class="mds-state-seal mds-state-banner__seal" src="${stateSeal}" alt="Massachusetts State Seal" />
+                <p class="mds-state-banner__text">
+                  <span class="mds-state-banner__text-prefix">An official website of the Commonwealth of Massachusetts</span>
+                  <span class="mds-state-banner__toggle-text">
+                    <span>Here's how you know</span>
+                    <span class="mds-state-banner__caret" aria-hidden="true">${caretIcon}</span>
+                  </span>
+                </p>
+              </span>
+            </span>
+          </summary>
+          <div class="mds-state-banner__panel" id="storybook-main-banner-panel">
+            <div class="mds-state-banner__items" role="region" aria-label="Official website indicators">
+              <div class="mds-state-banner__item">
+                <span class="mds-state-banner__item-icon" aria-hidden="true">${buildingIcon}</span>
+                <div class="mds-state-banner__item-copy">
+                  <h2 class="mds-state-banner__item-heading">Official websites use .mass.gov</h2>
+                  <p class="mds-state-banner__item-description">A .mass.gov website belongs to an official government organization in Massachusetts.</p>
+                </div>
+              </div>
+              <div class="mds-state-banner__item">
+                <span class="mds-state-banner__item-icon" aria-hidden="true">${lockIcon}</span>
+                <div class="mds-state-banner__item-copy">
+                  <h2 class="mds-state-banner__item-heading">Secure websites use HTTPS</h2>
+                  <p class="mds-state-banner__item-description">A lock icon or https:// means you've safely connected to the official website. Share sensitive information only on official, secure websites.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+  `;
+}
