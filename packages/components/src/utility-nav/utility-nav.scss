@@ -60,3 +60,9 @@
     justify-content: flex-end;
   }
 }
+// Hide utility nav on print
+@media print {
+  .mds-utility-nav {
+    display: none;
+  }
+}
