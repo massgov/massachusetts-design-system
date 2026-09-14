@@ -1,4 +1,7 @@
-import stateSeal from '@massds/mds-assets/dist/state-seal/state-seal-white.svg';
+import storybookPackage from '../package.json';
+
+const stateAssetsVersion = storybookPackage.dependencies['@massds/mds-assets'];
+const stateSealSrc = `https://unpkg.com/@massds/mds-assets@${stateAssetsVersion}/dist/state-seal/state-seal-white.png`;
 
 const caretIcon = `
   <svg class="mds-icon mds-icon--size-md mds-icon--weight-bold" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor">
@@ -27,7 +30,7 @@ export function renderStorybookStateBanner() {
           <summary class="mds-state-banner__summary">
             <span class="mds-state-banner__inner">
               <span class="mds-state-banner__brand">
-                <img class="mds-state-seal mds-state-banner__seal" src="${stateSeal}" alt="Massachusetts State Seal" />
+                <img class="mds-state-seal mds-state-banner__seal" src="${stateSealSrc}" alt="Massachusetts State Seal" />
                 <p class="mds-state-banner__text">
                   <span class="mds-state-banner__text-prefix">An official website of the Commonwealth of Massachusetts</span>
                   <span class="mds-state-banner__toggle-text">
