@@ -43,6 +43,8 @@ jobs:
         run: npm run build --workspaces --if-present
 
       - name: Build site
+        env:
+          STORYBOOK_GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
         run: npm run build:storybook
 
       - name: Configure AWS credentials (OIDC)

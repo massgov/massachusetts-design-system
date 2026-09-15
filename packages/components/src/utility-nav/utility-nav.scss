@@ -41,7 +41,7 @@
   }
 
   &__button.mds-button {
-    padding-inline: var(--mds-space-2xs);
+    margin-right: var(--mds-space-2xs);
     border-radius: var(--mds-radius-sm);
   }
 
@@ -58,5 +58,11 @@
   .mds-utility-nav__section--end {
     width: 100%;
     justify-content: flex-end;
+  }
+}
+// Hide utility nav on print
+@media print {
+  .mds-utility-nav {
+    display: none;
   }
 }

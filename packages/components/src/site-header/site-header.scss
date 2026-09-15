@@ -57,3 +57,10 @@
     @include mixins.text("eyebrow-lg");
   }
 }
+// Print styles
+//TODO: Hide any content on the right side of the site header on print when we build the full feature version of this component
+@media print {
+  .mds-site-header__site-name {
+    color: var(--mds-base-black);
+  }
+}
