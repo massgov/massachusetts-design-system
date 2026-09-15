@@ -15,6 +15,12 @@
   inline-size: min(100%, 30rem);
 }
 
+.mds-menu-story-static-example .mds-popup-menu {
+  display: flex;
+  position: static;
+  inline-size: min(100%, 30rem);
+}
+
 .mds-menu-story-playground .mds-popup-menu-trigger {
   font: inherit;
 }

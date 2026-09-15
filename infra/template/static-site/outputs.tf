@@ -19,6 +19,11 @@ output "cloudfront_distro_arn" {
 }
 
 output "site_fqdn" {
-  description = "The *.cloudfront.net domain — the shareable URL until a custom domain is wired in."
+  description = "The site hostname: the first alias when a custom domain is wired in, otherwise the *.cloudfront.net domain."
+  value       = length(var.aliases) > 0 ? var.aliases[0] : aws_cloudfront_distribution.site.domain_name
+}
+
+output "cloudfront_domain_name" {
+  description = "The *.cloudfront.net domain (DNS CNAME target)."
   value       = aws_cloudfront_distribution.site.domain_name
 }

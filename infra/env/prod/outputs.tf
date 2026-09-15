@@ -1,5 +1,5 @@
 output "site_url" {
-  description = "Production *.cloudfront.net URL (until designsystem.mass.gov is wired in)."
+  description = "Production URL (https://designsystem.mass.gov)."
   value       = "https://${module.static_site.site_fqdn}"
 }
 

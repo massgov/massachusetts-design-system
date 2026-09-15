@@ -167,7 +167,7 @@
   &__fine-print {
     display: flex;
     flex-direction: column;
-    gap: var(--mds-space-sm);
+    gap: var(--mds-space-md);
     padding-block: var(--mds-space-md) var(--mds-space-2xl);
 
     @include mixins.text("caption-lg");
@@ -224,3 +224,16 @@
     padding-block-start: var(--mds-space-sm);
   }
 }
+// Print styles
+@media print {
+  .mds-footer__column, .mds-footer__social-list, .mds-footer__description, .mds-footer__legal-nav {
+    display: none;
+  }
+  .mds-footer__brand.mds-footer__column {
+    display: block;
+  }
+  .mds-footer__content {
+    padding-block-end: 0;
+  }
+}
+

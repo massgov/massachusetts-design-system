@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { utilityNavDefaults } from '../../../../packages/components/src/utility-nav/utility-nav.data.js';
+import utilityNavCss from '@massds/mds-components/utility-nav.css?raw';
+import { renderUtilityNav } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as UtilityNavStories from './utility-nav.stories.js';
+
+export const getUtilityNavCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderUtilityNav({
+      ...utilityNavDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: utilityNavCss
+  }
+];
+
+<Meta of={UtilityNavStories} />
+
+# Utility Navigation
+
+<Canvas
+  of={UtilityNavStories.Playground}
+  sourceState="none"
+/>
+
+## API
+
+<Controls of={UtilityNavStories.Playground} />
+
+## Code
+
+<StoryCodeTabs of={UtilityNavStories.Playground} getTabs={getUtilityNavCodeTabs} />

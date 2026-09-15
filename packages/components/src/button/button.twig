@@ -13,14 +13,24 @@
 {% set buttonText = text|default(buttonDefaults.text) %}
 {% set leftIconName = leftIcon in buttonOptions.icon ? leftIcon : buttonDefaults.leftIcon %}
 {% set rightIconName = rightIcon in buttonOptions.icon ? rightIcon : buttonDefaults.rightIcon %}
-{% set buttonClass = 'mds-button mds-button--type-' ~ buttonType|lower ~ ' mds-button--color-' ~ buttonColor|lower ~ ' mds-button--size-' ~ buttonSize|lower %}
+{% set leftIconWeightValue = leftIconWeight|default('Bold') %}
+{% set leftIconWeight = leftIconWeightValue in ['Regular', 'Bold'] ? leftIconWeightValue : 'Bold' %}
+{% set rightIconWeightValue = rightIconWeight|default('Bold') %}
+{% set rightIconWeight = rightIconWeightValue in ['Regular', 'Bold'] ? rightIconWeightValue : 'Bold' %}
+{% set buttonClassName = className|default('') %}
+{% set buttonClass = 'mds-button mds-button--type-' ~ buttonType|lower ~ ' mds-button--color-' ~ buttonColor|lower ~ ' mds-button--size-' ~ buttonSize|lower ~ (buttonClassName ? ' ' ~ buttonClassName : '') %}
+{% set buttonAriaLabel = ariaLabel|default('') %}
+{% set buttonAriaControls = ariaControls|default('') %}
 
 {% if buttonHref %}
 <a
   class="{{ buttonClass|e }}"
   {% if not disabled %}href="{{ buttonHref|e }}"{% endif %}
   data-mds-button{% if id %}
-  id="{{ id|e }}"{% endif %}{% if disabled %}
+  id="{{ id|e }}"{% endif %}{% if buttonAriaLabel %}
+  aria-label="{{ buttonAriaLabel|e }}"{% endif %}{% if ariaExpanded is defined %}
+  aria-expanded="{{ ariaExpanded ? 'true' : 'false' }}"{% endif %}{% if buttonAriaControls %}
+  aria-controls="{{ buttonAriaControls|e }}"{% endif %}{% if disabled %}
   aria-disabled="true"
   tabindex="-1"{% endif %}
 >
@@ -29,7 +39,10 @@
   class="{{ buttonClass|e }}"
   type="{{ buttonHtmlType|e }}"
   data-mds-button{% if id %}
-  id="{{ id|e }}"{% endif %}{% if disabled %}
+  id="{{ id|e }}"{% endif %}{% if buttonAriaLabel %}
+  aria-label="{{ buttonAriaLabel|e }}"{% endif %}{% if ariaExpanded is defined %}
+  aria-expanded="{{ ariaExpanded ? 'true' : 'false' }}"{% endif %}{% if buttonAriaControls %}
+  aria-controls="{{ buttonAriaControls|e }}"{% endif %}{% if disabled %}
   disabled{% endif %}
 >
 {% endif %}
@@ -37,7 +50,7 @@
     <span class="mds-button__icon mds-button__icon--left">
       {% include 'icon.twig' with {
         name: leftIconName,
-        weight: 'Bold'
+        weight: leftIconWeight
       } %}
     </span>
   {% endif %}
@@ -48,7 +61,7 @@
     <span class="mds-button__icon">
       {% include 'icon.twig' with {
         name: rightIconName,
-        weight: 'Bold'
+        weight: rightIconWeight
       } %}
     </span>
   {% endif %}
