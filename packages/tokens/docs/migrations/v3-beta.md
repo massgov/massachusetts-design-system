@@ -35,7 +35,7 @@ The label, eyebrow, and caption scales now follow a more consistent T-shirt sizi
 | `--mds-text-caption-*-md` | `--mds-text-caption-*-lg` |
 | `--mds-text-eyebrow-*-md` | `--mds-text-eyebrow-*-lg` |
 
-Here, * represents the typography property, such as font-size or line-height. 
+Here, `*` represents the typography property, such as font-size or line-height. 
 
 The corresponding text-style mixin names have also changed: 
 
@@ -59,7 +59,7 @@ Because these changes rename existing color and typography tokens, V3 is a break
 
 The underlying values of the renamed typography tokens have not changed, so these updates should not result in visual changes when the corresponding V3 tokens are used. 
 
-Use the V2-to-V3 token mapping to identify the replacements needed in your code. 
+Use the [V2-to-V3 token mapping spreadsheet](https://massgov.sharepoint.com/:x:/s/TSS-TEAMS-XDR-ExperienceDesign_Research/IQCnkj5s1IP4Rq4aL1aqzIl1AfxC1zmjPXNU8hvlKmDyLP4?e=zXl5EA) to identify the replacements needed in your code. 
 
 If you need help planning or completing your upgrade, please reach out to the Design System team at designsystem@mass.gov. 
 
