@@ -8,7 +8,7 @@ Many V2 tokens will not work in V3. Use the [V2-to-V3 token mapping spreadsheet]
 
 If you are upgrading from V1, first complete the [V1-to-V2 migration guide](./v2.md).
 
-## Required code changes
+## Code changes explained
 
 ### Color token renames
 
