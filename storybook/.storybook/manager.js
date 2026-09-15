@@ -1,11 +1,84 @@
 import { addons } from 'storybook/manager-api';
 import { STORY_CHANGED } from 'storybook/internal/core-events';
+import '@massds/mds-tokens/dist/index.css';
+import '@massds/mds-styles/index.css';
+import '@massds/mds-components/state-banner.css';
+import storybookPackage from '../package.json';
 import { massdsManagerTheme } from './theme';
 
 addons.setConfig({
   theme: massdsManagerTheme
 });
 
+// Mount the state banner in the Storybook preview area
+const stateBannerId = 'storybook-main-banner';
+const toolbarSelector = '.sb-bar[data-testid="sb-preview-toolbar"]';
+const storybookBasePath = window.__MASSDS_STORYBOOK_BASE_PATH__ || '/';
+const stateBannerHtmlUrl = new URL(
+  `${storybookBasePath.replace(/\/?$/, '/')}components/state-banner/state-banner.html`,
+  window.location.origin
+).href;
+const stateAssetsVersion = storybookPackage.dependencies['@massds/mds-assets'];
+const stateSealSrc = `https://unpkg.com/@massds/mds-assets@${stateAssetsVersion}/dist/state-seal/state-seal-white.png`;
+let stateBannerMarkup;
+
+async function loadStateBannerMarkup() {
+  if (!stateBannerMarkup) {
+    stateBannerMarkup = fetch(stateBannerHtmlUrl).then((response) => {
+      if (!response.ok) {
+        throw new Error(`Unable to load the State Banner: ${response.status}`);
+      }
+
+      return response.text();
+    });
+  }
+
+  return stateBannerMarkup;
+}
+
+async function mountStateBanner() {
+  const toolbar = document.querySelector(toolbarSelector);
+
+  if (!toolbar || !toolbar.parentElement) {
+    return;
+  }
+
+  const previewContainer = toolbar.parentElement;
+  let banner = document.getElementById(stateBannerId);
+
+  if (!banner) {
+    banner = document.createElement('div');
+    banner.id = stateBannerId;
+    previewContainer.insertBefore(banner, toolbar);
+
+    const bannerTemplate = document.createElement('template');
+
+    bannerTemplate.innerHTML = await loadStateBannerMarkup();
+    bannerTemplate.content
+      .querySelector('.mds-state-banner__seal')
+      ?.setAttribute('src', stateSealSrc);
+    banner.append(bannerTemplate.content);
+  }
+
+  if (banner.parentElement !== previewContainer || banner.nextElementSibling !== toolbar) {
+    previewContainer.insertBefore(banner, toolbar);
+  }
+}
+
+const storybookRoot = document.getElementById('root');
+
+if (storybookRoot) {
+  new MutationObserver(() => {
+    mountStateBanner().catch((error) => console.error(error));
+  }).observe(storybookRoot, {
+    childList: true,
+    subtree: true
+  });
+  mountStateBanner().catch((error) => console.error(error));
+}
+
+
+// GA4 SPA route tracking for Storybook
 let lastTrackedView;
 
 function getStorybookView() {
