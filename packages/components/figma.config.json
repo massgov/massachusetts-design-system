@@ -1,7 +1,7 @@
 {
   "codeConnect": {
     "parser": "html",
-    "include": ["src/**/*.figma.ts"],
+    "include": ["dist/**/*.figma.ts"],
     "label": "MDS HTML",
     "language": "html"
   }

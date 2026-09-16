@@ -11,6 +11,7 @@ import {
   toPascalCase
 } from '../src/shared/component-context.js';
 import { createTwigRenderer } from '../src/shared/twig-renderer.js';
+import { createCodeConnectTemplate } from './code-connect-template.js';
 
 function getDefaultSourceFiles(componentName) {
   return [`${componentName}.twig`];
@@ -116,6 +117,25 @@ async function getComponentBuildModule(sourceDir) {
   }
 
   return importModule(buildModulePath);
+}
+
+async function getCodeConnectConfig(componentName, sourceDir) {
+  const configPath = path.join(sourceDir, `${componentName}.figma.config.js`);
+
+  if (!(await pathExists(configPath))) {
+    return null;
+  }
+
+  const configModule = await importModule(configPath);
+  const config = configModule.default ?? configModule.codeConnectConfig;
+
+  if (!config?.url || !config?.id || !config?.stylesheet) {
+    throw new Error(
+      `${configPath} must export a Code Connect config with url, id, and stylesheet values.`
+    );
+  }
+
+  return config;
 }
 
 async function getOwnRendererOptions(getRendererOptions, buildContext) {
@@ -229,7 +249,22 @@ export function createComponentBuild({
     });
 
     await context.copySourceFiles(sourceFiles);
-    await context.writeOutputFile(`${componentName}.html`, rendererContext.renderComponent(componentDefaults));
+    const renderedHtml = rendererContext.renderComponent(componentDefaults);
+    const codeConnectConfig = await getCodeConnectConfig(componentName, context.sourceDir);
+
+    await context.writeOutputFile(`${componentName}.html`, renderedHtml);
+
+    if (codeConnectConfig) {
+      await context.writeOutputFile(
+        `${componentName}.figma.ts`,
+        createCodeConnectTemplate({
+          componentName,
+          config: codeConnectConfig,
+          defaults: componentDefaults,
+          renderComponent: rendererContext.renderComponent
+        })
+      );
+    }
     await writeAdditionalOutputs({
       ...context,
       componentName,
