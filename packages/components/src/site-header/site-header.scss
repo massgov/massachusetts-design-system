@@ -58,9 +58,12 @@
   }
 }
 // Print styles
-//TODO: Hide any content on the right side of the site header on print when we build the full feature version of this component
+//TODO: Hide any content on the right side of the site header on print when we build the full feature version of this component. Site name will be full width.
 @media print {
-  .mds-site-header__site-name {
-    color: var(--mds-base-black);
+  .mds-site-header {
+    background-color: var(--mds-base-white);
+    &__site-name {
+      color: var(--mds-content-brand-neutral-default);
+    }
   }
 }
