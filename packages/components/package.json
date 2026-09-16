@@ -20,6 +20,8 @@
     "build": "node ./scripts/build.js",
     "watch": "node --watch-path=src ./scripts/build.js",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "figma:connect:preview": "figma connect preview --config figma.config.json",
+    "figma:connect:publish": "figma connect publish --config figma.config.json",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
