@@ -10,7 +10,7 @@ const type = instance.getEnum('Type', {
 })
 const color = instance.getEnum('Color', {
   Primary: 'primary',
-  Accent: 'secondary',
+  Secondary: 'secondary',
   White: 'white',
   Danger: 'danger'
 })
