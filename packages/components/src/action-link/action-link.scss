@@ -73,4 +73,13 @@
     overflow: hidden;
   }
 }
+// Action Link Print tyles
+@media print {
+  .mds-action-link {
+    &:after{content:" (" attr(href) ")"}
 
+    &__icon {
+      display: none;
+    }
+  }
+}
