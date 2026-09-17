@@ -1,5 +1,4 @@
 import { addons } from 'storybook/manager-api';
-import { STORY_CHANGED } from 'storybook/internal/core-events';
 import { massdsManagerTheme } from './theme';
 
 addons.setConfig({
@@ -55,5 +54,20 @@ function trackStorybookView() {
   });
 }
 
-addons.getChannel().on(STORY_CHANGED, trackStorybookView);
-window.setTimeout(trackStorybookView, 0);
+function trackAfterNavigation() {
+  queueMicrotask(trackStorybookView);
+}
+
+for (const method of ['pushState', 'replaceState']) {
+  const originalMethod = window.history[method];
+
+  window.history[method] = function (...args) {
+    const result = originalMethod.apply(this, args);
+    trackAfterNavigation();
+    return result;
+  };
+}
+
+window.addEventListener('popstate', trackAfterNavigation);
+window.addEventListener('hashchange', trackAfterNavigation);
+trackAfterNavigation();
