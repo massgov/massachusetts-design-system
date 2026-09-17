@@ -1,0 +1,76 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as ActionLinkStories from './action-link.stories.js';
+
+<Meta of={ActionLinkStories} />
+
+# Action link guidance
+
+---
+
+## Content
+
+### Best practices
+
+Action links stand outside running text, so their link text should communicate the destination without depending on surrounding content.
+
+#### Do
+
+- Begin link text with words that identify the destination
+- Keep link text concise and specific enough to make sense on its own
+- Use consistent wording for links that lead to the same destination
+- Include the file type when linking directly to a downloadable document, such as Annual report (PDF)
+
+#### Don't
+
+- Use generic link text such as "Click here," "Read more," or "Learn more" on its own
+- Use a file type or media type, such as "PDF" or "Doc," without also describing the destination
+- Use a raw URL as link text unless the URL itself is information people need
+- Rely on surrounding content to explain where the link goes
+
+---
+
+## Design
+
+### Usage
+
+#### When to use
+
+- Use an action link when an important destination needs to stand apart from surrounding content
+- Use an action link as a standalone navigation choice or within a list of navigation choices
+- Use an action link when an icon helps communicate the direction or type of navigation
+
+#### When not to use
+
+- Do not use an action link within a sentence or paragraph. Use inline link styling so the link follows the typography of the surrounding text.
+- Use an action link for navigation. Use a button for actions that do not navigate to a new destination.
+
+---
+
+## Accessibility
+
+### Mouse control
+
+- Action links provide visible hover and pressed treatments
+- Selecting an action link navigates to its destination
+
+### Touch control
+
+- Action links provide visible pressed treatments on tap
+- Tapping on an action link navigates to its destination
+
+### Keyboard control
+
+- Show the visible focus treatment when an action link receives keyboard focus
+
+### Assistive technology
+
+- Use link semantics so assistive technology identifies the component as a link
+- Make the link text communicate the destination
+
+---
+
+## Related components
+
+[Button](?path=/docs/components-button--overview) — use a button when the interaction performs an action instead of navigating.
+
+Type styles — use inline link styling when a link appears within a sentence or paragraph.
