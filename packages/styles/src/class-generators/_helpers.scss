@@ -29,3 +29,12 @@
 .mds-grid-4-column {
   @include mixins.grid-4-column;
 }
+
+.mds-visually-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
