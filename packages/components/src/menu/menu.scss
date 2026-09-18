@@ -135,7 +135,7 @@
 
 // Print styles
 @media print {
-  .mds-popup-menu.mds-popup-menu.mds-popup-menu {
-    display: none !important; /** This is present due to the fact that the menu is being opened via javascript and an inline style of "display: flex" is being added directly to the element. **/
+  .mds-popup-menu {
+    display: none;
   }
 }
