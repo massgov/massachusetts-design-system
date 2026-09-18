@@ -114,13 +114,6 @@ const iconSelectControl = {
 
 // Controls are the editable fields in the Storybook UI.
 const iconButtonControls = {
-  element: {
-    control: 'inline-radio',
-    options: iconButtonOptions.element,
-    table: {
-      category: controlCategories.html
-    }
-  },
   ariaLabel: {
     control: 'text',
     description: 'Accessible label for the icon-only control.',
@@ -130,6 +123,14 @@ const iconButtonControls = {
   },
   icon: {
     ...iconSelectControl,
+    table: {
+      category: controlCategories.design
+    }
+  },
+  iconWeight: {
+    control: 'select',
+    options: iconButtonOptions.iconWeight,
+    control: 'select',
     table: {
       category: controlCategories.design
     }
@@ -146,6 +147,13 @@ const iconButtonControls = {
     options: iconButtonOptions.color,
     table: {
       category: controlCategories.design
+    }
+  },
+  element: {
+    control: 'inline-radio',
+    options: iconButtonOptions.element,
+    table: {
+      category: controlCategories.html
     }
   },
   href: {
@@ -169,8 +177,9 @@ const iconButtonControls = {
       category: controlCategories.html
     }
   },
-  className: {
-    control: 'text',
+  disabled: {
+    control: 'boolean',
+    description: 'Disables the native button.',
     table: {
       category: controlCategories.html
     }
@@ -178,15 +187,16 @@ const iconButtonControls = {
 };
 
 const defaultPlaygroundArgs = {
+  ariaLabel: iconButtonDefaults.ariaLabel,
+  type: iconButtonDefaults.type,
+  color: iconButtonDefaults.color,
+  icon: iconButtonDefaults.icon,
+  iconWeight: iconButtonDefaults.iconWeight,
+  id: iconButtonDefaults.id,
   element: iconButtonDefaults.element,
   href: iconButtonDefaults.href,
   htmlType: iconButtonDefaults.htmlType,
-  id: iconButtonDefaults.id,
-  ariaLabel: iconButtonDefaults.ariaLabel,
-  icon: iconButtonDefaults.icon,
-  type: iconButtonDefaults.type,
-  color: iconButtonDefaults.color,
-  className: iconButtonDefaults.className
+  disabled: iconButtonDefaults.disabled
 };
 
 const meta = {
