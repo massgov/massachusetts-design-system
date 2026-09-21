@@ -44,12 +44,6 @@ const inlineMessageControls = {
     table: {
       category: controlCategories.content
     }
-  },
-  className: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
   }
 };
 
