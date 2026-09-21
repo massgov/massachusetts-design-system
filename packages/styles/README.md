@@ -63,6 +63,7 @@ dist/
         ├── _layout.scss
         ├── _resets.scss
         ├── _typography.scss
+        ├── _visually-hidden.scss
         └── index.scss
 ```
 
@@ -79,6 +80,7 @@ src/
 │   ├── _layout.scss
 │   ├── _resets.scss
 │   ├── _typography.scss
+│   ├── _visually-hidden.scss
 │   └── index.scss
 ```
 
@@ -145,6 +147,7 @@ src/
 │   ├── _layout.scss
 │   ├── _resets.scss
 │   ├── _typography.scss
+│   ├── _visually-hidden.scss
 │   └── index.scss
 ```
 
