@@ -224,16 +224,28 @@
     padding-block-start: var(--mds-space-sm);
   }
 }
-// Print styles
+// Print styles for both Neutral and Primary
 @media print {
-  .mds-footer__column, .mds-footer__social-list, .mds-footer__description, .mds-footer__legal-nav {
-    display: none;
-  }
-  .mds-footer__brand.mds-footer__column {
-    display: block;
-  }
-  .mds-footer__content {
-    padding-block-end: 0;
+  .mds-footer {
+    --mds-footer-background: var(--mds-base-white);
+    --mds-footer-color: var(--mds-content-brand-neutral-default);
+    --mds-footer-muted-color: var(--mds-content-brand-neutral-default);
+    --mds-footer-link-color: var(--mds-content-brand-neutral-default);
+
+    &__column, &__social-list, &__description, &__legal-nav {
+      display: none;
+    }
+    &__brand.mds-footer__column {
+      display: block;
+    }
+    &__content {
+      padding-block-end: 0;
+    }
+    &__seal {
+      content:url(https://unpkg.com/@massds/mds-assets@1.2.0/dist/state-seal/state-seal-black.png);
+      img {
+        display:none;
+      }
+    }
   }
 }
-

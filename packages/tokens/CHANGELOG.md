@@ -39,6 +39,7 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 
 
 ## 2.0.0 (7/22/2026)
+See the [Tokens v2.0.0 migration guide](docs/migrations/v2.md) for upgrade instructions
 
 ### Changed
 * [DP-145] Replaced composite typography shorthand tokens with longhand typography attribute tokens for font family, font weight, font size, and line height. #77
@@ -54,8 +55,8 @@ All notable changes to `@massds/mds-assets` are auto-compiled in this file. See 
 
 
 ## 3.0.0-beta.1 (8/19/2026)
+See the [Tokens v3.0.0 Beta migration guide](docs/migrations/v3-beta.md) for upgrade instructions
 
 ### Changed
 * [DS-443] Updated berkshire green 1300 and danger red 300 in primitives, updated interactive brand secondary scale in semantic tokens/index.css. #115
 * [DS-381] Updated all color and font tokens to the latest updated tokens from design decisions as of 8/7/26. #105
-

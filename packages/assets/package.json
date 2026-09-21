@@ -32,7 +32,7 @@
   "author": "Massachusetts Digital Services",
   "license": "MIT",
   "devDependencies": {
-    "svgo": "^4.0.0"
+    "svgo": "^4.1.0"
   },
   "publishConfig": {
     "access": "public",
