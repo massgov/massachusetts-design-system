@@ -89,6 +89,12 @@ const actionLinkControls = {
     table: {
       category: controlCategories.html
     }
+  },
+  className: {
+    control: 'text',
+    table: {
+      category: controlCategories.html
+    }
   }
 };
 
@@ -100,7 +106,8 @@ const defaultPlaygroundArgs = {
   leftIcon: actionLinkDefaults.leftIcon,
   rightIcon: actionLinkDefaults.rightIcon,
   href: actionLinkDefaults.href,
-  id: actionLinkDefaults.id
+  id: actionLinkDefaults.id,
+  className: actionLinkDefaults.className
 };
 
 const meta = {
