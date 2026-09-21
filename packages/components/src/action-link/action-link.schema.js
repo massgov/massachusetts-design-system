@@ -35,26 +35,10 @@ export const actionLinkSchema = {
     default: '',
     options: iconOptions
   },
-  leftIconAccessibleText: {
-    type: 'string',
-    default: '',
-  },
-  leftIconAccessibleTextId: {
-    type: 'string',
-    default: '',
-  },
   rightIcon: {
     type: 'icon',
     default: '',
     options: iconOptions
-  },
-  rightIconAccessibleText: {
-    type: 'string',
-    default: '',
-  },
-  rightIconAccessibleTextId: {
-    type: 'string',
-    default: '',
   },
   className: {
     type: 'string',
