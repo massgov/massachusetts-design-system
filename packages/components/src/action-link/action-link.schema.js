@@ -37,11 +37,7 @@ export const actionLinkSchema = {
   },
   rightIcon: {
     type: 'icon',
-    default: '',
+    default: 'arrow-right',
     options: iconOptions
-  },
-  className: {
-    type: 'string',
-    default: ''
   }
 };
