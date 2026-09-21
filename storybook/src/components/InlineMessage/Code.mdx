@@ -1,0 +1,36 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { inlineMessageDefaults } from '../../../../packages/components/src/inline-message/inline-message.data.js';
+import inlineMessageCss from '@massds/mds-components/inline-message.css?raw';
+import { renderInlineMessage } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as InlineMessageStories from './inline-message.stories.js';
+
+export const getInlineMessageCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderInlineMessage({
+      ...inlineMessageDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: inlineMessageCss
+  }
+];
+
+<Meta of={InlineMessageStories} />
+
+# Inline message
+
+<Canvas of={InlineMessageStories.Playground} sourceState="none" />
+
+## API
+
+<Controls of={InlineMessageStories.Playground} />
+
+## Code
+
+<StoryCodeTabs of={InlineMessageStories.Playground} getTabs={getInlineMessageCodeTabs} />

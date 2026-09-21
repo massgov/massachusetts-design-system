@@ -1,0 +1,36 @@
+{#
+  Inline message data:
+  - type controls the status color treatment and its matching decorative icon.
+  - descriptionHtml supports linked or otherwise formatted message copy.
+#}
+{% set inlineMessageType = type in inlineMessageOptions.type ? type : inlineMessageDefaults.type %}
+{% set inlineMessageHeading = heading|default(inlineMessageDefaults.heading) %}
+{% set inlineMessageDescriptionHtml = descriptionHtml|default(inlineMessageDefaults.descriptionHtml) %}
+{% set inlineMessageClassName = className|default(inlineMessageDefaults.className) %}
+{% set inlineMessageIcon = inlineMessageIcons[inlineMessageType] %}
+{% set inlineMessageAriaLive = inlineMessageType == 'Error' ? 'assertive' : 'polite' %}
+{% set inlineMessageRole = inlineMessageType == 'Error' ? 'alert' : 'status' %}
+{% set inlineMessageClasses = [
+  'mds-inline-message',
+  'mds-inline-message--type-' ~ inlineMessageType|lower
+] %}
+
+{% if inlineMessageClassName %}
+  {% set inlineMessageClasses = inlineMessageClasses|merge([inlineMessageClassName]) %}
+{% endif %}
+
+<div class="{{ inlineMessageClasses|join(' ')|e }}" role="{{ inlineMessageRole }}" aria-live="{{ inlineMessageAriaLive }}">
+  <div class="mds-inline-message__content">
+    <div class="mds-inline-message__header">
+      <span class="mds-inline-message__icon" aria-hidden="true">
+        {% include 'icon.twig' with {
+          name: inlineMessageIcon,
+          size: 'MD',
+          weight: 'Regular'
+        } %}
+      </span>
+      <h2 class="mds-inline-message__heading">{{ inlineMessageHeading|e }}</h2>
+    </div>
+    <div class="mds-inline-message__description">{{ inlineMessageDescriptionHtml|raw }}</div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/inline-message.css';
+import { inlineMessageDefaults } from '../../../../packages/components/src/inline-message/inline-message.data.js';
+import { renderInlineMessage } from '../../utils/component-renderers.js';
+import * as InlineMessageStories from './inline-message.stories.js';
+
+export const InlineMessageExample = (args) => (
+  <div
+    className="sb-unstyled mds-docs-example-frame"
+    dangerouslySetInnerHTML={{
+      __html: renderInlineMessage({
+        ...inlineMessageDefaults,
+        ...args
+      })
+    }}
+  />
+);
+
+<Meta of={InlineMessageStories} />
+
+# Inline message overview
+
+Inline message brings information within a page or task to the user's attention. Use it to communicate a condition, status, or other notable information without interrupting their current task.
+
+---
+
+## Variants
+
+### Type
+
+#### Informative
+
+Use `Informative` for important information that should stand out but does not require immediate action.
+
+<InlineMessageExample
+  type="Informative"
+  heading="Informative inline message example"
+/>
+
+#### Success
+
+Use `Success` to confirm that an action the user took has completed successfully.
+
+<InlineMessageExample
+  type="Success"
+  heading="Success inline message example"
+/>
+
+#### Warning
+
+Use `Warning` when something may affect the user and they should be made aware of it.
+
+<InlineMessageExample
+  type="Warning"
+  heading="Warning inline message example"
+/>
+
+#### Error
+
+Use `Error` when something has gone wrong.
+
+<InlineMessageExample
+  type="Error"
+  heading="Error inline message example"
+/>
+
+### Color
+
+`Filled` uses a tinted background to give the message more visual emphasis.
+
+<InlineMessageExample
+  type="Informative"
+  heading="Filled inline message title"
+/>
+
+`Neutral` uses a grey background. Choose it when the surrounding interface provides enough visual structure that a filled treatment would add unnecessary emphasis.
+
+<InlineMessageExample
+  type="Neutral"
+  heading="Neutral inline message title"
+/>

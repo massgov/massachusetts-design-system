@@ -15,7 +15,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.mds-footer ul {
+.mds-footer :where(ul) {
   margin: 0;
   padding: 0;
   list-style: none;

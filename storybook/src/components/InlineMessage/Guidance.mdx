@@ -1,0 +1,72 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as InlineMessageStories from './inline-message.stories.js';
+
+<Meta of={InlineMessageStories} />
+
+# Inline message guidance
+
+---
+
+## Content
+
+#### Best practices
+
+##### Do
+
+- Write a title that describes the message clearly enough to understand at a glance
+- Use the description to provide the context people need to understand the message
+- Add an inline link within the message text when people need to access related information
+- Keep the link part of the sentence rather than presenting it as a separate action
+
+##### Don't
+
+- Use a title that only makes sense after someone reads the description
+- Use a link when the message itself does not need to direct people to additional information
+
+---
+
+## Design
+
+### Usage
+
+#### When to use
+
+Use an inline message when people need to notice information that is separate from the surrounding page content.
+
+- Use `Informative` for important information that does not require immediate action
+- Use `Success` to confirm that a user action completed successfully
+- Use `Warning` when a condition may affect the user
+- Use `Error` when something has gone wrong
+- Choose `Filled` or `Neutral` based on how the message fits within the surrounding visual hierarchy
+
+#### When not to use
+
+- Do not use `Success` unless the message confirms a completed user action
+- Do not use `Warning` or `Error` solely to make content more visually prominent
+- Do not use an inline message when the information can be communicated as part of the surrounding content
+
+---
+
+## Accessibility
+
+### Mouse control
+
+The inline message does not provide a separate mouse interaction. When the message contains an inline link, people can select the link as part of the message text.
+
+### Touch control
+
+The inline message does not provide a separate touch interaction. When the message contains an inline link, people can select the link as part of the message text.
+
+### Keyboard control
+
+The inline message does not provide a separate keyboard interaction. Follow link guidance for keyboard interaction and focus behavior for an inline link.
+
+### Assistive technology
+
+Follow <a href="#">Link guidance</a> for the behavior and accessibility of inline links. Keep the message title and description understandable when presented as text without relying on the color or icon alone.
+
+---
+
+## Related components
+
+Type styles: use Type styles guidance for the styling of inline links within message text.
