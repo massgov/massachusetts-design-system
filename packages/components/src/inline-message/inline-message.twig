@@ -1,9 +1,12 @@
 {#
   Inline message data:
-  - type controls the status color treatment and its matching decorative icon.
+  - type controls the semantic color treatment and announcement priority.
+  - variant controls the filled or neutral surface treatment.
+  - type also determines the matching decorative icon.
   - descriptionHtml supports linked or otherwise formatted message copy.
 #}
 {% set inlineMessageType = type in inlineMessageOptions.type ? type : inlineMessageDefaults.type %}
+{% set inlineMessageVariant = variant in inlineMessageOptions.variant ? variant : inlineMessageDefaults.variant %}
 {% set inlineMessageHeading = heading|default(inlineMessageDefaults.heading) %}
 {% set inlineMessageDescriptionHtml = descriptionHtml|default(inlineMessageDefaults.descriptionHtml) %}
 {% set inlineMessageClassName = className|default(inlineMessageDefaults.className) %}
@@ -12,7 +15,8 @@
 {% set inlineMessageRole = inlineMessageType == 'Error' ? 'alert' : 'status' %}
 {% set inlineMessageClasses = [
   'mds-inline-message',
-  'mds-inline-message--type-' ~ inlineMessageType|lower
+  'mds-inline-message--type-' ~ inlineMessageType|lower,
+  'mds-inline-message--variant-' ~ inlineMessageVariant|lower
 ] %}
 
 {% if inlineMessageClassName %}

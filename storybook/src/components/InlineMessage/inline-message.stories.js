@@ -1,6 +1,7 @@
 import '@massds/mds-components/inline-message.css';
 import {
-  inlineMessageDefaults
+  inlineMessageDefaults,
+  inlineMessageOptions
 } from '../../../../packages/components/src/inline-message/inline-message.data.js';
 import { renderInlineMessage } from '../../utils/component-renderers.js';
 import { controlCategories } from '../../utils/controlCategories.js';
@@ -20,7 +21,14 @@ function renderPlayground(args) {
 const inlineMessageControls = {
   type: {
     control: 'select',
-    options: ['Informative', 'Success', 'Warning', 'Error', 'Neutral'],
+    options: inlineMessageOptions.type,
+    table: {
+      category: controlCategories.design
+    }
+  },
+  variant: {
+    control: 'select',
+    options: inlineMessageOptions.variant,
     table: {
       category: controlCategories.design
     }

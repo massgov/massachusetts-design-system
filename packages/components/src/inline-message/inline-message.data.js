@@ -6,15 +6,15 @@ export { inlineMessageSchema } from './inline-message.schema.js';
 const schemaOptions = getSchemaOptions(inlineMessageSchema);
 
 export const inlineMessageOptions = {
-  type: schemaOptions.type
+  type: schemaOptions.type,
+  variant: schemaOptions.variant
 };
 
 export const inlineMessageIcons = {
   Informative: 'info',
   Success: 'check-circle',
   Warning: 'warning',
-  Error: 'warning-circle',
-  Neutral: 'info'
+  Error: 'warning-circle'
 };
 
 export const inlineMessageDefaults = getSchemaDefaults(inlineMessageSchema);

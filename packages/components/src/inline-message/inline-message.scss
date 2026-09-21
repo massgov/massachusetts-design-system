@@ -34,10 +34,9 @@
     --mds-inline-message-icon-color: var(--mds-content-utility-danger-mid);
   }
 
-  &--type-neutral {
+  &--variant-neutral {
     --mds-inline-message-background: var(--mds-background-section-brand-neutral-lowest);
     --mds-inline-message-border: var(--mds-border-brand-neutral-low);
-    --mds-inline-message-icon-color: var(--mds-content-utility-informative-mid);
   }
 
   &__content {
