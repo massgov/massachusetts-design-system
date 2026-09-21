@@ -19,22 +19,28 @@ function createPreview(html, className = '') {
   return preview;
 }
 
+const noIconOption = '__none__';
+
 function renderPlayground(args) {
   const previewClassName = args.color === 'White'
     ? 'mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest'
     : '';
 
-  return createPreview(renderActionLink(args), previewClassName);
+  return createPreview(renderActionLink({
+    ...args,
+    leftIcon: args.leftIcon === noIconOption ? '' : args.leftIcon,
+    rightIcon: args.rightIcon === noIconOption ? '' : args.rightIcon
+  }), previewClassName);
 }
 
 const iconSelectControl = {
   control: {
     type: 'select',
     labels: {
-      '': 'None'
+      [noIconOption]: 'None'
     }
   },
-  options: actionLinkOptions.icon
+  options: [noIconOption, ...actionLinkOptions.icon.filter(Boolean)]
 };
 
 const actionLinkControls = {
