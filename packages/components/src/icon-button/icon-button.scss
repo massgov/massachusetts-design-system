@@ -171,3 +171,10 @@
     }
   }
 }
+
+// Hide standalone visual actions in print.
+@media print {
+  .mds-icon-button {
+    display: none;
+  }
+}
