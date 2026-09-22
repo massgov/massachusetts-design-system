@@ -18,3 +18,8 @@ export const inlineMessageIcons = {
 };
 
 export const inlineMessageDefaults = getSchemaDefaults(inlineMessageSchema);
+
+export const inlineMessageExampleData = {
+  ...inlineMessageDefaults,
+  descriptionHtml: 'Inline message description goes here which can be up to 150 characters and includes rich text. Lorem ipsum dolor sit amet, <a href="#" noreferer>consectetur adipisicing el</a>.'
+};

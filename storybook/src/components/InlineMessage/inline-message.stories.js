@@ -1,6 +1,6 @@
 import '@massds/mds-components/inline-message.css';
 import {
-  inlineMessageDefaults,
+  inlineMessageExampleData,
   inlineMessageOptions
 } from '../../../../packages/components/src/inline-message/inline-message.data.js';
 import { renderInlineMessage } from '../../utils/component-renderers.js';
@@ -51,7 +51,7 @@ const meta = {
   title: 'Components/Inline Message',
   render: renderPlayground,
   argTypes: inlineMessageControls,
-  args: inlineMessageDefaults,
+  args: inlineMessageExampleData,
   parameters: {
     layout: 'padded'
   }

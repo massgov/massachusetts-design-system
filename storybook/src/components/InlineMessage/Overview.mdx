@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import '@massds/mds-components/inline-message.css';
-import { inlineMessageDefaults } from '../../../../packages/components/src/inline-message/inline-message.data.js';
+import { inlineMessageExampleData } from '../../../../packages/components/src/inline-message/inline-message.data.js';
 import { renderInlineMessage } from '../../utils/component-renderers.js';
 import * as InlineMessageStories from './inline-message.stories.js';
 
@@ -9,7 +9,7 @@ export const InlineMessageExample = (args) => (
     className="sb-unstyled mds-docs-example-frame"
     dangerouslySetInnerHTML={{
       __html: renderInlineMessage({
-        ...inlineMessageDefaults,
+        ...inlineMessageExampleData,
         ...args
       })
     }}

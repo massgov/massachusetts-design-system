@@ -8,8 +8,8 @@
 {% set inlineMessageType = type in inlineMessageOptions.type ? type : inlineMessageDefaults.type %}
 {% set inlineMessageVariant = variant in inlineMessageOptions.variant ? variant : inlineMessageDefaults.variant %}
 {% set inlineMessageHeading = heading|default(inlineMessageDefaults.heading) %}
-{% set inlineMessageDescriptionHtml = descriptionHtml|default(inlineMessageDefaults.descriptionHtml) %}
-{% set inlineMessageClassName = className|default(inlineMessageDefaults.className) %}
+{% set inlineMessageDescriptionHtml = descriptionHtml|default('') %}
+{% set inlineMessageClassName = className|default('') %}
 {% set inlineMessageIcon = inlineMessageIcons[inlineMessageType] %}
 {% set inlineMessageAriaLive = inlineMessageType == 'Error' ? 'assertive' : 'polite' %}
 {% set inlineMessageRole = inlineMessageType == 'Error' ? 'alert' : 'status' %}
@@ -35,6 +35,8 @@
       </span>
       <h2 class="mds-inline-message__heading">{{ inlineMessageHeading|e }}</h2>
     </div>
-    <div class="mds-inline-message__description">{{ inlineMessageDescriptionHtml|raw }}</div>
+    {% if inlineMessageDescriptionHtml %}
+      <div class="mds-inline-message__description">{{ inlineMessageDescriptionHtml|raw }}</div>
+    {% endif %}
   </div>
 </div>
