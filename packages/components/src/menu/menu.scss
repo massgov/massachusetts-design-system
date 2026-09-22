@@ -132,3 +132,10 @@
     display: none;
   }
 }
+
+// Print styles
+@media print {
+  .mds-popup-menu {
+    display: none;
+  }
+}

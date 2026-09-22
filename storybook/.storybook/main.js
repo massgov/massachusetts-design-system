@@ -17,9 +17,20 @@ const googleAnalyticsTag = hasValidGaMeasurementId
     </script>
   `
   : '';
+const storybookBasePathScript = `
+  <script>
+    window.__MASSDS_STORYBOOK_BASE_PATH__ = ${JSON.stringify(storybookBasePath)};
+  </script>
+`;
 
 const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|mjs)'],
+  staticDirs: [
+    {
+      from: '../../packages/components/dist/state-banner',
+      to: '/components/state-banner'
+    }
+  ],
   addons: [
     {
       name: '@storybook/addon-docs',
@@ -43,7 +54,7 @@ const config = {
   features: {
     sidebarOnboardingChecklist: false
   },
-  managerHead: (head) => `${head}${googleAnalyticsTag}`,
+  managerHead: (head) => `${head}${storybookBasePathScript}${googleAnalyticsTag}`,
   viteFinal: async (config) => mergeConfig(config, {
     base: storybookBasePath,
     build: {
