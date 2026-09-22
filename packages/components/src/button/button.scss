@@ -229,7 +229,7 @@
     --mds-button-color-hover: var(--mds-content-brand-neutral-default);
     --mds-button-color-active: var(--mds-content-brand-neutral-default);
 
-    border-color: var(--mds-base-black);
+    border: solid 1px var(--mds-base-black);
 
     &.mds-button--color-white,
     &:disabled,
@@ -240,7 +240,7 @@
       --mds-button-color: var(--mds-content-brand-neutral-default);
       --mds-button-color-hover: var(--mds-content-brand-neutral-default);
       --mds-button-color-active: var(--mds-content-brand-neutral-default);
-      border-bottom-color: var(--mds-base-black);
+      border: solid 1px var(--mds-base-black);
     }
 
     &__icon {
