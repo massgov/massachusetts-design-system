@@ -17,14 +17,13 @@ export const ActionLinkExample = (args) => (
 );
 
 <Meta of={ActionLinkStories} />
-
 # Action link overview
 
-An action link takes people to another destination while giving the link more emphasis than a link within body text.
+An action link helps people navigate to an important destination that needs more visual emphasis than an inline link. It stands on its own outside running text while keeping the behavior and semantics of a link.
 
-Use a short label that makes the destination or next step clear. Use a button instead when the interaction changes data or performs an action on the current page.
-
+<div class="sb-unstyled">
 <ActionLinkExample />
+</div>
 
 ---
 
@@ -32,47 +31,88 @@ Use a short label that makes the destination or next step clear. Use a button in
 
 ### Color
 
-Use `Primary` for the standard treatment and `Neutral` when the link needs less visual emphasis. Use `White` only on a dark background that provides sufficient contrast.
+Action links are available in `Primary`, `Neutral`, and `White` color treatments. The `White` treatment provides a light link treatment for dark backgrounds.
 
-<div className="mds-docs-example-row mds-gap-md">
-  <ActionLinkExample text="Primary" color="Primary" />
-  <ActionLinkExample text="Neutral" color="Neutral" />
-  <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest">
-    <ActionLinkExample text="White" color="White" />
+<div className="mds-docs-example-row mds-gap-md sb-unstyled">
+  <ActionLinkExample text="Primary" color="Primary" rightIcon="arrow-right" iconWeight="bold" />
+  <ActionLinkExample text="Neutral" color="Neutral" rightIcon="arrow-right" iconWeight="bold" />
+  <span className="mds-docs-example-surface mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-mid">
+    <ActionLinkExample text="White" color="White" rightIcon="arrow-right" iconWeight="bold" />
   </span>
 </div>
 
 ### Size
 
-Set the `size` property to `Small`, `Medium`, or `Large`. Choose a size that matches the surrounding content hierarchy.
+Action links are available in `Small`, `Medium`, and `Large` sizes.
 
-<div className="mds-docs-example-row mds-gap-md">
-  <ActionLinkExample text="Small" size="Small" />
-  <ActionLinkExample text="Medium" size="Medium" />
-  <ActionLinkExample text="Large" size="Large" />
+<div className="mds-docs-example-row mds-gap-md sb-unstyled">
+  <ActionLinkExample text="Small" size="Small" rightIcon="arrow-right" iconWeight="bold" />
+  <ActionLinkExample text="Medium" size="Medium" rightIcon="arrow-right" iconWeight="bold" />
+  <ActionLinkExample text="Large" size="Large" rightIcon="arrow-right" iconWeight="bold" />
 </div>
 
 ### Icons
 
-Action links may include an icon before the label, after the label, or on both sides. Use an icon when it clarifies direction or destination; do not add one only for decoration.
+Single action links always include an icon before or after the link. When multiple action links are grouped together, the icon is not required, but may be used if it provides helpful context for the user.
 
-<div className="mds-docs-example-row mds-gap-md">
-  <ActionLinkExample text="Previous" leftIcon="arrow-left" rightIcon="" />
-  <ActionLinkExample text="Continue" rightIcon="arrow-right" />
-  <ActionLinkExample text="Browse services" leftIcon="arrow-left" rightIcon="arrow-right" />
+Use the `Bold` icon weight for a standalone action link. Use `Regular` when multiple action links appear in a list.
+
+Common single action link icon uses include:
+
+A leading arrow for back navigation.
+
+<div class="sb-unstyled mds-docs-example-frame">
+<ActionLinkExample text="Back" leftIcon="arrow-left" iconWeight="bold" />
 </div>
 
-### Icon weight
+A trailing arrow for forward navigation.
 
-Set `iconWeight` to `Bold` or `Regular`. The label typography remains the same while the icon weight changes.
-
-<div className="mds-docs-example-row mds-gap-md">
-  <ActionLinkExample text="Bold icon" iconWeight="Bold" />
-  <ActionLinkExample text="Regular icon" iconWeight="Regular" />
+<div class="sb-unstyled mds-docs-example-frame">
+<ActionLinkExample text="View required documents" rightIcon="arrow-right" iconWeight="bold" />
 </div>
 
-### Interaction states
+An external-link icon for a destination that opens in a new window.
 
-Action links provide default, hover, pressed, and keyboard-focus states. Hover and pressed states underline the label, and the focus treatment adapts to light or dark backgrounds.
+<div class="sb-unstyled mds-docs-example-frame">
+<ActionLinkExample
+  text="View your federal tax account on IRS.gov (opens in a new window)"
+  rightIcon="arrow-square-out"
+  iconWeight="bold"
+/>
+</div>
 
-> Action links do not have a disabled state. Remove an unavailable link until its destination is available.
+A jump icon for navigation to content on the current page.
+
+<div class="sb-unstyled mds-docs-example-frame">
+<ActionLinkExample text="View eligibility requirements" rightIcon="arrow-elbow-right-down" iconWeight="bold" />
+</div>
+
+Common grouped action links with icon uses include:
+
+Contact information displayed in the footer.
+
+<div class="sb-unstyled">
+<div className="mds-docs-example-stack mds-gap-2xs">
+  <ActionLinkExample
+    text="123 Main St., Boston, MA 02118"
+    color="Neutral"
+    iconWeight="Regular"
+    leftIcon="map-pin"
+    iconWeight="bold"
+  />
+  <ActionLinkExample
+    text="(617) 123-1234"
+    color="Neutral"
+    iconWeight="Regular"
+    leftIcon="phone-call"
+    iconWeight="bold"
+  />
+  <ActionLinkExample
+    text="sharedinbox@mass.gov"
+    color="Neutral"
+    iconWeight="Regular"
+    leftIcon="envelope"
+    iconWeight="bold"
+  />
+</div>
+</div>
