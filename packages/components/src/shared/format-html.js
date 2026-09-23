@@ -108,7 +108,23 @@ export function formatHtml(contents) {
       !nextToken.startsWith('<') &&
       isMatchingClosingTag(trimmedToken, closingToken)
     ) {
-      lines.push(`${indent}${formatTag(trimmedToken, '').trim()}${nextToken}${formatTag(closingToken, '').trim()}`);
+      const inlineHtml = `${formatTag(trimmedToken, '').trim()}${nextToken}${formatTag(closingToken, '').trim()}`;
+      const previousToken = tokens[index - 1];
+      const followingToken = tokens[index + 3];
+      const hasAdjacentTextBefore = previousToken?.trim() && !previousToken.trim().startsWith('<');
+      const hasAdjacentTextAfter = followingToken?.trim() && !followingToken.trim().startsWith('<');
+
+      if (hasAdjacentTextBefore) {
+        lines[lines.length - 1] += `${/\s$/.test(previousToken) ? ' ' : ''}${inlineHtml}`;
+      } else {
+        lines.push(`${indent}${inlineHtml}`);
+      }
+
+      if (hasAdjacentTextAfter) {
+        lines[lines.length - 1] += `${/^\s/.test(followingToken) ? ' ' : ''}${followingToken.trim()}`;
+        index += 1;
+      }
+
       index += 2;
       continue;
     }
