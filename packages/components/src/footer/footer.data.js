@@ -47,7 +47,7 @@ export const footerExampleData = {
       icon: 'instagram-logo'
     }
   ],
-  descriptionHtml: 'Short description of the organization goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <a href="#">link</a> labore et dolore magna aliqua.',
+  descriptionHtml: 'Optional short description of the site, organization, or product goes here. Use it to help people understand what it does and who it serves.',
   contactHeadingId: 'mds-footer-contact-heading',
   contactHeading: 'Contact',
   contactItems: [
