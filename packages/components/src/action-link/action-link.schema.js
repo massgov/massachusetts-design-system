@@ -7,6 +7,13 @@ export const actionLinkSchema = {
     type: 'string',
     default: 'Action link'
   },
+  textLines: {
+    type: 'array',
+    default: [],
+    items: {
+      type: 'string'
+    }
+  },
   href: {
     type: 'string',
     default: '#'

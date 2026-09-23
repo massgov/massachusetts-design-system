@@ -50,20 +50,24 @@
   }
 
   &__container {
-    @include mixins.section-container;
-
+    padding-inline: var(--mds-breakpoint-horizontal-space-margin);
     background: transparent;
     color: inherit;
-  }
-
-  &__column {
-    @include mixins.grid-4-column;
+    container-name: mds-footer;
+    container-type: inline-size;
   }
 
   &__content {
-    @include mixins.grid;
-
     padding-block: var(--mds-space-2xl) var(--mds-space-md);
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--mds-breakpoint-horizontal-space-gutter);
+    padding-block: var(--mds-space-2xl) var(--mds-space-md);
+  }
+
+
+  &__column {
+    grid-column: span 3;
   }
 
   &__brand {
@@ -127,10 +131,6 @@
     padding-block: var(--mds-space-3xs);
 
     @include mixins.text("label-lg");
-  }
-
-  &__contact svg {
-    color: var(--mds-footer-accent-color);
   }
 
   &__contact-note {
@@ -208,6 +208,29 @@
 
   a {
     @include mixins.focus($focus-on-light: false);
+  }
+}
+
+@container mds-footer (max-width: 64rem) {
+  .mds-footer__content {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    row-gap: var(--mds-space-md);
+    padding-block-start: var(--mds-space-md);
+  }
+
+  .mds-footer__column {
+    grid-column: span 3;
+  }
+}
+
+@container mds-footer (max-width: 30rem) {
+  .mds-footer__content {
+    row-gap: var(--mds-space-md);
+    padding-block-start: var(--mds-space-sm);
+  }
+
+  .mds-footer__column {
+    grid-column: 1 / -1;
   }
 }
 

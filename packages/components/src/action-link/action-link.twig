@@ -11,6 +11,7 @@
 {% set actionLinkRightIcon = rightIcon in actionLinkOptions.icon ? rightIcon : actionLinkDefaults.rightIcon %}
 {% set actionLinkIconSize = actionLinkIconSizes[actionLinkSize] %}
 {% set actionLinkText = text|default(actionLinkDefaults.text) %}
+{% set actionLinkTextLines = textLines|default(actionLinkDefaults.textLines) %}
 {% set actionLinkHref = href|default(actionLinkDefaults.href) %}
 {% set actionLinkId = id|default(actionLinkDefaults.id) %}
 {% set actionLinkExtraClass = className|default(actionLinkDefaults.className) %}
@@ -36,7 +37,15 @@
       </span>
     {% endif %}
 
-    {{ actionLinkText|e }}
+    {% if actionLinkTextLines|length %}
+      <span class="mds-action-link__text">
+        {% for line in actionLinkTextLines %}
+          <span class="mds-action-link__text-line">{{ line|e }}</span>
+        {% endfor %}
+      </span>
+    {% else %}
+      {{ actionLinkText|e }}
+    {% endif %}
 
     {% if actionLinkRightIcon %}
       <span class="mds-action-link__icon">

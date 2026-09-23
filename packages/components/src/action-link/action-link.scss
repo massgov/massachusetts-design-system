@@ -64,13 +64,13 @@
     vertical-align: top;
     margin-top: 3px; // align with link text
   }
-  .mds-visually-hidden {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
+  &__text {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+  &__text-line {
+    display: block;
   }
 }
 // Action Link Print tyles

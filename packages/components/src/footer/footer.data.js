@@ -53,7 +53,7 @@ export const footerExampleData = {
   contactItems: [
     {
       icon: 'map-pin',
-      addressLines: ['123 Main St.', 'Boston, MA 02118'],
+      textLines: ['123 Main St.', 'Boston, MA 02118'],
       note: 'Optional descriptive text'
     },
     {
@@ -79,13 +79,10 @@ export const footerExampleData = {
       eyebrow: true,
       links: [
         {
-          icon: 'arrow-square-out',
-          iconAccessibleText: 'Links to external site',
           href: '#',
           text: 'Optional link 1'
         },
         {
-          icon: 'arrow-right',
           href: '#',
           text: 'Optional link 2'
         },
