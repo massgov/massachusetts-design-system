@@ -434,6 +434,9 @@ let popupMenu = {
 
       window.addEventListener("resize", positionOpenMenus);
       window.addEventListener("scroll", positionOpenMenus, true);
+      window.addEventListener("beforeprint", function () {
+        closeOpenMenus();
+      });
     }
   },
 };
