@@ -7,18 +7,20 @@
 {% set actionLinkColor = color in actionLinkOptions.color ? color : actionLinkDefaults.color %}
 {% set actionLinkSize = size in actionLinkOptions.size ? size : actionLinkDefaults.size %}
 {% set actionLinkIconWeight = iconWeight in actionLinkOptions.iconWeight ? iconWeight : actionLinkDefaults.iconWeight %}
-{% set actionLinkLeftIcon = leftIcon in actionLinkOptions.icon ? leftIcon : actionLinkDefaults.leftIcon %}
-{% set actionLinkRightIcon = rightIcon in actionLinkOptions.icon ? rightIcon : actionLinkDefaults.rightIcon %}
+{% set actionLinkLeftIcon = actionLinkDefaults.leftIcon %}
+{% if leftIcon is defined %}
+  {% set actionLinkLeftIcon = leftIcon in actionLinkOptions.icon ? leftIcon : '' %}
+{% endif %}
+{% set actionLinkRightIcon = actionLinkDefaults.rightIcon %}
+{% if rightIcon is defined %}
+  {% set actionLinkRightIcon = rightIcon in actionLinkOptions.icon ? rightIcon : '' %}
+{% endif %}
 {% set actionLinkIconSize = actionLinkIconSizes[actionLinkSize] %}
 {% set actionLinkText = text|default(actionLinkDefaults.text) %}
 {% set actionLinkTextLines = textLines|default(actionLinkDefaults.textLines) %}
 {% set actionLinkHref = href|default(actionLinkDefaults.href) %}
 {% set actionLinkId = id|default(actionLinkDefaults.id) %}
-{% set actionLinkExtraClass = className|default(actionLinkDefaults.className) %}
 {% set actionLinkClass = 'mds-action-link mds-action-link--color-' ~ (actionLinkColor|lower) ~ ' mds-action-link--size-' ~ (actionLinkSize|lower) %}
-{% if actionLinkExtraClass %}
-  {% set actionLinkClass = actionLinkClass ~ ' ' ~ actionLinkExtraClass %}
-{% endif %}
 
 <a
   class="{{ actionLinkClass|e }}"

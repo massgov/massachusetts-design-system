@@ -19,22 +19,28 @@ function createPreview(html, className = '') {
   return preview;
 }
 
+const noIconOption = '__none__';
+
 function renderPlayground(args) {
   const previewClassName = args.color === 'White'
     ? 'mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest'
     : '';
 
-  return createPreview(renderActionLink(args), previewClassName);
+  return createPreview(renderActionLink({
+    ...args,
+    leftIcon: args.leftIcon === noIconOption ? '' : args.leftIcon,
+    rightIcon: args.rightIcon === noIconOption ? '' : args.rightIcon
+  }), previewClassName);
 }
 
 const iconSelectControl = {
   control: {
     type: 'select',
     labels: {
-      '': 'None'
+      [noIconOption]: 'None'
     }
   },
-  options: actionLinkOptions.icon
+  options: [noIconOption, ...actionLinkOptions.icon.filter(Boolean)]
 };
 
 const actionLinkControls = {
@@ -71,38 +77,10 @@ const actionLinkControls = {
       category: controlCategories.design
     }
   },
-  leftIconAccessibleText: {
-    control: 'text',
-    description: 'Accessible text for the left icon when it conveys information not included in the link label.',
-    table: {
-      category: controlCategories.content
-    }
-  },
-  leftIconAccessibleTextId: {
-    control: 'text',
-    description: 'ID for the accessible text element for the left icon.',
-    table: {
-      category: controlCategories.content
-    }
-  },
   rightIcon: {
     ...iconSelectControl,
     table: {
       category: controlCategories.design
-    }
-  },
-  rightIconAccessibleText: {
-    control: 'text',
-    description: 'Accessible text for the right icon when it conveys information not included in the link label.',
-    table: {
-      category: controlCategories.content
-    }
-  },
-  rightIconAccessibleTextId: {
-    control: 'text',
-    description: 'ID for the accessible text element for the right icon.',
-    table: {
-      category: controlCategories.content
     }
   },
   href: {
@@ -133,7 +111,6 @@ const defaultPlaygroundArgs = {
   iconWeight: actionLinkDefaults.iconWeight,
   leftIcon: actionLinkDefaults.leftIcon,
   rightIcon: actionLinkDefaults.rightIcon,
-  rightIconAccessibleText: actionLinkDefaults.rightIconAccessibleText,
   href: actionLinkDefaults.href,
   id: actionLinkDefaults.id,
   className: actionLinkDefaults.className
