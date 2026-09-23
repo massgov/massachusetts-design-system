@@ -6,6 +6,7 @@ import {
   getComponentNameFromTemplateId,
   getModuleContext,
   getRendererContextOptions,
+  isSharedTemplateId,
   getStaticIncludeTemplateIds,
   getTemplateId,
   toPascalCase
@@ -22,7 +23,9 @@ function getRendererFactoryName(componentName) {
 
 function createIncludedComponent(templateId) {
   return {
-    componentName: getComponentNameFromTemplateId(templateId),
+    componentName: isSharedTemplateId(templateId)
+      ? null
+      : getComponentNameFromTemplateId(templateId),
     templateId
   };
 }
@@ -130,7 +133,7 @@ async function getIncludedComponentContext(buildContext, seenTemplateIds = new S
   const includes = {};
   const rendererOptions = {};
   const dataContext = {};
-  const currentTemplateId = getTemplateId(buildContext.componentName);
+  const currentTemplateId = buildContext.templateId ?? getTemplateId(buildContext.componentName);
 
   seenTemplateIds.add(currentTemplateId);
 
@@ -141,14 +144,26 @@ async function getIncludedComponentContext(buildContext, seenTemplateIds = new S
 
     seenTemplateIds.add(includedComponent.templateId);
 
-    const includedSourceDir = path.resolve(buildContext.sourceDir, '..', includedComponent.componentName);
-    const includedTemplateSource = await buildContext.readSourceFile(`../${includedComponent.componentName}/${includedComponent.componentName}.twig`);
-    const includedBuildModule = await getComponentBuildModule(includedSourceDir);
-    const includedDataModule = await getComponentDataModule(includedComponent.componentName, includedSourceDir);
+    const isSharedTemplate = isSharedTemplateId(includedComponent.templateId);
+    const includedSourceDir = isSharedTemplate
+      ? path.resolve(buildContext.sourceDir, '..', 'shared')
+      : path.resolve(buildContext.sourceDir, '..', includedComponent.componentName);
+    const includedTemplateSource = await buildContext.readSourceFile(
+      isSharedTemplate
+        ? `../${includedComponent.templateId}`
+        : `../${includedComponent.componentName}/${includedComponent.componentName}.twig`
+    );
+    const includedBuildModule = isSharedTemplate
+      ? null
+      : await getComponentBuildModule(includedSourceDir);
+    const includedDataModule = isSharedTemplate
+      ? {}
+      : await getComponentDataModule(includedComponent.componentName, includedSourceDir);
     const includedBuildContext = {
       ...buildContext,
       componentName: includedComponent.componentName,
       sourceDir: includedSourceDir,
+      templateId: includedComponent.templateId,
       templateSource: includedTemplateSource
     };
     const nestedContext = await getIncludedComponentContext(

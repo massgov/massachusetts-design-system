@@ -20,6 +20,10 @@
 {% set buttonDisabled = disabled|default(buttonDefaults.disabled) %}
 {% set buttonClassName = buttonHtmlAttributes.class|default('') %}
 {% set buttonClass = 'mds-button mds-button--type-' ~ buttonType|lower ~ ' mds-button--color-' ~ buttonColor|lower ~ ' mds-button--size-' ~ buttonSize|lower ~ (buttonClassName ? ' ' ~ buttonClassName : '') %}
+{% set buttonAnchorAttributeExclusions = buttonDisabled
+  ? ['class', 'data-mds-button', 'disabled', 'href', 'type', 'aria-disabled', 'tabindex']
+  : ['class', 'data-mds-button', 'disabled', 'href', 'type'] %}
+{% set buttonElementAttributeExclusions = ['class', 'data-mds-button', 'disabled', 'href', 'type'] %}
 
 {% if buttonHref %}
 <a
@@ -27,16 +31,20 @@
   {% if not buttonDisabled %}href="{{ buttonHref|e }}"{% endif %}
   data-mds-button{% if buttonDisabled %}
   aria-disabled="true"
-  tabindex="-1"{% endif %}{% for name, value in buttonHtmlAttributes %}{% if name not in ['class', 'data-mds-button', 'disabled', 'href', 'type'] and (not buttonDisabled or name not in ['aria-disabled', 'tabindex']) and value is not same as(false) and value is not null %}
-  {{ name|e('html_attr') }}="{% if value is same as(true) %}true{% else %}{{ value|e('html_attr') }}{% endif %}"{% endif %}{% endfor %}
+  tabindex="-1"{% endif %}{% include 'shared/html-attributes.twig' with {
+  attributes: buttonHtmlAttributes,
+  exclude: buttonAnchorAttributeExclusions
+} %}
 >
 {% else %}
 <button
   class="{{ buttonClass|e }}"
   type="{{ buttonHtmlAttributes.type|default('button')|e }}"
   data-mds-button{% if buttonDisabled %}
-  disabled{% endif %}{% for name, value in buttonHtmlAttributes %}{% if name not in ['class', 'data-mds-button', 'disabled', 'href', 'type'] and value is not same as(false) and value is not null %}
-  {{ name|e('html_attr') }}="{% if value is same as(true) %}true{% else %}{{ value|e('html_attr') }}{% endif %}"{% endif %}{% endfor %}
+  disabled{% endif %}{% include 'shared/html-attributes.twig' with {
+  attributes: buttonHtmlAttributes,
+  exclude: buttonElementAttributeExclusions
+} %}
 >
 {% endif %}
   {% if leftIconName %}
