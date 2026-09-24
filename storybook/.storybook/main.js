@@ -29,6 +29,10 @@ const config = {
     {
       from: '../../packages/components/dist/state-banner',
       to: '/components/state-banner'
+    },
+    {
+      from: '../../packages/components/dist/footer',
+      to: '/components/footer'
     }
   ],
   addons: [
