@@ -9,6 +9,7 @@
   --mds-footer-color: var(--mds-content-brand-neutral-default);
   --mds-footer-muted-color: var(--mds-content-brand-neutral-muted);
   --mds-footer-link-color: var(--mds-content-brand-neutral-default);
+  --mds-footer-inline-link-color: var(--mds-interactive-brand-primary-mid);
   --mds-footer-link-hover-color: var(--mds-interactive-brand-primary-mid);
   --mds-footer-accent-color: var(--mds-interactive-brand-primary-mid);
   --mds-footer-border-color: var(--mds-border-brand-neutral-low);
@@ -27,11 +28,16 @@
   }
 
   p a {
-    color: var(--mds-footer-link-color);
+    color: var(--mds-footer-inline-link-color);
   }
 
   p a:hover {
     color: var(--mds-footer-link-hover-color);
+  }
+
+  &__brand-link, &__site-name {
+    color: var(--mds-footer-link-color);
+    text-decoration: none;
   }
 
   &__site-name,
@@ -127,10 +133,6 @@
     padding-block: var(--mds-space-3xs);
 
     @include mixins.text("label-lg");
-  }
-
-  &__contact svg {
-    color: var(--mds-footer-accent-color);
   }
 
   &__contact-note {
