@@ -136,7 +136,7 @@
                   {% if link.href and link.text %}
                   {% set actionLinkData = {
                       href: link.href,
-                      rightIcon: link.icon,
+                      rightIcon: '',
                       size: 'Medium',
                       text: link.text
                     } %}
@@ -166,6 +166,7 @@
               <li>
               {% include 'action-link.twig' with {
                 href: link.href,
+                rightIcon: '',
                 size: 'Medium',
                 text: link.text
               } %}
@@ -178,6 +179,7 @@
                 <li>
                 {% include 'action-link.twig' with {
                   href: link.href,
+                  rightIcon: '',
                   size: 'Medium',
                   text: link.text
                 } %}
