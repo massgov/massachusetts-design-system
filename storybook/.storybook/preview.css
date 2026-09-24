@@ -4,3 +4,7 @@
   color: var(--mds-content-brand-neutral-default);
   font: var(--mds-text-body);
 }
+
+#storybook-docs > #storybook-docs-footer {
+  width: 100%;
+}
