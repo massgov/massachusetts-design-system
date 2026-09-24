@@ -115,6 +115,7 @@
 
   &__heading {
     padding-block-end: var(--mds-space-xs);
+    color: var(--mds-footer-muted-color);
     border-block-end: 1px solid var(--mds-footer-border-color);
 
     @include mixins.text("eyebrow-lg");
