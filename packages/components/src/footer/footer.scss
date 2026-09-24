@@ -35,11 +35,6 @@
     color: var(--mds-footer-link-hover-color);
   }
 
-  &__brand-link, &__site-name {
-    color: var(--mds-footer-link-color);
-    text-decoration: none;
-  }
-
   &__site-name,
   &__heading,
   &__contact-address,
@@ -78,10 +73,15 @@
     gap: var(--mds-space-2xs);
   }
 
-  &__brand-heading {
+  &__brand-link {
     display: flex;
     align-items: center;
     gap: var(--mds-space-sm);
+  }
+
+  &__brand-link, &__site-name {
+    color: var(--mds-footer-link-color);
+    text-decoration: none;
   }
 
   &__site-name {
