@@ -34,6 +34,10 @@
     color: var(--mds-footer-link-hover-color);
   }
 
+  a.&__site-name {
+    color: var(--mds-footer-link-color);
+  }
+
   &__site-name,
   &__heading,
   &__contact-address,
@@ -220,17 +224,6 @@
 
   .mds-footer__column {
     grid-column: span 3;
-  }
-}
-
-@container mds-footer (max-width: 30rem) {
-  .mds-footer__content {
-    row-gap: var(--mds-space-md);
-    padding-block-start: var(--mds-space-sm);
-  }
-
-  .mds-footer__column {
-    grid-column: 1 / -1;
   }
 }
 

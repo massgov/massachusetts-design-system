@@ -80,6 +80,12 @@ const footerControls = {
       category: controlCategories.content
     }
   },
+  siteLink: {
+    control: 'text',
+    table: {
+      category: controlCategories.content
+    }
+  },
   descriptionHtml: {
     control: 'text',
     table: {
@@ -177,6 +183,7 @@ const defaultPlaygroundArgs = {
   theme: footerExampleData.theme,
   siteNameId: footerExampleData.siteNameId,
   siteName: footerDefaults.siteName,
+  siteLink: footerDefaults.siteLink,
   sealAlt: footerExampleData.sealAlt,
   socialLabel: footerExampleData.socialLabel,
   socialLinks: footerExampleData.socialLinks,
