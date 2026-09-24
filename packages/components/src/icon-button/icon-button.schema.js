@@ -48,9 +48,5 @@ export const iconButtonSchema = {
     type: 'enum',
     default: 'Primary',
     options: ['Primary', 'Secondary', 'White', 'Error']
-  },
-  className: {
-    type: 'string',
-    default: ''
   }
 };
