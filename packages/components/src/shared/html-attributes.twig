@@ -1,0 +1,19 @@
+{#
+  Renders an HTML attribute bag.
+
+  Required context:
+  - attributes: an object whose keys and values become HTML attributes.
+
+  Optional context:
+  - exclude: attribute names owned and rendered by the calling component.
+
+  False and null values are omitted. Boolean true is rendered as "true" so it
+  remains valid for both native Boolean and ARIA attributes.
+#}
+{% set htmlAttributes = attributes|default({}) %}
+{% set excludedAttributes = exclude|default([]) %}
+{% for name, value in htmlAttributes %}
+  {% if name not in excludedAttributes and value is not same as(false) and value is not null %}
+  {{ name|e('html_attr') }}="{% if value is same as(true) %}true{% else %}{{ value|e('html_attr') }}{% endif %}"
+  {% endif %}
+{%- endfor -%}

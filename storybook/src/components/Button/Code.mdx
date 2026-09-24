@@ -36,6 +36,24 @@ export const getButtonCodeTabs = (args) => [
 
 <Controls of={ButtonStories.Playground} />
 
+## HTML attributes
+
+Pass native HTML, ARIA, and `data-*` attributes through the `htmlAttributes` object. These attributes are intentionally separate from the design-system component API.
+
+```js
+renderButton({
+  text: 'Save changes',
+  htmlAttributes: {
+    type: 'submit',
+    id: 'save-changes',
+    'aria-controls': 'account-settings',
+    'data-analytics-event': 'save-changes'
+  }
+});
+```
+
+Set the Button `href` property to render a link-styled button. Use the Button `disabled` property to disable the control. Pass `false` to omit an attribute; pass ARIA Boolean values as strings, such as `'false'`.
+
 ## Code
 
 <StoryCodeTabs of={ButtonStories.Playground} getTabs={getButtonCodeTabs} />
