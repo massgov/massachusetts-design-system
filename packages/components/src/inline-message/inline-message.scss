@@ -1,0 +1,79 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
+.mds-inline-message {
+  --mds-inline-message-background: var(--mds-background-section-utility-informative-lowest);
+  --mds-inline-message-border: var(--mds-border-utility-informative-low);
+  --mds-inline-message-icon-color: var(--mds-content-utility-informative-mid);
+
+  @include mixins.box-sizing-reset;
+  @include mixins.text-block-reset;
+
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding: var(--mds-space-xs);
+  border: 2px solid var(--mds-inline-message-border);
+  border-radius: var(--mds-radius-md);
+  background-color: var(--mds-inline-message-background);
+  color: var(--mds-content-brand-neutral-default);
+
+  &--type-success {
+    --mds-inline-message-background: var(--mds-background-section-utility-success-lowest);
+    --mds-inline-message-border: var(--mds-border-utility-success-low);
+    --mds-inline-message-icon-color: var(--mds-content-utility-success-mid);
+  }
+
+  &--type-warning {
+    --mds-inline-message-background: var(--mds-background-section-utility-warning-lowest);
+    --mds-inline-message-border: var(--mds-border-utility-warning-low);
+    --mds-inline-message-icon-color: var(--mds-content-utility-warning-mid);
+  }
+
+  &--type-error {
+    --mds-inline-message-background: var(--mds-background-section-utility-danger-lowest);
+    --mds-inline-message-border: var(--mds-border-utility-danger-low);
+    --mds-inline-message-icon-color: var(--mds-content-utility-danger-mid);
+  }
+
+  &--variant-neutral {
+    --mds-inline-message-background: var(--mds-background-section-brand-neutral-lowest);
+    --mds-inline-message-border: var(--mds-border-brand-neutral-low);
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--mds-space-2xs);
+  }
+
+  &__icon {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    flex: none;
+    margin-block-start: var(--mds-space-3xs);
+    align-items: center;
+    justify-content: center;
+    color: var(--mds-inline-message-icon-color);
+  }
+
+  &__heading {
+    padding-block-start: var(--mds-space-3xs);
+
+    @include mixins.text("heading-2xs");
+  }
+
+  &__description {
+    padding-inline: var(--mds-space-2xs);
+
+    @include mixins.text("body");
+
+    a {
+      color: var(--mds-interactive-brand-primary-mid);
+    }
+  }
+}
