@@ -27,17 +27,15 @@
   <div class="mds-footer__container">
     <div class="mds-footer__content">
       <section class="mds-footer__brand mds-footer__column"{% if footerSiteNameId %} aria-labelledby="{{ footerSiteNameId|e }}"{% endif %}>
-        <div class="">
-          <a href="{{ siteLink|default('#')|e }}" class="mds-footer__brand-heading mds-footer__brand-link">
-            {% include 'state-seal.twig' with {
-              alt: footerSealAlt,
-              className: 'mds-footer__seal',
-              color: footerSealColor,
-              fileType: 'png'
-            } %}
-            <h2{% if footerSiteNameId %} id="{{ footerSiteNameId|e }}"{% endif %} class="mds-footer__site-name">{{ footerSiteName|e }}</h2>
-          </a>
-        </div>
+        <a href="{{ siteLink|default('#')|e }}" class="mds-footer__brand-heading mds-footer__brand-link">
+          {% include 'state-seal.twig' with {
+            alt: footerSealAlt,
+            className: 'mds-footer__seal',
+            color: footerSealColor,
+            fileType: 'png'
+          } %}
+          <h2{% if footerSiteNameId %} id="{{ footerSiteNameId|e }}"{% endif %} class="mds-footer__site-name">{{ footerSiteName|e }}</h2>
+        </a>
 
         {% if footerSocialLinks|length %}
           <ul class="mds-footer__social-list"{% if footerSocialLabel %} aria-label="{{ footerSocialLabel|e }}"{% endif %}>
