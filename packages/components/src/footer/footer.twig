@@ -27,7 +27,7 @@
   <div class="mds-footer__container">
     <div class="mds-footer__content">
       <section class="mds-footer__brand mds-footer__column"{% if footerSiteNameId %} aria-labelledby="{{ footerSiteNameId|e }}"{% endif %}>
-        <div class="mds-footer__brand-heading">
+        <a href="{{ siteLink|default('#')|e }}" class="mds-footer__brand-link">
           {% include 'state-seal.twig' with {
             alt: footerSealAlt,
             className: 'mds-footer__seal',
@@ -35,7 +35,7 @@
             fileType: 'png'
           } %}
           <h2{% if footerSiteNameId %} id="{{ footerSiteNameId|e }}"{% endif %} class="mds-footer__site-name">{{ footerSiteName|e }}</h2>
-        </div>
+        </a>
 
         {% if footerSocialLinks|length %}
           <ul class="mds-footer__social-list"{% if footerSocialLabel %} aria-label="{{ footerSocialLabel|e }}"{% endif %}>
@@ -70,49 +70,20 @@
             </h3>
           {% endif %}
           <address class="mds-footer__contact">
+          <ul>
             {% for contactItem in footerContactItems %}
               {% set contactIcon = contactItem.icon in footerOptions.icon ? contactItem.icon : '' %}
-              {% if contactItem.addressLines|length %}
-                <div class="mds-footer__contact-item">
-                  {% if contactIcon %}
-                    <span class="mds-footer__contact-icon mds-footer__icon" aria-hidden="true">
-                      {% include 'icon.twig' with {
-                        name: contactIcon,
-                        weight: 'Regular'
-                      } %}
-                    </span>
-                  {% endif %}
-                  <div>
-                    <p class="mds-footer__contact-address">
-                      {% for addressLine in contactItem.addressLines %}
-                        {{ addressLine|e }}{% if not loop.last %}<br />{% endif %}
-                      {% endfor %}
-                    </p>
-                    {% if contactItem.note %}
-                      <p class="mds-footer__contact-note">
-                        {{ contactItem.note|e }}
-                      </p>
-                    {% endif %}
-                  </div>
-                </div>
-              {% elseif contactItem.text %}
-                <p class="mds-footer__contact-item">
-                  {% if contactIcon %}
-                    <span class="mds-footer__icon--contact mds-footer__icon" aria-hidden="true">
-                      {% include 'icon.twig' with {
-                        name: contactIcon,
-                        weight: 'Regular'
-                      } %}
-                    </span>
-                  {% endif %}
-                  {% if contactItem.href %}
-                    <a class="mds-footer__contact-link mds-action-link" href="{{ contactItem.href|e }}">{{ contactItem.text|e }}</a>
-                  {% else %}
-                    {{ contactItem.text|e }}
-                  {% endif %}
-                </p>
-              {% endif %}
+                <li class="mds-footer__contact-item">
+                  {% include 'action-link.twig' with {
+                    href: contactItem.href,
+                    size: 'Medium',
+                    text: contactItem.text,
+                    leftIcon: contactItem.icon,
+                    rightIcon: '',
+                  } %}
+                </li>
             {% endfor %}
+            </ul>
           </address>
         </section>
       {% endif %}
