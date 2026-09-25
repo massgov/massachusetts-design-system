@@ -1,0 +1,93 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/action-link.css';
+import '@massds/mds-components/footer.css';
+import '@massds/mds-components/icon-button.css';
+import {
+  footerDefaults,
+  footerExampleData
+} from '../../../../packages/components/src/footer/footer.data.js';
+import { renderFooter } from '../../utils/component-renderers.js';
+import * as FooterStories from './footer.stories.js';
+
+export const FooterExample = (args) => (
+  <div
+    className="mds-docs-example-frame sb-unstyled"
+    dangerouslySetInnerHTML={{
+      __html: renderFooter({
+        ...footerDefaults,
+        ...footerExampleData,
+        ...args
+      })
+    }}
+  />
+);
+
+<Meta of={FooterStories} />
+
+# Footer overview
+
+A footer is a block of information at the bottom of a webpage or application. It gives people a consistent place to find information about the site or service, contact information, supporting navigation, and required legal or policy links.
+
+The footer combines required elements with optional navigation, contact, branding, and supporting content.
+
+Use the footer to provide supporting information and secondary navigation after the main page content.
+
+<FooterExample />
+
+---
+
+## Examples
+
+### Mass.gov
+
+The Mass.gov configuration uses Mass.gov as the site name and follows the standard footer structure used across Mass.gov pages.
+
+<FooterExample siteName="Mass.gov" />
+
+### Mass.gov subdomains
+
+A Mass.gov subdomain uses a Mass.gov web address but is managed outside the Mass.gov Content Management System.
+
+Use the service, organization, or product name as the site name when the footer represents a Mass.gov subdomain.
+
+<FooterExample siteName="Example Mass.gov service" />
+
+### Organization branding
+
+The footer can include an organization or product logo next to the State Seal when the experience represents a specific organization or product.
+
+Use the organization or product name as the site name when a name is included.
+
+<FooterExample siteName="Organization or product name" />
+
+---
+
+## Required elements
+
+### State Seal
+
+Include the State Seal in every footer. It can appear with a site, service, organization, or product name, or on its own.
+
+### Footer utility navigation bar
+
+Include the Digital Accessibility Statement and Privacy Notice as the first links in the footer utility navigation bar. Add other required legal or policy links as needed.
+
+### Copyright information
+
+Include the copyright statement and Commonwealth trademark notice at the bottom of the footer.
+
+---
+
+## Optional elements
+
+The footer can also include:
+
+- The site, service, organization, or product name
+- Organization or product description
+- Social media links
+- Contact information
+- Supporting navigation links grouped under headings
+- Additional legal, policy, or privacy links
+- Additional supporting content
+
+<FooterExample />
