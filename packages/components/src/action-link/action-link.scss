@@ -64,6 +64,12 @@
     vertical-align: top;
     margin-top: 3px; // align with link text
   }
+
+  &__text {
+    display: inline-block;
+    vertical-align: top;
+  }
+
   .mds-visually-hidden {
     position: absolute;
     left: -10000px;

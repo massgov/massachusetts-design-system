@@ -18,6 +18,10 @@ export const footerSchema = {
     required: true,
     default: 'Site Name'
   },
+  siteLink: {
+    type: 'string',
+    required: false
+  },
   sealAlt: {
     type: 'string',
     required: false
