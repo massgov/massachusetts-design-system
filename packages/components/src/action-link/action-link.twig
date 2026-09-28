@@ -38,7 +38,7 @@
       </span>
     {% endif %}
 
-    {{ actionLinkText|e }}
+    <span class="mds-action-link__text">{{ actionLinkText|e|replace({"\n": '<br>'})|raw }}</span>
 
     {% if actionLinkRightIcon %}
       <span class="mds-action-link__icon">
