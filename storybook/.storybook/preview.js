@@ -82,8 +82,16 @@ function renderSharedBetaInlineMessage() {
   });
 }
 
+function shouldShowBetaInlineMessage(context) {
+  const storyId = new URL(window.location.href).searchParams.get('id');
+
+  return context.id !== 'overview-introduction--docs' && storyId !== 'overview-introduction--docs';
+}
+
 function StorybookDocsContainer({ children, ...props }) {
-  const betaInlineMessageMarkup = renderSharedBetaInlineMessage();
+  const betaInlineMessageMarkup = shouldShowBetaInlineMessage(props.context)
+    ? renderSharedBetaInlineMessage()
+    : '';
   const footerMarkup = renderSharedFooter();
 
   return createElement(
