@@ -51,27 +51,31 @@
     margin: 0;
   }
 
-  &__fine-print p,
-  &__contact-note {
+  &__fine-print p {
     color: var(--mds-footer-muted-color);
   }
 
   &__container {
     @include mixins.section-container;
 
-    background: transparent;
-    color: inherit;
+    // override the width of 1280px set in the mixin
+    width: auto;
+    container-name: mds-footer;
+    container-type: inline-size;
   }
 
   &__column {
-    @include mixins.grid-4-column;
+    flex: 1 1 16rem;
+    min-inline-size: 0;
   }
 
   &__content {
-    @include mixins.grid;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mds-space-lg);
+  padding-block: var(--mds-space-2xl) var(--mds-space-md);
 
-    padding-block: var(--mds-space-2xl) var(--mds-space-md);
-  }
+}
 
   &__brand {
     display: flex;
@@ -83,6 +87,7 @@
     display: flex;
     align-items: center;
     gap: var(--mds-space-sm);
+    margin-block-end: var(--mds-space-sm);
   }
 
   &__brand-link, &__site-name {
@@ -110,11 +115,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--mds-space-2xs);
-    margin-block: var(--mds-space-sm);
+    margin-block-end: var(--mds-space-sm);
   }
 
   &__description {
-    max-width: 18rem;
+    color: var(--mds-footer-muted-color);
 
     @include mixins.text("caption-lg");
   }
@@ -217,6 +222,11 @@
 
   a {
     @include mixins.focus($focus-on-light: false);
+  }
+}
+@container mds-footer (max-width: 1110px) {
+  .mds-footer__column {
+    flex-basis: calc(50% - (var(--mds-space-lg) / 2));
   }
 }
 

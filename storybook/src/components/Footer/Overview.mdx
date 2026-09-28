@@ -15,12 +15,100 @@ export const FooterExample = (args) => (
     dangerouslySetInnerHTML={{
       __html: renderFooter({
         ...footerDefaults,
-        ...footerExampleData,
         ...args
       })
     }}
   />
 );
+
+export const copyright =
+  '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.';
+
+export const requiredPolicyLinks = [
+  {
+    href: '#',
+    text: 'Digital Accessibility Statement'
+  },
+  {
+    href: '#',
+    text: 'Privacy Notice'
+  }
+];
+
+export const standardFooter = {
+  siteNameId: 'footer-standard-site-name',
+  siteName: 'Site name',
+  sealAlt: '',
+  descriptionHtml:
+    'Optional short description of the site, organization, or product goes here. Use it to help people understand what it does and who it serves.',
+  contactHeadingId: 'footer-standard-contact-heading',
+  contactHeading: 'Contact',
+  contactItems: [
+    {
+      icon: 'map-pin',
+      text: '123 Main St.\nBoston, MA 02118'
+    },
+    {
+      icon: 'phone-call',
+      href: 'tel:+16172223333',
+      text: '(617) 222-3333'
+    },
+    {
+      icon: 'globe',
+      href: '#',
+      text: 'example.mass.gov'
+    },
+    {
+      icon: 'envelope',
+      href: 'mailto:sharedinbox@mass.gov',
+      text: 'sharedinbox@mass.gov'
+    }
+  ],
+  legalLabel: 'Required policies',
+  legalLinks: requiredPolicyLinks,
+  showOptionalLegalLinks: false,
+  trademarkHtml: copyright
+};
+
+export const massGovFooter = {
+  siteNameId: 'footer-mass-gov-site-name',
+  siteName: 'Mass.gov',
+  sealAlt: '',
+  legalLabel: 'Required policies',
+  legalLinks: requiredPolicyLinks,
+  showOptionalLegalLinks: true,
+  legalLinksOptional: [
+    {
+      href: '#',
+      text: 'Site Policies'
+    },
+    {
+      href: '#',
+      text: 'Public Records Requests'
+    }
+  ],
+  trademarkHtml: copyright
+};
+
+export const subdomainFooter = {
+  siteNameId: 'footer-subdomain-site-name',
+  siteName: 'ServiceNow',
+  sealAlt: '',
+  legalLabel: 'Required policies',
+  legalLinks: requiredPolicyLinks,
+  showOptionalLegalLinks: false,
+  trademarkHtml: copyright
+};
+
+export const organizationFooter = {
+  siteNameId: 'footer-organization-site-name',
+  siteName: 'Site name',
+  sealAlt: '',
+  legalLabel: 'Required policies',
+  legalLinks: requiredPolicyLinks,
+  showOptionalLegalLinks: false,
+  trademarkHtml: copyright
+};
 
 <Meta of={FooterStories} />
 
@@ -32,7 +120,7 @@ The footer combines required elements with optional navigation, contact, brandin
 
 Use the footer to provide supporting information and secondary navigation after the main page content.
 
-<FooterExample />
+<FooterExample {...standardFooter} />
 
 ---
 
@@ -42,7 +130,7 @@ Use the footer to provide supporting information and secondary navigation after 
 
 The Mass.gov configuration uses Mass.gov as the site name and follows the standard footer structure used across Mass.gov pages.
 
-<FooterExample siteName="Mass.gov" />
+<FooterExample {...massGovFooter} />
 
 ### Mass.gov subdomains
 
@@ -50,15 +138,15 @@ A Mass.gov subdomain uses a Mass.gov web address but is managed outside the Mass
 
 Use the service, organization, or product name as the site name when the footer represents a Mass.gov subdomain.
 
-<FooterExample siteName="Example Mass.gov service" />
+<FooterExample {...subdomainFooter} />
 
 ### Organization branding
 
-The footer can include an organization or product logo next to the State Seal when the experience represents a specific organization or product.
+The footer can include an organization or product logo next to the State Seal when the experience represents a specific organization or product. The current Twig component renders the State Seal and site name; add organization-logo support to the component before using a logo in production.
 
 Use the organization or product name as the site name when a name is included.
 
-<FooterExample siteName="Organization or product name" />
+<FooterExample {...organizationFooter} />
 
 ---
 
@@ -90,4 +178,4 @@ The footer can also include:
 - Additional legal, policy, or privacy links
 - Additional supporting content
 
-<FooterExample />
+<FooterExample {...footerExampleData} />

@@ -156,6 +156,6 @@ export const footerExampleData = {
       text: 'Public Records Requests'
     }
   ],
-  fundingText: 'Funding details lorem ipsum dolor sit amet lorem ipsum dolore sit amet',
+  fundingText: 'Additional supporting content. Use this optional area for information that helps people understand the service, such as funding details, policy information, or other supporting content.',
   trademarkHtml: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
 };
