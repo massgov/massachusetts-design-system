@@ -15,7 +15,7 @@ export const footerSchema = {
   },
   siteName: {
     type: 'string',
-    required: true,
+    required: false,
     default: 'Site Name'
   },
   siteLink: {
@@ -74,17 +74,6 @@ export const footerSchema = {
           type: 'icon',
           required: false,
           options: iconOptions
-        },
-        addressLines: {
-          type: 'array',
-          required: false,
-          items: {
-            type: 'string'
-          }
-        },
-        note: {
-          type: 'string',
-          required: false
         },
         href: {
           type: 'string',

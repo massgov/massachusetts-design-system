@@ -3,7 +3,8 @@
 {% set themeKey = footerTheme|lower %}
 {% set footerClass = 'mds-footer' ~ (themeKey == 'primary' ? ' mds-footer--primary' : '') %}
 {% set footerSiteNameId = siteNameId|default('') %}
-{% set footerSiteName = siteName|default(footerDefaults.siteName) %}
+{% set footerSiteName = siteName is defined ? siteName : footerDefaults.siteName %}
+{% set footerSiteLink = siteLink is defined ? siteLink : footerDefaults.siteLink %}
 {% set footerSealAlt = sealAlt|default('') %}
 {% set footerSealColor = themeKey == 'primary' ? 'white' : 'black' %}
 {% set footerIconButtonColor = themeKey == 'primary' ? 'White' : 'Primary' %}
@@ -27,15 +28,31 @@
   <div class="mds-footer__container">
     <div class="mds-footer__content">
       <section class="mds-footer__brand mds-footer__column"{% if footerSiteNameId %} aria-labelledby="{{ footerSiteNameId|e }}"{% endif %}>
-        <a href="{{ siteLink|default('#')|e }}" class="mds-footer__brand-link">
+        {% set footerSiteLink = siteLink|default('') %}
+
+        {% set footerBrandContent %}
           {% include 'state-seal.twig' with {
             alt: footerSealAlt,
             className: 'mds-footer__seal',
             color: footerSealColor,
             fileType: 'png'
           } %}
-          <h2{% if footerSiteNameId %} id="{{ footerSiteNameId|e }}"{% endif %} class="mds-footer__site-name">{{ footerSiteName|e }}</h2>
-        </a>
+          {% if footerSiteName %}
+            <h2{% if footerSiteNameId %} id="{{ footerSiteNameId|e }}"{% endif %} class="mds-footer__site-name">
+              {{ footerSiteName|e }}
+            </h2>
+          {% endif %}
+        {% endset %}
+
+        {% if footerSiteLink %}
+          <a href="{{ footerSiteLink|e }}" class="mds-footer__brand-link">
+            {{ footerBrandContent|raw }}
+          </a>
+        {% else %}
+          <div class="mds-footer__brand-identity">
+            {{ footerBrandContent|raw }}
+          </div>
+        {% endif %}
 
         {% if footerSocialLinks|length %}
           <ul class="mds-footer__social-list"{% if footerSocialLabel %} aria-label="{{ footerSocialLabel|e }}"{% endif %}>
@@ -70,9 +87,8 @@
             </h3>
           {% endif %}
           <address class="mds-footer__contact">
-          <ul>
+            <ul>
             {% for contactItem in footerContactItems %}
-              {% set contactIcon = contactItem.icon in footerOptions.icon ? contactItem.icon : '' %}
                 <li class="mds-footer__contact-item">
                   {% include 'action-link.twig' with {
                     href: contactItem.href,

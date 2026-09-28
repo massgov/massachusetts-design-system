@@ -27,24 +27,16 @@
     --mds-action-link-color-active: var(--mds-footer-link-hover-color);
   }
 
-  p a {
+  p a:not(.mds-action-link) {
     color: var(--mds-footer-inline-link-color);
   }
 
-  p a:hover {
+  p a:not(.mds-action-link):hover {
     color: var(--mds-footer-link-hover-color);
-  }
-
-  .mds-action-link {
-    --mds-action-link-color: var(--mds-footer-link-color);
-    --mds-action-link-color-hover: var(--mds-footer-link-color);
-    --mds-action-link-color-active: var(--mds-footer-link-hover-color);
   }
 
   &__site-name,
   &__heading,
-  &__contact-address,
-  &__contact-note,
   &__contact-item,
   &__description,
   &__fine-print p {
@@ -64,18 +56,18 @@
     container-type: inline-size;
   }
 
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mds-space-lg);
+    padding-block: var(--mds-space-2xl) var(--mds-space-md);
+
+  }
+
   &__column {
     flex: 1 1 16rem;
     min-inline-size: 0;
   }
-
-  &__content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--mds-space-lg);
-  padding-block: var(--mds-space-2xl) var(--mds-space-md);
-
-}
 
   &__brand {
     display: flex;
@@ -84,6 +76,11 @@
   }
 
   &__brand-link {
+  color: var(--mds-footer-link-color);
+  text-decoration: none;
+}
+
+  &__brand-link, &__brand-identity {
     display: flex;
     align-items: center;
     gap: var(--mds-space-sm);
@@ -103,12 +100,6 @@
     inline-size: 3.5rem;
     block-size: 3.5rem;
     align-self: self-start;
-  }
-
-  &__contact-address {
-    padding-block-start: var(--mds-space-3xs);
-
-    @include mixins.text("label-lg");
   }
 
   &__social-list {
@@ -145,12 +136,6 @@
     padding-block: var(--mds-space-3xs);
 
     @include mixins.text("label-lg");
-  }
-
-  &__contact-note {
-    padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
-
-    @include mixins.text("caption-lg");
   }
 
   &__link-list {
@@ -224,7 +209,9 @@
     @include mixins.focus($focus-on-light: false);
   }
 }
-@container mds-footer (max-width: 1110px) {
+// Make sure the footer switches to 2 columns if the container is less than 1110px wide.
+//This is a container query, so it will work even if the footer is in a smaller container than the page.
+@container mds-footer (max-width: 1210px) {
   .mds-footer__column {
     flex-basis: calc(50% - (var(--mds-space-lg) / 2));
   }
