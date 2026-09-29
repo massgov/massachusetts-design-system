@@ -9,10 +9,6 @@ export const footerSchema = {
     default: 'Neutral',
     options: ['Neutral', 'Primary']
   },
-  siteNameId: {
-    type: 'string',
-    required: false
-  },
   siteName: {
     type: 'string',
     required: false,
@@ -20,15 +16,11 @@ export const footerSchema = {
   },
   siteLink: {
     type: 'string',
-    required: false
+    required: true
   },
-  sealAlt: {
+  orgLogo: {
     type: 'string',
-    required: false
-  },
-  socialLabel: {
-    type: 'string',
-    required: false
+    required: true
   },
   socialLinks: {
     type: 'array',
@@ -52,11 +44,7 @@ export const footerSchema = {
       }
     }
   },
-  descriptionHtml: {
-    type: 'string',
-    required: false
-  },
-  contactHeadingId: {
+  description: {
     type: 'string',
     required: false
   },
@@ -124,10 +112,6 @@ export const footerSchema = {
       }
     }
   },
-  legalLabel: {
-    type: 'string',
-    required: false
-  },
   legalLinks: {
     type: 'array',
     required: false,
@@ -144,10 +128,6 @@ export const footerSchema = {
         }
       }
     }
-  },
-  showOptionalLegalLinks: {
-    type: 'boolean',
-    default: true
   },
   legalLinksOptional: {
     type: 'array',
@@ -167,11 +147,11 @@ export const footerSchema = {
       }
     }
   },
-  fundingText: {
+  supportingContent: {
     type: 'string',
     required: false
   },
-  trademarkHtml: {
+  trademark: {
     type: 'string',
     required: false
   }

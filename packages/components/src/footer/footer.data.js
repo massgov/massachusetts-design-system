@@ -17,7 +17,6 @@ export const footerDefaults = getSchemaDefaults(footerSchema);
 export const footerExampleData = {
   ...footerDefaults,
   theme: 'Neutral',
-  siteNameId: 'mds-footer-site-name',
   siteLink: 'http://www.mass.gov',
   sealAlt: '',
   socialLabel: 'Social media links',
@@ -54,8 +53,7 @@ export const footerExampleData = {
   contactItems: [
     {
       icon: 'map-pin',
-      text: '123 Main St.\nBoston, MA 02118',
-      note: 'Optional descriptive text'
+      text: '123 Main St.\nBoston, MA 02118'
     },
     {
       icon: 'phone-call',
