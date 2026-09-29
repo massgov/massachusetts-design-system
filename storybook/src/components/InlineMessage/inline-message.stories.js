@@ -35,12 +35,14 @@ const inlineMessageControls = {
   },
   heading: {
     control: 'text',
+    description: 'Inline message heading goes here which can be up to 75 characters.',
     table: {
       category: controlCategories.content
     }
   },
-  descriptionHtml: {
+  description: {
     control: 'text',
+    description: 'Inline message description goes here which can be up to 150 characters and includes rich text.',
     table: {
       category: controlCategories.content
     }

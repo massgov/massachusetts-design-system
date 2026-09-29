@@ -16,7 +16,7 @@ export const inlineMessageSchema = {
     required: true,
     default: 'Inline message title'
   },
-  descriptionHtml: {
+  description: {
     type: 'string',
     required: false
   }

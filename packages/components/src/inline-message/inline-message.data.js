@@ -21,5 +21,5 @@ export const inlineMessageDefaults = getSchemaDefaults(inlineMessageSchema);
 
 export const inlineMessageExampleData = {
   ...inlineMessageDefaults,
-  descriptionHtml: 'Inline message description goes here which can be up to 150 characters and includes rich text. Lorem ipsum dolor sit amet, <a href="#" rel="noreferrer">consectetur adipisicing el</a>.'
+  description: 'Lorem ipsum dolor sit amet, <a href="#" rel="noreferrer">consectetur adipisicing el</a>.'
 };
