@@ -96,7 +96,7 @@
     @include mixins.text("heading-sm");
   }
 
-  &__seal {
+  &__seal, &__org-logo {
     inline-size: 3.5rem;
     block-size: 3.5rem;
     align-self: self-start;

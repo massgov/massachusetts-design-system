@@ -185,6 +185,7 @@ const defaultPlaygroundArgs = {
   siteName: footerDefaults.siteName,
   siteLink: footerExampleData.siteLink,
   sealAlt: footerExampleData.sealAlt,
+  orgLogo: footerExampleData.orgLogo,
   socialLabel: footerExampleData.socialLabel,
   socialLinks: footerExampleData.socialLinks,
   descriptionHtml: footerExampleData.descriptionHtml,

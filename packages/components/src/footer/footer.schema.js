@@ -22,6 +22,20 @@ export const footerSchema = {
     type: 'string',
     required: false
   },
+  orgLogo: {
+    type: 'object',
+    required: false,
+    properties: {
+      src: {
+        type: 'string',
+        required: true
+      },
+      alt: {
+        type: 'string',
+        required: true
+      }
+    }
+  },
   sealAlt: {
     type: 'string',
     required: false

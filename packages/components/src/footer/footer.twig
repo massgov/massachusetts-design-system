@@ -5,6 +5,7 @@
 {% set footerSiteNameId = siteNameId|default('') %}
 {% set footerSiteName = siteName is defined ? siteName : footerDefaults.siteName %}
 {% set footerSiteLink = siteLink is defined ? siteLink : footerDefaults.siteLink %}
+{% set footerOrgLogo = orgLogo is defined ? orgLogo : footerDefaults.orgLogo %}
 {% set footerSealAlt = sealAlt|default('') %}
 {% set footerSealColor = themeKey == 'primary' ? 'white' : 'black' %}
 {% set footerIconButtonColor = themeKey == 'primary' ? 'White' : 'Primary' %}
@@ -37,6 +38,9 @@
             color: footerSealColor,
             fileType: 'png'
           } %}
+          {% if footerOrgLogo %}
+            <img src="{{ footerOrgLogo.src|e }}" alt="{{ footerOrgLogo.alt|e }}" class="mds-footer__org-logo" />
+          {% endif %}
           {% if footerSiteName %}
             <h2{% if footerSiteNameId %} id="{{ footerSiteNameId|e }}"{% endif %} class="mds-footer__site-name">
               {{ footerSiteName|e }}
