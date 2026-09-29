@@ -123,6 +123,10 @@
   margin-block-end: 0;
 }
 
+#storybook-docs .sbdocs-content :where(blockquote:not(.sb-anchor, .sb-unstyled, .sb-unstyled blockquote)) p + p {
+  margin-block-start: var(--mds-space-sm);
+}
+
 #storybook-docs .sbdocs-content :where(p, ul, ol, blockquote):not(.sb-anchor, .sb-unstyled, .sb-unstyled *) code {
   color: inherit;
   font-size: 0.95em;
