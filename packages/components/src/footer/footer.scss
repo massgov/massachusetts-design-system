@@ -92,6 +92,11 @@
     text-decoration: none;
   }
 
+  &__brand-link, &__site-name {
+    color: var(--mds-footer-link-color);
+    text-decoration: none;
+  }
+
   &__site-name {
     @include mixins.text("heading-sm");
   }
