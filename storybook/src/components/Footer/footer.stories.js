@@ -106,12 +106,6 @@ const footerControls = {
       category: controlCategories.content
     }
   },
-  contactHeading: {
-    control: 'text',
-    table: {
-      category: controlCategories.content
-    }
-  },
   contactItems: {
     control: 'object',
     table: {

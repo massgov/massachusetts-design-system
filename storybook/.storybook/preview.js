@@ -1,8 +1,8 @@
-import '@massds/mds-styles/index.css';
-import '@massds/mds-tokens/dist/index.css';
 import '@massds/mds-components/action-link.css';
 import '@massds/mds-components/footer.css';
 import '@massds/mds-components/icon-button.css';
+import '@massds/mds-styles/index.css';
+import '@massds/mds-tokens/dist/index.css';
 import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { createElement, Fragment } from 'react';
 import storybookPackage from '../package.json';
@@ -20,8 +20,7 @@ const sharedFooterData = {
   siteName: 'Massachusetts Design System',
   sealAlt: '',
   socialLinks: [],
-  descriptionHtml: 'Storybook is the implementation reference for the Massachusetts Design System. It provides reusable components, design tokens, accessibility guidance, and code examples for Commonwealth digital products.',
-  contactHeadingId: 'storybook-footer-contact-heading',
+  description: 'Storybook is the implementation reference for the Massachusetts Design System. It provides reusable components, design tokens, accessibility guidance, and code examples for Commonwealth digital products.',
   contactHeading: 'Contact',
   contactItems: [
     {
@@ -54,8 +53,8 @@ const sharedFooterData = {
   ],
   showOptionalLegalLinks: false,
   legalLinksOptional: [],
-  fundingText: '',
-  trademarkHtml: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
+  supportingContent: 'Additional supporting content. Use this optional area for information that helps people understand the service, such as funding details, policy information, or other supporting content.',
+  trademark: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
 };
 
 function renderSharedFooter() {
