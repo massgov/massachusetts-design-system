@@ -21,5 +21,5 @@ export const inlineMessageDefaults = getSchemaDefaults(inlineMessageSchema);
 
 export const inlineMessageExampleData = {
   ...inlineMessageDefaults,
-  description: 'Lorem ipsum dolor sit amet, <a href="#" rel="noreferrer">consectetur adipisicing el</a>.'
+  description: 'Lorem ipsum dolor sit amet, , consectetur adipiscing elit. Aliquam sed dolor at <a href="#" rel="noreferrer">quam condimentum interdum</a>.' 
 };
