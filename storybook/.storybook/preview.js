@@ -19,7 +19,7 @@ const sharedBetaInlineMessageData = {
   type: 'Informative',
   variant: 'Filled',
   heading: 'The Massachusetts Design System is in beta',
-  descriptionHtml: 'The Design System is available to use now and will continue to evolve as the library grows. Learn more about using the Design System progressively and how the resources fit into your project on the <a href="/">Design System introduction page.</a>'
+  description: 'The Design System is available to use now and will continue to evolve as the library grows. Learn more about using the Design System progressively and how the resources fit into your project on the <a href="/">Design System introduction page.</a>'
 };
 
 const sharedFooterData = {
