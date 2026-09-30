@@ -29,7 +29,7 @@
             fileType: 'png'
           } %}
           {% if footerOrgLogo %}
-            <img src="{{ footerOrgLogo.src|e }}" alt="{{ footerOrgLogo.alt|e }}" class="mds-footer__org-logo" />
+            <img src="{{ footerOrgLogo|e }}" class="mds-footer__org-logo" />
           {% endif %}
           {% if footerSiteName %}
             <h2 class="mds-footer__site-name">
