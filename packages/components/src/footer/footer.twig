@@ -5,24 +5,17 @@
 {% set footerSiteName = siteName is defined ? siteName : footerDefaults.siteName %}
 {% set footerSiteLink = siteLink is defined ? siteLink : footerDefaults.siteLink %}
 {% set footerOrgLogo = orgLogo is defined ? orgLogo : footerDefaults.orgLogo %}
-{% set footerSealAlt = sealAlt|default('') %}
 {% set footerSealColor = themeKey == 'primary' ? 'white' : 'black' %}
 {% set footerIconButtonColor = themeKey == 'primary' ? 'White' : 'Primary' %}
-{% set footerSocialLabel = socialLabel|default('') %}
 {% set footerSocialLinks = socialLinks|default([]) %}
-{% set footerDescriptionHtml = descriptionHtml|default('') %}
-{% set footerContactHeadingId = contactHeadingId|default('') %}
+{% set footerDescription = description|default('') %}
 {% set footerContactHeading = contactHeading|default('') %}
 {% set footerContactItems = contactItems|default([]) %}
 {% set footerLinkGroups = linkGroups|default([]) %}
-{% set footerLegalLabel = legalLabel|default('') %}
 {% set footerLegalLinks = legalLinks|default([]) %}
 {% set footerLegalLinksOptional = legalLinksOptional|default([]) %}
-{% set footerShowOptionalLegalLinks =
-  showOptionalLegalLinks|default(footerDefaults.showOptionalLegalLinks)
-%}
-{% set footerFundingText = fundingText|default('') %}
-{% set footerTrademarkHtml = trademarkHtml|default('') %}
+{% set footersupportingContent = supportingContent|default('') %}
+{% set footerTrademark = trademark|default('') %}
 
 <footer class="{{ footerClass|e }}">
   <div class="mds-footer__container">
@@ -31,7 +24,6 @@
 
         {% set footerBrandContent %}
           {% include 'state-seal.twig' with {
-            alt: footerSealAlt,
             className: 'mds-footer__seal',
             color: footerSealColor,
             fileType: 'png'
@@ -57,7 +49,7 @@
         {% endif %}
 
         {% if footerSocialLinks|length %}
-          <ul class="mds-footer__social-list"{% if footerSocialLabel %} aria-label="{{ footerSocialLabel|e }}"{% endif %}>
+          <ul class="mds-footer__social-list">
             {% for socialLink in footerSocialLinks %}
               {% set socialIcon = socialLink.icon in footerOptions.icon ? socialLink.icon : '' %}
               {% if socialLink.href and socialLink.label and socialIcon %}
@@ -76,15 +68,15 @@
           </ul>
         {% endif %}
 
-        {% if footerDescriptionHtml %}
-          <p class="mds-footer__description">{{ footerDescriptionHtml|raw }}</p>
+        {% if footerDescription %}
+          <p class="mds-footer__description">{{ footerDescription|raw }}</p>
         {% endif %}
       </section>
 
       {% if footerContactItems|length %}
-        <section class="mds-footer__column"{% if footerContactHeadingId and footerContactHeading %} aria-labelledby="{{ footerContactHeadingId|e }}"{% endif %}>
+        <section class="mds-footer__column"{% if footerContactHeading %} aria-labelledby="{{ footerContactHeadingId|e }}"{% endif %}>
           {% if footerContactHeading %}
-            <h3 id="{{ footerContactHeadingId|e }}" class="mds-footer__heading">
+            <h3 class="mds-footer__heading">
               {{ footerContactHeading|e }}
             </h3>
           {% endif %}
@@ -140,7 +132,7 @@
     </div>
 
     {% if footerLegalLinks|length %}
-      <nav class="mds-footer__legal-nav"{% if footerLegalLabel %} aria-label="{{ footerLegalLabel|e }}"{% endif %}>
+      <nav class="mds-footer__legal-nav">
         <ul>
           {% for link in footerLegalLinks %}
             {% if link.href and link.text %}
@@ -172,13 +164,13 @@
       </nav>
     {% endif %}
 
-    {% if footerFundingText or footerTrademarkHtml %}
+    {% if footerSupportingContent or footerTrademark %}
       <div class="mds-footer__fine-print">
-        {% if footerFundingText %}
-          <p>{{ footerFundingText|e }}</p>
+        {% if footerSupportingContent %}
+          <p>{{ footerSupportingContent|e }}</p>
         {% endif %}
-        {% if footerTrademarkHtml %}
-          <p class="mds-footer__trademark">{{ footerTrademarkHtml|raw }}</p>
+        {% if footerTrademark %}
+          <p class="mds-footer__trademark">{{ footerTrademark|raw }}</p>
         {% endif %}
       </div>
     {% endif %}

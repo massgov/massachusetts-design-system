@@ -134,7 +134,6 @@ export const footerExampleData = {
       ]
     }
   ],
-  legalLabel: 'Required policies',
   legalLinks: [
     {
       href: '#',
@@ -155,6 +154,6 @@ export const footerExampleData = {
       text: 'Public Records Requests'
     }
   ],
-  fundingText: 'Additional supporting content. Use this optional area for information that helps people understand the service, such as funding details, policy information, or other supporting content.',
-  trademarkHtml: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
+  supportingContent: 'Additional supporting content. Use this optional area for information that helps people understand the service, such as funding details, policy information, or other supporting content.',
+  trademark: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
 };
