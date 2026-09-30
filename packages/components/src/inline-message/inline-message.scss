@@ -48,6 +48,7 @@
     display: flex;
     align-items: flex-start;
     gap: var(--mds-space-2xs);
+    padding-bottom: 4px;
   }
 
   &__icon {
@@ -59,6 +60,7 @@
     align-items: center;
     justify-content: center;
     color: var(--mds-inline-message-icon-color);
+    margin: 6px;
   }
 
   &__heading {
