@@ -35,14 +35,14 @@ const inlineMessageControls = {
   },
   heading: {
     control: 'text',
-    description: 'Inline message heading goes here which can be up to 75 characters.',
+    description: 'Suggested max heading length is 75 characters.',
     table: {
       category: controlCategories.content
     }
   },
   description: {
     control: 'text',
-    description: 'Inline message description goes here which can be up to 150 characters and includes rich text.',
+    description: 'Supports rich text. Suggested max description length is 150 characters.',
     table: {
       category: controlCategories.content
     }
