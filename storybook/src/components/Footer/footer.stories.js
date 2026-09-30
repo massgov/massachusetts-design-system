@@ -152,7 +152,7 @@ const defaultPlaygroundArgs = {
   siteLink: footerExampleData.siteLink,
   orgLogo: footerExampleData.orgLogo,
   socialLinks: footerExampleData.socialLinks,
-  description: footerExampleData.descriptionHtml,
+  description: footerExampleData.description,
   contactHeading: footerExampleData.contactHeading,
   contactItems: footerExampleData.contactItems,
   linkGroups: footerExampleData.linkGroups,
