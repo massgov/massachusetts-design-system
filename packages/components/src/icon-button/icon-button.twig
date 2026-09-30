@@ -26,16 +26,7 @@
   {% set iconButtonClass = iconButtonClass ~ ' ' ~ iconButtonExtraClass %}
 {% endif %}
 
-{% if iconButtonElement == 'button' %}
-<button
-  class="{{ iconButtonClass|e }}"
-  type="{{ iconButtonHtmlType|e }}"
-  aria-label="{{ iconButtonAriaLabel|e }}"{% if iconButtonId %}
-  id="{{ iconButtonId|e }}"{% endif %}{% if iconButtonLoading %}
-  aria-busy="true"{% endif %}{% if iconButtonUnavailable %}
-  disabled{% endif %}
->
-{% else %}
+{% if href %}
 <a
   class="{{ iconButtonClass|e }}"{% if not iconButtonUnavailable %}
   href="{{ iconButtonHref|e }}"{% endif %}
@@ -43,6 +34,15 @@
   id="{{ iconButtonId|e }}"{% endif %}{% if iconButtonUnavailable %}
   aria-disabled="true"
   tabindex="-1"{% endif %}
+>
+{% else %}
+<button
+  class="{{ iconButtonClass|e }}"
+  type="{{ iconButtonHtmlType|e }}"
+  aria-label="{{ iconButtonAriaLabel|e }}"{% if iconButtonId %}
+  id="{{ iconButtonId|e }}"{% endif %}{% if iconButtonLoading %}
+  aria-busy="true"{% endif %}{% if iconButtonUnavailable %}
+  disabled{% endif %}
 >
 {% endif %}
     <span class="mds-icon-button__icon">

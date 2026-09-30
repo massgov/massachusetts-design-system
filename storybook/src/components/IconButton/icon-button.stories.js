@@ -114,13 +114,6 @@ const iconSelectControl = {
 
 // Controls are the editable fields in the Storybook UI.
 const iconButtonControls = {
-  element: {
-    control: 'inline-radio',
-    options: iconButtonOptions.element,
-    table: {
-      category: controlCategories.html
-    }
-  },
   ariaLabel: {
     control: 'text',
     description: 'Accessible label for the icon-only control.',
@@ -152,41 +145,24 @@ const iconButtonControls = {
     control: 'text',
     description: 'Link destination - entering a value here will make the element an anchor tag.',
     table: {
-      category: controlCategories.html
+      category: controlCategories.content
     }
   },
-  htmlType: {
-    control: 'select',
-    options: iconButtonOptions.htmlType,
-    description: 'Native HTML button type when element is button.',
+  disabled: {
+    control: 'boolean',
+    description: 'Disables the native button.',
     table: {
-      category: controlCategories.html
+      category: controlCategories.content
     }
   },
-  id: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  className: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  }
 };
 
 const defaultPlaygroundArgs = {
-  element: iconButtonDefaults.element,
   href: iconButtonDefaults.href,
-  htmlType: iconButtonDefaults.htmlType,
-  id: iconButtonDefaults.id,
   ariaLabel: iconButtonDefaults.ariaLabel,
   icon: iconButtonDefaults.icon,
   type: iconButtonDefaults.type,
-  color: iconButtonDefaults.color,
-  className: iconButtonDefaults.className
+  color: iconButtonDefaults.color
 };
 
 const meta = {
