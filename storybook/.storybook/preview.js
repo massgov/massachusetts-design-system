@@ -16,9 +16,8 @@ const footerSealSrc = `https://unpkg.com/@massds/mds-assets@${stateAssetsVersion
 
 const sharedFooterData = {
   theme: 'Neutral',
-  siteNameId: 'storybook-footer-site-name',
   siteName: 'Massachusetts Design System',
-  sealAlt: '',
+  siteLink: 'https://designsystem.dev.tss.mass.gov/',
   socialLinks: [],
   description: 'Storybook is the implementation reference for the Massachusetts Design System. It provides reusable components, design tokens, accessibility guidance, and code examples for Commonwealth digital products.',
   contactHeading: 'Contact',
@@ -40,7 +39,6 @@ const sharedFooterData = {
     }
   ],
   linkGroups: [],
-  legalLabel: 'Footer links',
   legalLinks: [
     {
       href: 'https://www.mass.gov/info-details/commonwealth-of-massachusetts-executive-department-digital-accessibility-statement',
@@ -51,7 +49,6 @@ const sharedFooterData = {
       text: 'Privacy Notice'
     }
   ],
-  showOptionalLegalLinks: false,
   legalLinksOptional: [],
   supportingContent: 'Additional supporting content. Use this optional area for information that helps people understand the service, such as funding details, policy information, or other supporting content.',
   trademark: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
