@@ -14,6 +14,22 @@ import { massdsDocsTheme } from './theme';
 const stateAssetsVersion = storybookPackage.dependencies['@massds/mds-assets'];
 const footerSealSrc = `https://unpkg.com/@massds/mds-assets@${stateAssetsVersion}/dist/state-seal/state-seal-black.png`;
 
+// Public docs images need Vite's base path in branch-preview deployments.
+function getDocsImageSource(src) {
+  if (typeof src !== 'string' || !src.startsWith('/images/')) {
+    return src;
+  }
+
+  return `${import.meta.env.BASE_URL}${src.slice(1)}`;
+}
+
+function StorybookDocsImage({ src, ...props }) {
+  return createElement('img', {
+    ...props,
+    src: getDocsImageSource(src)
+  });
+}
+
 const sharedFooterData = {
   theme: 'Neutral',
   siteNameId: 'storybook-footer-site-name',
@@ -107,6 +123,9 @@ const preview = {
       }
     },
     docs: {
+      components: {
+        img: StorybookDocsImage
+      },
       theme: massdsDocsTheme,
       container: StorybookDocsContainer,
       toc: {
