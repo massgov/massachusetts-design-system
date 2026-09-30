@@ -38,10 +38,8 @@ export const requiredPolicyLinks = [
 export const standardFooter = {
   siteName: 'Site name',
   siteLink: 'https://www.mass.gov/',
-  sealAlt: '',
-  descriptionHtml:
+  description:
     'Optional short description of the site, organization, or product goes here. Use it to help people understand what it does and who it serves.',
-  contactHeadingId: 'footer-standard-contact-heading',
   contactHeading: 'Contact',
   contactItems: [
     {
@@ -64,19 +62,16 @@ export const standardFooter = {
       text: 'sharedinbox@mass.gov'
     }
   ],
-  legalLabel: 'Required policies',
   legalLinks: requiredPolicyLinks,
-  showOptionalLegalLinks: false,
-  trademarkHtml: copyright
+  optionalLegalLinks: false,
+  trademark: copyright
 };
 
 export const massGovFooter = {
   siteName: 'Mass.gov',
   siteLink: 'https://www.mass.gov/',
-  sealAlt: '',
-  legalLabel: 'Required policies',
   legalLinks: requiredPolicyLinks,
-  showOptionalLegalLinks: true,
+  optionalLegalLinks: true,
   legalLinksOptional: [
     {
       href: '#',
@@ -87,17 +82,15 @@ export const massGovFooter = {
       text: 'Public Records Requests'
     }
   ],
-  trademarkHtml: copyright
+  trademark: copyright
 };
 
 export const subdomainFooter = {
   siteName: 'ServiceNow',
   siteLink: 'https://www.mass.gov/',
-  sealAlt: '',
-  legalLabel: 'Required policies',
   legalLinks: requiredPolicyLinks,
-  showOptionalLegalLinks: false,
-  trademarkHtml: copyright
+  optionalLegalLinks: false,
+  trademark: copyright
 };
 
 export const organizationFooter = {
@@ -107,18 +100,14 @@ export const organizationFooter = {
     src: './images/RMA_LogoColor.png',
     alt: 'Massachusetts Office of Outdoor Recreation'
   },
-  sealAlt: '',
-  legalLabel: 'Required policies',
   legalLinks: requiredPolicyLinks,
-  showOptionalLegalLinks: false,
-  trademarkHtml: copyright
+  optionalLegalLinks: false,
+  trademark: copyright
 };
 
 <Meta of={FooterStories} />
 
 # Footer overview
-
-![logo](./images/RMA_LogoColor.png)
 
 A footer is a block of information at the bottom of a webpage or application. It gives people a consistent place to find information about the site or service, contact information, supporting navigation, and required legal or policy links.
 
