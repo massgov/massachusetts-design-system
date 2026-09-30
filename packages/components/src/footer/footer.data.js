@@ -17,7 +17,7 @@ export const footerDefaults = getSchemaDefaults(footerSchema);
 export const footerExampleData = {
   ...footerDefaults,
   theme: 'Neutral',
-  siteNameId: 'mds-footer-site-name',
+  siteLink: 'http://www.mass.gov',
   sealAlt: '',
   socialLabel: 'Social media links',
   socialLinks: [
@@ -53,8 +53,7 @@ export const footerExampleData = {
   contactItems: [
     {
       icon: 'map-pin',
-      text: '123 Main St.\nBoston, MA 02118',
-      note: 'Optional descriptive text'
+      text: '123 Main St.\nBoston, MA 02118'
     },
     {
       icon: 'phone-call',
@@ -156,6 +155,6 @@ export const footerExampleData = {
       text: 'Public Records Requests'
     }
   ],
-  fundingText: 'Funding details lorem ipsum dolor sit amet lorem ipsum dolore sit amet',
+  fundingText: 'Additional supporting content. Use this optional area for information that helps people understand the service, such as funding details, policy information, or other supporting content.',
   trademarkHtml: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
 };

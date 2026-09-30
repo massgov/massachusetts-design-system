@@ -80,8 +80,22 @@ const footerControls = {
       category: controlCategories.content
     }
   },
-  descriptionHtml: {
+  siteLink: {
     control: 'text',
+    table: {
+      category: controlCategories.content
+    }
+  },
+  orgLogo: {
+    control: 'text',
+    description: 'This is an optional second logo to represent the organization',
+    table: {
+      category: controlCategories.content
+    }
+  },
+  description: {
+    control: 'text',
+    description: 'Can include rich text',
     table: {
       category: controlCategories.content
     }
@@ -116,81 +130,42 @@ const footerControls = {
       category: controlCategories.content
     }
   },
-  showOptionalLegalLinks: {
-    control: 'boolean',
-    description: 'Shows the optional legal links after the required legal links.',
-    table: {
-      category: controlCategories.content
-    }
-  },
   legalLinksOptional: {
     control: 'object',
     table: {
       category: controlCategories.content
     }
   },
-  fundingText: {
+  supportingContent: {
     control: 'text',
+    description: 'Can include rich text',
     table: {
       category: controlCategories.content
     }
   },
-  trademarkHtml: {
+  trademark: {
     control: 'text',
+    description: 'Can include rich text',
     table: {
       category: controlCategories.content
     }
   },
-  siteNameId: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  sealAlt: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  socialLabel: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  contactHeadingId: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  legalLabel: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  }
 };
 
 const defaultPlaygroundArgs = {
   theme: footerExampleData.theme,
-  siteNameId: footerExampleData.siteNameId,
   siteName: footerDefaults.siteName,
-  sealAlt: footerExampleData.sealAlt,
-  socialLabel: footerExampleData.socialLabel,
+  siteLink: footerExampleData.siteLink,
+  orgLogo: footerExampleData.orgLogo,
   socialLinks: footerExampleData.socialLinks,
-  descriptionHtml: footerExampleData.descriptionHtml,
-  contactHeadingId: footerExampleData.contactHeadingId,
+  description: footerExampleData.descriptionHtml,
   contactHeading: footerExampleData.contactHeading,
   contactItems: footerExampleData.contactItems,
   linkGroups: footerExampleData.linkGroups,
-  legalLabel: footerExampleData.legalLabel,
   legalLinks: footerExampleData.legalLinks,
-  showOptionalLegalLinks: footerExampleData.showOptionalLegalLinks ?? false,
   legalLinksOptional: footerExampleData.legalLinksOptional,
-  fundingText: footerExampleData.fundingText,
-  trademarkHtml: footerExampleData.trademarkHtml
+  supportingContent: footerExampleData.supportingContent,
+  trademark: footerExampleData.trademark
 };
 
 const meta = {

@@ -1,0 +1,119 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as FooterStories from './footer.stories.js';
+
+<Meta of={FooterStories} />
+
+# Footer guidance
+
+---
+
+## Content
+
+### Best practices
+
+#### Do
+
+- Use the official site, service, organization, or product name that people recognize from the page or service they are using
+- Keep the name concise and consistent across the footer and other site identification areas
+- Group related links under a descriptive heading
+- Use concise link labels that clearly identify their destination
+- Use a short description to help people understand what the site, service, organization, or product does and who it serves
+- Include contact information when people may need a way to reach the organization or service
+- Include social media links only for active, official accounts that provide value to people using the service
+- Use additional supporting content for funding details, policy information, or other supporting information
+
+#### Don't
+
+- Add page-specific content that does not help people understand or use the service
+- Add large sets of links without grouping them into clear categories
+- Use the footer as a replacement for primary navigation
+- Repeat primary navigation without a clear reason
+
+---
+
+## Design
+
+### Usage
+
+#### When to use a footer
+
+Use a footer when you need to:
+
+- Provide supporting navigation such as help, contact, or related links
+- Provide required accessibility, legal, privacy, or policy information
+- Reinforce the identity of the site, service, organization, or product
+- Provide contact information or supporting organization information
+- Give long or content-heavy pages a consistent end point
+
+The footer is a composed pattern. Use the nested components within it according to their own documentation.
+
+#### When not to use a footer
+
+Do not use the footer:
+
+- As a replacement for primary navigation
+- To surface critical tasks or calls to action that people need earlier in the experience
+- As the only way to reach a task or destination that people need while completing the page
+
+### Responsive behavior
+
+The footer changes its layout as the available width decreases:
+
+- Footer sections use multiple columns when there is enough space
+- Footer sections reduce the number of columns as space becomes more limited
+- Footer sections stack vertically at smaller widths
+- Link labels remain visible and wrap rather than being truncated
+
+### Organization branding
+
+When including an organization or product logo next to the State Seal, use a PNG or SVG file that preserves transparency and scales without losing visual quality. Avoid using a background color unless it is part of the design.
+
+If the logo includes text that must be read, the text contrast rules apply:
+
+- 4.5:1 for small size text
+- 3:1 for large text (18pt regular or 14pt bold)
+
+---
+
+## Accessibility
+
+### Mouse control
+
+- Activate links on mouse release rather than mouse down
+- Provide a visible hover state for interactive elements
+- Do not require precise pointer placement on small icons or text
+- Make the entire interactive target clickable
+
+### Touch control
+
+- Activate a footer link with a single tap
+- Provide touch targets that are large enough to activate easily and space adjacent links apart
+- Provide immediate visual feedback when a control is pressed
+- Do not depend on hover behavior to expose footer content or functionality
+
+### Keyboard control
+
+- Make all footer links and controls reachable using the keyboard
+- Move focus through the footer's logical reading order
+- Always provide a visible focus indicator
+- Activate links with the Enter or Space keys
+
+### Assistive technology
+
+- Use the semantic `<footer>` element so assistive technology can identify the site footer as a landmark
+- Use headings to identify different link groups when headings help people understand the organization of the footer
+- Give every link an accessible name that describes its purpose or destination
+- Provide accessible names for linked icons, including social media links
+- Include the external-link icon when a link opens in a new window and announce that the link opens in a new window
+- Provide alternative text that identifies the organization or product represented by the logo
+- Maintain a logical reading order that matches the intended reading order, including when the visual layout changes responsively
+
+---
+
+## Related components
+
+[Action link](?path=/docs/components-action-link--overview) — use for contact information and navigation links in the footer.
+
+[Icon button](?path=/docs/components-icon-button--overview) — use for linking to social channels.
+
+Type styles — use inline link styling when a link appears within a sentence or paragraph.
