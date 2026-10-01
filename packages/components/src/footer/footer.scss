@@ -1,9 +1,12 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
 
 .mds-footer {
-  // Neutral is the default color family. Primary overrides these tokens below.
   @include mixins.unordered-list-reset;
   @include mixins.address-reset;
+  @include mixins.box-sizing-reset;
+  @include mixins.font-smoothing-reset;
+
+  // Neutral is the default color family. Primary overrides these tokens below.
 
   --mds-footer-background: var(--mds-background-section-brand-neutral-lowest);
   --mds-footer-color: var(--mds-content-brand-neutral-default);
@@ -50,8 +53,7 @@
   &__container {
     @include mixins.section-container;
 
-    // override the width of 1280px set in the mixin
-    width: auto;
+
     container-name: mds-footer;
     container-type: inline-size;
   }
@@ -199,6 +201,11 @@
       align-self: center;
     }
   }
+    //Storybook docs styles
+  #storybook-docs &__container {
+    // override the width of 1280px set in the mixin for docs examples as they won't be full screen
+    width: auto;
+  }
 }
 
 .mds-footer--primary {
@@ -213,6 +220,7 @@
   a {
     @include mixins.focus($focus-on-light: false);
   }
+
 }
 // Make sure the footer switches to 2 columns if the container is less than 1110px wide.
 //This is a container query, so it will work even if the footer is in a smaller container than the page.
