@@ -67,22 +67,6 @@ Action links stand outside running text, so their link text should communicate t
 - Use link semantics so assistive technology identifies the component as a link
 - Make the link text communicate the destination
 
-#### External links
-
-Use the external-link icon with visible link text that communicates the destination. Add visually hidden text with `aria-describedby` when people need additional context that the link opens an external website.
-
-Place the visually hidden description in the footer so it is available on every page that includes an external link.
-
-```html
-<span id="externalWebsite" tabindex="-1" aria-hidden="true" class="mds-visually-hidden">
-  This link will take you to an external website which may or may not be accessible and WCAG 2.1 compliant
-</span>
-```
-
-- Use `tabindex="-1"` so the description is not reached independently by keyboard or screen reader users.
-- Use `aria-hidden="true"` so the description is not announced out of context.
-- Reference the description with `aria-describedby="externalWebsite"`; screen readers will announce it when people navigate to the link.
-
 ---
 
 ## Related components
