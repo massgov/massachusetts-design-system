@@ -74,32 +74,18 @@ const buttonControls = {
       category: controlCategories.design
     }
   },
-  id: {
-    control: 'text',
+  disabled: {
+    control: 'boolean',
+    description: 'Disables the button.',
     table: {
-      category: controlCategories.html
+      category: controlCategories.design
     }
   },
   href: {
     control: 'text',
     description: 'Link destination. When provided, the button renders as an anchor.',
     table: {
-      category: controlCategories.html
-    }
-  },
-  htmlType: {
-    control: 'select',
-    options: buttonOptions.htmlType,
-    description: 'Native HTML button type. Applies only when href is empty.',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  disabled: {
-    control: 'boolean',
-    description: 'Disables the native button.',
-    table: {
-      category: controlCategories.html
+      category: controlCategories.content
     }
   }
 };
@@ -111,10 +97,8 @@ const defaultPlaygroundArgs = {
   size: buttonDefaults.size,
   leftIcon: buttonDefaults.leftIcon,
   rightIcon: buttonDefaults.rightIcon,
-  id: buttonDefaults.id,
-  href: buttonDefaults.href,
-  htmlType: buttonDefaults.htmlType,
   disabled: buttonDefaults.disabled,
+  href: buttonDefaults.href
 };
 
 const meta = {
@@ -126,6 +110,4 @@ const meta = {
 
 export default meta;
 
-export const Playground = {
-  args: buttonDefaults
-};
+export const Playground = {};
