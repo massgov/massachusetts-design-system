@@ -1,0 +1,87 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/inline-link.css';
+import { inlineLinkDefaults } from '../../../../packages/components/src/inline-link/inline-link.data.js';
+import { renderInlineLink } from '../../utils/component-renderers.js';
+import * as InlineLinkStories from './inline-link.stories.js';
+
+export const InlineLinkExample = (args) => (
+  <span
+    dangerouslySetInnerHTML={{
+      __html: renderInlineLink({
+        ...inlineLinkDefaults,
+        ...args
+      })
+    }}
+  />
+);
+
+<Meta of={InlineLinkStories} />
+
+# Inline link overview
+
+Inline links let people move to another page, section, document, or external resource while remaining part of the surrounding text.
+
+Choose the link treatment based on where the link appears and what happens when someone selects it.
+
+---
+
+## Variants
+
+### Color
+
+#### Primary
+
+Use the `Primary` link treatment on a light background when the link should use the primary brand color.
+
+**Usage example:**
+
+<p>Placeholder text example with an <InlineLinkExample text="inline link" /> using the primary color.</p>
+
+#### Neutral
+
+Use the `Neutral` link treatment on a light background when the link should use a neutral text color.
+
+**Usage example:**
+
+<p>Placeholder text example with an <InlineLinkExample text="inline link" color="Neutral" /> using the neutral default color.</p>
+
+#### White
+
+Use the `White` link treatment on a dark background.
+
+**Usage example:**
+
+<div className="mds-docs-example-surface--dark mds-padding-inline-xs mds-background-section-brand-primary-mid">
+  <p>Placeholder text example with an <InlineLinkExample text="inline link" color="White" /> using the white color.</p>
+</div>
+
+### With a trailing icon
+
+Use a trailing icon when it tells people what will happen when they select the link.
+
+Choose the icon based on the link's actual behavior.
+
+#### Opens in a new window
+
+A link that opens in a new window.
+
+**Usage example:**
+
+<InlineLinkExample
+  text="View your federal tax account on IRS.gov (opens in a new window)"
+  trailingIcon="arrow-square-out"
+/>
+
+#### Document link
+
+A link that opens a document.
+
+**Usage example:**
+
+<InlineLinkExample text="Registration renewal form" trailingIcon="file-pdf" />
+
+#### Jump to content
+
+A link that moves the page to a content section on the same page.
+
+<InlineLinkExample text="View eligibility requirements" trailingIcon="arrow-elbow-right-down" />
