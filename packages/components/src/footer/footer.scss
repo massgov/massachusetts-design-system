@@ -27,44 +27,46 @@
     --mds-action-link-color-active: var(--mds-footer-link-hover-color);
   }
 
-  p a {
+  p a:not(.mds-action-link) {
     color: var(--mds-footer-inline-link-color);
   }
 
-  p a:hover {
+  p a:not(.mds-action-link):hover {
     color: var(--mds-footer-link-hover-color);
   }
 
   &__site-name,
   &__heading,
-  &__contact-address,
-  &__contact-note,
   &__contact-item,
   &__description,
   &__fine-print p {
     margin: 0;
   }
 
-  &__fine-print p,
-  &__contact-note {
+  &__fine-print p {
     color: var(--mds-footer-muted-color);
   }
 
   &__container {
     @include mixins.section-container;
 
-    background: transparent;
-    color: inherit;
-  }
-
-  &__column {
-    @include mixins.grid-4-column;
+    // override the width of 1280px set in the mixin
+    width: auto;
+    container-name: mds-footer;
+    container-type: inline-size;
   }
 
   &__content {
-    @include mixins.grid;
-
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mds-space-lg);
     padding-block: var(--mds-space-2xl) var(--mds-space-md);
+
+  }
+
+  &__column {
+    flex: 1 1 16rem;
+    min-inline-size: 0;
   }
 
   &__brand {
@@ -74,9 +76,20 @@
   }
 
   &__brand-link {
+  color: var(--mds-footer-link-color);
+  text-decoration: none;
+}
+
+  &__brand-link, &__brand-identity {
     display: flex;
     align-items: center;
     gap: var(--mds-space-sm);
+    margin-block-end: var(--mds-space-sm);
+  }
+
+  &__brand-link, &__site-name {
+    color: var(--mds-footer-link-color);
+    text-decoration: none;
   }
 
   &__brand-link, &__site-name {
@@ -88,27 +101,21 @@
     @include mixins.text("heading-sm");
   }
 
-  &__seal {
+  &__seal, &__org-logo {
     inline-size: 3.5rem;
     block-size: 3.5rem;
     align-self: self-start;
-  }
-
-  &__contact-address {
-    padding-block-start: var(--mds-space-3xs);
-
-    @include mixins.text("label-lg");
   }
 
   &__social-list {
     display: flex;
     flex-wrap: wrap;
     gap: var(--mds-space-2xs);
-    margin-block: var(--mds-space-sm);
+    margin-block-end: var(--mds-space-sm);
   }
 
   &__description {
-    max-width: 18rem;
+    color: var(--mds-footer-muted-color);
 
     @include mixins.text("caption-lg");
   }
@@ -134,12 +141,6 @@
     padding-block: var(--mds-space-3xs);
 
     @include mixins.text("label-lg");
-  }
-
-  &__contact-note {
-    padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
-
-    @include mixins.text("caption-lg");
   }
 
   &__link-list {
@@ -179,6 +180,25 @@
   &__trademark {
     line-height: var(--mds-line-height-180);
   }
+
+  &__icon {
+    flex: 0 0 auto;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-block-start: var(--mds-space-3xs);
+    margin-inline-end: var(--mds-space-3xs);
+
+    .mds-icon {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &--contact {
+      display: flex;
+      align-self: center;
+    }
+  }
 }
 
 .mds-footer--primary {
@@ -192,6 +212,13 @@
 
   a {
     @include mixins.focus($focus-on-light: false);
+  }
+}
+// Make sure the footer switches to 2 columns if the container is less than 1110px wide.
+//This is a container query, so it will work even if the footer is in a smaller container than the page.
+@container mds-footer (max-width: 1210px) {
+  .mds-footer__column {
+    flex-basis: calc(50% - (var(--mds-space-lg) / 2));
   }
 }
 
