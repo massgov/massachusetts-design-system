@@ -33,6 +33,15 @@
   display: inline-flex;
 }
 
+#storybook-docs .mds-docs-example-surface--dark {
+  color: var(--mds-base-white);
+}
+
+/* Docs typography styles have higher specificity than component classes. */
+#storybook-docs .sbdocs-content .mds-docs-example-surface--dark :where(p, a) {
+  color: inherit;
+}
+
 #storybook-docs .sbdocs-content :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)),
 #storybook-docs .sbdocs-content :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
 #storybook-docs .sbdocs-content :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
@@ -146,6 +155,10 @@
 
 #storybook-docs .sbdocs-content :where(a:not(.sb-anchor, .sb-unstyled, .sb-unstyled a):active) {
   color: var(--mds-interactive-brand-primary-highest);
+}
+
+#storybook-docs .sbdocs-content .mds-inline-link--color-neutral {
+  color: var(--mds-content-brand-neutral-default);
 }
 
 #storybook-docs .sbdocs-content :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) {

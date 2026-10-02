@@ -1,0 +1,23 @@
+{% set inlineLinkText = text|default(inlineLinkDefaults.text) %}
+{% set inlineLinkHref = href|default(inlineLinkDefaults.href) %}
+{% set inlineLinkColor = color in inlineLinkOptions.color ? color : inlineLinkDefaults.color %}
+{% set inlineLinkRightIcon = rightIcon in inlineLinkOptions.rightIcon ? rightIcon : inlineLinkDefaults.rightIcon %}
+{% set inlineLinkId = id|default(inlineLinkDefaults.id) %}
+{% set inlineLinkClassName = className|default(inlineLinkDefaults.className) %}
+{% set inlineLinkClass = 'mds-inline-link mds-inline-link--color-' ~ inlineLinkColor|lower %}
+
+{% if inlineLinkClassName %}
+  {% set inlineLinkClass = inlineLinkClass ~ ' ' ~ inlineLinkClassName %}
+{% endif %}
+
+<a
+  class="{{ inlineLinkClass|e }}"
+  href="{{ inlineLinkHref|e }}"{% if inlineLinkId %}
+  id="{{ inlineLinkId|e }}"{% endif %}
+>
+  {{ inlineLinkText|e }}{% if inlineLinkRightIcon == 'arrow-square-out' %}<span class="mds-visually-hidden">, opens in a new window</span>{% endif %}{% if inlineLinkRightIcon %}<span class="mds-inline-link__icon" aria-hidden="true">{% include 'icon.twig' with {
+    name: inlineLinkRightIcon,
+    weight: 'Regular',
+    size: 'XS'
+  } %}</span>{% endif %}
+</a>
