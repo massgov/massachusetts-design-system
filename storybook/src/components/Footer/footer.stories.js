@@ -87,8 +87,14 @@ const footerControls = {
     }
   },
   orgLogo: {
-    control: 'text',
-    description: 'This is an optional second logo to represent the organization',
+    type: {
+    name: 'string',
+    required: false
+    },
+    control: {
+      type: 'text'
+    },
+    description: 'This is an optional second logo rendered at 56px height to represent the organization',
     table: {
       category: controlCategories.content
     }
