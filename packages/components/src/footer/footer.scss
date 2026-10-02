@@ -218,7 +218,7 @@
 //This is a container query, so it will work even if the footer is in a smaller container than the page.
 @container mds-footer (max-width: 1210px) {
   .mds-footer__column {
-    flex-basis: calc(50% - (var(--mds-space-lg) / 2));
+    flex-basis: max(16rem, calc(50% - (var(--mds-space-lg) / 2)));
   }
 }
 
