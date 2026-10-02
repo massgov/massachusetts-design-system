@@ -27,8 +27,16 @@ const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|mjs)'],
   staticDirs: [
     {
+      from: '../public',
+      to: '/'
+    },
+    {
       from: '../../packages/components/dist/state-banner',
       to: '/components/state-banner'
+    },
+    {
+      from: '../../packages/components/dist/footer',
+      to: '/components/footer'
     }
   ],
   addons: [

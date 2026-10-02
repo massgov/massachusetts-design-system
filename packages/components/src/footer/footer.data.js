@@ -47,13 +47,13 @@ export const footerExampleData = {
       icon: 'instagram-logo'
     }
   ],
-  descriptionHtml: 'Short description of the organization goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <a href="#">link</a> labore et dolore magna aliqua.',
+  descriptionHtml: 'Optional short description of the site, organization, or product goes here. Use it to help people understand what it does and who it serves.',
   contactHeadingId: 'mds-footer-contact-heading',
   contactHeading: 'Contact',
   contactItems: [
     {
       icon: 'map-pin',
-      addressLines: ['123 Main St.', 'Boston, MA 02118'],
+      text: '123 Main St.\nBoston, MA 02118',
       note: 'Optional descriptive text'
     },
     {
@@ -79,13 +79,10 @@ export const footerExampleData = {
       eyebrow: true,
       links: [
         {
-          icon: 'arrow-square-out',
-          iconAccessibleText: 'Links to external site',
           href: '#',
           text: 'Optional link 1'
         },
         {
-          icon: 'arrow-right',
           href: '#',
           text: 'Optional link 2'
         },
