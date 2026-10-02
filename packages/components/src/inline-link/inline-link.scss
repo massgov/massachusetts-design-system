@@ -7,6 +7,7 @@
   --mds-inline-link-color-visited: var(--mds-interactive-brand-tertiary-mid);
 
   color: var(--mds-inline-link-color);
+  font-size: var(--mds-text-body-font-size-lg) !important;
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-decoration-skip-ink: none;

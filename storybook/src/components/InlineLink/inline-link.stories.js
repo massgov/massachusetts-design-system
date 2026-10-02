@@ -36,12 +36,12 @@ const inlineLinkControls = {
     options: inlineLinkOptions.color,
     table: { category: controlCategories.design }
   },
-  trailingIcon: {
+  rightIcon: {
     control: {
       type: 'select',
       labels: { '': 'None' }
     },
-    options: inlineLinkOptions.trailingIcon,
+    options: inlineLinkOptions.rightIcon,
     table: { category: controlCategories.design }
   },
   href: {

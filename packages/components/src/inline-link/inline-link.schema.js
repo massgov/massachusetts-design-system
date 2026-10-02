@@ -1,9 +1,13 @@
 import { iconNames } from '../icon/icon.names.js';
 
-const trailingIconOptions = ['', ...iconNames.filter((name) => [
+const rightIconOptions = ['', ...iconNames.filter((name) => [
   'arrow-square-out',
   'file-pdf',
-  'arrow-elbow-right-down'
+  'arrow-elbow-right-down',
+  'file-doc',
+  'file-jpg',
+  'file-xls',
+  'file'
 ].includes(name))];
 
 export const inlineLinkSchema = {
@@ -20,9 +24,9 @@ export const inlineLinkSchema = {
     default: 'Primary',
     options: ['Primary', 'Neutral', 'White']
   },
-  trailingIcon: {
+  rightIcon: {
     type: 'icon',
     default: '',
-    options: trailingIconOptions
+    options: rightIconOptions
   }
 };
