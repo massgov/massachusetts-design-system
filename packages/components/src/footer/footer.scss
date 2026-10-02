@@ -52,6 +52,7 @@
 
   &__container {
     @include mixins.section-container;
+    overflow: hidden; // make sure the container width doesn't push out the storybook doc pages
 
 
     container-name: mds-footer;
@@ -200,11 +201,6 @@
       display: flex;
       align-self: center;
     }
-  }
-    //Storybook docs styles
-  #storybook-docs &__container {
-    // override the width of 1280px set in the mixin for docs examples as they won't be full screen
-    width: auto;
   }
 }
 

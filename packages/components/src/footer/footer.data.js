@@ -18,7 +18,6 @@ export const footerExampleData = {
   ...footerDefaults,
   theme: 'Neutral',
   siteLink: 'http://www.mass.gov',
-  sealAlt: '',
   socialLabel: 'Social media links',
   socialLinks: [
     {

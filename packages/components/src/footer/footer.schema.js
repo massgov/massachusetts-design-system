@@ -20,7 +20,7 @@ export const footerSchema = {
   },
   orgLogo: {
     type: 'string',
-    required: true
+    required: false
   },
   socialLinks: {
     type: 'array',
