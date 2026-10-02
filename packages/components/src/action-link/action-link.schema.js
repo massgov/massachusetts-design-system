@@ -27,7 +27,7 @@ export const actionLinkSchema = {
   },
   iconWeight: {
     type: 'enum',
-    default: 'Bold',
+    default: 'Regular',
     options: ['Regular', 'Bold']
   },
   leftIcon: {
