@@ -74,7 +74,7 @@
       </section>
 
       {% if footerContactItems|length %}
-        <section class="mds-footer__column"{% if footerContactHeading %} aria-labelledby="{{ footerContactHeadingId|e }}"{% endif %}>
+        <section class="mds-footer__column"{% if footerContactHeading %} aria-label="{{ footerContactHeading|e }}"{% endif %}>
           {% if footerContactHeading %}
             <h3 class="mds-footer__heading">
               {{ footerContactHeading|e }}
