@@ -1,0 +1,196 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+export const TypeScaleTable = ({ headers, rows }) => (
+  <div className="mds-docs-reference-table-scroll">
+    <table className="mds-docs-reference-table">
+      <thead>
+        <tr>
+          {headers.map((header) => (
+            <th key={header}>{header}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(([token, ...sizes]) => (
+          <tr key={token}>
+            <td>
+              <span className={`mds-text-${token}`}>{token}</span>
+            </td>
+            {sizes.map((size) => (
+              <td key={size}>{size}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
+
+export const headingRows = [
+  ['heading-2xl', '44px (2.75rem)', '44px (2.75rem)', '36px (2.25rem)'],
+  ['heading-xl', '40px (2.5rem)', '36px (2.25rem)', '32px (2rem)'],
+  ['heading-lg', '36px (2.25rem)', '32px (2rem)', '28px (1.75rem)'],
+  ['heading-md', '26px (1.625rem)', '26px (1.625rem)', '26px (1.625rem)'],
+  ['heading-sm', '24px (1.5rem)', '24px (1.5rem)', '24px (1.5rem)'],
+  ['heading-xs', '22px (1.375rem)', '22px (1.375rem)', '22px (1.375rem)'],
+  ['heading-2xs', '18px (1.125rem)', '18px (1.125rem)', '18px (1.125rem)']
+];
+
+export const bodyRows = [
+  ['body-lg', '18px (1.125rem)'],
+  ['body', '16px (1rem)']
+];
+
+export const labelRows = [
+  ['label-2xl', '22px (1.375rem)'],
+  ['label-xl', '20px (1.25rem)'],
+  ['label-lg', '18px (1.125rem)'],
+  ['label', '16px (1rem)'],
+  ['label-sm', '14px (0.875rem)']
+];
+
+export const eyebrowRows = [
+  ['eyebrow-lg', '16px (1rem)'],
+  ['eyebrow', '14px (0.875rem)']
+];
+
+export const captionRows = [
+  ['caption-lg', '16px (1rem)'],
+  ['caption', '14px (0.875rem)']
+];
+
+<Meta title="Foundations/Type Styles" />
+
+# Type styles
+
+Use type styles to establish hierarchy and make content easier to scan. Choose semantic HTML based on document structure, not visual size. Use the typography tokens and utility classes provided by the Massachusetts Design System to apply visual scale consistently.
+
+---
+
+## Noto Sans
+
+Noto Sans is the primary typeface for Massachusetts Design System websites and digital applications. It provides clear, readable text across different screen sizes and supports a wide range of languages and characters.
+
+If your digital experience cannot support Noto Sans, use the font fallback stack: `"Noto Sans", "Helvetica", "Arial", sans-serif`.
+
+### Getting Noto Sans
+
+Use Noto Sans in designs and local development environments.
+
+For web projects, load Noto Sans using the approved project setup. For local development, use the available font files or install the package provided by the design system.
+
+- Google Fonts: Embed it using `link` or `@import` rules, or download the static and variable font packages from the [Noto Sans family on Google Fonts](https://fonts.google.com/specimen/Noto+Sans).
+- Package manager: Install font assets for web bundles through npm.
+
+```bash
+npm install @fontsource/noto-sans
+```
+
+---
+
+## Type scale
+
+Use the type scale to create a clear visual hierarchy between headings, body copy, labels, captions, and other text.
+
+Choose a type style based on the role of the content, not only on the visual size you want. Keep semantic HTML separate from visual styling so people using assistive technology can navigate the content structure correctly.
+
+### Using REM units for accessibility
+
+Use `rem` units for typography when implementing the design system so text sizes can respond to the root font size.
+
+---
+
+## Headings
+
+Headings divide pages into recognizable landmarks and sections. Use heading elements to reflect the structure of the content, then use type styles when the visual size needs to differ from the semantic level.
+
+### Heading tokens and scale
+
+<TypeScaleTable
+  headers={['Token / Class', 'Desktop size', 'Tablet (780-481px)', 'Mobile (< 480px)']}
+  rows={headingRows}
+/>
+
+### Heading hierarchy
+
+**Use semantic headings**
+
+Use `h1` through `h6` based on the document hierarchy. Do not choose a heading level only because it has the visual size you need. Always descend sequentially (`h1` to `h2` to `h3`).
+
+**Keep a single page title**
+
+Use only one `h1` for the page's main topic. Use `h2` for major sections and `h3` for sections nested within an `h2`.
+
+---
+
+## Body text
+
+Use body text for paragraphs, instructions, and narrative content. Choose body styles that support comfortable reading across longer passages.
+
+### Body tokens and scale
+
+<TypeScaleTable
+  headers={['Token / Class', 'Sizing across all resolutions']}
+  rows={bodyRows}
+/>
+
+---
+
+## Labels
+
+Use labels to name controls, fields, navigation elements, and other interface elements.
+
+**Usage examples include:**
+
+- Text boxes and input fields, such as "First name" or "Email address"
+- Buttons that identify an action, such as "Submit application" or "Save"
+- Checkboxes and radio buttons that describe what someone can select
+- Navigation and tab controls
+- Table headers that identify columns
+
+### Label tokens and scale
+
+<TypeScaleTable
+  headers={['Token / Class', 'Sizing across all resolutions']}
+  rows={labelRows}
+/>
+
+---
+
+## Eyebrows
+
+Use eyebrows to provide short context above a page or section title.
+
+**Usage examples include:**
+
+- Above a section title to identify a category before a reader moves into a new section
+- Above a step or task to provide additional context
+- Inside cards when a short category label helps people understand what the content represents
+
+### Eyebrow tokens and scale
+
+<TypeScaleTable
+  headers={['Token / Class', 'Sizing across all resolutions']}
+  rows={eyebrowRows}
+/>
+
+---
+
+## Captions
+
+Use captions for secondary details, supporting information, input validation, and system messages that do not need the emphasis of body text.
+
+### Caption tokens and scale
+
+<TypeScaleTable
+  headers={['Token / Class', 'Sizing across all resolutions']}
+  rows={captionRows}
+/>
+
+---
+
+## Inline links
+
+Inline links let people move to another page, section, document, or external resource while remaining part of the surrounding text.
+
+Use the typography of the surrounding text for inline links. See the Links documentation for examples and implementation guidance.
