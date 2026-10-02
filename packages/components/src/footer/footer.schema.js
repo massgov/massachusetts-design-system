@@ -48,28 +48,41 @@ export const footerSchema = {
     type: 'string',
     required: false
   },
-  contactHeading: {
-    type: 'string',
-    required: false
-  },
   contactItems: {
     type: 'array',
     required: false,
     items: {
       type: 'object',
       properties: {
-        icon: {
-          type: 'icon',
+        headingId: {
+          type: 'string',
+          required: false
+        },
+        heading: {
+          type: 'string',
+          required: false
+        },
+        links: {
+          type: 'array',
           required: false,
-          options: iconOptions
-        },
-        href: {
-          type: 'string',
-          required: false
-        },
-        text: {
-          type: 'string',
-          required: false
+          items: {
+            type: 'object',
+            properties: {
+              icon: {
+                type: 'icon',
+                required: false,
+                options: iconOptions
+              },
+              href: {
+                type: 'string',
+                required: false
+              },
+              text: {
+                type: 'string',
+                required: false
+              }
+            }
+          }
         }
       }
     }

@@ -18,7 +18,6 @@ export const footerExampleData = {
   ...footerDefaults,
   theme: 'Neutral',
   siteLink: 'http://www.mass.gov',
-  socialLabel: 'Social media links',
   socialLinks: [
     {
       href: '#',
@@ -47,28 +46,31 @@ export const footerExampleData = {
     }
   ],
   description: 'Optional short description of the site, organization, or product goes here. Use it to help people understand what it does and who it serves.',
-  contactHeading: 'Contact',
   contactItems: [
-    {
-      icon: 'map-pin',
-      text: '123 Main St.\nBoston, MA 02118'
-    },
-    {
-      icon: 'phone-call',
-      href: 'tel:+16172223333',
-      text: '(617) 222-3333'
-    },
-    {
-      icon: 'globe',
-      href: '#',
-      text: 'XYZ on Mass.gov'
-    },
-    {
-      icon: 'envelope',
-      href: 'mailto:sharedinbox@domain.com',
-      text: 'sharedinbox@domain.com'
-    }
-  ],
+    {  heading: 'Contact',
+    links: [
+      {
+        icon: 'map-pin',
+        text: '123 Main St.\nBoston, MA 02118'
+      },
+      {
+        icon: 'phone-call',
+        href: 'tel:+16172223333',
+        text: '(617) 222-3333'
+      },
+      {
+        icon: 'globe',
+        href: '#',
+        text: 'XYZ on Mass.gov'
+      },
+      {
+        icon: 'envelope',
+        href: 'mailto:sharedinbox@domain.com',
+        text: 'sharedinbox@domain.com'
+      }
+    ]
+  }
+],
   linkGroups: [
     {
       headingId: 'mds-footer-links-heading-1',
@@ -134,24 +136,24 @@ export const footerExampleData = {
   ],
   legalLinks: [
     {
-      href: '#',
+      href: 'https://www.mass.gov/info-details/enterprise-digital-accessibility-statement',
       text: 'Digital Accessibility Statement'
     },
     {
-      href: '#',
+      href: 'https://www.mass.gov/policy-advisory/massgov-privacy-policy',
       text: 'Privacy Notice'
     },
   ],
   legalLinksOptional: [
     {
       href: '#',
-      text: 'Site Policies'
+      text: 'Optional Link'
     },
     {
       href: '#',
-      text: 'Public Records Requests'
+      text: 'Optional Link'
     }
   ],
-  supportingContent: 'Additional supporting content. Use this optional area for information that helps people understand the service, such as funding details, policy information, or other supporting content.',
+  supportingContent: '',
   trademark: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
 };

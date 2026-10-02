@@ -112,12 +112,6 @@ const footerControls = {
       category: controlCategories.content
     }
   },
-  contactHeading: {
-    control: 'text',
-    table: {
-      category: controlCategories.content
-    }
-  },
   contactItems: {
     control: 'object',
     table: {
@@ -165,7 +159,6 @@ const defaultPlaygroundArgs = {
   orgLogo: footerExampleData.orgLogo,
   socialLinks: footerExampleData.socialLinks,
   description: footerExampleData.description,
-  contactHeading: footerExampleData.contactHeading,
   contactItems: footerExampleData.contactItems,
   linkGroups: footerExampleData.linkGroups,
   legalLinks: footerExampleData.legalLinks,

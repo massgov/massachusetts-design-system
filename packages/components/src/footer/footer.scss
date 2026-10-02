@@ -14,7 +14,6 @@
   --mds-footer-link-color: var(--mds-content-brand-neutral-default);
   --mds-footer-inline-link-color: var(--mds-interactive-brand-primary-mid);
   --mds-footer-link-hover-color: var(--mds-interactive-brand-primary-mid);
-  --mds-footer-accent-color: var(--mds-interactive-brand-primary-mid);
   --mds-footer-border-color: var(--mds-border-brand-neutral-low);
 
   background-color: var(--mds-footer-background);
@@ -27,7 +26,7 @@
   .mds-action-link {
     --mds-action-link-color: var(--mds-footer-link-color);
     --mds-action-link-color-hover: var(--mds-footer-link-color);
-    --mds-action-link-color-active: var(--mds-footer-link-hover-color);
+    --mds-action-link-color-active: var(--mds-footer-link-color);
   }
 
   p a:not(.mds-action-link) {
@@ -53,13 +52,10 @@
   &__container {
     @include mixins.section-container;
     overflow: hidden; // make sure the container width doesn't push out the storybook doc pages
-
-
-    container-name: mds-footer;
-    container-type: inline-size;
   }
 
   &__content {
+    // choosing flex instead of 4 col grid here so footer with only two columns will still fill the full width of the container.
     display: flex;
     flex-wrap: wrap;
     gap: var(--mds-space-lg);
@@ -216,13 +212,6 @@
     @include mixins.focus($focus-on-light: false);
   }
 
-}
-// Make sure the footer switches to 2 columns if the container is less than 1110px wide.
-//This is a container query, so it will work even if the footer is in a smaller container than the page.
-@container mds-footer (max-width: 1210px) {
-  .mds-footer__column {
-    flex-basis: max(16rem, calc(50% - (var(--mds-space-lg) / 2)));
-  }
 }
 
 @include mixins.max-width(lg) {

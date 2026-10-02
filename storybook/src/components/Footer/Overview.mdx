@@ -40,26 +40,30 @@ export const standardFooter = {
   siteLink: 'https://www.mass.gov/',
   description:
     'Optional short description of the site, organization, or product goes here. Use it to help people understand what it does and who it serves.',
-  contactHeading: 'Contact',
   contactItems: [
     {
-      icon: 'map-pin',
-      text: '123 Main St.\nBoston, MA 02118'
-    },
-    {
-      icon: 'phone-call',
-      href: 'tel:+16172223333',
-      text: '(617) 222-3333'
-    },
-    {
-      icon: 'globe',
-      href: '#',
-      text: 'example.mass.gov'
-    },
-    {
-      icon: 'envelope',
-      href: 'mailto:sharedinbox@mass.gov',
-      text: 'sharedinbox@mass.gov'
+      heading: 'Contact',
+      links: [
+        {
+          icon: 'map-pin',
+          text: '123 Main St.\nBoston, MA 02118'
+        },
+        {
+          icon: 'phone-call',
+          href: 'tel:+16172223333',
+          text: '(617) 222-3333'
+        },
+        {
+          icon: 'globe',
+          href: '#',
+          text: 'example.mass.gov'
+        },
+        {
+          icon: 'envelope',
+          href: 'mailto:sharedinbox@mass.gov',
+          text: 'sharedinbox@mass.gov'
+        }
+      ],
     }
   ],
   legalLinks: requiredPolicyLinks,
@@ -71,7 +75,6 @@ export const massGovFooter = {
   siteName: 'Mass.gov',
   siteLink: 'https://www.mass.gov/',
   legalLinks: requiredPolicyLinks,
-  optionalLegalLinks: true,
   legalLinksOptional: [
     {
       href: '#',

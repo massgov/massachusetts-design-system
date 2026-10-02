@@ -20,22 +20,27 @@ const sharedFooterData = {
   siteLink: 'https://designsystem.dev.tss.mass.gov/',
   socialLinks: [],
   description: 'Storybook is the implementation reference for the Massachusetts Design System. It provides reusable components, design tokens, accessibility guidance, and code examples for Commonwealth digital products.',
-  contactHeading: 'Contact',
   contactItems: [
     {
-      icon: 'star',
-      href: 'mailto:designsystem@mass.gov',
-      text: 'Share feedback'
-    },
-    {
-      icon: 'globe',
-      href: 'https://mass.gov/designsystem',
-      text: 'mass.gov/designsystem'
-    },
-    {
-      icon: 'envelope',
-      href: 'mailto:designsystem@mass.gov',
-      text: 'designsystem@mass.gov'
+      headingId: 'mds-footer-contact-heading',
+      heading: 'Contact',
+      links: [
+        {
+          icon: 'star',
+          href: 'https://www.mass.gov/forms/help-us-improve-our-storybook-resources',
+          text: 'Share feedback'
+        },
+        {
+          icon: 'globe',
+          href: 'https://mass.gov/designsystem',
+          text: 'mass.gov/designsystem'
+        },
+        {
+          icon: 'envelope',
+          href: 'mailto:designsystem@mass.gov',
+          text: 'designsystem@mass.gov'
+        }
+      ]
     }
   ],
   linkGroups: [],
@@ -50,7 +55,6 @@ const sharedFooterData = {
     }
   ],
   legalLinksOptional: [],
-  supportingContent: 'Additional supporting content. Use this optional area for information that helps people understand the service, such as funding details, policy information, or other supporting content.',
   trademark: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
 };
 

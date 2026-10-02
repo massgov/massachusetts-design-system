@@ -9,7 +9,6 @@
 {% set footerIconButtonColor = themeKey == 'primary' ? 'White' : 'Primary' %}
 {% set footerSocialLinks = socialLinks|default([]) %}
 {% set footerDescription = description|default('') %}
-{% set footerContactHeading = contactHeading|default('') %}
 {% set footerContactItems = contactItems|default([]) %}
 {% set footerLinkGroups = linkGroups|default([]) %}
 {% set footerLegalLinks = legalLinks|default([]) %}
@@ -73,30 +72,49 @@
         {% endif %}
       </section>
 
-      {% if footerContactItems|length %}
-        <section class="mds-footer__column"{% if footerContactHeading %} aria-label="{{ footerContactHeading|e }}"{% endif %}>
-          {% if footerContactHeading %}
-            <h3 class="mds-footer__heading">
-              {{ footerContactHeading|e }}
-            </h3>
-          {% endif %}
-          <address class="mds-footer__contact">
-            <ul>
-            {% for contactItem in footerContactItems %}
-                <li class="mds-footer__contact-item">
-                  {% include 'action-link.twig' with {
-                    href: contactItem.href,
-                    size: 'Medium',
-                    text: contactItem.text,
-                    leftIcon: contactItem.icon,
-                    rightIcon: '',
-                  } %}
-                </li>
-            {% endfor %}
-            </ul>
-          </address>
-        </section>
-      {% endif %}
+      {% for contactGroup in footerContactItems %}
+        {% if contactGroup.heading or contactGroup.links|length %}
+          {% set contactHeadingId =
+            contactGroup.headingId|default(
+              'mds-footer-contact-heading-' ~ loop.index
+            )
+          %}
+
+          <section
+            class="mds-footer__column"
+            {% if contactGroup.heading %}
+              aria-labelledby="{{ contactHeadingId|e }}"
+            {% endif %}
+          >
+            {% if contactGroup.heading %}
+              <h3
+                id="{{ contactHeadingId|e }}"
+                class="mds-footer__heading"
+              >
+                {{ contactGroup.heading|e }}
+              </h3>
+            {% endif %}
+
+            {% if contactGroup.links|length %}
+              <address class="mds-footer__contact">
+                <ul>
+                  {% for contactItem in contactGroup.links %}
+                    <li class="mds-footer__contact-item">
+                      {% include 'action-link.twig' with {
+                        href: contactItem.href,
+                        size: 'Medium',
+                        text: contactItem.text,
+                        leftIcon: contactItem.icon,
+                        rightIcon: ''
+                      } %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </address>
+            {% endif %}
+          </section>
+        {% endif %}
+      {% endfor %}
 
       {% for linkGroup in footerLinkGroups %}
         {% if linkGroup.heading or linkGroup.links|length %}
