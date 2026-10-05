@@ -185,7 +185,7 @@
     {% if footerSupportingContent or footerTrademark %}
       <div class="mds-footer__fine-print">
         {% if footerSupportingContent %}
-          <p>{{ footerSupportingContent|e }}</p>
+          <p>{{ footerSupportingContent|raw }}</p>
         {% endif %}
         {% if footerTrademark %}
           <p class="mds-footer__trademark">{{ footerTrademark|raw }}</p>
