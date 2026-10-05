@@ -32,10 +32,12 @@
         text: menuButtonTextValue,
         leftIcon: 'list',
         leftIconWeight: 'Regular',
-        className: 'mds-utility-nav__button mds-utility-nav__button--menu',
-        ariaLabel: menuButtonAriaLabelValue,
-        ariaExpanded: menuButtonExpandedValue,
-        ariaControls: menuButtonControlsValue
+        htmlAttributes: {
+          class: 'mds-utility-nav__button mds-utility-nav__button--menu',
+          'aria-label': menuButtonAriaLabelValue,
+          'aria-expanded': menuButtonExpandedValue,
+          'aria-controls': menuButtonControlsValue
+        }
       } %}
     {% elseif utilityNavStartVariant == 'home-link' %}
       {% include 'button.twig' with {
@@ -46,8 +48,10 @@
         href: homeLinkHrefValue,
         leftIcon: 'house-line',
         leftIconWeight: 'Regular',
-        className: 'mds-utility-nav__button mds-utility-nav__button--home',
-        ariaLabel: homeLinkAriaLabelValue
+        htmlAttributes: {
+          class: 'mds-utility-nav__button mds-utility-nav__button--home',
+          'aria-label': homeLinkAriaLabelValue
+        }
       } %}
     {% endif %}
   </div>
@@ -66,7 +70,9 @@
         href: actionButtonHref,
         leftIcon: actionButtonIconName,
         leftIconWeight: actionButtonIconWeight,
-        className: 'mds-utility-nav__button mds-utility-nav__button--action'
+        htmlAttributes: {
+          class: 'mds-utility-nav__button mds-utility-nav__button--action'
+        }
       } %}
     {% endfor %}
   </div>
