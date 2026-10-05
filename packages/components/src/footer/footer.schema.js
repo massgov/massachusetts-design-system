@@ -16,7 +16,8 @@ export const footerSchema = {
   },
   siteLink: {
     type: 'string',
-    required: true
+    required: true,
+    default: '/'
   },
   orgLogo: {
     type: 'string',
