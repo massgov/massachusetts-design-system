@@ -8,6 +8,10 @@
   color: var(--mds-content-brand-neutral-default);
 }
 
+#storybook-docs .mds-docs-beta-inline-message {
+  margin-block-end: var(--mds-space-md);
+}
+
 #storybook-docs .mds-docs-example-row {
   display: flex;
   flex-wrap: wrap;
