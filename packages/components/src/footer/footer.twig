@@ -150,7 +150,7 @@
     </div>
 
     {% if footerLegalLinks|length %}
-      <nav class="mds-footer__legal-nav">
+      <nav class="mds-footer__legal-nav" aria-label="Legal and policy links">
         <ul>
           {% for link in footerLegalLinks %}
             {% if link.href and link.text %}
