@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "npm run storybook",
-    "storybook": "npm run build --workspace @massds/mds-components && storybook dev -p 6006 --host 127.0.0.1 --no-open --no-version-updates --disable-telemetry",
-    "storybook:build": "npm run build --workspace @massds/mds-components && storybook build --disable-telemetry"
+    "storybook": "npm run build --workspace @massds/mds-assets && npm run build --workspace @massds/mds-components && storybook dev -p 6006 --host 127.0.0.1 --no-open --no-version-updates --disable-telemetry",
+    "storybook:build": "npm run build --workspace @massds/mds-assets && npm run build --workspace @massds/mds-components && storybook build --disable-telemetry"
   },
   "dependencies": {
     "@massds/mds-assets": "^1.1.1",
