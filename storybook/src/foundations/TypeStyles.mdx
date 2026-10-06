@@ -16,8 +16,8 @@ export const TypeScaleTable = ({ headers, rows }) => (
             <td>
               <span className={`mds-text-${token}`}>{`.mds-text-${token}`}</span>
             </td>
-            {sizes.map((size) => (
-              <td key={size}>{size}</td>
+            {sizes.map((size, index) => (
+              <td key={`${token}-${index}`}>{size}</td>
             ))}
           </tr>
         ))}
