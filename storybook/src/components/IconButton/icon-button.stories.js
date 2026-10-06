@@ -21,7 +21,7 @@ function createPreview(html, className = '') {
 }
 
 function isDarkSurface(color) {
-  return color === 'Light';
+  return color === 'White';
 }
 
 function renderPlayground(args) {
