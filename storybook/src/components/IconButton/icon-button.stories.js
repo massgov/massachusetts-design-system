@@ -80,7 +80,7 @@ const iconButtonControls = {
   },
   disabled: {
     control: 'boolean',
-    description: 'Disables the native button.',
+    description: 'Disables the control.'
     table: {
       category: controlCategories.content
     }
