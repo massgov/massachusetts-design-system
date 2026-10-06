@@ -9,24 +9,17 @@ export const footerSchema = {
     default: 'Neutral',
     options: ['Neutral', 'Primary']
   },
-  siteNameId: {
-    type: 'string',
-    required: false
-  },
   siteName: {
     type: 'string',
-    required: true,
+    required: false,
     default: 'Site Name'
   },
   siteLink: {
     type: 'string',
-    required: false
+    required: true,
+    default: '/'
   },
-  sealAlt: {
-    type: 'string',
-    required: false
-  },
-  socialLabel: {
+  orgLogo: {
     type: 'string',
     required: false
   },
@@ -52,15 +45,7 @@ export const footerSchema = {
       }
     }
   },
-  descriptionHtml: {
-    type: 'string',
-    required: false
-  },
-  contactHeadingId: {
-    type: 'string',
-    required: false
-  },
-  contactHeading: {
+  description: {
     type: 'string',
     required: false
   },
@@ -70,29 +55,35 @@ export const footerSchema = {
     items: {
       type: 'object',
       properties: {
-        icon: {
-          type: 'icon',
-          required: false,
-          options: iconOptions
+        headingId: {
+          type: 'string',
+          required: false
         },
-        addressLines: {
+        heading: {
+          type: 'string',
+          required: false
+        },
+        links: {
           type: 'array',
           required: false,
           items: {
-            type: 'string'
+            type: 'object',
+            properties: {
+              icon: {
+                type: 'icon',
+                required: false,
+                options: iconOptions
+              },
+              href: {
+                type: 'string',
+                required: false
+              },
+              text: {
+                type: 'string',
+                required: false
+              }
+            }
           }
-        },
-        note: {
-          type: 'string',
-          required: false
-        },
-        href: {
-          type: 'string',
-          required: false
-        },
-        text: {
-          type: 'string',
-          required: false
         }
       }
     }
@@ -135,10 +126,6 @@ export const footerSchema = {
       }
     }
   },
-  legalLabel: {
-    type: 'string',
-    required: false
-  },
   legalLinks: {
     type: 'array',
     required: false,
@@ -155,10 +142,6 @@ export const footerSchema = {
         }
       }
     }
-  },
-  showOptionalLegalLinks: {
-    type: 'boolean',
-    default: true
   },
   legalLinksOptional: {
     type: 'array',
@@ -178,11 +161,11 @@ export const footerSchema = {
       }
     }
   },
-  fundingText: {
+  supportingContent: {
     type: 'string',
     required: false
   },
-  trademarkHtml: {
+  trademark: {
     type: 'string',
     required: false
   }

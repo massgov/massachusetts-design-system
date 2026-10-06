@@ -1,9 +1,12 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
 
 .mds-footer {
-  // Neutral is the default color family. Primary overrides these tokens below.
   @include mixins.unordered-list-reset;
   @include mixins.address-reset;
+  @include mixins.box-sizing-reset;
+  @include mixins.font-smoothing-reset;
+
+  // Neutral is the default color family. Primary overrides these tokens below.
 
   --mds-footer-background: var(--mds-background-section-brand-neutral-lowest);
   --mds-footer-color: var(--mds-content-brand-neutral-default);
@@ -11,7 +14,6 @@
   --mds-footer-link-color: var(--mds-content-brand-neutral-default);
   --mds-footer-inline-link-color: var(--mds-interactive-brand-primary-mid);
   --mds-footer-link-hover-color: var(--mds-interactive-brand-primary-mid);
-  --mds-footer-accent-color: var(--mds-interactive-brand-primary-mid);
   --mds-footer-border-color: var(--mds-border-brand-neutral-low);
 
   background-color: var(--mds-footer-background);
@@ -24,47 +26,46 @@
   .mds-action-link {
     --mds-action-link-color: var(--mds-footer-link-color);
     --mds-action-link-color-hover: var(--mds-footer-link-color);
-    --mds-action-link-color-active: var(--mds-footer-link-hover-color);
+    --mds-action-link-color-active: var(--mds-footer-link-color);
   }
 
-  p a {
+  p a:not(.mds-action-link) {
     color: var(--mds-footer-inline-link-color);
   }
 
-  p a:hover {
+  p a:not(.mds-action-link):hover {
     color: var(--mds-footer-link-hover-color);
   }
 
   &__site-name,
   &__heading,
-  &__contact-address,
-  &__contact-note,
   &__contact-item,
   &__description,
   &__fine-print p {
     margin: 0;
   }
 
-  &__fine-print p,
-  &__contact-note {
+  &__fine-print p {
     color: var(--mds-footer-muted-color);
   }
 
   &__container {
     @include mixins.section-container;
-
-    background: transparent;
-    color: inherit;
-  }
-
-  &__column {
-    @include mixins.grid-4-column;
+    overflow: hidden; // make sure the container width doesn't push out the storybook doc pages
   }
 
   &__content {
-    @include mixins.grid;
-
+    // choosing flex instead of 4 col grid here so footer with only two columns will still fill the full width of the container.
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mds-space-lg);
     padding-block: var(--mds-space-2xl) var(--mds-space-md);
+
+  }
+
+  &__column {
+    flex: 1 1 16rem;
+    min-inline-size: 0;
   }
 
   &__brand {
@@ -74,9 +75,20 @@
   }
 
   &__brand-link {
+  color: var(--mds-footer-link-color);
+  text-decoration: none;
+}
+
+  &__brand-link, &__brand-identity {
     display: flex;
     align-items: center;
     gap: var(--mds-space-sm);
+    margin-block-end: var(--mds-space-sm);
+  }
+
+  &__brand-link, &__site-name {
+    color: var(--mds-footer-link-color);
+    text-decoration: none;
   }
 
   &__brand-link, &__site-name {
@@ -88,27 +100,20 @@
     @include mixins.text("heading-sm");
   }
 
-  &__seal {
-    inline-size: 3.5rem;
+  &__seal, &__org-logo {
     block-size: 3.5rem;
     align-self: self-start;
-  }
-
-  &__contact-address {
-    padding-block-start: var(--mds-space-3xs);
-
-    @include mixins.text("label-lg");
   }
 
   &__social-list {
     display: flex;
     flex-wrap: wrap;
     gap: var(--mds-space-2xs);
-    margin-block: var(--mds-space-sm);
+    margin-block-end: var(--mds-space-sm);
   }
 
   &__description {
-    max-width: 18rem;
+    color: var(--mds-footer-muted-color);
 
     @include mixins.text("caption-lg");
   }
@@ -134,12 +139,6 @@
     padding-block: var(--mds-space-3xs);
 
     @include mixins.text("label-lg");
-  }
-
-  &__contact-note {
-    padding-block: var(--mds-space-3xs) var(--mds-space-2xs);
-
-    @include mixins.text("caption-lg");
   }
 
   &__link-list {
@@ -212,6 +211,7 @@
   a {
     @include mixins.focus($focus-on-light: false);
   }
+
 }
 
 @include mixins.max-width(lg) {
