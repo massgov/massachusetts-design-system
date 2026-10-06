@@ -17,9 +17,7 @@ export const footerDefaults = getSchemaDefaults(footerSchema);
 export const footerExampleData = {
   ...footerDefaults,
   theme: 'Neutral',
-  siteNameId: 'mds-footer-site-name',
-  sealAlt: '',
-  socialLabel: 'Social media links',
+  siteLink: 'http://www.mass.gov',
   socialLinks: [
     {
       href: '#',
@@ -47,31 +45,32 @@ export const footerExampleData = {
       icon: 'instagram-logo'
     }
   ],
-  descriptionHtml: 'Optional short description of the site, organization, or product goes here. Use it to help people understand what it does and who it serves.',
-  contactHeadingId: 'mds-footer-contact-heading',
-  contactHeading: 'Contact',
+  description: 'Optional short description of the site, organization, or product goes here. Use it to help people understand what it does and who it serves.',
   contactItems: [
-    {
-      icon: 'map-pin',
-      text: '123 Main St.\nBoston, MA 02118',
-      note: 'Optional descriptive text'
-    },
-    {
-      icon: 'phone-call',
-      href: 'tel:+16172223333',
-      text: '(617) 222-3333'
-    },
-    {
-      icon: 'globe',
-      href: '#',
-      text: 'XYZ on Mass.gov'
-    },
-    {
-      icon: 'envelope',
-      href: 'mailto:sharedinbox@domain.com',
-      text: 'sharedinbox@domain.com'
-    }
-  ],
+    {  heading: 'Contact',
+    links: [
+      {
+        icon: 'map-pin',
+        text: '123 Main St.\nBoston, MA 02118'
+      },
+      {
+        icon: 'phone-call',
+        href: 'tel:+16172223333',
+        text: '(617) 222-3333'
+      },
+      {
+        icon: 'globe',
+        href: '#',
+        text: 'XYZ on Mass.gov'
+      },
+      {
+        icon: 'envelope',
+        href: 'mailto:sharedinbox@domain.com',
+        text: 'sharedinbox@domain.com'
+      }
+    ]
+  }
+],
   linkGroups: [
     {
       headingId: 'mds-footer-links-heading-1',
@@ -135,27 +134,26 @@ export const footerExampleData = {
       ]
     }
   ],
-  legalLabel: 'Required policies',
   legalLinks: [
     {
-      href: '#',
+      href: 'https://www.mass.gov/info-details/enterprise-digital-accessibility-statement',
       text: 'Digital Accessibility Statement'
     },
     {
-      href: '#',
+      href: 'https://www.mass.gov/policy-advisory/massgov-privacy-policy',
       text: 'Privacy Notice'
     },
   ],
   legalLinksOptional: [
     {
       href: '#',
-      text: 'Site Policies'
+      text: 'Optional Link'
     },
     {
       href: '#',
-      text: 'Public Records Requests'
+      text: 'Optional Link'
     }
   ],
-  fundingText: 'Funding details lorem ipsum dolor sit amet lorem ipsum dolore sit amet',
-  trademarkHtml: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
+  supportingContent: '',
+  trademark: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
 };
