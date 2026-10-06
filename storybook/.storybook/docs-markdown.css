@@ -217,7 +217,7 @@
 }
 
 #storybook-docs .mds-docs-reference-table th {
-  background: var(--mds-interactive-brand-neutral-low);
+  background: var(--mds-background-section-brand-neutral-low);
   font-weight: var(--mds-font-weight-semibold);
 }
 
