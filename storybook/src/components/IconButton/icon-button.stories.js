@@ -32,76 +32,6 @@ function renderPlayground(args) {
   return createPreview(renderIconButton(args), surfaceClass);
 }
 
-const iconButtonExamples = [
-  {
-    label: 'Primary link',
-    args: {
-      ariaLabel: 'Facebook',
-      color: 'Primary',
-      element: 'a',
-      icon: 'facebook-logo',
-      type: 'Fill'
-    }
-  },
-  {
-    label: 'Secondary link',
-    args: {
-      ariaLabel: 'Visit the Commonwealth on X',
-      color: 'Secondary',
-      element: 'a',
-      icon: 'x-logo',
-      type: 'Fill'
-    }
-  },
-  {
-    label: 'Light link',
-    surface: 'dark',
-    args: {
-      ariaLabel: 'Instagram',
-      color: 'Light',
-      element: 'a',
-      icon: 'instagram-logo',
-      type: 'Fill'
-    }
-  },
-  {
-    label: 'Button action',
-    args: {
-      ariaLabel: 'More options',
-      color: 'Primary',
-      element: 'button',
-      icon: 'dots-three',
-      type: 'Fill'
-    }
-  }
-];
-
-function renderIconButtonExample(example) {
-  const surfaceClass = example.surface === 'dark'
-    ? ' mds-icon-button-examples__item--dark'
-    : '';
-
-  return `
-    <div class="mds-icon-button-examples__item${surfaceClass}">
-      <h3 class="mds-icon-button-examples__heading">${example.label}</h3>
-      ${renderIconButton({
-        ...iconButtonDefaults,
-        ...example.args
-      })}
-    </div>
-  `;
-}
-
-function renderAllExamples() {
-  let examplesHtml = '';
-
-  for (const example of iconButtonExamples) {
-    examplesHtml += renderIconButtonExample(example);
-  }
-
-  return createPreview(examplesHtml, 'mds-icon-button-examples');
-}
-
 const iconSelectControl = {
   control: {
     type: 'select',
@@ -178,13 +108,3 @@ export const Playground = {
   args: iconButtonDefaults
 };
 
-export const Examples = {
-  render: renderAllExamples,
-  tags: ['!dev'],
-  parameters: {
-    controls: {
-      disable: true
-    },
-    layout: 'padded'
-  }
-};
