@@ -1,4 +1,7 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
+// Bundle styles for the components rendered by footer.twig.
+@use "../action-link/action-link";
+@use "../icon-button/icon-button";
 
 .mds-footer {
   @include mixins.unordered-list-reset;
