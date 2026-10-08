@@ -5,7 +5,6 @@ import {
 } from '../../../../packages/components/src/icon-button/icon-button.data.js';
 import { renderIconButton } from '../../utils/component-renderers.js';
 import { controlCategories } from '../../utils/controlCategories.js';
-import './icon-button.examples.css';
 
 // Storybook render functions return an HTML element.
 function createPreview(html, className = '') {
@@ -20,16 +19,13 @@ function createPreview(html, className = '') {
   return preview;
 }
 
-function isDarkSurface(color) {
-  return color === 'White';
-}
 
 function renderPlayground(args) {
-  const surfaceClass = isDarkSurface(args.color)
-    ? 'mds-icon-button-playground mds-icon-button-playground--dark'
-    : 'mds-icon-button-playground';
+  const previewClassName = args.color === 'White'
+    ? 'mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest'
+    : '';
 
-  return createPreview(renderIconButton(args), surfaceClass);
+  return createPreview(renderIconButton(args), previewClassName);
 }
 
 const iconSelectControl = {
@@ -46,7 +42,7 @@ const iconSelectControl = {
 const iconButtonControls = {
   ariaLabel: {
     control: 'text',
-    description: 'Accessible label for the icon-only control.',
+    description: 'Accessible label for the button',
     table: {
       category: controlCategories.content
     }
@@ -73,16 +69,16 @@ const iconButtonControls = {
   },
   href: {
     control: 'text',
-    description: 'Link destination - entering a value here will make the element an anchor tag.',
+    description: 'Link destination. When provided, the icon button renders as a link element.',
     table: {
       category: controlCategories.content
     }
   },
   disabled: {
     control: 'boolean',
-    description: 'Disables the control.',
+    description: 'Disables the button.',
     table: {
-      category: controlCategories.content
+      category: controlCategories.design
     }
   },
 };

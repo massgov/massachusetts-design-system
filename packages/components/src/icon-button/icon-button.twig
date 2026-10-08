@@ -10,7 +10,16 @@
 {% set iconButtonAriaLabel = ariaLabel|default(iconButtonDefaults.ariaLabel) %}
 {% set iconButtonDisabled = disabled|default(iconButtonDefaults.disabled) %}
 {% set iconButtonUnavailable = iconButtonDisabled %}
-{% set iconButtonClass = 'mds-icon-button mds-icon-button--type-' ~ (iconButtonType|lower) ~ ' mds-icon-button--color-' ~ (iconButtonColor|lower) %}
+{% set iconButtonHtmlAttributes = htmlAttributes|default({}) %}
+{% set iconButtonAnchorAttributeExclusions = [
+  'class', 'disabled', 'href', 'type', 'aria-label',
+  'aria-disabled', 'tabindex'
+] %}
+{% set iconButtonAttributeExclusions = [
+  'class', 'disabled', 'href', 'type', 'aria-label'
+] %}
+{% set iconButtonClassName = iconButtonHtmlAttributes.class|default('') %}
+{% set iconButtonClass = 'mds-icon-button mds-icon-button--type-' ~ (iconButtonType|lower) ~ ' mds-icon-button--color-' ~ (iconButtonColor|lower) ~ (iconButtonClassName ? ' ' ~ iconButtonClassName : '') %}
 {% if iconButtonDisabled %}
   {% set iconButtonClass = iconButtonClass ~ ' mds-icon-button--disabled' %}
 {% endif %}
@@ -22,6 +31,10 @@
   aria-label="{{ iconButtonAriaLabel|e }}"{% if iconButtonUnavailable %}
   aria-disabled="true"
   tabindex="-1"{% endif %}
+  {% include 'shared/html-attributes.twig' with {
+  attributes: iconButtonHtmlAttributes,
+  exclude: iconButtonAnchorAttributeExclusions
+} %}
 >
 {% else %}
 <button
@@ -29,6 +42,10 @@
   type="button"
   aria-label="{{ iconButtonAriaLabel|e }}"{% if iconButtonUnavailable %}
   disabled{% endif %}
+  {% include 'shared/html-attributes.twig' with {
+  attributes: iconButtonHtmlAttributes,
+  exclude: iconButtonAttributeExclusions
+} %}
 >
 {% endif %}
   <span class="mds-icon-button__icon">
