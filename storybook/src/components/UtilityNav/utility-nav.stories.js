@@ -71,41 +71,11 @@ function renderAllExamples() {
 }
 
 const utilityNavControls = {
-  className: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  },
   startVariant: {
     control: 'select',
     options: ['menu', 'home-link', 'none'],
     table: {
       category: controlCategories.design
-    }
-  },
-  menuButtonText: {
-    control: 'text',
-    table: {
-      category: controlCategories.content
-    }
-  },
-  menuButtonAriaLabel: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  menuButtonExpanded: {
-    control: 'boolean',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  menuButtonControls: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
     }
   },
   homeLinkText: {
