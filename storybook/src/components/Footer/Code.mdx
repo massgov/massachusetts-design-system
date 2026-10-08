@@ -1,6 +1,8 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { footerDefaults } from '../../../../packages/components/src/footer/footer.data.js';
+import actionLinkCss from '@massds/mds-components/action-link.css?raw';
 import footerCss from '@massds/mds-components/footer.css?raw';
+import iconButtonCss from '@massds/mds-components/icon-button.css?raw';
 import { renderFooter } from '../../utils/component-renderers.js';
 import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
 import * as FooterStories from './footer.stories.js';
@@ -17,7 +19,19 @@ export const getFooterCodeTabs = (args) => [
   {
     label: 'CSS',
     language: 'css',
-    code: footerCss
+    code: [
+      `/* action-link.css */\n${actionLinkCss}`,
+      `/* icon-button.css */\n${iconButtonCss}`,
+      `/* footer.css */\n${footerCss}`
+    ].join('\n\n')
+  },
+  {
+    label: 'Imports',
+    language: 'js',
+    code: `import '@massds/mds-tokens/dist/index.css';
+import '@massds/mds-components/action-link.css';
+import '@massds/mds-components/icon-button.css';
+import '@massds/mds-components/footer.css';`
   }
 ];
 
@@ -35,5 +49,13 @@ export const getFooterCodeTabs = (args) => [
 <Controls of={FooterStories.Playground} />
 
 ## Code
+
+The footer uses Action Link for contact and navigation links, and Icon Button for
+social links. Load `action-link.css` and `icon-button.css` before `footer.css`;
+`footer.css` alone does not include these component styles.
+
+The CSS tab includes all three stylesheets in that order. Load the semantic token
+stylesheet separately, as shown in the Imports tab. If you already load
+`@massds/mds-components/index.css`, it includes all three component stylesheets.
 
 <StoryCodeTabs of={FooterStories.Playground} getTabs={getFooterCodeTabs} />
