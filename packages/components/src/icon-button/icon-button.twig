@@ -1,7 +1,8 @@
 {#
   Icon button data:
   - type and color map to the Figma Style and Color properties.
-  - disabled prevent native button interaction.
+  - disabled prevents native button interaction.
+  - htmlAttributes applies native HTML, ARIA, and data attributes to the root element.
 #}
 {% set iconButtonColor = color in iconButtonOptions.color ? color : iconButtonDefaults.color %}
 {% set iconButtonType = type in iconButtonOptions.type ? type : iconButtonDefaults.type %}
@@ -11,10 +12,9 @@
 {% set iconButtonDisabled = disabled|default(iconButtonDefaults.disabled) %}
 {% set iconButtonUnavailable = iconButtonDisabled %}
 {% set iconButtonHtmlAttributes = htmlAttributes|default({}) %}
-{% set iconButtonAnchorAttributeExclusions = [
-  'class', 'disabled', 'href', 'type', 'aria-label',
-  'aria-disabled', 'tabindex'
-] %}
+{% set iconButtonAnchorAttributeExclusions = iconButtonDisabled
+  ? ['class', 'disabled', 'href', 'type', 'aria-label', 'aria-disabled', 'tabindex']
+  : ['class', 'disabled', 'href', 'type', 'aria-label'] %}
 {% set iconButtonAttributeExclusions = [
   'class', 'disabled', 'href', 'type', 'aria-label'
 ] %}
@@ -39,7 +39,7 @@
 {% else %}
 <button
   class="{{ iconButtonClass|e }}"
-  type="button"
+  type="{{ iconButtonHtmlAttributes.type|default('button')|e }}"
   aria-label="{{ iconButtonAriaLabel|e }}"{% if iconButtonUnavailable %}
   disabled{% endif %}
   {% include 'shared/html-attributes.twig' with {
