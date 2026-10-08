@@ -18,12 +18,6 @@ export const getFooterCodeTabs = (args) => [
     label: 'CSS',
     language: 'css',
     code: footerCss
-  },
-  {
-    label: 'Imports',
-    language: 'js',
-    code: `import '@massds/mds-tokens/dist/index.css';
-import '@massds/mds-components/footer.css';`
   }
 ];
 
@@ -45,9 +39,5 @@ import '@massds/mds-components/footer.css';`
 The footer uses Action Link for contact and navigation links, and Icon Button for
 social links. Their styles are bundled into `footer.css`, so no separate
 component stylesheets are needed for the footer.
-
-The CSS tab shows the complete compiled footer stylesheet. Load the semantic token
-stylesheet separately, as shown in the Imports tab. If you already load
-`@massds/mds-components/index.css`, it already includes the footer styles.
 
 <StoryCodeTabs of={FooterStories.Playground} getTabs={getFooterCodeTabs} />
