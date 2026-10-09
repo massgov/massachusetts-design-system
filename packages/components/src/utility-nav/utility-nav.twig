@@ -1,17 +1,17 @@
 {#
   Utility Nav data:
-  - startVariant chooses the left-side control: menu, home-link, or none.
+  - navigationType chooses the left-side control: menu, home-link, or none.
   - menuButton* controls the primary navigation trigger button.
   - homeLink* controls the optional Mass.gov link variant.
   - actionButtons renders up to two ghost buttons on the right side.
   - className appends optional custom classes to the component root.
 #}
+{% set utilityNavNavigationType = navigationType|default(utilityNavDefaults.navigationType) %}
 {% set utilityNavClassName = className|default(utilityNavDefaults.className) %}
-{% set utilityNavStartVariant = startVariant|default(utilityNavDefaults.startVariant) %}
-{% set menuButtonTextValue = menuButtonText|default(utilityNavDefaults.menuButtonText) %}
-{% set menuButtonAriaLabelValue = menuButtonAriaLabel|default(utilityNavDefaults.menuButtonAriaLabel) %}
-{% set menuButtonExpandedValue = menuButtonExpanded is same as(true) ? true : utilityNavDefaults.menuButtonExpanded %}
-{% set menuButtonControlsValue = menuButtonControls|default(utilityNavDefaults.menuButtonControls) %}
+{% set menuButtonTextValue = 'Menu' %}
+{% set menuButtonAriaLabelValue = 'Open menu' %}
+{% set menuButtonExpandedValue = false %}
+{% set menuButtonControlsValue = 'primary-navigation' %}
 {% set homeLinkTextValue = homeLinkText|default(utilityNavDefaults.homeLinkText) %}
 {% set homeLinkHrefValue = homeLinkHref|default(utilityNavDefaults.homeLinkHref) %}
 {% set homeLinkAriaLabelValue = homeLinkAriaLabel|default(utilityNavDefaults.homeLinkAriaLabel) %}
@@ -24,37 +24,33 @@
 
 <div class="{{ utilityNavClasses|join(' ')|e }}">
   <div class="mds-utility-nav__section mds-utility-nav__section--start">
-    {% if utilityNavStartVariant == 'menu' %}
-      {%
-        include 'button.twig' with {
-          type: 'Ghost',
-          color: 'White',
-          size: 'Regular',
-          text: menuButtonTextValue,
-          leftIcon: 'list',
-          leftIconWeight: 'Regular',
-          htmlAttributes: {
-            class: 'mds-utility-nav__button mds-utility-nav__button--menu',
-            'aria-label': menuButtonAriaLabelValue,
-            'aria-expanded': menuButtonExpandedValue,
-            'aria-controls': menuButtonControlsValue
-          }
+    {% if utilityNavNavigationType == 'menu' %}
+      {% include 'button.twig' with {
+        type: 'Ghost',
+        color: 'White',
+        size: 'Regular',
+        text: menuButtonTextValue,
+        leftIcon: 'list',
+        leftIconWeight: 'Regular',
+        htmlAttributes: {
+          class: 'mds-utility-nav__button mds-utility-nav__button--menu',
+          'aria-label': menuButtonAriaLabelValue,
+          'aria-expanded': menuButtonExpandedValue,
+          'aria-controls': menuButtonControlsValue
         }
-      %}
-    {% elseif utilityNavStartVariant == 'home-link' %}
-      {%
-        include 'button.twig' with {
-          type: 'Ghost',
-          color: 'White',
-          size: 'Regular',
-          text: homeLinkTextValue,
-          href: homeLinkHrefValue,
-          leftIcon: 'house-line',
-          leftIconWeight: 'Regular',
-          htmlAttributes: {
-            class: 'mds-utility-nav__button mds-utility-nav__button--home',
-            'aria-label': homeLinkAriaLabelValue
-          }
+      } %}
+    {% elseif utilityNavNavigationType == 'home-link' %}
+      {% include 'button.twig' with {
+        type: 'Ghost',
+        color: 'White',
+        size: 'Regular',
+        text: homeLinkTextValue,
+        href: homeLinkHrefValue,
+        leftIcon: 'house-line',
+        leftIconWeight: 'Regular',
+        htmlAttributes: {
+          class: 'mds-utility-nav__button mds-utility-nav__button--home',
+          'aria-label': homeLinkAriaLabelValue
         }
       %}
     {% endif %}
