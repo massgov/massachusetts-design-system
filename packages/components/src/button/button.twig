@@ -20,54 +20,72 @@
 {% set buttonDisabled = disabled|default(buttonDefaults.disabled) %}
 {% set buttonClassName = buttonHtmlAttributes.class|default('') %}
 {% set buttonClass = 'mds-button mds-button--type-' ~ buttonType|lower ~ ' mds-button--color-' ~ buttonColor|lower ~ ' mds-button--size-' ~ buttonSize|lower ~ (buttonClassName ? ' ' ~ buttonClassName : '') %}
-{% set buttonAnchorAttributeExclusions = buttonDisabled
+{%
+  set buttonAnchorAttributeExclusions = buttonDisabled
   ? ['class', 'data-mds-button', 'disabled', 'href', 'type', 'aria-disabled', 'tabindex']
-  : ['class', 'data-mds-button', 'disabled', 'href', 'type'] %}
+  : ['class', 'data-mds-button', 'disabled', 'href', 'type']
+%}
 {% set buttonElementAttributeExclusions = ['class', 'data-mds-button', 'disabled', 'href', 'type'] %}
 
 {% if buttonHref %}
-<a
-  class="{{ buttonClass|e }}"
-  {% if not buttonDisabled %}href="{{ buttonHref|e }}"{% endif %}
-  data-mds-button{% if buttonDisabled %}
-  aria-disabled="true"
-  tabindex="-1"{% endif %}{% include 'shared/html-attributes.twig' with {
-  attributes: buttonHtmlAttributes,
-  exclude: buttonAnchorAttributeExclusions
-} %}
->
+  <a
+    class="{{ buttonClass|e }}"
+    {% if not buttonDisabled %}
+      href="{{ buttonHref|e }}"
+    {% endif %}
+    data-mds-button
+    {% if buttonDisabled %}
+      aria-disabled="true"
+      tabindex="-1"
+    {% endif -%}
+    {%
+      include 'shared/html-attributes.twig' with {
+        attributes: buttonHtmlAttributes,
+        exclude: buttonAnchorAttributeExclusions
+      }
+    %}
+  >
 {% else %}
-<button
-  class="{{ buttonClass|e }}"
-  type="{{ buttonHtmlAttributes.type|default('button')|e }}"
-  data-mds-button{% if buttonDisabled %}
-  disabled{% endif %}{% include 'shared/html-attributes.twig' with {
-  attributes: buttonHtmlAttributes,
-  exclude: buttonElementAttributeExclusions
-} %}
->
+  <button
+    class="{{ buttonClass|e }}"
+    type="{{ buttonHtmlAttributes.type|default('button')|e }}"
+    data-mds-button
+    {% if buttonDisabled %}
+      disabled
+    {% endif -%}
+    {%
+      include 'shared/html-attributes.twig' with {
+        attributes: buttonHtmlAttributes,
+        exclude: buttonElementAttributeExclusions
+      }
+    %}
+  >
 {% endif %}
-  {% if leftIconName %}
-    <span class="mds-button__icon mds-button__icon--left">
-      {% include 'icon.twig' with {
+{% if leftIconName %}
+  <span class="mds-button__icon mds-button__icon--left">
+    {%
+      include 'icon.twig' with {
         name: leftIconName,
         weight: leftIconWeight
-      } %}
-    </span>
-  {% endif %}
+      }
+    %}
+  </span>
+{% endif %}
 
-  <span class="mds-button__label">{{ buttonText|e }}</span>
+<span class="mds-button__label">{{ buttonText | e }}</span>
 
-  {% if rightIconName %}
-    <span class="mds-button__icon">
-      {% include 'icon.twig' with {
+{% if rightIconName %}
+  <span class="mds-button__icon">
+    {%
+      include 'icon.twig' with {
         name: rightIconName,
         weight: rightIconWeight
-      } %}
-    </span>
-  {% endif %}
+      }
+    %}
+  </span>
+{% endif %}
 {% if buttonHref %}
-</a>
+  </a>
 {% else %}
-</button>
+  </button>
 {% endif %}

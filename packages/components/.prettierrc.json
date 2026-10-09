@@ -1,9 +1,7 @@
 {
-  "plugins": ["@zackad/prettier-plugin-twig"],
+  "plugins": ["@destination/prettier-plugin-twig"],
   "tabWidth": 2,
   "useTabs": false,
   "printWidth": 100,
-  "endOfLine": "lf",
-  "twigSingleQuote": true,
-  "twigFollowOfficialCodingStandards": true
+  "endOfLine": "lf"
 }

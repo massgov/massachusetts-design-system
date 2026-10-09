@@ -23,18 +23,21 @@
 
 <a
   class="{{ actionLinkClass|e }}"
-  href="{{ actionLinkHref|e }}"{% if actionLinkId %}
-  id="{{ actionLinkId|e }}"{% endif %}
-
+  href="{{ actionLinkHref|e }}"
+  {% if actionLinkId %}
+    id="{{ actionLinkId|e }}"
+  {% endif %}
 >
   <span class="mds-action-link__label">
     {% if actionLinkLeftIcon %}
       <span class="mds-action-link__icon">
-        {% include 'icon.twig' with {
-          name: actionLinkLeftIcon,
-          weight: actionLinkIconWeight,
-          size: actionLinkIconSize
-        } %}
+        {%
+          include 'icon.twig' with {
+            name: actionLinkLeftIcon,
+            weight: actionLinkIconWeight,
+            size: actionLinkIconSize
+          }
+        %}
       </span>
     {% endif %}
 
@@ -42,13 +45,14 @@
 
     {% if actionLinkRightIcon %}
       <span class="mds-action-link__icon">
-        {% include 'icon.twig' with {
-          name: actionLinkRightIcon,
-          weight: actionLinkIconWeight,
-          size: actionLinkIconSize
-        } %}
+        {%
+          include 'icon.twig' with {
+            name: actionLinkRightIcon,
+            weight: actionLinkIconWeight,
+            size: actionLinkIconSize
+          }
+        %}
       </span>
-
     {% endif %}
   </span>
 </a>

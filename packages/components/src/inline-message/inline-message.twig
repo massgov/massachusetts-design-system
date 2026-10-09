@@ -13,30 +13,38 @@
 {% set inlineMessageIcon = inlineMessageIcons[inlineMessageType] %}
 {% set inlineMessageAriaLive = inlineMessageType == 'Error' ? 'assertive' : 'polite' %}
 {% set inlineMessageRole = inlineMessageType == 'Error' ? 'alert' : 'status' %}
-{% set inlineMessageClasses = [
-  'mds-inline-message',
-  'mds-inline-message--type-' ~ inlineMessageType|lower,
-  'mds-inline-message--variant-' ~ inlineMessageVariant|lower
-] %}
+{%
+  set inlineMessageClasses = [
+    'mds-inline-message',
+    'mds-inline-message--type-' ~ inlineMessageType|lower,
+    'mds-inline-message--variant-' ~ inlineMessageVariant|lower
+  ]
+%}
 
 {% if inlineMessageClassName %}
   {% set inlineMessageClasses = inlineMessageClasses|merge([inlineMessageClassName]) %}
 {% endif %}
 
-<div class="{{ inlineMessageClasses|join(' ')|e }}" role="{{ inlineMessageRole }}" aria-live="{{ inlineMessageAriaLive }}">
+<div
+  class="{{ inlineMessageClasses|join(' ')|e }}"
+  role="{{ inlineMessageRole }}"
+  aria-live="{{ inlineMessageAriaLive }}"
+>
   <div class="mds-inline-message__content">
     <div class="mds-inline-message__header">
       <span class="mds-inline-message__icon" aria-hidden="true">
-        {% include 'icon.twig' with {
-          name: inlineMessageIcon,
-          size: 'MD',
-          weight: 'Regular'
-        } %}
+        {%
+          include 'icon.twig' with {
+            name: inlineMessageIcon,
+            size: 'MD',
+            weight: 'Regular'
+          }
+        %}
       </span>
-      <h2 class="mds-inline-message__heading">{{ inlineMessageHeading|e }}</h2>
+      <h2 class="mds-inline-message__heading">{{ inlineMessageHeading | e }}</h2>
     </div>
     {% if inlineMessageDescription %}
-      <div class="mds-inline-message__description">{{ inlineMessageDescription|raw }}</div>
+      <div class="mds-inline-message__description">{{ inlineMessageDescription | raw }}</div>
     {% endif %}
   </div>
 </div>
