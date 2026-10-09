@@ -18,16 +18,22 @@
 {% set actionLinkIconSize = actionLinkIconSizes[actionLinkSize] %}
 {% set actionLinkText = text|default(actionLinkDefaults.text) %}
 {% set actionLinkHref = href|default(actionLinkDefaults.href) %}
-{% set actionLinkId = id|default(actionLinkDefaults.id) %}
-{% set actionLinkClass = 'mds-action-link mds-action-link--color-' ~ (actionLinkColor|lower) ~ ' mds-action-link--size-' ~ (actionLinkSize|lower) %}
+{% set actionLinkHtmlAttributes = htmlAttributes|default({}) %}
+{% set actionLinkClassName = actionLinkHtmlAttributes.class|default('') %}
+{% set actionLinkClass = 'mds-action-link mds-action-link--color-' ~ (actionLinkColor|lower) ~ ' mds-action-link--size-' ~ (actionLinkSize|lower) ~ (actionLinkClassName ? ' ' ~ actionLinkClassName : '') %}
+{% set actionLinkAttributeExclusions = ['class', 'href'] %}
 
 <a
   class="{{ actionLinkClass|e }}"
   href="{{ actionLinkHref|e }}"
-  {% if actionLinkId %}
-    id="{{ actionLinkId|e }}"
-  {% endif %}
+  {%
+    include 'shared/html-attributes.twig' with {
+      attributes: actionLinkHtmlAttributes,
+      exclude: actionLinkAttributeExclusions
+    }
+  %}
 >
+
   <span class="mds-action-link__label">
     {% if actionLinkLeftIcon %}
       <span class="mds-action-link__icon">
