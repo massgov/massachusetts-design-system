@@ -58,16 +58,14 @@
   }
 
   &__content {
-    // choosing flex instead of 4 col grid here so footer with only two columns will still fill the full width of the container.
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--mds-space-lg);
+    @include mixins.grid;
+    row-gap: var(--mds-space-lg);
     padding-block: var(--mds-space-2xl) var(--mds-space-md);
 
   }
 
   &__column {
-    flex: 1 1 16rem;
+    @include mixins.grid-4-column;
     min-inline-size: 0;
   }
 
