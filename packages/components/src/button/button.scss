@@ -145,6 +145,7 @@
   }
 
   // Size modifiers use padding shorthand, so keep ghost buttons flush.
+  /* stylelint-disable-next-line no-duplicate-selectors */
   &--type-ghost {
     padding-inline: 0;
   }
