@@ -1,12 +1,12 @@
 {#
   Utility Nav data:
-  - startVariant chooses the left-side control: menu, home-link, or none.
+  - navigationType chooses the left-side control: menu, home-link, or none.
   - menuButton* controls the primary navigation trigger button.
   - homeLink* controls the optional Mass.gov link variant.
   - actionButtons renders up to two ghost buttons on the right side.
   - className appends optional custom classes to the component root.
 #}
-{% set utilityNavStartVariant = startVariant|default(utilityNavDefaults.startVariant) %}
+{% set utilityNavNavigationType = navigationType|default(utilityNavDefaults.navigationType) %}
 {% set menuButtonTextValue = 'Menu' %}
 {% set menuButtonAriaLabelValue = 'Open menu' %}
 {% set menuButtonExpandedValue = false %}
@@ -23,7 +23,7 @@
 
 <div class="{{ utilityNavClasses|join(' ')|e }}">
   <div class="mds-utility-nav__section mds-utility-nav__section--start">
-    {% if utilityNavStartVariant == 'menu' %}
+    {% if utilityNavNavigationType == 'menu' %}
       {% include 'button.twig' with {
         type: 'Ghost',
         color: 'White',
@@ -38,7 +38,7 @@
           'aria-controls': menuButtonControlsValue
         }
       } %}
-    {% elseif utilityNavStartVariant == 'home-link' %}
+    {% elseif utilityNavNavigationType == 'home-link' %}
       {% include 'button.twig' with {
         type: 'Ghost',
         color: 'White',

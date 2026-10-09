@@ -1,5 +1,5 @@
 export const utilityNavSchema = {
-  startVariant: {
+  navigationType: {
     type: 'string',
     default: 'menu'
   },
