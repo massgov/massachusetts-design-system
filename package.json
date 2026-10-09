@@ -20,6 +20,7 @@
     "build:tokens": "npm run build --workspace @massds/mds-tokens",
     "build:storybook": "npm run storybook:build --workspace @massds/storybook",
     "lint:styles": "npm run lint --workspace @massds/mds-styles",
+    "lint:components": "npm run lint --workspace @massds/mds-components",
     "lint:tokens": "npm run lint --workspace @massds/mds-tokens",
     "demo:styles": "npm run demo --workspace @massds/mds-styles",
     "storybook": "npm run storybook --workspace @massds/storybook",

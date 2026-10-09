@@ -51,6 +51,9 @@ jobs:
       - name: Build components and workspace dependencies
         run: npm run build
 
+      - name: Lint components
+        run: npm run lint --workspace @massds/mds-components
+
       - name: Inspect package contents
         working-directory: packages/components
         run: npm pack --dry-run

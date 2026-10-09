@@ -13,6 +13,26 @@ npm run build --workspace @massds/mds-components
 
 The build writes distributable files into `dist/`.
 
+### Linting
+
+From the repository root:
+
+```bash
+npm run lint:components
+npm run lint:scss --workspace @massds/mds-components
+npm run lint:scss:fix --workspace @massds/mds-components
+npm run lint:twig --workspace @massds/mds-components
+```
+
+SCSS uses Stylelint's recommended SCSS rules for basic syntax and common errors.
+Descending specificity checks are disabled for nested component selectors.
+Twig linting compiles every `src/**/*.twig` template, including shared partials,
+using the same Twig.js dependency as the build and reports syntax errors with
+file paths. It does not render templates or validate HTML, runtime data, or include targets.
+
+The root `npm run lint` includes both checks. GitHub Actions runs them on component
+pull requests, pushes to `main`, and before publishing the components package.
+
 ## Public Imports
 
 Component entry points are exported with wildcard paths. When a component has a

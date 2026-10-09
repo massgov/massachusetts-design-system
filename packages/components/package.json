@@ -19,6 +19,10 @@
   "scripts": {
     "build": "node ./scripts/build.js",
     "changelog:release": "bash ../../scripts/compile-package-changelog.sh .",
+    "lint": "npm run lint:scss && npm run lint:twig",
+    "lint:scss": "stylelint \"src/**/*.scss\"",
+    "lint:scss:fix": "npm run lint:scss -- --fix",
+    "lint:twig": "node ./scripts/lint-twig.js",
     "watch": "node --watch-path=src ./scripts/build.js",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "prepublishOnly": "npm run build"
@@ -32,6 +36,8 @@
     "@massds/mds-styles": "^2.0.0-beta.1",
     "@massds/mds-tokens": "^3.0.0-beta.1",
     "sass": "^1.93.2",
+    "stylelint": "^16.24.0",
+    "stylelint-config-recommended-scss": "^16.0.2",
     "twig": "^3.0.0"
   },
   "repository": {
