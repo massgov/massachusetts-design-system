@@ -62,10 +62,22 @@
     row-gap: var(--mds-space-lg);
     padding-block: var(--mds-space-2xl) var(--mds-space-md);
 
+    // All direct children are rendered footer columns, including the brand.
+    &:has(> .mds-footer__column:nth-child(2):last-child) > .mds-footer__column {
+      @include mixins.grid-2-column;
+    }
+
+    &:has(> .mds-footer__column:nth-child(3):last-child) > .mds-footer__column {
+      @include mixins.grid-3-column;
+    }
+
+    &:has(> .mds-footer__column:nth-child(4):last-child) > .mds-footer__column {
+      @include mixins.grid-4-column;
+    }
   }
 
   &__column {
-    @include mixins.grid-4-column;
+    @include mixins.grid-full;
     min-inline-size: 0;
   }
 
