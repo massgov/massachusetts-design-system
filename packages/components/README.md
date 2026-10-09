@@ -22,7 +22,7 @@ npm run lint:components
 npm run lint:scss --workspace @massds/mds-components
 npm run lint:scss:fix --workspace @massds/mds-components
 npm run lint:twig --workspace @massds/mds-components
-npm run format:twig --workspace @massds/mds-components
+npm run lint:twig:fix --workspace @massds/mds-components
 ```
 
 SCSS uses Stylelint's recommended SCSS rules for basic syntax and common errors.
@@ -32,7 +32,7 @@ including shared partials. Syntax checks use the same Twig.js dependency as the
 build and report errors with file paths. Formatting uses Prettier with
 [`@destination/prettier-plugin-twig`](https://github.com/wearedestination/prettier-plugin-twig),
 two-space indentation, LF line endings, and a 100-character target line width.
-Run `format:twig` to apply formatting. Syntax and formatting checks can also be
+Run `lint:twig:fix` to apply formatting. Syntax and formatting checks can also be
 run separately with `lint:twig:syntax` and `lint:twig:format`.
 These checks do not render templates or validate runtime data or include targets.
 

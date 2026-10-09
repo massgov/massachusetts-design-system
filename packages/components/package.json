@@ -25,7 +25,7 @@
     "lint:twig": "npm run lint:twig:syntax && npm run lint:twig:format",
     "lint:twig:syntax": "node ./scripts/lint-twig.js",
     "lint:twig:format": "prettier --check \"src/**/*.twig\"",
-    "format:twig": "prettier --write \"src/**/*.twig\"",
+    "lint:twig:fix": "prettier --write \"src/**/*.twig\"",
     "watch": "node --watch-path=src ./scripts/build.js",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "prepublishOnly": "npm run build"
