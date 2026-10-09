@@ -3,12 +3,19 @@ import {
   getComponentNameFromTemplateId,
   getModuleContext,
   getRendererContextOptions,
+  isSharedTemplateId,
   getStaticIncludeTemplateIds,
   getTemplateId
 } from '../../../packages/components/src/shared/component-context.js';
 import { createTwigRenderer } from '../../../packages/components/src/shared/twig-renderer.js';
 
 const componentTemplateModules = import.meta.glob('../../../packages/components/src/*/*.twig', {
+  eager: true,
+  import: 'default',
+  query: '?raw'
+});
+
+const sharedTemplateModules = import.meta.glob('../../../packages/components/src/shared/*.twig', {
   eager: true,
   import: 'default',
   query: '?raw'
@@ -47,6 +54,12 @@ function createComponentMap(globResult) {
 
 const componentTemplates = createComponentMap(componentTemplateModules);
 const dataModules = createComponentMap(componentDataModules);
+const sharedTemplates = Object.fromEntries(
+  Object.entries(sharedTemplateModules).map(([filePath, templateSource]) => [
+    `shared/${filePath.split('/').pop()}`,
+    templateSource
+  ])
+);
 
 function getTemplateSource(componentName) {
   const templateSource = componentTemplates[componentName];
@@ -58,34 +71,57 @@ function getTemplateSource(componentName) {
   return templateSource;
 }
 
+function getTemplateSourceById(templateId) {
+  if (isSharedTemplateId(templateId)) {
+    const templateSource = sharedTemplates[templateId];
+
+    if (typeof templateSource !== 'string') {
+      throw new Error(`Missing Twig source for template "${templateId}".`);
+    }
+
+    return templateSource;
+  }
+
+  return getTemplateSource(getComponentNameFromTemplateId(templateId));
+}
+
 function getDataModule(componentName) {
   return dataModules[componentName] ?? {};
 }
 
+function getIncludedComponentName(templateId) {
+  return isSharedTemplateId(templateId)
+    ? null
+    : getComponentNameFromTemplateId(templateId);
+}
+
 function getIncludedComponentContext(componentName, seenTemplateIds = new Set()) {
+  return getIncludedTemplateContext(getTemplateId(componentName), seenTemplateIds);
+}
+
+function getIncludedTemplateContext(templateId, seenTemplateIds) {
   const includes = {};
   const dataContext = {};
-  const templateId = getTemplateId(componentName);
 
   seenTemplateIds.add(templateId);
 
-  for (const includedTemplateId of getStaticIncludeTemplateIds(getTemplateSource(componentName))) {
+  for (const includedTemplateId of getStaticIncludeTemplateIds(getTemplateSourceById(templateId))) {
     if (seenTemplateIds.has(includedTemplateId)) {
       continue;
     }
 
     seenTemplateIds.add(includedTemplateId);
 
-    const includedComponentName = getComponentNameFromTemplateId(includedTemplateId);
-    const nestedContext = getIncludedComponentContext(includedComponentName, seenTemplateIds);
+    const includedComponentName = getIncludedComponentName(includedTemplateId);
+    const nestedContext = getIncludedTemplateContext(includedTemplateId, seenTemplateIds);
 
     Object.assign(includes, nestedContext.includes, {
-      [includedTemplateId]: getTemplateSource(includedComponentName)
+      [includedTemplateId]: getTemplateSourceById(includedTemplateId)
     });
     Object.assign(
       dataContext,
       nestedContext.dataContext,
-      getModuleContext(getDataModule(includedComponentName))
+      includedComponentName === null ? {} : getModuleContext(getDataModule(includedComponentName))
     );
   }
 

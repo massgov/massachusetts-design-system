@@ -3,8 +3,8 @@ import {
   buttonDefaults,
   buttonOptions
 } from '../../../../packages/components/src/button/button.data.js';
-import { controlCategories } from '../../utils/controlCategories.js';
 import { renderButton } from '../../utils/component-renderers.js';
+import { controlCategories } from '../../utils/controlCategories.js';
 
 // Storybook render functions return an HTML element.
 function createPreview(html, className = '') {
@@ -20,7 +20,10 @@ function createPreview(html, className = '') {
 }
 
 function renderPlayground(args) {
-  return createPreview(renderButton(args));
+  const previewClassName = args.color === 'White'
+    ? 'mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest'
+    : '';
+  return createPreview(renderButton(args), previewClassName);
 }
 
 const iconSelectControl = {
@@ -74,32 +77,18 @@ const buttonControls = {
       category: controlCategories.design
     }
   },
-  id: {
-    control: 'text',
+  disabled: {
+    control: 'boolean',
+    description: 'Disables the button.',
     table: {
-      category: controlCategories.html
+      category: controlCategories.design
     }
   },
   href: {
     control: 'text',
     description: 'Link destination. When provided, the button renders as an anchor.',
     table: {
-      category: controlCategories.html
-    }
-  },
-  htmlType: {
-    control: 'select',
-    options: buttonOptions.htmlType,
-    description: 'Native HTML button type. Applies only when href is empty.',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  disabled: {
-    control: 'boolean',
-    description: 'Disables the native button.',
-    table: {
-      category: controlCategories.html
+      category: controlCategories.content
     }
   }
 };
@@ -111,10 +100,8 @@ const defaultPlaygroundArgs = {
   size: buttonDefaults.size,
   leftIcon: buttonDefaults.leftIcon,
   rightIcon: buttonDefaults.rightIcon,
-  id: buttonDefaults.id,
-  href: buttonDefaults.href,
-  htmlType: buttonDefaults.htmlType,
   disabled: buttonDefaults.disabled,
+  href: buttonDefaults.href
 };
 
 const meta = {
@@ -126,6 +113,4 @@ const meta = {
 
 export default meta;
 
-export const Playground = {
-  args: buttonDefaults
-};
+export const Playground = {};
