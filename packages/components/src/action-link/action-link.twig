@@ -26,10 +26,13 @@
 <a
   class="{{ actionLinkClass|e }}"
   href="{{ actionLinkHref|e }}"
-  {% include 'shared/html-attributes.twig' with {
-  attributes: actionLinkHtmlAttributes,
-  exclude: actionLinkAttributeExclusions
-} %}>
+  {%
+    include 'shared/html-attributes.twig' with {
+      attributes: actionLinkHtmlAttributes,
+      exclude: actionLinkAttributeExclusions
+    }
+  %}
+>
 
   <span class="mds-action-link__label">
     {% if actionLinkLeftIcon %}
