@@ -24,10 +24,15 @@
 <div
   class="{{ menuClasses|join(' ')|e }}"
   role="menu"
-  data-mds-popup-menu{% if menuId %}
-  id="{{ menuId|e }}"{% endif %}{% if menuAriaLabelledby %}
-  aria-labelledby="{{ menuAriaLabelledby|e }}"{% elseif menuAriaLabel %}
-  aria-label="{{ menuAriaLabel|e }}"{% endif %}
+  data-mds-popup-menu
+  {% if menuId %}
+    id="{{ menuId|e }}"
+  {% endif -%}
+  {% if menuAriaLabelledby %}
+    aria-labelledby="{{ menuAriaLabelledby|e }}"
+  {% elseif menuAriaLabel %}
+    aria-label="{{ menuAriaLabel|e }}"
+  {% endif %}
 >
   <ul class="mds-popup-menu__list">
     {% for item in menuItems %}
@@ -50,20 +55,24 @@
         {% if itemType == 'button' %}
           <button
             type="{{ itemButtonType|e }}"
-            role="menuitem"{% if itemDisabled %}
-            disabled{% endif %}
+            role="menuitem"
+            {% if itemDisabled %}
+              disabled
+            {% endif %}
           >
             <span class="{{ labelClasses|join(' ')|e }}">
               {% if showItemIcon %}
                 <span class="mds-popup-menu__icon" aria-hidden="true">
-                  {% include 'icon.twig' with {
-                    name: itemIconName,
-                    size: itemIconSize,
-                    weight: itemIconWeight
-                  } %}
+                  {%
+                    include 'icon.twig' with {
+                      name: itemIconName,
+                      size: itemIconSize,
+                      weight: itemIconWeight
+                    }
+                  %}
                 </span>
               {% endif %}
-              {{ itemLabel|e }}
+              {{ itemLabel | e }}
             </span>
           </button>
         {% else %}
@@ -74,14 +83,16 @@
             <span class="{{ labelClasses|join(' ')|e }}">
               {% if showItemIcon %}
                 <span class="mds-popup-menu__icon" aria-hidden="true">
-                  {% include 'icon.twig' with {
-                    name: itemIconName,
-                    size: itemIconSize,
-                    weight: itemIconWeight
-                  } %}
+                  {%
+                    include 'icon.twig' with {
+                      name: itemIconName,
+                      size: itemIconSize,
+                      weight: itemIconWeight
+                    }
+                  %}
                 </span>
               {% endif %}
-              {{ itemLabel|e }}
+              {{ itemLabel | e }}
             </span>
           </a>
         {% endif %}
