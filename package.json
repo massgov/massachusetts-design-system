@@ -8,8 +8,7 @@
     "packages/assets",
     "packages/styles",
     "packages/components",
-    "storybook",
-    "components"
+    "storybook"
   ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",

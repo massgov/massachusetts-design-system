@@ -1,11 +1,9 @@
-# Massachusetts Design System Components Next
+# Massachusetts Design System Components
 
 Twig-authored static components for the Massachusetts Design System.
 
-This package is intentionally separate from the legacy root-level `components/`
-workspace, which is named `@massds/mds-components-legacy`. It is a fresh
-implementation path for components that can render static HTML, CSS, and
-Twig templates.
+The `@massds/mds-components` workspace lives in `packages/components/` and
+produces static HTML, CSS, and Twig templates.
 
 ## Scripts
 
