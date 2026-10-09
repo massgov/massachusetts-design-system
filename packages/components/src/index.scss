@@ -1,0 +1,11 @@
+// Compile all component styles together so Sass includes shared modules once.
+@use "action-link/action-link";
+@use "button/button";
+@use "footer/footer";
+@use "icon/icon";
+@use "icon-button/icon-button";
+@use "inline-message/inline-message";
+@use "menu/menu";
+@use "site-header/site-header";
+@use "state-banner/state-banner";
+@use "utility-nav/utility-nav";

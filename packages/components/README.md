@@ -37,6 +37,12 @@ They are the supported public API and apply to every component:
 - Twig: `@massds/mds-components/<component>.twig`
 
 The aggregate component stylesheet is exported from `@massds/mds-components/index.css`.
+It is compiled from `src/index.scss` in one Sass compilation, so shared
+dependencies loaded with `@use` appear only once. Individual component CSS files
+are compiled separately and can bundle their own dependencies.
+
+When adding component styles, add their `@use` statement to `src/index.scss`
+so they are included in the aggregate stylesheet.
 
 When adding a new component, keep its distributable files in `dist/<component>/`. No package export change is needed as long as the component build writes the standard files:
 

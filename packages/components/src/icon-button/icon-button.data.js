@@ -7,10 +7,7 @@ const schemaOptions = getSchemaOptions(iconButtonSchema);
 
 export const iconButtonOptions = {
   color: schemaOptions.color,
-  element: schemaOptions.element,
-  htmlType: schemaOptions.htmlType,
   icon: schemaOptions.icon,
-  iconWeight: schemaOptions.iconWeight,
   type: schemaOptions.type
 };
 
