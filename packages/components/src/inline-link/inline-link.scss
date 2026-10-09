@@ -1,0 +1,62 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
+.mds-inline-link {
+  --mds-inline-link-color: var(--mds-interactive-brand-primary-mid);
+  --mds-inline-link-color-hover: var(--mds-interactive-brand-primary-high);
+  --mds-inline-link-color-active: var(--mds-interactive-brand-primary-highest);
+  --mds-inline-link-color-visited: var(--mds-interactive-brand-tertiary-mid);
+
+  color: var(--mds-inline-link-color);
+  font-size: var(--mds-text-body-font-size-lg) !important;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 2px;
+  transition: color var(--mds-motion-duration-fastest) ease;
+
+  @include mixins.focus;
+
+  &:visited {
+    color: var(--mds-inline-link-color-visited);
+  }
+
+  &:hover {
+    color: var(--mds-inline-link-color-hover);
+  }
+
+  &:active {
+    color: var(--mds-inline-link-color-active);
+  }
+
+  &:focus-visible {
+    outline-offset: 0;
+  }
+
+  &--color-neutral {
+    --mds-inline-link-color: var(--mds-content-brand-neutral-default);
+    --mds-inline-link-color-hover: var(--mds-interactive-brand-neutral-highest);
+    --mds-inline-link-color-active: var(--mds-interactive-brand-neutral-highest);
+    --mds-inline-link-color-visited: var(--mds-interactive-brand-tertiary-mid);
+  }
+
+  &--color-white {
+    --mds-inline-link-color: var(--mds-base-white);
+    --mds-inline-link-color-hover: var(--mds-base-white);
+    --mds-inline-link-color-active: var(--mds-base-white);
+    --mds-inline-link-color-visited: var(--mds-interactive-brand-tertiary-lowest);
+
+    @include mixins.focus($focus-on-light: false);
+
+    &:focus-visible {
+      outline-offset: 0;
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    margin-inline-start: 2px;
+    vertical-align: -2px;
+  }
+}
