@@ -58,16 +58,26 @@
   }
 
   &__content {
-    // choosing flex instead of 4 col grid here so footer with only two columns will still fill the full width of the container.
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--mds-space-lg);
+    @include mixins.grid;
+    row-gap: var(--mds-space-lg);
     padding-block: var(--mds-space-2xl) var(--mds-space-md);
 
+    // All direct children are rendered footer columns, including the brand.
+    &:has(> .mds-footer__column:nth-child(2):last-child) > .mds-footer__column {
+      @include mixins.grid-2-column;
+    }
+
+    &:has(> .mds-footer__column:nth-child(3):last-child) > .mds-footer__column {
+      @include mixins.grid-3-column;
+    }
+
+    &:has(> .mds-footer__column:nth-child(4):last-child) > .mds-footer__column {
+      @include mixins.grid-4-column;
+    }
   }
 
   &__column {
-    flex: 1 1 16rem;
+    @include mixins.grid-full;
     min-inline-size: 0;
   }
 
