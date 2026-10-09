@@ -1,12 +1,12 @@
 {
   "name": "@massds/mds-components",
   "version": "0.1.0",
-  "private": true,
   "description": "Twig-authored static HTML and CSS components for the Massachusetts Design System",
   "type": "module",
   "files": [
     "dist/",
-    "src/"
+    "src/",
+    "CHANGELOG.md"
   ],
   "exports": {
     "./index.css": "./dist/index.css",
@@ -18,6 +18,7 @@
   },
   "scripts": {
     "build": "node ./scripts/build.js",
+    "changelog:release": "bash ../../scripts/compile-package-changelog.sh .",
     "watch": "node --watch-path=src ./scripts/build.js",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "prepublishOnly": "npm run build"
@@ -32,6 +33,23 @@
     "@massds/mds-tokens": "^3.0.0-beta.1",
     "sass": "^1.93.2",
     "twig": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/massgov/massachusetts-design-system.git",
+    "directory": "packages/components"
+  },
+  "keywords": [
+    "components",
+    "twig",
+    "design-system",
+    "massachusetts"
+  ],
+  "author": "Massachusetts Digital Services",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "engines": {
     "node": "24.14.0"
