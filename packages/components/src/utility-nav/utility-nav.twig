@@ -25,22 +25,25 @@
 <div class="{{ utilityNavClasses|join(' ')|e }}">
   <div class="mds-utility-nav__section mds-utility-nav__section--start">
     {% if utilityNavNavigationType == 'menu' %}
-      {% include 'button.twig' with {
-        type: 'Ghost',
-        color: 'White',
-        size: 'Regular',
-        text: menuButtonTextValue,
-        leftIcon: 'list',
-        leftIconWeight: 'Regular',
-        htmlAttributes: {
-          class: 'mds-utility-nav__button mds-utility-nav__button--menu',
-          'aria-label': menuButtonAriaLabelValue,
-          'aria-expanded': menuButtonExpandedValue,
-          'aria-controls': menuButtonControlsValue
+      {%
+        include 'button.twig' with {
+          type: 'Ghost',
+          color: 'White',
+          size: 'Regular',
+          text: menuButtonTextValue,
+          leftIcon: 'list',
+          leftIconWeight: 'Regular',
+          htmlAttributes: {
+            class: 'mds-utility-nav__button mds-utility-nav__button--menu',
+            'aria-label': menuButtonAriaLabelValue,
+            'aria-expanded': menuButtonExpandedValue,
+            'aria-controls': menuButtonControlsValue
+          }
         }
-      } %}
+      %}
     {% elseif utilityNavNavigationType == 'home-link' %}
-      {% include 'button.twig' with {
+      {%
+        include 'button.twig' with {
         type: 'Ghost',
         color: 'White',
         size: 'Regular',
