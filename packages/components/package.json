@@ -1,6 +1,6 @@
 {
   "name": "@massds/mds-components",
-  "version": "0.1.0",
+  "version": "0.1.0-beta.0",
   "description": "Twig-authored static HTML and CSS components for the Massachusetts Design System",
   "type": "module",
   "files": [

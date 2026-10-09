@@ -220,7 +220,8 @@ The workflow installs dependencies from the root lockfile, builds all package
 workspaces so local dependency exports are available, inspects the package with
 `npm pack --dry-run`, and publishes with provenance. Stable versions publish
 to `latest`; versions containing a prerelease suffix publish to `beta`.
-The current `0.1.0` version is a stable release and uses `latest`.
+The initial `0.1.0-beta.0` version uses the `beta` dist-tag and release tag
+`components-v0.1.0-beta.0`.
 
 ### Initial npm setup
 
@@ -233,10 +234,10 @@ npm ci
 npm run build
 npm pack --dry-run --workspace @massds/mds-components
 npm login
-npm publish --workspace @massds/mds-components --access public
+npm publish --workspace @massds/mds-components --access public --tag beta
 ```
 
-For an initial prerelease version, add `--tag beta` to the publish command.
+The initial release is a prerelease, so the publish command uses `--tag beta`.
 The initial local publish does not generate GitHub Actions provenance.
 
 After the first publish, open the package's npm **Settings → Trusted publishing**
