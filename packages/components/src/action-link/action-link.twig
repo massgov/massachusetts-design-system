@@ -18,23 +18,31 @@
 {% set actionLinkIconSize = actionLinkIconSizes[actionLinkSize] %}
 {% set actionLinkText = text|default(actionLinkDefaults.text) %}
 {% set actionLinkHref = href|default(actionLinkDefaults.href) %}
-{% set actionLinkId = id|default(actionLinkDefaults.id) %}
-{% set actionLinkClass = 'mds-action-link mds-action-link--color-' ~ (actionLinkColor|lower) ~ ' mds-action-link--size-' ~ (actionLinkSize|lower) %}
+{% set actionLinkHtmlAttributes = htmlAttributes|default({}) %}
+{% set actionLinkClassName = actionLinkHtmlAttributes.class|default('') %}
+{% set actionLinkClass = 'mds-action-link mds-action-link--color-' ~ (actionLinkColor|lower) ~ ' mds-action-link--size-' ~ (actionLinkSize|lower) ~ (actionLinkClassName ? ' ' ~ actionLinkClassName : '') %}
+{% set actionLinkAttributeExclusions = ['class', 'href'] %}
 
 <a
   class="{{ actionLinkClass|e }}"
-  href="{{ actionLinkHref|e }}"{% if actionLinkId %}
-  id="{{ actionLinkId|e }}"{% endif %}
-
+  href="{{ actionLinkHref|e }}"
+  {%
+    include 'shared/html-attributes.twig' with {
+      attributes: actionLinkHtmlAttributes,
+      exclude: actionLinkAttributeExclusions
+    }
+  %}
 >
   <span class="mds-action-link__label">
     {% if actionLinkLeftIcon %}
       <span class="mds-action-link__icon">
-        {% include 'icon.twig' with {
-          name: actionLinkLeftIcon,
-          weight: actionLinkIconWeight,
-          size: actionLinkIconSize
-        } %}
+        {%
+          include 'icon.twig' with {
+            name: actionLinkLeftIcon,
+            weight: actionLinkIconWeight,
+            size: actionLinkIconSize
+          }
+        %}
       </span>
     {% endif %}
 
@@ -42,13 +50,14 @@
 
     {% if actionLinkRightIcon %}
       <span class="mds-action-link__icon">
-        {% include 'icon.twig' with {
-          name: actionLinkRightIcon,
-          weight: actionLinkIconWeight,
-          size: actionLinkIconSize
-        } %}
+        {%
+          include 'icon.twig' with {
+            name: actionLinkRightIcon,
+            weight: actionLinkIconWeight,
+            size: actionLinkIconSize
+          }
+        %}
       </span>
-
     {% endif %}
   </span>
 </a>

@@ -39,14 +39,14 @@ const utilityNavExamples = [
     label: 'Utility buttons only',
     args: {
       ...utilityNavDefaults,
-      startVariant: 'none'
+      navigationType: 'none'
     }
   },
   {
     label: 'Mass.gov home link and utility buttons',
     args: {
       ...utilityNavDefaults,
-      startVariant: 'home-link'
+      navigationType: 'home-link'
     }
   }
 ];
@@ -71,59 +71,32 @@ function renderAllExamples() {
 }
 
 const utilityNavControls = {
-  className: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  startVariant: {
+  navigationType: {
     control: 'select',
     options: ['menu', 'home-link', 'none'],
     table: {
       category: controlCategories.design
     }
   },
-  menuButtonText: {
-    control: 'text',
-    table: {
-      category: controlCategories.content
-    }
-  },
-  menuButtonAriaLabel: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  menuButtonExpanded: {
-    control: 'boolean',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  menuButtonControls: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  },
   homeLinkText: {
     control: 'text',
+    description: 'Only applicable when navigationType is set to home-link',
     table: {
       category: controlCategories.content
     }
   },
   homeLinkHref: {
     control: 'text',
+    description: 'Only applicable when navigationType is set to home-link',
     table: {
-      category: controlCategories.html
+      category: controlCategories.content
     }
   },
   homeLinkAriaLabel: {
     control: 'text',
+    description: 'Only applicable when navigationType is set to home-link',
     table: {
-      category: controlCategories.html
+      category: controlCategories.content
     }
   },
   actionButtons: {

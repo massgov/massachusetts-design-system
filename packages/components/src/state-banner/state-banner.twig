@@ -20,29 +20,38 @@
   aria-label="{{ bannerSummaryLabel|e }}"
 >
   <div class="mds-state-banner__container">
-    <details class="mds-state-banner__details"{% if bannerOpenByDefault %} open{% endif %}>
+    <details
+      class="mds-state-banner__details"
+      {% if bannerOpenByDefault %}
+        open
+      {% endif %}
+    >
       <summary class="mds-state-banner__summary">
         <span class="mds-state-banner__inner">
           <span class="mds-state-banner__brand">
-            {% include 'state-seal.twig' with {
-              src: bannerSealSrc,
-              alt: bannerSealAlt,
-              className: 'mds-state-banner__seal',
-              fileType: 'white',
-              color: 'png'
-            } %}
+            {%
+              include 'state-seal.twig' with {
+                src: bannerSealSrc,
+                alt: bannerSealAlt,
+                className: 'mds-state-banner__seal',
+                fileType: 'white',
+                color: 'png'
+              }
+            %}
             <p class="mds-state-banner__text">
               <span class="mds-state-banner__text-prefix">
-                {{ bannerSummaryPrefix|e }}
+                {{ bannerSummaryPrefix | e }}
               </span>
               <span class="mds-state-banner__toggle-text">
                 <span>Here's how you know</span>
                 <span class="mds-state-banner__caret" aria-hidden="true">
-                  {% include 'icon.twig' with {
-                    name: 'caret-down',
-                    size: 'MD',
-                    weight: 'Bold'
-                  } %}
+                  {%
+                    include 'icon.twig' with {
+                      name: 'caret-down',
+                      size: 'MD',
+                      weight: 'Bold'
+                    }
+                  %}
                 </span>
               </span>
             </p>
@@ -60,36 +69,40 @@
         >
           <div class="mds-state-banner__item">
             <span class="mds-state-banner__item-icon" aria-hidden="true">
-              {% include 'icon.twig' with {
-                name: 'building',
-                size: 'LG',
-                weight: 'Regular'
-              } %}
+              {%
+                include 'icon.twig' with {
+                  name: 'building',
+                  size: 'LG',
+                  weight: 'Regular'
+                }
+              %}
             </span>
             <div class="mds-state-banner__item-copy">
               <h2 class="mds-state-banner__item-heading">
-                {{ bannerOfficialWebsitesHeading|e }}
+                {{ bannerOfficialWebsitesHeading | e }}
               </h2>
               <p class="mds-state-banner__item-description">
-                {{ bannerOfficialWebsitesDescription|e }}
+                {{ bannerOfficialWebsitesDescription | e }}
               </p>
             </div>
           </div>
 
           <div class="mds-state-banner__item">
             <span class="mds-state-banner__item-icon" aria-hidden="true">
-              {% include 'icon.twig' with {
-                name: 'lock-simple',
-                size: 'LG',
-                weight: 'Regular'
-              } %}
+              {%
+                include 'icon.twig' with {
+                  name: 'lock-simple',
+                  size: 'LG',
+                  weight: 'Regular'
+                }
+              %}
             </span>
             <div class="mds-state-banner__item-copy">
               <h2 class="mds-state-banner__item-heading">
-                {{ bannerSecureWebsitesHeading|e }}
+                {{ bannerSecureWebsitesHeading | e }}
               </h2>
               <p class="mds-state-banner__item-description">
-                {{ bannerSecureWebsitesDescription|e }}
+                {{ bannerSecureWebsitesDescription | e }}
               </p>
             </div>
           </div>
