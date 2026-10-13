@@ -56,7 +56,8 @@ export const footerExampleData = {
       {
         icon: 'phone-call',
         href: 'tel:+16172223333',
-        text: '(617) 222-3333'
+        text: '(617) 222-3333',
+        description: 'Open 8:30 AM to 4:30 PM Monday through Friday. Multilingual call agents are available'
       },
       {
         icon: 'globe',

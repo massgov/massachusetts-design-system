@@ -144,9 +144,17 @@
   &__contact-item {
     display: flex;
     align-items: flex-start;
+    flex-direction: column;
     padding-block: var(--mds-space-3xs);
 
     @include mixins.text("label-lg");
+
+    &-description {
+      @include mixins.text("caption");
+      color: var(--mds-interactive-brand-neutral-high);
+      margin-block: var(--mds-space-2xs);
+      padding-inline-start: var(--mds-space-md);
+    }
   }
 
   &__link-list {

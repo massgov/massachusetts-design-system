@@ -113,6 +113,9 @@
                           rightIcon: ''
                         }
                       %}
+                      {% if contactItem.description %}
+                        <p class="mds-footer__contact-item-description">{{ contactItem.description | e }}</p>
+                      {% endif %}
                     </li>
                   {% endfor %}
                 </ul>
