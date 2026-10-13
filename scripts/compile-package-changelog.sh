@@ -107,24 +107,27 @@ fi
 mv "${tmp_section}.release" "$tmp_section"
 
 awk -v release_file="$tmp_section" '
+  function insert_release(    line) {
+    while ((getline line < release_file) > 0) {
+      print line
+    }
+    close(release_file)
+    inserted = 1
+  }
   {
+    if ($0 ~ /^##[[:space:]]+[0-9]/ && inserted == 0) {
+      insert_release()
+    }
     print
     if ($0 == "## Unreleased" && inserted == 0) {
       print ""
-      while ((getline line < release_file) > 0) {
-        print line
-      }
-      close(release_file)
-      inserted = 1
+      insert_release()
     }
   }
   END {
     if (inserted == 0) {
       print ""
-      while ((getline line < release_file) > 0) {
-        print line
-      }
-      close(release_file)
+      insert_release()
     }
   }
 ' "$changelog_path" > "$tmp_changelog"
