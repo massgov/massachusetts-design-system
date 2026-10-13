@@ -11,10 +11,6 @@ export const actionLinkSchema = {
     type: 'string',
     default: '#'
   },
-  id: {
-    type: 'string',
-    default: ''
-  },
   color: {
     type: 'enum',
     default: 'Primary',
@@ -27,7 +23,7 @@ export const actionLinkSchema = {
   },
   iconWeight: {
     type: 'enum',
-    default: 'Regular',
+    default: 'Bold',
     options: ['Regular', 'Bold']
   },
   leftIcon: {
