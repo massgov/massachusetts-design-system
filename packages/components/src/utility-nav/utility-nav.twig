@@ -7,6 +7,7 @@
   - className appends optional custom classes to the component root.
 #}
 {% set utilityNavNavigationType = navigationType|default(utilityNavDefaults.navigationType) %}
+{% set utilityNavClassName = className|default(utilityNavDefaults.className) %}
 {% set menuButtonTextValue = 'Menu' %}
 {% set menuButtonAriaLabelValue = 'Open menu' %}
 {% set menuButtonExpandedValue = false %}
@@ -24,22 +25,25 @@
 <div class="{{ utilityNavClasses|join(' ')|e }}">
   <div class="mds-utility-nav__section mds-utility-nav__section--start">
     {% if utilityNavNavigationType == 'menu' %}
-      {% include 'button.twig' with {
-        type: 'Ghost',
-        color: 'White',
-        size: 'Regular',
-        text: menuButtonTextValue,
-        leftIcon: 'list',
-        leftIconWeight: 'Regular',
-        htmlAttributes: {
-          class: 'mds-utility-nav__button mds-utility-nav__button--menu',
-          'aria-label': menuButtonAriaLabelValue,
-          'aria-expanded': menuButtonExpandedValue,
-          'aria-controls': menuButtonControlsValue
+      {%
+        include 'button.twig' with {
+          type: 'Ghost',
+          color: 'White',
+          size: 'Regular',
+          text: menuButtonTextValue,
+          leftIcon: 'list',
+          leftIconWeight: 'Regular',
+          htmlAttributes: {
+            class: 'mds-utility-nav__button mds-utility-nav__button--menu',
+            'aria-label': menuButtonAriaLabelValue,
+            'aria-expanded': menuButtonExpandedValue,
+            'aria-controls': menuButtonControlsValue
+          }
         }
-      } %}
+      %}
     {% elseif utilityNavNavigationType == 'home-link' %}
-      {% include 'button.twig' with {
+      {%
+        include 'button.twig' with {
         type: 'Ghost',
         color: 'White',
         size: 'Regular',
@@ -51,7 +55,7 @@
           class: 'mds-utility-nav__button mds-utility-nav__button--home',
           'aria-label': homeLinkAriaLabelValue
         }
-      } %}
+      %}
     {% endif %}
   </div>
 
@@ -61,18 +65,20 @@
       {% set actionButtonHref = actionButton.href|default('') %}
       {% set actionButtonIconName = actionButton.iconName in iconOptions.name ? actionButton.iconName : '' %}
       {% set actionButtonIconWeight = actionButton.iconWeight in iconOptions.weight ? actionButton.iconWeight : iconDefaults.weight %}
-      {% include 'button.twig' with {
-        type: 'Ghost',
-        color: 'White',
-        size: 'Regular',
-        text: actionButtonText,
-        href: actionButtonHref,
-        leftIcon: actionButtonIconName,
-        leftIconWeight: actionButtonIconWeight,
-        htmlAttributes: {
-          class: 'mds-utility-nav__button mds-utility-nav__button--action'
+      {%
+        include 'button.twig' with {
+          type: 'Ghost',
+          color: 'White',
+          size: 'Regular',
+          text: actionButtonText,
+          href: actionButtonHref,
+          leftIcon: actionButtonIconName,
+          leftIconWeight: actionButtonIconWeight,
+          htmlAttributes: {
+            class: 'mds-utility-nav__button mds-utility-nav__button--action'
+          }
         }
-      } %}
+      %}
     {% endfor %}
   </div>
 </div>
