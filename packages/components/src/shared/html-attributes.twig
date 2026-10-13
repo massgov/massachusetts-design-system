@@ -14,6 +14,8 @@
 {% set excludedAttributes = exclude|default([]) %}
 {% for name, value in htmlAttributes %}
   {% if name not in excludedAttributes and value is not same as(false) and value is not null %}
-  {{ name|e('html_attr') }}="{% if value is same as(true) %}true{% else %}{{ value|e('html_attr') }}{% endif %}"
+    {{ name|e('html_attr') }}="
+    {%- if value is same as(true) %}true{% else %}{{ value|e('html_attr') }}{% endif -%}
+    "
   {% endif %}
 {%- endfor -%}

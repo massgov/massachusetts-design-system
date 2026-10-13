@@ -1,6 +1,4 @@
-import '@massds/mds-components/action-link.css';
 import '@massds/mds-components/footer.css';
-import '@massds/mds-components/icon-button.css';
 import '@massds/mds-styles/index.css';
 import '@massds/mds-tokens/dist/index.css';
 import { DocsContainer } from '@storybook/addon-docs/blocks';

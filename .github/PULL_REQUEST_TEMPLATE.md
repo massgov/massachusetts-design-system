@@ -5,6 +5,7 @@ Describe the change in a few sentences.
 ## Packages Affected
 
 - [ ] `packages/assets`
+- [ ] `packages/components`
 - [ ] `packages/tokens`
 - [ ] `packages/styles`
 - [ ] No impact on published packages
