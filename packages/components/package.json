@@ -39,7 +39,6 @@
     "@massds/mds-assets": "^1.2.0",
     "@massds/mds-styles": "^2.0.0-beta.1",
     "@massds/mds-tokens": "^3.0.0-beta.1",
-    "prettier": "^3.9.9",
     "sass": "^1.93.2",
     "stylelint": "^16.24.0",
     "stylelint-config-recommended-scss": "^16.0.2",
