@@ -22,10 +22,14 @@
     "lint:styles": "npm run lint --workspace @massds/mds-styles",
     "lint:components": "npm run lint --workspace @massds/mds-components",
     "lint:tokens": "npm run lint --workspace @massds/mds-tokens",
+    "test:release": "node --test scripts/prepare-storybook-release.test.mjs",
     "demo:styles": "npm run demo --workspace @massds/mds-styles",
     "storybook": "npm run storybook --workspace @massds/storybook",
     "watch:styles": "npm run watch --workspace @massds/mds-styles",
     "watch:components": "npm run watch --workspace @massds/mds-components"
+  },
+  "devDependencies": {
+    "semver": "^7.8.1"
   },
   "engines": {
     "node": "24.14.0"
