@@ -103,12 +103,7 @@
               <address class="mds-footer__contact">
                 <ul>
                   {% for contactItem in contactGroup.links %}
-                    <li
-                      class="mds-footer__contact-item"
-                      {% if contactItem.descriptionId %}
-                        aria-describedby="{{ contactItem.descriptionId|e }}"
-                      {% endif %}
-                    >
+                    <li class="mds-footer__contact-item">
                       {%
                         include 'action-link.twig' with {
                           href: contactItem.href,
@@ -120,14 +115,7 @@
                         }
                       %}
                       {% if contactItem.description %}
-                        <p
-                          class="mds-footer__contact-item-description"
-                          {% if contactItem.descriptionId %}
-                            id="{{ contactItem.descriptionId|e }}"
-                          {% endif %}
-                        >
-                          {{ contactItem.description | e }}
-                        </p>
+                        <p class="mds-footer__contact-item-description">{{ contactItem.description | e }}</p>
                       {% endif %}
                     </li>
                   {% endfor %}
