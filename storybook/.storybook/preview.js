@@ -1,9 +1,7 @@
+import '@massds/mds-components/footer.css';
+import '@massds/mds-components/inline-message.css';
 import '@massds/mds-styles/index.css';
 import '@massds/mds-tokens/dist/index.css';
-import '@massds/mds-components/action-link.css';
-import '@massds/mds-components/footer.css';
-import '@massds/mds-components/icon-button.css';
-import '@massds/mds-components/inline-message.css';
 import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { createElement, Fragment } from 'react';
 import storybookPackage from '../package.json';
@@ -24,32 +22,34 @@ const sharedBetaInlineMessageData = {
 
 const sharedFooterData = {
   theme: 'Neutral',
-  siteNameId: 'storybook-footer-site-name',
   siteName: 'Massachusetts Design System',
-  sealAlt: '',
+  siteLink: 'https://designsystem.dev.tss.mass.gov/',
   socialLinks: [],
-  descriptionHtml: 'Storybook is the implementation reference for the Massachusetts Design System. It provides reusable components, design tokens, accessibility guidance, and code examples for Commonwealth digital products.',
-  contactHeadingId: 'storybook-footer-contact-heading',
-  contactHeading: 'Contact',
+  description: 'Storybook is the implementation reference for the Massachusetts Design System. It provides reusable components, design tokens, accessibility guidance, and code examples for Commonwealth digital products.',
   contactItems: [
     {
-      icon: 'star',
-      href: 'mailto:designsystem@mass.gov',
-      text: 'Share feedback'
-    },
-    {
-      icon: 'globe',
-      href: 'https://mass.gov/designsystem',
-      text: 'mass.gov/designsystem'
-    },
-    {
-      icon: 'envelope',
-      href: 'mailto:designsystem@mass.gov',
-      text: 'designsystem@mass.gov'
+      headingId: 'mds-footer-contact-heading',
+      heading: 'Contact',
+      links: [
+        {
+          icon: 'star',
+          href: 'https://www.mass.gov/forms/help-us-improve-our-storybook-resources',
+          text: 'Share feedback'
+        },
+        {
+          icon: 'globe',
+          href: 'https://mass.gov/designsystem',
+          text: 'mass.gov/designsystem'
+        },
+        {
+          icon: 'envelope',
+          href: 'mailto:designsystem@mass.gov',
+          text: 'designsystem@mass.gov'
+        }
+      ]
     }
   ],
   linkGroups: [],
-  legalLabel: 'Footer links',
   legalLinks: [
     {
       href: 'https://www.mass.gov/info-details/commonwealth-of-massachusetts-executive-department-digital-accessibility-statement',
@@ -60,10 +60,8 @@ const sharedFooterData = {
       text: 'Privacy Notice'
     }
   ],
-  showOptionalLegalLinks: false,
   legalLinksOptional: [],
-  fundingText: '',
-  trademarkHtml: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
+  trademark: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
 };
 
 function renderSharedFooter() {
@@ -128,7 +126,7 @@ const preview = {
           'Overview',
           ['Introduction', 'Getting Started'],
           'Foundations',
-          ['Design Tokens', 'Color Tokens', ['Overview', 'Guidance', 'Code', 'Playground']],
+          ['Design Tokens', 'Color Tokens', 'Type Styles', ['Overview', 'Guidance', 'Code', 'Playground']],
           'Components',
           ['*', ['Overview', 'Guidance', 'Code', 'Playground']]
         ],

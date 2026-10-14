@@ -31,6 +31,10 @@ const config = {
       to: '/'
     },
     {
+      from: '../../packages/assets/dist/state-seal',
+      to: '/'
+    },
+    {
       from: '../../packages/components/dist/state-banner',
       to: '/components/state-banner'
     },

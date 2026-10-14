@@ -1,27 +1,7 @@
 export const utilityNavSchema = {
-  className: {
-    type: 'string',
-    default: ''
-  },
-  startVariant: {
+  navigationType: {
     type: 'string',
     default: 'menu'
-  },
-  menuButtonText: {
-    type: 'string',
-    default: 'Menu'
-  },
-  menuButtonAriaLabel: {
-    type: 'string',
-    default: 'Open menu'
-  },
-  menuButtonExpanded: {
-    type: 'boolean',
-    default: false
-  },
-  menuButtonControls: {
-    type: 'string',
-    default: 'primary-navigation'
   },
   homeLinkText: {
     type: 'string',

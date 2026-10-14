@@ -5,7 +5,6 @@ import {
 } from '../../../../packages/components/src/icon-button/icon-button.data.js';
 import { renderIconButton } from '../../utils/component-renderers.js';
 import { controlCategories } from '../../utils/controlCategories.js';
-import './icon-button.examples.css';
 
 // Storybook render functions return an HTML element.
 function createPreview(html, className = '') {
@@ -20,86 +19,13 @@ function createPreview(html, className = '') {
   return preview;
 }
 
-function isDarkSurface(color) {
-  return color === 'Light';
-}
 
 function renderPlayground(args) {
-  const surfaceClass = isDarkSurface(args.color)
-    ? 'mds-icon-button-playground mds-icon-button-playground--dark'
-    : 'mds-icon-button-playground';
-
-  return createPreview(renderIconButton(args), surfaceClass);
-}
-
-const iconButtonExamples = [
-  {
-    label: 'Primary link',
-    args: {
-      ariaLabel: 'Facebook',
-      color: 'Primary',
-      element: 'a',
-      icon: 'facebook-logo',
-      type: 'Fill'
-    }
-  },
-  {
-    label: 'Secondary link',
-    args: {
-      ariaLabel: 'Visit the Commonwealth on X',
-      color: 'Secondary',
-      element: 'a',
-      icon: 'x-logo',
-      type: 'Fill'
-    }
-  },
-  {
-    label: 'Light link',
-    surface: 'dark',
-    args: {
-      ariaLabel: 'Instagram',
-      color: 'Light',
-      element: 'a',
-      icon: 'instagram-logo',
-      type: 'Fill'
-    }
-  },
-  {
-    label: 'Button action',
-    args: {
-      ariaLabel: 'More options',
-      color: 'Primary',
-      element: 'button',
-      icon: 'dots-three',
-      type: 'Fill'
-    }
-  }
-];
-
-function renderIconButtonExample(example) {
-  const surfaceClass = example.surface === 'dark'
-    ? ' mds-icon-button-examples__item--dark'
+  const previewClassName = args.color === 'White'
+    ? 'mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest'
     : '';
 
-  return `
-    <div class="mds-icon-button-examples__item${surfaceClass}">
-      <h3 class="mds-icon-button-examples__heading">${example.label}</h3>
-      ${renderIconButton({
-        ...iconButtonDefaults,
-        ...example.args
-      })}
-    </div>
-  `;
-}
-
-function renderAllExamples() {
-  let examplesHtml = '';
-
-  for (const example of iconButtonExamples) {
-    examplesHtml += renderIconButtonExample(example);
-  }
-
-  return createPreview(examplesHtml, 'mds-icon-button-examples');
+  return createPreview(renderIconButton(args), previewClassName);
 }
 
 const iconSelectControl = {
@@ -114,16 +40,9 @@ const iconSelectControl = {
 
 // Controls are the editable fields in the Storybook UI.
 const iconButtonControls = {
-  element: {
-    control: 'inline-radio',
-    options: iconButtonOptions.element,
-    table: {
-      category: controlCategories.html
-    }
-  },
   ariaLabel: {
     control: 'text',
-    description: 'Accessible label for the icon-only control.',
+    description: 'Accessible label for the button',
     table: {
       category: controlCategories.content
     }
@@ -150,43 +69,26 @@ const iconButtonControls = {
   },
   href: {
     control: 'text',
-    description: 'Link destination - entering a value here will make the element an anchor tag.',
+    description: 'Link destination. When provided, the icon button renders as a link element.',
     table: {
-      category: controlCategories.html
+      category: controlCategories.content
     }
   },
-  htmlType: {
-    control: 'select',
-    options: iconButtonOptions.htmlType,
-    description: 'Native HTML button type when element is button.',
+  disabled: {
+    control: 'boolean',
+    description: 'Disables the button.',
     table: {
-      category: controlCategories.html
+      category: controlCategories.design
     }
   },
-  id: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  className: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  }
 };
 
 const defaultPlaygroundArgs = {
-  element: iconButtonDefaults.element,
   href: iconButtonDefaults.href,
-  htmlType: iconButtonDefaults.htmlType,
-  id: iconButtonDefaults.id,
   ariaLabel: iconButtonDefaults.ariaLabel,
   icon: iconButtonDefaults.icon,
   type: iconButtonDefaults.type,
-  color: iconButtonDefaults.color,
-  className: iconButtonDefaults.className
+  color: iconButtonDefaults.color
 };
 
 const meta = {
@@ -202,13 +104,3 @@ export const Playground = {
   args: iconButtonDefaults
 };
 
-export const Examples = {
-  render: renderAllExamples,
-  tags: ['!dev'],
-  parameters: {
-    controls: {
-      disable: true
-    },
-    layout: 'padded'
-  }
-};

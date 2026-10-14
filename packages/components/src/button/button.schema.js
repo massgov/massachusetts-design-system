@@ -7,22 +7,13 @@ export const buttonSchema = {
     type: 'string',
     default: 'Button'
   },
-  id: {
-    type: 'string',
-    default: ''
+  disabled: {
+    type: 'boolean',
+    default: false
   },
   href: {
     type: 'string',
     default: ''
-  },
-  htmlType: {
-    type: 'enum',
-    default: 'button',
-    options: ['button', 'submit', 'reset']
-  },
-  disabled: {
-    type: 'boolean',
-    default: false
   },
   type: {
     type: 'enum',

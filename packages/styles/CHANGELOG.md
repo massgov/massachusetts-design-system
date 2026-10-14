@@ -2,17 +2,13 @@
 
 All notable changes to `@massds/mds-styles` are auto-compiled in this file. See [how to add a changelog](packages/styles/README.md#changelogs)
 
-## 0.1.0-beta.0 (5/26/2026)
+## 2.0.0-beta.1 (8/19/2026)
 
-### Added
-* Added npm publishing workflow metadata, GitHub Actions release automation, and changelog support for the styles package.
-
-
-## 1.0.0 (5/29/2026)
+### Removed
+* [DS-306] Removed Document reset mixin. Removed Component reset so contained mixins can be used ala carte. #95
 
 ### Changed
-* [DP-47147] Updated the styles package build to publish bundled CSS under `dist/css/` and shared Sass modules under `dist/scss/`, removing the separate runtime CSS layer outputs. #50
-
+* [DS-383] Updated all color and font tokens styles to use the latest updated tokens from design decisions as of 8/7/26. #105
 
 ## 1.1.0 (7/27/2026)
 
@@ -30,12 +26,12 @@ All notable changes to `@massds/mds-styles` are auto-compiled in this file. See 
 * [DP-45434] Updated mixins: added resets for address and unordered list. Updated focus mixin to handle both focus color tokens. #53
 * [DP-366] Removed unused packages/styles/package-lock.json. #90
 
-
-## 2.0.0-beta.1 (8/19/2026)
-
-### Removed
-* [DS-306] Removed Document reset mixin. Removed Component reset so contained mixins can be used ala carte. #95
+## 1.0.0 (5/29/2026)
 
 ### Changed
-* [DS-383] Updated all color and font tokens styles to use the latest updated tokens from design decisions as of 8/7/26. #105
+* [DP-47147] Updated the styles package build to publish bundled CSS under `dist/css/` and shared Sass modules under `dist/scss/`, removing the separate runtime CSS layer outputs. #50
 
+## 0.1.0-beta.0 (5/26/2026)
+
+### Added
+* Added npm publishing workflow metadata, GitHub Actions release automation, and changelog support for the styles package.

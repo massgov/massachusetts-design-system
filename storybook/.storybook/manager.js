@@ -66,13 +66,25 @@ async function mountStateBanner() {
 
 const storybookRoot = document.getElementById('root');
 
+// Storybook hardcodes this label, update the link text to remove ambiguity
+function updateSidebarSkipLink() {
+  for (const link of document.querySelectorAll('#storybook-preview-wrapper a[href^="#"]')) {
+    if (link.textContent === 'Skip to sidebar' && link.firstChild?.nodeType === Node.TEXT_NODE) {
+      link.firstChild.nodeValue = 'Skip to main nav';
+    }
+  }
+}
+
 if (storybookRoot) {
   new MutationObserver(() => {
+    updateSidebarSkipLink();
     mountStateBanner().catch((error) => console.error(error));
   }).observe(storybookRoot, {
     childList: true,
+    characterData: true,
     subtree: true
   });
+  updateSidebarSkipLink();
   mountStateBanner().catch((error) => console.error(error));
 }
 

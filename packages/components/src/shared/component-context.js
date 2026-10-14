@@ -16,6 +16,10 @@ export function getTemplateId(componentName) {
   return `${componentName}.twig`;
 }
 
+export function isSharedTemplateId(templateId = '') {
+  return templateId.startsWith('shared/');
+}
+
 export function getStaticIncludeTemplateIds(templateSource = '') {
   const includePattern = /{%-?\s*include\s+(['"])([^'"]+)\1/g;
   const templateIds = new Set();
