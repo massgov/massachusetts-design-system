@@ -18,11 +18,14 @@ export const cdnAssetExample = `<img src="${stateSealColorCdnUrl}" alt="Massachu
 
 # Getting started
 
-Use the Massachusetts Design System packages directly in your application.
-Start with semantic design tokens, then add utilities, assets, or components as
-your product needs them.
+We provide four npm packages—assets, tokens, styles, and components, to help you implement consistent, accessible and maintainable user interfaces that match the Massachusetts Design System.
 
-## Choose the resources you need
+You are viewing documentation for `@massds/mds-components` **{componentsVersion}**. Each package is versioned independently, see the table below for the specific versions of assets, tokens, styles pinned for this components version.
+
+To view the documentation for a specific components version, navigate to:
+`/version/<components-version>`
+> For example, the initial version can be accessed at
+<code>{`designsystem.mass.gov/version/${componentsVersion}`}</code>. 
 
 | Package | Version documented | What it provides | Design System dependencies |
 | --- | --- | --- | --- |
@@ -31,10 +34,9 @@ your product needs them.
 | [`@massds/mds-styles`](https://www.npmjs.com/package/@massds/mds-styles) | {stylesVersion} | Bundled CSS utilities and public Sass mixins | `@massds/mds-tokens` |
 | [`@massds/mds-components`](https://github.com/massgov/massachusetts-design-system/tree/main/packages/components) | {componentsVersion} | Emerging Twig-authored components with static HTML, CSS, and Twig exports, documented in Storybook | `@massds/mds-tokens` and `@massds/mds-assets` |
 
-The styles package does not bundle tokens. Load token CSS before utility or component CSS so their custom properties are available. The components package uses styles mixins while building its self-contained CSS, so consumers only need to install `@massds/mds-styles` when they also want its utilities or Sass API.
 
-> The table and examples use the exact dependency versions pinned for this Storybook release.
-> Each package has its own version. Use the commands below to install this documented snapshot.
+> The styles package does not bundle tokens. Load token CSS before utility or component CSS so their custom properties are available. The components package uses styles mixins while building its self-contained CSS, so consumers only need to install `@massds/mds-styles` when they also want its utilities or Sass API.
+
 
 ## Install from npm
 
