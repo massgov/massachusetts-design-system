@@ -151,7 +151,7 @@
 
     &-description {
       @include mixins.text("caption");
-      color: var(--mds-interactive-brand-neutral-high);
+      color: var(--mds-content-brand-neutral-muted);
       margin-block: var(--mds-space-2xs);
       padding-inline-start: var(--mds-space-md);
     }

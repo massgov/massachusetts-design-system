@@ -103,18 +103,31 @@
               <address class="mds-footer__contact">
                 <ul>
                   {% for contactItem in contactGroup.links %}
-                    <li class="mds-footer__contact-item">
+                    <li
+                      class="mds-footer__contact-item"
+                      {% if contactItem.descriptionId %}
+                        aria-describedby="{{ contactItem.descriptionId|e }}"
+                      {% endif %}
+                    >
                       {%
                         include 'action-link.twig' with {
                           href: contactItem.href,
                           size: 'Medium',
                           text: contactItem.text,
                           leftIcon: contactItem.icon,
-                          rightIcon: ''
+                          rightIcon: '',
+                          iconWeight: 'Regular'
                         }
                       %}
                       {% if contactItem.description %}
-                        <p class="mds-footer__contact-item-description">{{ contactItem.description | e }}</p>
+                        <p
+                          class="mds-footer__contact-item-description"
+                          {% if contactItem.descriptionId %}
+                            id="{{ contactItem.descriptionId|e }}"
+                          {% endif %}
+                        >
+                          {{ contactItem.description | e }}
+                        </p>
                       {% endif %}
                     </li>
                   {% endfor %}
@@ -152,7 +165,8 @@
                           href: link.href,
                           rightIcon: '',
                           size: 'Medium',
-                          text: link.text
+                          text: link.text,
+                          iconWeight: 'Regular'
                         }
                       %}
                     </li>
