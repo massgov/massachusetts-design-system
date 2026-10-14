@@ -207,10 +207,7 @@ npm run changelog:release --workspace @massds/mds-components
 
 The `prechangelog:release` hook first pins Storybook's assets, components, styles,
 and tokens dependencies to the exact versions in their workspace manifests and
-refreshes the root `package-lock.json`. It checks that these workspace versions
-satisfy their declared Design System dependency ranges, including the components
-package's peer and development dependencies. Incompatible versions stop release
-preparation before any files are changed. If refreshing the lockfile fails, the
+refreshes the root `package-lock.json`. If refreshing the lockfile fails, the
 Storybook manifest and lockfile are restored.
 
 The changelog command then uses the version in `package.json`, updates

@@ -1,9 +1,8 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
-import { createRequire } from 'node:module';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { dirname, resolve } from 'node:path';
+import { resolve } from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { prepareStorybookRelease } from './prepare-storybook-release.mjs';
@@ -62,36 +61,6 @@ for (const version of ['2.0.0', '2.0.0-rc.1']) {
   });
 }
 
-for (const section of ['dependencies', 'peerDependencies', 'devDependencies']) {
-  test(`rejects incompatible ${section} before changing files`, (t) => {
-    const root = fixture(t);
-    const components = json(root, 'packages/components/package.json');
-    components[section] = { ...components[section], '@massds/mds-assets': '^2.0.0' };
-    write(root, 'packages/components/package.json', components);
-    const before = read(root, 'storybook/package.json');
-    const lock = read(root, 'package-lock.json');
-    assert.throws(() => prepareStorybookRelease(root, () => assert.fail('Lockfile refresh must not run')), /Incompatible.*\n.*requires @massds\/mds-assets@\^2\.0\.0/);
-    assert.equal(read(root, 'storybook/package.json'), before);
-    assert.equal(read(root, 'package-lock.json'), lock);
-  });
-}
-
-test('checks shared package peer compatibility as well as components', (t) => {
-  const root = fixture(t);
-  const styles = json(root, 'packages/styles/package.json');
-  styles.peerDependencies = { '@massds/mds-tokens': '^4.0.0' };
-  write(root, 'packages/styles/package.json', styles);
-  assert.throws(() => prepareStorybookRelease(root, () => {}), /@massds\/mds-styles peerDependencies requires/);
-});
-
-test('rejects invalid workspace versions', (t) => {
-  const root = fixture(t);
-  const components = json(root, 'packages/components/package.json');
-  components.version = 'invalid';
-  write(root, 'packages/components/package.json', components);
-  assert.throws(() => prepareStorybookRelease(root, () => {}), /Invalid package name or version/);
-});
-
 test('restores the Storybook manifest and lockfile when npm fails', (t) => {
   const root = fixture(t);
   const before = read(root, 'storybook/package.json');
@@ -129,9 +98,6 @@ test('the real npm pre-hook aligns dependencies before compiling changelog fragm
   for (const file of ['prepare-storybook-release.mjs', 'compile-package-changelog.sh']) {
     writeFileSync(resolve(root, 'scripts', file), read(repositoryRoot, `scripts/${file}`));
   }
-  mkdirSync(resolve(root, 'node_modules'));
-  const require = createRequire(import.meta.url);
-  symlinkSync(dirname(require.resolve('semver/package.json')), resolve(root, 'node_modules/semver'), 'dir');
   mkdirSync(resolve(root, 'packages/components/changelog.d'));
   writeFileSync(resolve(root, 'packages/components/CHANGELOG.md'), '# Components\n\n## Unreleased\n');
   writeFileSync(resolve(root, 'packages/components/changelog.d/release.md'), '## Added\n\n- Fixture release change.\n');
