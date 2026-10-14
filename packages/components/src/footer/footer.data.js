@@ -57,8 +57,7 @@ export const footerExampleData = {
         icon: 'phone-call',
         href: 'tel:+16172223333',
         text: '(617) 222-3333',
-        description: 'Open 8:30 a.m.—4:30 p.m Monday through Friday. Multilingual call agents are available.',
-        descriptionId: 'mds-footer-contact-phone-number'
+        description: 'Open 8:30 a.m.—4:30 p.m Monday through Friday. Multilingual call agents are available.'
       },
       {
         icon: 'globe',

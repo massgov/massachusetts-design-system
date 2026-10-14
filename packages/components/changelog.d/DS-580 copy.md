@@ -1,3 +1,3 @@
 ## Changed
 
-- In Footer components: Added Description property for Contact items #194
+- In Footer component: Added Description property for Contact items #194
