@@ -1,6 +1,6 @@
 import { iconNames } from '../icon/icon.names.js';
 
-const iconOptions = ['', ...iconNames];
+const iconOptions = iconNames;
 
 export const iconButtonSchema = {
   href: {
