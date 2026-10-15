@@ -5,8 +5,10 @@ name: Deploy to AWS (prod)
 # approval before anything runs, and the OIDC subject environment:prod is what
 # the prod deploy role trusts.
 #
-# Prod never auto-deploys — it is triggered manually (workflow_dispatch) or by
-# a release process. Authenticates via GitHub OIDC; no long-lived AWS keys.
+# A successful components publish calls this workflow to deploy the matching
+# Storybook snapshot under /version/<components-version>/. Manual dispatch
+# continues to deploy the current Storybook to the root path. Both paths run in
+# the gated `prod` environment and authenticate via GitHub OIDC.
 #
 # Requires (prod environment): DEPLOY_ROLE_ARN (managed in github-iac),
 # PROD_BUCKET and PROD_DISTRIBUTION_ID (set from `terraform output` of
@@ -14,6 +16,16 @@ name: Deploy to AWS (prod)
 
 on:
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      release_sha:
+        description: Commit SHA for the components release
+        required: true
+        type: string
+      components_version:
+        description: Components package version to deploy
+        required: true
+        type: string
 
 permissions:
   id-token: write   # required for OIDC role assumption
@@ -29,6 +41,8 @@ jobs:
     environment: prod
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.release_sha || github.sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -42,9 +56,35 @@ jobs:
       - name: Build packages
         run: npm run build --workspaces --if-present
 
+      - name: Set Storybook deployment path
+        id: target
+        env:
+          RELEASE_VERSION: ${{ inputs.components_version }}
+        run: |
+          set -euo pipefail
+
+          PACKAGE_VERSION="$(node -p "require('./packages/components/package.json').version")"
+          echo "package_version=${PACKAGE_VERSION}" >> "$GITHUB_OUTPUT"
+
+          if [ -n "$RELEASE_VERSION" ]; then
+            if [ "$RELEASE_VERSION" != "$PACKAGE_VERSION" ]; then
+              echo "Requested components version $RELEASE_VERSION does not match checked-out package version $PACKAGE_VERSION." >&2
+              exit 1
+            fi
+
+            echo "storybook_base_path=/version/${PACKAGE_VERSION}/" >> "$GITHUB_OUTPUT"
+            echo "s3_prefix=version/${PACKAGE_VERSION}" >> "$GITHUB_OUTPUT"
+            echo "invalidation_paths=/version/${PACKAGE_VERSION} /version/${PACKAGE_VERSION}/*" >> "$GITHUB_OUTPUT"
+          else
+            echo "storybook_base_path=/" >> "$GITHUB_OUTPUT"
+            echo "s3_prefix=" >> "$GITHUB_OUTPUT"
+            echo "invalidation_paths=/*" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build site
         env:
           STORYBOOK_GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
+          STORYBOOK_BASE_PATH: ${{ steps.target.outputs.storybook_base_path }}
         run: npm run build:storybook
 
       - name: Configure AWS credentials (OIDC)
@@ -53,11 +93,29 @@ jobs:
           role-to-assume: ${{ vars.DEPLOY_ROLE_ARN }}
           aws-region: us-east-1
 
-      - name: Sync to S3
-        run: aws s3 sync storybook/storybook-static/ "s3://${{ vars.PROD_BUCKET }}" --delete
+      - name: Sync versioned Storybook to S3
+        if: inputs.components_version != ''
+        env:
+          PROD_BUCKET: ${{ vars.PROD_BUCKET }}
+          S3_PREFIX: ${{ steps.target.outputs.s3_prefix }}
+        run: aws s3 sync storybook/storybook-static/ "s3://${PROD_BUCKET}/${S3_PREFIX}/" --delete
+
+      - name: Sync root Storybook to S3
+        if: inputs.components_version == ''
+        run: aws s3 sync storybook/storybook-static/ "s3://${{ vars.PROD_BUCKET }}" --delete --exclude "version/*"
 
       - name: Invalidate CloudFront
+        env:
+          PROD_DISTRIBUTION_ID: ${{ vars.PROD_DISTRIBUTION_ID }}
+          RELEASE_VERSION: ${{ inputs.components_version }}
+          PACKAGE_VERSION: ${{ steps.target.outputs.package_version }}
         run: |
-          aws cloudfront create-invalidation \
-            --distribution-id "${{ vars.PROD_DISTRIBUTION_ID }}" \
-            --paths "/*"
+          if [ -n "$RELEASE_VERSION" ]; then
+            aws cloudfront create-invalidation \
+              --distribution-id "$PROD_DISTRIBUTION_ID" \
+              --paths "/version/${PACKAGE_VERSION}" "/version/${PACKAGE_VERSION}/*"
+          else
+            aws cloudfront create-invalidation \
+              --distribution-id "$PROD_DISTRIBUTION_ID" \
+              --paths "/*"
+          fi

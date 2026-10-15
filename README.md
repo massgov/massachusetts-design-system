@@ -68,6 +68,11 @@ Release flow:
 5. In the GitHub UI, create a package-specific release tag on the release commit that matches the package version and copy in the relevant release notes from `CHANGELOG.md`
 6. Creating the tag in GitHub triggers the publish workflow
 
+After the components package publishes successfully, the workflow also builds
+Storybook from that release commit and deploys it to
+`/version/<components-version>/`. Root Storybook deployments preserve these
+versioned snapshots. The deployment runs through the gated `prod` environment.
+
 For components releases, follow the [components release steps](packages/components/README.md#subsequent-releases).
 The `changelog:release` command also aligns Storybook's Design System dependencies
 and refreshes the root lockfile before installing dependencies and building.
