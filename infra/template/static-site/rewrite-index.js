@@ -34,23 +34,10 @@ function handler(event) {
         return request;
     }
 
-    // Version routes contain dots, so handle the bare version URL explicitly
-    // before the extensionless-directory redirect below.
-    if (/^\/version\/[^/]+$/.test(uri)) {
-        return {
-            statusCode: 301,
-            statusDescription: 'Moved Permanently',
-            headers: {
-                location: {
-                    value: uri + '/' + toQueryString(request.querystring)
-                }
-            }
-        };
-    }
-
     // Redirect extensionless directory URLs to their trailing-slash form so
-    // relative Storybook manager assets resolve under the branch prefix.
-    if (!uri.includes('.')) {
+    // relative Storybook manager assets resolve under the branch or version prefix.
+    // Version paths need the explicit match because semantic versions contain dots.
+    if (!uri.includes('.') || /^\/version\/[^/]+$/.test(uri)) {
         return {
             statusCode: 301,
             statusDescription: 'Moved Permanently',
