@@ -19,6 +19,11 @@ export const inlineLinkSchema = {
     type: 'string',
     default: '#'
   },
+  target: {
+    type: 'enum',
+    default: 'parent',
+    options: ['parent', '_blank']
+  },
   color: {
     type: 'enum',
     default: 'Primary',
