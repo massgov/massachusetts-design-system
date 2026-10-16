@@ -8,6 +8,7 @@ import {
 import { controlCategories } from '../../utils/controlCategories.js';
 import {
   pageLayoutDefaults,
+  pageLayoutOptions,
   renderPageLayout
 } from './page-layout-renderer.js';
 import './page-layout.css';
@@ -34,7 +35,7 @@ const pageLayoutControls = {
   },
   footerVariant: {
     control: 'inline-radio',
-    options: footerOptions.variant,
+    options: pageLayoutOptions.footerVariant,
     table: {
       category: controlCategories.design
     }

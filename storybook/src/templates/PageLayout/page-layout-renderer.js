@@ -29,6 +29,31 @@ export const pageLayoutDefaults = {
   footerVariant: 'Full'
 };
 
+export const pageLayoutOptions = {
+  footerVariant: ['Full', 'Simple']
+};
+
+function getFooterData(args) {
+  const footerData = {
+    ...footerExampleData,
+    siteName: args.siteName,
+    theme: args.footerTheme
+  };
+
+  if (args.footerVariant === 'Simple') {
+    return {
+      ...footerData,
+      socialLinks: [],
+      description: '',
+      contactItems: [],
+      linkGroups: [],
+      legalLinksOptional: []
+    };
+  }
+
+  return footerData;
+}
+
 export function renderPageLayout(args) {
   const page = document.createElement('div');
   const header = document.createElement('header');
@@ -53,12 +78,7 @@ export function renderPageLayout(args) {
   page.append(
     header,
     main,
-    createMarkupFragment(renderFooter({
-      ...footerExampleData,
-      siteName: args.siteName,
-      theme: args.footerTheme,
-      variant: args.footerVariant
-    }))
+    createMarkupFragment(renderFooter(getFooterData(args)))
   );
 
   return page;
