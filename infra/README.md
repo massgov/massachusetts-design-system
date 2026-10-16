@@ -105,8 +105,14 @@ variables after applying each env:
   CloudFront.
 - `deploy-stage.yml`: builds Storybook and deploys it to **stage** — manual
   dispatch, runs in the gated `stage` environment.
-- `deploy-prod.yml`: builds Storybook and deploys it to **prod** — manual
-  dispatch, runs in the gated `prod` environment.
+- `deploy-prod.yml`: builds Storybook and deploys it to **prod** — components
+  releases publish a snapshot at `/version/<version>/`; manual dispatch deploys
+  the root site. Both run in the gated `prod` environment, and root syncs
+  preserve versioned snapshots.
+
+The static-site CloudFront function redirects bare `/version/<version>` URLs
+to their trailing-slash form. Apply the infrastructure change to prod before
+the first versioned Storybook release so the route resolves correctly.
 
 ## Notes
 
