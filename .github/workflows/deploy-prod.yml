@@ -129,6 +129,17 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
 
+      - name: Verify Storybook components version pin
+        run: |
+          set -euo pipefail
+
+          PACKAGE_VERSION="$(node -p "require('./packages/components/package.json').version")"
+          STORYBOOK_PIN="$(node -p "require('./storybook/package.json').dependencies['@massds/mds-components']")"
+          if [ "$STORYBOOK_PIN" != "$PACKAGE_VERSION" ]; then
+            echo "storybook/package.json pins @massds/mds-components@$STORYBOOK_PIN but the package version is $PACKAGE_VERSION. Run changelog:release." >&2
+            exit 1
+          fi
+
       - name: Install dependencies
         run: npm ci
 
