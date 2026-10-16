@@ -31,5 +31,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Test release preparation
+        run: npm run test:release
+
       - name: Build workspaces
         run: npm run build
