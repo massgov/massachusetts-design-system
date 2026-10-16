@@ -110,9 +110,15 @@
                           size: 'Medium',
                           text: contactItem.text,
                           leftIcon: contactItem.icon,
-                          rightIcon: ''
+                          rightIcon: '',
+                          iconWeight: 'Regular'
                         }
                       %}
+                      {% if contactItem.description %}
+                        <p class="mds-footer__contact-item-description">
+                          {{ contactItem.description | e }}
+                        </p>
+                      {% endif %}
                     </li>
                   {% endfor %}
                 </ul>
@@ -149,7 +155,8 @@
                           href: link.href,
                           rightIcon: '',
                           size: 'Medium',
-                          text: link.text
+                          text: link.text,
+                          iconWeight: 'Regular'
                         }
                       %}
                     </li>

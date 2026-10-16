@@ -81,6 +81,10 @@ export const footerSchema = {
               text: {
                 type: 'string',
                 required: false
+              },
+              description: {
+                type: 'string',
+                required: false
               }
             }
           }
