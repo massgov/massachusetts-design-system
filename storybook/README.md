@@ -22,8 +22,12 @@ npm run build:storybook
 
 ## Release and versioned deployments
 
-Manual dispatch of the production deploy workflow updates the root Storybook
-site at designsystem.mass.gov.
+Manual dispatch of the production deploy workflow updates the root Storybook site at https://designsystem.mass.gov.
+
+Versioned production deployment of the Storybook snapshots are released with components package releases, available at:
+```text
+https://designsystem.mass.gov/version/<version>/
+```
 
 Storybook snapshots are released with components package releases. The version
 shown in Storybook and used in the URL is the exact `@massds/mds-components`
@@ -67,9 +71,4 @@ dist-tag; prereleases publish to `beta`.
 After the publish succeeds, the production workflow builds Storybook with the
 base path `/version/<version>/`, syncs it to that version's production S3
 prefix, and invalidates the matching CloudFront paths. The deployment uses the
-gated `prod` GitHub environment and waits for its required approval. The
-versioned site is available at:
-
-```text
-https://designsystem.mass.gov/version/<version>/
-```
+gated `prod` GitHub environment and waits for its required approval.
