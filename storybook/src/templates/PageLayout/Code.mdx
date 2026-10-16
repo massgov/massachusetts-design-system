@@ -1,0 +1,40 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import pageLayoutCss from './page-layout.css?raw';
+import { renderPageLayout } from './page-layout-renderer.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as PageLayoutStories from './page-layout.stories.js';
+
+export const getPageLayoutCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderPageLayout(args).outerHTML
+  },
+  {
+    label: 'Template CSS',
+    language: 'css',
+    code: pageLayoutCss
+  }
+];
+
+<Meta of={PageLayoutStories} />
+
+# Page layout code
+
+<Canvas
+  of={PageLayoutStories.Playground}
+  sourceState="none"
+/>
+
+## API
+
+<Controls of={PageLayoutStories.Playground} />
+
+## Code
+
+Include the State Banner, Site Header, and Footer component styles alongside it.
+
+<StoryCodeTabs
+  of={PageLayoutStories.Playground}
+  getTabs={getPageLayoutCodeTabs}
+/>
