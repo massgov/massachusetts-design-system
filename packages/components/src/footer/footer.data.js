@@ -10,8 +10,7 @@ export const footerThemes = schemaOptions.theme;
 export const footerIcons = ['', ...iconNames];
 export const footerOptions = {
   icon: footerIcons,
-  theme: footerThemes,
-  variant: ['Full', 'Simple']
+  theme: footerThemes
 };
 export const footerDefaults = getSchemaDefaults(footerSchema);
 
