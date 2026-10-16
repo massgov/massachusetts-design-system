@@ -235,6 +235,9 @@ from `main` to satisfy the prod environment's branch policy, then checks out
 and verifies the release tag's commit before deployment.
 For the full Storybook snapshot and deployment process, see the
 [Storybook release guide](../../storybook/README.md#release-and-versioned-deployments).
+To retry a versioned deployment after a rejected or failed approval, or to
+backfill an older release, manually run the production deploy workflow from
+`main` and enter the exact components version.
 
 The workflow installs dependencies from the root lockfile, builds all package
 workspaces so local dependency exports are available, inspects the package with

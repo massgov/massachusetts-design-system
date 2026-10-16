@@ -18,6 +18,12 @@ name: Deploy to AWS (prod)
 
 on:
   workflow_dispatch:
+    inputs:
+      components_version:
+        description: Components version to deploy under /version/<version> (leave blank for root)
+        required: false
+        type: string
+        default: ''
   workflow_run:
     workflows: ["Publish Components Package"]
     types: [completed]
@@ -52,6 +58,7 @@ jobs:
           SOURCE_TAG: ${{ github.event.workflow_run.head_branch }}
           SOURCE_REPOSITORY: ${{ github.event.workflow_run.head_repository.full_name }}
           CURRENT_REPOSITORY: ${{ github.repository }}
+          REQUESTED_VERSION: ${{ github.event.inputs.components_version }}
         run: |
           set -euo pipefail
 
@@ -79,6 +86,26 @@ jobs:
             fi
 
             RELEASE_VERSION="$PACKAGE_VERSION"
+          elif [ -n "$REQUESTED_VERSION" ]; then
+            if [[ ! "$REQUESTED_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
+              echo "Components version '$REQUESTED_VERSION' is not a valid version string." >&2
+              exit 1
+            fi
+
+            EXPECTED_TAG="components-v${REQUESTED_VERSION}"
+            if ! git fetch --no-tags origin "refs/tags/${EXPECTED_TAG}:refs/tags/${EXPECTED_TAG}"; then
+              echo "Could not fetch release tag '$EXPECTED_TAG'; check that this components version has a release tag." >&2
+              exit 1
+            fi
+            TAG_SHA="$(git rev-parse "${EXPECTED_TAG}^{commit}")"
+            TAG_PACKAGE_VERSION="$(git show "${TAG_SHA}:packages/components/package.json" | node -p "JSON.parse(require('fs').readFileSync(0, 'utf8')).version")"
+            if [ "$TAG_PACKAGE_VERSION" != "$REQUESTED_VERSION" ]; then
+              echo "Tag '$EXPECTED_TAG' contains components version '$TAG_PACKAGE_VERSION', not '$REQUESTED_VERSION'." >&2
+              exit 1
+            fi
+
+            SOURCE_SHA="$TAG_SHA"
+            RELEASE_VERSION="$REQUESTED_VERSION"
           fi
 
           echo "release_sha=${SOURCE_SHA}" >> "$GITHUB_OUTPUT"

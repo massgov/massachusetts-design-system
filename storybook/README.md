@@ -80,6 +80,10 @@ canonical route. Apply the prod infrastructure change for that function before
 the first versioned release.
 
 Manual dispatch of the
-[production deploy workflow](../.github/workflows/deploy-prod.yml) updates the
-root Storybook site at <https://designsystem.mass.gov>. Its S3 sync preserves
+[production deploy workflow](../.github/workflows/deploy-prod.yml) from `main`
+updates the root Storybook site at <https://designsystem.mass.gov> when the
+components version input is blank. To redeploy or backfill a versioned snapshot,
+enter the exact components version (for example, `0.1.0-beta.0`). The workflow
+checks out and verifies the matching `components-v<version>` tag, then deploys
+to `/version/<version>/` through the same `prod` approval. Root S3 syncs preserve
 existing `version/*` snapshots.
