@@ -10,7 +10,8 @@ export const footerThemes = schemaOptions.theme;
 export const footerIcons = ['', ...iconNames];
 export const footerOptions = {
   icon: footerIcons,
-  theme: footerThemes
+  theme: footerThemes,
+  variant: ['Full', 'Simple']
 };
 export const footerDefaults = getSchemaDefaults(footerSchema);
 
@@ -156,5 +157,6 @@ export const footerExampleData = {
     }
   ],
   supportingContent: '',
-  trademark: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.'
+  trademark: '<strong>&copy; 2026 Commonwealth of Massachusetts.</strong><br />Mass.gov&reg; is a registered service mark of the Commonwealth of Massachusetts.',
+  variant: 'Full'
 };

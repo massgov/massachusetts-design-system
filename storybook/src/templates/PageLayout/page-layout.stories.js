@@ -31,6 +31,13 @@ const pageLayoutControls = {
     table: {
       category: controlCategories.design
     }
+  },
+  footerVariant: {
+    control: 'inline-radio',
+    options: footerOptions.variant,
+    table: {
+      category: controlCategories.design
+    }
   }
 };
 

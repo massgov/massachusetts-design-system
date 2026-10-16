@@ -172,5 +172,11 @@ export const footerSchema = {
   trademark: {
     type: 'string',
     required: false
+  },
+  version: {
+    type: 'enum',
+    required: false,
+    default: 'Full',
+    options: ['Full', 'Simple']
   }
 };

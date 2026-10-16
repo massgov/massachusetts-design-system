@@ -15,6 +15,7 @@
 {% set footerLegalLinksOptional = legalLinksOptional|default([]) %}
 {% set footerSupportingContent = supportingContent|default('') %}
 {% set footerTrademark = trademark|default('') %}
+{% set footerVariant = variant|default('Full') %}
 
 <footer class="{{ footerClass|e }}">
   <div class="mds-footer__container">
@@ -47,7 +48,7 @@
             {{ footerBrandContent | raw }}
           </div>
         {% endif %}
-
+      {% if footerVariant == 'Full' %}
         {% if footerSocialLinks|length %}
           <ul class="mds-footer__social-list">
             {% for socialLink in footerSocialLinks %}
@@ -73,8 +74,10 @@
         {% if footerDescription %}
           <p class="mds-footer__description">{{ footerDescription | raw }}</p>
         {% endif %}
+      {% endif %}
       </section>
 
+      {% if footerVariant == 'Full' %}
       {% for contactGroup in footerContactItems %}
         {% if contactGroup.heading or contactGroup.links|length %}
           {%
@@ -126,8 +129,11 @@
             {% endif %}
           </section>
         {% endif %}
-      {% endfor %}
 
+      {% endfor %}
+      {% endif %}
+
+    {% if footerVariant == 'Full' %}
       {% for linkGroup in footerLinkGroups %}
         {% if linkGroup.heading or linkGroup.links|length %}
           {% set linkGroupHeadingId = linkGroup.headingId|default('mds-footer-links-heading-' ~ loop.index) %}
@@ -167,7 +173,9 @@
           </nav>
         {% endif %}
       {% endfor %}
+      {% endif %}
     </div>
+
 
     {% if footerLegalLinks|length %}
       <nav class="mds-footer__legal-nav" aria-label="Legal and policy links">
@@ -186,6 +194,7 @@
               </li>
             {% endif %}
           {% endfor %}
+          {% if footerVariant == 'Full' %}
           {% if footerLegalLinksOptional %}
             {% for link in footerLegalLinksOptional %}
               {% if link.href and link.text %}
@@ -202,8 +211,10 @@
               {% endif %}
             {% endfor %}
           {% endif %}
+          {% endif %}
         </ul>
       </nav>
+
     {% endif %}
 
     {% if footerSupportingContent or footerTrademark %}

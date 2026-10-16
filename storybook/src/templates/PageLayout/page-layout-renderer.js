@@ -55,7 +55,8 @@ export function renderPageLayout(args) {
     createMarkupFragment(renderFooter({
       ...footerExampleData,
       siteName: args.siteName,
-      theme: args.footerTheme
+      theme: args.footerTheme,
+      variant: args.footerVariant
     }))
   );
 
