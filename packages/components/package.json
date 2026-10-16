@@ -18,7 +18,6 @@
   },
   "scripts": {
     "build": "node ./scripts/build.js",
-    "prechangelog:release": "node ../../scripts/prepare-storybook-release.mjs",
     "changelog:release": "bash ../../scripts/compile-package-changelog.sh .",
     "lint": "npm run lint:scss && npm run lint:twig",
     "lint:scss": "stylelint \"src/**/*.scss\"",

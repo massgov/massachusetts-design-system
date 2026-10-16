@@ -205,22 +205,8 @@ When preparing a release, compile the fragments from the repository root:
 npm run changelog:release --workspace @massds/mds-components
 ```
 
-The `prechangelog:release` hook first pins Storybook's assets, components, styles,
-and tokens dependencies to the exact versions in their workspace manifests and
-refreshes the root `package-lock.json`. If refreshing the lockfile fails, the
-Storybook manifest and lockfile are restored.
-
-The changelog command then uses the version in `package.json`, updates
-`CHANGELOG.md`, and removes the released fragments. Optional version and date
-arguments can be passed after `--`; update the package version before running
-the command so Storybook is aligned with the actual release version.
-
-To prepare only Storybook's dependency versions without compiling changelog
-fragments, run this from the repository root:
-
-```bash
-node scripts/prepare-storybook-release.mjs
-```
+This uses the version in `package.json`, updates `CHANGELOG.md`, and removes the
+released fragments. Optional version and date arguments can be passed after `--`.
 
 ## Publishing
 
@@ -229,10 +215,6 @@ The package publishes through
 Pushing a `components-v<version>` tag triggers a release; the workflow rejects
 tags that do not match this package's version. It can also be run manually with
 GitHub Actions' **Run workflow** control to publish the version at the selected ref.
-After publishing succeeds, the workflow deploys the matching Storybook snapshot
-to `/version/<version>/` through the gated `prod` environment.
-For the full Storybook snapshot and deployment process, see the
-[Storybook release guide](../../storybook/README.md#release-and-versioned-deployments).
 
 The workflow installs dependencies from the root lockfile, builds all package
 workspaces so local dependency exports are available, inspects the package with
@@ -277,13 +259,11 @@ two days; configure it when the next release is ready, or recreate it if it expi
 ### Subsequent releases
 
 1. Create `release/components-<version>` from `main`.
-2. Update the version in `packages/components/package.json` and any shared
-   dependency ranges that need to change for the release.
-3. Run `npm run changelog:release --workspace @massds/mds-components` to align
-   Storybook dependencies, refresh the root lockfile, and compile changelog fragments.
-4. Run `npm ci`, `npm run build`, and `npm run build:storybook`. Inspect the package
-   with `npm pack --dry-run --workspace @massds/mds-components`, then commit the
-   components and Storybook manifests, lockfile, and changelog changes.
+2. Update `packages/components/package.json` and refresh the root lockfile with
+   `npm install --package-lock-only`.
+3. Run `npm run build` and inspect the package with
+   `npm pack --dry-run --workspace @massds/mds-components`.
+4. Compile the changelog fragments and commit the version, lockfile, and changelog changes.
 5. Merge the release PR into `main` and create `components-v<version>` on the release commit.
 6. The tag triggers GitHub Actions to publish the new version to npm.
 

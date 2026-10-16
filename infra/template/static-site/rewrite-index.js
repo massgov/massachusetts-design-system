@@ -35,9 +35,8 @@ function handler(event) {
     }
 
     // Redirect extensionless directory URLs to their trailing-slash form so
-    // relative Storybook manager assets resolve under the branch or version prefix.
-    // Version paths need the explicit match because semantic versions contain dots.
-    if (!uri.includes('.') || /^\/version\/[^/]+$/.test(uri)) {
+    // relative Storybook manager assets resolve under the branch prefix.
+    if (!uri.includes('.')) {
         return {
             statusCode: 301,
             statusDescription: 'Moved Permanently',
