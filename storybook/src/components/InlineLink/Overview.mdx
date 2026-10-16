@@ -6,6 +6,7 @@ import * as InlineLinkStories from './inline-link.stories.js';
 
 export const InlineLinkExample = (args) => (
   <span
+    style={{ fontSize: 'var(--mds-font-size-225)' }}
     dangerouslySetInnerHTML={{
       __html: renderInlineLink({
         ...inlineLinkDefaults,
