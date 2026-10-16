@@ -9,6 +9,7 @@ export const InlineLinkExample = (args) => (
     dangerouslySetInnerHTML={{
       __html: renderInlineLink({
         ...inlineLinkDefaults,
+        className: 'sb-unstyled',
         ...args
       })
     }}
