@@ -22,6 +22,9 @@ npm run build:storybook
 
 ## Release and versioned deployments
 
+Manual dispatch of the production deploy workflow updates the root Storybook
+site at designsystem.mass.gov.
+
 Storybook snapshots are released with components package releases. The version
 shown in Storybook and used in the URL is the exact `@massds/mds-components`
 version pinned in this package's `package.json`.
@@ -70,6 +73,3 @@ versioned site is available at:
 ```text
 https://designsystem.mass.gov/version/<version>/
 ```
-
-Manual dispatch of the production deploy workflow updates the root Storybook
-site
