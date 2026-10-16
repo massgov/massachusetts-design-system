@@ -228,9 +228,11 @@ The package publishes through
 [`publish-components.yml`](../../.github/workflows/publish-components.yml).
 Pushing a `components-v<version>` tag triggers a release; the workflow rejects
 tags that do not match this package's version. It can also be run manually with
-GitHub Actions' **Run workflow** control to publish the version at the selected ref.
-After publishing succeeds, the workflow deploys the matching Storybook snapshot
-to `/version/<version>/` through the gated `prod` environment.
+GitHub Actions' **Run workflow** control. After a successful publish from a
+matching release tag, a follow-up workflow deploys the Storybook snapshot to
+`/version/<version>/` through the gated `prod` environment. The follow-up runs
+from `main` to satisfy the prod environment's branch policy, then checks out
+and verifies the release tag's commit before deployment.
 For the full Storybook snapshot and deployment process, see the
 [Storybook release guide](../../storybook/README.md#release-and-versioned-deployments).
 

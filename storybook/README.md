@@ -59,9 +59,11 @@ When preparing a components release:
 The tag starts the
 [components publish workflow](../.github/workflows/publish-components.yml).
 It checks that the tag matches the package version, builds and publishes the
-components package, then invokes the production Storybook deployment using the
-same release commit. Stable versions publish to npm's `latest` dist-tag;
-prereleases publish to `beta`.
+components package, then triggers the production Storybook workflow after
+publishing succeeds. That follow-up workflow runs from `main` to meet the prod
+environment's branch policy, verifies that the matching tag points to the
+published commit, and checks out that release commit to build Storybook. Stable
+versions publish to npm's `latest` dist-tag; prereleases publish to `beta`.
 
 After the npm publish succeeds, the production workflow builds Storybook with the
 base path `/version/<version>/`, syncs it to that version's production S3
