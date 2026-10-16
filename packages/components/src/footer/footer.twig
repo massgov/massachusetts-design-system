@@ -48,134 +48,132 @@
             {{ footerBrandContent | raw }}
           </div>
         {% endif %}
-      {% if footerVariant == 'Full' %}
-        {% if footerSocialLinks|length %}
-          <ul class="mds-footer__social-list">
-            {% for socialLink in footerSocialLinks %}
-              {% set socialIcon = socialLink.icon in footerOptions.icon ? socialLink.icon : '' %}
-              {% if socialLink.href and socialLink.label and socialIcon %}
-                <li>
-                  {%
-                    include 'icon-button.twig' with {
-                      element: 'a',
-                      color: footerIconButtonColor,
-                      href: socialLink.href,
-                      icon: socialIcon,
-                      iconWeight: 'Regular',
-                      ariaLabel: socialLink.label
-                    }
-                  %}
-                </li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        {% endif %}
+        {% if footerVariant == 'Full' %}
+          {% if footerSocialLinks|length %}
+            <ul class="mds-footer__social-list">
+              {% for socialLink in footerSocialLinks %}
+                {% set socialIcon = socialLink.icon in footerOptions.icon ? socialLink.icon : '' %}
+                {% if socialLink.href and socialLink.label and socialIcon %}
+                  <li>
+                    {%
+                      include 'icon-button.twig' with {
+                        element: 'a',
+                        color: footerIconButtonColor,
+                        href: socialLink.href,
+                        icon: socialIcon,
+                        iconWeight: 'Regular',
+                        ariaLabel: socialLink.label
+                      }
+                    %}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
 
-        {% if footerDescription %}
-          <p class="mds-footer__description">{{ footerDescription | raw }}</p>
+          {% if footerDescription %}
+            <p class="mds-footer__description">{{ footerDescription | raw }}</p>
+          {% endif %}
         {% endif %}
-      {% endif %}
       </section>
 
       {% if footerVariant == 'Full' %}
-      {% for contactGroup in footerContactItems %}
-        {% if contactGroup.heading or contactGroup.links|length %}
-          {%
-            set contactHeadingId =
-            contactGroup.headingId|default(
-              'mds-footer-contact-heading-' ~ loop.index
-            )
-          %}
+        {% for contactGroup in footerContactItems %}
+          {% if contactGroup.heading or contactGroup.links|length %}
+            {%
+              set contactHeadingId =
+              contactGroup.headingId|default(
+                'mds-footer-contact-heading-' ~ loop.index
+              )
+            %}
 
-          <section
-            class="mds-footer__column"
-            {% if contactGroup.heading %}
-              aria-labelledby="{{ contactHeadingId|e }}"
-            {% endif %}
-          >
-            {% if contactGroup.heading %}
-              <h3
-                id="{{ contactHeadingId|e }}"
-                class="mds-footer__heading"
-              >
-                {{ contactGroup.heading | e }}
-              </h3>
-            {% endif %}
+            <section
+              class="mds-footer__column"
+              {% if contactGroup.heading %}
+                aria-labelledby="{{ contactHeadingId|e }}"
+              {% endif %}
+            >
+              {% if contactGroup.heading %}
+                <h3
+                  id="{{ contactHeadingId|e }}"
+                  class="mds-footer__heading"
+                >
+                  {{ contactGroup.heading | e }}
+                </h3>
+              {% endif %}
 
-            {% if contactGroup.links|length %}
-              <address class="mds-footer__contact">
-                <ul>
-                  {% for contactItem in contactGroup.links %}
-                    <li class="mds-footer__contact-item">
-                      {%
-                        include 'action-link.twig' with {
-                          href: contactItem.href,
-                          size: 'Medium',
-                          text: contactItem.text,
-                          leftIcon: contactItem.icon,
-                          rightIcon: '',
-                          iconWeight: 'Regular'
-                        }
-                      %}
-                      {% if contactItem.description %}
-                        <p class="mds-footer__contact-item-description">
-                          {{ contactItem.description | e }}
-                        </p>
-                      {% endif %}
-                    </li>
+              {% if contactGroup.links|length %}
+                <address class="mds-footer__contact">
+                  <ul>
+                    {% for contactItem in contactGroup.links %}
+                      <li class="mds-footer__contact-item">
+                        {%
+                          include 'action-link.twig' with {
+                            href: contactItem.href,
+                            size: 'Medium',
+                            text: contactItem.text,
+                            leftIcon: contactItem.icon,
+                            rightIcon: '',
+                            iconWeight: 'Regular'
+                          }
+                        %}
+                        {% if contactItem.description %}
+                          <p class="mds-footer__contact-item-description">
+                            {{ contactItem.description | e }}
+                          </p>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </address>
+              {% endif %}
+            </section>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      {% if footerVariant == 'Full' %}
+        {% for linkGroup in footerLinkGroups %}
+          {% if linkGroup.heading or linkGroup.links|length %}
+            {% set linkGroupHeadingId = linkGroup.headingId|default('mds-footer-links-heading-' ~ loop.index) %}
+            <nav
+              class="mds-footer__column"
+              {% if linkGroup.heading %}
+                aria-labelledby="{{ linkGroupHeadingId|e }}"
+              {% endif %}
+            >
+              {% if linkGroup.heading %}
+                <h3
+                  id="{{ linkGroupHeadingId|e }}"
+                  class="mds-footer__heading{% if linkGroup.eyebrow %} mds-letter-spacing-eyebrow{% endif %}"
+                >
+                  {{ linkGroup.heading | e }}
+                </h3>
+              {% endif %}
+              {% if linkGroup.links|length %}
+                <ul class="mds-footer__link-list">
+                  {% for link in linkGroup.links %}
+                    {% if link.href and link.text %}
+                      <li>
+                        {%
+                          include 'action-link.twig' with {
+                            href: link.href,
+                            rightIcon: '',
+                            size: 'Medium',
+                            text: link.text,
+                            iconWeight: 'Regular'
+                          }
+                        %}
+                      </li>
+                    {% endif %}
                   {% endfor %}
                 </ul>
-              </address>
-            {% endif %}
-          </section>
-        {% endif %}
-
-      {% endfor %}
-      {% endif %}
-
-    {% if footerVariant == 'Full' %}
-      {% for linkGroup in footerLinkGroups %}
-        {% if linkGroup.heading or linkGroup.links|length %}
-          {% set linkGroupHeadingId = linkGroup.headingId|default('mds-footer-links-heading-' ~ loop.index) %}
-          <nav
-            class="mds-footer__column"
-            {% if linkGroup.heading %}
-              aria-labelledby="{{ linkGroupHeadingId|e }}"
-            {% endif %}
-          >
-            {% if linkGroup.heading %}
-              <h3
-                id="{{ linkGroupHeadingId|e }}"
-                class="mds-footer__heading{% if linkGroup.eyebrow %} mds-letter-spacing-eyebrow{% endif %}"
-              >
-                {{ linkGroup.heading | e }}
-              </h3>
-            {% endif %}
-            {% if linkGroup.links|length %}
-              <ul class="mds-footer__link-list">
-                {% for link in linkGroup.links %}
-                  {% if link.href and link.text %}
-                    <li>
-                      {%
-                        include 'action-link.twig' with {
-                          href: link.href,
-                          rightIcon: '',
-                          size: 'Medium',
-                          text: link.text,
-                          iconWeight: 'Regular'
-                        }
-                      %}
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </nav>
-        {% endif %}
-      {% endfor %}
+              {% endif %}
+            </nav>
+          {% endif %}
+        {% endfor %}
       {% endif %}
     </div>
-
 
     {% if footerLegalLinks|length %}
       <nav class="mds-footer__legal-nav" aria-label="Legal and policy links">
@@ -195,26 +193,25 @@
             {% endif %}
           {% endfor %}
           {% if footerVariant == 'Full' %}
-          {% if footerLegalLinksOptional %}
-            {% for link in footerLegalLinksOptional %}
-              {% if link.href and link.text %}
-                <li>
-                  {%
-                    include 'action-link.twig' with {
-                      href: link.href,
-                      rightIcon: '',
-                      size: 'Medium',
-                      text: link.text
-                    }
-                  %}
-                </li>
-              {% endif %}
-            {% endfor %}
-          {% endif %}
+            {% if footerLegalLinksOptional %}
+              {% for link in footerLegalLinksOptional %}
+                {% if link.href and link.text %}
+                  <li>
+                    {%
+                      include 'action-link.twig' with {
+                        href: link.href,
+                        rightIcon: '',
+                        size: 'Medium',
+                        text: link.text
+                      }
+                    %}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
           {% endif %}
         </ul>
       </nav>
-
     {% endif %}
 
     {% if footerSupportingContent or footerTrademark %}

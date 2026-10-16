@@ -173,7 +173,7 @@ export const footerSchema = {
     type: 'string',
     required: false
   },
-  version: {
+  variant: {
     type: 'enum',
     required: false,
     default: 'Full',

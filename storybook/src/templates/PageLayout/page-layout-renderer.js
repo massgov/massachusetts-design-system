@@ -25,7 +25,8 @@ function createMarkupFragment(html) {
 export const pageLayoutDefaults = {
   siteName: 'Site name',
   subHeading: 'Optional subheading',
-  footerTheme: 'Neutral'
+  footerTheme: 'Neutral',
+  footerVariant: 'Full'
 };
 
 export function renderPageLayout(args) {
