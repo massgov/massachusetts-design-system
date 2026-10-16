@@ -231,6 +231,8 @@ tags that do not match this package's version. It can also be run manually with
 GitHub Actions' **Run workflow** control to publish the version at the selected ref.
 After publishing succeeds, the workflow deploys the matching Storybook snapshot
 to `/version/<version>/` through the gated `prod` environment.
+For the full Storybook snapshot and deployment process, see the
+[Storybook release guide](../../storybook/README.md#release-and-versioned-deployments).
 
 The workflow installs dependencies from the root lockfile, builds all package
 workspaces so local dependency exports are available, inspects the package with
