@@ -145,6 +145,7 @@ const preview = {
       container: StorybookDocsContainer,
       toc: {
         headingSelector: 'h2',
+        ignoreSelector: '.mds-inline-message__heading',
         title: null
       }
     },
