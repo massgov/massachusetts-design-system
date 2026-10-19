@@ -5,12 +5,12 @@ name: Deploy to AWS (prod)
 # approval before anything runs, and the OIDC subject environment:prod is what
 # the prod deploy role trusts.
 #
-## A successful components publish triggers this workflow via `workflow_run` to 
-## deploy the matching Storybook snapshot under /version/<components-version>/.
-## `workflow_run` runs in the default-branch (main) context, so it passes the
-## environment policy and still goes through the prod approval.
-##  Manual dispatch continues to deploy the current Storybook to the root path. Both paths run in
-## the gated `prod` environment and authenticate via GitHub OIDC.
+# A successful components publish triggers this workflow via `workflow_run` to
+# deploy the matching Storybook snapshot under /version/<components-version>/.
+# `workflow_run` runs in the default-branch (main) context, so it passes the
+# environment policy and still goes through the prod approval.
+# Manual dispatch continues to deploy the current Storybook to the root path.
+# Both paths run in the gated `prod` environment and authenticate via GitHub OIDC.
 #
 # Requires (prod environment): DEPLOY_ROLE_ARN (managed in github-iac),
 # PROD_BUCKET and PROD_DISTRIBUTION_ID (set from `terraform output` of
