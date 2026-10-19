@@ -146,6 +146,7 @@ const preview = {
       container: StorybookDocsContainer,
       toc: {
         headingSelector: 'h2',
+        ignoreSelector: '.sb-unstyled h2',
         title: null
       }
     },
