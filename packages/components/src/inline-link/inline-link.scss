@@ -15,6 +15,10 @@
 
   @include mixins.focus;
 
+  .mds-visually-hidden {
+    @include mixins.visually-hidden;
+  }
+
   &:visited {
     color: var(--mds-inline-link-color-visited);
   }
