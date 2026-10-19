@@ -38,7 +38,7 @@
 }
 
 /* Docs typography styles have higher specificity than component classes. */
-#storybook-docs .sbdocs-content .mds-docs-example-surface--dark :where(p, a) {
+#storybook-docs .sbdocs-content .mds-docs-example-surface--dark :where(p) {
   color: inherit;
 }
 
