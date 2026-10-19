@@ -25,6 +25,7 @@ function createMarkupFragment(html) {
 export const pageLayoutDefaults = {
   siteName: 'Site name',
   subHeading: 'Optional subheading',
+  mainContent: 'Place your content here.',
   footerTheme: 'Neutral',
   footerVariant: 'Full'
 };
@@ -64,6 +65,12 @@ export function renderPageLayout(args) {
   header.className = 'mds-page-layout__header';
   main.className = 'mds-page-layout__main';
   mainContainer.className = 'mds-page-layout__main-container';
+  const mainContent = document.createElement('div');
+  mainContent.textContent = args.mainContent;
+
+  mainContainer.append(mainContent);
+  main.append(mainContainer);
+
 
   header.append(createMarkupFragment(renderStateBanner({
     ...stateBannerDefaults

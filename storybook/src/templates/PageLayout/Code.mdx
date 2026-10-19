@@ -1,8 +1,12 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import pageLayoutCss from './page-layout.css?raw';
+import stateBannerCss from '@massds/mds-components/state-banner.css?raw';
+import siteHeaderCss from '@massds/mds-components/site-header.css?raw';
+import footerCss from '@massds/mds-components/footer.css?raw';
 import { renderPageLayout } from './page-layout-renderer.js';
 import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
 import * as PageLayoutStories from './page-layout.stories.js';
+
 
 export const getPageLayoutCodeTabs = (args) => [
   {
@@ -11,15 +15,22 @@ export const getPageLayoutCodeTabs = (args) => [
     code: renderPageLayout(args).outerHTML
   },
   {
-    label: 'Template CSS',
+    label: 'CSS',
     language: 'css',
-    code: pageLayoutCss
+    code: [
+    '/* State Banner */',
+    stateBannerCss,
+    '/* Site Header */',
+    siteHeaderCss,
+    '/* Footer */',
+    footerCss
+  ].join('\n\n')
   }
 ];
 
 <Meta of={PageLayoutStories} />
 
-# Page layout code
+# Page layout
 
 <Canvas
   of={PageLayoutStories.Playground}
