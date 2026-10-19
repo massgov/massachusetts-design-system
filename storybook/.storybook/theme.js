@@ -6,7 +6,7 @@ const fontCode = '"SFMono-Regular", Consolas, "Liberation Mono", monospace';
 const documentationVersion = storybookPackage.dependencies['@massds/mds-components'];
 export const massdsSiteName = `Massachusetts Design System resources`;
 const brandTitle = `
-  <div style='display:flex;align-items:center;gap:8px;color:#ffffff;'>
+  <div style='display:flex;align-items:center;gap:8px;'>
     <img src='${stateSeal}' alt='' style='width:40px;height:40px;' />
     <div style='font:600 18px/1.2 ${fontBase};'>
       ${massdsSiteName}
