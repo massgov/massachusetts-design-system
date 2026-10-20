@@ -10,6 +10,22 @@ import './docs-markdown.css';
 import './preview.css';
 import { massdsDocsTheme, massdsSiteName } from './theme';
 
+// Keep placeholder links inert in stories and docs, including nested link content.
+function preventPlaceholderNavigation(event) {
+  if (event.target instanceof Element && event.target.closest('a[href="#"]')) {
+    event.preventDefault();
+  }
+}
+
+document.addEventListener('click', preventPlaceholderNavigation);
+
+// Remove the old listener during hot reload so edits don't register duplicates.
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => {
+    document.removeEventListener('click', preventPlaceholderNavigation);
+  });
+}
+
 const stateAssetsVersion = storybookPackage.dependencies['@massds/mds-assets'];
 const footerSealSrc = `https://unpkg.com/@massds/mds-assets@${stateAssetsVersion}/dist/state-seal/state-seal-black.png`;
 
