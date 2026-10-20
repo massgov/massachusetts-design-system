@@ -10,6 +10,22 @@ import './docs-markdown.css';
 import './preview.css';
 import { massdsDocsTheme, massdsSiteName } from './theme';
 
+// Keep placeholder links inert in stories and docs, including nested link content.
+function preventPlaceholderNavigation(event) {
+  if (event.target instanceof Element && event.target.closest('a[href="#"]')) {
+    event.preventDefault();
+  }
+}
+
+document.addEventListener('click', preventPlaceholderNavigation);
+
+// Remove the old listener during hot reload so edits don't register duplicates.
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => {
+    document.removeEventListener('click', preventPlaceholderNavigation);
+  });
+}
+
 const stateAssetsVersion = storybookPackage.dependencies['@massds/mds-assets'];
 const footerSealSrc = `https://unpkg.com/@massds/mds-assets@${stateAssetsVersion}/dist/state-seal/state-seal-black.png`;
 
@@ -17,13 +33,13 @@ const sharedBetaInlineMessageData = {
   type: 'Informative',
   variant: 'Filled',
   heading: 'The Massachusetts Design System is in beta',
-  description: 'The Design System is available to use now and will continue to evolve as the library grows. Learn more about using the Design System progressively and how the resources fit into your project on the <a href="./?path=/docs/overview-introduction--docs" target="_top">Design System introduction page.</a>'
+  description: 'The Design System is available to use now and will continue to evolve as the library grows. Learn more about using the Design System progressively and how the resources fit into your project on the <a href="./" target="_top">Design System introduction page.</a>'
 };
 
 const sharedFooterData = {
   theme: 'Neutral',
   siteName: massdsSiteName,
-  siteLink: 'https://designsystem.dev.tss.mass.gov/',
+  siteLink: './',
   socialLinks: [],
   description: 'Storybook is the implementation reference for the Massachusetts Design System. It provides reusable components, design tokens, accessibility guidance, and code examples for Commonwealth digital products.',
   contactItems: [

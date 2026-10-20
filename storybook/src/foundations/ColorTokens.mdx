@@ -1,4 +1,16 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import primitivesCss from '../../../packages/tokens/src/primitives.css?raw';
+import semanticTokensCss from '../../../packages/tokens/src/index.css?raw';
+
+export const primitiveHexValues = Object.fromEntries(
+  Array.from(primitivesCss.matchAll(/(--mds-color-[\w-]+)\s*:\s*(#[\da-f]+)\s*;/gi),
+    ([, variable, hex]) => [variable, hex])
+);
+
+export const mappedPrimitiveHexValues = Object.fromEntries(
+  Array.from(semanticTokensCss.matchAll(/(--mds-[\w-]+)\s*:\s*var\((--mds-color-[\w-]+)\)\s*;/g),
+    ([, variable, primitive]) => [variable, primitiveHexValues[primitive]])
+);
 
 export const tokenGroups = {
   interactiveBrand: [
@@ -131,6 +143,7 @@ export const ColorTokenTable = ({ tokens }) => (
           <th>Color</th>
           <th>Name</th>
           <th>CSS variable</th>
+          <th>Hex code</th>
         </tr>
       </thead>
       <tbody>
@@ -146,6 +159,9 @@ export const ColorTokenTable = ({ tokens }) => (
             <td>{name}</td>
             <td>
               <code>{`var(${variable})`}</code>
+            </td>
+            <td>
+              <code>{mappedPrimitiveHexValues[variable]}</code>
             </td>
           </tr>
         ))}

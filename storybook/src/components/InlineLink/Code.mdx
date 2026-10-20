@@ -1,0 +1,36 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { inlineLinkDefaults } from '../../../../packages/components/src/inline-link/inline-link.data.js';
+import inlineLinkCss from '@massds/mds-components/inline-link.css?raw';
+import { renderInlineLink } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as InlineLinkStories from './inline-link.stories.js';
+
+export const getInlineLinkCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderInlineLink({
+      ...inlineLinkDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: inlineLinkCss
+  }
+];
+
+<Meta of={InlineLinkStories} />
+
+# Inline link
+
+<Canvas of={InlineLinkStories.Playground} sourceState="none" />
+
+## API
+
+<Controls of={InlineLinkStories.Playground} />
+
+## Code
+
+<StoryCodeTabs of={InlineLinkStories.Playground} getTabs={getInlineLinkCodeTabs} />

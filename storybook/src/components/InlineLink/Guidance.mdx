@@ -1,0 +1,88 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as InlineLinkStories from './inline-link.stories.js';
+
+<Meta of={InlineLinkStories} />
+
+# Inline link guidance
+
+Inline links let people move to another page, section, document, or external resource while remaining part of the surrounding text.
+
+---
+
+## Content
+
+### Best practices
+
+#### Do
+
+- Write link text that tells people what they will find or do when they select the link
+- Use the surrounding text to make the link destination or action clear
+- Use the same font size and weight as the surrounding text
+
+#### Don't
+
+- Use link text that requires people to select the link to understand where it goes
+- Add an icon that does not communicate information about the link's behavior
+
+---
+
+## Design
+
+### Usage
+
+#### When to use
+
+Use an inline link when people need to move to another page, section, document, or external resource from within surrounding text.
+
+Use the link treatment that matches where the link appears.
+
+Add a trailing icon when people need information about what will happen before they select the link. Choose the icon based on the link's actual behavior:
+
+- Use the opens in a new window icon when the link opens in a new window
+- Use the document icon when the link opens a document
+- Use the jump to content icon when the link moves to a content section on the same page
+
+#### When not to use
+
+Do not use an inline link when the interaction triggers an action rather than navigation. Use a [Button](?path=/docs/components-button--overview) instead.
+
+Do not add an icon only for decoration.
+
+---
+
+## Accessibility
+
+### Mouse control
+
+- People can select the link to follow its destination
+- The link provides hover and pressed states during pointer interaction
+
+### Touch control
+
+- People can tap the link to follow its destination
+
+### Keyboard control
+
+- The link provides a visible focus state
+
+### Assistive technology
+
+When a link opens in a new window, make that behavior available to people who use screen readers.
+
+Use the external-link icon with visible link text that clearly communicates the destination. When people need additional context that the link opens in a new window, provide a visually hidden description and associate it with the link using `aria-describedby`.
+
+Place the shared description in the page footer so it is available to every page that includes a link that opens in a new window.
+
+Use:
+
+- `tabindex="-1"` so people do not reach the description as a separate keyboard stop
+- `aria-hidden="true"` so assistive technology does not announce the description on its own
+- `aria-describedby` on the link to associate the description with the link
+
+---
+
+## Related components
+
+[Action link](?path=/docs/components-action-link--overview) — use when the link does not have any surrounding text.
+
+[Button](?path=/docs/components-button--overview) — use a button when the interaction performs an action rather than navigates to another destination. A button can be implemented as a link when the interaction navigates to a destination but needs to look like a button.
