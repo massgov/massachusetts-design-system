@@ -33,13 +33,13 @@ const sharedBetaInlineMessageData = {
   type: 'Informative',
   variant: 'Filled',
   heading: 'The Massachusetts Design System is in beta',
-  description: 'The Design System is available to use now and will continue to evolve as the library grows. Learn more about using the Design System progressively and how the resources fit into your project on the <a href="./?path=/docs/overview-introduction--docs" target="_top">Design System introduction page.</a>'
+  description: 'The Design System is available to use now and will continue to evolve as the library grows. Learn more about using the Design System progressively and how the resources fit into your project on the <a href="./" target="_top">Design System introduction page.</a>'
 };
 
 const sharedFooterData = {
   theme: 'Neutral',
   siteName: massdsSiteName,
-  siteLink: 'https://designsystem.dev.tss.mass.gov/',
+  siteLink: './',
   socialLinks: [],
   description: 'Storybook is the implementation reference for the Massachusetts Design System. It provides reusable components, design tokens, accessibility guidance, and code examples for Commonwealth digital products.',
   contactItems: [
