@@ -7,6 +7,9 @@ import {
 import {
   stateBannerDefaults
 } from '../../../../packages/components/src/state-banner/state-banner.data.js';
+import {
+  tokensVersion
+} from '../../overview/getting-started.mdx';
 
 import {
   renderFooter,
@@ -106,7 +109,7 @@ export function renderPageLayoutDocument(args) {
       >
       <title>${args.siteName}</title>
 
-      <link rel="stylesheet" href="https://unpkg.com/@massds/mds-tokens@3.0.0-beta.1/dist/index.css">
+      <link rel="stylesheet" href="https://unpkg.com/@massds/mds-tokens@${tokensVersion}/dist/index.css">
       <link rel="stylesheet" href="state-banner.css">
       <link rel="stylesheet" href="site-header.css">
       <link rel="stylesheet" href="footer.css">
