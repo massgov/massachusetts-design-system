@@ -65,6 +65,11 @@ environment's branch policy, verifies that the matching tag points to the
 published commit, and checks out that release commit to build Storybook. Stable
 versions publish to npm's `latest` dist-tag; prereleases publish to `beta`.
 
+For versioned deployments of older tags with a stale Storybook components pin,
+the workflow aligns that pin and the lockfile to the checked-out components
+version before installing dependencies. Other package pins and the tagged source
+remain unchanged. Root deployments still require the committed pin to match.
+
 After the npm publish succeeds, the production workflow builds Storybook with the
 base path `/version/<version>/`, syncs it to that version's production S3
 prefix, and invalidates the matching CloudFront paths. The deployment uses the

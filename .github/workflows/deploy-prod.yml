@@ -129,6 +129,18 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
 
+      - name: Align versioned Storybook components dependency
+        if: needs.prepare.outputs.components_version != ''
+        run: |
+          set -euo pipefail
+
+          PACKAGE_VERSION="$(node -p "require('./packages/components/package.json').version")"
+          STORYBOOK_PIN="$(node -p "require('./storybook/package.json').dependencies['@massds/mds-components']")"
+          if [ "$STORYBOOK_PIN" != "$PACKAGE_VERSION" ]; then
+            npm pkg set "dependencies.@massds/mds-components=${PACKAGE_VERSION}" --workspace @massds/storybook
+            npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+          fi
+
       - name: Verify Storybook components version pin
         run: |
           set -euo pipefail
