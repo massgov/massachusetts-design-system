@@ -7,6 +7,7 @@ const schemaOptions = getSchemaOptions(inlineLinkSchema);
 
 export const inlineLinkOptions = {
   color: schemaOptions.color,
+  target: schemaOptions.target,
   rightIcon: schemaOptions.rightIcon
 };
 
