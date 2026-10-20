@@ -169,6 +169,10 @@
     }
   }
 
+  &__list-item {
+    display: flex;
+  }
+
   &__legal-nav {
     border-block: 1px solid var(--mds-footer-border-color);
     padding-block: var(--mds-space-xs);

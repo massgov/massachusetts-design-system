@@ -149,7 +149,7 @@
               <ul class="mds-footer__link-list">
                 {% for link in linkGroup.links %}
                   {% if link.href and link.text %}
-                    <li>
+                    <li class="mds-footer__list-item">
                       {%
                         include 'action-link.twig' with {
                           href: link.href,
@@ -174,7 +174,7 @@
         <ul>
           {% for link in footerLegalLinks %}
             {% if link.href and link.text %}
-              <li>
+              <li class="mds-footer__list-item">
                 {%
                   include 'action-link.twig' with {
                     href: link.href,
@@ -189,7 +189,7 @@
           {% if footerLegalLinksOptional %}
             {% for link in footerLegalLinksOptional %}
               {% if link.href and link.text %}
-                <li>
+                <li class="mds-footer__list-item">
                   {%
                     include 'action-link.twig' with {
                       href: link.href,
