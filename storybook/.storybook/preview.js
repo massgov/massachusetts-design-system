@@ -144,7 +144,8 @@ const preview = {
           'Foundations',
           ['Design Tokens', 'Color Tokens', 'Type Styles', ['Overview', 'Guidance', 'Code', 'Playground']],
           'Components',
-          ['*', ['Overview', 'Guidance', 'Code', 'Playground']]
+          ['*', ['Overview', 'Guidance', 'Code', 'Playground']],
+          'Templates',
         ],
         includeNames: true
       }

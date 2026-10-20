@@ -1,0 +1,50 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import pageLayoutCss from './page-layout.css?raw';
+import stateBannerCss from '@massds/mds-components/state-banner.css?raw';
+import siteHeaderCss from '@massds/mds-components/site-header.css?raw';
+import footerCss from '@massds/mds-components/footer.css?raw';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as PageLayoutStories from './page-layout.stories.js';
+import {
+  renderPageLayoutDocument
+} from './page-layout-renderer.js';
+
+export const getPageLayoutCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderPageLayoutDocument(args)
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: [
+    stateBannerCss,
+    siteHeaderCss,
+    footerCss,
+    pageLayoutCss
+  ].join('\n\n')
+  }
+];
+
+<Meta of={PageLayoutStories} />
+
+# Page layout
+
+<Canvas
+  of={PageLayoutStories.Playground}
+  sourceState="none"
+/>
+
+## API
+
+<Controls of={PageLayoutStories.Playground} />
+
+## Code
+
+Include the State Banner, Site Header, and Footer component styles alongside it.
+
+<StoryCodeTabs
+  of={PageLayoutStories.Playground}
+  getTabs={getPageLayoutCodeTabs}
+/>
