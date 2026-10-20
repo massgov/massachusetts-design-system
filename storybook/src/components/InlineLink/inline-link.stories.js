@@ -47,7 +47,7 @@ const inlineLinkControls = {
   target: {
     control: {
       type: 'select',
-      labels: { parent: 'Parent' }
+      labels: { none: 'None' }
     },
     options: inlineLinkOptions.target,
     table: { category: controlCategories.html }
