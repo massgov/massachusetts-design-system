@@ -44,14 +44,6 @@ const inlineLinkControls = {
     options: inlineLinkOptions.rightIcon,
     table: { category: controlCategories.design }
   },
-  target: {
-    control: {
-      type: 'select',
-      labels: { parent: 'Parent' }
-    },
-    options: inlineLinkOptions.target,
-    table: { category: controlCategories.html }
-  },
   href: {
     control: 'text',
     description: 'Link destination.',

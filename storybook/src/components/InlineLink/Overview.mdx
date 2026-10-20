@@ -4,14 +4,17 @@ import { inlineLinkDefaults } from '../../../../packages/components/src/inline-l
 import { renderInlineLink } from '../../utils/component-renderers.js';
 import * as InlineLinkStories from './inline-link.stories.js';
 
-export const InlineLinkExample = (args) => (
+export const InlineLinkExample = ({ htmlAttributes = {}, ...args }) => (
   <span
     style={{ fontSize: 'var(--mds-font-size-225)' }}
     dangerouslySetInnerHTML={{
       __html: renderInlineLink({
         ...inlineLinkDefaults,
-        className: 'sb-unstyled',
-        ...args
+        ...args,
+        htmlAttributes: {
+          ...htmlAttributes,
+          class: ['sb-unstyled', htmlAttributes.class].filter(Boolean).join(' ')
+        }
       })
     }}
   />
@@ -72,7 +75,7 @@ A link that opens in a new window.
 <InlineLinkExample
   text="View your federal tax account on IRS.gov"
   rightIcon="arrow-square-out"
-  target="_blank"
+  htmlAttributes={{ target: '_blank', rel: 'noopener' }}
 />
 
 #### Document link
