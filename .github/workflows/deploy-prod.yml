@@ -5,8 +5,12 @@ name: Deploy to AWS (prod)
 # approval before anything runs, and the OIDC subject environment:prod is what
 # the prod deploy role trusts.
 #
-# Prod never auto-deploys — it is triggered manually (workflow_dispatch) or by
-# a release process. Authenticates via GitHub OIDC; no long-lived AWS keys.
+# A successful components publish triggers this workflow via `workflow_run` to
+# deploy the matching Storybook snapshot under /version/<components-version>/.
+# `workflow_run` runs in the default-branch (main) context, so it passes the
+# environment policy and still goes through the prod approval.
+# Manual dispatch continues to deploy the current Storybook to the root path.
+# Both paths run in the gated `prod` environment and authenticate via GitHub OIDC.
 #
 # Requires (prod environment): DEPLOY_ROLE_ARN (managed in github-iac),
 # PROD_BUCKET and PROD_DISTRIBUTION_ID (set from `terraform output` of
@@ -14,9 +18,17 @@ name: Deploy to AWS (prod)
 
 on:
   workflow_dispatch:
+    inputs:
+      components_version:
+        description: Components version to deploy under /version/<version> (leave blank for root)
+        required: false
+        type: string
+        default: ''
+  workflow_run:
+    workflows: ["Publish Components Package"]
+    types: [completed]
 
 permissions:
-  id-token: write   # required for OIDC role assumption
   contents: read
 
 concurrency:
@@ -24,11 +36,92 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  prepare:
+    name: Validate release source
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    environment: prod
+    outputs:
+      release_sha: ${{ steps.source.outputs.release_sha }}
+      components_version: ${{ steps.source.outputs.components_version }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Validate release tag and select deployment source
+        id: source
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          SOURCE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+          SOURCE_TAG: ${{ github.event.workflow_run.head_branch }}
+          SOURCE_REPOSITORY: ${{ github.event.workflow_run.head_repository.full_name }}
+          CURRENT_REPOSITORY: ${{ github.repository }}
+          REQUESTED_VERSION: ${{ github.event.inputs.components_version }}
+        run: |
+          set -euo pipefail
+
+          RELEASE_VERSION=""
+          if [ "$EVENT_NAME" = "workflow_run" ]; then
+            if [ "$SOURCE_REPOSITORY" != "$CURRENT_REPOSITORY" ]; then
+              echo "The components publish must come from this repository." >&2
+              exit 1
+            fi
+
+            PACKAGE_VERSION="$(node -p "require('./packages/components/package.json').version")"
+            EXPECTED_TAG="components-v${PACKAGE_VERSION}"
+            if [ "$SOURCE_TAG" != "$EXPECTED_TAG" ]; then
+              echo "Publish ref '$SOURCE_TAG' does not match expected tag '$EXPECTED_TAG'." >&2
+              exit 1
+            fi
+
+            # Confirm the ref is an actual tag and that it points to the
+            # upstream workflow's commit (head_branch alone has no ref type).
+            git fetch --no-tags origin "refs/tags/${EXPECTED_TAG}:refs/tags/${EXPECTED_TAG}"
+            TAG_SHA="$(git rev-parse "${EXPECTED_TAG}^{commit}")"
+            if [ "$TAG_SHA" != "$SOURCE_SHA" ]; then
+              echo "Tag '$EXPECTED_TAG' points to $TAG_SHA, not publish commit $SOURCE_SHA." >&2
+              exit 1
+            fi
+
+            RELEASE_VERSION="$PACKAGE_VERSION"
+          elif [ -n "$REQUESTED_VERSION" ]; then
+            if [[ ! "$REQUESTED_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
+              echo "Components version '$REQUESTED_VERSION' is not a valid version string." >&2
+              exit 1
+            fi
+
+            EXPECTED_TAG="components-v${REQUESTED_VERSION}"
+            if ! git fetch --no-tags origin "refs/tags/${EXPECTED_TAG}:refs/tags/${EXPECTED_TAG}"; then
+              echo "Could not fetch release tag '$EXPECTED_TAG'; check that this components version has a release tag." >&2
+              exit 1
+            fi
+            TAG_SHA="$(git rev-parse "${EXPECTED_TAG}^{commit}")"
+            TAG_PACKAGE_VERSION="$(git show "${TAG_SHA}:packages/components/package.json" | node -p "JSON.parse(require('fs').readFileSync(0, 'utf8')).version")"
+            if [ "$TAG_PACKAGE_VERSION" != "$REQUESTED_VERSION" ]; then
+              echo "Tag '$EXPECTED_TAG' contains components version '$TAG_PACKAGE_VERSION', not '$REQUESTED_VERSION'." >&2
+              exit 1
+            fi
+
+            SOURCE_SHA="$TAG_SHA"
+            RELEASE_VERSION="$REQUESTED_VERSION"
+          fi
+
+          echo "release_sha=${SOURCE_SHA}" >> "$GITHUB_OUTPUT"
+          echo "components_version=${RELEASE_VERSION}" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    needs: prepare
+    runs-on: ubuntu-latest
+    environment: prod
+    permissions:
+      id-token: write   # required for OIDC role assumption
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ needs.prepare.outputs.release_sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -36,15 +129,52 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
 
+      - name: Verify Storybook components version pin
+        run: |
+          set -euo pipefail
+
+          PACKAGE_VERSION="$(node -p "require('./packages/components/package.json').version")"
+          STORYBOOK_PIN="$(node -p "require('./storybook/package.json').dependencies['@massds/mds-components']")"
+          if [ "$STORYBOOK_PIN" != "$PACKAGE_VERSION" ]; then
+            echo "storybook/package.json pins @massds/mds-components@$STORYBOOK_PIN but the package version is $PACKAGE_VERSION. Run changelog:release." >&2
+            exit 1
+          fi
+
       - name: Install dependencies
         run: npm ci
 
       - name: Build packages
         run: npm run build --workspaces --if-present
 
+      - name: Set Storybook deployment path
+        id: target
+        env:
+          RELEASE_VERSION: ${{ needs.prepare.outputs.components_version }}
+        run: |
+          set -euo pipefail
+
+          PACKAGE_VERSION="$(node -p "require('./packages/components/package.json').version")"
+          echo "package_version=${PACKAGE_VERSION}" >> "$GITHUB_OUTPUT"
+
+          if [ -n "$RELEASE_VERSION" ]; then
+            if [ "$RELEASE_VERSION" != "$PACKAGE_VERSION" ]; then
+              echo "Requested components version $RELEASE_VERSION does not match checked-out package version $PACKAGE_VERSION." >&2
+              exit 1
+            fi
+
+            echo "storybook_base_path=/version/${PACKAGE_VERSION}/" >> "$GITHUB_OUTPUT"
+            echo "s3_prefix=version/${PACKAGE_VERSION}" >> "$GITHUB_OUTPUT"
+            echo "invalidation_paths=/version/${PACKAGE_VERSION} /version/${PACKAGE_VERSION}/*" >> "$GITHUB_OUTPUT"
+          else
+            echo "storybook_base_path=/" >> "$GITHUB_OUTPUT"
+            echo "s3_prefix=" >> "$GITHUB_OUTPUT"
+            echo "invalidation_paths=/*" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build site
         env:
           STORYBOOK_GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
+          STORYBOOK_BASE_PATH: ${{ steps.target.outputs.storybook_base_path }}
         run: npm run build:storybook
 
       - name: Configure AWS credentials (OIDC)
@@ -53,11 +183,29 @@ jobs:
           role-to-assume: ${{ vars.DEPLOY_ROLE_ARN }}
           aws-region: us-east-1
 
-      - name: Sync to S3
-        run: aws s3 sync storybook/storybook-static/ "s3://${{ vars.PROD_BUCKET }}" --delete
+      - name: Sync versioned Storybook to S3
+        if: needs.prepare.outputs.components_version != ''
+        env:
+          PROD_BUCKET: ${{ vars.PROD_BUCKET }}
+          S3_PREFIX: ${{ steps.target.outputs.s3_prefix }}
+        run: aws s3 sync storybook/storybook-static/ "s3://${PROD_BUCKET}/${S3_PREFIX}/" --delete
+
+      - name: Sync root Storybook to S3
+        if: needs.prepare.outputs.components_version == ''
+        run: aws s3 sync storybook/storybook-static/ "s3://${{ vars.PROD_BUCKET }}" --delete --exclude "version/*"
 
       - name: Invalidate CloudFront
+        env:
+          PROD_DISTRIBUTION_ID: ${{ vars.PROD_DISTRIBUTION_ID }}
+          RELEASE_VERSION: ${{ needs.prepare.outputs.components_version }}
+          PACKAGE_VERSION: ${{ steps.target.outputs.package_version }}
         run: |
-          aws cloudfront create-invalidation \
-            --distribution-id "${{ vars.PROD_DISTRIBUTION_ID }}" \
-            --paths "/*"
+          if [ -n "$RELEASE_VERSION" ]; then
+            aws cloudfront create-invalidation \
+              --distribution-id "$PROD_DISTRIBUTION_ID" \
+              --paths "/version/${PACKAGE_VERSION}" "/version/${PACKAGE_VERSION}/*"
+          else
+            aws cloudfront create-invalidation \
+              --distribution-id "$PROD_DISTRIBUTION_ID" \
+              --paths "/*"
+          fi

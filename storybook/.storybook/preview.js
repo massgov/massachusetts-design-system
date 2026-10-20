@@ -8,7 +8,7 @@ import storybookPackage from '../package.json';
 import { renderFooter, renderInlineMessage } from '../src/utils/component-renderers';
 import './docs-markdown.css';
 import './preview.css';
-import { massdsDocsTheme } from './theme';
+import { massdsDocsTheme, massdsSiteName } from './theme';
 
 const stateAssetsVersion = storybookPackage.dependencies['@massds/mds-assets'];
 const footerSealSrc = `https://unpkg.com/@massds/mds-assets@${stateAssetsVersion}/dist/state-seal/state-seal-black.png`;
@@ -17,13 +17,13 @@ const sharedBetaInlineMessageData = {
   type: 'Informative',
   variant: 'Filled',
   heading: 'The Massachusetts Design System is in beta',
-  description: 'The Design System is available to use now and will continue to evolve as the library grows. Learn more about using the Design System progressively and how the resources fit into your project on the <a href="./?path=/docs/overview-introduction--docs" target="_top">Design System introduction page.</a>'
+  description: 'The Design System is available to use now and will continue to evolve as the library grows. Learn more about using the Design System progressively and how the resources fit into your project on the <a href="./" target="_top">Design System introduction page.</a>'
 };
 
 const sharedFooterData = {
   theme: 'Neutral',
-  siteName: 'Massachusetts Design System',
-  siteLink: 'https://designsystem.dev.tss.mass.gov/',
+  siteName: massdsSiteName,
+  siteLink: './',
   socialLinks: [],
   description: 'Storybook is the implementation reference for the Massachusetts Design System. It provides reusable components, design tokens, accessibility guidance, and code examples for Commonwealth digital products.',
   contactItems: [
