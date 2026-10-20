@@ -24,15 +24,16 @@ You are viewing documentation for `@massds/mds-components` **{componentsVersion}
 
 To view the documentation for a specific components version, navigate to:
 `/version/<components-version>`
-> For example, `v0.1.0-beta.0` can be accessed at
-<code>{`designsystem.mass.gov/version/${componentsVersion}`}</code>. 
+> For example, v{componentsVersion} can also be accessed at
+<code>{`designsystem.mass.gov/version/${componentsVersion}`}</code>.
+> [See all available versions](https://www.npmjs.com/package/@massds/mds-components?activeTab=versions).
 
 | Package | Version documented | What it provides | Design System dependencies |
 | --- | --- | --- | --- |
 | [`@massds/mds-assets`](https://www.npmjs.com/package/@massds/mds-assets) | {assetsVersion} | Icons, state seal assets, and animation files | None |
 | [`@massds/mds-tokens`](https://www.npmjs.com/package/@massds/mds-tokens) | {tokensVersion} | Semantic CSS custom properties for color, typography, spacing, radius, elevation, and other design decisions | None |
 | [`@massds/mds-styles`](https://www.npmjs.com/package/@massds/mds-styles) | {stylesVersion} | Bundled CSS utilities and public Sass mixins | `@massds/mds-tokens` |
-| [`@massds/mds-components`](https://github.com/massgov/massachusetts-design-system/tree/main/packages/components) | {componentsVersion} | Emerging Twig-authored components with static HTML, CSS, and Twig exports, documented in Storybook | `@massds/mds-tokens` and `@massds/mds-assets` |
+| [`@massds/mds-components`](https://www.npmjs.com/package/@massds/mds-components) | {componentsVersion} | Emerging Twig-authored components with static HTML, CSS, and Twig exports, documented in Storybook | `@massds/mds-tokens` and `@massds/mds-assets` |
 
 
 > The styles package does not bundle tokens. Load token CSS before utility or component CSS so their custom properties are available. The components package uses styles mixins while building its self-contained CSS, so consumers only need to install `@massds/mds-styles` when they also want its utilities or Sass API.
