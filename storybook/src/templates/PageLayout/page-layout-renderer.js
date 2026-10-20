@@ -88,5 +88,32 @@ export function renderPageLayout(args) {
     createMarkupFragment(renderFooter(getFooterData(args)))
   );
 
+
+
   return page;
+}
+
+export function renderPageLayoutDocument(args) {
+  const pageMarkup = renderPageLayout(args).outerHTML;
+
+  return `<!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+      >
+      <title>${args.siteName}</title>
+
+      <link rel="stylesheet" href="https://unpkg.com/@massds/mds-tokens@3.0.0-beta.1/dist/index.css">
+      <link rel="stylesheet" href="state-banner.css">
+      <link rel="stylesheet" href="site-header.css">
+      <link rel="stylesheet" href="footer.css">
+      <link rel="stylesheet" href="page-layout.css">
+    </head>
+    <body>
+      ${pageMarkup}
+    </body>
+  </html>`;
 }

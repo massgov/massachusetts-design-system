@@ -3,16 +3,17 @@ import pageLayoutCss from './page-layout.css?raw';
 import stateBannerCss from '@massds/mds-components/state-banner.css?raw';
 import siteHeaderCss from '@massds/mds-components/site-header.css?raw';
 import footerCss from '@massds/mds-components/footer.css?raw';
-import { renderPageLayout } from './page-layout-renderer.js';
 import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
 import * as PageLayoutStories from './page-layout.stories.js';
-
+import {
+  renderPageLayoutDocument
+} from './page-layout-renderer.js';
 
 export const getPageLayoutCodeTabs = (args) => [
   {
     label: 'HTML',
     language: 'html',
-    code: renderPageLayout(args).outerHTML
+    code: renderPageLayoutDocument(args)
   },
   {
     label: 'CSS',
