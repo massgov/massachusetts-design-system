@@ -39,6 +39,12 @@ const pageLayoutControls = {
     table: {
       category: controlCategories.design
     }
+  },
+  mainContent: {
+    control: 'text',
+    table: {
+      disable: true
+    }
   }
 };
 
