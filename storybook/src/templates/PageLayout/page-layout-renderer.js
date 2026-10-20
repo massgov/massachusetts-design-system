@@ -110,10 +110,8 @@ export function renderPageLayoutDocument(args) {
       <title>${args.siteName}</title>
 
       <link rel="stylesheet" href="https://unpkg.com/@massds/mds-tokens@${tokensVersion}/dist/index.css">
-      <link rel="stylesheet" href="state-banner.css">
-      <link rel="stylesheet" href="site-header.css">
-      <link rel="stylesheet" href="footer.css">
-      <link rel="stylesheet" href="page-layout.css">
+      # Link to the CSS styles copied from the CSS tab here
+      # <link rel="stylesheet" href="styles.css">
     </head>
     <body>
       ${pageMarkup}
