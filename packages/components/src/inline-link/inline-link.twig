@@ -1,0 +1,39 @@
+{% set inlineLinkText = text|default(inlineLinkDefaults.text) %}
+{% set inlineLinkHref = href|default(inlineLinkDefaults.href) %}
+{% set inlineLinkTarget = target in inlineLinkOptions.target ? target : inlineLinkDefaults.target %}
+{% set inlineLinkColor = color in inlineLinkOptions.color ? color : inlineLinkDefaults.color %}
+{% set inlineLinkRightIcon = rightIcon in inlineLinkOptions.rightIcon ? rightIcon : inlineLinkDefaults.rightIcon %}
+{% set inlineLinkHtmlAttributes = htmlAttributes|default({}) %}
+{% set inlineLinkClassName = inlineLinkHtmlAttributes.class|default('') %}
+{% set inlineLinkClass = 'mds-inline-link mds-inline-link--color-' ~ inlineLinkColor|lower ~ (inlineLinkClassName ? ' ' ~ inlineLinkClassName : '') %}
+{% set inlineLinkAttributeExclusions = ['class', 'href', 'target'] %}
+
+<a
+  class="{{ inlineLinkClass|e }}"
+  href="{{ inlineLinkHref|e }}"
+  {% if inlineLinkTarget == '_blank' %}
+    target="_blank"
+  {% endif %}
+  {%
+    include 'shared/html-attributes.twig' with {
+      attributes: inlineLinkHtmlAttributes,
+      exclude: inlineLinkAttributeExclusions
+    }
+  %}
+>
+  {{ inlineLinkText | e -}}
+  {%- if inlineLinkTarget == '_blank' -%}
+    <span class="mds-visually-hidden">, opens in a new window</span>
+  {%- endif -%}
+  {%- if inlineLinkRightIcon -%}
+    <span class="mds-inline-link__icon" aria-hidden="true">
+      {%-
+        include 'icon.twig' with {
+          name: inlineLinkRightIcon,
+          weight: 'Regular',
+          size: 'XS'
+        }
+      -%}
+    </span>
+  {%- endif %}
+</a>
