@@ -183,16 +183,20 @@ jobs:
           role-to-assume: ${{ vars.DEPLOY_ROLE_ARN }}
           aws-region: us-east-1
 
-      - name: Sync versioned Storybook to S3
-        if: needs.prepare.outputs.components_version != ''
-        env:
-          PROD_BUCKET: ${{ vars.PROD_BUCKET }}
-          S3_PREFIX: ${{ steps.target.outputs.s3_prefix }}
-        run: aws s3 sync storybook/storybook-static/ "s3://${PROD_BUCKET}/${S3_PREFIX}/" --delete
+      # Release tags may predate the deployment script. Use tooling from the
+      # workflow commit while continuing to build the validated release source.
+      - name: Checkout deployment tooling
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          path: .deploy-tooling
+          sparse-checkout: scripts
 
-      - name: Sync root Storybook to S3
-        if: needs.prepare.outputs.components_version == ''
-        run: aws s3 sync storybook/storybook-static/ "s3://${{ vars.PROD_BUCKET }}" --delete --exclude "version/*"
+      - name: Publish Storybook and retain previous assets
+        env:
+          SITE_BUCKET: ${{ vars.PROD_BUCKET }}
+          S3_PREFIX: ${{ steps.target.outputs.s3_prefix }}
+        run: node .deploy-tooling/scripts/deploy-storybook.mjs
 
       - name: Invalidate CloudFront
         env:

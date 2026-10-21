@@ -114,6 +114,54 @@ The static-site CloudFront function redirects bare `/version/<version>` URLs
 to their trailing-slash form. Apply the infrastructure change to prod before
 the first versioned Storybook release so the route resolves correctly.
 
+## Deployments and asset retention
+
+All site deploys use `scripts/deploy-storybook.mjs` with `SITE_BUCKET` and an
+optional `S3_PREFIX` (`branch/<name>` or `version/<version>`). The script uploads
+assets and supporting files before HTML. HTML and mutable files receive
+`Cache-Control: no-cache`; hashed JS/CSS receive
+`Cache-Control: public,max-age=31536000,immutable`. Copies overwrite unchanged
+files too, so existing S3 objects receive the cache headers on the next deploy.
+The CloudFront policy has minimum/default TTLs of zero and honors those headers,
+including directory URLs rewritten to `index.html`.
+
+Previous files under each site's `assets/` remain available for seven days
+after a successful deployment first observes that they are no longer in the
+current build. `_deployment/retired-assets.json` records retirement timestamps
+per deployment prefix. Existing assets are adopted on the first deployment;
+their upload age does not shorten retention. Cleanup runs on subsequent
+successful deployments, so unused files may remain longer than seven days.
+Current assets and other preview/version prefixes are never eligible for this
+cleanup. Supporting files outside `assets/` are retained without automatic
+cleanup. Explicit branch deletion still removes the entire preview.
+
+Deployments for a given target must be serialized to protect the retention
+state. The workflows queue rather than cancel an active deployment. Production
+loads deployment tooling from the workflow commit so older release tags can
+still use the corrected deployment process.
+
+Rollout:
+
+1. Apply Terraform for each environment to install the origin-header cache
+   policy (dev auto-applies; stage/prod use the gated `apply.yml` workflow).
+2. Deploy the site using the updated workflow from `main`. Existing version
+   paths receive new object headers when redeployed with `components_version`.
+3. Verify `Cache-Control: no-cache` on `/`, `/index.html`, and `/iframe.html`,
+   and immutable caching on a hashed JS/CSS URL. Repeat for preview/version
+   paths as needed. Existing CloudFront invalidation steps purge older headers.
+4. Keep a tab open across another deploy, then navigate to a previously unopened
+   story. Its old asset URLs should remain accessible.
+
+These changes cannot restore chunks deleted by earlier deployments. A tab
+already affected by a missing chunk still needs a refresh. Tabs older than the
+retention window may also need to refresh.
+
+Run the deployment regression tests with:
+
+```bash
+node --test scripts/deploy-storybook.test.mjs
+```
+
 ## Notes
 
 - The GitHub OIDC provider already exists in this account (managed by
