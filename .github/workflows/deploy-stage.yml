@@ -49,8 +49,10 @@ jobs:
           role-to-assume: ${{ vars.DEPLOY_ROLE_ARN }}
           aws-region: us-east-1
 
-      - name: Sync to S3
-        run: aws s3 sync storybook/storybook-static/ "s3://${{ vars.STAGE_BUCKET }}" --delete
+      - name: Publish Storybook and retain previous assets
+        env:
+          SITE_BUCKET: ${{ vars.STAGE_BUCKET }}
+        run: node scripts/deploy-storybook.mjs
 
       - name: Invalidate CloudFront
         run: |

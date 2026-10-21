@@ -44,7 +44,7 @@ permissions:
 
 concurrency:
   group: deploy-dev-${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.event_name == 'delete' && github.event.ref || github.ref_name }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -120,6 +120,15 @@ jobs:
     # resolves to the dev deploy role (trusts environment:dev).
     environment: dev
     steps:
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: scripts
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+
       - name: Download Storybook artifact
         uses: actions/download-artifact@v4
         with:
@@ -132,13 +141,11 @@ jobs:
           role-to-assume: ${{ vars.DEPLOY_ROLE_ARN }}
           aws-region: us-east-1
 
-      - name: Sync branch preview to S3
-        if: github.event_name == 'pull_request'
-        run: aws s3 sync storybook/storybook-static/ "s3://${{ vars.DEV_BUCKET }}/${{ needs.build.outputs.s3_prefix }}" --delete
-
-      - name: Sync main site to S3
-        if: github.event_name != 'pull_request'
-        run: aws s3 sync storybook/storybook-static/ "s3://${{ vars.DEV_BUCKET }}" --delete --exclude "branch/*"
+      - name: Publish Storybook and retain previous assets
+        env:
+          SITE_BUCKET: ${{ vars.DEV_BUCKET }}
+          S3_PREFIX: ${{ needs.build.outputs.s3_prefix }}
+        run: node scripts/deploy-storybook.mjs
 
       - name: Invalidate CloudFront
         run: |
