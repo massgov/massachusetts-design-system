@@ -1,0 +1,36 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { textInputDefaults } from '../../../../packages/components/src/text-input/text-input.data.js';
+import textInputCss from '@massds/mds-components/text-input.css?raw';
+import { renderTextInput } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as TextInputStories from './text-input.stories.js';
+
+export const getTextInputCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderTextInput({
+      ...textInputDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: textInputCss
+  }
+];
+
+<Meta of={TextInputStories} />
+
+# Text input
+
+<Canvas of={TextInputStories.Playground} sourceState="none" />
+
+## API
+
+<Controls of={TextInputStories.Playground} />
+
+## Code
+
+<StoryCodeTabs of={TextInputStories.Playground} getTabs={getTextInputCodeTabs} />

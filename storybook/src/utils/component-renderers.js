@@ -191,6 +191,7 @@ export const renderButton = createComponentRenderer('button', { iconSvgMap });
 export const renderInlineLink = createComponentRenderer('inline-link', { iconSvgMap });
 export const renderIconButton = createComponentRenderer('icon-button', { iconSvgMap });
 export const renderInlineMessage = createComponentRenderer('inline-message', { iconSvgMap });
+export const renderTextInput = createComponentRenderer('text-input', { iconSvgMap });
 export const renderMenu = createComponentRenderer('menu', { iconSvgMap });
 export const renderFooter = createComponentRenderer('footer', { iconSvgMap });
 export const renderSiteHeader = createComponentRenderer('site-header');

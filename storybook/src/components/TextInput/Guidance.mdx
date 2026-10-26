@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as TextInputStories from './text-input.stories.js';
+
+<Meta of={TextInputStories} />
+
+# Text input guidance
+
+Use a text input when people need to enter a short, single-line response such as a name, email address, or identification number.
+
+## Content best practices
+
+- Use a short, specific label that describes the information to enter.
+- Put instructions or formatting requirements in help text so they remain visible while a person types.
+- Use placeholder text only for a brief example. Do not use it as a replacement for the label or essential instructions.
+- Keep expandable details concise and include them only when some people need additional context.
+
+## Usage
+
+- Use a more specific input type, such as `email`, `tel`, or `search`, when the expected value requires it. This component renders `type="text"` by default.
+- Give every text input a unique `id` and a meaningful `name` when it is submitted with a form.
+- Mark a field as required only when the form cannot be completed without it.
+- Do not use a text input for long responses; use a textarea instead.
+
+## Accessibility
+
+- The visible label is programmatically associated with the input through matching `for` and `id` values.
+- Help text is associated with the input through `aria-describedby`.
+- The required indicator is hidden from assistive technology because the native `required` attribute communicates the field state.
+- The details toggle uses native `details` and `summary` elements, so it remains keyboard operable without JavaScript.

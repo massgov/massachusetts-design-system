@@ -1,0 +1,119 @@
+{#
+  Text input data:
+  - id must be unique on the page so the label and supporting content can be associated with the input.
+  - detailsContent supports trusted rich text.
+  - htmlAttributes are applied to the input element.
+#}
+{% set textInputLabel = label is defined ? label : textInputDefaults.label %}
+{% set textInputHelpText = helpText is defined ? helpText : textInputDefaults.helpText %}
+{% set textInputRequired = required|default(textInputDefaults.required) %}
+{% set textInputType = type is defined ? type : textInputDefaults.type %}
+{% set textInputDetailsLabel = detailsLabel is defined ? detailsLabel : textInputDefaults.detailsLabel %}
+{% set textInputDetailsContent = detailsContent is defined ? detailsContent : textInputDefaults.detailsContent %}
+{% set textInputDetailsOpen = detailsOpen|default(textInputDefaults.detailsOpen) %}
+{% set textInputValue = value is defined ? value : textInputDefaults.value %}
+{% set textInputPlaceholder = placeholder is defined ? placeholder : textInputDefaults.placeholder %}
+{% set textInputDisabled = disabled|default(textInputDefaults.disabled) %}
+{% set textInputError = error|default(textInputDefaults.error) %}
+{% set textInputHtmlAttributes = htmlAttributes|default({}) %}
+{% set textInputClassName = textInputHtmlAttributes.class|default('') %}
+{% set textInputClass = 'mds-text-input__input' ~ (textInputClassName ? ' ' ~ textInputClassName : '')~ (error ? ' mds-text-input__input--error' : '')~ (disabled ? ' mds-text-input__input--disabled' : '') %}
+{% set textInputHelpId = textInputId ~ '-help' %}
+{% set textInputDetailsId = textInputId ~ '-details' %}
+{% set textInputDescribedBy = textInputHtmlAttributes['aria-describedby']|default('') %}
+{% if textInputHelpText %}
+  {% set textInputDescribedBy = (textInputDescribedBy ~ ' ' ~ textInputHelpId)|trim %}
+{% endif %}
+{% set textInputAttributeExclusions = ['aria-describedby', 'class', 'id', 'name', 'placeholder', 'required', 'type', 'value'] %}
+
+<div class="mds-text-input
+      ">
+  <div class="mds-text-input__label-group">
+    <div class="mds-text-input__label-row">
+      <label class="mds-text-input__label" for="{{ textInputId|e }}">
+        {{- textInputLabel | e -}}
+      </label>
+      {% if textInputRequired %}
+        <span class="mds-text-input__required" aria-hidden="true">*</span>
+      {% endif %}
+    </div>
+
+    {% if textInputHelpText %}
+      <div class="mds-text-input__help" id="{{ textInputHelpId|e }}">
+        {{ textInputHelpText | e }}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if textInputDetailsLabel and textInputDetailsContent %}
+    <details
+      class="mds-text-input__details"
+      {% if textInputDetailsOpen %}
+        open
+      {% endif %}
+    >
+      <summary class="mds-text-input__details-summary" aria-controls="{{ textInputDetailsId|e }}">
+        <span>{{ textInputDetailsLabel | e }}</span>
+        <span
+          class="mds-text-input__details-icon mds-text-input__details-icon--closed"
+          aria-hidden="true"
+        >
+          {% include 'icon.twig' with { name: 'caret-down', weight: 'Regular', size: 'XS' } %}
+        </span>
+        <span
+          class="mds-text-input__details-icon mds-text-input__details-icon--open"
+          aria-hidden="true"
+        >
+          {% include 'icon.twig' with { name: 'caret-up', weight: 'Regular', size: 'XS' } %}
+        </span>
+      </summary>
+      <div class="mds-text-input__details-content" id="{{ textInputDetailsId|e }}">
+        {{ textInputDetailsContent | raw }}
+      </div>
+    </details>
+  {% endif %}
+
+  <input
+    class="{{ textInputClass|e }}"
+    id="{{ textInputId|e }}"
+    type="{{ textInputType|e }}"
+    {% if textInputName %}
+      name="{{ textInputName|e }}"
+    {% endif %}
+    {% if textInputValue %}
+      value="{{ textInputValue|e }}"
+    {% endif %}
+    {% if textInputPlaceholder %}
+      placeholder="{{ textInputPlaceholder|e }}"
+    {% endif %}
+    {% if textInputRequired %}
+      required
+    {% endif %}
+    {% if textInputDescribedBy %}
+      aria-describedby="{{ textInputDescribedBy|e }}"
+    {% endif %}
+    {%
+      include 'shared/html-attributes.twig' with {
+        attributes: textInputHtmlAttributes,
+        exclude: textInputAttributeExclusions
+      }
+    %}
+    {% if textInputDisabled %}
+      disabled
+    {% endif %}
+  >
+  {% if textInputError %}
+    <p class="mds-text-input__input--error-message">
+     {%
+        include 'icon.twig' with {
+          name: 'info',
+          size: 'XS',
+          weight: 'Regular'
+        }
+      %}
+      <span class="mds-text-input__input--error-message-text">
+        Error message
+      </span>
+    </p>
+  {% endif %}
+</div>

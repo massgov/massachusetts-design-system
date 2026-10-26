@@ -1,0 +1,80 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/text-input.css';
+import { textInputDefaults } from '../../../../packages/components/src/text-input/text-input.data.js';
+import { renderTextInput } from '../../utils/component-renderers.js';
+import * as TextInputStories from './text-input.stories.js';
+
+export const TextInputExample = ({ style = {}, ...args }) => (
+  <div
+    className="sb-unstyled"
+    style={{ inlineSize: '260px', maxInlineSize: '100%', ...style }}
+    dangerouslySetInnerHTML={{
+      __html: renderTextInput({
+        ...textInputDefaults,
+        ...args
+      })
+    }}
+  />
+);
+
+<Meta of={TextInputStories} />
+
+# Text input overview
+
+Text inputs let people enter a short, single-line response.
+
+---
+
+## Variants
+
+### Required
+
+Use the required indicator and native `required` attribute when people must complete the field before continuing.
+
+<TextInputExample id="text-input-required" required helpText="Help text goes here" />
+
+### Optional
+
+Optional fields do not display the required indicator.
+
+<TextInputExample id="text-input-optional" helpText="Help text goes here" />
+
+### Label only
+
+Help text can be omitted when the label gives people enough information to provide the expected value.
+
+<TextInputExample id="text-input-label-only" />
+
+### With details toggle
+
+Use the details toggle for concise supporting information that some people may need before entering a value.
+
+<div className="mds-docs-example-stack mds-gap-md">
+  <TextInputExample
+    id="text-input-details-closed"
+    required
+    helpText="Help text goes here"
+    detailsLabel="Descriptive text label"
+    detailsContent="<p>Update your supporting content here, be sure to use plain language and keep it concise.</p>"
+  />
+  <TextInputExample
+    id="text-input-details-open"
+    required
+    helpText="Help text goes here"
+    detailsLabel="Descriptive text label"
+    detailsContent="<p>Update your supporting content here, be sure to use plain language and keep it concise. If you need more than a short paragraph or list consider using an accordion or separate page. Supports rich text.</p>"
+    detailsOpen
+  />
+</div>
+
+### Active
+
+The input uses the default text color after a person enters a value.
+
+<TextInputExample id="text-input-active" helpText="Help text goes here" value="Example input" />
+
+### With placeholder text
+
+Placeholder text can provide a short example of the expected format. It must not replace a visible label or essential instructions.
+
+<TextInputExample id="text-input-placeholder" helpText="Help text goes here" placeholder="Placeholder text" />
