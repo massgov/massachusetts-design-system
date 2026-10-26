@@ -35,6 +35,10 @@ const textInputControls = {
     control: 'boolean',
     table: { category: controlCategories.design }
   },
+  errorMessage: {
+    control: 'text',
+    table: { category: controlCategories.design }
+  },
   disabled: {
     control: 'boolean',
     table: { category: controlCategories.design }

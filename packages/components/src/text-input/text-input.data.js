@@ -7,5 +7,6 @@ export const textInputDefaults = getSchemaDefaults(textInputSchema);
 
 export const textInputExampleData = {
   ...textInputDefaults,
-  helpText: 'Help text goes here'
+  helpText: 'Help text goes here',
+  errorMessage: 'Error message goes here'
 };

@@ -15,6 +15,7 @@
 {% set textInputPlaceholder = placeholder is defined ? placeholder : textInputDefaults.placeholder %}
 {% set textInputDisabled = disabled|default(textInputDefaults.disabled) %}
 {% set textInputError = error|default(textInputDefaults.error) %}
+{% set textInputErrorMessage = errorMessage is defined ? errorMessage : textInputDefaults.errorMessage %}
 {% set textInputHtmlAttributes = htmlAttributes|default({}) %}
 {% set textInputClassName = textInputHtmlAttributes.class|default('') %}
 {% set textInputClass = 'mds-text-input__input' ~ (textInputClassName ? ' ' ~ textInputClassName : '')~ (error ? ' mds-text-input__input--error' : '')~ (disabled ? ' mds-text-input__input--disabled' : '') %}
@@ -26,8 +27,9 @@
 {% endif %}
 {% set textInputAttributeExclusions = ['aria-describedby', 'class', 'id', 'name', 'placeholder', 'required', 'type', 'value'] %}
 
-<div class="mds-text-input
-      ">
+<div
+  class="mds-text-input"
+>
   <div class="mds-text-input__label-group">
     <div class="mds-text-input__label-row">
       <label class="mds-text-input__label" for="{{ textInputId|e }}">
@@ -104,7 +106,7 @@
   >
   {% if textInputError %}
     <p class="mds-text-input__input--error-message">
-     {%
+      {%
         include 'icon.twig' with {
           name: 'info',
           size: 'XS',
@@ -112,7 +114,7 @@
         }
       %}
       <span class="mds-text-input__input--error-message-text">
-        Error message
+        {{ textInputErrorMessage | e }}
       </span>
     </p>
   {% endif %}
