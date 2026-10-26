@@ -89,6 +89,14 @@ const actionLinkControls = {
     table: {
       category: controlCategories.content
     }
+  },
+  target: {
+    control: {
+      type: 'select',
+      labels: { none: 'None' }
+    },
+    options: actionLinkOptions.target,
+    table: { category: controlCategories.html }
   }
 };
 
