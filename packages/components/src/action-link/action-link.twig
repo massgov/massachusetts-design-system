@@ -26,6 +26,9 @@
 <a
   class="{{ actionLinkClass|e }}"
   href="{{ actionLinkHref|e }}"
+  {% if actionLinkTarget == '_blank' %}
+    target="_blank"
+  {% endif %}
   {%
     include 'shared/html-attributes.twig' with {
       attributes: actionLinkHtmlAttributes,
@@ -47,7 +50,9 @@
     {% endif %}
 
     <span class="mds-action-link__text">{{ actionLinkText|e|replace({"\n": '<br>'})|raw }}</span>
-
+    {% if actionLinkTarget == '_blank' %}
+      <span class="mds-visually-hidden">, opens in a new window</span>
+    {% endif %}
     {% if actionLinkRightIcon %}
       <span class="mds-action-link__icon">
         {%
