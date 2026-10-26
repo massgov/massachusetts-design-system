@@ -18,10 +18,11 @@
 {% set actionLinkIconSize = actionLinkIconSizes[actionLinkSize] %}
 {% set actionLinkText = text|default(actionLinkDefaults.text) %}
 {% set actionLinkHref = href|default(actionLinkDefaults.href) %}
+{% set actionLinkTarget = target in actionLinkOptions.target ? target : actionLinkDefaults.target %}
 {% set actionLinkHtmlAttributes = htmlAttributes|default({}) %}
 {% set actionLinkClassName = actionLinkHtmlAttributes.class|default('') %}
 {% set actionLinkClass = 'mds-action-link mds-action-link--color-' ~ (actionLinkColor|lower) ~ ' mds-action-link--size-' ~ (actionLinkSize|lower) ~ (actionLinkClassName ? ' ' ~ actionLinkClassName : '') %}
-{% set actionLinkAttributeExclusions = ['class', 'href'] %}
+{% set actionLinkAttributeExclusions = ['class', 'href', 'target'] %}
 
 <a
   class="{{ actionLinkClass|e }}"
