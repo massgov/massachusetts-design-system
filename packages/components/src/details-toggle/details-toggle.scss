@@ -1,0 +1,63 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
+.mds-details-toggle {
+  @include mixins.box-sizing-reset;
+
+  width: 100%;
+  color: var(--mds-content-brand-neutral-default);
+
+  &__summary {
+    @include mixins.text("label");
+    @include mixins.focus;
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--mds-space-2xs);
+    padding-block-end: 2px;
+    border-block-end: 1.5px solid var(--mds-interactive-brand-primary-mid);
+    color: var(--mds-interactive-brand-primary-mid);
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::marker {
+      content: "";
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--mds-motion-duration-fastest) ease;
+  }
+
+  &[open] &__icon {
+    transform: rotate(180deg);
+  }
+
+  &__content {
+    @include mixins.text("body");
+
+    padding-block: var(--mds-space-xs);
+
+    > :first-child {
+      margin-block-start: 0;
+    }
+
+    > :last-child {
+      margin-block-end: 0;
+    }
+
+    a {
+      color: var(--mds-interactive-brand-primary-mid);
+      text-decoration: underline;
+    }
+  }
+}
