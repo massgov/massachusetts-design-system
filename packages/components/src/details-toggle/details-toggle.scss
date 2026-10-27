@@ -1,16 +1,11 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
 
-$details-toggle-transition-duration: 300ms;
-$details-toggle-transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
-$details-toggle-transition-open-easing: ease-in;
-$details-toggle-panel-offset: -8px;
-
-@mixin details-content-transition($easing) {
+@mixin details-content-transition {
   transition:
-    block-size $details-toggle-transition-duration $easing,
-    opacity $details-toggle-transition-duration $easing,
-    transform $details-toggle-transition-duration $easing,
-    content-visibility $details-toggle-transition-duration $easing allow-discrete;
+    block-size var(--mds-motion-duration-fast) var(--mds-motion-ease-curve-standard),
+    opacity var(--mds-motion-duration-fast) var(--mds-motion-ease-curve-standard),
+    transform var(--mds-motion-duration-fast) var(--mds-motion-ease-curve-standard),
+    content-visibility var(--mds-motion-duration-fast) var(--mds-motion-ease-curve-standard) allow-discrete;
 }
 
 .mds-details-toggle {
@@ -24,9 +19,9 @@ $details-toggle-panel-offset: -8px;
     block-size: 0;
     overflow: hidden;
     opacity: 0;
-    transform: translateY($details-toggle-panel-offset);
+    transform: translateY(calc(var(--mds-motion-distance-xs) * -1));
 
-    @include details-content-transition($details-toggle-transition-easing);
+    @include details-content-transition;
   }
 
   &[open]::details-content {
@@ -34,7 +29,7 @@ $details-toggle-panel-offset: -8px;
     opacity: 1;
     transform: translateY(0);
 
-    @include details-content-transition($details-toggle-transition-open-easing);
+    @include details-content-transition;
   }
 
   &__summary {
@@ -66,7 +61,7 @@ $details-toggle-panel-offset: -8px;
     flex: 0 0 16px;
     align-items: center;
     justify-content: center;
-    transition: transform var(--mds-motion-duration-fastest) ease;
+    transition: transform var(--mds-motion-duration-fastest) var(--mds-motion-ease-in-out);
   }
 
   @media (prefers-reduced-motion: reduce) {
