@@ -5,6 +5,7 @@ This repository contains the source code for Massachusetts Design System package
 - `packages/assets` for icons, animation files, and state seal assets published as `@massds/mds-assets`
 - `packages/tokens` for CSS design tokens published as `@massds/mds-tokens`
 - `packages/styles` for shared Sass and bundled utility CSS published as `@massds/mds-styles`
+- `packages/components` for static HTML, CSS, and Twig components packaged as `@massds/mds-components`
 
 Each package has its own README with package-specific development and publishing details.
 
@@ -50,8 +51,9 @@ Packages are released independently and published to npm through GitHub Actions.
 - `packages/assets` publishes through `.github/workflows/publish-assets.yml`
 - `packages/tokens` publishes through `.github/workflows/publish-tokens.yml`
 - `packages/styles` publishes through `.github/workflows/publish-styles.yml`
+- `packages/components` publishes through `.github/workflows/publish-components.yml`
 
-Recommended branch and tag strategy:
+Repo branch and tag strategy:
 - Use `main` as the only long-lived release branch.
 - Squash&merge feature work into `main` through pull requests with required checks.
 - Create release tags only from `main`.
@@ -66,11 +68,25 @@ Release flow:
 5. In the GitHub UI, create a package-specific release tag on the release commit that matches the package version and copy in the relevant release notes from `CHANGELOG.md`
 6. Creating the tag in GitHub triggers the publish workflow
 
+After a successful components publish from a matching release tag, the
+production Storybook workflow checks out that tag's commit and deploys it to
+`/version/<components-version>/`. It runs from `main` to meet the `prod`
+environment's branch policy, and validates that the tag points to the publish
+commit before requesting prod approval. Root Storybook deployments preserve
+these versioned snapshots. See the
+[Storybook release guide](storybook/README.md#release-and-versioned-deployments)
+for the full process.
+
+For components releases, follow the [components release steps](packages/components/README.md#subsequent-releases).
+The `changelog:release` command also aligns Storybook's Design System dependencies
+and refreshes the root lockfile before installing dependencies and building.
+
 Tag format:
 
 - Assets: `assets-v<version>`
 - Tokens: `tokens-v<version>`
 - Styles: `styles-v<version>`
+- Components: `components-v<version>`
 
 Release channels:
 
@@ -82,3 +98,4 @@ For package-specific release details, see:
 - [packages/assets/README.md](packages/assets/README.md)
 - [packages/tokens/README.md](packages/tokens/README.md)
 - [packages/styles/README.md](packages/styles/README.md)
+- [packages/components/README.md](packages/components/README.md)

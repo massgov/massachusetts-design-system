@@ -80,14 +80,14 @@ const siteHeaderControls = {
     control: 'text',
     description: 'Brand link destination.',
     table: {
-      category: controlCategories.html
+      category: controlCategories.content
     }
   },
   sealSrc: {
     control: 'text',
     description: 'Optional state seal image override. A 56px x 56px square logo is recommended.',
     table: {
-      category: controlCategories.html
+      category: controlCategories.content
     }
   },
   sealAlt: {

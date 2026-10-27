@@ -18,37 +18,52 @@
 {% set actionLinkIconSize = actionLinkIconSizes[actionLinkSize] %}
 {% set actionLinkText = text|default(actionLinkDefaults.text) %}
 {% set actionLinkHref = href|default(actionLinkDefaults.href) %}
-{% set actionLinkId = id|default(actionLinkDefaults.id) %}
-{% set actionLinkClass = 'mds-action-link mds-action-link--color-' ~ (actionLinkColor|lower) ~ ' mds-action-link--size-' ~ (actionLinkSize|lower) %}
+{% set actionLinkTarget = target in actionLinkOptions.target ? target : actionLinkDefaults.target %}
+{% set actionLinkHtmlAttributes = htmlAttributes|default({}) %}
+{% set actionLinkClassName = actionLinkHtmlAttributes.class|default('') %}
+{% set actionLinkClass = 'mds-action-link mds-action-link--color-' ~ (actionLinkColor|lower) ~ ' mds-action-link--size-' ~ (actionLinkSize|lower) ~ (actionLinkClassName ? ' ' ~ actionLinkClassName : '') %}
+{% set actionLinkAttributeExclusions = ['class', 'href', 'target'] %}
 
 <a
   class="{{ actionLinkClass|e }}"
-  href="{{ actionLinkHref|e }}"{% if actionLinkId %}
-  id="{{ actionLinkId|e }}"{% endif %}
-
+  href="{{ actionLinkHref|e }}"
+  {% if actionLinkTarget == '_blank' %}
+    target="_blank"
+  {% endif %}
+  {%
+    include 'shared/html-attributes.twig' with {
+      attributes: actionLinkHtmlAttributes,
+      exclude: actionLinkAttributeExclusions
+    }
+  %}
 >
   <span class="mds-action-link__label">
     {% if actionLinkLeftIcon %}
       <span class="mds-action-link__icon">
-        {% include 'icon.twig' with {
-          name: actionLinkLeftIcon,
-          weight: actionLinkIconWeight,
-          size: actionLinkIconSize
-        } %}
+        {%
+          include 'icon.twig' with {
+            name: actionLinkLeftIcon,
+            weight: actionLinkIconWeight,
+            size: actionLinkIconSize
+          }
+        %}
       </span>
     {% endif %}
 
     <span class="mds-action-link__text">{{ actionLinkText|e|replace({"\n": '<br>'})|raw }}</span>
-
+    {% if actionLinkTarget == '_blank' %}
+      <span class="mds-visually-hidden">, opens in a new window</span>
+    {% endif %}
     {% if actionLinkRightIcon %}
       <span class="mds-action-link__icon">
-        {% include 'icon.twig' with {
-          name: actionLinkRightIcon,
-          weight: actionLinkIconWeight,
-          size: actionLinkIconSize
-        } %}
+        {%
+          include 'icon.twig' with {
+            name: actionLinkRightIcon,
+            weight: actionLinkIconWeight,
+            size: actionLinkIconSize
+          }
+        %}
       </span>
-
     {% endif %}
   </span>
 </a>

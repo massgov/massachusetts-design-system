@@ -26,25 +26,30 @@ jobs:
           node-version: 24.14.0
           package-manager-cache: false
 
+      - name: Verify release tag matches package version
+        env:
+          RELEASE_REF: ${{ github.ref }}
+          RELEASE_REF_NAME: ${{ github.ref_name }}
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          EXPECTED_TAG="assets-v${PACKAGE_VERSION}"
+
+          if [[ "$RELEASE_REF" != refs/tags/* ]]; then
+            echo "Publishing must run from an assets release tag; branch refs are not supported." >&2
+            exit 1
+          fi
+
+          if [ "$RELEASE_REF_NAME" != "$EXPECTED_TAG" ]; then
+            echo "Tag $RELEASE_REF_NAME does not match package version $PACKAGE_VERSION." >&2
+            echo "Expected tag: $EXPECTED_TAG" >&2
+            exit 1
+          fi
+
       - name: Install dependencies
         run: npm ci
 
       - name: Build package
         run: npm run build
-
-      - name: Verify tag matches package version
-        if: startsWith(github.ref, 'refs/tags/')
-        env:
-          GITHUB_REF_NAME: ${{ github.ref_name }}
-        run: |
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          EXPECTED_TAG="assets-v${PACKAGE_VERSION}"
-
-          if [ "$GITHUB_REF_NAME" != "$EXPECTED_TAG" ]; then
-            echo "Tag $GITHUB_REF_NAME does not match package version $PACKAGE_VERSION."
-            echo "Expected tag: $EXPECTED_TAG"
-            exit 1
-          fi
 
       - name: Publish to npm
         run: |

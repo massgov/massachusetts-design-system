@@ -1,0 +1,80 @@
+name: Publish Components Package
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'components-v*'
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publish-components
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.14.0
+          package-manager-cache: false
+
+      - name: Resolve release version and verify tag
+        working-directory: packages/components
+        env:
+          RELEASE_REF: ${{ github.ref }}
+          RELEASE_REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          EXPECTED_TAG="components-v${PACKAGE_VERSION}"
+
+          if [[ "$RELEASE_REF" != refs/tags/* ]]; then
+            echo "Publishing must run from a components release tag; branch refs are not supported." >&2
+            exit 1
+          fi
+
+          if [ "$RELEASE_REF_NAME" != "$EXPECTED_TAG" ]; then
+            echo "Tag $RELEASE_REF_NAME does not match package version $PACKAGE_VERSION." >&2
+            echo "Expected tag: $EXPECTED_TAG" >&2
+            exit 1
+          fi
+
+      - name: Install npm with trusted publishing support
+        run: npm install --global npm@11.5.1
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build components and workspace dependencies
+        run: npm run build
+
+      - name: Lint components
+        run: npm run lint --workspace @massds/mds-components
+
+      - name: Inspect package contents
+        working-directory: packages/components
+        run: npm pack --dry-run
+
+      - name: Publish to npm
+        working-directory: packages/components
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+
+          case "$PACKAGE_VERSION" in
+            *-*)
+              npm publish --provenance --access public --tag beta
+              ;;
+            *)
+              npm publish --provenance --access public
+              ;;
+          esac

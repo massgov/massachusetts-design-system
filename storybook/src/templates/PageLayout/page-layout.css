@@ -1,0 +1,10 @@
+.mds-page-layout__main-container {
+  box-sizing: border-box;
+  width: min(100%, 1280px);
+  margin-inline: auto;
+  padding: var(--mds-space-2xl) var(--mds-breakpoint-horizontal-space-margin);
+  font-family: var(--mds-text-body-font-family);
+  font-size: var(--mds-text-body-font-size-lg);
+  font-weight: var(--mds-text-body-font-weight);
+  line-height: var(--mds-text-body-line-height-lg);
+}

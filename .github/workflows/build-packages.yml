@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - ".github/workflows/build-packages.yml"
-      - "components/**"
       - "packages/**"
       - "package-lock.json"
       - "package.json"
@@ -31,6 +30,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Test release preparation
+        run: npm run test:release
 
       - name: Build workspaces
         run: npm run build

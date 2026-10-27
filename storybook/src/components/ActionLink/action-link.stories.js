@@ -87,20 +87,16 @@ const actionLinkControls = {
     control: 'text',
     description: 'Link destination.',
     table: {
-      category: controlCategories.html
+      category: controlCategories.content
     }
   },
-  id: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
-  },
-  className: {
-    control: 'text',
-    table: {
-      category: controlCategories.html
-    }
+  target: {
+    control: {
+      type: 'select',
+      labels: { none: 'None' }
+    },
+    options: actionLinkOptions.target,
+    table: { category: controlCategories.html }
   }
 };
 
@@ -112,8 +108,6 @@ const defaultPlaygroundArgs = {
   leftIcon: actionLinkDefaults.leftIcon,
   rightIcon: actionLinkDefaults.rightIcon,
   href: actionLinkDefaults.href,
-  id: actionLinkDefaults.id,
-  className: actionLinkDefaults.className
 };
 
 const meta = {

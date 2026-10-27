@@ -9,7 +9,8 @@ export const actionLinkOptions = {
   color: schemaOptions.color,
   icon: schemaOptions.leftIcon,
   iconWeight: schemaOptions.iconWeight,
-  size: schemaOptions.size
+  size: schemaOptions.size,
+  target: schemaOptions.target
 };
 
 export const actionLinkIconSizes = {

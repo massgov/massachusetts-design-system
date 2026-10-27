@@ -1,12 +1,15 @@
 import { Meta, Source } from '@storybook/addon-docs/blocks';
-import assetsPackage from '@massds/mds-assets/package.json';
-import componentsPackage from '@massds/mds-components/package.json';
-import stylesPackage from '@massds/mds-styles/package.json';
-import tokensPackage from '@massds/mds-tokens/package.json';
+import storybookPackage from '../../package.json';
 
-export const tokenCdnUrl = `https://unpkg.com/@massds/mds-tokens@${tokensPackage.version}/dist/index.css`;
-export const stylesCdnUrl = `https://unpkg.com/@massds/mds-styles@${stylesPackage.version}/dist/css/index.min.css`;
-export const stateSealColorCdnUrl = `https://unpkg.com/@massds/mds-assets@${assetsPackage.version}/dist/state-seal/state-seal-color.svg`;
+export const assetsVersion = storybookPackage.dependencies['@massds/mds-assets'];
+export const componentsVersion = storybookPackage.dependencies['@massds/mds-components'];
+export const stylesVersion = storybookPackage.dependencies['@massds/mds-styles'];
+export const tokensVersion = storybookPackage.dependencies['@massds/mds-tokens'];
+export const packageInstallExample = `npm install --save-exact @massds/mds-tokens@${tokensVersion} @massds/mds-styles@${stylesVersion} @massds/mds-assets@${assetsVersion}`;
+export const componentsInstallExample = `npm install --save-exact @massds/mds-components@${componentsVersion} @massds/mds-tokens@${tokensVersion} @massds/mds-assets@${assetsVersion}`;
+export const tokenCdnUrl = `https://unpkg.com/@massds/mds-tokens@${tokensVersion}/dist/index.css`;
+export const stylesCdnUrl = `https://unpkg.com/@massds/mds-styles@${stylesVersion}/dist/css/index.min.css`;
+export const stateSealColorCdnUrl = `https://unpkg.com/@massds/mds-assets@${assetsVersion}/dist/state-seal/state-seal-color.svg`;
 export const cdnStylesheetExample = `<link rel="stylesheet" href="${tokenCdnUrl}">
 <link rel="stylesheet" href="${stylesCdnUrl}">`;
 export const cdnAssetExample = `<img src="${stateSealColorCdnUrl}" alt="Massachusetts State Seal">`;
@@ -15,33 +18,33 @@ export const cdnAssetExample = `<img src="${stateSealColorCdnUrl}" alt="Massachu
 
 # Getting started
 
-Use the Massachusetts Design System packages directly in your application.
-Start with semantic design tokens, then add utilities, assets, or components as
-your product needs them.
+We provide four npm packages—assets, tokens, styles, and components, to help state agencies implement consistent, accessible and maintainable user interfaces that match the Massachusetts Design System.
 
-## Choose the resources you need
+You are viewing documentation for `@massds/mds-components` **{componentsVersion}**. Each package is versioned independently, see the table below for the specific versions of assets, tokens, styles pinned for this components version.
+
+To view the documentation for a specific components version, navigate to:
+`/version/<components-version>`
+> For example, v{componentsVersion} can also be accessed at
+<code>{`designsystem.mass.gov/version/${componentsVersion}`}</code>.
+> [See all available versions](https://www.npmjs.com/package/@massds/mds-components?activeTab=versions).
 
 | Package | Version documented | What it provides | Design System dependencies |
 | --- | --- | --- | --- |
-| [`@massds/mds-assets`](https://www.npmjs.com/package/@massds/mds-assets) | {assetsPackage.version} | Icons, state seal assets, and animation files | None |
-| [`@massds/mds-tokens`](https://www.npmjs.com/package/@massds/mds-tokens) | {tokensPackage.version} | Semantic CSS custom properties for color, typography, spacing, radius, elevation, and other design decisions | None |
-| [`@massds/mds-styles`](https://www.npmjs.com/package/@massds/mds-styles) | {stylesPackage.version} | Bundled CSS utilities and public Sass mixins | `@massds/mds-tokens` |
-| [`@massds/mds-components`](https://github.com/massgov/massachusetts-design-system/tree/main/packages/components) | {componentsPackage.version} | Emerging Twig-authored components with static HTML, CSS, and Twig exports, documented in Storybook | `@massds/mds-tokens` and `@massds/mds-assets` |
+| [`@massds/mds-assets`](https://www.npmjs.com/package/@massds/mds-assets) | {assetsVersion} | Icons, state seal assets, and animation files | None |
+| [`@massds/mds-tokens`](https://www.npmjs.com/package/@massds/mds-tokens) | {tokensVersion} | Semantic CSS custom properties for color, typography, spacing, radius, elevation, and other design decisions | None |
+| [`@massds/mds-styles`](https://www.npmjs.com/package/@massds/mds-styles) | {stylesVersion} | Bundled CSS utilities and public Sass mixins | `@massds/mds-tokens` |
+| [`@massds/mds-components`](https://www.npmjs.com/package/@massds/mds-components) | {componentsVersion} | Emerging Twig-authored components with static HTML, CSS, and Twig exports, documented in Storybook | `@massds/mds-tokens` and `@massds/mds-assets` |
 
-The styles package does not bundle tokens. Load token CSS before utility or component CSS so their custom properties are available. The components package uses styles mixins while building its self-contained CSS, so consumers only need to install `@massds/mds-styles` when they also want its utilities or Sass API.
 
-> Package versions are read from the manifests used to build this Storybook.
-> Packages are released independently, and each package release is paired with a production Storybook deployment so the documentation identifies the package set it supports. 
-> The latest Storybook is hosted at the domain root.
+> The styles package does not bundle tokens. Load token CSS before utility or component CSS so their custom properties are available. The components package uses styles mixins while building its self-contained CSS, so consumers only need to install `@massds/mds-styles` when they also want its utilities or Sass API.
+
 
 ## Install from npm
 
 Install only the layers your application needs. For tokens, utility classes,
 Sass mixins, and static assets:
 
-```bash
-npm install @massds/mds-tokens @massds/mds-styles @massds/mds-assets
-```
+<Source language="bash" code={packageInstallExample} />
 
 Import tokens before styles from your application's CSS entrypoint:
 
@@ -74,9 +77,7 @@ of reaching into `dist/` directly.
 For a released component package version, install its runtime Design System
 dependencies with it:
 
-```bash
-npm install @massds/mds-components @massds/mds-tokens @massds/mds-assets
-```
+<Source language="bash" code={componentsInstallExample} />
 
 Component exports follow the same flat paths for each component:
 

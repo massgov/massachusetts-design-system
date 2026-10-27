@@ -138,36 +138,13 @@ async function runComponentBuild(componentName) {
   return context;
 }
 
-async function getComponentCssImports(componentNames) {
-  const imports = [];
-
-  for (const componentName of componentNames) {
-    const componentOutputDir = path.join(distRoot, componentName);
-    const entries = await fs.readdir(componentOutputDir, { withFileTypes: true });
-    const cssFiles = entries
-      .filter((entry) => entry.isFile() && path.extname(entry.name) === '.css')
-      .map((entry) => entry.name)
-      .sort();
-
-    imports.push(...cssFiles.map((fileName) => `@import './${componentName}/${fileName}';`));
-  }
-
-  return imports;
-}
-
-async function writePackageIndexes(componentNames) {
-  const cssImports = await getComponentCssImports(componentNames);
-
-  await writeFile(path.join(distRoot, 'index.css'), `${cssImports.join('\n')}\n`);
-}
-
 async function build() {
   await fs.rm(distRoot, { recursive: true, force: true });
 
   const componentNames = await getComponentNames();
 
   await Promise.all(componentNames.map(runComponentBuild));
-  await writePackageIndexes(componentNames);
+  await compileSass(path.join(srcRoot, 'index.scss'), path.join(distRoot, 'index.css'));
 }
 
 build().catch((error) => {

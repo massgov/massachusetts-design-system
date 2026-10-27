@@ -1,11 +1,9 @@
-# Massachusetts Design System Components Next
+# Massachusetts Design System Components
 
 Twig-authored static components for the Massachusetts Design System.
 
-This package is intentionally separate from the legacy root-level `components/`
-workspace, which is named `@massds/mds-components-legacy`. It is a fresh
-implementation path for components that can render static HTML, CSS, and
-Twig templates.
+The `@massds/mds-components` workspace lives in `packages/components/` and
+produces static HTML, CSS, and Twig templates.
 
 ## Scripts
 
@@ -14,6 +12,32 @@ npm run build --workspace @massds/mds-components
 ```
 
 The build writes distributable files into `dist/`.
+
+### Linting
+
+From the repository root:
+
+```bash
+npm run lint:components
+npm run lint:scss --workspace @massds/mds-components
+npm run lint:scss:fix --workspace @massds/mds-components
+npm run lint:twig --workspace @massds/mds-components
+npm run lint:twig:fix --workspace @massds/mds-components
+```
+
+SCSS uses Stylelint's recommended SCSS rules for basic syntax and common errors.
+Descending specificity checks are disabled for nested component selectors.
+Twig linting checks syntax and formatting for every `src/**/*.twig` template,
+including shared partials. Syntax checks use the same Twig.js dependency as the
+build and report errors with file paths. Formatting uses Prettier with
+[`@destination/prettier-plugin-twig`](https://github.com/wearedestination/prettier-plugin-twig),
+two-space indentation, LF line endings, and a 100-character target line width.
+Run `lint:twig:fix` to apply formatting. Syntax and formatting checks can also be
+run separately with `lint:twig:syntax` and `lint:twig:format`.
+These checks do not render templates or validate runtime data or include targets.
+
+The root `npm run lint` includes both checks. GitHub Actions runs them on component
+pull requests, pushes to `main`, and before publishing the components package.
 
 ## Public Imports
 
@@ -37,6 +61,12 @@ They are the supported public API and apply to every component:
 - Twig: `@massds/mds-components/<component>.twig`
 
 The aggregate component stylesheet is exported from `@massds/mds-components/index.css`.
+It is compiled from `src/index.scss` in one Sass compilation, so shared
+dependencies loaded with `@use` appear only once. Individual component CSS files
+are compiled separately and can bundle their own dependencies.
+
+When adding component styles, add their `@use` statement to `src/index.scss`
+so they are included in the aggregate stylesheet.
 
 When adding a new component, keep its distributable files in `dist/<component>/`. No package export change is needed as long as the component build writes the standard files:
 
@@ -162,3 +192,106 @@ example `@use "pkg:@massds/mds-styles/scss/mixins" as mixins;`.
 Use `@include mixins.text("<style-name>")` for component typography so compiled
 component CSS stays aligned with the typography utilities from
 `@massds/mds-styles`.
+
+## Changelogs
+
+Add a Markdown fragment under `changelog.d/` for changes to this package, using
+`changelog.d/changelog.template.md` as a starting point. CI checks for a fragment
+when component source, build scripts, or package metadata change.
+
+When preparing a release, compile the fragments from the repository root:
+
+```bash
+npm run changelog:release --workspace @massds/mds-components
+```
+
+The `prechangelog:release` hook first pins Storybook's assets, components, styles,
+and tokens dependencies to the exact versions in their workspace manifests and
+refreshes the root `package-lock.json`. If refreshing the lockfile fails, the
+Storybook manifest and lockfile are restored.
+
+The changelog command then uses the version in `package.json`, updates
+`CHANGELOG.md`, and removes the released fragments. Optional version and date
+arguments can be passed after `--`; update the package version before running
+the command so Storybook is aligned with the actual release version.
+
+To prepare only Storybook's dependency versions without compiling changelog
+fragments, run this from the repository root:
+
+```bash
+node scripts/prepare-storybook-release.mjs
+```
+
+## Publishing
+
+The package publishes through
+[`publish-components.yml`](../../.github/workflows/publish-components.yml).
+Pushing a `components-v<version>` tag triggers a release; the workflow rejects
+tags that do not match this package's version. Manual dispatch is also limited
+to the matching release tag; dispatches from branch refs fail before publishing.
+After a successful publish from a matching release tag, a follow-up workflow
+deploys the Storybook snapshot to `/version/<version>/` through the gated `prod`
+environment. The follow-up runs from `main` to satisfy the prod environment's
+branch policy, then checks out and verifies the release tag's commit before
+deployment.
+For the full Storybook snapshot and deployment process, see the
+[Storybook release guide](../../storybook/README.md#release-and-versioned-deployments).
+To retry a versioned deployment after a rejected or failed approval, or to
+backfill an older release, manually run the production deploy workflow from
+`main` and enter the exact components version.
+
+The workflow installs dependencies from the root lockfile, builds all package
+workspaces so local dependency exports are available, inspects the package with
+`npm pack --dry-run`, and publishes with provenance. Stable versions publish
+to `latest`; versions containing a prerelease suffix publish to `beta`.
+The initial `0.1.0-beta.0` version uses the `beta` dist-tag and release tag
+`components-v0.1.0-beta.0`.
+
+### Initial npm setup
+
+If the package does not yet exist on npm, an npm maintainer with publish access
+to the `@massds` scope must publish the first version before configuring its
+trusted publisher. From the repository root:
+
+```bash
+npm ci
+npm run build
+npm pack --dry-run --workspace @massds/mds-components
+npm login
+npm publish --workspace @massds/mds-components --access public --tag beta
+```
+
+The initial release is a prerelease, so the publish command uses `--tag beta`.
+The initial local publish does not generate GitHub Actions provenance.
+
+After the first publish, open the package's npm **Settings → Trusted publishing**
+and add a GitHub Actions publisher with:
+
+- Organization: `massgov`
+- Repository: `massachusetts-design-system`
+- Workflow filename: `publish-components.yml`
+- Environment: leave blank (this workflow does not use a GitHub environment)
+- Allowed actions: enable direct publishing with `npm publish`
+
+This workflow uses OIDC, so no npm publish token is required in GitHub secrets.
+It explicitly installs npm `11.5.1`, the minimum version supporting trusted
+publishing, while keeping the repository's Node version. See the
+[npm trusted publishing documentation](https://docs.npmjs.com/trusted-publishers/).
+New trusted-publisher configurations must complete a successful publish within
+two days; configure it when the next release is ready, or recreate it if it expires.
+
+### Subsequent releases
+
+1. Create `release/components-<version>` from `main`.
+2. Update the version in `packages/components/package.json` and any shared
+   dependency ranges that need to change for the release.
+3. Run `npm run changelog:release --workspace @massds/mds-components` to align
+   Storybook dependencies, refresh the root lockfile, and compile changelog fragments.
+4. Run `npm ci`, `npm run build`, and `npm run build:storybook`. Inspect the package
+   with `npm pack --dry-run --workspace @massds/mds-components`, then commit the
+   components and Storybook manifests, lockfile, and changelog changes.
+5. Merge the release PR into `main` and create `components-v<version>` on the release commit.
+6. The tag triggers GitHub Actions to publish the new version to npm.
+
+An already published version cannot be published again. After the initial local
+publish, bump the version before triggering the first CI release.

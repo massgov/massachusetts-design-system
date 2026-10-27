@@ -96,7 +96,9 @@ variables after applying each env:
   and prod run in their gated environments (manual dispatch, approval
   required).
 - `deploy-dev.yml`: builds Storybook and deploys it to **dev** on push to
-  `main`. Pull requests can also deploy approved branch previews under
+  `main`. Manual runs on `main` also deploy to the root; selecting another
+  branch deploys under `/branch/<branch-name>/`. Pull requests can also deploy
+  approved branch previews under
   `/branch/<branch-name>/` in the dev bucket; configure required reviewers on
   the `dev-preview` GitHub environment so these preview deploys pause for
   approval. The `main` sync preserves `branch/*` objects so approved previews
@@ -105,8 +107,14 @@ variables after applying each env:
   CloudFront.
 - `deploy-stage.yml`: builds Storybook and deploys it to **stage** — manual
   dispatch, runs in the gated `stage` environment.
-- `deploy-prod.yml`: builds Storybook and deploys it to **prod** — manual
-  dispatch, runs in the gated `prod` environment.
+- `deploy-prod.yml`: builds Storybook and deploys it to **prod** — components
+  releases publish a snapshot at `/version/<version>/`; manual dispatch deploys
+  the root site. Both run in the gated `prod` environment, and root syncs
+  preserve versioned snapshots.
+
+The static-site CloudFront function redirects bare `/version/<version>` URLs
+to their trailing-slash form. Apply the infrastructure change to prod before
+the first versioned Storybook release so the route resolves correctly.
 
 ## Notes
 

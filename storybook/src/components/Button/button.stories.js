@@ -3,8 +3,8 @@ import {
   buttonDefaults,
   buttonOptions
 } from '../../../../packages/components/src/button/button.data.js';
-import { controlCategories } from '../../utils/controlCategories.js';
 import { renderButton } from '../../utils/component-renderers.js';
+import { controlCategories } from '../../utils/controlCategories.js';
 
 // Storybook render functions return an HTML element.
 function createPreview(html, className = '') {
@@ -20,7 +20,10 @@ function createPreview(html, className = '') {
 }
 
 function renderPlayground(args) {
-  return createPreview(renderButton(args));
+  const previewClassName = args.color === 'White'
+    ? 'mds-padding-inline-xs mds-padding-block-xs mds-background-section-brand-primary-highest'
+    : '';
+  return createPreview(renderButton(args), previewClassName);
 }
 
 const iconSelectControl = {
