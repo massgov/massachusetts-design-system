@@ -96,7 +96,9 @@ variables after applying each env:
   and prod run in their gated environments (manual dispatch, approval
   required).
 - `deploy-dev.yml`: builds Storybook and deploys it to **dev** on push to
-  `main`. Pull requests can also deploy approved branch previews under
+  `main`. Manual runs on `main` also deploy to the root; selecting another
+  branch deploys under `/branch/<branch-name>/`. Pull requests can also deploy
+  approved branch previews under
   `/branch/<branch-name>/` in the dev bucket; configure required reviewers on
   the `dev-preview` GitHub environment so these preview deploys pause for
   approval. The `main` sync preserves `branch/*` objects so approved previews
