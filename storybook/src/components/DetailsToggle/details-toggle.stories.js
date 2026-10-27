@@ -27,7 +27,10 @@ const meta = {
   title: 'Components/Details Toggle',
   render: renderPlayground,
   argTypes: detailsToggleControls,
-  args: detailsToggleDefaults
+  args: detailsToggleDefaults,
+  parameters: {
+    layout: 'padded'
+  }
 };
 
 export default meta;

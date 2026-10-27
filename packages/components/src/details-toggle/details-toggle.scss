@@ -1,10 +1,41 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
 
+$details-toggle-transition-duration: 300ms;
+$details-toggle-transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
+$details-toggle-transition-open-easing: ease-in;
+$details-toggle-panel-offset: -8px;
+
+@mixin details-content-transition($easing) {
+  transition:
+    block-size $details-toggle-transition-duration $easing,
+    opacity $details-toggle-transition-duration $easing,
+    transform $details-toggle-transition-duration $easing,
+    content-visibility $details-toggle-transition-duration $easing allow-discrete;
+}
+
 .mds-details-toggle {
   @include mixins.box-sizing-reset;
 
+  interpolate-size: allow-keywords;
   width: 100%;
   color: var(--mds-content-brand-neutral-default);
+
+  &::details-content {
+    block-size: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY($details-toggle-panel-offset);
+
+    @include details-content-transition($details-toggle-transition-easing);
+  }
+
+  &[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+    transform: translateY(0);
+
+    @include details-content-transition($details-toggle-transition-open-easing);
+  }
 
   &__summary {
     @include mixins.text("label");
