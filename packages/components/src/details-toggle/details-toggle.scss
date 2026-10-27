@@ -69,6 +69,14 @@ $details-toggle-panel-offset: -8px;
     transition: transform var(--mds-motion-duration-fastest) ease;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    &::details-content,
+    &[open]::details-content,
+    &__icon {
+      transition: none;
+    }
+  }
+
   &[open] &__icon {
     transform: rotate(180deg);
   }
