@@ -1,0 +1,25 @@
+{#
+  Details toggle data:
+  - Native details and summary elements provide the disclosure interaction and keyboard support.
+  - content accepts trusted rich HTML so it can include links and formatted supporting information.
+#}
+{% set detailsToggleText = text|default(detailsToggleDefaults.text) %}
+{% set detailsToggleContent = content|default(detailsToggleDefaults.content) %}
+
+<details class="mds-details-toggle">
+  <summary class="mds-details-toggle__summary">
+    <span class="mds-details-toggle__text">{{ detailsToggleText | e }}</span>
+    <span class="mds-details-toggle__icon" aria-hidden="true">
+      {%
+        include 'icon.twig' with {
+          name: 'caret-down',
+          size: 'XS',
+          weight: 'Bold'
+        }
+      %}
+    </span>
+  </summary>
+  <div class="mds-details-toggle__content">
+    {{ detailsToggleContent | raw }}
+  </div>
+</details>

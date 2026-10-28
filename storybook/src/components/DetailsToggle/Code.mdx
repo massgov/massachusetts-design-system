@@ -1,0 +1,36 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import detailsToggleCss from '@massds/mds-components/details-toggle.css?raw';
+import { detailsToggleDefaults } from '../../../../packages/components/src/details-toggle/details-toggle.data.js';
+import { renderDetailsToggle } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as DetailsToggleStories from './details-toggle.stories.js';
+
+export const getDetailsToggleCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderDetailsToggle({
+      ...detailsToggleDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: detailsToggleCss
+  }
+];
+
+<Meta of={DetailsToggleStories} />
+
+# Details toggle
+
+<Canvas of={DetailsToggleStories.Playground} sourceState="none" />
+
+## API
+
+<Controls of={DetailsToggleStories.Playground} />
+
+## Code
+
+<StoryCodeTabs of={DetailsToggleStories.Playground} getTabs={getDetailsToggleCodeTabs} />

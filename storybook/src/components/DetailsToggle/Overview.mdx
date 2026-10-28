@@ -1,0 +1,47 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/details-toggle.css';
+import { detailsToggleDefaults } from '../../../../packages/components/src/details-toggle/details-toggle.data.js';
+import { renderDetailsToggle } from '../../utils/component-renderers.js';
+import * as DetailsToggleStories from './details-toggle.stories.js';
+
+export const DetailsToggleExample = ({ open = false, ...args }) => {
+  const markup = renderDetailsToggle({
+    ...detailsToggleDefaults,
+    ...args
+  });
+
+  return (
+    <div
+      className="sb-unstyled mds-docs-example-frame"
+      dangerouslySetInnerHTML={{
+        __html: open ? markup.replace('<details ', '<details open ') : markup
+      }}
+    />
+  );
+};
+
+<Meta of={DetailsToggleStories} />
+
+# Details toggle overview
+
+Details toggle lets people show or hide additional supporting information without adding unnecessary content to the page. Use it for optional explanations that help people understand or complete a task.
+
+Keep essential instructions visible without requiring people to expand the toggle.
+
+<DetailsToggleExample />
+
+---
+
+## Examples
+
+### Collapsed (default)
+
+<DetailsToggleExample text="How we protect your privacy" />
+
+### Expanded
+
+<DetailsToggleExample
+  open
+  text="How we protect your privacy"
+  content={'We ask about race and ethnicity in compliance with <a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleII/Chapter6A/Section109" target="_blank" rel="noopener">M.G.L. chapter 6A section 109</a>. We are committed to protecting your privacy and ensuring the confidentiality of any personally identifiable information you choose to share. We will ensure any information that is reported will be shared in a way that prevents identification of any individuals.'}
+/>
