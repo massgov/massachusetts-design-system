@@ -1,0 +1,36 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import semanticHeadingCss from '@massds/mds-components/semantic-heading.css?raw';
+import { semanticHeadingDefaults } from '../../../../packages/components/src/semantic-heading/semantic-heading.data.js';
+import { renderSemanticHeading } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as SemanticHeadingStories from './semantic-heading.stories.js';
+
+export const getSemanticHeadingCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderSemanticHeading({
+      ...semanticHeadingDefaults,
+      ...args
+    })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: semanticHeadingCss
+  }
+];
+
+<Meta of={SemanticHeadingStories} />
+
+# Semantic heading
+
+<Canvas of={SemanticHeadingStories.Playground} sourceState="none" />
+
+## API
+
+<Controls of={SemanticHeadingStories.Playground} />
+
+## Code
+
+<StoryCodeTabs of={SemanticHeadingStories.Playground} getTabs={getSemanticHeadingCodeTabs} />

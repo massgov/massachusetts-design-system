@@ -193,6 +193,7 @@ export const renderInlineLink = createComponentRenderer('inline-link', { iconSvg
 export const renderIconButton = createComponentRenderer('icon-button', { iconSvgMap });
 export const renderInlineMessage = createComponentRenderer('inline-message', { iconSvgMap });
 export const renderMenu = createComponentRenderer('menu', { iconSvgMap });
+export const renderSemanticHeading = createComponentRenderer('semantic-heading');
 export const renderFooter = createComponentRenderer('footer', { iconSvgMap });
 export const renderSiteHeader = createComponentRenderer('site-header');
 export const renderStateBanner = createComponentRenderer('state-banner', { iconSvgMap });
