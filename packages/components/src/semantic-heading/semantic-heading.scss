@@ -1,0 +1,52 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
+.mds-semantic-heading {
+  margin: 0;
+  padding-inline-end: var(--mds-space-xs);
+  color: var(--mds-content-brand-neutral-default);
+
+  &--level-h1 {
+    @include mixins.text("heading-2xl");
+
+    padding-block: var(--mds-space-sm);
+  }
+
+  &--level-h2 {
+    @include mixins.text("heading-lg");
+
+    padding-block: var(--mds-space-2xs) var(--mds-space-xs);
+  }
+
+  &--level-h3 {
+    @include mixins.text("heading-md");
+
+    padding-block: var(--mds-space-2xs);
+  }
+
+  &--level-h4 {
+    @include mixins.text("heading-sm");
+
+    padding-block: var(--mds-space-2xs);
+  }
+
+  &--level-h5 {
+    @include mixins.text("heading-xs");
+
+    padding-block: var(--mds-space-2xs);
+  }
+
+  &--level-h6 {
+    @include mixins.text("heading-2xs");
+
+    padding-block: var(--mds-space-2xs);
+  }
+
+  &--variant-massgov.mds-semantic-heading--level-h2::after {
+    display: block;
+    width: 60px;
+    height: 6px;
+    margin-block-start: var(--mds-space-xs);
+    background-color: var(--mds-border-brand-secondary-mid);
+    content: "";
+  }
+}

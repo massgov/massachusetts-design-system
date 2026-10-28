@@ -1,0 +1,107 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
+@mixin details-content-transition {
+  transition:
+    block-size var(--mds-motion-duration-fast) var(--mds-motion-ease-curve-standard),
+    opacity var(--mds-motion-duration-fast) var(--mds-motion-ease-curve-standard),
+    transform var(--mds-motion-duration-fast) var(--mds-motion-ease-curve-standard),
+    content-visibility var(--mds-motion-duration-fast) var(--mds-motion-ease-curve-standard) allow-discrete;
+}
+
+.mds-details-toggle {
+  @include mixins.box-sizing-reset;
+
+  interpolate-size: allow-keywords;
+  width: 100%;
+  color: var(--mds-content-brand-neutral-default);
+
+  &::details-content {
+    block-size: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(calc(var(--mds-motion-distance-xs) * -1));
+
+    @include details-content-transition;
+  }
+
+  &[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+    transform: translateY(0);
+
+    @include details-content-transition;
+  }
+
+  &__summary {
+    @include mixins.text("label");
+    @include mixins.focus;
+
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    gap: var(--mds-space-2xs);
+    padding-block-end: 2px;
+    color: var(--mds-interactive-brand-primary-mid);
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::marker {
+      content: "";
+    }
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 1.5px;
+      background-color: var(--mds-interactive-brand-primary-mid);
+      content: "";
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--mds-motion-duration-fastest) var(--mds-motion-ease-in-out);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::details-content,
+    &[open]::details-content,
+    &__icon {
+      transition: none;
+    }
+  }
+
+  &[open] &__icon {
+    transform: rotate(180deg);
+  }
+
+  &__content {
+    @include mixins.text("body");
+
+    padding-block: var(--mds-space-xs);
+
+    > :first-child {
+      margin-block-start: 0;
+    }
+
+    > :last-child {
+      margin-block-end: 0;
+    }
+
+    a {
+      color: var(--mds-interactive-brand-primary-mid);
+      text-decoration: underline;
+    }
+  }
+}

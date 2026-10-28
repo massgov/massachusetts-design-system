@@ -10,9 +10,10 @@ name: Deploy to AWS (dev)
 #   DEV_BUCKET            - site_bucket_id
 #   DEV_DISTRIBUTION_ID   - cloudfront_distro_id
 #
-# PR branch previews deploy through the `dev` environment to a
-# `/branch/<branch-name>` prefix in the dev bucket, isolated from the main
-# site. When a branch is deleted, its matching preview is removed.
+# PR branch previews and manual runs on non-main branches deploy through
+# the `dev` environment to a `/branch/<branch-name>` prefix in the dev bucket,
+# isolated from the main site. When a branch is deleted, its matching preview
+# is removed. Manual runs on main deploy to the root.
 
 on:
   push:
@@ -61,12 +62,13 @@ jobs:
         id: target
         env:
           EVENT_NAME: ${{ github.event_name }}
-          HEAD_REF: ${{ github.head_ref }}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          SOURCE_REF: ${{ github.ref }}
         run: |
           set -euo pipefail
 
-          if [ "$EVENT_NAME" = "pull_request" ]; then
-            branch_path="$(printf '%s' "$HEAD_REF" | sed -E 's|^refs/heads/||; s|[^A-Za-z0-9._/-]+|-|g; s|^/+||; s|/+$||')"
+          if [ "$EVENT_NAME" = "pull_request" ] || { [ "$EVENT_NAME" = "workflow_dispatch" ] && [ "$SOURCE_REF" != "refs/heads/main" ]; }; then
+            branch_path="$(printf '%s' "$BRANCH_NAME" | sed -E 's|^refs/heads/||; s|[^A-Za-z0-9._/-]+|-|g; s|^/+||; s|/+$||')"
 
             if [ -z "$branch_path" ]; then
               echo "Could not determine a branch preview path." >&2
@@ -133,11 +135,14 @@ jobs:
           aws-region: us-east-1
 
       - name: Sync branch preview to S3
-        if: github.event_name == 'pull_request'
-        run: aws s3 sync storybook/storybook-static/ "s3://${{ vars.DEV_BUCKET }}/${{ needs.build.outputs.s3_prefix }}" --delete
+        if: needs.build.outputs.s3_prefix != ''
+        env:
+          DEV_BUCKET: ${{ vars.DEV_BUCKET }}
+          S3_PREFIX: ${{ needs.build.outputs.s3_prefix }}
+        run: aws s3 sync storybook/storybook-static/ "s3://${DEV_BUCKET}/${S3_PREFIX}/" --delete
 
       - name: Sync main site to S3
-        if: github.event_name != 'pull_request'
+        if: needs.build.outputs.s3_prefix == ''
         run: aws s3 sync storybook/storybook-static/ "s3://${{ vars.DEV_BUCKET }}" --delete --exclude "branch/*"
 
       - name: Invalidate CloudFront

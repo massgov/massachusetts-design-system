@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/semantic-heading.css';
+import { semanticHeadingDefaults } from '../../../../packages/components/src/semantic-heading/semantic-heading.data.js';
+import { renderSemanticHeading } from '../../utils/component-renderers.js';
+import * as SemanticHeadingStories from './semantic-heading.stories.js';
+
+export const SemanticHeadingExample = (args) => (
+  <div
+    className="sb-unstyled mds-docs-example-frame"
+    dangerouslySetInnerHTML={{
+      __html: renderSemanticHeading({
+        ...semanticHeadingDefaults,
+        ...args
+      })
+    }}
+  />
+);
+
+<Meta of={SemanticHeadingStories} />
+
+# Semantic heading overview
+
+Semantic headings organize content into sections and help people understand the structure of a page. They make content easier to scan and allow people using assistive technology to navigate between sections.
+
+You can change a heading's font size or weight to fit your design, but these changes should be applied consistently across the UI to maintain a clear visual hierarchy.
+
+---
+
+## Variants
+
+### Mass.gov
+
+The `Mass.gov` variant uses the Mass.gov heading treatment, including a decorative underline for H2 headings. It provides an additional visual distinction between sections.
+
+<SemanticHeadingExample level="H1" text="H1 Heading text" />
+<SemanticHeadingExample level="H2" text="H2 Heading text" />
+<SemanticHeadingExample level="H3" text="H3 Heading text" />
+<SemanticHeadingExample level="H4" text="H4 Heading text" />
+<SemanticHeadingExample level="H5" text="H5 Heading text" />
+<SemanticHeadingExample level="H6" text="H6 Heading text" />
+
+---
+
+### Plain
+
+The `Plain` variant uses heading typography without the Mass.gov decorative treatment. It provides a simpler visual presentation while preserving the same semantic heading structure. A common use case for the `Plain` styling is complex forms.
+
+<SemanticHeadingExample variant="Plain" level="H1" text="H1 Heading text" />
+<SemanticHeadingExample variant="Plain" level="H2" text="H2 Heading text" />
+<SemanticHeadingExample variant="Plain" level="H3" text="H3 Heading text" />
+<SemanticHeadingExample variant="Plain" level="H4" text="H4 Heading text" />
+<SemanticHeadingExample variant="Plain" level="H5" text="H5 Heading text" />
+<SemanticHeadingExample variant="Plain" level="H6" text="H6 Heading text" />
