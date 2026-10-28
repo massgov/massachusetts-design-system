@@ -77,8 +77,17 @@ npm --prefix packages/assets run sync:figma-icons -- --manifest packages/assets/
 npm --prefix packages/assets run sync:figma-icons -- --manifest packages/assets/src/icons/scripts/figma-unsynced-manifest.json --remove-repo-only packages/assets/src/icons/scripts/icon-name-inventory.json
 ```
 
-7. Validate the sync:
+7. Refresh the component icon-name list from the synced asset filenames so additions, renames, and removals are reflected in component schemas:
+
+```bash
+npm --prefix packages/components run sync:icon-names
+```
+
+   - This regenerates `packages/components/src/icon/icon.names.js` using the existing icon registry helpers.
+
+8. Validate the sync:
    - check file counts in both directories
+   - confirm `packages/components/src/icon/icon.names.js` matches the synced asset names
    - inspect `git status`
    - spot-check a few exported SVGs, including confirming redundant full-viewBox clip wrappers were removed
 
@@ -90,6 +99,8 @@ npm --prefix packages/assets run sync:figma-icons -- --manifest packages/assets/
   `packages/assets/src/icons/scripts/prepIcons.js`
 - Generate inventory snapshots:
   `packages/assets/src/icons/scripts/icon-name-inventory.js`
+- Refresh component icon names:
+  `packages/components/scripts/sync-icon-names.js`
 
 ## Rules
 
