@@ -37,10 +37,10 @@
     @include mixins.focus;
 
     display: inline-flex;
+    position: relative;
     align-items: center;
     gap: var(--mds-space-2xs);
     padding-block-end: 2px;
-    border-block-end: 1.5px solid var(--mds-interactive-brand-primary-mid);
     color: var(--mds-interactive-brand-primary-mid);
     cursor: pointer;
     list-style: none;
@@ -50,6 +50,16 @@
     }
 
     &::marker {
+      content: "";
+    }
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 1.5px;
+      background-color: var(--mds-interactive-brand-primary-mid);
       content: "";
     }
   }
