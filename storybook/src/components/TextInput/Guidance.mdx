@@ -5,25 +5,70 @@ import * as TextInputStories from './text-input.stories.js';
 
 # Text input guidance
 
-Use a text input when people need to enter a short, single-line response such as a name, email address, or identification number.
+---
 
-## Content best practices
+## Content
 
-- Use a short, specific label that describes the information to enter.
-- Put instructions or formatting requirements in help text so they remain visible while a person types.
-- Use placeholder text only for a brief example. Do not use it as a replacement for the label or essential instructions.
-- Keep expandable details concise and include them only when some people need additional context.
+### Best practices
 
-## Usage
+#### Do
 
-- Use a more specific input type, such as `email`, `tel`, or `search`, when the expected value requires it. This component renders `type="text"` by default.
-- Give every text input a unique `id` and a meaningful `name` when it is submitted with a form.
-- Mark a field as required only when the form cannot be completed without it.
-- Do not use a text input for long responses; use a textarea instead.
+- Write a visible label that clearly describes the information people need to enter.
+- Keep labels concise and specific to the information being requested.
+- Use help text when people need additional context or instructions to complete the field.
+- Write error messages that identify the problem and help people understand what needs to be corrected.
+- Explain what the required field indicator means when a form contains required fields.
+- Use placeholder text to show a brief example or expected format (for example, if the input label is “City,” the placeholder text could read “ex. Boston”).
+
+#### Don’t
+
+- Repeat information from the group label or help text in individual option labels.
+- Add descriptions to every option when the labels provide enough information on their own.
+- Put information in an option description that people need to understand the entire group.
+
+---
+
+## Design
+
+### When to use
+
+- When people need to enter or edit a single line of text.
+- When the field does not need an adjoining interactive control.
+
+### When not to use
+
+- For long, multi-line responses.
+- When the field needs an adjoining interactive control (for example, password entry).
+
+### Responsive behavior
+
+The input field should adjust to fit its container or layout grid while remaining easy to see and tap. If the text is longer than the visible space, users should be able to scroll horizontally to view it.
+
+---
 
 ## Accessibility
 
-- The visible label is programmatically associated with the input through matching `for` and `id` values.
-- Help text is associated with the input through `aria-describedby`.
-- The required indicator is hidden from assistive technology because the native `required` attribute communicates the field state.
-- The details toggle uses native `details` and `summary` elements, so it remains keyboard operable without JavaScript.
+### Mouse control
+
+- Clicking inside the text field positions the text cursor; clicking an attached input button activates its specific action or opens its menu.
+- Clicking the label should also place focus inside the text input.
+- When clicking the text input, the focus outline should become visible.
+
+### Touch control
+
+- Text fields must provide a minimum tap target of at least 44 by 44 pixels on touchscreens.
+
+### Keyboard control
+
+- Pressing <kbd>Tab</kbd> moves focus logically through every interactive element.
+
+### Assistive technology
+
+- Always associate a persistent, visible `<label>` element with the input using matching `for` and `id` attributes.
+- Connect help text and inline error messages directly to the input using `aria-describedby="[id]"`.
+
+---
+
+## Related components
+
+[Details toggle](?path=/docs/components-details-toggle--overview) — use for additional help text that does not need to be persistently visible.

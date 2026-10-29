@@ -21,60 +21,75 @@ export const TextInputExample = ({ style = {}, ...args }) => (
 
 # Text input overview
 
-Text inputs let people enter a short, single-line response.
+A form element that allows users to enter short text based information.
+
+<TextInputExample label="Text input label" />
 
 ---
 
-## Variants
+## Examples
 
 ### Required
 
-Use the required indicator and native `required` attribute when people must complete the field before continuing.
+Use when an input text field is required to be filled out.
 
-<TextInputExample id="text-input-required" required helpText="Help text goes here" />
+<TextInputExample id="text-input-required" label="First name" required />
 
-### Optional
+### Not required
 
-Optional fields do not display the required indicator.
+Use when an input text field is not required to be filled out.
 
-<TextInputExample id="text-input-optional" helpText="Help text goes here" />
+<TextInputExample id="text-input-not-required" label="Middle name" />
 
-### Label only
+### With helper text
 
-Help text can be omitted when the label gives people enough information to provide the expected value.
+Use helper text to add clarity or example information where a label may not be able to provide enough detail.
 
-<TextInputExample id="text-input-label-only" />
-
-### With details toggle
-
-Use the details toggle for concise supporting information that some people may need before entering a value.
-
-<div className="mds-docs-example-stack mds-gap-md">
-  <TextInputExample
-    id="text-input-details-closed"
-    required
-    helpText="Help text goes here"
-    detailsLabel="Descriptive text label"
-    detailsContent="<p>Update your supporting content here, be sure to use plain language and keep it concise.</p>"
-  />
-  <TextInputExample
-    id="text-input-details-open"
-    required
-    helpText="Help text goes here"
-    detailsLabel="Descriptive text label"
-    detailsContent="<p>Update your supporting content here, be sure to use plain language and keep it concise. If you need more than a short paragraph or list consider using an accordion or separate page. Supports rich text.</p>"
-    detailsOpen
-  />
-</div>
-
-### Active
-
-The input uses the default text color after a person enters a value.
-
-<TextInputExample id="text-input-active" helpText="Help text goes here" value="Example input" />
+<TextInputExample
+  id="text-input-helper-text"
+  label="Phone"
+  helpText="Format: 555-555-5555"
+  type="tel"
+/>
 
 ### With placeholder text
 
-Placeholder text can provide a short example of the expected format. It must not replace a visible label or essential instructions.
+Use to provide direction to the user about an input field. For example, a city field may use an example city name within the input field as placeholder text.
 
-<TextInputExample id="text-input-placeholder" helpText="Help text goes here" placeholder="Placeholder text" />
+<TextInputExample id="text-input-placeholder" label="City" />
+
+### With details toggle
+
+Use this when more information about the input field or why information is being collected is necessary. Use this instead of an information icon with a tooltip as this is an accessible option for all users.
+
+<TextInputExample
+  id="text-input-details"
+  label="Household income (before taxes)"
+  required
+  helpText="Include income from all sources in your household, such as wages, self-employment, or benefits. Enter the total monthly amount before taxes."
+  detailsText="How we protect your privacy"
+  detailsContent="<p>We use household income to confirm eligibility for state benefit programs. Your information is kept private and is only used to determine your qualification.</p><p>If your income changes after you apply, you can update it through your account or by contacting your local office.</p>"
+  style={{ inlineSize: '501px' }}
+/>
+
+---
+
+## States
+
+### Error
+
+Use the error state when needed for form validation states.
+
+<TextInputExample
+  id="text-input-error"
+  label="Input text label"
+  required
+  error
+  errorMessage="Error message"
+/>
+
+### Disabled
+
+Use the disabled state when the field is visible but unavailable for interaction.
+
+<TextInputExample id="text-input-disabled" label="Input text label" required disabled />
