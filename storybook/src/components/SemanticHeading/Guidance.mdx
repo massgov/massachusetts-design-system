@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as SemanticHeadingStories from './semantic-heading.stories.js';
+
+<Meta of={SemanticHeadingStories} />
+
+# Semantic heading guidance
+
+---
+
+## Content
+
+### Best practices
+
+#### Do
+
+- Use semantic headings to organize content into clear sections that people can scan and navigate.
+- Write short, descriptive headings that communicate what each section contains.
+- Use semantic heading levels in a logical order to show the relationship between sections and subsections.
+- Use the same heading level for sections that have equal importance in the content hierarchy.
+- Keep semantic heading text consistent with the content that follows it.
+
+#### Don't
+
+- Choose a semantic heading level based only on its font size or appearance.
+- Skip semantic heading levels to achieve a particular visual style.
+- Use semantic headings to emphasize text that does not introduce a section.
+- Use vague headings that require people to read the following content to understand the section.
+
+---
+
+## Design
+
+### Best practices
+
+- Use semantic headings to give pages and sections a clear structure. Headings help people understand how content is organized and find information without reading the entire page.
+- Use H1 for the main page heading. Use H2 for major sections, then H3 through H6 for progressively nested subsections.
+- Choose `Mass.gov` when headings need to follow the Mass.gov visual style. Choose `Plain` when headings need a simpler appearance without the Mass.gov decorative treatment.
+- Keep heading levels consistent across pages that share the same content structure.
+
+---
+
+## Accessibility
+
+### Keyboard control
+
+- People who use keyboard navigation with assistive technology can move between headings to find sections of a page without reading all the content.
+
+### Assistive technology
+
+- People who use screen readers can navigate by heading level and review a list of headings to understand the page structure.
+- Use heading levels that accurately represent the relationship between sections. A heading's visual style must not change its semantic level.
+- Use one H1 to identify the main content of the page. Organize the remaining headings in a logical hierarchy so people can understand which sections belong together.
+- Do not use heading elements for text that does not function as a heading. Screen readers identify these elements as part of the page's navigation structure.
