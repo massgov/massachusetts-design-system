@@ -1,0 +1,67 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as DetailsToggleStories from './details-toggle.stories.js';
+
+<Meta of={DetailsToggleStories} />
+
+# Details toggle guidance
+
+---
+
+## Content
+
+### Best practices
+
+#### Do
+
+- Write descriptive text labels that tell people what information they can reveal.
+- Keep supporting content concise and focused on the task.
+- Use plain language to explain unfamiliar terms or provide additional context.
+- Keep instructions and information required to complete a task visible without expanding the toggle.
+
+#### Don't
+
+- Use vague labels that do not describe the supporting information.
+- Repeat information already provided in visible labels or helper text.
+- Hide required instructions, warnings, or other critical information inside the toggle.
+- Include actions the user may need to take within the supporting content.
+
+---
+
+## Design
+
+### When to use
+
+- When people may benefit from supporting explanations, definitions, or legal requirements that do not need to be persistently visible.
+- To reduce cognitive load for information display.
+
+### When not to use
+
+- For information people must read to complete a task.
+- To hide required field instructions or validation messages.
+- For long sections of content that would be clearer on a separate page or would be better suited to an accordion.
+
+---
+
+## Accessibility
+
+### Mouse control
+
+- People can click the details toggle text label to expand or collapse the supporting content.
+- The pointer changes to indicate that the toggle is interactive.
+
+### Touch control
+
+- The toggle provides a minimum touch target of 44 by 44 pixels.
+- The touch target includes the visible label and any padding needed to meet the minimum size.
+
+### Keyboard control
+
+- People can move focus to the toggle using Tab.
+- People can expand or collapse the supporting content using Enter or Space.
+- When expanded, focus remains on the toggle so people can continue navigating to the revealed content.
+
+### Assistive technology
+
+- Screen readers announce the toggle label and whether the supporting content is expanded or collapsed.
+- People can expand or collapse the supporting content using assistive technology.
+- The expanded content follows the toggle in reading order.
