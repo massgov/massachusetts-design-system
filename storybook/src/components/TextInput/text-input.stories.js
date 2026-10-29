@@ -28,7 +28,7 @@ const textInputControls = {
   },
   type: {
     control: 'select',
-    options: ['text', 'email', 'password', 'tel', 'url'],
+    options: ['text', 'email', 'number', 'password', 'search', 'tel', 'url'],
     table: { category: controlCategories.design }
   },
   error: {
@@ -47,7 +47,7 @@ const textInputControls = {
     control: 'text',
     table: { category: controlCategories.content }
   },
-  detailsLabel: {
+  detailsText: {
     control: 'text',
     table: { category: controlCategories.content }
   },
@@ -55,10 +55,6 @@ const textInputControls = {
     control: 'text',
     description: 'Supports rich text.',
     table: { category: controlCategories.content }
-  },
-  detailsOpen: {
-    control: 'boolean',
-    table: { category: controlCategories.design }
   }
 };
 

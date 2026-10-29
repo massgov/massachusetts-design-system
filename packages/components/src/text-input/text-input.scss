@@ -1,4 +1,6 @@
 @use "pkg:@massds/mds-styles/scss" as mixins;
+// Bundle styles for the components rendered by text-input.twig.
+@use "../details-toggle/details-toggle";
 
 .mds-text-input {
   @include mixins.box-sizing-reset;
@@ -76,10 +78,6 @@
 
         @include mixins.text("caption");
 
-        &-text {
-          vertical-align: top;
-        }
-
         .mds-icon {
           width: 16px;
           height: 16px;
@@ -88,56 +86,5 @@
         }
       }
     }
-  }
-
-  &--required {
-    &::after {
-      content: "*";
-      color: var(--mds-content-utility-danger-mid);
-      margin-left: var(--mds-space-3xs);
-    }
-  }
-
-  &__details {
-    width: 100%;
-
-    &:not([open]) { padding-block-end: var(--mds-space-2xs); }
-  }
-
-  &__details-summary {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--mds-space-2xs);
-    padding-block-end: 2px;
-    border-block-end: 1.5px solid currentColor;
-    color: var(--mds-interactive-brand-primary-mid);
-    cursor: pointer;
-    list-style: none;
-    @include mixins.text("label");
-    @include mixins.focus;
-
-    &::-webkit-details-marker { display: none; }
-    &::marker { content: ""; }
-    &:hover { color: var(--mds-interactive-brand-primary-high); }
-    &:active { color: var(--mds-interactive-brand-primary-highest); }
-  }
-
-  &__details-icon {
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-
-    &--open { display: none; }
-  }
-
-  &__details[open] &__details-icon--closed { display: none; }
-  &__details[open] &__details-icon--open { display: inline-flex; }
-
-  &__details-content {
-    padding-block: var(--mds-space-xs);
-    @include mixins.text("body");
-
-    > :first-child { margin-block-start: 0; }
-    > :last-child { margin-block-end: 0; }
   }
 }
