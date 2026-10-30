@@ -73,8 +73,8 @@
     {% if textInputRequired %}
       required
     {% endif %}
-    {% if textInputDescribedBy %}
-      aria-describedby="{{ textInputDescribedBy|e }}"
+    {% if textInputDescribedBy or textInputError %}
+       aria-describedby="{{ (textInputDescribedBy ~ (textInputError ? ' ' ~ textInputErrorId : ''))|trim|e }}"
     {% endif %}
     {%
       include 'shared/html-attributes.twig' with {
