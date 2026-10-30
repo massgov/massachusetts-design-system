@@ -4,6 +4,43 @@ import remarkGfm from 'remark-gfm';
 const storybookBasePath = process.env.STORYBOOK_BASE_PATH || '/';
 const gaMeasurementId = process.env.STORYBOOK_GA_MEASUREMENT_ID;
 const hasValidGaMeasurementId = /^G-[A-Z0-9]+$/.test(gaMeasurementId || '');
+const gtmContainerId = process.env.STORYBOOK_GTM_CONTAINER_ID;
+const gtmAuth = process.env.STORYBOOK_GTM_AUTH;
+const gtmPreview = process.env.STORYBOOK_GTM_PREVIEW;
+
+if (gtmContainerId && !/^GTM-[A-Z0-9]+$/.test(gtmContainerId)) {
+  throw new Error('STORYBOOK_GTM_CONTAINER_ID must be a GTM-... container ID.');
+}
+
+if (Boolean(gtmAuth) !== Boolean(gtmPreview) || (gtmPreview && !/^env-\d+$/.test(gtmPreview))) {
+  throw new Error('Set both STORYBOOK_GTM_AUTH and STORYBOOK_GTM_PREVIEW from the GTM environment snippet.');
+}
+
+if (gtmAuth && !gtmContainerId) {
+  throw new Error('GTM environment settings require STORYBOOK_GTM_CONTAINER_ID.');
+}
+
+const gtmScriptUrl = new URL('https://www.googletagmanager.com/gtm.js');
+gtmScriptUrl.searchParams.set('id', gtmContainerId || '');
+
+if (gtmAuth && gtmPreview) {
+  gtmScriptUrl.searchParams.set('gtm_auth', gtmAuth);
+  gtmScriptUrl.searchParams.set('gtm_preview', gtmPreview);
+  gtmScriptUrl.searchParams.set('gtm_cookies_win', 'x');
+}
+
+const googleTagManagerTag = gtmContainerId
+  ? `
+    <script>
+      window.__MASSDS_GTM_ENABLED__ = true;
+      (function(w,d,s,l){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s);j.async=true;j.src=${JSON.stringify(gtmScriptUrl.toString())};
+      f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer');
+    </script>
+  `
+  : '';
 
 const googleAnalyticsTag = hasValidGaMeasurementId
   ? `
@@ -66,7 +103,7 @@ const config = {
   features: {
     sidebarOnboardingChecklist: false
   },
-  managerHead: (head) => `${head}${storybookBasePathScript}${googleAnalyticsTag}`,
+  managerHead: (head) => `${head}${storybookBasePathScript}${googleTagManagerTag || googleAnalyticsTag}`,
   viteFinal: async (config) => mergeConfig(config, {
     base: storybookBasePath,
     build: {

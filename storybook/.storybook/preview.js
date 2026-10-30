@@ -9,6 +9,8 @@ import { renderFooter, renderInlineMessage } from '../src/utils/component-render
 import './docs-markdown.css';
 import './preview.css';
 import { massdsDocsTheme, massdsSiteName } from './theme';
+import { trackAnalyticsEvent } from './analytics';
+
 
 // Keep placeholder links inert in stories and docs, including nested link content.
 function preventPlaceholderNavigation(event) {
@@ -143,9 +145,7 @@ function trackSnippetCopy(event) {
   }
 
   try {
-    if (typeof window.parent.gtag === 'function') {
-      window.parent.gtag('event', 'storybook_code_copy', details);
-    }
+    trackAnalyticsEvent('storybook_code_copy', details, window.parent);
   } catch {
     // The parent window may be unavailable when the preview is embedded cross-origin.
   }
