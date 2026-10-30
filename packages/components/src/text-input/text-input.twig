@@ -64,7 +64,7 @@
     {% if textInputName %}
       name="{{ textInputName|e }}"
     {% endif %}
-    {% if textInputValue %}
+    {% if textInputValue is not null %}
       value="{{ textInputValue|e }}"
     {% endif %}
     {% if textInputPlaceholder %}
