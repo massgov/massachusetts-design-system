@@ -15,7 +15,7 @@ name: Deploy to AWS (prod)
 # Requires (prod environment): DEPLOY_ROLE_ARN (managed in github-iac),
 # PROD_BUCKET and PROD_DISTRIBUTION_ID (set from `terraform output` of
 # infra/env/prod after it is applied).
-# Optional: GTM_CONTAINER_ID enables GTM instead of the direct GA_MEASUREMENT_ID tag.
+# Optional: GTM_CONTAINER_ID enables analytics through GTM.
 
 on:
   workflow_dispatch:
@@ -174,7 +174,6 @@ jobs:
 
       - name: Build site
         env:
-          STORYBOOK_GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
           STORYBOOK_BASE_PATH: ${{ steps.target.outputs.storybook_base_path }}
           STORYBOOK_GTM_CONTAINER_ID: ${{ vars.GTM_CONTAINER_ID }}
         run: npm run build:storybook

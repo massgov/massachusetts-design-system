@@ -2,8 +2,6 @@ import { mergeConfig } from 'vite';
 import remarkGfm from 'remark-gfm';
 
 const storybookBasePath = process.env.STORYBOOK_BASE_PATH || '/';
-const gaMeasurementId = process.env.STORYBOOK_GA_MEASUREMENT_ID;
-const hasValidGaMeasurementId = /^G-[A-Z0-9]+$/.test(gaMeasurementId || '');
 const gtmContainerId = process.env.STORYBOOK_GTM_CONTAINER_ID;
 const gtmAuth = process.env.STORYBOOK_GTM_AUTH;
 const gtmPreview = process.env.STORYBOOK_GTM_PREVIEW;
@@ -42,18 +40,6 @@ const googleTagManagerTag = gtmContainerId
   `
   : '';
 
-const googleAnalyticsTag = hasValidGaMeasurementId
-  ? `
-    <script async src="https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gaMeasurementId)}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){window.dataLayer.push(arguments);}
-      window.gtag = window.gtag || gtag;
-      window.gtag('js', new Date());
-      window.gtag('config', ${JSON.stringify(gaMeasurementId)}, { send_page_view: false });
-    </script>
-  `
-  : '';
 const storybookBasePathScript = `
   <script>
     window.__MASSDS_STORYBOOK_BASE_PATH__ = ${JSON.stringify(storybookBasePath)};
@@ -103,7 +89,7 @@ const config = {
   features: {
     sidebarOnboardingChecklist: false
   },
-  managerHead: (head) => `${head}${storybookBasePathScript}${googleTagManagerTag || googleAnalyticsTag}`,
+  managerHead: (head) => `${head}${storybookBasePathScript}${googleTagManagerTag}`,
   viteFinal: async (config) => mergeConfig(config, {
     base: storybookBasePath,
     build: {

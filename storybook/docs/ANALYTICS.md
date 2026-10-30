@@ -32,13 +32,30 @@ determine which container version loads. Without the optional Staging
 snippet values, both sites load the published Live container version;
 hostname routing still keeps their GA4 data separate.
 
-The loader is injected once into Storybook's manager. Docs in the preview
-iframe send events to the manager's data layer. GTM mode replaces the
-direct GA4 loader and `gtag()` event calls with `dataLayer.push()` events.
-GTM processes events queued before its asynchronous loader completes.
+The GTM loader is injected once into Storybook's manager. Docs in the
+preview iframe send events to the manager's data layer. GTM owns all GA4
+tags, destinations, and event delivery. Storybook supplies these
+`dataLayer.push()` events for the GTM Custom Event triggers:
 
-When `GTM_CONTAINER_ID` is unset, the existing direct GA4 setup still uses
-`GA_MEASUREMENT_ID` from the corresponding GitHub environment. This allows
-stage to migrate before production. When GTM is configured, it owns GA4
-configuration; `GA_MEASUREMENT_ID` is ignored. Invalid GTM IDs or incomplete
-GTM environment settings fail the build.
+| Event | Parameters |
+|---|---|
+| `page_view` | `page_location`, `page_title` |
+| `storybook_view` | `story_id`, `view_kind` |
+| `storybook_code_copy` | `story_id`, `code_language`, `code_tab` |
+
+GTM processes events queued before its asynchronous loader completes.
+Route events cover the initial docs/story route and subsequent navigation,
+including back/forward, with consecutive repeats of the same route skipped.
+Code-copy events record clicks on the docs snippet Copy button.
+
+Use these Custom Event triggers for the GA4 event tags. Since Storybook
+supplies page views, set `send_page_view` to `false` in the GTM Google tag
+and disable **Page changes based on browser history events** in each GA4
+web stream's Enhanced measurement settings. A second GTM History Change
+pageview tag or click trigger for the same copy action would duplicate
+these events.
+
+When `GTM_CONTAINER_ID` is unset, analytics is disabled. There is no direct
+GA4 loader or event fallback. Invalid GTM IDs or incomplete GTM environment
+settings fail the build. Legacy `GA_MEASUREMENT_ID` GitHub variables are no
+longer used and can be removed.

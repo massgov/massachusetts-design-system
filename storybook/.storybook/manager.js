@@ -90,7 +90,7 @@ if (storybookRoot) {
 }
 
 
-// SPA route tracking for Storybook, sent through GTM or the direct GA4 tag.
+// SPA route events for the GA4 tags configured in GTM.
 let lastTrackedView;
 
 function getStorybookView() {
