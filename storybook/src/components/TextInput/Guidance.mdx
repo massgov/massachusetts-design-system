@@ -1,0 +1,74 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as TextInputStories from './text-input.stories.js';
+
+<Meta of={TextInputStories} />
+
+# Text input guidance
+
+---
+
+## Content
+
+### Best practices
+
+#### Do
+
+- Write a visible label that clearly describes the information people need to enter.
+- Keep labels concise and specific to the information being requested.
+- Use help text when people need additional context or instructions to complete the field.
+- Write error messages that identify the problem and help people understand what needs to be corrected.
+- Explain what the required field indicator means when a form contains required fields.
+- Use placeholder text to show a brief example or expected format (for example, if the input label is “City,” the placeholder text could read “ex. Boston”).
+
+#### Don’t
+
+- Repeat information from the group label or help text in individual option labels.
+- Add descriptions to every option when the labels provide enough information on their own.
+- Put information in an option description that people need to understand the entire group.
+
+---
+
+## Design
+
+### When to use
+
+- When people need to enter or edit a single line of text.
+- When the field does not need an adjoining interactive control.
+
+### When not to use
+
+- For long, multi-line responses.
+- When the field needs an adjoining interactive control (for example, password entry).
+
+### Responsive behavior
+
+The input field should adjust to fit its container or layout grid while remaining easy to see and tap. If the text is longer than the visible space, users should be able to scroll horizontally to view it.
+
+---
+
+## Accessibility
+
+### Mouse control
+
+- Clicking inside the text field positions the text cursor; clicking an attached input button activates its specific action or opens its menu.
+- Clicking the label should also place focus inside the text input.
+- When clicking the text input, the focus outline should become visible.
+
+### Touch control
+
+- Text fields must provide a minimum tap target of at least 44 by 44 pixels on touchscreens.
+
+### Keyboard control
+
+- Pressing <kbd>Tab</kbd> moves focus logically through every interactive element.
+
+### Assistive technology
+
+- Always associate a persistent, visible `<label>` element with the input using matching `for` and `id` attributes.
+- Connect help text and inline error messages directly to the input using `aria-describedby="[id]"`.
+
+---
+
+## Related components
+
+[Details toggle](?path=/docs/components-details-toggle--overview) — use for additional help text that does not need to be persistently visible.

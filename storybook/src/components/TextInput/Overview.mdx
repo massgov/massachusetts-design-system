@@ -1,0 +1,95 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/text-input.css';
+import { textInputDefaults } from '../../../../packages/components/src/text-input/text-input.data.js';
+import { renderTextInput } from '../../utils/component-renderers.js';
+import * as TextInputStories from './text-input.stories.js';
+
+export const TextInputExample = ({ style = {}, ...args }) => (
+  <div
+    className="sb-unstyled"
+    style={{ inlineSize: '260px', maxInlineSize: '100%', ...style }}
+    dangerouslySetInnerHTML={{
+      __html: renderTextInput({
+        ...textInputDefaults,
+        ...args
+      })
+    }}
+  />
+);
+
+<Meta of={TextInputStories} />
+
+# Text input overview
+
+A form element that allows users to enter short text based information.
+
+<TextInputExample label="Text input label" />
+
+---
+
+## Examples
+
+### Required
+
+Use when an input text field is required to be filled out.
+
+<TextInputExample id="text-input-required" label="First name" required />
+
+### Not required
+
+Use when an input text field is not required to be filled out.
+
+<TextInputExample id="text-input-not-required" label="Middle name" />
+
+### With helper text
+
+Use helper text to add clarity or example information where a label may not be able to provide enough detail.
+
+<TextInputExample
+  id="text-input-helper-text"
+  label="Phone"
+  helpText="Format: 555-555-5555"
+  type="tel"
+/>
+
+### With placeholder text
+
+Use to provide direction to the user about an input field. For example, a city field may use an example city name within the input field as placeholder text.
+
+<TextInputExample id="text-input-placeholder" label="City" />
+
+### With details toggle
+
+Use this when more information about the input field or why information is being collected is necessary. Use this instead of an information icon with a tooltip as this is an accessible option for all users.
+
+<TextInputExample
+  id="text-input-details"
+  label="Household income (before taxes)"
+  required
+  helpText="Include income from all sources in your household, such as wages, self-employment, or benefits. Enter the total monthly amount before taxes."
+  detailsText="How we protect your privacy"
+  detailsContent="<p>We use household income to confirm eligibility for state benefit programs. Your information is kept private and is only used to determine your qualification.</p><p>If your income changes after you apply, you can update it through your account or by contacting your local office.</p>"
+  style={{ inlineSize: '501px' }}
+/>
+
+---
+
+## States
+
+### Error
+
+Use the error state when needed for form validation states.
+
+<TextInputExample
+  id="text-input-error"
+  label="Input text label"
+  required
+  error
+  errorMessage="Error message"
+/>
+
+### Disabled
+
+Use the disabled state when the field is visible but unavailable for interaction.
+
+<TextInputExample id="text-input-disabled" label="Input text label" required disabled />
