@@ -176,6 +176,7 @@ jobs:
         env:
           STORYBOOK_BASE_PATH: ${{ steps.target.outputs.storybook_base_path }}
           STORYBOOK_GTM_CONTAINER_ID: ${{ vars.GTM_CONTAINER_ID }}
+          STORYBOOK_GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
         run: npm run build:storybook
 
       - name: Configure AWS credentials (OIDC)
