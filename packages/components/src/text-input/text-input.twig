@@ -21,7 +21,6 @@
 {% set textInputClassName = textInputHtmlAttributes.class|default('') %}
 {% set textInputClass = 'mds-text-input__input' ~ (textInputClassName ? ' ' ~ textInputClassName : '')~ (textInputError ? ' mds-text-input__input--error' : '')~ (textInputDisabled ? ' mds-text-input__input--disabled' : '') %}
 {% set textInputHelpId = textInputId ~ '-help' %}
-{% set textInputDetailsId = textInputId ~ '-details' %}
 {% set textInputDescribedBy = textInputHtmlAttributes['aria-describedby']|default('') %}
 {% if textInputHelpText %}
   {% set textInputDescribedBy = (textInputDescribedBy ~ ' ' ~ textInputHelpId)|trim %}
@@ -91,7 +90,7 @@
     {% endif %}
   >
   {% if textInputError %}
-    <p class="mds-text-input__input--error-message">
+    <p class="mds-text-input__input--error-message" id="{{ textInputErrorId|e }}">
       {%
         include 'icon.twig' with {
           name: 'info',

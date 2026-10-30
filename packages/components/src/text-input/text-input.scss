@@ -46,7 +46,7 @@
     padding: var(--mds-space-3xs) var(--mds-space-xs);
     border: 1px solid var(--mds-border-brand-neutral-high);
     border-radius: var(--mds-radius-md);
-    background: var(--mds-surface-brand-neutral-inverse);
+    background: var(--mds-base-inverse);
     color: var(--mds-content-brand-neutral-default);
     @include mixins.text("caption-lg");
     @include mixins.focus;
@@ -54,11 +54,6 @@
     &::placeholder {
       color: var(--mds-content-brand-neutral-muted);
       opacity: 1;
-    }
-
-    &:focus-visible {
-      border-color: var(--mds-border-brand-primary-default);
-      border-radius: var(--mds-radius-md);
     }
 
     &--disabled {
