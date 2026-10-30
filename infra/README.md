@@ -87,6 +87,28 @@ variables after applying each env:
 | `DEV_BUCKET` / `DEV_DISTRIBUTION_ID` | dev env | `terraform output` of `infra/env/dev` |
 | `STAGE_BUCKET` / `STAGE_DISTRIBUTION_ID` | stage env | `terraform output` of `infra/env/stage` |
 | `PROD_BUCKET` / `PROD_DISTRIBUTION_ID` | prod env | `terraform output` of `infra/env/prod` |
+| `GTM_CONTAINER_ID` | stage and prod envs | Shared GTM web container ID (`GTM-...`); enables analytics |
+| `GTM_AUTH` / `GTM_PREVIEW` | stage env only | Optional `gtm_auth` and `gtm_preview` values from the GTM Staging environment snippet |
+
+### Storybook analytics
+
+Stage and prod builds support a shared GTM container with separate GA4
+properties. Set `GTM_CONTAINER_ID` in each GitHub environment to enable GTM.
+The container selects the GA4 measurement ID by hostname. Stage can also
+use `GTM_AUTH` and `GTM_PREVIEW` to load a custom GTM Staging environment,
+allowing container changes to be tested before publishing them to Live.
+See [Storybook analytics setup](../storybook/docs/ANALYTICS.md) for the
+container configuration and deployment settings.
+
+GTM owns all GA4 tags and measurement IDs. Storybook supplies navigation and
+code-copy events through the manager's data layer. When `GTM_CONTAINER_ID`
+is unset, the build omits analytics. Dev and branch-preview workflows do
+not supply a container ID.
+
+Keep deployment variables environment-scoped. Changes to these variables
+require a new site build and deployment. GA4 IDs live in the GTM container;
+changing that container configuration requires a GTM
+publish rather than a site deployment.
 
 ## Workflows
 

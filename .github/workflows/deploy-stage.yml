@@ -9,6 +9,7 @@ name: Deploy to AWS (stage)
 # Requires (stage environment): DEPLOY_ROLE_ARN (managed in github-iac),
 # STAGE_BUCKET and STAGE_DISTRIBUTION_ID (set from `terraform output` of
 # infra/env/stage after it is applied).
+# Optional: GTM_CONTAINER_ID enables analytics; GTM_AUTH and GTM_PREVIEW select its staging environment.
 
 on:
   workflow_dispatch:
@@ -41,6 +42,10 @@ jobs:
         run: npm run build --workspaces --if-present
       
       - name: Build site
+        env:
+          STORYBOOK_GTM_CONTAINER_ID: ${{ vars.GTM_CONTAINER_ID }}
+          STORYBOOK_GTM_AUTH: ${{ vars.GTM_AUTH }}
+          STORYBOOK_GTM_PREVIEW: ${{ vars.GTM_PREVIEW }}
         run: npm run build:storybook
 
       - name: Configure AWS credentials (OIDC)

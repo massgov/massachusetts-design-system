@@ -4,6 +4,7 @@ import '@massds/mds-styles/index.css';
 import '@massds/mds-components/state-banner.css';
 import storybookPackage from '../package.json';
 import { massdsManagerTheme } from './theme';
+import { trackAnalyticsEvent } from './analytics';
 
 addons.setConfig({
   theme: massdsManagerTheme
@@ -89,7 +90,7 @@ if (storybookRoot) {
 }
 
 
-// GA4 SPA route tracking for Storybook
+// SPA route events for the GA4 tags configured in GTM.
 let lastTrackedView;
 
 function getStorybookView() {
@@ -117,23 +118,23 @@ function getStorybookView() {
 }
 
 function trackStorybookView() {
-  if (typeof window.gtag !== 'function') {
-    return;
-  }
-
   const view = getStorybookView();
 
   if (!view || view.key === lastTrackedView) {
     return;
   }
 
-  lastTrackedView = view.key;
-
-  window.gtag('event', 'page_view', {
+  const tracked = trackAnalyticsEvent('page_view', {
     page_location: view.pageLocation,
     page_title: document.title
   });
-  window.gtag('event', 'storybook_view', {
+
+  if (!tracked) {
+    return;
+  }
+
+  lastTrackedView = view.key;
+  trackAnalyticsEvent('storybook_view', {
     story_id: view.storyId,
     view_kind: view.viewKind
   });
