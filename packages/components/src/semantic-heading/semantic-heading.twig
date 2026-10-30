@@ -1,0 +1,23 @@
+{#
+  Semantic heading data:
+  - level determines the rendered h1 through h6 element and matching type scale.
+  - variant applies either the Mass.gov decorative treatment or the plain heading treatment.
+#}
+{% set semanticHeadingText = text|default(semanticHeadingDefaults.text) %}
+{% set semanticHeadingLevel = level in semanticHeadingOptions.level ? level : semanticHeadingDefaults.level %}
+{% set semanticHeadingVariant = variant in semanticHeadingOptions.variant ? variant : semanticHeadingDefaults.variant %}
+{% set semanticHeadingClass = 'mds-semantic-heading mds-semantic-heading--level-' ~ semanticHeadingLevel|lower ~ ' mds-semantic-heading--variant-' ~ semanticHeadingVariant|lower|replace({'.': ''}) %}
+
+{% if semanticHeadingLevel == 'H1' %}
+  <h1 class="{{ semanticHeadingClass|e }}">{{ semanticHeadingText | e }}</h1>
+{% elseif semanticHeadingLevel == 'H2' %}
+  <h2 class="{{ semanticHeadingClass|e }}">{{ semanticHeadingText | e }}</h2>
+{% elseif semanticHeadingLevel == 'H3' %}
+  <h3 class="{{ semanticHeadingClass|e }}">{{ semanticHeadingText | e }}</h3>
+{% elseif semanticHeadingLevel == 'H4' %}
+  <h4 class="{{ semanticHeadingClass|e }}">{{ semanticHeadingText | e }}</h4>
+{% elseif semanticHeadingLevel == 'H5' %}
+  <h5 class="{{ semanticHeadingClass|e }}">{{ semanticHeadingText | e }}</h5>
+{% else %}
+  <h6 class="{{ semanticHeadingClass|e }}">{{ semanticHeadingText | e }}</h6>
+{% endif %}

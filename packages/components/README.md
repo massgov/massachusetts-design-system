@@ -13,6 +13,15 @@ npm run build --workspace @massds/mds-components
 
 The build writes distributable files into `dist/`.
 
+After adding, renaming, or removing icons in `packages/assets/src/icons/static`,
+refresh the icon options used by component schemas:
+
+```bash
+npm run sync:icon-names --workspace @massds/mds-components
+```
+
+This regenerates `src/icon/icon.names.js` from the regular and bold asset filenames.
+
 ### Linting
 
 From the repository root:
