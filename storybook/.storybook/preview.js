@@ -3,12 +3,14 @@ import '@massds/mds-components/inline-message.css';
 import '@massds/mds-styles/index.css';
 import '@massds/mds-tokens/dist/index.css';
 import { DocsContainer } from '@storybook/addon-docs/blocks';
-import { createElement, Fragment } from 'react';
+import { createElement, Fragment, useEffect } from 'react';
 import storybookPackage from '../package.json';
 import { renderFooter, renderInlineMessage } from '../src/utils/component-renderers';
 import './docs-markdown.css';
 import './preview.css';
 import { massdsDocsTheme, massdsSiteName } from './theme';
+import { trackAnalyticsEvent } from './analytics';
+
 
 // Keep placeholder links inert in stories and docs, including nested link content.
 function preventPlaceholderNavigation(event) {
@@ -102,7 +104,60 @@ function shouldShowBetaInlineMessage(context) {
   return context.id !== 'overview-introduction--docs' && storyId !== 'overview-introduction--docs';
 }
 
+function getSnippetCopyDetails(event) {
+  const button = event.target instanceof Element
+    ? event.target.closest('button')
+    : null;
+
+  if (!button || button.textContent.trim() !== 'Copy') {
+    return null;
+  }
+
+  // A Storybook Source block renders its copy action immediately after its
+  // scrollable preformatted region. This excludes unrelated buttons named "Copy".
+  const code = button.parentElement?.previousElementSibling?.querySelector('pre');
+
+  if (!code) {
+    return null;
+  }
+
+  const languageElement = code.matches('[class*="language-"]')
+    ? code
+    : code.querySelector('[class*="language-"]');
+  const languageClass = [...(languageElement?.classList || [])]
+    .find((className) => className.startsWith('language-'));
+  const tabPanel = button.closest('[role="tabpanel"]');
+  const tabId = tabPanel?.getAttribute('aria-labelledby');
+  const tabLabel = tabId ? document.getElementById(tabId)?.textContent.trim() : null;
+
+  return {
+    code_language: languageClass?.replace('language-', '') || 'unknown',
+    code_tab: tabLabel || 'unlabeled',
+    story_id: new URL(window.location.href).searchParams.get('id') || 'unknown'
+  };
+}
+
+function trackSnippetCopy(event) {
+  const details = getSnippetCopyDetails(event);
+
+  if (!details) {
+    return;
+  }
+
+  try {
+    trackAnalyticsEvent('storybook_code_copy', details, window.parent);
+  } catch {
+    // The parent window may be unavailable when the preview is embedded cross-origin.
+  }
+}
+
 function StorybookDocsContainer({ children, ...props }) {
+  useEffect(() => {
+    document.addEventListener('click', trackSnippetCopy);
+
+    return () => document.removeEventListener('click', trackSnippetCopy);
+  }, []);
+
   const betaInlineMessageMarkup = shouldShowBetaInlineMessage(props.context)
     ? renderSharedBetaInlineMessage()
     : '';
