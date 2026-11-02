@@ -81,11 +81,33 @@ A link that opens in a new window.
 
 #### Document link
 
-A link that opens a document.
+A link that opens a document or other file. Choose the trailing icon that matches the file type.
+
+| File type | `rightIcon` |
+| --- | --- |
+| PDF | `file-pdf` |
+| Word (DOC, DOCX) | `file-doc` |
+| Excel (XLS, XLSX) | `file-xls` |
+| CSV | `file-csv` |
+| PowerPoint (PPT, PPTX) | `file-ppt` |
+| ZIP | `file-zip` |
+| JPEG (JPG, JPEG) | `file-jpg` |
+| PNG | `file-png` |
+| SVG | `file-svg` |
+| Other images | `file-image` |
+| Video | `file-video` |
+| Other files | `file` |
+
+Set `rightIcon` explicitly; the component does not detect the file type from `href`. Include the file type in the visible link text because trailing icons are hidden from assistive technology.
 
 **Usage example:**
 
-<InlineLinkExample text="Registration renewal form" rightIcon="file-pdf" />
+<ul>
+  <li><InlineLinkExample text="Registration renewal form (PDF)" rightIcon="file-pdf" /></li>
+  <li><InlineLinkExample text="Registration data (CSV)" rightIcon="file-csv" /></li>
+  <li><InlineLinkExample text="Program presentation (PPTX)" rightIcon="file-ppt" /></li>
+  <li><InlineLinkExample text="Application documents (ZIP)" rightIcon="file-zip" /></li>
+</ul>
 
 #### Jump to content
 
