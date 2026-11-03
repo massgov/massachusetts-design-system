@@ -5,6 +5,18 @@ See [changelog guidance](README.md#changelogs).
 
 ## Unreleased
 
+## 0.1.0-beta.2 (11/3/2026)
+
+### Added
+* [DS-475] Added a script to refresh component schema icon names from the asset library and integrated it into the Figma icon sync workflow. #212
+* [DS-647] Added the Details Toggle component and Storybook documentation. #218
+
+### Changed
+* Semantic heading: Added the Semantic heading component to Storybook with Overview and Guidance pages #220
+* Site Header: Vertically aligned text to center when there is a subheading #216
+* Action link: Made Target its own control to match Inline Link controls #215
+* Inline message: Replaced the level-two heading with a strong element so message titles do not affect the page heading hierarchy. #223
+
 ## 0.1.0-beta.0 (10/20/2026)
 
 ### Added
