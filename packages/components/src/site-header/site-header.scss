@@ -45,8 +45,9 @@
   &__text {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
     gap: var(--mds-space-3xs);
+    margin-top: -4px; // Vertically align with logo
   }
 
   &__site-name {
