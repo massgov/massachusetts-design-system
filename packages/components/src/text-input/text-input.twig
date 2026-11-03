@@ -4,7 +4,7 @@
   - detailsContent supports trusted rich text.
   - htmlAttributes are applied to the input element.
 #}
-{% set textInputId = 'mds-text-input_' ~ random(5) %}
+{% set textInputId = 'mds-text-input_' ~ random(15) %}
 {% set textInputLabel = label is defined ? label : textInputDefaults.label %}
 {% set textInputHelpText = helpText is defined ? helpText : textInputDefaults.helpText %}
 {% set textInputRequired = required|default(textInputDefaults.required) %}
