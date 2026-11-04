@@ -19,7 +19,7 @@
 {% set textInputErrorId = textInputId ~ '-error' %}
 {% set textInputHtmlAttributes = htmlAttributes|default({}) %}
 {% set textInputClassName = textInputHtmlAttributes.class|default('') %}
-{% set textInputClass = 'mds-text-input__input' ~ (textInputClassName ? ' ' ~ textInputClassName : '')~ (textInputError ? ' mds-text-input__input--error' : '')~ (textInputDisabled ? ' mds-text-input__input--disabled' : '') %}
+{% set textInputClass = 'mds-text-input__input' ~ (textInputClassName ? ' ' ~ textInputClassName : '')~ (textInputError and not textInputDisabled ? ' mds-text-input__input--error' : '')~ (textInputDisabled ? ' mds-text-input__input--disabled' : '') %}
 {% set textInputHelpId = textInputId ~ '-help' %}
 {% set textInputDescribedBy = textInputHtmlAttributes['aria-describedby']|default('') %}
 {% if textInputHelpText %}
@@ -89,7 +89,7 @@
       aria-invalid="true"
     {% endif %}
   >
-  {% if textInputError %}
+  {% if textInputError and not textInputDisabled %}
     <p class="mds-text-input__input--error-message" id="{{ textInputErrorId|e }}">
       {%
         include 'icon.twig' with {
