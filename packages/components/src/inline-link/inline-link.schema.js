@@ -5,7 +5,14 @@ const rightIconOptions = ['', ...iconNames.filter((name) => [
   'file-pdf',
   'arrow-elbow-right-down',
   'file-doc',
+  'file-csv',
+  'file-ppt',
+  'file-zip',
   'file-jpg',
+  'file-png',
+  'file-svg',
+  'file-image',
+  'file-video',
   'file-xls',
   'file'
 ].includes(name))];
