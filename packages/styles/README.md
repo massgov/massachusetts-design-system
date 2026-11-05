@@ -2,6 +2,8 @@
 
 Shared Sass and bundled CSS for the Massachusetts Design System. This package is intended to sit on top of `@massds/mds-tokens`, provide composable utility classes for standalone use, and give component packages build-time mixins for self-contained component CSS.
 
+For guidance on using the Design System, see the [Massachusetts Design System resources](https://designsystem.mass.gov).
+
 ## Installation
 
 ```bash
