@@ -57,15 +57,65 @@ Use `@massds/mds-tokens/dist/index.css` as the public semantic token entrypoint.
 Do not reference `dist/primitives.css` directly in applications; primitives are
 lower-level inputs that may change as the semantic layer evolves.
 
-For Sass, use the public mixin API with Sass's Node package importer:
+## Use the styles package
+
+`@massds/mds-styles` provides utility classes for markup and Sass mixins for your application's own selectors. Both use the design system's tokens, including its responsive grid values.
+
+### Utility classes
+
+Use the bundled CSS when you want to compose styles directly in HTML. For example, this creates a two-column grid that stacks at 480px and below:
+
+```html
+<div class="mds-section-container">
+  <div class="mds-grid">
+    <div class="mds-grid-2-column">First item</div>
+    <div class="mds-grid-2-column">Second item</div>
+  </div>
+</div>
+```
+
+Utilities also cover spacing, color, typography, corner radius, and shadow. Classes such as `.mds-padding-inline-sm`, `.mds-background-section-brand-primary-lowest`, and `.mds-text-body` can be combined with layout classes. Combine `.mds-padding-inline-sm` and `.mds-padding-block-sm` to add padding on both axes.
+
+### Sass mixins
+
+Use mixins when you want design system styles compiled into selectors you maintain. This produces the same layout as the utility example:
 
 ```scss
 @use "pkg:@massds/mds-styles/scss/mixins" as mixins;
 
-.example-heading {
-  @include mixins.text("heading-lg");
+.page-section {
+  @include mixins.section-container;
+}
+
+.content-grid {
+  @include mixins.grid;
+}
+
+.content-grid__item {
+  @include mixins.grid-2-column;
 }
 ```
+
+```html
+<div class="page-section">
+  <div class="content-grid">
+    <div class="content-grid__item">First item</div>
+    <div class="content-grid__item">Second item</div>
+  </div>
+</div>
+```
+
+Use Sass's Node package importer to resolve `pkg:` imports. For example, with the Sass CLI installed in your project:
+
+```bash
+npx sass --pkg-importer=node src/styles.scss dist/styles.css
+```
+
+Include your generated CSS in the page and load token CSS before it. Importing the mixin API does not emit the bundled utility classes; load `@massds/mds-styles/index.min.css` as well if your markup uses them.
+
+Other public mixins include `text("heading-lg")` for typography and `max-width(md)` for breakpoint-specific rules. Utilities and mixins can be used together, but they are separate interfaces: a utility classname does not necessarily have a matching mixin.
+
+See [Grid](?path=/docs/foundations-grid--docs) for live layouts, column spans, breakpoint prefixes, and copyable HTML and Sass examples.
 
 ## Use components
 
