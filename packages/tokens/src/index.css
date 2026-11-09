@@ -4,7 +4,7 @@
  *
  */
 
- @import url('@massds/mds-tokens/dist/primitives.css');
+ @import url('~@massds/mds-tokens/dist/primitives.css');
 
 /**
  * Tokens used in the Bay Blue theme.
