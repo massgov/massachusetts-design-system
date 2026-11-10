@@ -1,0 +1,199 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+@use "../icon/icon";
+
+@mixin stacked-layout {
+  width: 100%;
+  max-width: 480px;
+  padding-inline: 0;
+  border-block: 0;
+
+  .mds-main-navigation__list {
+    flex-direction: column;
+  }
+
+  .mds-main-navigation__parent {
+    width: 100%;
+    min-height: 56px;
+    gap: var(--mds-space-sm);
+    border-bottom: 1px solid var(--mds-border-brand-neutral-low);
+  }
+
+  .mds-main-navigation__parent[aria-expanded="true"] {
+    border-bottom: 0;
+  }
+
+  .mds-main-navigation__text {
+    flex: 1;
+    min-width: 0;
+    white-space: normal;
+  }
+
+  .mds-main-navigation__wide-label {
+    display: none;
+  }
+
+  .mds-main-navigation__stacked-label {
+    display: inline;
+  }
+
+  ul.mds-main-navigation__submenu {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--mds-border-brand-neutral-low);
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+.mds-main-navigation {
+  @include mixins.box-sizing-reset;
+
+  background: var(--mds-base-inverse);
+  color: var(--mds-content-brand-neutral-default);
+  width: 100%;
+
+  &[hidden],
+  [hidden] {
+    display: none;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__parent {
+    @include mixins.text("label-lg");
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+    padding: var(--mds-space-xs);
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-decoration: none;
+    text-align: start;
+    cursor: pointer;
+  }
+
+  &__text {
+    padding: var(--mds-space-3xs);
+    white-space: nowrap;
+    overflow-wrap: anywhere;
+  }
+
+  &__stacked-label {
+    display: none;
+  }
+
+  &__caret {
+    display: flex;
+    padding: var(--mds-space-3xs);
+    color: var(--mds-content-brand-secondary-mid);
+    flex: none;
+  }
+
+  &__parent[aria-expanded="true"] &__caret {
+    transform: rotate(180deg);
+  }
+
+  &__parent:hover,
+  &__parent[aria-expanded="true"] {
+    background: var(--mds-interactive-brand-neutral-lowest);
+  }
+
+  &__parent[aria-expanded="true"],
+  &__item--current > &__parent {
+    box-shadow: inset 0 -4px var(--mds-border-brand-primary-mid);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--mds-focus-on-light);
+    outline-offset: -2px;
+  }
+
+  ul.mds-main-navigation__submenu {
+    @include mixins.text("caption-lg");
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-3xs);
+    padding: var(--mds-space-2xs);
+    background: var(--mds-base-inverse);
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__submenu a {
+    display: block;
+    padding: var(--mds-space-2xs) var(--mds-space-xs);
+    border-radius: var(--mds-radius-md);
+    color: inherit;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  &__submenu a:hover {
+    background: var(--mds-interactive-brand-primary-lowest);
+  }
+
+  &__submenu a:active,
+  &__submenu a[aria-current="page"] {
+    background: var(--mds-interactive-brand-primary-mid);
+    color: var(--mds-base-white);
+  }
+
+  &--responsive {
+    padding-inline: var(--mds-breakpoint-horizontal-space-margin);
+    border-block: 1px solid var(--mds-border-brand-neutral-low);
+
+    .mds-main-navigation__submenu {
+      position: absolute;
+      inset-block-start: 100%;
+      inset-inline-start: 0;
+      z-index: 10;
+      width: min(296px, calc(100vw - 32px));
+      max-height: 70vh;
+      overflow: auto;
+      border-radius: 0 0 var(--mds-radius-md) var(--mds-radius-md);
+      box-shadow: var(--mds-shadow-modal);
+    }
+
+    .mds-main-navigation__item:last-child .mds-main-navigation__submenu {
+      inset-inline: auto 0;
+    }
+  }
+
+  &--stacked {
+    @include stacked-layout;
+  }
+}
+
+@media (max-width: 768px) {
+  .mds-main-navigation--responsive {
+    @include stacked-layout;
+  }
+}
+
+@media print {
+  .mds-main-navigation {
+    display: none;
+  }
+}

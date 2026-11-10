@@ -83,6 +83,26 @@ When adding a new component, keep its distributable files in `dist/<component>/`
 - `dist/<component>/<component>.html`
 - `dist/<component>/<component>.twig`
 
+## Main navigation
+
+Render `main-navigation.twig` using the defaults and options from
+`src/main-navigation/main-navigation.data.js`. The `Responsive` variant is
+horizontal above 768px and stacked at 768px and below. The `Stacked` variant is
+vertical at every width, with a maximum width of 480px.
+
+Items accept `text`, `href`, optional `children`, `current`, and `expanded`.
+Parents with children disclose links; items without children navigate directly.
+Use a unique `id` for each navigation instance. Initialize after inserting the
+rendered markup:
+
+```js
+import '@massds/mds-components/main-navigation.css';
+import { initMainNavigation } from '@massds/mds-components/main-navigation.js';
+
+const cleanup = initMainNavigation(document);
+// Call cleanup() before removing the navigation.
+```
+
 ## Shared Rendering
 
 Shared render helpers live in `src/shared/`. Use `createTwigRenderer()` when a

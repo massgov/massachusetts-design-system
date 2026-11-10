@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { MainNavigationExample } from './MainNavigationExample.jsx';
+import * as MainNavigationStories from './main-navigation.stories.js';
+
+<Meta of={MainNavigationStories} />
+
+# Main navigation overview
+
+Main navigation groups the main destinations of a website. Parent items expand to show related links, and items without children navigate directly.
+
+---
+
+## Variants
+
+### Responsive: desktop horizontal and mobile stacked
+
+The Responsive variant displays navigation horizontally above 768px. At 768px and below, the same items form a vertical stack.
+
+#### Desktop
+
+<MainNavigationExample />
+
+#### Mobile
+
+<MainNavigationExample layout="mobile" />
+
+### Always stacked
+
+The Stacked variant displays navigation vertically at every screen size.
+
+<MainNavigationExample layout="stacked" />
+
+The stacked examples use the 320px frame shown in Figma. The component fits its available space up to a maximum width of 480px.
+
+Open the [playground](?path=/story/components-main-navigation--playground) to change the variant, edit the items, and review the responsive behavior at full width.

@@ -1,0 +1,90 @@
+{#
+  Main navigation: Responsive changes from horizontal to stacked at 768px.
+  Stacked stays vertical at every width. Parents disclose children; leaves are links.
+  Use unique IDs when rendering multiple navigation instances on the same page.
+#}
+{% set mainNavigationId = id|default(mainNavigationDefaults.id) %}
+{% set mainNavigationLabel = ariaLabel|default(mainNavigationDefaults.ariaLabel) %}
+{% set mainNavigationVariant = variant in mainNavigationOptions.variant ? variant : mainNavigationDefaults.variant %}
+{% set mainNavigationItems = items is defined and items is iterable ? items : mainNavigationDefaults.items %}
+{% set mainNavigationHasExpanded = false %}
+
+<nav
+  id="{{ mainNavigationId|e }}"
+  class="mds-main-navigation mds-main-navigation--{{ mainNavigationVariant|lower|e }}"
+  aria-label="{{ mainNavigationLabel|e }}"
+  data-mds-main-navigation
+>
+  <ul class="mds-main-navigation__list">
+    {% for item in mainNavigationItems %}
+      {% set itemChildren = item.children is defined and item.children is iterable ? item.children : [] %}
+      {% set itemCurrent = item.current is same as(true) %}
+      {% for child in itemChildren %}
+        {% if child.current is same as(true) %}
+          {% set itemCurrent = true %}
+        {% endif %}
+      {% endfor %}
+      {% set itemExpanded = itemChildren|length and not mainNavigationHasExpanded and (item.expanded is same as(true) or itemCurrent) %}
+      {% if itemExpanded %}
+        {% set mainNavigationHasExpanded = true %}
+      {% endif %}
+      {% set submenuId = mainNavigationId ~ '-submenu-' ~ loop.index %}
+      <li class="mds-main-navigation__item{{ itemCurrent ? ' mds-main-navigation__item--current' : '' }}">
+        {% if itemChildren|length %}
+          <button
+            class="mds-main-navigation__parent"
+            type="button"
+            aria-expanded="{{ itemExpanded ? 'true' : 'false' }}"
+            aria-controls="{{ submenuId|e }}"
+          >
+            <span class="mds-main-navigation__text">
+              <span
+                {% if item.stackedText %}
+                  class="mds-main-navigation__wide-label"
+                {% endif %}
+              >
+                {{- item.text|default('')|e -}}
+              </span>
+              {% if item.stackedText %}
+                <span class="mds-main-navigation__stacked-label">{{ item.stackedText | e }}</span>
+              {% endif %}
+            </span>
+            <span class="mds-main-navigation__caret" aria-hidden="true">
+              {% include 'icon.twig' with { name: 'caret-down', size: 'MD', weight: 'Regular' } %}
+            </span>
+          </button>
+          <ul
+            id="{{ submenuId|e }}"
+            class="mds-main-navigation__submenu"
+            {% if not itemExpanded %}
+              hidden
+            {% endif %}
+          >
+            {% for child in itemChildren %}
+              <li>
+                <a
+                  href="{{ child.href|default('#')|e }}"
+                  {% if child.current is same as(true) %}
+                    aria-current="page"
+                  {% endif %}
+                >
+                  {{ child.text|default('')|e }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <a
+            class="mds-main-navigation__parent"
+            href="{{ item.href|default('#')|e }}"
+            {% if item.current is same as(true) %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span class="mds-main-navigation__text">{{ item.text|default('')|e }}</span>
+          </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

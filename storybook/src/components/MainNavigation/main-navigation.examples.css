@@ -1,0 +1,23 @@
+.mds-main-navigation-example--desktop {
+  max-width: 900px;
+}
+
+/* Figma shows the horizontal bar's expanded state within a 66px frame. */
+@media (min-width: 769px) {
+  .mds-main-navigation-example--desktop {
+    height: 66px;
+    overflow: clip;
+  }
+
+  .mds-main-navigation-example--desktop:hover,
+  .mds-main-navigation-example--desktop:focus-within {
+    overflow: visible;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.mds-main-navigation-example--mobile,
+.mds-main-navigation-example--stacked {
+  max-width: 320px;
+}
