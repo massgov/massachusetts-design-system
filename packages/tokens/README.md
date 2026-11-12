@@ -2,7 +2,7 @@
 
 CSS design tokens for the Massachusetts Design System. This package publishes CSS variable files that can be imported into applications, component libraries, and other front-end builds.
 
-For general guidance on how to use the Design System, check out the [Design System Microsite](https://www.mass.gov/massachusetts-design-system).
+For guidance on using the Design System, see the [Massachusetts Design System resources](https://designsystem.mass.gov).
 
 ## Installation
 

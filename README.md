@@ -9,7 +9,7 @@ This repository contains the source code for Massachusetts Design System package
 
 Each package has its own README with package-specific development and publishing details.
 
-For general guidance on how to use the Design System, check out the [Design System Microsite](https://www.mass.gov/massachusetts-design-system).
+For guidance on using the Design System, see the [Massachusetts Design System resources](https://designsystem.mass.gov).
 
 In the upcoming quarter, we will be working on creating the HTML, CSS and Javascript for required components such as State Banner and Footer. We will announce when these components will be ready for testing and use.
 
@@ -20,6 +20,13 @@ We are a small but mighty crew enthusiastic to partner with teams hoping to leve
 ## Development
 
 ### Quick Start
+
+The root Volta settings pin Node 24.14.0 and npm 10.9.2 for contributor tooling.
+The `.nvmrc` provides the same Node version for contributors using nvm.
+Published packages contain assets, CSS/Sass, and HTML/Twig templates and do not
+declare a Node.js engine requirement. Consuming applications choose their own
+Node version according to their build tools. CI checks dependency installation
+and package builds on Node 24.14.0.
 
 1. Install dependencies from the repository root with `npm install`
 2. You can also run all available package builds or lints with `npm run build` and `npm run lint`
