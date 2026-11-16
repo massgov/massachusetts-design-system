@@ -11,7 +11,7 @@ export const spanRows = [[12], [11, 1], [10, 2], [9, 3], [8, 4], [7, 5], [6, 6]]
 
 export const wrapperCodeTabs = [
   {
-    label: 'HTML (utility classes)',
+    label: 'Utility classes (HTML)',
     language: 'html',
     code: `<div class="mds-section-container">
   <div class="mds-grid">
@@ -20,16 +20,7 @@ export const wrapperCodeTabs = [
 </div>`
   },
   {
-    label: 'HTML (custom classes)',
-    language: 'html',
-    code: `<div class="page-section">
-  <div class="content-grid">
-    <!-- Place grid items here. -->
-  </div>
-</div>`
-  },
-  {
-    label: 'Mixins (custom classes)',
+    label: 'Sass mixins (SCSS)',
     language: 'scss',
     code: `@use "pkg:@massds/mds-styles/scss/mixins" as mixins;
 
@@ -40,6 +31,15 @@ export const wrapperCodeTabs = [
 .content-grid {
   @include mixins.grid;
 }`
+  },
+  {
+    label: 'Sass mixins (HTML)',
+    language: 'html',
+    code: `<div class="page-section">
+  <div class="content-grid">
+    <!-- Place grid items here. -->
+  </div>
+</div>`
   }
 ];
 
@@ -48,7 +48,7 @@ export function getColumnLayoutCodeTabs(columns) {
 
   return [
     {
-      label: 'HTML (utility classes)',
+      label: 'Utility classes (HTML)',
       language: 'html',
       code: `<div class="mds-section-container">
   <div class="mds-grid" style="row-gap: var(--mds-space-sm)">
@@ -57,16 +57,7 @@ ${Array.from({ length: columns }, (_, index) => `    <div class="${layoutClass}"
 </div>`
     },
     {
-      label: 'HTML (custom classes)',
-      language: 'html',
-      code: `<div class="page-section">
-  <div class="content-grid">
-${Array.from({ length: columns }, (_, index) => `    <div class="content-grid__item">Item ${index + 1}</div>`).join('\n')}
-  </div>
-</div>`
-    },
-    {
-      label: 'Mixins (custom classes)',
+      label: 'Sass mixins (SCSS)',
       language: 'scss',
       code: `@use "pkg:@massds/mds-styles/scss/mixins" as mixins;
 
@@ -83,13 +74,22 @@ ${Array.from({ length: columns }, (_, index) => `    <div class="content-grid__i
 .content-grid__item {
   @include mixins.${layoutClass.replace('mds-', '')};
 }`
+    },
+    {
+      label: 'Sass mixins (HTML)',
+      language: 'html',
+      code: `<div class="page-section">
+  <div class="content-grid">
+${Array.from({ length: columns }, (_, index) => `    <div class="content-grid__item">Item ${index + 1}</div>`).join('\n')}
+  </div>
+</div>`
     }
   ];
 }
 
 export const spanCodeTabs = [
   {
-    label: 'HTML (utility classes)',
+    label: 'Utility classes (HTML)',
     language: 'html',
     code: `<div class="mds-section-container">
   <div class="mds-grid" style="row-gap: var(--mds-space-sm)">
@@ -99,17 +99,7 @@ export const spanCodeTabs = [
 </div>`
   },
   {
-    label: 'HTML (custom classes)',
-    language: 'html',
-    code: `<div class="page-section">
-  <div class="content-grid">
-    <div class="main-content">Main content</div>
-    <div class="related-content">Related content</div>
-  </div>
-</div>`
-  },
-  {
-    label: 'Mixins (custom classes)',
+    label: 'Sass mixins (SCSS)',
     language: 'scss',
     code: `@use "pkg:@massds/mds-styles/scss/mixins" as mixins;
 
@@ -138,12 +128,22 @@ export const spanCodeTabs = [
     grid-column: span 6;
   }
 }`
+  },
+  {
+    label: 'Sass mixins (HTML)',
+    language: 'html',
+    code: `<div class="page-section">
+  <div class="content-grid">
+    <div class="main-content">Main content</div>
+    <div class="related-content">Related content</div>
+  </div>
+</div>`
   }
 ];
 
 export const responsiveCodeTabs = [
   {
-    label: 'HTML (utility classes)',
+    label: 'Utility classes (HTML)',
     language: 'html',
     code: `<div class="mds-section-container">
   <div class="mds-grid" style="row-gap: var(--mds-space-sm)">
@@ -152,16 +152,7 @@ ${cardLabels.map((label) => `    <div class="${responsiveClasses.join(' ')}">${l
 </div>`
   },
   {
-    label: 'HTML (custom classes)',
-    language: 'html',
-    code: `<div class="page-section">
-  <div class="content-grid">
-${cardLabels.map((label) => `    <div class="content-grid__item">${label}</div>`).join('\n')}
-  </div>
-</div>`
-  },
-  {
-    label: 'Mixins (custom classes)',
+    label: 'Sass mixins (SCSS)',
     language: 'scss',
     code: `@use "pkg:@massds/mds-styles/scss/mixins" as mixins;
 
@@ -190,5 +181,14 @@ ${cardLabels.map((label) => `    <div class="content-grid__item">${label}</div>`
     grid-column: span 6;
   }
 }`
+  },
+  {
+    label: 'Sass mixins (HTML)',
+    language: 'html',
+    code: `<div class="page-section">
+  <div class="content-grid">
+${cardLabels.map((label) => `    <div class="content-grid__item">${label}</div>`).join('\n')}
+  </div>
+</div>`
   }
 ];

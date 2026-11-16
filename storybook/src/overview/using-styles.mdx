@@ -108,11 +108,11 @@ Foundation pages such as Grid show two workflows across three tabs:
 
 | Tab | How to apply it |
 | --- | --- |
-| **HTML (utility classes)** | Copy this markup after loading token CSS and the compiled utility stylesheet. |
-| **HTML (custom classes)** | Copy this markup together with the SCSS in **Mixins (custom classes)**. |
-| **Mixins (custom classes)** | Compile this SCSS and load the generated CSS alongside tokens. Its selectors style the markup in **HTML (custom classes)**. |
+| **Utility classes (HTML)** | Copy this markup after loading token CSS and the compiled utility stylesheet. |
+| **Sass mixins (SCSS)** | Compile this SCSS and load the generated CSS alongside tokens. Its selectors style the markup in **Sass mixins (HTML)**. |
+| **Sass mixins (HTML)** | Copy this markup together with the SCSS in **Sass mixins (SCSS)**. |
 
-The two custom-class tabs belong together. Copying only the custom HTML does not apply the mixin styles.
+The Sass mixin approach requires both tabs: **Sass mixins (HTML)** provides the markup with custom classes, and **Sass mixins (SCSS)** defines their styles. Copy the HTML, compile the SCSS, and load the generated stylesheet alongside token CSS. Copying only the HTML does not apply the mixin styles.
 
 ## Load utility CSS from a CDN
 
