@@ -32,6 +32,8 @@ export const ColumnLayoutExample = ({ columns }) => (
 
 The Massachusetts Design System uses a responsive grid to organize content and create consistent layouts across different screen sizes. The grid provides a flexible structure for aligning elements, managing column widths, and adapting layouts to different devices.
 
+> Shared grid utility classes and Sass mixins are available in `@massds/mds-styles`. See [Using Styles](?path=/docs/overview-getting-started-using-styles--docs) to load the utility stylesheet and apply classes in HTML, or compile mixins into your own CSS classes. Both approaches require token CSS from `@massds/mds-tokens`.
+
 ---
 
 ## Grid structure
@@ -181,5 +183,3 @@ In this example, the grid items will be 6 columns wide by default, 4 columns wid
 </div>
 
 <CodeTabs tabs={responsiveCodeTabs} />
-
-Use Sass's Node package importer for the `pkg:` imports shown in these examples. Include your generated CSS when using the Sass approach. See [Using Styles](?path=/docs/overview-getting-started-using-styles--docs) for installation, token loading, and when to choose utilities or mixins.
