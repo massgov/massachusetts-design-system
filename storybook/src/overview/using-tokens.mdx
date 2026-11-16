@@ -22,11 +22,26 @@ Import the public semantic token entrypoint from your application's CSS entrypoi
 @import "@massds/mds-tokens/dist/index.css";
 ```
 
-Use `dist/index.css` for application styling. Do not import `dist/primitives.css` directly; primitives are lower-level inputs that may change as the semantic layer evolves.
+Use `dist/index.css` for application styling and reference only semantic tokens in your application and component CSS. This entrypoint loads the primitive values needed by the semantic tokens automatically; do not import `dist/primitives.css` separately.
+
+### Why reference semantic tokens?
+
+Primitive tokens contain raw values, such as color hex codes, spacing lengths, and font sizes. Their names identify a value within a palette or scale, without specifying where it should be used. Semantic tokens assign those values to a purpose, such as default text color or body text size.
+
+For example, the current default text color is defined through these two layers:
+
+| Layer | Token | Meaning |
+| --- | --- | --- |
+| Primitive | `--mds-color-brand-gray-1300: #141414` | A raw color in the gray palette |
+| Semantic | `--mds-content-brand-neutral-default: var(--mds-color-brand-gray-1300)` | The color to use for default neutral text content |
+
+Reference `--mds-content-brand-neutral-default` in your CSS, as shown below. The semantic name expresses the design intent and lets the Design System change the underlying value or mapping without requiring you to replace primitive references throughout your application.
+
+Although primitive variables are available after loading `index.css`, they are internal inputs to the semantic layer. Referencing them directly ties your styling to the current raw values and bypasses future updates to the semantic mapping. Choose the semantic token that matches the role of the element you are styling.
 
 ## Apply tokens in custom CSS
 
-Reference a token with `var()` inside a CSS declaration:
+Reference a semantic token with `var()` inside a CSS declaration:
 
 ```css
 .service-description {
