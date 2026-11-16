@@ -1,8 +1,10 @@
 # Massachusetts Design System Styles
 
-Shared Sass and bundled CSS for the Massachusetts Design System. This package is intended to sit on top of `@massds/mds-tokens`, provide composable utility classes for standalone use, and give component packages build-time mixins for self-contained component CSS.
+Common styles for composing pages and for reuse across Massachusetts Design System components. The package includes layout styles outside individual components, such as page containers and grids, and shared styles used across components, such as typography, spacing, and color.
 
-For guidance on using the Design System, see the [Massachusetts Design System resources](https://designsystem.mass.gov).
+`@massds/mds-styles` builds on the semantic tokens from `@massds/mds-tokens` and supports two workflows: composing utility classes directly in HTML, or compiling Sass mixins into your own CSS classes.
+
+For installation and foundation code-tab guidance, see [Using Styles](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-styles--docs).
 
 ## Installation
 
@@ -12,30 +14,26 @@ npm install @massds/mds-styles @massds/mds-tokens
 
 ## Usage
 
-Import tokens first, then styles:
+### Utility Classes
+
+Use the compiled utility stylesheet when you want to compose page layouts and shared styles directly in HTML. Import tokens first, then styles from your application's CSS entrypoint:
 
 ```css
 @import "@massds/mds-tokens/dist/index.css";
-@import "@massds/mds-styles/dist/css/index.min.css";
-```
-
-The package also exposes shorter CSS entrypoints for bundlers that honor package exports:
-
-```css
 @import "@massds/mds-styles/index.min.css";
 ```
 
-This package does not rebundle tokens. Keeping tokens and styles separate makes it easier to update each layer independently and avoids duplicating CSS variables across packages. The build publishes a bundled `dist/css/index.css` for readable distribution and a bundled, minified `dist/css/index.min.css` for production use.
+Apply the provided classes in your markup:
 
-For Sass consumers, the package publishes build-time SCSS under `dist/scss`:
-
-```scss
-@use "pkg:@massds/mds-styles/scss";
+```html
+<p class="mds-text-body">Body copy</p>
 ```
 
-Use Sass's Node package importer for `pkg:` imports.
+The package also publishes `dist/css/index.css` for readable distribution and `dist/css/index.min.css` for production use. Use the exported `index.css` or `index.min.css` paths with bundlers that honor package exports.
 
-Component styles can import the public mixin API directly:
+### Sass Mixins
+
+Use mixins when you maintain your own selectors or are building components. Import the public mixin API into `src/styles.scss`:
 
 ```scss
 @use "pkg:@massds/mds-styles/scss/mixins" as mixins;
@@ -44,6 +42,29 @@ Component styles can import the public mixin API directly:
   @include mixins.text("body");
 }
 ```
+
+Install Sass and compile with its Node package importer to resolve `pkg:` imports:
+
+```bash
+npm install --save-dev sass
+npx sass --pkg-importer=node src/styles.scss dist/styles.css
+```
+
+Use the custom class in your HTML and load your generated CSS alongside token CSS:
+
+```html
+<p class="example">Body copy</p>
+```
+
+The custom HTML and SCSS belong together: the generated CSS supplies the styles for `.example`. The root Sass entrypoint, `pkg:@massds/mds-styles/scss`, also forwards the mixin API.
+
+### Shared Styles and Dependencies
+
+This package does not bundle tokens. Load `@massds/mds-tokens/dist/index.css` before the utility stylesheet or your generated CSS. Reference semantic tokens in custom CSS; the token entrypoint loads its underlying primitives automatically.
+
+Importing the mixin API does not emit utility classes. If your HTML also uses `mds-` classes, load the compiled utility stylesheet. You can use both workflows together, but a utility class does not necessarily have a matching mixin.
+
+Design system components use mixins at build time to produce self-contained component CSS. The HTML and compiled CSS snippets in Storybook are the primary way to adopt components; the experimental `@massds/mds-components` package offers another way to access those files. Their CSS already includes these shared styles, so component consumers need this package only when using additional utility classes or authoring Sass with its mixins.
 
 ## Package Contents
 

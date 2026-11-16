@@ -1,0 +1,46 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+import { assetsVersion, cdnAssetExample } from './getting-started.mdx';
+
+export const installExample = `npm install --save-exact @massds/mds-assets@${assetsVersion}`;
+
+<Meta title="Overview/Getting Started/Using Assets" />
+
+# Using assets
+
+`@massds/mds-assets` provides icons, Massachusetts state seals, and animation files. These are static files that you can use independently or alongside design system components. They do not require token or utility CSS.
+
+## Install
+
+<Source language="bash" code={installExample} />
+
+## Use installed assets
+
+Reference files from the package through your build tool, or copy the files you need into your application's public asset directory. Browsers need a served URL; an npm package path in HTML is not automatically a public URL.
+
+For example, copy `node_modules/@massds/mds-assets/dist/state-seal/state-seal-color.svg` to your application's public `/assets/` directory, then reference it:
+
+```html
+<img src="/assets/state-seal-color.svg" alt="Massachusetts State Seal">
+```
+
+Use descriptive alternative text when the image conveys information. Use `alt=""` when it is decorative or repeats adjacent text.
+
+## Choose an asset
+
+| Asset | Published file paths | Usage guidance |
+| --- | --- | --- |
+| Icons | `dist/icons/alert.svg`, `dist/icons/bold/alert--bold.svg` | [Icon](?path=/docs/foundations-icon--overview) |
+| State seals | `dist/state-seal/state-seal-color.svg`, with black, gray, and white variants | [State Seal](?path=/docs/foundations-state-seal--overview) |
+| Animation | `dist/animation/loader.json` | Load the JSON with a Lottie-compatible player; the file itself does not provide a player. |
+
+Icon filenames use kebab-case. Bold icons are in the `bold/` directory and use a `--bold` suffix.
+
+## Load assets from a CDN
+
+Reference a published file directly through [UNPKG](https://unpkg.com/):
+
+<Source language="html" code={cdnAssetExample} />
+
+The same URL pattern works for icons and animation files: replace the file path after the version with a path from the table above.
+
+Pin URLs to the complete assets package version. Assets are versioned independently of tokens, styles, and components. Avoid unversioned URLs or `@latest` in production.

@@ -3,6 +3,8 @@ import '@massds/mds-components/inline-message.css';
 import '@massds/mds-styles/index.css';
 import '@massds/mds-tokens/dist/index.css';
 import { DocsContainer } from '@storybook/addon-docs/blocks';
+import { SyntaxHighlighter } from 'storybook/internal/components';
+import scss from 'refractor/scss';
 import { createElement, Fragment, useEffect } from 'react';
 import storybookPackage from '../package.json';
 import { renderFooter, renderInlineMessage } from '../src/utils/component-renderers';
@@ -11,6 +13,8 @@ import './preview.css';
 import { massdsDocsTheme, massdsSiteName } from './theme';
 import { trackAnalyticsEvent } from './analytics';
 
+// Storybook's bundled highlighter includes CSS but requires SCSS registration.
+SyntaxHighlighter.registerLanguage('scss', scss);
 
 // Keep placeholder links inert in stories and docs, including nested link content.
 function preventPlaceholderNavigation(event) {
@@ -209,9 +213,9 @@ const preview = {
         method: 'alphabetical',
         order: [
           'Overview',
-          ['Introduction', 'Getting Started'],
+          ['Introduction', 'Getting Started', ['Overview', 'Using Tokens', 'Using Styles', 'Using Assets', 'Using Components']],
           'Foundations',
-          ['Design Tokens', 'Color Tokens', 'Type Styles', ['Overview', 'Guidance', 'Code', 'Playground']],
+          ['Design Tokens', 'Color Tokens', 'Type Styles', 'Grid', ['Overview', 'Guidance', 'Code', 'Playground']],
           'Components',
           ['*', ['Overview', 'Guidance', 'Code', 'Playground']],
           'Templates',

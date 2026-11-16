@@ -1,11 +1,30 @@
 # Massachusetts Design System Components
 
-Twig-authored static components for the Massachusetts Design System.
+Experimental distribution of Massachusetts Design System Twig templates, generated static HTML, and compiled component CSS.
 
-The `@massds/mds-components` workspace lives in `packages/components/` and
-produces static HTML, CSS, and Twig templates.
+The Design System's primary component adoption approach is to copy and paste the HTML and compiled CSS snippets from [Storybook](https://designsystem.mass.gov) into your project. We provide standardized markup and styles organized by component for use across different frontend technologies.
 
-For guidance on using the Design System, see the [Massachusetts Design System resources](https://designsystem.mass.gov).
+Your implementation team chooses its frontend technology and adapts the markup into its own framework components or templates. Twig is used to author our source templates; it is not required to adopt the HTML and CSS.
+
+## Adopt Components From Storybook
+
+1. Read the component's Overview and Guidance pages, then open its Code page and configure the example with the available controls.
+2. Copy the **HTML** snippet into your page or adapt it into your application's component or template.
+3. Copy the **CSS** snippet into a stylesheet your application loads. It is compiled CSS; Sass is not required.
+4. Load `@massds/mds-tokens/dist/index.css` before component CSS and make any required assets available.
+5. Implement the documented interaction behavior in your application, preserving the markup's semantic structure, accessibility attributes, and relationship to the CSS selectors.
+
+Installing `@massds/mds-components` is optional for this workflow. Your team owns framework integration, data binding, and interaction behavior. See [Using Components](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-components--docs) for the full adoption guidance.
+
+## Use the Experimental Package
+
+The `@massds/mds-components` package exposes the Twig templates, generated static HTML, and compiled CSS as an alternative way to access component files. Teams can consume these files through their own build tools or Twig integration.
+
+```bash
+npm install @massds/mds-components @massds/mds-tokens @massds/mds-assets
+```
+
+Load token CSS separately. Component CSS already includes the shared styles incorporated from `@massds/mds-styles` mixins at build time. You only need the styles package when you also want its utility classes or author Sass with its mixins. See [Using Styles](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-styles--docs) and [Using Assets](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-assets--docs) for setup.
 
 ## Scripts
 
@@ -50,28 +69,29 @@ These checks do not render templates or validate runtime data or include targets
 The root `npm run lint` includes both checks. GitHub Actions runs them on component
 pull requests, pushes to `main`, and before publishing the components package.
 
-## Public Imports
+## Experimental Package Imports
 
 Component entry points are exported with wildcard paths. When a component has a
 matching file in `dist/<component>/`, consumers can import it with the flat
 public package path:
 
 ```js
-import '@massds/mds-components/index.css';
+import '@massds/mds-tokens/dist/index.css';
 import '@massds/mds-components/button.css';
 import buttonHtml from '@massds/mds-components/button.html?raw';
 import buttonCss from '@massds/mds-components/button.css?raw';
 import buttonTwig from '@massds/mds-components/button.twig?raw';
 ```
 
-Use these package paths in docs and examples instead of relative `dist/` paths.
-They are the supported public API and apply to every component:
+The `?raw` imports above are a Vite example for reading files as strings. Adapt file loading to your build tool. Importing HTML or Twig does not render it automatically; insert the markup into your page or render the template through your Twig integration.
+
+For package consumption, use these public paths instead of reaching into `dist/` directly. They apply to every component:
 
 - CSS: `@massds/mds-components/<component>.css`
 - HTML: `@massds/mds-components/<component>.html`
 - Twig: `@massds/mds-components/<component>.twig`
 
-The aggregate component stylesheet is exported from `@massds/mds-components/index.css`.
+Use `@massds/mds-components/index.css` instead of individual component CSS imports when you need the aggregate component stylesheet.
 It is compiled from `src/index.scss` in one Sass compilation, so shared
 dependencies loaded with `@use` appear only once. Individual component CSS files
 are compiled separately and can bundle their own dependencies.
@@ -154,12 +174,12 @@ Twig render context.
 
 Current components show the range of expected `.data.js` files:
 
-- [`state-banner.data.js`](/Users/minghuasun/Documents/Github/massachusetts-design-system/packages/components/src/state-banner/state-banner.data.js) only exports defaults
-- [`button.data.js`](/Users/minghuasun/Documents/Github/massachusetts-design-system/packages/components/src/button/button.data.js) exports defaults plus option helpers
-- [`state-seal.data.js`](/Users/minghuasun/Documents/Github/massachusetts-design-system/packages/components/src/state-seal/state-seal.data.js) exports defaults plus computed asset data
+- [`state-banner.data.js`](src/state-banner/state-banner.data.js) only exports defaults
+- [`button.data.js`](src/button/button.data.js) exports defaults plus option helpers
+- [`state-seal.data.js`](src/state-seal/state-seal.data.js) exports defaults plus computed asset data
 
 `button` is not an exception to this pattern. It still has
-[`button.data.js`](/Users/minghuasun/Documents/Github/massachusetts-design-system/packages/components/src/button/button.data.js); what changed is that the standard build path no longer requires a local `build.js` or `button.render.js`.
+[`button.data.js`](src/button/button.data.js); what changed is that the standard build path no longer requires a local `build.js` or `button.render.js`.
 
 ## Component Folders
 
