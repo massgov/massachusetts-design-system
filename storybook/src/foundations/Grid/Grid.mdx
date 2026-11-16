@@ -30,23 +30,23 @@ export const ColumnLayoutExample = ({ columns }) => (
 
 # Grid
 
-The Massachusetts Design System uses a responsive grid to organize content and create consistent layouts across different screen sizes. The grid provides a flexible structure for aligning elements, managing column widths, and adapting layouts to different devices.
+The Massachusetts Design System provides a responsive, 12-column grid that changes to 6 columns at viewport widths of 768px and below. Use grid utility classes or Sass mixins from `@massds/mds-styles` to build layouts.
 
-> Shared grid utility classes and Sass mixins are available in `@massds/mds-styles`. See [Using Styles](?path=/docs/overview-getting-started-using-styles--docs) to load the utility stylesheet and apply classes in HTML, or compile mixins into your own CSS classes. Both approaches require token CSS from `@massds/mds-tokens`.
+Both approaches require semantic token CSS from `@massds/mds-tokens`. See [Using Styles](?path=/docs/overview-getting-started-using-styles--docs) for installation and setup.
 
 ---
 
 ## Grid structure
 
-The grid is made up of columns and gutters that provide a consistent structure for positioning content.
+The grid consists of three parts:
 
-- **Columns:** Vertical divisions used to determine the width and placement of content.
-- **Gutters:** Spaces between columns that help separate content and maintain consistent alignment.
-- **Grid container:** The area that holds the columns and establishes the layout structure.
+- **Grid container:** `.mds-grid` defines the columns and gutters.
+- **Columns:** Divide the available space. Apply layout or span classes to direct children of `.mds-grid` to control how many columns each item spans.
+- **Gutters:** The horizontal spacing between columns, set by the grid's `column-gap`.
 
-### Grid wrapper
+### Grid container
 
-Use `.mds-grid`, usually within `.mds-section-container`, to create a responsive grid layout for grid-based patterns. The section container centers content, limits its width to 1280px, and supplies responsive horizontal padding.
+Use `.mds-grid` to create a responsive grid. Place it inside `.mds-section-container` to center the section, set `width: min(100%, 1280px)`, and apply responsive horizontal padding.
 
 <div className="sb-unstyled mds-docs-grid-wrapper mds-docs-grid-frame mds-margin-block-sm mds-border-brand-neutral-low mds-background-section-brand-neutral-low">
   <div className="mds-grid" aria-hidden="true">
@@ -57,9 +57,14 @@ Use `.mds-grid`, usually within `.mds-section-container`, to create a responsive
   <span className="mds-docs-grid-wrapper-label mds-padding-inline-2xs mds-padding-block-3xs mds-radius-sm mds-text-caption mds-background-section-brand-neutral-lowest">.mds-grid</span>
 </div>
 
-The grid uses 12 columns on larger screens and 6 columns at 768px viewport width and below.
+Breakpoints follow the viewport width, not the grid container's width.
 
-The code examples show two workflows across three tabs. **Utility classes (HTML)** works with token CSS and the compiled utility stylesheet. The Sass mixin approach requires both **Sass mixins (HTML)** and **Sass mixins (SCSS)**: copy the HTML, compile the SCSS, and load the generated CSS alongside tokens. The custom classes in the HTML are styled by the compiled SCSS. See [Using Styles](?path=/docs/overview-getting-started-using-styles--docs#read-foundation-code-tabs) for setup and how to apply each tab.
+Each example provides two implementation options:
+
+- **Utility classes (HTML):** Copy the HTML and load the compiled utility stylesheet.
+- **Sass mixins (SCSS)** + **Sass mixins (HTML):** Use both tabs. Compile the SCSS into your stylesheet and copy the matching HTML.
+
+Load token CSS with either option. See [Using Styles](?path=/docs/overview-getting-started-using-styles--docs#read-foundation-code-tabs) for setup and compilation instructions.
 
 <CodeTabs tabs={wrapperCodeTabs} />
 
@@ -67,9 +72,25 @@ The code examples show two workflows across three tabs. **Utility classes (HTML)
 
 ## Responsive column layout
 
-Use these column layout classes on direct children of `.mds-grid` to create responsive column layouts that adapt across breakpoints.
+Apply predefined column layout classes to direct children of `.mds-grid`. These classes create equal-width layouts and adjust their spans at specific breakpoints.
 
-> Only the column gap is set by our grid layout helper. The row gap is not set to allow for it to vary based on design.
+The grid sets horizontal gaps but leaves vertical gaps unset. Use `row-gap` on the grid container to control vertical spacing. The examples set `row-gap: var(--mds-space-sm)` to preserve the responsive column gutter.
+
+The table shows **items per row**, not grid column spans. Smaller breakpoint columns take precedence.
+
+<div className="mds-docs-reference-table-scroll">
+  <table className="mds-docs-reference-table">
+    <thead>
+      <tr><th scope="col">Class</th><th scope="col">Above 1024px</th><th scope="col">1024px and below</th><th scope="col">768px and below</th><th scope="col">480px and below</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row"><code>.mds-grid-full</code></th><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+      <tr><th scope="row"><code>.mds-grid-2-column</code></th><td>2</td><td>2</td><td>2</td><td>1</td></tr>
+      <tr><th scope="row"><code>.mds-grid-3-column</code></th><td>3</td><td>3</td><td>1</td><td>1</td></tr>
+      <tr><th scope="row"><code>.mds-grid-4-column</code></th><td>4</td><td>2</td><td>2</td><td>1</td></tr>
+    </tbody>
+  </table>
+</div>
 
 ### Examples
 
@@ -77,7 +98,7 @@ Use these column layout classes on direct children of `.mds-grid` to create resp
 
 <ColumnLayoutExample columns={1} />
 
-Use a full-width layout when content needs the entire available width.
+Use `.mds-grid-full` to span the full grid width at every breakpoint.
 
 <CodeTabs tabs={getColumnLayoutCodeTabs(1)} />
 
@@ -85,7 +106,7 @@ Use a full-width layout when content needs the entire available width.
 
 <ColumnLayoutExample columns={2} />
 
-Use a two-column layout to display related content side by side. `.mds-grid-2-column` becomes full width at 480px and below.
+Use `.mds-grid-2-column` for two equal-width items per row. Items become full width at 480px and below.
 
 <CodeTabs tabs={getColumnLayoutCodeTabs(2)} />
 
@@ -93,7 +114,7 @@ Use a two-column layout to display related content side by side. `.mds-grid-2-co
 
 <ColumnLayoutExample columns={3} />
 
-Use a three-column layout to organize related content into evenly distributed sections. `.mds-grid-3-column` becomes full width at 768px and below.
+Use `.mds-grid-3-column` for three equal-width items per row. Items become full width at 768px and below.
 
 <CodeTabs tabs={getColumnLayoutCodeTabs(3)} />
 
@@ -101,7 +122,7 @@ Use a three-column layout to organize related content into evenly distributed se
 
 <ColumnLayoutExample columns={4} />
 
-Use a four-column layout when displaying multiple items of similar importance, such as cards or content summaries. `.mds-grid-4-column` changes to two columns at 1024px and below, then becomes full width at 480px and below.
+Use `.mds-grid-4-column` for four equal-width items per row. The layout changes to two per row at 1024px and below, then one per row at 480px and below.
 
 <CodeTabs tabs={getColumnLayoutCodeTabs(4)} />
 
@@ -109,7 +130,9 @@ Use a four-column layout when displaying multiple items of similar importance, s
 
 ## Grid utilities
 
-Use grid utility classes on direct children of `.mds-grid` to define specific column spans using the responsive column and gutter tokens. Combine them with the [breakpoint syntax](#breakpoint-syntax) for more granular control.
+Use `.mds-grid-span-N` on direct children of `.mds-grid` to span `N` grid columns, where `N` is 1 through 12. For example, `.mds-grid-span-8` sets `grid-column: span 8`. Add [breakpoint prefixes](#breakpoint-syntax) to change spans at different viewport widths.
+
+Items flow into additional rows when the remaining space in a row cannot fit the next item's span. Use `.mds-grid-full` when an item should always span the full grid.
 
 <div className="sb-unstyled mds-docs-grid-gallery mds-margin-block-sm">
   {spanRows.map((spans) => (
@@ -125,7 +148,9 @@ Use grid utility classes on direct children of `.mds-grid` to define specific co
   ))}
 </div>
 
-The labels show each item's default span. Every item in this gallery also uses `md:mds-grid-span-6` to become full width at 768px and below, keeping spans within the available six columns.
+Each item shows its default column span. All items also use `md:mds-grid-span-6` to span all six columns at 768px and below.
+
+The following example uses an 8/4 split above 768px, then stacks both items at full width on the six-column grid.
 
 <CodeTabs tabs={spanCodeTabs} />
 
@@ -133,39 +158,45 @@ The labels show each item's default span. Every item in this gallery also uses `
 
 ## Breakpoint syntax
 
-Add a breakpoint prefix before a grid span utility to change the span at that breakpoint and below. For example, `md:mds-grid-span-6` applies at viewport widths of 768px and below.
+Prefix a grid span utility with a breakpoint to apply it at that viewport width and below. For example, `md:mds-grid-span-6` spans six columns at 768px and below. These are inclusive `max-width` media queries.
 
 <div className="mds-docs-reference-table-scroll">
   <table className="mds-docs-reference-table">
     <thead>
-      <tr><th scope="col">Prefix</th><th scope="col">Media query</th><th scope="col">Total columns</th></tr>
+      <tr><th scope="col">Prefix</th><th scope="col">Media query</th></tr>
     </thead>
     <tbody>
-      <tr><td><code>xl:</code></td><td><code>@media (max-width: 1280px)</code></td><td>12</td></tr>
-      <tr><td><code>lg:</code></td><td><code>@media (max-width: 1024px)</code></td><td>12</td></tr>
-      <tr><td><code>md:</code></td><td><code>@media (max-width: 768px)</code></td><td>6</td></tr>
-      <tr><td><code>sm:</code></td><td><code>@media (max-width: 480px)</code></td><td>6</td></tr>
-      <tr><td><code>xs:</code></td><td><code>@media (max-width: 320px)</code></td><td>6</td></tr>
+      <tr><td><code>xl:</code></td><td><code>@media (max-width: 1280px)</code></td></tr>
+      <tr><td><code>lg:</code></td><td><code>@media (max-width: 1024px)</code></td></tr>
+      <tr><td><code>md:</code></td><td><code>@media (max-width: 768px)</code></td></tr>
+      <tr><td><code>sm:</code></td><td><code>@media (max-width: 480px)</code></td></tr>
+      <tr><td><code>xs:</code></td><td><code>@media (max-width: 320px)</code></td></tr>
     </tbody>
   </table>
 </div>
 
-When multiple prefixed spans apply, the smaller breakpoint takes precedence regardless of class order in the markup.
+An unprefixed span applies by default. Matching prefixed spans override it. When multiple breakpoint rules match, the smallest matching breakpoint takes precedence, regardless of class order in HTML. The compiled CSS orders these media queries from largest to smallest.
 
-> At **md breakpoint**, the total columns of the .mds-grid changes from **12** to **6**. `.mds-grid-span-6` is the max column span, and will be displayed at full width. Column spans should not exceed total columns spans at all breakpoints.
+Write the colon literally in HTML. If you write a CSS selector for a prefixed class, escape it: `.md\:mds-grid-span-6`.
+
+At 768px and below, the grid has six columns. Use a maximum span of 6 at these widths. Spans of 7 through 12 remain in the stylesheet but do not shrink automatically; without an override, they can create implicit columns outside the intended grid.
 
 ---
 
 ## Responsive grid utilities
 
-Combine multiple breakpoint prefixes with `.mds-grid-span-*` to create a responsive grid layout that changes across breakpoints.
+Combine breakpoint prefixes with `.mds-grid-span-*` classes to change column spans across viewport widths.
 
-In this example, the grid items will be 6 columns wide by default, 4 columns wide at the lg breakpoint and below, 3 columns wide at the md breakpoint and below, and full width at the sm breakpoint and below. Resize the viewport to see the layout change.
+In this example, each item spans two columns by default, three at 1024px and below, two at 768px and below, and six at 480px and below.
 
-- `.mds-grid-span-2`: 12 / 2 = **6 items per row** above 1024px.
-- `lg:mds-grid-span-3`: 12 / 3 = **4 items per row** from 769px to 1024px.
-- `md:mds-grid-span-2`: 6 / 2 = **3 items per row** from 481px to 768px.
-- `sm:mds-grid-span-6`: 6 / 6 = **1 item per row** at 480px and below.
+| Viewport width | Effective class | Item span | Items per row |
+| --- | --- | --- | --- |
+| Above 1024px | `mds-grid-span-2` | 2 of 12 | 6 |
+| Above 768px through 1024px | `lg:mds-grid-span-3` | 3 of 12 | 4 |
+| Above 480px through 768px | `md:mds-grid-span-2` | 2 of 6 | 3 |
+| 480px and below | `sm:mds-grid-span-6` | 6 of 6 | 1 |
+
+Resize the browser viewport to see the layout change.
 
 <div className="sb-unstyled mds-docs-grid-frame mds-margin-block-sm mds-padding-inline-sm mds-padding-block-sm mds-radius-sm mds-border-brand-neutral-low mds-background-section-brand-neutral-lowest">
   <div className="mds-grid mds-docs-grid-layout">
