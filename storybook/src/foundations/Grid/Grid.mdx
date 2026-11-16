@@ -57,7 +57,7 @@ Use `.mds-grid`, usually within `.mds-section-container`, to create a responsive
 
 The grid uses 12 columns on larger screens and 6 columns at 768px viewport width and below.
 
-The code examples show both approaches. **HTML (utility classes)** uses bundled classes; **HTML (custom classes)** and **Mixins (custom classes)** show the equivalent layout using your own selectors.
+The code examples show two workflows across three tabs. **HTML (utility classes)** works with token CSS and the compiled utility stylesheet. **HTML (custom classes)** and **Mixins (custom classes)** belong together: compile the SCSS and load the generated CSS alongside tokens to style your own selectors. See [Using Styles](?path=/docs/overview-getting-started-using-styles--docs#read-foundation-code-tabs) for setup and how to apply each tab.
 
 <CodeTabs tabs={wrapperCodeTabs} />
 
@@ -182,4 +182,4 @@ In this example, the grid items will be 6 columns wide by default, 4 columns wid
 
 <CodeTabs tabs={responsiveCodeTabs} />
 
-Use Sass's Node package importer for the `pkg:` imports shown in these examples. Include your generated CSS when using the Sass approach. See [Getting Started](?path=/docs/overview-getting-started--docs) for installation, token loading, and when to choose utilities or mixins.
+Use Sass's Node package importer for the `pkg:` imports shown in these examples. Include your generated CSS when using the Sass approach. See [Using Styles](?path=/docs/overview-getting-started-using-styles--docs) for installation, token loading, and when to choose utilities or mixins.

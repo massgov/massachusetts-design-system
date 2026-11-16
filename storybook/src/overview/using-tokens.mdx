@@ -1,0 +1,65 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+import { tokensVersion, tokenCdnUrl } from './getting-started.mdx';
+
+export const installExample = `npm install --save-exact @massds/mds-tokens@${tokensVersion}`;
+export const cdnExample = `<link rel="stylesheet" href="${tokenCdnUrl}">`;
+
+<Meta title="Overview/Getting Started/Using Tokens" />
+
+# Using tokens
+
+`@massds/mds-tokens` exposes shared design decisions as CSS custom properties. Use these values for color, typography, spacing, corner radius, elevation, and other styles in your own CSS.
+
+You can adopt tokens independently, including in an existing application. The package supplies values; your CSS determines where they apply. It does not require the styles, assets, or components packages.
+
+## Install and load tokens
+
+<Source language="bash" code={installExample} />
+
+Import the public semantic token entrypoint from your application's CSS entrypoint:
+
+```css
+@import "@massds/mds-tokens/dist/index.css";
+```
+
+Use `dist/index.css` for application styling. Do not import `dist/primitives.css` directly; primitives are lower-level inputs that may change as the semantic layer evolves.
+
+## Apply tokens in custom CSS
+
+Reference a token with `var()` inside a CSS declaration:
+
+```css
+.service-description {
+  color: var(--mds-content-brand-neutral-default);
+  font-family: var(--mds-text-body-font-family);
+  font-size: var(--mds-text-body-font-size);
+  font-weight: var(--mds-text-body-font-weight);
+  line-height: var(--mds-text-body-line-height);
+}
+```
+
+```html
+<p class="service-description">Find services and information from the Commonwealth.</p>
+```
+
+Typography tokens expose individual attributes. For a complete shared text style, use a utility class such as `.mds-text-body` or the Sass `text("body")` mixin from [Using Styles](?path=/docs/overview-getting-started-using-styles--docs).
+
+## Use tokens with styles and components
+
+Load token CSS before utility or component CSS so their custom properties are available. Tokens are loaded separately; the styles and components packages do not bundle them.
+
+See [Using Styles](?path=/docs/overview-getting-started-using-styles--docs) and [Using Components](?path=/docs/overview-getting-started-using-components--docs) for complete setup examples.
+
+## Load tokens from a CDN
+
+For a page without an npm build, load the published CSS through [UNPKG](https://unpkg.com/):
+
+<Source language="html" code={cdnExample} />
+
+Then reference the tokens in your own stylesheet. Pin the URL to a complete package version, including any prerelease identifier; avoid unversioned URLs or `@latest` in production.
+
+## Explore the foundations
+
+- [Design Tokens](?path=/docs/foundations-design-tokens--docs) explains the token model and naming.
+- [Color Tokens](?path=/docs/foundations-color-tokens--docs) lists semantic color choices.
+- [Type Styles](?path=/docs/foundations-type-styles--docs) documents typography and text styles.

@@ -1,0 +1,51 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+import { componentsInstallExample } from './getting-started.mdx';
+
+<Meta title="Overview/Getting Started/Using Components" />
+
+# Using components
+
+`@massds/mds-components` is the emerging package for Twig-authored components
+that render static HTML and publish self-contained component CSS. Use Storybook
+for component behavior and usage guidance, and use the package exports instead
+of reaching into `dist/` directly.
+
+## Install
+
+Install the component package and its runtime Design System dependencies:
+
+<Source language="bash" code={componentsInstallExample} />
+
+## Load component CSS and markup
+
+Load tokens before component CSS. For example, with a JavaScript bundler:
+
+```js
+import '@massds/mds-tokens/dist/index.css';
+import '@massds/mds-components/state-banner.css';
+```
+
+Component exports follow the same flat paths for each component. For example, Vite supports `?raw` imports to read HTML or Twig as strings:
+
+```js
+import stateBannerHtml from '@massds/mds-components/state-banner.html?raw';
+import stateBannerTwig from '@massds/mds-components/state-banner.twig?raw';
+```
+
+Use `@massds/mds-components/index.css` when you need the aggregate component
+stylesheet. Individual component exports are preferable when your build should
+include only the CSS it uses.
+
+The HTML export is ready-made markup. The Twig export is a template for projects that render Twig. Importing either as a string does not render it automatically; use the markup in your page or render the template with your Twig integration. The `?raw` syntax is build-tool-specific, so adapt file loading to your platform.
+
+## Understand component dependencies
+
+Component CSS is self-contained for the component's styles and still references shared token values. Load [token CSS](?path=/docs/overview-getting-started-using-tokens--docs) separately.
+
+Components use styles-package mixins during their build. Those shared styles are already compiled into the published component CSS, so consuming a component does not require Sass or the utility stylesheet. Install [the styles package](?path=/docs/overview-getting-started-using-styles--docs) when you also want utility classes or mixins for your own layouts and classes.
+
+Some components reference icons or state seals. Use [Using Assets](?path=/docs/overview-getting-started-using-assets--docs) to make the required files available, and follow the component's Code page for asset paths and configuration.
+
+## Find component examples
+
+Each component's Overview, Guidance, and Code pages explain its intended use, markup, configuration, and any behavior setup it needs. Start with [State Banner](?path=/docs/components-state-banner--overview) for an example.

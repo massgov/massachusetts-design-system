@@ -195,7 +195,7 @@ const preview = {
         method: 'alphabetical',
         order: [
           'Overview',
-          ['Introduction', 'Getting Started'],
+          ['Introduction', 'Getting Started', ['Overview', 'Using Tokens', 'Using Styles', 'Using Assets', 'Using Components']],
           'Foundations',
           ['Design Tokens', 'Color Tokens', 'Type Styles', 'Grid', ['Overview', 'Guidance', 'Code', 'Playground']],
           'Components',
