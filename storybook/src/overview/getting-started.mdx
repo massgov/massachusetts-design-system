@@ -18,7 +18,11 @@ export const cdnAssetExample = `<img src="${stateSealColorCdnUrl}" alt="Massachu
 
 # Getting started
 
-The Massachusetts Design System provides four npm packages provide four npm packages—assets, tokens, styles, and an experimental distribution of component files, to help state agencies implement consistent, accessible and maintainable user interfaces that match the design system.
+The Massachusetts Design System provides coded resources including shared design tokens, reusable styles, static assets, and standardized HTML markup and compiled CSS organized by component, to help state agencies implement consistent, accessible and maintainable user interfaces that match the design system.
+
+The primary way to adopt coded components is to copy and paste the HTML and CSS snippets from Storybook into your project. Your implementation team chooses its frontend technology and adapts the markup into its own framework components or templates. The Design System does not prescribe a framework. See [Using Components](?path=/docs/overview-getting-started-using-components--docs) for the adoption workflow.
+
+We also provide four npm packages—assets, tokens, styles, and an experimental distribution of component files. Adopt the packages that fit your project. 
 
 
 ## Choose your packages
@@ -33,8 +37,6 @@ The Massachusetts Design System provides four npm packages provide four npm pack
 Tokens supply the values. The styles package builds on those values to provide layout styles outside individual components, such as page containers and grids, and shared styles used across components, such as typography and spacing. Use its utility classes to compose pages in HTML or its Sass mixins to incorporate shared styles into your own classes. Components use those mixins during their build to produce self-contained component CSS. Assets supply the visual files used by applications and components.
 
 Tokens and assets can each be used independently. The styles package requires token CSS. The components package requires tokens and assets; its shared styles are already compiled into the component CSS. Install the styles package alongside components when you also want utility classes or Sass mixins.
-
-The primary way to adopt coded components is to copy and paste the HTML and CSS snippets from Storybook into your project. We provide standardized HTML markup and compiled CSS organized by component for use across different frontend technologies. Your implementation team chooses its frontend technology and adapts the markup into its own framework components or templates. The Design System does not prescribe a framework or require Twig. See [Using Components](?path=/docs/overview-getting-started-using-components--docs) for the adoption workflow.
 
 ## Start using the resources
 
