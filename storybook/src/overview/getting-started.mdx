@@ -18,7 +18,11 @@ export const cdnAssetExample = `<img src="${stateSealColorCdnUrl}" alt="Massachu
 
 # Getting started
 
-The Massachusetts Design System provides four npm packages. Adopt the packages that fit your project, whether you need shared design values, reusable styles, static assets, or ready-made components.
+The Massachusetts Design System provides standardized HTML markup and compiled CSS organized by component for use across different frontend technologies. The primary way to adopt coded components is to copy and paste the HTML and CSS snippets from Storybook into your project.
+
+Your implementation team chooses its frontend technology and adapts the markup into its own framework components or templates. The Design System does not prescribe a framework or require Twig. See [Using Components](?path=/docs/overview-getting-started-using-components--docs) for the adoption workflow.
+
+We also provide npm packages for shared design values, reusable styles, static assets, and an experimental distribution of component files. Adopt the packages that fit your project.
 
 ## Choose your packages
 
@@ -27,20 +31,20 @@ The Massachusetts Design System provides four npm packages. Adopt the packages t
 | [`@massds/mds-tokens`](?path=/docs/overview-getting-started-using-tokens--docs) | Shared design values exposed as CSS custom properties | Apply design decisions such as color, spacing, and typography in your own CSS |
 | [`@massds/mds-styles`](?path=/docs/overview-getting-started-using-styles--docs) | Shared layout, grid, typography, and other reusable styles, available as utility classes and Sass mixins | Compose styles in HTML or compile shared styles into your own classes |
 | [`@massds/mds-assets`](?path=/docs/overview-getting-started-using-assets--docs) | Icons, state seals, and animation files | Use static assets independently or alongside components |
-| [`@massds/mds-components`](?path=/docs/overview-getting-started-using-components--docs) | Ready-made components with HTML, Twig templates, and component CSS | Build interfaces with the available coded components |
+| [`@massds/mds-components`](?path=/docs/overview-getting-started-using-components--docs) | Experimental distribution of Twig templates, static HTML, and compiled component CSS | Access component files through npm as an alternative to copying Storybook snippets |
 
 Tokens supply the values. Styles compose those values into reusable styling. Components use shared styles during their build to produce self-contained component CSS. Assets supply the visual files used by applications and components.
 
 Tokens and assets can each be used independently. The styles package requires token CSS. The components package requires tokens and assets; its shared styles are already compiled into the component CSS. Install the styles package alongside components when you also want utility classes or Sass mixins.
 
-## Start using a package
+## Start using the resources
 
-Install only the packages your application needs. Each guide includes installation and copyable examples:
+Start with the component snippets, and install the supporting packages your application needs. These guides explain each resource and how to use it:
 
 - [Using Tokens](?path=/docs/overview-getting-started-using-tokens--docs): load tokens and reference them in custom CSS.
 - [Using Styles](?path=/docs/overview-getting-started-using-styles--docs): choose utility classes or Sass mixins and learn how foundation code tabs work.
 - [Using Assets](?path=/docs/overview-getting-started-using-assets--docs): load icons, state seals, and animation files.
-- [Using Components](?path=/docs/overview-getting-started-using-components--docs): install components and load their markup and CSS.
+- [Using Components](?path=/docs/overview-getting-started-using-components--docs): copy HTML and CSS from Storybook, adapt them to your technology, or use the experimental package.
 
 ## Package versions
 

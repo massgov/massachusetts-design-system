@@ -5,18 +5,39 @@ import { componentsInstallExample } from './getting-started.mdx';
 
 # Using components
 
-`@massds/mds-components` is the emerging package for Twig-authored components
-that render static HTML and publish self-contained component CSS. Use Storybook
-for component behavior and usage guidance, and use the package exports instead
-of reaching into `dist/` directly.
+The primary way to adopt coded components is to copy and paste the HTML and compiled CSS snippets from Storybook into your project. The Design System provides standardized HTML markup and compiled CSS organized by component for use across different technologies.
 
-## Install
+## Copy component code from Storybook
+
+1. Open a component's Overview and Guidance pages to understand its intended use.
+2. Open its Code page and configure the example for your use case using the available controls.
+3. Copy the **HTML** snippet into your page or adapt it into your application's component or template.
+4. Copy the **CSS** snippet into a stylesheet that your application loads. The snippet is compiled CSS; you do not need Sass to use it.
+5. Load [token CSS](?path=/docs/overview-getting-started-using-tokens--docs) before the component CSS, make any required [assets](?path=/docs/overview-getting-started-using-assets--docs) available, and implement the behavior described by the component's guidance.
+
+Keep the HTML class names aligned with the copied CSS selectors. Component CSS includes its shared styles and still relies on token values loaded separately.
+
+Start with [State Banner's Code page](?path=/docs/components-state-banner--code) for an example. Installing the components package is optional for this workflow.
+
+## Adapt components to your technology
+
+Your implementation team chooses its frontend technology and converts the supplied markup into the components or templates its application needs. The Design System does not prescribe a framework or require Twig.
+
+When adapting the markup, preserve its semantic structure, accessibility attributes, and relationship to the supplied CSS. Your team owns the framework integration, data binding, and interaction behavior, using the documented component behavior and accessibility guidance as the reference.
+
+## Use the experimental components package
+
+`@massds/mds-components` is an experimental distribution of the Twig templates, generated static HTML, and compiled CSS used for our components. It provides another way to access these files for teams that want package-based consumption. Storybook's HTML and CSS snippets remain the primary adoption approach.
+
+The Twig templates are available for teams that use Twig or want to inspect the source templates. They do not prescribe the technology for your implementation.
+
+### Install
 
 Install the component package and its runtime Design System dependencies:
 
 <Source language="bash" code={componentsInstallExample} />
 
-## Load component CSS and markup
+### Load component CSS and markup
 
 Load tokens before component CSS. For example, with a JavaScript bundler:
 
@@ -38,11 +59,11 @@ include only the CSS it uses.
 
 The HTML export is ready-made markup. The Twig export is a template for projects that render Twig. Importing either as a string does not render it automatically; use the markup in your page or render the template with your Twig integration. The `?raw` syntax is build-tool-specific, so adapt file loading to your platform.
 
-## Understand component dependencies
+## Shared styles and dependencies
 
 Component CSS is self-contained for the component's styles and still references shared token values. Load [token CSS](?path=/docs/overview-getting-started-using-tokens--docs) separately.
 
-Components use styles-package mixins during their build. Those shared styles are already compiled into the published component CSS, so consuming a component does not require Sass or the utility stylesheet. Install [the styles package](?path=/docs/overview-getting-started-using-styles--docs) when you also want utility classes or mixins for your own layouts and classes.
+Components use styles-package mixins during their build. Those shared styles are already compiled into the CSS provided in Storybook and the experimental package, so adopting component CSS does not require Sass or the utility stylesheet. Install [the styles package](?path=/docs/overview-getting-started-using-styles--docs) when you also want utility classes or mixins for your own layouts and classes.
 
 Some components reference icons or state seals. Use [Using Assets](?path=/docs/overview-getting-started-using-assets--docs) to make the required files available, and follow the component's Code page for asset paths and configuration.
 
