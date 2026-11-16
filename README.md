@@ -9,7 +9,7 @@ This repository contains the source code for Massachusetts Design System package
 
 Each package has its own README with package-specific development and publishing details.
 
-For general guidance on how to use the Design System, check out the [Design System Microsite](https://www.mass.gov/massachusetts-design-system).
+For guidance on using the Design System, see the [Massachusetts Design System resources](https://designsystem.mass.gov).
 
 In the upcoming quarter, we will be working on creating the HTML, CSS and Javascript for required components such as State Banner and Footer. We will announce when these components will be ready for testing and use.
 

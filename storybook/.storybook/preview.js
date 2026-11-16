@@ -43,21 +43,16 @@ const sharedFooterData = {
   siteName: massdsSiteName,
   siteLink: './',
   socialLinks: [],
-  description: 'Storybook is the implementation reference for the Massachusetts Design System. It provides reusable components, design tokens, accessibility guidance, and code examples for Commonwealth digital products.',
+  description: 'The Massachusetts Design System resources provide reusable components, design tokens, accessibility guidance, and implementation examples for Commonwealth digital products.',
   contactItems: [
     {
       headingId: 'mds-footer-contact-heading',
-      heading: 'Contact',
+      heading: 'Contact us',
       links: [
         {
-          icon: 'star',
+          icon: 'note-pencil',
           href: 'https://www.mass.gov/forms/help-us-improve-our-storybook-resources',
           text: 'Share feedback'
-        },
-        {
-          icon: 'globe',
-          href: 'https://mass.gov/designsystem',
-          text: 'mass.gov/designsystem'
         },
         {
           icon: 'envelope',
@@ -67,7 +62,26 @@ const sharedFooterData = {
       ]
     }
   ],
-  linkGroups: [],
+  linkGroups: [
+    {
+      headingId: 'mds-footer-resources-heading',
+      heading: 'Resources',
+      links: [
+        {
+          href: 'https://github.com/massgov/massachusetts-design-system',
+          text: 'GitHub repository'
+        },
+        {
+          href: 'https://www.figma.com/design/D5Ju48AoqIXmdCopPwBr6N/Core-Components?m=auto&node-id=0-1&t=06aGT6jeozCDIV2m-1',
+          text: 'Figma component library'
+        },
+        {
+          href: 'https://www.mass.gov/massachusetts-design-system',
+          text: 'Design System on Mass.gov'
+        }
+      ]
+    }
+  ],
   legalLinks: [
     {
       href: 'https://www.mass.gov/info-details/commonwealth-of-massachusetts-executive-department-digital-accessibility-statement',

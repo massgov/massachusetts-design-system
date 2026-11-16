@@ -2,6 +2,7 @@
 
 Shared static assets for the Massachusetts Design System. This package publishes optimized icons, state seal files, and animation assets as plain files that can be consumed by applications, design system packages, or build pipelines.
 
+For guidance on using the Design System, see the [Massachusetts Design System resources](https://designsystem.mass.gov).
 
 ## Installation
 
@@ -59,7 +60,7 @@ Style guidance:
 - Use bold icons at 24px and below
 - Use regular icons above 24px
 
-You can browse the icon set in [Storybook](https://mayflower.digital.mass.gov/core/index.html?path=/docs/foundation-iconography--icons).
+You can browse the icon set in [Storybook](https://designsystem.mass.gov/?path=/docs/foundations-icon--overview).
 
 ### State Seal
 

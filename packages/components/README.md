@@ -5,6 +5,8 @@ Twig-authored static components for the Massachusetts Design System.
 The `@massds/mds-components` workspace lives in `packages/components/` and
 produces static HTML, CSS, and Twig templates.
 
+For guidance on using the Design System, see the [Massachusetts Design System resources](https://designsystem.mass.gov).
+
 ## Scripts
 
 ```bash

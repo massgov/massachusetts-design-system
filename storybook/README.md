@@ -5,6 +5,8 @@ resources. Its versioned production snapshots follow the version of
 `@massds/mds-components`. Each snapshot uses the exact pinned versions of the
 assets, styles, and tokens packages recorded in this package's `package.json`.
 
+For guidance on using the Design System, see the [Massachusetts Design System resources](https://designsystem.mass.gov).
+
 ## Local development
 
 From the repository root, install dependencies and start Storybook with:
