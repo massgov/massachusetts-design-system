@@ -7,7 +7,7 @@ export const installExample = `npm install --save-exact @massds/mds-assets@${ass
 
 # Using assets
 
-`@massds/mds-assets` provides icons, Massachusetts state seals, and animation files. These are static files that you can use independently or alongside design system components. They do not require token or utility CSS.
+`@massds/mds-assets` provides icons, Massachusetts state seals, and animation files. These are static files that you can use independently or alongside design system components. They do not require token or utility CSS. Components that use icons or state seals depend on these assets, but do not require an assets npm installation: copied component markup embeds icons as inline SVG, while state seals are referenced through versioned CDN URLs. Use this package when you want direct access to asset files, including for self-hosting.
 
 ## Install
 

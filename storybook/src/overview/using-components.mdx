@@ -13,7 +13,7 @@ The primary way to adopt coded components is to copy and paste the HTML and comp
 2. Open its Code page and configure the example for your use case using the available controls.
 3. Copy the **HTML** snippet into your page or adapt it into your application's component or template.
 4. Copy the **CSS** snippet into a stylesheet that your application loads. The snippet is compiled CSS; you do not need Sass to use it.
-5. Load [token CSS](?path=/docs/overview-getting-started-using-tokens--docs) before the component CSS, make any required [assets](?path=/docs/overview-getting-started-using-assets--docs) available, and implement the behavior described by the component's guidance.
+5. Load [token CSS](?path=/docs/overview-getting-started-using-tokens--docs) before the component CSS, keep any referenced image URLs accessible, and implement the behavior described by the component's guidance.
 
 Keep the HTML class names aligned with the copied CSS selectors. Component CSS includes its shared styles and still relies on token values loaded separately.
 
@@ -33,9 +33,10 @@ The Twig templates are available for teams that use Twig or want to inspect the 
 
 ### Install
 
-Install the component package and its runtime Design System dependencies:
+Install the component package and tokens:
 
 <Source language="bash" code={componentsInstallExample} />
+
 
 ### Load component CSS and markup
 
@@ -65,7 +66,9 @@ Component CSS is self-contained for the component's styles and still references 
 
 Components use styles-package mixins during their build. Those shared styles are already compiled into the CSS provided in Storybook and the experimental package, so adopting component CSS does not require Sass or the utility stylesheet. Install [the styles package](?path=/docs/overview-getting-started-using-styles--docs) when you also want utility classes or mixins for your own layouts and classes.
 
-Some components reference icons or state seals. Use [Using Assets](?path=/docs/overview-getting-started-using-assets--docs) to make the required files available, and follow the component's Code page for asset paths and configuration.
+Components that display icons or state seals depend on asset content from `@massds/mds-assets`. This is an asset dependency, not a requirement to install the assets npm package. Icons are embedded as inline SVG in the generated markup. State seals use versioned CDN image URLs in the generated markup and, for the footer, its compiled CSS. Those URLs must remain accessible unless you replace them with your own hosted copies.
+
+The repository also uses the assets npm package as a development dependency to build and render components. Install it only when you want direct access to asset files, for example to host them yourself or use additional icons and images. You can also obtain files through the CDN. See [Using Assets](?path=/docs/overview-getting-started-using-assets--docs).
 
 ## Find component examples
 
