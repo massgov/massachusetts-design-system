@@ -6,7 +6,7 @@ export const componentsVersion = storybookPackage.dependencies['@massds/mds-comp
 export const stylesVersion = storybookPackage.dependencies['@massds/mds-styles'];
 export const tokensVersion = storybookPackage.dependencies['@massds/mds-tokens'];
 export const packageInstallExample = `npm install --save-exact @massds/mds-tokens@${tokensVersion} @massds/mds-styles@${stylesVersion} @massds/mds-assets@${assetsVersion}`;
-export const componentsInstallExample = `npm install --save-exact @massds/mds-components@${componentsVersion} @massds/mds-tokens@${tokensVersion} @massds/mds-assets@${assetsVersion}`;
+export const componentsInstallExample = `npm install --save-exact @massds/mds-components@${componentsVersion} @massds/mds-tokens@${tokensVersion}`;
 export const tokenCdnUrl = `https://unpkg.com/@massds/mds-tokens@${tokensVersion}/dist/index.css`;
 export const stylesCdnUrl = `https://unpkg.com/@massds/mds-styles@${stylesVersion}/dist/css/index.min.css`;
 export const stateSealColorCdnUrl = `https://unpkg.com/@massds/mds-assets@${assetsVersion}/dist/state-seal/state-seal-color.svg`;
@@ -20,7 +20,7 @@ export const cdnAssetExample = `<img src="${stateSealColorCdnUrl}" alt="Massachu
 
 The Massachusetts Design System provides coded resources including shared design tokens, reusable styles, static assets, and standardized HTML markup and compiled CSS organized by component, to help state agencies implement consistent, accessible and maintainable user interfaces that match the design system.
 
-The primary way to adopt coded components is to copy and paste the HTML and CSS snippets from Storybook into your project. Your implementation team chooses its frontend technology and adapts the markup into its own framework components or templates. The Design System does not prescribe a framework. See [Using Components](?path=/docs/overview-getting-started-using-components--docs) for the adoption workflow.
+We chose HTML, CSS, and JavaScript as the common baseline for our coded components because these browser standards provide a shared foundation across the widest range of use cases and technology stacks. The primary way to adopt them is to copy the HTML, compiled CSS, and any JavaScript examples provided in Storybook into your project. Your implementation team chooses its frontend technology and adapts the markup, styles, and behavior into its own framework components or templates. The Design System does not prescribe a framework. See [Using Components](?path=/docs/overview-getting-started-using-components--docs) for the adoption workflow.
 
 We also provide four npm packages—assets, tokens, styles, and an experimental distribution of component files. Adopt the packages that fit your project. 
 
@@ -36,7 +36,7 @@ We also provide four npm packages—assets, tokens, styles, and an experimental 
 
 Tokens supply the values. The styles package builds on those values to provide layout styles outside individual components, such as page containers and grids, and shared styles used across components, such as typography and spacing. Use its utility classes to compose pages in HTML or its Sass mixins to incorporate shared styles into your own classes. Components use those mixins during their build to produce self-contained component CSS. Assets supply the visual files used by applications and components.
 
-Tokens and assets can each be used independently. The styles package requires token CSS. The components package requires tokens and assets; its shared styles are already compiled into the component CSS. Install the styles package alongside components when you also want utility classes or Sass mixins.
+Tokens and assets can each be used independently. The styles package requires token CSS. Component CSS requires token CSS; its shared styles are already compiled in. Components that use icons or state seals depend on those assets. The snippets include icons as inline SVG and reference state seals through CDN URLs, so the asset dependency does not require installing the assets npm package. Install the styles package alongside components when you also want utility classes or Sass mixins.
 
 ## Start using the resources
 
@@ -45,7 +45,7 @@ Start with the component snippets, and install the supporting packages your appl
 - [Using Tokens](?path=/docs/overview-getting-started-using-tokens--docs): load tokens and reference them in custom CSS.
 - [Using Styles](?path=/docs/overview-getting-started-using-styles--docs): choose utility classes or Sass mixins and learn how foundation code tabs work.
 - [Using Assets](?path=/docs/overview-getting-started-using-assets--docs): load icons, state seals, and animation files.
-- [Using Components](?path=/docs/overview-getting-started-using-components--docs): copy HTML and CSS from Storybook, adapt them to your technology, or use the experimental package.
+- [Using Components](?path=/docs/overview-getting-started-using-components--docs): adopt Storybook code snippets, adapt them to your technology, or use the experimental package.
 
 ## Package versions
 
@@ -62,7 +62,7 @@ To view the documentation for a specific components version, navigate to:
 | [`@massds/mds-tokens`](https://www.npmjs.com/package/@massds/mds-tokens) | {tokensVersion} | None |
 | [`@massds/mds-styles`](https://www.npmjs.com/package/@massds/mds-styles) | {stylesVersion} | `@massds/mds-tokens` |
 | [`@massds/mds-assets`](https://www.npmjs.com/package/@massds/mds-assets) | {assetsVersion} | None |
-| [`@massds/mds-components`](https://www.npmjs.com/package/@massds/mds-components) | {componentsVersion} | `@massds/mds-tokens` and `@massds/mds-assets` |
+| [`@massds/mds-components`](https://www.npmjs.com/package/@massds/mds-components) | {componentsVersion} | Token CSS and, where used, asset content supplied inline or through CDN URLs; no assets npm installation required |
 
 ## Contribute to the Design System
 

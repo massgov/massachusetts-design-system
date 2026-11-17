@@ -2,7 +2,7 @@
 
 Shared static assets for the Massachusetts Design System. This package publishes optimized icons, state seal files, and animation assets as plain files that can be consumed by applications, design system packages, or build pipelines.
 
-Assets can be used independently or alongside component snippets from Storybook. They do not require token or utility CSS, and do not prescribe a frontend framework. See [Using Assets](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-assets--docs) for setup and examples.
+Assets can be used independently or alongside component snippets from Storybook. They do not require token or utility CSS, and do not prescribe a frontend framework. Components that use icons or state seals depend on these assets, but do not require an assets npm installation: copied markup embeds icons as inline SVG and references state seals through versioned CDN URLs. See [Using Assets](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-assets--docs) for setup and examples.
 
 ## Installation
 

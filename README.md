@@ -11,7 +11,7 @@ Each package has its own README with package-specific development and publishing
 
 For guidance on using the Design System, see the [Massachusetts Design System resources](https://designsystem.mass.gov).
 
-The primary way to adopt coded components is to copy and paste the HTML and compiled CSS snippets from Storybook. Teams choose their frontend technology and adapt the markup into their own framework components or templates. Twig is used for our source templates and is not required for adoption. The experimental components package offers another way to access the files. See [Using Components](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-components--docs) for guidance.
+We chose HTML, CSS, and JavaScript as the common baseline for our coded components because these browser standards provide a shared foundation across the widest range of use cases and technology stacks. The primary way to adopt them is to copy the HTML, compiled CSS, and any JavaScript examples provided in Storybook. Teams choose their frontend technology and adapt the markup, styles, and behavior into their own framework components or templates. Twig is used for our source templates and is not required for adoption. The experimental components package offers another way to access the files. See [Using Components](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-components--docs) for guidance.
 
 We are a small but mighty crew enthusiastic to partner with teams hoping to leverage the Massachusetts Design System for upcoming projects. Please provide any feedback in our Community of Practice channel on Microsoft Teams or via email at <designsystem@mass.gov>.
 

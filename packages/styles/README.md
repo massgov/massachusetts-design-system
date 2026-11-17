@@ -64,7 +64,7 @@ This package does not bundle tokens. Load `@massds/mds-tokens/dist/index.css` be
 
 Importing the mixin API does not emit utility classes. If your HTML also uses `mds-` classes, load the compiled utility stylesheet. You can use both workflows together, but a utility class does not necessarily have a matching mixin.
 
-Design system components use mixins at build time to produce self-contained component CSS. The HTML and compiled CSS snippets in Storybook are the primary way to adopt components; the experimental `@massds/mds-components` package offers another way to access those files. Their CSS already includes these shared styles, so component consumers need this package only when using additional utility classes or authoring Sass with its mixins.
+Design system components use mixins at build time to produce self-contained component CSS. The component code snippets in Storybook are the primary way to adopt components; the experimental `@massds/mds-components` package offers another way to access those files. Their CSS already includes these shared styles, so component consumers need this package only when using additional utility classes or authoring Sass with its mixins.
 
 ## Package Contents
 

@@ -2,16 +2,16 @@
 
 Experimental distribution of Massachusetts Design System Twig templates, generated static HTML, and compiled component CSS.
 
-The Design System's primary component adoption approach is to copy and paste the HTML and compiled CSS snippets from [Storybook](https://designsystem.mass.gov) into your project. We provide standardized markup and styles organized by component for use across different frontend technologies.
+We chose HTML, CSS, and JavaScript as the common baseline for our coded components because these browser standards provide a shared foundation across the widest range of use cases and technology stacks. The primary adoption approach is to copy the HTML, compiled CSS, and any JavaScript examples provided in [Storybook](https://designsystem.mass.gov) into your project.
 
-Your implementation team chooses its frontend technology and adapts the markup into its own framework components or templates. Twig is used to author our source templates; it is not required to adopt the HTML and CSS.
+Your implementation team chooses its frontend technology and adapts the markup, styles, and behavior into its own framework components or templates. Twig is used to author our source templates; it is not required to adopt the HTML and CSS.
 
 ## Adopt Components From Storybook
 
 1. Read the component's Overview and Guidance pages, then open its Code page and configure the example with the available controls.
 2. Copy the **HTML** snippet into your page or adapt it into your application's component or template.
 3. Copy the **CSS** snippet into a stylesheet your application loads. It is compiled CSS; Sass is not required.
-4. Load `@massds/mds-tokens/dist/index.css` before component CSS and make any required assets available.
+4. Load `@massds/mds-tokens/dist/index.css` before component CSS and keep any referenced image URLs accessible.
 5. Implement the documented interaction behavior in your application, preserving the markup's semantic structure, accessibility attributes, and relationship to the CSS selectors.
 
 Installing `@massds/mds-components` is optional for this workflow. Your team owns framework integration, data binding, and interaction behavior. See [Using Components](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-components--docs) for the full adoption guidance.
@@ -21,10 +21,16 @@ Installing `@massds/mds-components` is optional for this workflow. Your team own
 The `@massds/mds-components` package exposes the Twig templates, generated static HTML, and compiled CSS as an alternative way to access component files. Teams can consume these files through their own build tools or Twig integration.
 
 ```bash
-npm install @massds/mds-components @massds/mds-tokens @massds/mds-assets
+npm install @massds/mds-components @massds/mds-tokens
 ```
 
 Load token CSS separately. Component CSS already includes the shared styles incorporated from `@massds/mds-styles` mixins at build time. You only need the styles package when you also want its utility classes or author Sass with its mixins. See [Using Styles](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-styles--docs) and [Using Assets](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-assets--docs) for setup.
+
+## Asset Dependencies and Package Installation
+
+Components that display icons or state seals depend on asset content from `@massds/mds-assets`. That asset dependency does not require consumers to install the assets npm package. Generated markup embeds icons as inline SVG. State seals use versioned CDN image URLs in generated markup and, for the footer, compiled CSS. Keep those URLs accessible or replace them with your own hosted copies.
+
+The assets package remains a development dependency for building and rendering components in this repository. Consumers can install it for direct access to asset files or self-hosting, but can also obtain files from the CDN.
 
 ## Scripts
 
