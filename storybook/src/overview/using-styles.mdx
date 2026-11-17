@@ -1,0 +1,127 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+import { stylesVersion, tokensVersion, cdnStylesheetExample } from './getting-started.mdx';
+
+export const installExample = `npm install --save-exact @massds/mds-styles@${stylesVersion} @massds/mds-tokens@${tokensVersion}`;
+
+<Meta title="Overview/Getting Started/Using Styles" />
+
+# Using styles
+
+`@massds/mds-styles` provides common styles for composing pages and for reuse across components. It includes layout styles outside individual components, such as page containers and grids, and shared styles used across components, such as typography, spacing, and color.
+
+The package builds on `@massds/mds-tokens` and supports two workflows: composing utility classes in HTML, or compiling Sass mixins into your own classes.
+
+## Choose a workflow
+
+| Workflow | What you write | What the browser loads |
+| --- | --- | --- |
+| Utility classes | HTML with the provided `mds-` classes | Token CSS and the compiled utility stylesheet |
+| Sass mixins | SCSS that includes mixins inside your own selectors, plus HTML using those classes | Token CSS and your generated stylesheet |
+
+Choose utility classes when you want to compose styles directly in markup. Choose mixins when you maintain your own classes or are building components. Both approaches use the same shared design values and can be used together.
+
+Design system components use these mixins at build time to produce self-contained component CSS. The compiled CSS snippets in Storybook and the CSS in the experimental components package already include those shared styles. Copying component code snippets from Storybook is the primary way to adopt components. You need the styles package when you also use its utilities or author Sass with its mixins. See [Using Components](?path=/docs/overview-getting-started-using-components--docs).
+
+## Install
+
+<Source language="bash" code={installExample} />
+
+The styles package does not bundle tokens. Load token CSS before utility CSS or your generated CSS. See [Using Tokens](?path=/docs/overview-getting-started-using-tokens--docs) for details.
+
+## Use utility classes
+
+Import tokens before the compiled utility stylesheet from your application's CSS entrypoint:
+
+```css
+@import "@massds/mds-tokens/dist/index.css";
+@import "@massds/mds-styles/index.min.css";
+```
+
+Use the bundled CSS when you want to compose styles directly in HTML. For example, this creates a two-column grid that stacks at 480px and below:
+
+```html
+<div class="mds-section-container">
+  <div class="mds-grid">
+    <div class="mds-grid-2-column">First item</div>
+    <div class="mds-grid-2-column">Second item</div>
+  </div>
+</div>
+```
+
+Utilities also cover spacing, color, typography, corner radius, and shadow. Classes such as `.mds-padding-inline-sm`, `.mds-background-section-brand-primary-lowest`, and `.mds-text-body` can be combined with layout classes. Combine `.mds-padding-inline-sm` and `.mds-padding-block-sm` to add padding on both axes.
+
+## Use Sass mixins
+
+Use mixins when you want design system styles compiled into selectors you maintain. This produces the same layout as the utility example:
+
+```scss
+@use "pkg:@massds/mds-styles/scss/mixins" as mixins;
+
+.page-section {
+  @include mixins.section-container;
+}
+
+.content-grid {
+  @include mixins.grid;
+}
+
+.content-grid__item {
+  @include mixins.grid-2-column;
+}
+```
+
+```html
+<div class="page-section">
+  <div class="content-grid">
+    <div class="content-grid__item">First item</div>
+    <div class="content-grid__item">Second item</div>
+  </div>
+</div>
+```
+
+Save the SCSS as `src/styles.scss`. Install Sass as a development dependency, then use its Node package importer to resolve `pkg:` imports:
+
+```bash
+npm install --save-dev sass
+```
+
+Compile the SCSS into a stylesheet:
+
+```bash
+npx sass --pkg-importer=node src/styles.scss dist/styles.css
+```
+
+Include your generated CSS in the page and load token CSS before it. For example, from your application's CSS entrypoint (adjust the generated file path for your project):
+
+```css
+@import "@massds/mds-tokens/dist/index.css";
+@import "./dist/styles.css";
+```
+
+The browser uses your custom classes from the HTML example with the generated CSS. Importing the mixin API does not emit the bundled utility classes; load `@massds/mds-styles/index.min.css` as well if your markup uses them.
+
+Other public mixins include `text("heading-lg")` for typography and `max-width(md)` for breakpoint-specific rules. Utilities and mixins can be used together, but they are separate interfaces: a utility classname does not necessarily have a matching mixin.
+
+See [Grid](?path=/docs/foundations-grid--docs) for live layouts, column spans, breakpoint prefixes, and copyable HTML and Sass examples.
+
+## Read foundation code tabs
+
+Foundation pages such as Grid show two workflows across three tabs:
+
+| Tab | How to apply it |
+| --- | --- |
+| **Utility classes (HTML)** | Copy this markup after loading token CSS and the compiled utility stylesheet. |
+| **Sass mixins (SCSS)** | Compile this SCSS and load the generated CSS alongside tokens. Its selectors style the markup in **Sass mixins (HTML)**. |
+| **Sass mixins (HTML)** | Copy this markup together with the SCSS in **Sass mixins (SCSS)**. |
+
+The Sass mixin approach requires both tabs: **Sass mixins (HTML)** provides the markup with custom classes, and **Sass mixins (SCSS)** defines their styles. Copy the HTML, compile the SCSS, and load the generated stylesheet alongside token CSS. Copying only the HTML does not apply the mixin styles.
+
+## Load utility CSS from a CDN
+
+For a page without an npm build, load the published CSS files through [UNPKG](https://unpkg.com/), with tokens first:
+
+<Source language="html" code={cdnStylesheetExample} />
+
+Then use utility classes in your HTML as shown above. CDN loading serves compiled CSS; the mixin workflow requires a Sass build.
+
+Pin each URL to its package's complete version, including any prerelease identifier. Avoid unversioned URLs or `@latest` in production because packages are released independently.
