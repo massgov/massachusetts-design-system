@@ -21,10 +21,10 @@ check_package() {
   fi
 
   local relevant_changes
-  relevant_changes="$(printf '%s\n' "$package_changes" | grep -v "^${package_path}/CHANGELOG\\.md$" | grep -v "^${template_path}$" | grep -v "^${package_path}/changelog\\.d/" || true)"
+  relevant_changes="$(printf '%s\n' "$package_changes" | grep -v "^${package_path}/CHANGELOG\\.md$" | grep -v "^${template_path}$" | grep -v "^${package_path}/changelog\\.d/" | grep -Ev '(^|/)README\.md$' || true)"
 
   if [[ -z "$relevant_changes" ]]; then
-    echo "Only changelog files changed for ${package_name}."
+    echo "Only README or changelog files changed for ${package_name}."
     return 0
   fi
 
