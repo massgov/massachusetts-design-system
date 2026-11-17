@@ -1,23 +1,66 @@
-.mds-main-navigation-example--desktop {
-  max-width: 900px;
+.mds-main-navigation-overview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-md);
+  padding-block-end: var(--mds-space-3xl);
 }
 
-/* Figma shows the horizontal bar's expanded state within a 66px frame. */
-@media (min-width: 769px) {
-  .mds-main-navigation-example--desktop {
-    height: 66px;
-    overflow: clip;
-  }
-
-  .mds-main-navigation-example--desktop:hover,
-  .mds-main-navigation-example--desktop:focus-within {
-    overflow: visible;
-    position: relative;
-    z-index: 10;
-  }
+#storybook-docs .mds-main-navigation-overview :is(h1, h2, h3, p, hr) {
+  margin-block: 0;
 }
 
-.mds-main-navigation-example--mobile,
-.mds-main-navigation-example--stacked {
-  max-width: 320px;
+#storybook-docs .mds-main-navigation-overview h1 {
+  padding-block: var(--mds-space-xs);
+}
+
+#storybook-docs .mds-main-navigation-overview p + p {
+  margin-block-start: var(--mds-space-sm);
+}
+
+#storybook-docs .mds-main-navigation-overview hr {
+  width: 100%;
+  margin-block: var(--mds-space-2xs);
+}
+
+.mds-main-navigation-example {
+  position: relative;
+  width: 100%;
+}
+
+.mds-main-navigation-example__menu {
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: 0;
+  z-index: 10;
+  width: min(480px, 100%);
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--mds-base-inverse);
+  box-shadow: var(--mds-shadow-modal);
+}
+
+/* Keep dropdowns visible above the following documentation content. */
+.mds-main-navigation-example:focus-within,
+.mds-main-navigation-example:hover,
+.mds-main-navigation-example:has(.mds-main-navigation-example__menu:not([hidden])) {
+  z-index: 1;
+}
+
+.mds-main-navigation-example .mds-utility-nav {
+  padding-inline: var(--mds-breakpoint-horizontal-space-margin);
+}
+
+.mds-main-navigation-example .mds-utility-nav__button {
+  padding: 0;
+  font-size: var(--mds-text-label-font-size-xl);
+}
+
+.mds-main-navigation-example .mds-utility-nav__button--home {
+  gap: var(--mds-space-2xs);
+  min-height: 48px;
+  color: var(--mds-base-white);
+}
+
+.mds-main-navigation-example .mds-utility-nav__button--home .mds-button__icon {
+  --mds-icon-size: 24px;
 }

@@ -1,35 +1,45 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { MainNavigationExample } from './MainNavigationExample.jsx';
+import { MainNavigationExample, MainNavigationPlaygroundMessage } from './MainNavigationExample.jsx';
 import * as MainNavigationStories from './main-navigation.stories.js';
 
 <Meta of={MainNavigationStories} />
 
+<div className="mds-main-navigation-overview">
+
 # Main navigation overview
 
-Main navigation groups the main destinations of a website. Parent items expand to show related links, and items without children navigate directly.
+<div>
+
+Use the main navigation to help people move between the main sections of a website or application. It organizes top-level destinations and can group related destinations in submenus.
+
+Keep the navigation hierarchy clear so people can understand the available destinations and move through the site.
+
+</div>
+
+<MainNavigationExample itemCount={5} />
+
+<MainNavigationPlaygroundMessage />
 
 ---
 
-## Variants
+## Examples
 
-### Responsive: desktop horizontal and mobile stacked
+### Mass.gov subdomain with a hamburger menu only
 
-The Responsive variant displays navigation horizontally above 768px. At 768px and below, the same items form a vertical stack.
+Use a hamburger menu for focused experiences where a main navigation bar could add clutter or distract from the primary task. The menu keeps navigation accessible without taking up space in the header.
 
-#### Desktop
+<MainNavigationExample utility="menu" />
+
+### Mass.gov subdomain with main navigation bar
+
+Use a main navigation bar when a site has multiple sections that people need to access frequently. Navigation links appear directly in the header on larger screens and collapse into a hamburger menu on smaller screens.
 
 <MainNavigationExample />
 
-#### Mobile
+### Mass.gov subdomain with a link back to Mass.gov
 
-<MainNavigationExample layout="mobile" />
+Use this variation when a subdomain needs to provide a clear way to return to the main Mass.gov website service or organization page. The header includes a Mass.gov link alongside the site's main navigation.
 
-### Always stacked
+<MainNavigationExample utility="home-link" />
 
-The Stacked variant displays navigation vertically at every screen size.
-
-<MainNavigationExample layout="stacked" />
-
-The stacked examples use the 320px frame shown in Figma. The component fits its available space up to a maximum width of 480px.
-
-Open the [playground](?path=/story/components-main-navigation--playground) to change the variant, edit the items, and review the responsive behavior at full width.
+</div>

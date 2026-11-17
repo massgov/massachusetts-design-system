@@ -44,16 +44,17 @@
     {% elseif utilityNavNavigationType == 'home-link' %}
       {%
         include 'button.twig' with {
-        type: 'Ghost',
-        color: 'White',
-        size: 'Regular',
-        text: homeLinkTextValue,
-        href: homeLinkHrefValue,
-        leftIcon: 'house-line',
-        leftIconWeight: 'Regular',
-        htmlAttributes: {
-          class: 'mds-utility-nav__button mds-utility-nav__button--home',
-          'aria-label': homeLinkAriaLabelValue
+          type: 'Ghost',
+          color: 'White',
+          size: 'Regular',
+          text: homeLinkTextValue,
+          href: homeLinkHrefValue,
+          leftIcon: 'house-line',
+          leftIconWeight: 'Regular',
+          htmlAttributes: {
+            class: 'mds-utility-nav__button mds-utility-nav__button--home',
+            'aria-label': homeLinkAriaLabelValue
+          }
         }
       %}
     {% endif %}
