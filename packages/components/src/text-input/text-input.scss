@@ -1,0 +1,85 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+// Bundle styles for the components rendered by text-input.twig.
+@use "../details-toggle/details-toggle";
+
+.mds-text-input {
+  @include mixins.box-sizing-reset;
+  @include mixins.font-smoothing-reset;
+
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--mds-space-2xs);
+  color: var(--mds-content-brand-neutral-default);
+
+  &__label-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--mds-space-3xs);
+  }
+
+  &__label-row {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-3xs);
+  }
+
+  &__label { @include mixins.text("label"); }
+
+  &__required {
+    color: var(--mds-content-utility-danger-mid);
+    @include mixins.text("label-lg");
+  }
+
+  &__help {
+    color: var(--mds-content-brand-neutral-muted);
+    @include mixins.text("caption");
+  }
+
+  &__input {
+    box-sizing: border-box;
+    appearance: none;
+    width: 100%;
+    height: 44px;
+    padding: var(--mds-space-3xs) var(--mds-space-xs);
+    border: 1px solid var(--mds-border-brand-neutral-high);
+    border-radius: var(--mds-radius-md);
+    background: var(--mds-base-inverse);
+    color: var(--mds-content-brand-neutral-default);
+    @include mixins.text("caption-lg");
+    @include mixins.focus;
+
+    &::placeholder {
+      color: var(--mds-content-brand-neutral-muted);
+      opacity: 1;
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+      border-color: var(--mds-border-brand-neutral-low);
+      background: var(--mds-interactive-brand-neutral-disabled);
+    }
+
+    &--error {
+      border-color: var(--mds-border-utility-danger-mid);
+      &-message {
+        color: var(--mds-content-utility-danger-mid);
+        display: flex;
+        align-items: flex-start;
+        gap: var(--mds-space-3xs);
+        margin-top: 0;
+
+        @include mixins.text("caption");
+
+        .mds-icon {
+          width: 16px;
+          height: 16px;
+          flex: 0 0 16px;
+          margin-top: 1px; // Vertically align icon with text
+        }
+      }
+    }
+  }
+}
