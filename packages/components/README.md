@@ -2,9 +2,9 @@
 
 Experimental distribution of Massachusetts Design System Twig templates, generated static HTML, and compiled component CSS.
 
-The Design System's primary component adoption approach is to copy and paste the HTML and compiled CSS snippets from [Storybook](https://designsystem.mass.gov) into your project. We provide standardized markup and styles organized by component for use across different frontend technologies.
+We chose HTML, CSS, and JavaScript as the common baseline for our coded components because these browser standards provide a shared foundation across the widest range of use cases and technology stacks. The primary adoption approach is to copy the HTML, compiled CSS, and any JavaScript examples provided in [Storybook](https://designsystem.mass.gov) into your project.
 
-Your implementation team chooses its frontend technology and adapts the markup into its own framework components or templates. Twig is used to author our source templates; it is not required to adopt the HTML and CSS.
+Your implementation team chooses its frontend technology and adapts the markup, styles, and behavior into its own framework components or templates. Twig is used to author our source templates; it is not required to adopt the HTML and CSS.
 
 ## Adopt Components From Storybook
 
