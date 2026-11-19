@@ -33,7 +33,6 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "@massds/mds-assets": "^1.2.0",
     "@massds/mds-tokens": "^3.0.0-beta.1"
   },
   "devDependencies": {
@@ -62,12 +61,5 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  },
-  "engines": {
-    "node": "24.14.0"
-  },
-  "volta": {
-    "node": "24.14.0",
-    "npm": "10.9.2"
   }
 }

@@ -1,0 +1,216 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { CodeTabs } from '../../utils/CodeTabs/index.jsx';
+import {
+  cardLabels,
+  getColumnLayoutCodeTabs,
+  responsiveClasses,
+  responsiveCodeTabs,
+  spanCodeTabs,
+  spanRows,
+  wrapperCodeTabs
+} from './grid-examples.js';
+import './grid.examples.css';
+
+export const ColumnLayoutExample = ({ columns }) => (
+  <div className="sb-unstyled mds-docs-grid-frame mds-margin-block-sm mds-padding-inline-sm mds-padding-block-sm mds-radius-sm mds-border-brand-neutral-low mds-background-section-brand-neutral-lowest">
+    <div className="mds-grid mds-docs-grid-layout">
+      {Array.from({ length: columns }, (_, index) => {
+        const layoutClass = columns === 1 ? 'mds-grid-full' : `mds-grid-${columns}-column`;
+        return (
+          <div className={`${layoutClass} mds-docs-grid-cell mds-padding-inline-2xs mds-padding-block-2xs mds-text-body-lg mds-background-section-brand-secondary-lowest`} key={index}>
+            {`.${layoutClass}`}
+          </div>
+        );
+      })}
+    </div>
+  </div>
+);
+
+<Meta title="Foundations/Grid" />
+
+# Grid
+
+The Massachusetts Design System provides a responsive, 12-column grid that changes to 6 columns at viewport widths of 768px and below. Use grid utility classes or Sass mixins from `@massds/mds-styles` to build layouts.
+
+Both approaches require semantic token CSS from `@massds/mds-tokens`. See [Using Styles](?path=/docs/overview-getting-started-using-styles--docs) for installation and setup.
+
+---
+
+## Grid structure
+
+The grid consists of three parts:
+
+- **Grid container:** `.mds-grid` defines the columns and gutters.
+- **Columns:** Divide the available space. Apply layout or span classes to direct children of `.mds-grid` to control how many columns each item spans.
+- **Gutters:** The horizontal spacing between columns, set by the grid's `column-gap`.
+
+### Grid container
+
+Use `.mds-grid` to create a responsive grid. Place it inside `.mds-section-container` to center the section, set `width: min(100%, 1280px)`, and apply responsive horizontal padding.
+
+<div className="sb-unstyled mds-docs-grid-wrapper mds-docs-grid-frame mds-margin-block-sm mds-border-brand-neutral-low mds-background-section-brand-neutral-low">
+  <div className="mds-grid" aria-hidden="true">
+    {Array.from({ length: 12 }, (_, index) => (
+      <div className="mds-docs-grid-track mds-background-section-brand-tertiary-lowest" key={index} />
+    ))}
+  </div>
+  <span className="mds-docs-grid-wrapper-label mds-padding-inline-2xs mds-padding-block-3xs mds-radius-sm mds-text-caption mds-background-section-brand-neutral-lowest">.mds-grid</span>
+</div>
+
+Breakpoints follow the viewport width, not the grid container's width.
+
+Each example provides two implementation options:
+
+- **Utility classes (HTML):** Copy the HTML and load the compiled utility stylesheet.
+- **Sass mixins (SCSS)** + **Sass mixins (HTML):** Use both tabs. Compile the SCSS into your stylesheet and copy the matching HTML.
+
+Load token CSS with either option. See [Using Styles](?path=/docs/overview-getting-started-using-styles--docs#read-foundation-code-tabs) for setup and compilation instructions.
+
+<CodeTabs tabs={wrapperCodeTabs} />
+
+---
+
+## Responsive column layout
+
+Apply predefined column layout classes to direct children of `.mds-grid`. These classes create equal-width layouts and adjust their spans at specific breakpoints.
+
+The grid sets horizontal gaps but leaves vertical gaps unset. Use `row-gap` on the grid container to control vertical spacing. The examples set `row-gap: var(--mds-space-sm)` to preserve the responsive column gutter.
+
+The table shows **items per row**, not grid column spans. Smaller breakpoint columns take precedence.
+
+<div className="mds-docs-reference-table-scroll">
+  <table className="mds-docs-reference-table">
+    <thead>
+      <tr><th scope="col">Class</th><th scope="col">Above 1024px</th><th scope="col">1024px and below</th><th scope="col">768px and below</th><th scope="col">480px and below</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row"><code>.mds-grid-full</code></th><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+      <tr><th scope="row"><code>.mds-grid-2-column</code></th><td>2</td><td>2</td><td>2</td><td>1</td></tr>
+      <tr><th scope="row"><code>.mds-grid-3-column</code></th><td>3</td><td>3</td><td>1</td><td>1</td></tr>
+      <tr><th scope="row"><code>.mds-grid-4-column</code></th><td>4</td><td>2</td><td>2</td><td>1</td></tr>
+    </tbody>
+  </table>
+</div>
+
+### Examples
+
+#### Full width layout
+
+<ColumnLayoutExample columns={1} />
+
+Use `.mds-grid-full` to span the full grid width at every breakpoint.
+
+<CodeTabs tabs={getColumnLayoutCodeTabs(1)} />
+
+#### Two-column layout
+
+<ColumnLayoutExample columns={2} />
+
+Use `.mds-grid-2-column` for two equal-width items per row. Items become full width at 480px and below.
+
+<CodeTabs tabs={getColumnLayoutCodeTabs(2)} />
+
+#### Three-column layout
+
+<ColumnLayoutExample columns={3} />
+
+Use `.mds-grid-3-column` for three equal-width items per row. Items become full width at 768px and below.
+
+<CodeTabs tabs={getColumnLayoutCodeTabs(3)} />
+
+#### Four-column layout
+
+<ColumnLayoutExample columns={4} />
+
+Use `.mds-grid-4-column` for four equal-width items per row. The layout changes to two per row at 1024px and below, then one per row at 480px and below.
+
+<CodeTabs tabs={getColumnLayoutCodeTabs(4)} />
+
+---
+
+## Grid utilities
+
+Use `.mds-grid-span-N` on direct children of `.mds-grid` to span `N` grid columns, where `N` is 1 through 12. For example, `.mds-grid-span-8` sets `grid-column: span 8`. Add [breakpoint prefixes](#breakpoint-syntax) to change spans at different viewport widths.
+
+Items flow into additional rows when the remaining space in a row cannot fit the next item's span. Use `.mds-grid-full` when an item should always span the full grid.
+
+<div className="sb-unstyled mds-docs-grid-gallery mds-margin-block-sm">
+  {spanRows.map((spans) => (
+    <div className="mds-docs-grid-frame mds-padding-inline-sm mds-padding-block-sm mds-radius-sm mds-border-brand-neutral-low mds-background-section-brand-neutral-lowest" key={spans.join('-')}>
+      <div className="mds-grid mds-docs-grid-layout">
+        {spans.map((span, index) => (
+          <div className={`mds-grid-span-${span} md:mds-grid-span-6 mds-docs-grid-cell mds-padding-block-2xs mds-text-body-lg mds-background-section-brand-primary-lowest`} key={index}>
+            {`.mds-grid-span-${span}`}
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
+
+Each item shows its default column span. All items also use `md:mds-grid-span-6` to span all six columns at 768px and below.
+
+The following example uses an 8/4 split above 768px, then stacks both items at full width on the six-column grid.
+
+<CodeTabs tabs={spanCodeTabs} />
+
+---
+
+## Breakpoint syntax
+
+Prefix a grid span utility with a breakpoint to apply it at that viewport width and below. For example, `md:mds-grid-span-6` spans six columns at 768px and below. These are inclusive `max-width` media queries.
+
+<div className="mds-docs-reference-table-scroll">
+  <table className="mds-docs-reference-table">
+    <thead>
+      <tr><th scope="col">Prefix</th><th scope="col">Media query</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>xl:</code></td><td><code>@media (max-width: 1280px)</code></td></tr>
+      <tr><td><code>lg:</code></td><td><code>@media (max-width: 1024px)</code></td></tr>
+      <tr><td><code>md:</code></td><td><code>@media (max-width: 768px)</code></td></tr>
+      <tr><td><code>sm:</code></td><td><code>@media (max-width: 480px)</code></td></tr>
+      <tr><td><code>xs:</code></td><td><code>@media (max-width: 320px)</code></td></tr>
+    </tbody>
+  </table>
+</div>
+
+An unprefixed span applies by default. Matching prefixed spans override it. When multiple breakpoint rules match, the smallest matching breakpoint takes precedence, regardless of class order in HTML. The compiled CSS orders these media queries from largest to smallest.
+
+Write the colon literally in HTML. If you write a CSS selector for a prefixed class, escape it: `.md\:mds-grid-span-6`.
+
+At 768px and below, the grid has six columns. Use a maximum span of 6 at these widths. Spans of 7 through 12 remain in the stylesheet but do not shrink automatically; without an override, they can create implicit columns outside the intended grid.
+
+---
+
+## Responsive grid utilities
+
+Combine breakpoint prefixes with `.mds-grid-span-*` classes to change column spans across viewport widths.
+
+In this example, each item spans two columns by default, three at 1024px and below, two at 768px and below, and six at 480px and below.
+
+| Viewport width | Effective class | Item span | Items per row |
+| --- | --- | --- | --- |
+| Above 1024px | `mds-grid-span-2` | 2 of 12 | 6 |
+| Above 768px through 1024px | `lg:mds-grid-span-3` | 3 of 12 | 4 |
+| Above 480px through 768px | `md:mds-grid-span-2` | 2 of 6 | 3 |
+| 480px and below | `sm:mds-grid-span-6` | 6 of 6 | 1 |
+
+Resize the browser viewport to see the layout change.
+
+<div className="sb-unstyled mds-docs-grid-frame mds-margin-block-sm mds-padding-inline-sm mds-padding-block-sm mds-radius-sm mds-border-brand-neutral-low mds-background-section-brand-neutral-lowest">
+  <div className="mds-grid mds-docs-grid-layout">
+    {cardLabels.map((label) => (
+      <div className={`${responsiveClasses.join(' ')} mds-docs-grid-card mds-padding-inline-sm mds-padding-block-sm mds-background-section-brand-primary-lowest`} key={label}>
+        <span className="mds-docs-grid-badge mds-radius-max mds-text-body-lg mds-background-section-brand-primary-mid">{label}</span>
+        <span className="mds-docs-grid-card-label mds-text-body">
+          {responsiveClasses.map((className, index) => (
+            <span key={className}>{className}</span>
+          ))}
+        </span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<CodeTabs tabs={responsiveCodeTabs} />

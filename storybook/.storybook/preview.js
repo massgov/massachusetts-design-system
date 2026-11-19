@@ -3,6 +3,8 @@ import '@massds/mds-components/inline-message.css';
 import '@massds/mds-styles/index.css';
 import '@massds/mds-tokens/dist/index.css';
 import { DocsContainer } from '@storybook/addon-docs/blocks';
+import { SyntaxHighlighter } from 'storybook/internal/components';
+import scss from 'refractor/scss';
 import { createElement, Fragment, useEffect } from 'react';
 import storybookPackage from '../package.json';
 import { renderFooter, renderInlineMessage } from '../src/utils/component-renderers';
@@ -11,6 +13,8 @@ import './preview.css';
 import { massdsDocsTheme, massdsSiteName } from './theme';
 import { trackAnalyticsEvent } from './analytics';
 
+// Storybook's bundled highlighter includes CSS but requires SCSS registration.
+SyntaxHighlighter.registerLanguage('scss', scss);
 
 // Keep placeholder links inert in stories and docs, including nested link content.
 function preventPlaceholderNavigation(event) {
@@ -43,21 +47,16 @@ const sharedFooterData = {
   siteName: massdsSiteName,
   siteLink: './',
   socialLinks: [],
-  description: 'Storybook is the implementation reference for the Massachusetts Design System. It provides reusable components, design tokens, accessibility guidance, and code examples for Commonwealth digital products.',
+  description: 'The Massachusetts Design System resources provide reusable components, design tokens, accessibility guidance, and implementation examples for Commonwealth digital products.',
   contactItems: [
     {
       headingId: 'mds-footer-contact-heading',
-      heading: 'Contact',
+      heading: 'Contact us',
       links: [
         {
-          icon: 'star',
+          icon: 'note-pencil',
           href: 'https://www.mass.gov/forms/help-us-improve-our-storybook-resources',
           text: 'Share feedback'
-        },
-        {
-          icon: 'globe',
-          href: 'https://mass.gov/designsystem',
-          text: 'mass.gov/designsystem'
         },
         {
           icon: 'envelope',
@@ -67,7 +66,26 @@ const sharedFooterData = {
       ]
     }
   ],
-  linkGroups: [],
+  linkGroups: [
+    {
+      headingId: 'mds-footer-resources-heading',
+      heading: 'Resources',
+      links: [
+        {
+          href: 'https://github.com/massgov/massachusetts-design-system',
+          text: 'GitHub repository'
+        },
+        {
+          href: 'https://www.figma.com/design/D5Ju48AoqIXmdCopPwBr6N/Core-Components?m=auto&node-id=0-1&t=06aGT6jeozCDIV2m-1',
+          text: 'Figma component library'
+        },
+        {
+          href: 'https://www.mass.gov/massachusetts-design-system',
+          text: 'Design System on Mass.gov'
+        }
+      ]
+    }
+  ],
   legalLinks: [
     {
       href: 'https://www.mass.gov/info-details/commonwealth-of-massachusetts-executive-department-digital-accessibility-statement',
@@ -195,9 +213,9 @@ const preview = {
         method: 'alphabetical',
         order: [
           'Overview',
-          ['Introduction', 'Getting Started'],
+          ['Introduction', 'Getting Started', ['Overview', 'Using Tokens', 'Using Styles', 'Using Assets', 'Using Components']],
           'Foundations',
-          ['Design Tokens', 'Color Tokens', 'Type Styles', ['Overview', 'Guidance', 'Code', 'Playground']],
+          ['Design Tokens', 'Color Tokens', 'Type Styles', 'Grid', ['Overview', 'Guidance', 'Code', 'Playground']],
           'Components',
           ['*', ['Overview', 'Guidance', 'Code', 'Playground']],
           'Templates',
