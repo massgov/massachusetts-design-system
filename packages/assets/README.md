@@ -2,13 +2,27 @@
 
 Shared static assets for the Massachusetts Design System. This package publishes optimized icons, state seal files, and animation assets as plain files that can be consumed by applications, design system packages, or build pipelines.
 
-For guidance on using the Design System, see the [Massachusetts Design System resources](https://designsystem.mass.gov).
+Assets can be used independently or alongside component snippets from Storybook. They do not require token or utility CSS, and do not prescribe a frontend framework. Components that use icons or state seals depend on these assets, but do not require an assets npm installation: copied markup embeds icons as inline SVG and references state seals through versioned CDN URLs. See [Using Assets](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-assets--docs) for setup and examples.
 
 ## Installation
 
 ```bash
 npm install @massds/mds-assets
 ```
+
+## Usage
+
+Use your build tool to resolve the files you need, or copy them into your application's public asset directory. An npm package path is not automatically a browser-accessible URL.
+
+For example, copy `node_modules/@massds/mds-assets/dist/state-seal/state-seal-color.svg` into your public `/assets/` directory, then use its served URL:
+
+```html
+<img src="/assets/state-seal-color.svg" alt="Massachusetts State Seal">
+```
+
+Use descriptive alternative text for informative images and `alt=""` for decorative images or images that repeat adjacent text. If a component references asset files, follow its Storybook Code page to configure their paths.
+
+Published files can also be loaded from UNPKG using `https://unpkg.com/@massds/mds-assets@<version>/dist/<asset-path>`. Replace `<version>` with the full assets package version, including any prerelease identifier. Packages are versioned independently; avoid unversioned URLs or `@latest` in production.
 
 ## Package Contents
 

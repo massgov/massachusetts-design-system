@@ -5,13 +5,13 @@ This repository contains the source code for Massachusetts Design System package
 - `packages/assets` for icons, animation files, and state seal assets published as `@massds/mds-assets`
 - `packages/tokens` for CSS design tokens published as `@massds/mds-tokens`
 - `packages/styles` for shared Sass and bundled utility CSS published as `@massds/mds-styles`
-- `packages/components` for static HTML, CSS, and Twig components packaged as `@massds/mds-components`
+- `packages/components` for the experimental distribution of Twig templates, static HTML, and compiled component CSS packaged as `@massds/mds-components`
 
 Each package has its own README with package-specific development and publishing details.
 
 For guidance on using the Design System, see the [Massachusetts Design System resources](https://designsystem.mass.gov).
 
-In the upcoming quarter, we will be working on creating the HTML, CSS and Javascript for required components such as State Banner and Footer. We will announce when these components will be ready for testing and use.
+We chose HTML, CSS, and JavaScript as the common baseline for our coded components because these browser standards provide a shared foundation across the widest range of use cases and technology stacks. The primary way to adopt them is to copy the HTML, compiled CSS, and any JavaScript examples provided in Storybook. Teams choose their frontend technology and adapt the markup, styles, and behavior into their own framework components or templates. Twig is used for our source templates and is not required for adoption. The experimental components package offers another way to access the files. See [Using Components](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-components--docs) for guidance.
 
 We are a small but mighty crew enthusiastic to partner with teams hoping to leverage the Massachusetts Design System for upcoming projects. Please provide any feedback in our Community of Practice channel on Microsoft Teams or via email at <designsystem@mass.gov>.
 

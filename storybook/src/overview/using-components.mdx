@@ -1,0 +1,79 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+import { componentsInstallExample } from './getting-started.mdx';
+
+<Meta title="Overview/Getting Started/Using Components" />
+
+# Using components
+
+We chose HTML, CSS, and JavaScript as the common baseline for our coded components because these browser standards provide a shared foundation across the widest range of use cases and technology stacks. HTML defines the structure, CSS provides the styles, and JavaScript adds interaction behavior where needed.
+
+The primary way to adopt coded components is to copy the code snippets from Storybook into your project. Use the HTML, compiled CSS, and any JavaScript examples provided for the component, following its behavior and accessibility guidance.
+
+## Copy component code from Storybook
+
+1. Open a component's Overview and Guidance pages to understand its intended use.
+2. Open its Code page and configure the example for your use case using the available controls.
+3. Copy the **HTML** snippet into your page or adapt it into your application's component or template.
+4. Copy the **CSS** snippet into a stylesheet that your application loads. The snippet is compiled CSS; you do not need Sass to use it.
+5. Load [token CSS](?path=/docs/overview-getting-started-using-tokens--docs) before the component CSS, keep any referenced image URLs accessible, and implement the behavior described by the component's guidance.
+
+Use any JavaScript examples provided for the component, adapting initialization, events, and state management to your application. Where JavaScript is needed but no example is provided, implement the documented behavior using your chosen technology.
+
+Keep the HTML class names aligned with the copied CSS selectors. Component CSS includes its shared styles and still relies on token values loaded separately.
+
+Start with [State Banner's Code page](?path=/docs/components-state-banner--code) for an example. Installing the components package is optional for this workflow.
+
+## Adapt components to your technology
+
+Your implementation team chooses its frontend technology and adapts the markup, styles, and behavior into the components or templates its application needs. The Design System does not prescribe a framework or require Twig.
+
+When adapting the markup, preserve its semantic structure, accessibility attributes, and relationship to the supplied CSS. Your team owns the framework integration, data binding, and interaction behavior, using the documented component behavior and accessibility guidance as the reference.
+
+## Use the experimental components package
+
+`@massds/mds-components` is an experimental distribution of the Twig templates, generated static HTML, and compiled CSS used for our components. It provides another way to access these files for teams that want package-based consumption. Storybook's component code snippets remain the primary adoption approach.
+
+The Twig templates are available for teams that use Twig or want to inspect the source templates. They do not prescribe the technology for your implementation.
+
+### Install
+
+Install the component package and tokens:
+
+<Source language="bash" code={componentsInstallExample} />
+
+
+### Load component CSS and markup
+
+Load tokens before component CSS. For example, with a JavaScript bundler:
+
+```js
+import '@massds/mds-tokens/dist/index.css';
+import '@massds/mds-components/state-banner.css';
+```
+
+Component exports follow the same flat paths for each component. For example, Vite supports `?raw` imports to read HTML or Twig as strings:
+
+```js
+import stateBannerHtml from '@massds/mds-components/state-banner.html?raw';
+import stateBannerTwig from '@massds/mds-components/state-banner.twig?raw';
+```
+
+Use `@massds/mds-components/index.css` when you need the aggregate component
+stylesheet. Individual component exports are preferable when your build should
+include only the CSS it uses.
+
+The HTML export is ready-made markup. The Twig export is a template for projects that render Twig. Importing either as a string does not render it automatically; use the markup in your page or render the template with your Twig integration. The `?raw` syntax is build-tool-specific, so adapt file loading to your platform.
+
+## Shared styles and dependencies
+
+Component CSS is self-contained for the component's styles and still references shared token values. Load [token CSS](?path=/docs/overview-getting-started-using-tokens--docs) separately.
+
+Components use styles-package mixins during their build. Those shared styles are already compiled into the CSS provided in Storybook and the experimental package, so adopting component CSS does not require Sass or the utility stylesheet. Install [the styles package](?path=/docs/overview-getting-started-using-styles--docs) when you also want utility classes or mixins for your own layouts and classes.
+
+Components that display icons or state seals depend on asset content from `@massds/mds-assets`. This is an asset dependency, not a requirement to install the assets npm package. Icons are embedded as inline SVG in the generated markup. State seals use versioned CDN image URLs in the generated markup and, for the footer, its compiled CSS. Those URLs must remain accessible unless you replace them with your own hosted copies.
+
+The repository also uses the assets npm package as a development dependency to build and render components. Install it only when you want direct access to asset files, for example to host them yourself or use additional icons and images. You can also obtain files through the CDN. See [Using Assets](?path=/docs/overview-getting-started-using-assets--docs).
+
+## Find component examples
+
+Each component's Overview, Guidance, and Code pages explain its intended use, markup, configuration, and any behavior setup it needs. Start with [State Banner](?path=/docs/components-state-banner--overview) for an example.
