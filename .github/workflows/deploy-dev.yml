@@ -43,7 +43,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: deploy-dev-${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.event_name == 'delete' && github.event.ref || github.ref_name }}
+  group: deploy-dev-${{ github.event_name == 'pull_request' && format('preview-{0}', github.event.pull_request.head.ref) || github.event_name == 'delete' && format('preview-{0}', github.event.ref) || 'root' }}
   cancel-in-progress: false
 
 jobs:
