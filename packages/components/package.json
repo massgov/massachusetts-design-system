@@ -13,6 +13,7 @@
     "./*.css": "./dist/*/*.css",
     "./*.html": "./dist/*/*.html",
     "./*.twig": "./dist/*/*.twig",
+    "./main-navigation.js": "./dist/main-navigation/main-navigation.js",
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"
   },

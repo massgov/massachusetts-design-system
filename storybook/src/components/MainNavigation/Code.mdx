@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { mainNavigationDefaults } from '../../../../packages/components/src/main-navigation/main-navigation.data.js';
+import mainNavigationCss from '@massds/mds-components/main-navigation.css?raw';
+import mainNavigationJs from '../../../../packages/components/src/main-navigation/main-navigation.js?raw';
+import { renderMainNavigation } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as MainNavigationStories from './main-navigation.stories.js';
+
+export const getMainNavigationCodeTabs = (args) => [
+  { label: 'HTML', language: 'html', code: renderMainNavigation({ ...mainNavigationDefaults, ...args }) },
+  { label: 'CSS', language: 'css', code: mainNavigationCss },
+  { label: 'JavaScript', language: 'javascript', code: mainNavigationJs }
+];
+
+<Meta of={MainNavigationStories} />
+
+# Main navigation
+
+<Canvas of={MainNavigationStories.Playground} sourceState="none" />
+
+## API
+
+<Controls of={MainNavigationStories.Playground} />
+
+Each item accepts `text`, `href`, `children`, `current`, and `expanded`. Parents with children expand their submenu rather than navigate. Use `current: true` on a destination to mark it with `aria-current="page"` and highlight its parent. `expanded: true` sets the initial open section; only one section opens at a time.
+
+The optional `stackedText` label is used in the vertical layout. Give each navigation instance a unique `id` and a descriptive `ariaLabel`.
+
+## Setup
+
+Render `main-navigation.twig` with the schema-backed component data, then initialize its interactions after inserting the HTML:
+
+```js
+import '@massds/mds-components/main-navigation.css';
+import { initMainNavigation } from '@massds/mds-components/main-navigation.js';
+
+const cleanup = initMainNavigation(document);
+// Call cleanup() before removing the navigation.
+```
+
+The initializer supports parent buttons, one open section at a time, desktop hover, Arrow Down to open and focus the first child, and Escape to close and return focus to the parent. Tab follows the visible links and buttons in document order. The component requires JavaScript for these interactions.
+
+## Code
+
+<StoryCodeTabs of={MainNavigationStories.Playground} getTabs={getMainNavigationCodeTabs} />

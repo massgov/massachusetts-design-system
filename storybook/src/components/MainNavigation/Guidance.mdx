@@ -1,0 +1,89 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as MainNavigationStories from './main-navigation.stories.js';
+import './main-navigation.guidance.css';
+
+<Meta of={MainNavigationStories} />
+
+<div className="mds-main-navigation-guidance">
+
+# Main navigation guidance
+
+---
+
+## Content
+
+### Best practices
+
+#### Do
+
+- Use short (recommended: 30 character max), descriptive labels that help people understand the destination or group of destinations
+- Keep navigation parent links to the highest priority links or groupings (recommended: 6 max)
+- Give child items distinct labels so people can tell the destinations apart
+
+#### Don’t
+
+- Don't use labels that make a destination difficult to distinguish from other navigation items
+
+---
+
+## Design
+
+### Usage
+
+#### When to use
+
+- Use the navigation bar for the main sections of a website or application
+- Use a parent without children when selecting the item should take people directly to a destination
+- Use a parent with children to group related destinations in a submenu. The parent opens the submenu and does not navigate to a separate destination
+
+#### When not to use
+
+- Don't use the navigation bar for utility actions or tools that are separate from the site's main information hierarchy. Use [Utility navigation](?path=/docs/components-utility-navigation--overview) for global utilities that need to remain available alongside the main navigation.
+- Don't use the navigation bar to move between sections within a single page.
+
+### Responsive behavior
+
+- On desktop, navigation items appear horizontally. A parent with children opens a submenu over the page content
+- People can open a submenu by hovering over or activating its parent item
+- On smaller screens, navigation items appear vertically in a menu over the page content, with a scrim behind the menu
+- A parent with children expands to show its child items inline
+- When the current page is a child item, its parent starts expanded so people can see the current location within the navigation hierarchy
+
+---
+
+## Accessibility
+
+### Mouse control
+
+- People can open a submenu by hovering over or clicking a parent with children
+- People can select a child item to navigate to its destination
+- The current location remains visually distinct when someone hovers over another navigation item
+
+### Touch control
+
+- People can tap a parent with children to expand or collapse its child items
+- People can tap a parent without children or a child item to navigate to its destination
+
+### Keyboard control
+
+- People can move through the interactive navigation items in a logical order using the keyboard
+
+### Assistive technology
+
+- The navigation structure should communicate which items navigate directly and which parent items expose child destinations.
+- People using assistive technology can identify which items navigate to a destination and which parent items open a submenu
+- People using assistive technology can identify the current destination and the relationship between parent and child items
+
+---
+
+## Related components
+
+<div>
+
+[Menu](?path=/docs/components-menu--guidance) — Use the Menu guidance for decisions specific to the submenu displayed by a parent with children.
+
+[Utility navigation](?path=/docs/components-utility-navigation--overview) — Use utility navigation for global tools and utilities that sit outside the site's primary information hierarchy.
+
+</div>
+
+</div>

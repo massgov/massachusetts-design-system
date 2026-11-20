@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { MainNavigationExample, MainNavigationPlaygroundMessage } from './MainNavigationExample.jsx';
+import * as MainNavigationStories from './main-navigation.stories.js';
+
+<Meta of={MainNavigationStories} />
+
+<div className="mds-main-navigation-overview">
+
+# Main navigation overview
+
+<div>
+
+Use the main navigation to help people move between the main sections of a website or application. It organizes top-level destinations and can group related destinations in submenus.
+
+Keep the navigation hierarchy clear so people can understand the available destinations and move through the site.
+
+</div>
+
+<MainNavigationExample itemCount={5} />
+
+<MainNavigationPlaygroundMessage />
+
+---
+
+## Examples
+
+### Mass.gov subdomain with a hamburger menu only
+
+Use a hamburger menu for focused experiences where a main navigation bar could add clutter or distract from the primary task. The menu keeps navigation accessible without taking up space in the header.
+
+<MainNavigationExample utility="menu" />
+
+### Mass.gov subdomain with main navigation bar
+
+Use a main navigation bar when a site has multiple sections that people need to access frequently. Navigation links appear directly in the header on larger screens and collapse into a hamburger menu on smaller screens.
+
+<MainNavigationExample />
+
+### Mass.gov subdomain with a link back to Mass.gov
+
+Use this variation when a subdomain needs to provide a clear way to return to the main Mass.gov website service or organization page. The header includes a Mass.gov link alongside the site's main navigation.
+
+<MainNavigationExample utility="home-link" />
+
+</div>
