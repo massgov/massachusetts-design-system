@@ -1,8 +1,8 @@
 # Massachusetts Design System Tokens
 
-CSS design tokens for the Massachusetts Design System. This package publishes CSS variable files that can be imported into applications, component libraries, and other front-end builds.
+Shared design decisions exposed as CSS custom properties for the Massachusetts Design System. Use semantic tokens for color, typography, spacing, and other styles in your applications and components. This package can be adopted independently; it does not require the styles, assets, or components packages.
 
-For general guidance on how to use the Design System, check out the [Design System Microsite](https://www.mass.gov/massachusetts-design-system).
+For guidance on using the Design System, see the [Using Tokens](https://designsystem.mass.gov/?path=/docs/overview-getting-started-using-tokens--docs).
 
 ## Installation
 
@@ -21,7 +21,7 @@ dist/
 ```
 
 - `dist/index.css` contains the semantic tokens intended for application use
-- `dist/primitives.css` contains lower-level primitive tokens used to build the semantic layer (Do not reference directly)
+- `dist/primitives.css` contains raw primitive values used by the semantic layer; application and component CSS should not reference these tokens directly
 
 ## Usage
 
@@ -31,7 +31,23 @@ Import the semantic token file from your CSS entrypoint:
 @import "@massds/mds-tokens/dist/index.css";
 ```
 
-Use `index.css` as the public entrypoint for the package. Applications should not reference `primitives.css` directly, primitive values are for theming and may change as the design system evolves.
+Use `dist/index.css` as the public entrypoint and reference only semantic tokens in application and component CSS. It loads the primitive values needed by semantic tokens automatically; do not import `dist/primitives.css` separately.
+
+### Primitive and Semantic Tokens
+
+Primitive tokens contain raw values, such as color hex codes, spacing lengths, and font sizes. Their names identify a value within a palette or scale. Semantic tokens assign those values to a purpose, such as default text color or body text size.
+
+For example, `--mds-color-brand-gray-1300` currently contains the raw color `#141414`. The semantic token `--mds-content-brand-neutral-default` references that primitive and identifies its role as the default neutral text color. Reference the semantic token in your CSS:
+
+```css
+.service-description {
+  color: var(--mds-content-brand-neutral-default);
+}
+```
+
+Semantic references let the Design System update underlying values or mappings without requiring you to replace primitive references throughout your application. Although primitive variables are available after loading `index.css`, they are internal inputs. Referencing them directly bypasses updates to the semantic mapping.
+
+Load token CSS before utility or component CSS. Those styles reference semantic tokens and do not bundle the token definitions.
 
 ### Typography Tokens
 
