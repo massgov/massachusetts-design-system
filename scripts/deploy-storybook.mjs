@@ -110,7 +110,8 @@ export function deployStorybook({ directory, bucket, prefix = '', run = aws, now
       writeFileSync(deletionFile, JSON.stringify({
         Objects: expired.slice(offset, offset + 1000).map((key) => ({ Key: keyPrefix + key })), Quiet: true
       }));
-      const result = JSON.parse(run(['s3api', 'delete-objects', '--bucket', bucket, '--delete', `file://${deletionFile}`, '--output', 'json']));
+      const output = run(['s3api', 'delete-objects', '--bucket', bucket, '--delete', `file://${deletionFile}`, '--output', 'json']);
+      const result = output.trim() ? JSON.parse(output) : {};
       if (result.Errors?.length) throw new Error(`Asset cleanup failed: ${JSON.stringify(result.Errors)}`);
     }
     console.log(`Published ${destination}; retained ${Object.keys(retired).length - expired.length} retired assets; removed ${expired.length}.`);
