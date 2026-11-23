@@ -36,6 +36,7 @@ const textInputControls = {
     table: { category: controlCategories.design }
   },
   errorMessage: {
+    if: { arg: 'error' },
     control: 'text',
     table: { category: controlCategories.design }
   },
