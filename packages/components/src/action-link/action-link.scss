@@ -59,7 +59,7 @@
   }
 
   &__icon {
-    display: inline-flex;
+    display: inline-block;
     width: var(--mds-action-link-icon-size);
     vertical-align: top;
     margin-top: 2px; // align with link text

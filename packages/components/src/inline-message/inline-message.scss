@@ -52,15 +52,17 @@
   }
 
   &__icon {
-    display: inline-flex;
+    display: inline-block;
     width: 24px;
     height: 24px;
     flex: none;
-    margin-block-start: var(--mds-space-3xs);
-    align-items: center;
-    justify-content: center;
+    margin: var(--mds-space-3xs) 6px 6px;
+    line-height: 0;
     color: var(--mds-inline-message-icon-color);
-    margin: 6px;
+
+    .mds-icon {
+      display: block;
+    }
   }
 
   &__heading {
