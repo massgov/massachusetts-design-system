@@ -10,7 +10,7 @@ name: Deploy to AWS (dev)
 #   DEV_BUCKET            - site_bucket_id
 #   DEV_DISTRIBUTION_ID   - cloudfront_distro_id
 #
-# PR branch previews deploy through the `dev` environment to a
+# PRs and manual dispatches from non-main branches deploy through the `dev` environment to a
 # `/branch/<branch-name>` prefix in the dev bucket, isolated from the main
 # site. When a branch is deleted, its matching preview is removed.
 
@@ -43,7 +43,8 @@ permissions:
   contents: read
 
 concurrency:
-  group: deploy-dev-${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.event_name == 'delete' && github.event.ref || github.ref_name }}
+  # Preview deploys and cleanup share a branch group; all root deploys share root.
+  group: deploy-dev-${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.event_name == 'delete' && github.event.ref || github.event_name == 'workflow_dispatch' && github.ref_type == 'branch' && github.ref_name != 'main' && github.ref_name || 'root' }}
   cancel-in-progress: false
 
 jobs:
@@ -61,12 +62,13 @@ jobs:
         id: target
         env:
           EVENT_NAME: ${{ github.event_name }}
-          HEAD_REF: ${{ github.head_ref }}
+          BRANCH_REF: ${{ github.head_ref || github.ref_name }}
+          REF_TYPE: ${{ github.ref_type }}
         run: |
           set -euo pipefail
 
-          if [ "$EVENT_NAME" = "pull_request" ]; then
-            branch_path="$(printf '%s' "$HEAD_REF" | sed -E 's|^refs/heads/||; s|[^A-Za-z0-9._/-]+|-|g; s|^/+||; s|/+$||')"
+          if [ "$EVENT_NAME" = "pull_request" ] || { [ "$EVENT_NAME" = "workflow_dispatch" ] && [ "$REF_TYPE" = "branch" ] && [ "$BRANCH_REF" != "main" ]; }; then
+            branch_path="$(printf '%s' "$BRANCH_REF" | sed -E 's|^refs/heads/||; s|[^A-Za-z0-9._/-]+|-|g; s|^/+||; s|/+$||')"
 
             if [ -z "$branch_path" ]; then
               echo "Could not determine a branch preview path." >&2
