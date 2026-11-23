@@ -46,6 +46,7 @@ concurrency:
   # All preview deploys and cleanup share one group, separate from root deploys.
   group: deploy-dev-${{ (github.event_name == 'pull_request' || github.event_name == 'delete' || (github.event_name == 'workflow_dispatch' && github.ref_type == 'branch' && github.ref_name != 'main')) && 'preview' || 'root' }}
   cancel-in-progress: false
+  queue: max
 
 jobs:
   build:
