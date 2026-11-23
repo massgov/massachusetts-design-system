@@ -7,5 +7,6 @@ export const textInputSchema = {
   ...sharedInputSchema,
   label: { type: 'string', default: 'Text input label' },
   type: { type: 'enum', options: ['text', 'email', 'number', 'password', 'search', 'tel', 'url'], default: 'text' },
-  placeholder: { type: 'string', default: '' }
+  placeholder: { type: 'string', default: '' },
+  htmlAttributes: { type: 'object', default: {} }
 };

@@ -5,7 +5,7 @@
   - The caller owns native input attributes, including required and disabled.
   - Associate help text with id ~ '-help' using aria-describedby on the control.
   - When error and not disabled, also reference id ~ '-error' and set aria-invalid.
-  - detailsContent accepts trusted rich HTML. htmlAttributes apply to the wrapper.
+  - detailsContent accepts trusted rich HTML.
   - Use labelPosition 'after' for an individual checkbox or radio.
   - Groups of choices require a separate fieldset/legend around their inputs.
 #}
@@ -20,7 +20,6 @@
 {% set inputWrapperError = (error is defined ? error : inputWrapperDefaults.error) and not inputWrapperDisabled %}
 {% set inputWrapperErrorMessage = errorMessage is defined ? errorMessage : inputWrapperDefaults.errorMessage %}
 {% set inputWrapperControlMarkup = controlMarkup is defined ? controlMarkup : inputWrapperDefaults.controlMarkup %}
-{% set inputWrapperHtmlAttributes = htmlAttributes|default(inputWrapperDefaults.htmlAttributes) %}
 {% set inputWrapperClass = 'mds-input-wrapper mds-input-wrapper--' ~ inputWrapperLabelPosition ~ (inputWrapperError ? ' mds-input-wrapper--error' : '') ~ (inputWrapperDisabled ? ' mds-input-wrapper--disabled' : '') ~ (inputWrapperHtmlAttributes.class|default('') ? ' ' ~ inputWrapperHtmlAttributes.class : '') %}
 
 {% set inputWrapperLabelMarkup %}
@@ -36,8 +35,7 @@
 
 <div
   class="{{ inputWrapperClass|e }}"
-  {% include 'shared/html-attributes.twig' with { attributes: inputWrapperHtmlAttributes, exclude: ['class'] } %}
->
+ >
   {% if inputWrapperLabelPosition == 'after' %}
     <div class="mds-input-wrapper__choice">
       {{ inputWrapperControlMarkup | raw }}
