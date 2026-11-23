@@ -88,15 +88,23 @@ export function deployStorybook({ directory, bucket, prefix = '', run = aws, now
     // chunks, branch previews and versioned releases must remain available.
     run(['s3', 'cp', directory + '/', destination, '--recursive', '--exclude', 'assets/*',
       '--exclude', '*.html', '--cache-control', 'no-cache', '--only-show-errors']);
+
+    const saveRetention = (state) => {
+      writeFileSync(stateFile, JSON.stringify(state));
+      run(['s3', 'cp', stateFile, destination + stateName, '--content-type', 'application/json',
+        '--cache-control', 'no-store', '--only-show-errors']);
+    };
+    // A rollback can reactivate expired chunks. Clear their old clocks durably
+    // before any HTML is published, even if publication or the final save fails.
+    const active = new Set(current);
+    saveRetention(Object.fromEntries(Object.entries(previous).filter(([key]) => !active.has(key))));
     run(['s3', 'cp', directory + '/', destination, '--recursive', '--exclude', '*',
       '--include', '*.html', '--cache-control', 'no-cache', '--only-show-errors']);
 
     // Start the retention clock when a chunk leaves the active build, rather than
     // using S3 LastModified (which might already be months old). First deployment
     // safely adopts existing assets; a failed publish never triggers cleanup.
-    writeFileSync(stateFile, JSON.stringify(retired));
-    run(['s3', 'cp', stateFile, destination + stateName, '--content-type', 'application/json',
-      '--cache-control', 'no-store', '--only-show-errors']);
+    saveRetention(retired);
     for (let offset = 0; offset < expired.length; offset += 1000) {
       const deletionFile = join(temporary, 'delete.json');
       writeFileSync(deletionFile, JSON.stringify({
