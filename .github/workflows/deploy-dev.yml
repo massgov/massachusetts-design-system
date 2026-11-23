@@ -43,8 +43,8 @@ permissions:
   contents: read
 
 concurrency:
-  # Preview deploys and cleanup share a branch group; all root deploys share root.
-  group: deploy-dev-${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.event_name == 'delete' && github.event.ref || github.event_name == 'workflow_dispatch' && github.ref_type == 'branch' && github.ref_name != 'main' && github.ref_name || 'root' }}
+  # All preview deploys and cleanup share one group, separate from root deploys.
+  group: deploy-dev-${{ (github.event_name == 'pull_request' || github.event_name == 'delete' || (github.event_name == 'workflow_dispatch' && github.ref_type == 'branch' && github.ref_name != 'main')) && 'preview' || 'root' }}
   cancel-in-progress: false
 
 jobs:
