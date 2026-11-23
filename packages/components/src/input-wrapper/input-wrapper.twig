@@ -1,0 +1,70 @@
+{#
+  Shared presentation for a single input:
+  - The caller supplies a unique id matching the control's id.
+  - controlMarkup must be trusted markup captured from an input template.
+  - The caller owns native input attributes, including required and disabled.
+  - Associate help text with id ~ '-help' using aria-describedby on the control.
+  - When error and not disabled, also reference id ~ '-error' and set aria-invalid.
+  - detailsContent accepts trusted rich HTML. htmlAttributes apply to the wrapper.
+  - Use labelPosition 'after' for an individual checkbox or radio.
+  - Groups of choices require a separate fieldset/legend around their inputs.
+#}
+{% set inputWrapperId = id is defined ? id : inputWrapperDefaults.id %}
+{% set inputWrapperLabel = label is defined ? label : inputWrapperDefaults.label %}
+{% set inputWrapperLabelPosition = labelPosition is defined and labelPosition in inputWrapperLabelPositions ? labelPosition : inputWrapperDefaults.labelPosition %}
+{% set inputWrapperRequired = required is defined ? required : inputWrapperDefaults.required %}
+{% set inputWrapperHelpText = helpText is defined ? helpText : inputWrapperDefaults.helpText %}
+{% set inputWrapperDetailsText = detailsText is defined ? detailsText : inputWrapperDefaults.detailsText %}
+{% set inputWrapperDetailsContent = detailsContent is defined ? detailsContent : inputWrapperDefaults.detailsContent %}
+{% set inputWrapperDisabled = disabled is defined ? disabled : inputWrapperDefaults.disabled %}
+{% set inputWrapperError = (error is defined ? error : inputWrapperDefaults.error) and not inputWrapperDisabled %}
+{% set inputWrapperErrorMessage = errorMessage is defined ? errorMessage : inputWrapperDefaults.errorMessage %}
+{% set inputWrapperControlMarkup = controlMarkup is defined ? controlMarkup : inputWrapperDefaults.controlMarkup %}
+{% set inputWrapperHtmlAttributes = htmlAttributes|default(inputWrapperDefaults.htmlAttributes) %}
+{% set inputWrapperClass = 'mds-input-wrapper mds-input-wrapper--' ~ inputWrapperLabelPosition ~ (inputWrapperError ? ' mds-input-wrapper--error' : '') ~ (inputWrapperDisabled ? ' mds-input-wrapper--disabled' : '') ~ (inputWrapperHtmlAttributes.class|default('') ? ' ' ~ inputWrapperHtmlAttributes.class : '') %}
+
+{% set inputWrapperLabelMarkup %}
+<div class="mds-input-wrapper__label-row">
+  <label class="mds-input-wrapper__label" for="{{ inputWrapperId|e }}">
+    {{- inputWrapperLabel | e -}}
+  </label>
+  {% if inputWrapperRequired %}
+    <span class="mds-input-wrapper__required" aria-hidden="true">*</span>
+  {% endif %}
+</div>
+{% endset %}
+
+<div
+  class="{{ inputWrapperClass|e }}"
+  {% include 'shared/html-attributes.twig' with { attributes: inputWrapperHtmlAttributes, exclude: ['class'] } %}
+>
+  {% if inputWrapperLabelPosition == 'after' %}
+    <div class="mds-input-wrapper__choice">
+      {{ inputWrapperControlMarkup | raw }}
+      {{ inputWrapperLabelMarkup | raw }}
+    </div>
+  {% else %}
+    {{ inputWrapperLabelMarkup | raw }}
+  {% endif %}
+
+  {% if inputWrapperHelpText %}
+    <div class="mds-input-wrapper__help" id="{{ inputWrapperId|e }}-help">
+      {{ inputWrapperHelpText | e }}
+    </div>
+  {% endif %}
+
+  {% if inputWrapperDetailsText and inputWrapperDetailsContent %}
+    {% include 'details-toggle.twig' with { text: inputWrapperDetailsText, content: inputWrapperDetailsContent } %}
+  {% endif %}
+
+  {% if inputWrapperLabelPosition == 'above' %}
+    {{ inputWrapperControlMarkup | raw }}
+  {% endif %}
+
+  {% if inputWrapperError %}
+    <p class="mds-input-wrapper__error" id="{{ inputWrapperId|e }}-error">
+      {% include 'icon.twig' with { name: 'info', size: 'XS', weight: 'Regular' } %}
+      <span>{{ inputWrapperErrorMessage | e }}</span>
+    </p>
+  {% endif %}
+</div>
