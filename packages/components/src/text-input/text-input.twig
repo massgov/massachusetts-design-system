@@ -13,7 +13,6 @@
 {% set textInputName = name is defined ? name : textInputDefaults.name %}
 {% set textInputDetailsText = detailsText is defined ? detailsText : textInputDefaults.detailsText %}
 {% set textInputDetailsContent = detailsContent is defined ? detailsContent : textInputDefaults.detailsContent %}
-{% set textInputValue = value is defined ? value : textInputDefaults.value %}
 {% set textInputPlaceholder = placeholder is defined ? placeholder : textInputDefaults.placeholder %}
 {% set textInputDisabled = disabled|default(textInputDefaults.disabled) %}
 {% set textInputError = error|default(textInputDefaults.error) and not textInputDisabled %}
@@ -29,7 +28,7 @@
 {% if textInputError %}
   {% set textInputDescribedBy = (textInputDescribedBy ~ ' ' ~ textInputErrorId)|trim %}
 {% endif %}
-{% set textInputAttributeExclusions = ['aria-describedby', 'aria-invalid', 'class', 'disabled', 'id', 'name', 'placeholder', 'required', 'type', 'value'] %}
+{% set textInputAttributeExclusions = ['aria-describedby', 'aria-invalid', 'class', 'disabled', 'id', 'name', 'placeholder', 'required', 'type'] %}
 
 {% set textInputControlMarkup %}
 <input
@@ -38,9 +37,6 @@
   type="{{ textInputType|e }}"
   {% if textInputName or textInputHtmlAttributes.name %}
     name="{{ textInputName|default(textInputHtmlAttributes.name)|e }}"
-  {% endif %}
-  {% if textInputValue is not null %}
-    value="{{ textInputValue|e }}"
   {% endif %}
   {% if textInputPlaceholder %}
     placeholder="{{ textInputPlaceholder|e }}"
