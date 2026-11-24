@@ -1,0 +1,82 @@
+{#
+  Text input data:
+  - id must be unique on the page so the label and supporting content can be associated with the input.
+  - detailsContent supports trusted rich text.
+  - htmlAttributes are applied to the input element.
+#}
+{% set textInputHtmlAttributes = htmlAttributes|default({}) %}
+{% set textInputId = id|default(textInputHtmlAttributes.id|default('mds-text-input_' ~ random(2147483647) ~ '-' ~ random(2147483647))) %}
+{% set textInputLabel = label is defined ? label : textInputDefaults.label %}
+{% set textInputHelpText = helpText is defined ? helpText : textInputDefaults.helpText %}
+{% set textInputRequired = required|default(textInputDefaults.required) %}
+{% set textInputType = type is defined and type in textInputTypes ? type : textInputDefaults.type %}
+{% set textInputName = name is defined ? name : textInputDefaults.name %}
+{% set textInputDetailsText = detailsText is defined ? detailsText : textInputDefaults.detailsText %}
+{% set textInputDetailsContent = detailsContent is defined ? detailsContent : textInputDefaults.detailsContent %}
+{% set textInputPlaceholder = placeholder is defined ? placeholder : textInputDefaults.placeholder %}
+{% set textInputDisabled = disabled|default(textInputDefaults.disabled) %}
+{% set textInputError = error|default(textInputDefaults.error) and not textInputDisabled %}
+{% set textInputErrorMessage = errorMessage is defined ? errorMessage : textInputDefaults.errorMessage %}
+{% set textInputErrorId = textInputId ~ '-error' %}
+{% set textInputClassName = textInputHtmlAttributes.class|default('') %}
+{% set textInputClass = 'mds-text-input__input' ~ (textInputClassName ? ' ' ~ textInputClassName : '')~ (textInputError and not textInputDisabled ? ' mds-text-input__input--error' : '')~ (textInputDisabled ? ' mds-text-input__input--disabled' : '') %}
+{% set textInputHelpId = textInputId ~ '-help' %}
+{% set textInputDescribedBy = textInputHtmlAttributes['aria-describedby']|default('') %}
+{% if textInputHelpText %}
+  {% set textInputDescribedBy = (textInputDescribedBy ~ ' ' ~ textInputHelpId)|trim %}
+{% endif %}
+{% if textInputError %}
+  {% set textInputDescribedBy = (textInputDescribedBy ~ ' ' ~ textInputErrorId)|trim %}
+{% endif %}
+{% set textInputAttributeExclusions = ['aria-describedby', 'aria-invalid', 'class', 'disabled', 'id', 'name', 'placeholder', 'required', 'type'] %}
+
+{% set textInputControlMarkup %}
+<div class="mds-text-input">
+  <input
+    class="{{ textInputClass|e }}"
+    id="{{ textInputId|e }}"
+    type="{{ textInputType|e }}"
+    {% if textInputName or textInputHtmlAttributes.name %}
+      name="{{ textInputName|default(textInputHtmlAttributes.name)|e }}"
+    {% endif %}
+    {% if textInputPlaceholder %}
+      placeholder="{{ textInputPlaceholder|e }}"
+    {% endif %}
+    {% if textInputRequired %}
+      required
+    {% endif %}
+    {% if textInputDescribedBy %}
+      aria-describedby="{{ textInputDescribedBy|e }}"
+    {% endif %}
+    {%
+      include 'shared/html-attributes.twig' with {
+        attributes: textInputHtmlAttributes,
+        exclude: textInputAttributeExclusions
+      }
+    %}
+    {% if textInputDisabled %}
+      disabled
+    {% endif %}
+    {% if textInputError %}
+      aria-invalid="true"
+    {% endif %}
+  >
+</div>
+{% endset %}
+
+{%
+  include 'input-wrapper.twig' with {
+    id: textInputId,
+    label: textInputLabel,
+    labelPosition: 'above',
+    required: textInputRequired,
+    helpText: textInputHelpText,
+    detailsText: textInputDetailsText,
+    detailsContent: textInputDetailsContent,
+    error: textInputError,
+    errorMessage: textInputErrorMessage,
+    disabled: textInputDisabled,
+    controlMarkup: textInputControlMarkup,
+    htmlAttributes: { class: 'mds-text-input' }
+  }
+%}
