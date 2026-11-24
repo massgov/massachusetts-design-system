@@ -32,35 +32,35 @@
 
 {% set textInputControlMarkup %}
 <div class="mds-text-input">
-<input
-  class="{{ textInputClass|e }}"
-  id="{{ textInputId|e }}"
-  type="{{ textInputType|e }}"
-  {% if textInputName or textInputHtmlAttributes.name %}
-    name="{{ textInputName|default(textInputHtmlAttributes.name)|e }}"
-  {% endif %}
-  {% if textInputPlaceholder %}
-    placeholder="{{ textInputPlaceholder|e }}"
-  {% endif %}
-  {% if textInputRequired %}
-    required
-  {% endif %}
-  {% if textInputDescribedBy %}
-    aria-describedby="{{ textInputDescribedBy|e }}"
-  {% endif %}
-  {%
-    include 'shared/html-attributes.twig' with {
-      attributes: textInputHtmlAttributes,
-      exclude: textInputAttributeExclusions
-    }
-  %}
-  {% if textInputDisabled %}
-    disabled
-  {% endif %}
-  {% if textInputError %}
-    aria-invalid="true"
-  {% endif %}
->
+  <input
+    class="{{ textInputClass|e }}"
+    id="{{ textInputId|e }}"
+    type="{{ textInputType|e }}"
+    {% if textInputName or textInputHtmlAttributes.name %}
+      name="{{ textInputName|default(textInputHtmlAttributes.name)|e }}"
+    {% endif %}
+    {% if textInputPlaceholder %}
+      placeholder="{{ textInputPlaceholder|e }}"
+    {% endif %}
+    {% if textInputRequired %}
+      required
+    {% endif %}
+    {% if textInputDescribedBy %}
+      aria-describedby="{{ textInputDescribedBy|e }}"
+    {% endif %}
+    {%
+      include 'shared/html-attributes.twig' with {
+        attributes: textInputHtmlAttributes,
+        exclude: textInputAttributeExclusions
+      }
+    %}
+    {% if textInputDisabled %}
+      disabled
+    {% endif %}
+    {% if textInputError %}
+      aria-invalid="true"
+    {% endif %}
+  >
 </div>
 {% endset %}
 
