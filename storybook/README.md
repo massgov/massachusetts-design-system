@@ -22,6 +22,29 @@ To create a static build locally, run:
 npm run build:storybook
 ```
 
+## Deployment caching
+
+Dev, stage, and production use the same cache headers for root sites, branch
+previews, and versioned snapshots. TTL (time to live) controls how long a cached
+response stays fresh before it needs validation or replacement.
+
+| File or URL | `Cache-Control` | Cache freshness / TTL |
+| --- | --- | --- |
+| HTML, including `/`, `/index.html`, and `/iframe.html` | `no-cache` | Must revalidate before reuse. `/` serves `index.html` with the same header. |
+| JS/CSS under `assets/` with an eight-character build hash, such as `assets/ColorTokens-WgClPZZZ.js` | `public,max-age=31536000,immutable` | Fresh for up to 365 days. A changed build produces a new hashed URL. |
+| Other uploaded files, including `index.json` and JS/CSS without a build hash | `no-cache` | Must revalidate before reuse. |
+
+`no-cache` allows storage but requires validation before reuse. CloudFront
+honors these origin headers with a minimum and default TTL of 0 seconds and a
+maximum TTL of 31,536,000 seconds (365 days). Deployments also invalidate the
+matching CloudFront paths, which can evict edge copies before their TTL expires.
+
+Supporting files and hashed assets upload before HTML. Uploads preserve old
+assets so tabs opened before a deployment can still load their original chunks.
+Asset retention in S3 has no automatic expiration and is separate from the cache
+TTL. Deleted-branch preview cleanup still removes that branch's files. Assets
+already deleted by earlier deployments are not restored.
+
 ## Release and versioned deployments
 
 Storybook snapshots are built and deployed with components package releases;
