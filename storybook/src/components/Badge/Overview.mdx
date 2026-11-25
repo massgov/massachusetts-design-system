@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import '@massds/mds-components/badge.css';
+import { badgeDefaults } from '../../../../packages/components/src/badge/badge.data.js';
+import { renderBadge } from '../../utils/component-renderers.js';
+import * as BadgeStories from './badge.stories.js';
+
+export const BadgeExample = (args) => (
+  <span
+    className="sb-unstyled mds-docs-example-item"
+    dangerouslySetInnerHTML={{ __html: renderBadge({ ...badgeDefaults, ...args }) }}
+  />
+);
+
+<Meta of={BadgeStories} />
+
+# Badge overview
+
+Badges display brief information, such as a status, count, or category. They help people identify information at a glance without requiring interaction.
+
+<BadgeExample text="Press release" />
+
+---
+
+## Variants
+
+### Type
+
+<div className="mds-docs-example-row mds-gap-md">
+  <BadgeExample text="Neutral" type="Neutral" />
+  <BadgeExample text="Informative" type="Informative" />
+  <BadgeExample text="Success" type="Success" />
+  <BadgeExample text="Warning" type="Warning" />
+  <BadgeExample text="Danger" type="Danger" />
+</div>
+
+Badges use color and text to distinguish different types of information. Choose the type based on the meaning of the label.
+
+- `Neutral` identifies a category or status without emphasizing importance or urgency
+- `Informative` draws attention to information or a status that people should notice, without indicating success or a problem
+- `Success` communicates a completed or positive outcome
+- `Warning` identifies a condition that needs attention but is not critical
+- `Danger` identifies an error, critical condition, or serious problem

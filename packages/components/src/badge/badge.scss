@@ -1,0 +1,39 @@
+@use "pkg:@massds/mds-styles/scss" as mixins;
+
+.mds-badge {
+  --mds-badge-background: var(--mds-background-section-brand-neutral-low);
+  --mds-badge-color: var(--mds-content-brand-neutral-default);
+
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  padding: var(--mds-space-2xs);
+  border-radius: var(--mds-radius-sm);
+  background-color: var(--mds-badge-background);
+  color: var(--mds-badge-color);
+  overflow-wrap: anywhere;
+  vertical-align: middle;
+
+  @include mixins.text("eyebrow");
+
+  &--type-informative {
+    --mds-badge-background: var(--mds-background-section-brand-primary-lowest);
+    --mds-badge-color: var(--mds-content-brand-primary-mid);
+  }
+
+  &--type-success {
+    --mds-badge-background: var(--mds-background-section-utility-success-lowest);
+    --mds-badge-color: var(--mds-content-utility-success-mid);
+  }
+
+  &--type-warning {
+    --mds-badge-background: var(--mds-background-section-utility-warning-lowest);
+  }
+
+  &--type-danger {
+    --mds-badge-background: var(--mds-background-section-utility-danger-lowest);
+    --mds-badge-color: var(--mds-content-utility-danger-mid);
+  }
+}
