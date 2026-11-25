@@ -1,0 +1,18 @@
+{# Badges are non-interactive labels. Type controls the semantic color treatment. #}
+{% set badgeType = type in badgeOptions.type ? type : badgeDefaults.type %}
+{% set badgeText = text|default(badgeDefaults.text) %}
+{% set badgeHtmlAttributes = htmlAttributes|default({}) %}
+{% set badgeClassName = badgeHtmlAttributes.class|default('') %}
+{% set badgeClass = 'mds-badge mds-badge--type-' ~ badgeType|lower ~ (badgeClassName ? ' ' ~ badgeClassName : '') %}
+
+<span
+  class="{{ badgeClass|e }}"
+  {%
+    include 'shared/html-attributes.twig' with {
+      attributes: badgeHtmlAttributes,
+      exclude: ['class']
+    }
+  %}
+>
+  {{- badgeText | e -}}
+</span>

@@ -1,0 +1,33 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { badgeDefaults } from '../../../../packages/components/src/badge/badge.data.js';
+import badgeCss from '@massds/mds-components/badge.css?raw';
+import { renderBadge } from '../../utils/component-renderers.js';
+import { StoryCodeTabs } from '../../utils/CodeTabs/index.jsx';
+import * as BadgeStories from './badge.stories.js';
+
+export const getBadgeCodeTabs = (args) => [
+  {
+    label: 'HTML',
+    language: 'html',
+    code: renderBadge({ ...badgeDefaults, ...args })
+  },
+  {
+    label: 'CSS',
+    language: 'css',
+    code: badgeCss
+  }
+];
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+<Canvas of={BadgeStories.Playground} sourceState="none" />
+
+## API
+
+<Controls of={BadgeStories.Playground} />
+
+## Code
+
+<StoryCodeTabs of={BadgeStories.Playground} getTabs={getBadgeCodeTabs} />
